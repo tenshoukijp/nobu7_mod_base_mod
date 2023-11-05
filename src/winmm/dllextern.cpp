@@ -1,6 +1,8 @@
-#include <Windows.h>
+#include <windows.h>
+#include "on_event.h"
 
 HINSTANCE h_original;
+
 
 FARPROC p_NONAME1;
 FARPROC p_mciExecute;
@@ -195,6 +197,8 @@ FARPROC p_waveOutUnprepareHeader;
 FARPROC p_waveOutWrite;
 FARPROC p_wid32Message;
 FARPROC p_wod32Message;
+
+
 extern "C" {
     __declspec(naked) void WINAPI d_NONAME1() { _asm { jmp p_NONAME1 } }
     __declspec(naked) void WINAPI d_mciExecute() { _asm { jmp p_mciExecute } }
@@ -244,7 +248,12 @@ extern "C" {
     __declspec(naked) void WINAPI d_mciGetErrorStringW() { _asm { jmp p_mciGetErrorStringW } }
     __declspec(naked) void WINAPI d_mciGetYieldProc() { _asm { jmp p_mciGetYieldProc } }
     __declspec(naked) void WINAPI d_mciLoadCommandResource() { _asm { jmp p_mciLoadCommandResource } }
-    __declspec(naked) void WINAPI d_mciSendCommandA() { _asm { jmp p_mciSendCommandA } }
+    __declspec(naked) void WINAPI d_mciSendCommandA() {
+        _asm {
+            call onMciSendCommand
+            jmp p_mciSendCommandA
+        }
+    }
     __declspec(naked) void WINAPI d_mciSendCommandW() { _asm { jmp p_mciSendCommandW } }
     __declspec(naked) void WINAPI d_mciSendStringA() { _asm { jmp p_mciSendStringA } }
     __declspec(naked) void WINAPI d_mciSendStringW() { _asm { jmp p_mciSendStringW } }
@@ -390,6 +399,7 @@ extern "C" {
     __declspec(naked) void WINAPI d_wid32Message() { _asm { jmp p_wid32Message } }
     __declspec(naked) void WINAPI d_wod32Message() { _asm { jmp p_wod32Message } }
 }
+
 
 void setDllFuncAddress()
 {

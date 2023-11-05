@@ -139,6 +139,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -152,8 +153,7 @@
   <ItemGroup>
     <ClInclude Include="dllextern.h" />
     <ClInclude Include="dllmain.h" />
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="on_event.h" />
     <ClInclude Include="process.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

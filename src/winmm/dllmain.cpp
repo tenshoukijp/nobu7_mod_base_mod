@@ -4,10 +4,9 @@
 #include "dllmain.h"
 #include "process.h"
 #include "dllextern.h"
+#include "on_event.h"
 
 
-
-BOOL isTargetExe = FALSE;
 
 void onInitialize();
 void onFinalize();
@@ -44,7 +43,7 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
         // 含まれているなら、将星録のexeが起動したということ。
         if (fullPathName.find("Nobunaga7WPK.exe") != std::string::npos) {
             // ここまで来たら「将星録本体」のexeが起動したということ。
-            isTargetExe = TRUE;
+            isTargetProcess = TRUE;
             onInitialize();
         }
         break;
@@ -61,9 +60,11 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
     {
         FreeLibrary(h_original);
 
-        if (isTargetExe) {
+        if (isNB7GameInitialized) {
             onFinalize();
-            isTargetExe = FALSE;
+            isTargetProcess = FALSE;
+            isNB7GameInitialized = FALSE;
+
         }
         break;
     }
