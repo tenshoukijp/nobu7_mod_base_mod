@@ -1,2 +1,5 @@
+C:\Users\master\source\repos\winmm\winmm\dllextern.cpp;C:\Users\master\source\repos\winmm\winmm\Release\dllextern.obj
 C:\Users\master\source\repos\winmm\winmm\dllmain.cpp;C:\Users\master\source\repos\winmm\winmm\Release\dllmain.obj
-C:\Users\master\source\repos\winmm\winmm\utils.cpp;C:\Users\master\source\repos\winmm\winmm\Release\utils.obj
+C:\Users\master\source\repos\winmm\winmm\on_finalize.cpp;C:\Users\master\source\repos\winmm\winmm\Release\on_finalize.obj
+C:\Users\master\source\repos\winmm\winmm\on_initialize.cpp;C:\Users\master\source\repos\winmm\winmm\Release\on_initialize.obj
+C:\Users\master\source\repos\winmm\winmm\process.cpp;C:\Users\master\source\repos\winmm\winmm\Release\process.obj
