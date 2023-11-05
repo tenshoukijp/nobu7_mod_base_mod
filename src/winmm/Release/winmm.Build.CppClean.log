@@ -1,6 +1,6 @@
-c:\users\master\source\repos\winmm\winmm\release\process.obj
 c:\users\master\source\repos\winmm\winmm\release\dllextern.obj
 c:\users\master\source\repos\winmm\winmm\release\on_finalize.obj
+c:\users\master\source\repos\winmm\winmm\release\process.obj
 c:\users\master\source\repos\winmm\winmm\release\dllmain.obj
 c:\users\master\source\repos\winmm\winmm\release\on_initialize.obj
 c:\users\master\source\repos\winmm\winmm\release\vc143.pdb
@@ -9,7 +9,8 @@ c:\users\master\source\repos\winmm\winmm\release\winmm.ipdb
 c:\users\master\source\repos\winmm\winmm\release\winmm.iobj
 c:\users\master\source\repos\winmm\release\winmm.lib
 c:\users\master\source\repos\winmm\release\winmm.exp
-c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\cl.14704.write.1.tlog
+c:\users\master\source\repos\winmm\winmm\release\winmm.res
+c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\cl.12080.write.1.tlog
 c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\cl.command.1.tlog
 c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\cl.items.tlog
 c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\cl.read.1.tlog
@@ -17,3 +18,6 @@ c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\link.command.1.tlog
 c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\link.read.1.tlog
 c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\link.write.1.tlog
 c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\link.write.2u.tlog
+c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\rc.command.1.tlog
+c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\rc.read.1.tlog
+c:\users\master\source\repos\winmm\winmm\release\winmm.tlog\rc.write.1.tlog
