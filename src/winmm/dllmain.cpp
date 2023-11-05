@@ -8,6 +8,10 @@
 
 
 BOOL isTargetExe = FALSE;
+
+void onInitialize();
+void onFinalize();
+
 BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
     switch (ul_reason_for_call)
@@ -37,13 +41,11 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
 
         // プロセスのフルパスに「Nobunaga7WPK.exe」が含まれているか？
         std::string fullPathName = GetCurrentProcessFullPath();
-        MessageBoxA(NULL, fullPathName.c_str(), "フルパス", NULL);
         // 含まれているなら、将星録のexeが起動したということ。
         if (fullPathName.find("Nobunaga7WPK.exe") != std::string::npos) {
             // ここまで来たら「将星録本体」のexeが起動したということ。
             isTargetExe = TRUE;
-            OutputDebugString("将星録の開始");
-            setDllFuncAddress();
+            onInitialize();
         }
         break;
     }
@@ -60,7 +62,7 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
         FreeLibrary(h_original);
 
         if (isTargetExe) {
-            OutputDebugString("将星録の終了");
+            onFinalize();
             isTargetExe = FALSE;
         }
         break;

@@ -1,5 +1,6 @@
 
 #include "dllextern.h"
 
-void On_Finaliaze() {
+void onFinalize() {
+    OutputDebugString("«¯˜^‚ÌI—¹");
 }

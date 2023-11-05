@@ -1,4 +1,6 @@
 #include "dllextern.h"
 
-void On_Initialize() {
+void onInitialize() {
+    OutputDebugString("«¯˜^‚ÌŠJn");
+    setDllFuncAddress();
 }
