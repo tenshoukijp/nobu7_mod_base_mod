@@ -3,16 +3,17 @@
 #include "loadmod.h"
 
 void onInitialize() {
+
     setDllFuncAddress();
+
+    loadNB7Mod();
+
+    Mod_onInitialize();
 }
 
 BOOL isNB7GameInitialized = FALSE;
 void onGameInitialize() {
     OutputDebugString("è´êØò^ÇÃäJén\n");
-
-    loadNB7Mod();
-
-    Mod_onInitialize();
 
     Mod_onGameInitialize();
 
