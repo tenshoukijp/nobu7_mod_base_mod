@@ -18,7 +18,7 @@ PFNONFINALIZE   pMod_onFinalize = NULL;
 HMODULE hNB7ModDll = NULL;
 BOOL loadNB7Mod() {
 
-	hNB7ModDll = LoadLibrary("è´êØò^Mod.dll");
+	hNB7ModDll = LoadLibrary("è´êØò^.mod.dll");
 
 	// ë∂ç›ÇµÇ»Ç¢
 	if (!hNB7ModDll) {
@@ -57,6 +57,7 @@ void Mod_onGameInitialize() {
 void Mod_onFinalize() {
 	pMod_onFinalize = (PFNONFINALIZE)GetProcAddress(hNB7ModDll, "onFinalize");
 	if (hNB7ModDll && pMod_onFinalize) {
+		OutputDebugString("onFinalizeÇåƒÇ—èoÇ∑ÇÊ\n");
 		pMod_onFinalize();
 	}
 }

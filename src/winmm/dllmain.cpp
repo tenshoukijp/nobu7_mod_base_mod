@@ -11,13 +11,24 @@
 void onInitialize();
 void onFinalize();
 
+class DllLifeManager {
+public:
+    DllLifeManager() {
+
+    }
+    ~DllLifeManager() {
+    }
+};
+
+DllLifeManager life;
+
+
 BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
     {
-
         if (!IsWow64()) {
             MessageBox(NULL, "エラー", "「SysWow64」環境ではないようです。", NULL);
             return FALSE;
@@ -46,6 +57,7 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
             isTargetProcessing = TRUE;
             onInitialize();
         }
+
         break;
     }
     case DLL_THREAD_ATTACH:
@@ -58,14 +70,17 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
     }
     case DLL_PROCESS_DETACH:
     {
-        FreeLibrary(hOriginalDll);
+        if (hOriginalDll) {
+            FreeLibrary(hOriginalDll);
+            hOriginalDll = NULL;
+        }
 
         if (isNB7GameInitialized) {
             onFinalize();
             isTargetProcessing = FALSE;
             isNB7GameInitialized = FALSE;
-
         }
+
         break;
     }
     default:

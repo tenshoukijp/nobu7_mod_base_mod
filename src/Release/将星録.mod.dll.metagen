@@ -1,0 +1,18 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly 将星録.mod, Version=0.1.*, Culture=ロケールに依存しない言語 (ロケールに依存しない国): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class Tool.Process: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    GetProcessBaseAddress(String): PrivateScope, Public, Static, HideBySig
+    GetProcessEntryPointAddress(String): PrivateScope, Public, Static, HideBySig
+    GetProcessFileVersionInt(String): PrivateScope, Public, Static, HideBySig
+    GetProcessFileVersion(String): PrivateScope, Public, Static, HideBySig
+    GetProcessProductVersion(String): PrivateScope, Public, Static, HideBySig
