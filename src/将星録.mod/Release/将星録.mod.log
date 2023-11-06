@@ -1,5 +1,5 @@
 ﻿  dllmain.cpp
-C:\Users\master\source\repos\winmm\将星録.mod\dllmain.cpp(49,41): warning C4477: 'sprintf_s' : 書式文字列 '%x' には、型 'unsigned int' の引数が必要ですが、可変個引数 1 は型 'HMODULE' です
+C:\Users\master\source\repos\winmm\将星録.mod\dllmain.cpp(48,41): warning C4477: 'sprintf_s' : 書式文字列 '%x' には、型 'unsigned int' の引数が必要ですが、可変個引数 1 は型 'HMODULE' です
      ライブラリ C:\Users\master\source\repos\winmm\Release\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\winmm\Release\将星録.mod.exp を作成中
 LINK : warning LNK4232: 名前 将星録Mod.dll に ASCII 文字以外の文字が含まれています。932 以外の ANSI コードページを使用すると、DLL をシステムに読み込めない可能性があります
 将星録.mod.exp : warning LNK4070: .EXP 内の /OUT:将星録Mod.dll ディレクティブの指定が出力ファイル名 'C:\Users\master\source\repos\winmm\Release\将星録.mod.dll' と異なっています。ディレクティブは無視されます。

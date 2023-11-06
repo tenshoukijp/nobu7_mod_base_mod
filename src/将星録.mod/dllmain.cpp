@@ -38,8 +38,7 @@ extern void WriteAsmJumperOnNb7FontnameAddressPush();
 void onFontInitialize() {
     OutputDebugString("onFontInitialize\r\n");
 
-    strcpy_s((char*)0x53EE04, 11, "ＭＳ 明朝");
-	// WriteAsmJumperOnNb7FontnameAddressPush();
+    strcpy_s((char*)0x53EE04, 11, "将星 明朝");
 }
 
 
