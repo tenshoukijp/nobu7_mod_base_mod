@@ -32,8 +32,8 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
         }
         strcat_s(sysWow64Path, "\\winmm.dll");
 
-        h_original = LoadLibrary(sysWow64Path);
-        if (h_original == NULL) {
+        hOriginalDll = LoadLibrary(sysWow64Path);
+        if (hOriginalDll == NULL) {
             MessageBox(NULL, "エラー", "「SysWow64」内のwinmm.dllをロードできませんでした。", NULL);
             return FALSE;
         }
@@ -43,7 +43,7 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
         // 含まれているなら、将星録のexeが起動したということ。
         if (fullPathName.find("Nobunaga7WPK.exe") != std::string::npos) {
             // ここまで来たら「将星録本体」のexeが起動したということ。
-            isTargetProcess = TRUE;
+            isTargetProcessing = TRUE;
             onInitialize();
         }
         break;
@@ -58,11 +58,11 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
     }
     case DLL_PROCESS_DETACH:
     {
-        FreeLibrary(h_original);
+        FreeLibrary(hOriginalDll);
 
         if (isNB7GameInitialized) {
             onFinalize();
-            isTargetProcess = FALSE;
+            isTargetProcessing = FALSE;
             isNB7GameInitialized = FALSE;
 
         }

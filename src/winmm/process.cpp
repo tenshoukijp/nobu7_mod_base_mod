@@ -2,7 +2,7 @@
 #include <string>
 
 
-BOOL isTargetProcess = FALSE;
+BOOL isTargetProcessing = FALSE;
 
 BOOL IsWow64()
 {

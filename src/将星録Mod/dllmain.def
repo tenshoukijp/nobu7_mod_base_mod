@@ -1,0 +1,5 @@
+LIBRARY «¯˜^Mod
+EXPORTS
+	onInitialize = onInitialize @ 1
+	onFinalize = onFinalize @ 2
+	onGameInitialize = onGameInitialize @ 3

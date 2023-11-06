@@ -1,5 +1,5 @@
 #include <windows.h>
 
-extern HINSTANCE h_original;
+extern HINSTANCE hOriginalDll;
 
 extern void setDllFuncAddress();
