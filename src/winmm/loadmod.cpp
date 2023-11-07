@@ -4,7 +4,7 @@
 using PFNONINITIALIZE = void (WINAPI*)(void*);
 extern PFNONINITIALIZE pMod_onInitialize;
 
-using PFNONGAMEINITIALIZE = void (WINAPI*)();
+using PFNONGAMEINITIALIZE = void (WINAPI*)(HWND);
 extern PFNONGAMEINITIALIZE pMod_onGameInitialize;
 
 using PFNONFINALIZE = void (WINAPI*)();
@@ -47,10 +47,10 @@ void Mod_onInitialize() {
 	}
 }
 
-void Mod_onGameInitialize() {
+void Mod_onGameInitialize(HWND hWnd) {
 	pMod_onGameInitialize = (PFNONGAMEINITIALIZE)GetProcAddress(hNB7ModDll, "onGameInitialize");
 	if (hNB7ModDll && pMod_onGameInitialize) {
-		pMod_onGameInitialize();
+		pMod_onGameInitialize(hWnd);
 	}
 }
 

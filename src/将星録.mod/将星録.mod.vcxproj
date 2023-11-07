@@ -24,7 +24,7 @@
     <TargetFrameworkVersion>
     </TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
-    <RootNamespace>将星録mod</RootNamespace>
+    <RootNamespace>将星録.mod</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <EnableManagedPackageReferenceSupport>true</EnableManagedPackageReferenceSupport>
   </PropertyGroup>
@@ -125,10 +125,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Resource.h" />
+    <ClInclude Include="data_bushou_struct.h" />
+    <ClInclude Include="data_game.h" />
+    <ClInclude Include="menu.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="data_game.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

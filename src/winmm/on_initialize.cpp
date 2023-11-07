@@ -11,14 +11,13 @@ void onInitialize() {
     Mod_onInitialize();
 }
 
-BOOL isNB7GameInitialized = FALSE;
-void onGameInitialize() {
-    OutputDebugString("将星録の開始\n");
 
-    Mod_onGameInitialize();
+BOOL isNB7GameInitialized = FALSE;
+void onGameInitialize(HWND hNB7Wnd) {
+    OutputDebugString("将星録の開始\n");
+    Mod_onGameInitialize(hNB7Wnd);
 
 }
-
 
 const char* NB7_CLASS_NAME = "信長の野望･将星録 パワーアップキット";
 
@@ -28,8 +27,9 @@ void onMciSendCommand() {
     // 音ならず度に毎回ウィンドウを探すようなことのないように。
     if (!isFirstMciSendCommand && isTargetProcessing) {
         if (!isNB7GameInitialized) {
-            if (IsMatchCurrentClass(NB7_CLASS_NAME)) {
-                onGameInitialize();
+            HWND hNB7Wnd = GetNB7WindowHandle(NB7_CLASS_NAME);
+            if (hNB7Wnd) {
+                onGameInitialize(hNB7Wnd);
                 isNB7GameInitialized = TRUE;
             }
 		}

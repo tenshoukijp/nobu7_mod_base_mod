@@ -14,8 +14,11 @@ BOOL IsWow64()
 
     using LPFN_ISWOW64PROCESS = BOOL(WINAPI*)(HANDLE, PBOOL);
 
-    LPFN_ISWOW64PROCESS fnIsWow64Process = (LPFN_ISWOW64PROCESS)GetProcAddress(
-        GetModuleHandle("kernel32"), "IsWow64Process");
+    HMODULE hKernelModuleHandle = GetModuleHandle("kernel32");
+    LPFN_ISWOW64PROCESS fnIsWow64Process = NULL;
+    if (hKernelModuleHandle) {
+        fnIsWow64Process = (LPFN_ISWOW64PROCESS)GetProcAddress(hKernelModuleHandle, "IsWow64Process");
+    }
 
     if (NULL != fnIsWow64Process)
     {
@@ -24,6 +27,7 @@ BOOL IsWow64()
             //handle error
         }
     }
+
     return bIsWow64;
 }
 
@@ -72,7 +76,7 @@ HWND GetCurrentWindowHandle() {
 }
 
 // 現在のウィンドウハンドルが、確かに天翔記HDのものかどうかをチェック
-BOOL IsMatchCurrentClass(const char *pszClassName) {
+HWND GetNB7WindowHandle(const char *pszClassName) {
 
     // ゲームランチャーからゲーム本体かどちらかのウィンドウがあるはず。
     HWND hWndNB7HDHandle = NULL;
@@ -81,9 +85,10 @@ BOOL IsMatchCurrentClass(const char *pszClassName) {
 
     HWND hWndCurrentHandle = GetCurrentWindowHandle();
     if (hWndNB7HDHandle == hWndCurrentHandle) {
-        return TRUE;
+        return hWndNB7HDHandle;
     }
     else {
-        return FALSE;
+        return NULL;
     }
 }
+

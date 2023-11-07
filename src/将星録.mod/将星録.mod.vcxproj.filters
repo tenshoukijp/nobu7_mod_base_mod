@@ -13,15 +13,48 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="武将データ">
+      <UniqueIdentifier>{dd171165-7264-4b15-85d5-ab380fe64b65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームデータ">
+      <UniqueIdentifier>{642480ca-3820-4287-9723-f5b5bb6fa6dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="メニュー">
+      <UniqueIdentifier>{f6c8f3a7-6a50-48d2-adf2-f90961fae760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ウィンドウ">
+      <UniqueIdentifier>{f00df496-a6c6-4198-98e1-4ecb4b9d2538}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resource.h">
+    <ClInclude Include="resource.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="data_bushou_struct.h">
+      <Filter>武将データ</Filter>
+    </ClInclude>
+    <ClInclude Include="data_game.h">
+      <Filter>ゲームデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>ウィンドウ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="data_game.cpp">
+      <Filter>ゲームデータ</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>ウィンドウ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

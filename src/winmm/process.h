@@ -12,4 +12,4 @@ std::string GetCurrentProcessFullPath();
 HWND GetCurrentWindowHandle();
 
 // 現在のプロセスのメインクラスは、指定のクラス名と一致するか？
-BOOL IsMatchCurrentClass(const char* programName);
+HWND GetNB7WindowHandle(const char* programName);

@@ -1,15 +1,29 @@
 ﻿#include <windows.h>
+#include <winuser.h>
 #include <stdio.h>
 
+#include "window.h"
+#include "menu.h"
+
 #include "将星録.mod.h"
+
+#pragma comment(lib, "user32.lib")
 
 extern void onFontInitialize();
 
 HANDLE hCurrentProcess = NULL;
+int nBaseAddress = NULL;
 
 extern "C" __declspec(dllexport) void WINAPI onInitialize(void* reserved) {
 	hCurrentProcess = ::GetCurrentProcess();
-    OutputDebugString("onInitialize\r\n");
+
+	HMODULE hBaseAddress = GetModuleHandle(NULL);
+	int nBaseAddress = (int)hBaseAddress; // 32bitアプリなので、ハンドルは実際にはintに収まる
+	char buffer[256] = "";
+	sprintf_s(buffer, _countof(buffer), "%x", nBaseAddress);
+	OutputDebugString(buffer);
+
+	OutputDebugString("onInitialize\r\n");
     onFontInitialize();
 
 }
@@ -37,18 +51,25 @@ int pszFontAddress = (int)(&buffferFontName[0]);
 extern void WriteAsmJumperOnNb7FontnameAddressPush();
 void onFontInitialize() {
     OutputDebugString("onFontInitialize\r\n");
-
     strcpy_s((char*)0x53EE04, 11, "将星 明朝");
 }
 
 
-extern "C" __declspec(dllexport) void WINAPI onGameInitialize() {
-    HMODULE baseAddress = GetModuleHandle(NULL);
-    char buffer[256] = "";
-    sprintf_s(buffer, _countof(buffer), "%x", baseAddress);
-    OutputDebugString("onGameInitialize\r\n");
-    OutputDebugString(buffer);
+extern "C" __declspec(dllexport) void WINAPI onGameInitialize(HWND hWnd) {
+	::hNB7Wnd = hWnd;
+	OutputDebugString("onGameInitialize\r\n");
     OutputDebugString("\r\n");
+
+	char buffer[256] = "";
+	GetWindowText(hWnd, buffer, _countof(buffer));
+	OutputDebugString(buffer);
+	OutputDebugString("\r\n");
+
+	hNB7Menu = getNB7MenuHandle(hWnd);
+
+	// メニューを追加した
+	addMenuItem("メモリエディタ起動(&M)", 1, 59000); // Position 1 にメニューを追加する。IDは59000
+	OutputDebugString("メニューを追加した\n");
 }
 
 extern "C" __declspec(dllexport) void WINAPI onFinalize() {
