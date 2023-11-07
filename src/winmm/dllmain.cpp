@@ -11,17 +11,7 @@
 void onInitialize();
 void onFinalize();
 
-class DllLifeManager {
-public:
-    DllLifeManager() {
-
-    }
-    ~DllLifeManager() {
-    }
-};
-
-DllLifeManager life;
-
+extern HWND hNB7Wnd;
 
 BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
@@ -54,7 +44,6 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
         // 含まれているなら、将星録のexeが起動したということ。
         if (fullPathName.find("Nobunaga7WPK.exe") != std::string::npos) {
             // ここまで来たら「将星録本体」のexeが起動したということ。
-            isTargetProcessing = TRUE;
             onInitialize();
         }
 
@@ -75,10 +64,9 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
             hOriginalDll = NULL;
         }
 
-        if (isNB7GameInitialized) {
+        if (hNB7Wnd) {
             onFinalize();
-            isTargetProcessing = FALSE;
-            isNB7GameInitialized = FALSE;
+            hNB7Wnd = NULL;
         }
 
         break;

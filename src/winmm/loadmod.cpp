@@ -39,11 +39,11 @@ void freeNB7Mod() {
 	}
 }
 
-
+HWND hNB7Wnd = NULL;
 void Mod_onInitialize() {
 	pMod_onInitialize = (PFNONINITIALIZE)GetProcAddress(hNB7ModDll, "onInitialize");
 	if (hNB7ModDll && pMod_onInitialize) {
-		pMod_onInitialize(NULL);
+		pMod_onInitialize(&hNB7Wnd);
 	}
 }
 

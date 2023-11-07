@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="ヘッダー ファイル">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
@@ -25,6 +21,22 @@
     <Filter Include="ウィンドウ">
       <UniqueIdentifier>{f00df496-a6c6-4198-98e1-4ecb4b9d2538}</UniqueIdentifier>
     </Filter>
+    <Filter Include="フォント">
+      <UniqueIdentifier>{1032e2df-9db4-4337-89ff-0cef9aa557ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="エキスポート関数">
+      <UniqueIdentifier>{be8debf3-b6a4-4e91-9f5a-79a8413b67fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="モジュール定義">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="プロセス">
+      <UniqueIdentifier>{dc77d025-0a59-4d9b-91bc-95ac69ef75bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="フック関数">
+      <UniqueIdentifier>{30d39105-c302-426f-87f9-2bcbf409c244}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -42,11 +54,17 @@
     <ClInclude Include="window.h">
       <Filter>ウィンドウ</Filter>
     </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>フォント</Filter>
+    </ClInclude>
+    <ClInclude Include="process.h">
+      <Filter>プロセス</Filter>
+    </ClInclude>
+    <ClInclude Include="hook_functions.h">
+      <Filter>フック関数</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="data_game.cpp">
       <Filter>ゲームデータ</Filter>
     </ClCompile>
@@ -56,6 +74,21 @@
     <ClCompile Include="window.cpp">
       <Filter>ウィンドウ</Filter>
     </ClCompile>
+    <ClCompile Include="font.cpp">
+      <Filter>フォント</Filter>
+    </ClCompile>
+    <ClCompile Include="export_func.cpp">
+      <Filter>エキスポート関数</Filter>
+    </ClCompile>
+    <ClCompile Include="process.cpp">
+      <Filter>プロセス</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_functions.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_defwindowproca_custom.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -64,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dllmain.def">
-      <Filter>ソース ファイル</Filter>
+      <Filter>モジュール定義</Filter>
     </None>
   </ItemGroup>
 </Project>

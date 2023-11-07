@@ -4,10 +4,10 @@
 #include <string>
 
 /*
- MENUITEM "大名一覧(&D)",  125
- */
+MENUITEM "終了(&X)",  181
+*/
 
-#define RESOURCE_MENU_ID_DAIMYOICHIRAN_EXECUTE	125  // 大名一覧 のメニューのリソースIDは125 (Nobunaga7WPK.exe をリソースハッカーで見ろ)
+#define RESOURCE_MENU_ID_EXIT	181  // 「終了」のメニューのリソースIDは181 (Nobunaga7WPK.exe をリソースハッカーで見ろ)
 
 HMENU getNB7MenuHandle(HWND hWnd);
 

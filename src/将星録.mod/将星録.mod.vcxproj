@@ -127,14 +127,21 @@
   <ItemGroup>
     <ClInclude Include="data_bushou_struct.h" />
     <ClInclude Include="data_game.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="hook_functions.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="process.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="hook_defwindowproca_custom.cpp" />
     <ClCompile Include="data_game.cpp" />
-    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="export_func.cpp" />
+    <ClCompile Include="font.cpp" />
+    <ClCompile Include="hook_functions.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="process.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
