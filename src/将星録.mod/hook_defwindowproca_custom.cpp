@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 
 #include "window.h"
+#include "menu.h"
 
 using namespace std;
 
@@ -248,14 +249,20 @@ LRESULT Hook_DefWindowProcACustom(
 	}
 	else if (Msg == WM_COMMAND) {
 		// OutputDebugString("WM_COMMAND\n");
-		// マウス系の処理全て
+
+		WORD menuID = LOWORD(wParam);
+		onMenuPushed(menuID);
 	}
+	// マウス系の処理全て
 	else if (WM_MOUSEFIRST <= Msg && Msg <= WM_MOUSELAST) {
-		// アプリ左上のアイコンを右クリした時に出てくるシステムコマンドを選んだとき
 	}
+	// アプリ左上のアイコンを右クリした時に出てくるシステムコマンドを選んだとき
 	else if (Msg == WM_SYSCOMMAND) {
 		// ポップアップメニュー(メインウィンドウにくっついてるメニュー[=ファイル・改造・など]のメインメニュー]以外のメニューのこと)表示時はここが有効となる。*/
 		OutputDebugString("WM_SYSCOMMAND\n");
+
+		WORD menuID = LOWORD(wParam);
+		onMenuPushed(menuID);
 	}
 	else if (Msg == WM_NCMOUSEMOVE) {
 		/*
@@ -269,9 +276,9 @@ LRESULT Hook_DefWindowProcACustom(
 		*/
 	}
 	else if (Msg == WM_MENUSELECT) {
-		// ポップアップメニュー(メインメニューのサブとしてぶら下がってるものや、さらにそのサブのもの)が表示される直前に実行される。
 		OutputDebugString("WM_MENUSELECT\n");
 	}
+	// ポップアップメニュー(メインメニューのサブとしてぶら下がってるものや、さらにそのサブのもの)が表示される直前に実行される。
 	else if (Msg == WM_INITMENUPOPUP) {
 		OutputDebugString("WM_INITMENUPOPUP\n");
 	}

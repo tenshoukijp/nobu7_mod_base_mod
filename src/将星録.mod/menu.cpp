@@ -1,7 +1,10 @@
 #include <windows.h>
 #include <string>
+#include <shellapi.h>
 #include "menu.h"
 #include "window.h"
+
+#pragma comment(lib, "shell32.lib")
 
 using namespace std;
 
@@ -10,6 +13,17 @@ HMENU hNB7Menu = NULL;
 HMENU getNB7MenuHandle(HWND hWnd) {
 	hNB7Menu = GetSystemMenu(hWnd, FALSE);
 	return hNB7Menu;
+}
+
+BOOL onMenuPushed(int iMenuID) {
+	OutputDebugString(to_string(iMenuID).c_str());
+	OutputDebugString("\r\n");
+	switch (iMenuID) {
+	case ADDITIONAL_MENU_ID_MEMORYEDITOR:
+		ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
+		return TRUE;
+	}
+	return FALSE;
 }
 
 // メニューアイテムの追加

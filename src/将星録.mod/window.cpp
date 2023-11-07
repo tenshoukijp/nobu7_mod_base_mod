@@ -17,7 +17,7 @@ void onCreateWindow(HWND hWnd) {
 	hNB7Menu = getNB7MenuHandle(hWnd);
 
 	// メニューを追加した
-	addMenuItem("メモリエディタ起動(&M)", RESOURCE_MENU_ID_EXIT, 59000); // Position 1 にメニューを追加する。IDは59000
+	addMenuItem("メモリエディタ起動(&M)", RESOURCE_MENU_ID_EXIT, ADDITIONAL_MENU_ID_MEMORYEDITOR); // Position 1 にメニューを追加する。IDは59000
 
 	OutputDebugString("メニューを追加した\n");
 
