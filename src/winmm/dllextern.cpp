@@ -137,7 +137,11 @@ FARPROC p_mmioFlush;
 FARPROC p_mmioGetInfo;
 FARPROC p_mmioInstallIOProcA;
 FARPROC p_mmioInstallIOProcW;
-FARPROC p_mmioOpenA;
+
+// FARPROC p_mmioOpenA;
+using PFNMMIOOPENA = HMMIO(WINAPI*)(LPSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD fdwOpen);
+PFNMMIOOPENA p_mmioOpenA;
+
 FARPROC p_mmioOpenW;
 FARPROC p_mmioRead;
 FARPROC p_mmioRenameA;
@@ -382,16 +386,25 @@ extern "C" {
         OutputDebugString("onMmioOpenA\n");
     }
 
+    HMMIO WINAPI d_mmioOpenA( LPSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD fdwOpen ) {
+        OutputDebugString("onMmioOpenA\n");
+        OutputDebugStringA(pszFileName);
+        OutputDebugString("\r\n");
+        return p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
+    }
+
+    /*
     __declspec(naked) void WINAPI d_mmioOpenA() {
         _asm {
             call onMmioOpenA
             jmp p_mmioOpenA
         }
     }
+    */
     __declspec(naked) void WINAPI d_mmioOpenW() { _asm { jmp p_mmioOpenW } }
     
     void onMmioRead() {
-        OutputDebugString("onMmioRead\n");
+        // OutputDebugString("onMmioRead\n");
     }
     __declspec(naked) void WINAPI d_mmioRead() {
         _asm {
@@ -404,7 +417,7 @@ extern "C" {
     __declspec(naked) void WINAPI d_mmioRenameW() { _asm { jmp p_mmioRenameW } }
 
     void onMmioSeek() {
-        OutputDebugString("onMmioSeek\n");
+        // OutputDebugString("onMmioSeek\n");
     }
 
     __declspec(naked) void WINAPI d_mmioSeek() {
@@ -604,7 +617,9 @@ void setDllFuncAddress()
     p_mmioGetInfo = GetProcAddress(hOriginalDll, "mmioGetInfo");
     p_mmioInstallIOProcA = GetProcAddress(hOriginalDll, "mmioInstallIOProcA");
     p_mmioInstallIOProcW = GetProcAddress(hOriginalDll, "mmioInstallIOProcW");
-    p_mmioOpenA = GetProcAddress(hOriginalDll, "mmioOpenA");
+    
+    p_mmioOpenA = (PFNMMIOOPENA)GetProcAddress(hOriginalDll, "mmioOpenA"); // ÅöÉJÉXÉ^ÉÄ
+
     p_mmioOpenW = GetProcAddress(hOriginalDll, "mmioOpenW");
     p_mmioRead = GetProcAddress(hOriginalDll, "mmioRead");
     p_mmioRenameA = GetProcAddress(hOriginalDll, "mmioRenameA");
