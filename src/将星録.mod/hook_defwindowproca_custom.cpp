@@ -247,6 +247,9 @@ LRESULT Hook_DefWindowProcACustom(
 	else if (Msg == WM_CLOSE) {
 		// ‚±‚ê‚Í‘—‚ç‚ê‚Ä‚±‚È‚¢‚æ‚¤‚¾B
 	}
+	else if (Msg == WM_DESTROY) {
+		// ‚±‚ê‚Í‘—‚ç‚ê‚Ä‚±‚È‚¢‚æ‚¤‚¾B
+	}
 	else if (Msg == WM_COMMAND) {
 		// OutputDebugString("WM_COMMAND\n");
 

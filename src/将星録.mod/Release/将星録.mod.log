@@ -1,14 +1,4 @@
 ﻿  hook_defwindowproca_custom.cpp
-  data_game.cpp
-C:\Users\master\source\repos\winmm\将星録.mod\data_game.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\master\source\repos\winmm\将星録.mod\data_bushou_struct.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  export_func.cpp
-  font.cpp
-  hook_functions.cpp
-  menu.cpp
-  process.cpp
-  window.cpp
-  コードを生成中...
      ライブラリ C:\Users\master\source\repos\winmm\Release\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\winmm\Release\将星録.mod.exp を作成中
 LINK : warning LNK4232: 名前 将星録.mod に ASCII 文字以外の文字が含まれています。932 以外の ANSI コードページを使用すると、DLL をシステムに読み込めない可能性があります
 将星録.mod.exp : warning LNK4070: .EXP 内の /OUT:将星録.mod ディレクティブの指定が出力ファイル名 'C:\Users\master\source\repos\winmm\Release\将星録.mod.dll' と異なっています。ディレクティブは無視されます。
