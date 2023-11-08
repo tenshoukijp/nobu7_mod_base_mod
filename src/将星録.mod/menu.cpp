@@ -15,6 +15,8 @@ HMENU getNB7MenuHandle(HWND hWnd) {
 	return hNB7Menu;
 }
 
+extern void WriteAsmJumperOnNb7FontnameAddressPush();
+
 BOOL onMenuPushed(int iMenuID) {
 	OutputDebugString(to_string(iMenuID).c_str());
 	OutputDebugString("\r\n");

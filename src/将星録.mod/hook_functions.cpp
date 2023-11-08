@@ -80,8 +80,10 @@ void ReplaceIATEntryInAllMods(
 }
 
 
+//---------------------------WindowProcA
+
 // フックする関数のプロトタイプを定義
-typedef LRESULT(WINAPI* PFNDEFWINDOWPROCA)(HWND, UINT, WPARAM, LPARAM);
+using PFNDEFWINDOWPROCA = LRESULT(WINAPI *)(HWND, UINT, WPARAM, LPARAM);
 
 PROC pfnOrigDefWindowProcA = GetProcAddress(GetModuleHandleA("user32.dll"), "DefWindowProcA");
 
@@ -112,10 +114,37 @@ LRESULT WINAPI Hook_DefWindowProcA(
 
 
 
+//---------------------------TextOutA
+
+// フックする関数のプロトタイプを定義
+using PFNTEXTOUTA = BOOL(WINAPI *)(HDC, int, int, LPCTSTR, int);
+
+PROC pfnOrigTextOutA = GetProcAddress(GetModuleHandleA("gdi32.dll"), "TextOutA");
+
+extern BOOL Hook_TextOutACustom(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, int cbString);
+
+BOOL WINAPI Hook_TextOutA(
+    HDC hdc,           // デバイスコンテキストのハンドル
+    int nXStart,       // 開始位置（基準点）の x 座標
+    int nYStart,       // 開始位置（基準点）の y 座標
+    LPCTSTR lpString,  // 文字列
+    int cbString       // 文字数
+) {
+    // 先にカスタムの方を実行。
+    Hook_TextOutACustom(hdc, nXStart, nYStart, lpString, cbString);
+
+    // 元のものを呼び出す
+    BOOL nResult = ((PFNTEXTOUTA)pfnOrigTextOutA)(hdc, nXStart, nYStart, lpString, cbString);
+
+    return nResult;
+}
+
+
 /*----------------------------------------------------------------*
  HOOK系処理
  *----------------------------------------------------------------*/
 bool isHookDefWindowProcA = false;
+bool isHookTextOutA = false;
 
 
 void hookFunctions() {
@@ -124,5 +153,10 @@ void hookFunctions() {
         isHookDefWindowProcA = true;
         pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "DefWindowProcA");
         ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_DefWindowProcA);
+    }
+    if (!isHookTextOutA) {
+        isHookTextOutA = true;
+        pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "TextOutA");
+        ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_TextOutA);
     }
 }

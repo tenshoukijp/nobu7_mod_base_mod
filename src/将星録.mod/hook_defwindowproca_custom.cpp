@@ -1,7 +1,4 @@
 #include <windows.h>
-#include <fstream>
-#include <sys/types.h>
-#include <sys/stat.h>
 
 #include "window.h"
 #include "menu.h"

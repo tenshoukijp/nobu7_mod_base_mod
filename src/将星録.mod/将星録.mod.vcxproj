@@ -140,6 +140,7 @@
     <ClCompile Include="export_func.cpp" />
     <ClCompile Include="font.cpp" />
     <ClCompile Include="hook_functions.cpp" />
+    <ClCompile Include="hook_textouta_custom.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="process.cpp" />
     <ClCompile Include="window.cpp" />
