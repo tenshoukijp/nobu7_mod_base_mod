@@ -8,14 +8,7 @@
 
 using namespace std;
 
-HMENU hNB7Menu = NULL;
-
-HMENU getNB7MenuHandle(HWND hWnd) {
-	hNB7Menu = GetSystemMenu(hWnd, FALSE);
-	return hNB7Menu;
-}
-
-extern void WriteAsmJumperOnNb7FontnameAddressPush();
+HMENU hNB7MenuCheckChange = NULL;
 
 BOOL onMenuPushed(int iMenuID) {
 	OutputDebugString(to_string(iMenuID).c_str());
@@ -28,9 +21,21 @@ BOOL onMenuPushed(int iMenuID) {
 	return FALSE;
 }
 
+BOOL onSystemMenuPushed(int iMenuID) {
+	OutputDebugString(to_string(iMenuID).c_str());
+	OutputDebugString("\r\n");
+	switch (iMenuID) {
+	case ADDITIONAL_MENU_ID_NOTEPAD:
+		ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
 // メニューアイテムの追加
 // menuname メニューアイテムの文字列。"---"だとセパレータとなる。
-void addMenuItem(string menuname, int position, int wID) {
+void addMenuItem(HMENU hTargetMenu, string menuname, int positionID, int menuID) {
 
 	MENUITEMINFO info;
 
@@ -39,13 +44,13 @@ void addMenuItem(string menuname, int position, int wID) {
 	info.cbSize = sizeof(info);
 
 	// ID番号の指定が無い場合
-	if (wID == -1) {
+	if (menuID == -1) {
 		info.fMask = MIIM_TYPE;
 		// ID番号の指定がある場合
 	}
 	else {
 		info.fMask = MIIM_TYPE | MIIM_ID;
-		info.wID = wID;
+		info.wID = menuID;
 	}
 	if (menuname == "---") {
 		info.fType = MFT_SEPARATOR;
@@ -54,6 +59,30 @@ void addMenuItem(string menuname, int position, int wID) {
 		info.fType = MFT_STRING;
 	}
 	info.dwTypeData = (LPSTR)menuname.c_str();
-	InsertMenuItem(hNB7Menu, position, FALSE, &info);
+	InsertMenuItem(hTargetMenu, positionID, FALSE, &info);
 	DrawMenuBar(hNB7Wnd);
 }
+
+
+// メニューアイテムの文字列を変更する関数
+void changeMenuItemString(HMENU hMenu, UINT iMenuID, const char* szNewString)
+{
+	MENUITEMINFO menuItemInfo;
+	menuItemInfo.cbSize = sizeof(MENUITEMINFO);
+	menuItemInfo.fMask = MIIM_STRING;
+	menuItemInfo.dwTypeData = (LPSTR)szNewString;
+
+	SetMenuItemInfoA(hMenu, iMenuID, FALSE, &menuItemInfo);
+}
+
+// メニューアイテムの文字列を変更する関数
+void changePopupString(HMENU hMenu, UINT iByPosition, const char* szNewString)
+{
+	MENUITEMINFO menuItemInfo;
+	menuItemInfo.cbSize = sizeof(MENUITEMINFO);
+	menuItemInfo.fMask = MIIM_STRING;
+	menuItemInfo.dwTypeData = (LPSTR)szNewString;
+
+	SetMenuItemInfoA(hMenu, iByPosition, TRUE, &menuItemInfo);
+}
+

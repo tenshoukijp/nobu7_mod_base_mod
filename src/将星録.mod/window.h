@@ -8,3 +8,5 @@ extern HWND* referenceOfNB7Wnd;
 
 
 void onCreateWindow(HWND hWnd);
+
+void onDestroyWindow();

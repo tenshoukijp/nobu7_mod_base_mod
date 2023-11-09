@@ -1,4 +1,8 @@
 #include <windows.h>
+#include <string>
+#include <map>
+using namespace std;
+
 #include "on_event.h"
 #include "mmsystem.h"
 
@@ -130,7 +134,11 @@ FARPROC p_mmTaskSignal;
 FARPROC p_mmTaskYield;
 FARPROC p_mmioAdvance;
 FARPROC p_mmioAscend;
-FARPROC p_mmioClose;
+
+// FARPROC p_mmioClose;
+using PFNMMIOCLOSE = MMRESULT (WINAPI*)(HMMIO hmmio, UINT fuClose);
+PFNMMIOCLOSE p_mmioClose;
+
 FARPROC p_mmioCreateChunk;
 FARPROC p_mmioDescend;
 FARPROC p_mmioFlush;
@@ -139,7 +147,7 @@ FARPROC p_mmioInstallIOProcA;
 FARPROC p_mmioInstallIOProcW;
 
 // FARPROC p_mmioOpenA;
-using PFNMMIOOPENA = HMMIO(WINAPI*)(LPSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD fdwOpen);
+using PFNMMIOOPENA = HMMIO (WINAPI*)(LPSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD fdwOpen);
 PFNMMIOOPENA p_mmioOpenA;
 
 FARPROC p_mmioOpenW;
@@ -355,16 +363,21 @@ extern "C" {
         }
     }
 
-    void onMmioClose() {
-        OutputDebugString("onMmioClose\n");
-    }
-
+    /*
     __declspec(naked) void WINAPI d_mmioClose() {
         _asm {
             call onMmioClose
             jmp p_mmioClose
         }
     }
+    */
+
+    // map<HMMIO, string> mmioMap;
+    MMRESULT WINAPI d_mmioClose(HMMIO hmmio, UINT fuClose) {
+        // OutputDebugString("onMmioClose\n");
+        return p_mmioClose(hmmio, fuClose);
+	}
+
     __declspec(naked) void WINAPI d_mmioCreateChunk() { _asm { jmp p_mmioCreateChunk } }
 
     void onMmioDescend() {
@@ -382,15 +395,13 @@ extern "C" {
     __declspec(naked) void WINAPI d_mmioInstallIOProcA() { _asm { jmp p_mmioInstallIOProcA } }
     __declspec(naked) void WINAPI d_mmioInstallIOProcW() { _asm { jmp p_mmioInstallIOProcW } }
     
-    void onMmioOpenA() {
-        OutputDebugString("onMmioOpenA\n");
-    }
-
     HMMIO WINAPI d_mmioOpenA( LPSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD fdwOpen ) {
         OutputDebugString("onMmioOpenA\n");
         OutputDebugStringA(pszFileName);
         OutputDebugString("\r\n");
-        return p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
+        HMMIO hmmio = p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
+        // mmioMap[hmmio] = pszFileName;
+        return hmmio;
     }
 
     /*
@@ -610,7 +621,9 @@ void setDllFuncAddress()
     p_mmTaskYield = GetProcAddress(hOriginalDll, "mmTaskYield");
     p_mmioAdvance = GetProcAddress(hOriginalDll, "mmioAdvance");
     p_mmioAscend = GetProcAddress(hOriginalDll, "mmioAscend");
-    p_mmioClose = GetProcAddress(hOriginalDll, "mmioClose");
+
+    p_mmioClose = (PFNMMIOCLOSE)GetProcAddress(hOriginalDll, "mmioClose"); // ÅöÉJÉXÉ^ÉÄ
+    
     p_mmioCreateChunk = GetProcAddress(hOriginalDll, "mmioCreateChunk");
     p_mmioDescend = GetProcAddress(hOriginalDll, "mmioDescend");
     p_mmioFlush = GetProcAddress(hOriginalDll, "mmioFlush");

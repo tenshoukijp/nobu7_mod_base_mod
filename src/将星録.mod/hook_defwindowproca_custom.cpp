@@ -226,29 +226,26 @@ wParamとlParamは自由に使うことができますが、
 複数のオリジナルメッセージが必要な場合は、WM_APP+n(nは0から0xBFFF)という形で定義します。
 */
 
-// 画像系のハック
-LRESULT Hook_DefWindowProcACustom(
-	HWND hWnd,      // ウィンドウのハンドル
-	UINT Msg,       // メッセージの識別子
-	WPARAM wParam,  // メッセージの最初のパラメータ
-	LPARAM lParam   // メッセージの 2 番目のパラメータ
-)
+WNDPROC wpOrigWndProc = NULL;
+
+// Subclass procedure 
+LRESULT APIENTRY NB7WndProcCustom(
+	HWND hWnd,
+	UINT Msg,
+	WPARAM wParam,
+	LPARAM lParam)
 {
-	if (Msg == WM_CREATE) {
-		OutputDebugString("WM_CREATE\n");
-		CREATESTRUCT* pCreateStruct = (CREATESTRUCT*)lParam;
-		OutputDebugString(pCreateStruct->lpszClass);
-		OutputDebugString("\r\n");
-		onCreateWindow(hWnd);
-	}
-	else if (Msg == WM_CLOSE) {
-		// これは送られてこないようだ。
+
+	if (Msg == WM_CLOSE) {
+		OutputDebugString("WM_CLOSE\n");
 	}
 	else if (Msg == WM_DESTROY) {
-		// これは送られてこないようだ。
+		onDestroyWindow();
+		OutputDebugString("WM_DESTROY\n");
 	}
 	else if (Msg == WM_COMMAND) {
-		// OutputDebugString("WM_COMMAND\n");
+		// これは送られてこないようだ。
+		OutputDebugString("WM_COMMAND\n");
 
 		WORD menuID = LOWORD(wParam);
 		onMenuPushed(menuID);
@@ -258,11 +255,10 @@ LRESULT Hook_DefWindowProcACustom(
 	}
 	// アプリ左上のアイコンを右クリした時に出てくるシステムコマンドを選んだとき
 	else if (Msg == WM_SYSCOMMAND) {
-		// ポップアップメニュー(メインウィンドウにくっついてるメニュー[=ファイル・改造・など]のメインメニュー]以外のメニューのこと)表示時はここが有効となる。*/
 		OutputDebugString("WM_SYSCOMMAND\n");
 
 		WORD menuID = LOWORD(wParam);
-		onMenuPushed(menuID);
+		onSystemMenuPushed(menuID);
 	}
 	else if (Msg == WM_NCMOUSEMOVE) {
 		/*
@@ -277,6 +273,29 @@ LRESULT Hook_DefWindowProcACustom(
 	}
 	else if (Msg == WM_MENUSELECT) {
 		OutputDebugString("WM_MENUSELECT\n");
+		HMENU hMenu = GetMenu(hWnd);
+		if (hMenu != hNB7MenuCheckChange) {
+			OutputDebugString("メニューが変わりました");
+			hNB7MenuCheckChange = hMenu;
+
+			int menu_count = GetMenuItemCount(hMenu);
+			string str_count = to_string(menu_count);
+
+			// ゲームが出来る状態になると、メニューが9個になる。そうでない時には、２個
+			if (menu_count >= 8) {
+				// changeMenuItemString(hMenu, 226, "ユニット(&U)");
+
+				// メニューを追加した
+				addMenuItem(GetMenu(hWnd), "メモリエディタ起動(&M)", RESOURCE_MENU_ID_BUSHOUEDIT, ADDITIONAL_MENU_ID_MEMORYEDITOR);
+				addMenuItem(GetMenu(hWnd), "---", RESOURCE_MENU_ID_BUSHOUEDIT, NULL);
+
+				OutputDebugString("メニューを追加した\n");
+				/*
+				// ポップアップメニューのハンドルを取得
+				changePopupString(hMenu, 0, "ファイル(&F)");
+				*/
+			}
+		}
 	}
 	// ポップアップメニュー(メインメニューのサブとしてぶら下がってるものや、さらにそのサブのもの)が表示される直前に実行される。
 	else if (Msg == WM_INITMENUPOPUP) {
@@ -296,7 +315,7 @@ LRESULT Hook_DefWindowProcACustom(
 		// return 0;
 	}
 	else if (Msg == WM_PAINT) {
-		OutputDebugString("WM_PAINT\n");
+		// OutputDebugString("WM_PAINT\n");
 
 	}
 	// フォーカスがなくなる直前に通知 
@@ -379,6 +398,30 @@ LRESULT Hook_DefWindowProcACustom(
 			}
 		}
 
+	}
+
+	return CallWindowProc(wpOrigWndProc, hWnd, Msg, wParam, lParam);
+}
+
+
+// 画像系のハック
+LRESULT Hook_DefWindowProcACustom(
+	HWND hWnd,      // ウィンドウのハンドル
+	UINT Msg,       // メッセージの識別子
+	WPARAM wParam,  // メッセージの最初のパラメータ
+	LPARAM lParam   // メッセージの 2 番目のパラメータ
+)
+{
+	if (Msg == WM_CREATE) {
+		OutputDebugString("WM_CREATE\n");
+		CREATESTRUCT* pCreateStruct = (CREATESTRUCT*)lParam;
+		OutputDebugString(pCreateStruct->lpszClass);
+		OutputDebugString("\r\n");
+
+		// ウィンドウ生成のタイミングで、ウィンドウプロシージャをこのMod内のもので指しはさむ
+		wpOrigWndProc = (WNDPROC)SetWindowLong(hWnd, GWL_WNDPROC, (LONG)NB7WndProcCustom);
+
+		onCreateWindow(hWnd);
 	}
 
 	return 0;

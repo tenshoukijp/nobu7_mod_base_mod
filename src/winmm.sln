@@ -9,26 +9,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "将星録.mod", "将星録.
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{99C6F6F9-F0CB-4506-8500-FB35065CCF7D}.Debug|x64.ActiveCfg = Debug|x64
-		{99C6F6F9-F0CB-4506-8500-FB35065CCF7D}.Debug|x64.Build.0 = Debug|x64
 		{99C6F6F9-F0CB-4506-8500-FB35065CCF7D}.Debug|x86.ActiveCfg = Debug|Win32
 		{99C6F6F9-F0CB-4506-8500-FB35065CCF7D}.Debug|x86.Build.0 = Debug|Win32
-		{99C6F6F9-F0CB-4506-8500-FB35065CCF7D}.Release|x64.ActiveCfg = Release|x64
-		{99C6F6F9-F0CB-4506-8500-FB35065CCF7D}.Release|x64.Build.0 = Release|x64
 		{99C6F6F9-F0CB-4506-8500-FB35065CCF7D}.Release|x86.ActiveCfg = Release|Win32
 		{99C6F6F9-F0CB-4506-8500-FB35065CCF7D}.Release|x86.Build.0 = Release|Win32
-		{4133567E-7BA2-42CE-B78D-E371F7503DAF}.Debug|x64.ActiveCfg = Debug|x64
-		{4133567E-7BA2-42CE-B78D-E371F7503DAF}.Debug|x64.Build.0 = Debug|x64
 		{4133567E-7BA2-42CE-B78D-E371F7503DAF}.Debug|x86.ActiveCfg = Debug|Win32
 		{4133567E-7BA2-42CE-B78D-E371F7503DAF}.Debug|x86.Build.0 = Debug|Win32
-		{4133567E-7BA2-42CE-B78D-E371F7503DAF}.Release|x64.ActiveCfg = Release|x64
-		{4133567E-7BA2-42CE-B78D-E371F7503DAF}.Release|x64.Build.0 = Release|x64
 		{4133567E-7BA2-42CE-B78D-E371F7503DAF}.Release|x86.ActiveCfg = Release|Win32
 		{4133567E-7BA2-42CE-B78D-E371F7503DAF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection

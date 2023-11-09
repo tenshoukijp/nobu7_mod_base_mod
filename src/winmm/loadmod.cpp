@@ -31,9 +31,6 @@ BOOL loadNB7Mod() {
 
 void freeNB7Mod() {
 	if (hNB7ModDll) {
-
-		Mod_onFinalize();
-
 		FreeLibrary(hNB7ModDll);
 		hNB7ModDll = NULL;
 	}
@@ -44,20 +41,5 @@ void Mod_onInitialize() {
 	pMod_onInitialize = (PFNONINITIALIZE)GetProcAddress(hNB7ModDll, "onInitialize");
 	if (hNB7ModDll && pMod_onInitialize) {
 		pMod_onInitialize(&hNB7Wnd);
-	}
-}
-
-void Mod_onGameInitialize(HWND hWnd) {
-	pMod_onGameInitialize = (PFNONGAMEINITIALIZE)GetProcAddress(hNB7ModDll, "onGameInitialize");
-	if (hNB7ModDll && pMod_onGameInitialize) {
-		pMod_onGameInitialize(hWnd);
-	}
-}
-
-void Mod_onFinalize() {
-	pMod_onFinalize = (PFNONFINALIZE)GetProcAddress(hNB7ModDll, "onFinalize");
-	if (hNB7ModDll && pMod_onFinalize) {
-		OutputDebugString("onFinalizeÇåƒÇ—èoÇ∑ÇÊ\n");
-		pMod_onFinalize();
 	}
 }

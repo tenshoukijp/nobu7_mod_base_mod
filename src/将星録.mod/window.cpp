@@ -14,14 +14,21 @@ void onCreateWindow(HWND hWnd) {
 
 	OutputDebugString("ウィンドウ生成\n");
 
-	hNB7Menu = getNB7MenuHandle(hWnd);
+	hNB7MenuCheckChange = GetMenu(hNB7Wnd);
+
+	// changePopupString(GetMenu(hNB7Wnd), 0, "ファイル(&F)");
 
 	// メニューを追加した
-	addMenuItem("メモリエディタ起動(&M)", RESOURCE_MENU_ID_EXIT, ADDITIONAL_MENU_ID_MEMORYEDITOR); // Position 1 にメニューを追加する。IDは59000
+	addMenuItem(GetSystemMenu(hNB7Wnd, FALSE), "メモ帳起動(&M)", RESOURCE_MENU_ID_EXIT, ADDITIONAL_MENU_ID_NOTEPAD);
 
 	OutputDebugString("メニューを追加した\n");
 
 	OutputDebugString("将星録の開始\n");
 
 	onFontInitialize();
+}
+
+
+void onDestroyWindow() {
+	OutputDebugString("ウィンドウ破棄\r\n");
 }
