@@ -60,8 +60,14 @@ void addMenuItem(HMENU hTargetMenu, string menuname, int positionID, int menuID)
 	}
 	info.dwTypeData = (LPSTR)menuname.c_str();
 	InsertMenuItem(hTargetMenu, positionID, FALSE, &info);
+}
+
+// メニューアイテムの追加。リドロー付き
+void addMenuItemAndRedraw(HMENU hTargetMenu, string menuname, int positionID, int menuID) {
+	addMenuItem(hTargetMenu, menuname, positionID, menuID);
 	DrawMenuBar(hNB7Wnd);
 }
+
 
 
 // メニューアイテムの文字列を変更する関数

@@ -4,7 +4,9 @@ C:\Users\master\source\repos\winmm\将星録.mod\data_game.cpp;C:\Users\master\s
 C:\Users\master\source\repos\winmm\将星録.mod\export_func.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\export_func.obj
 C:\Users\master\source\repos\winmm\将星録.mod\font.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\font.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_functions.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_functions.obj
+C:\Users\master\source\repos\winmm\将星録.mod\hook_setmenu_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_setmenu_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_textouta_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_textouta_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\menu.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\menu.obj
+C:\Users\master\source\repos\winmm\将星録.mod\on_event.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\on_event.obj
 C:\Users\master\source\repos\winmm\将星録.mod\process.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\process.obj
 C:\Users\master\source\repos\winmm\将星録.mod\window.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\window.obj

@@ -80,6 +80,7 @@
     <ClInclude Include="font.h" />
     <ClInclude Include="hook_functions.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="on_event.h" />
     <ClInclude Include="process.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="window.h" />
@@ -91,8 +92,10 @@
     <ClCompile Include="export_func.cpp" />
     <ClCompile Include="font.cpp" />
     <ClCompile Include="hook_functions.cpp" />
+    <ClCompile Include="hook_setmenu_custom.cpp" />
     <ClCompile Include="hook_textouta_custom.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="on_event.cpp" />
     <ClCompile Include="process.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>

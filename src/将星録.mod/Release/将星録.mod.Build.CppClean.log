@@ -1,8 +1,10 @@
 c:\users\master\source\repos\winmm\将星録.mod\release\vc143.pdb
 c:\users\master\source\repos\winmm\将星録.mod\release\window.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\process.obj
+c:\users\master\source\repos\winmm\将星録.mod\release\on_event.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\menu.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\hook_textouta_custom.obj
+c:\users\master\source\repos\winmm\将星録.mod\release\hook_setmenu_custom.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\hook_functions.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\font.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\export_func.obj

@@ -4,7 +4,7 @@
 using PFNONINITIALIZE = void (WINAPI*)(void*);
 extern PFNONINITIALIZE pMod_onInitialize;
 
-using PFNONGAMEINITIALIZE = void (WINAPI*)(HWND);
+using PFNONGAMEINITIALIZE = void (WINAPI*)();
 extern PFNONGAMEINITIALIZE pMod_onGameInitialize;
 
 using PFNONFINALIZE = void (WINAPI*)();
@@ -43,3 +43,4 @@ void Mod_onInitialize() {
 		pMod_onInitialize(&hNB7Wnd);
 	}
 }
+

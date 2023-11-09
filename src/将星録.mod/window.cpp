@@ -25,7 +25,7 @@ void onCreateWindow(HWND hWnd) {
 
 	OutputDebugString("«¯˜^‚ÌŠJn\n");
 
-	onFontInitialize();
+	// onFontInitialize();
 }
 
 

@@ -274,28 +274,6 @@ LRESULT APIENTRY NB7WndProcCustom(
 	else if (Msg == WM_MENUSELECT) {
 		OutputDebugString("WM_MENUSELECT\n");
 		HMENU hMenu = GetMenu(hWnd);
-		if (hMenu != hNB7MenuCheckChange) {
-			OutputDebugString("メニューが変わりました");
-			hNB7MenuCheckChange = hMenu;
-
-			int menu_count = GetMenuItemCount(hMenu);
-			string str_count = to_string(menu_count);
-
-			// ゲームが出来る状態になると、メニューが9個になる。そうでない時には、２個
-			if (menu_count >= 8) {
-				// changeMenuItemString(hMenu, 226, "ユニット(&U)");
-
-				// メニューを追加した
-				addMenuItem(GetMenu(hWnd), "メモリエディタ起動(&M)", RESOURCE_MENU_ID_BUSHOUEDIT, ADDITIONAL_MENU_ID_MEMORYEDITOR);
-				addMenuItem(GetMenu(hWnd), "---", RESOURCE_MENU_ID_BUSHOUEDIT, NULL);
-
-				OutputDebugString("メニューを追加した\n");
-				/*
-				// ポップアップメニューのハンドルを取得
-				changePopupString(hMenu, 0, "ファイル(&F)");
-				*/
-			}
-		}
 	}
 	// ポップアップメニュー(メインメニューのサブとしてぶら下がってるものや、さらにそのサブのもの)が表示される直前に実行される。
 	else if (Msg == WM_INITMENUPOPUP) {

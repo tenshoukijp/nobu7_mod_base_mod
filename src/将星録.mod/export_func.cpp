@@ -25,5 +25,3 @@ extern "C" __declspec(dllexport) void WINAPI onInitialize(void* bufOfNB7Wnd) {
 	OutputDebugString("onInitialize\r\n");
 }
 
-
-

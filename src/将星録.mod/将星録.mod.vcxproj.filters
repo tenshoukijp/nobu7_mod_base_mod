@@ -37,6 +37,9 @@
     <Filter Include="フック関数">
       <UniqueIdentifier>{30d39105-c302-426f-87f9-2bcbf409c244}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Onゲームイベント">
+      <UniqueIdentifier>{7abd5f9c-161f-49fd-afce-f52023ba6196}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -62,6 +65,9 @@
     </ClInclude>
     <ClInclude Include="hook_functions.h">
       <Filter>フック関数</Filter>
+    </ClInclude>
+    <ClInclude Include="on_event.h">
+      <Filter>Onゲームイベント</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +100,12 @@
     </ClCompile>
     <ClCompile Include="hook_createfonta_custom.cpp">
       <Filter>フック関数</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_setmenu_custom.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
+    <ClCompile Include="on_event.cpp">
+      <Filter>Onゲームイベント</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
