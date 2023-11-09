@@ -1,8 +1,6 @@
 ﻿  export_func.cpp
   font.cpp
-  hook_defwindowproca_custom.cpp
   hook_functions.cpp
-  menu.cpp
   window.cpp
   コードを生成中...
      ライブラリ C:\Users\master\source\repos\winmm\Release\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\winmm\Release\将星録.mod.exp を作成中

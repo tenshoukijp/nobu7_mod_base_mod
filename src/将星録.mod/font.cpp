@@ -27,6 +27,10 @@
 
 void onFontInitialize() {
     OutputDebugString("onFontInitialize\r\n");
-	strcpy_s((char*)0x53EE04, 11, "«¯ –¾’©");
+	// strcpy_s((char*)0x53EE04, 11, "«¯ –¾’©");
 }
 
+char bufferCustomFontName[32] = "«¯ –¾’©";
+char* getNB7FontName() {
+	return bufferCustomFontName;
+}

@@ -5,7 +5,9 @@
 #include <dbghelp.h>
 #include <mmsystem.h>
 #include <shellapi.h>
+#include <string>
 
+#include "font.h"
 
 // ImageDirectoryEntryToData
 #pragma comment(lib, "dbghelp.lib")
@@ -140,12 +142,44 @@ BOOL WINAPI Hook_TextOutA(
 }
 
 
+//---------------------------CreateFontA
+using PFNCREATEFONTA = HFONT (WINAPI *)(int, int, int, int, int, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, LPCSTR);
+
+PROC pfnOrigCreateFontA = GetProcAddress(GetModuleHandleA("gdi32.dll"), "CreateFontA");
+
+extern BOOL Hook_CreateFontACustom(int, int, int, int, int, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, LPCSTR);
+
+HFONT WINAPI Hook_CreateFontA(
+    int    cHeight,
+    int    cWidth,
+    int    cEscapement,
+    int    cOrientation,
+    int    cWeight,
+    DWORD  bItalic,
+    DWORD  bUnderline,
+    DWORD  bStrikeOut,
+    DWORD  iCharSet,
+    DWORD  iOutPrecision,
+    DWORD  iClipPrecision,
+    DWORD  iQuality,
+    DWORD  iPitchAndFamily,
+    LPCSTR pszFaceName
+) {
+   char* pOverrideFontName = getNB7FontName();
+
+    HFONT hFont = ((PFNCREATEFONTA)pfnOrigCreateFontA)(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pOverrideFontName);
+
+    return hFont;
+}
+
+
+
 /*----------------------------------------------------------------*
  HOOKånèàóù
  *----------------------------------------------------------------*/
 bool isHookDefWindowProcA = false;
 bool isHookTextOutA = false;
-
+bool isHookCreateFontA = false;
 
 void hookFunctions() {
     PROC pfnOrig;
@@ -159,4 +193,10 @@ void hookFunctions() {
         pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "TextOutA");
         ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_TextOutA);
     }
+    if (!isHookCreateFontA) {
+		isHookCreateFontA = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "CreateFontA");
+		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_CreateFontA);
+    }
+
 }

@@ -92,6 +92,9 @@
     <ClCompile Include="hook_textouta_custom.cpp">
       <Filter>フック関数</Filter>
     </ClCompile>
+    <ClCompile Include="hook_createfonta_custom.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

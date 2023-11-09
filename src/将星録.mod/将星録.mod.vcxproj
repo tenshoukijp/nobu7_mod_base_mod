@@ -85,6 +85,7 @@
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="hook_createfonta_custom.cpp" />
     <ClCompile Include="hook_defwindowproca_custom.cpp" />
     <ClCompile Include="data_game.cpp" />
     <ClCompile Include="export_func.cpp" />
