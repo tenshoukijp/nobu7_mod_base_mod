@@ -1,5 +1,10 @@
 #include <windows.h>
 #include <string>
+
+#include "onigwrap.h"
+
+using namespace std;
+
 /*
 005D9638  0の娘。父の要請を受けて一軍の将となる。父親譲りの智謀と武勇を兼ね備える
 005D967F  。.I択してください...........
@@ -37,8 +42,9 @@ BOOL pathOfBushouRetsuden(
 		isOverrideTextOut = TRUE;
 	}
 
+
 	// アルベドの武将列伝の場合、アルベドモードにする。
-	if (bufferTextOut == "武将列伝ΦΧΨ1535～????") {
+	if (bufferTextOut.ends_with("武将列伝ΦΧΨ1535～????")) {
 		// 次にここに来たらオーバーライドするというフラグ
 		isNextStartOverride = TRUE;
 		isAlbedoRetsuden = TRUE;
@@ -47,8 +53,9 @@ BOOL pathOfBushouRetsuden(
 
 	// アルベド列伝ではない。何も表示しないようにしておく
 	if (!isAlbedoRetsuden) {
-		// message.n7b をこのように特殊な形にしている
-		if (bufferTextOut.ends_with("～????あ")) {
+
+		if (OnigMatch(bufferTextOut, "武将列伝.+～\\?\\?\\?\\?あ$", NULL)) {
+		// if (bufferTextOut.ends_with("～????あ")) {
 			char checkDummyRetsuden[256] = { 0 };
 
 			// 列伝の中身をコピーしてくる

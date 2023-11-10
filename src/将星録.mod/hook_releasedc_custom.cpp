@@ -10,21 +10,28 @@ extern BOOL isNextStartOverride;
 
 extern BOOL isAlbedoRetsuden;
 
+extern int nCheckTextOutXStart;
+extern int nCheckTextOutYStart;
+
 int Hook_ReleaseDCCustom(
 	HWND hWnd,  // ウィンドウのハンドル
 	HDC hDC     // デバイスコンテキストのハンドル
 ) {
-	if (bufferTextOut != "") {
-		OutputDebugString(bufferTextOut.c_str());
-		OutputDebugString("------------\n");
-	}
-	bufferTextOut = "";
 	nTextOutProceedCounter = 0;
 
 	// DCへの描画中に立ては各種フラグは、このReleaseDCのタイミングでおろすようにする。
 	isOverrideTextOut = false;
 	isNextStartOverride = false;
 	isAlbedoRetsuden = false;
+
+	nCheckTextOutXStart = -1;
+	nCheckTextOutYStart = -1;
+
+	if (bufferTextOut != "") {
+		OutputDebugString(bufferTextOut.c_str());
+		OutputDebugString("------------\n");
+	}
+	bufferTextOut = "";
 
 	return 1;
 }

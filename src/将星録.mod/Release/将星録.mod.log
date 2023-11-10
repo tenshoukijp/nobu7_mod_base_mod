@@ -11,11 +11,16 @@ C:\Users\master\source\repos\winmm\将星録.mod\data_bushou_struct.h(1,1): warn
   hook_setmenu_custom.cpp
   hook_textouta_custom.cpp
   menu.cpp
+  onigwrap.cpp
   on_event.cpp
   process.cpp
   window.cpp
   コードを生成中...
+  oniguruma.lib(regerror.obj) : MSIL .netmodule または /GL を伴ってコンパイルされたモジュールが見つかりました。/LTCG を使用して再開始してください。リンカーのパフォーマンスを向上させるためには、コマンドラインに /LTCG を追加してください。
      ライブラリ C:\Users\master\source\repos\winmm\Release\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\winmm\Release\将星録.mod.exp を作成中
 LINK : warning LNK4232: 名前 将星録.mod に ASCII 文字以外の文字が含まれています。932 以外の ANSI コードページを使用すると、DLL をシステムに読み込めない可能性があります
+将星録.mod.exp : warning LNK4070: .EXP 内の /OUT:将星録.mod ディレクティブの指定が出力ファイル名 'C:\Users\master\source\repos\winmm\Release\将星録.mod.dll' と異なっています。ディレクティブは無視されます。
+  コード生成しています。
+  コード生成が終了しました。
 将星録.mod.exp : warning LNK4070: .EXP 内の /OUT:将星録.mod ディレクティブの指定が出力ファイル名 'C:\Users\master\source\repos\winmm\Release\将星録.mod.dll' と異なっています。ディレクティブは無視されます。
   将星録.mod.vcxproj -> C:\Users\master\source\repos\winmm\Release\将星録.mod.dll

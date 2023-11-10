@@ -10,7 +10,7 @@ using namespace std;
 
 string bufferTextOut = "";
 int nCheckTextOutYStart = -1;
-
+int nCheckTextOutXStart = -1;
 
 
 BOOL Hook_TextOutACustom(
@@ -24,15 +24,6 @@ BOOL Hook_TextOutACustom(
 	char buffer[1024] = { 0 };
 	memcpy(buffer, lpString, cbString);
 	bufferTextOut += buffer;
-
-	// バッファーの途中でYが変わったら、改行を追加
-	if (nCheckTextOutYStart != nYStart) {
-		if (bufferTextOut != "") {
-			OutputDebugString("Yの違いを検知した");
-			nCheckTextOutYStart = nYStart;
-			bufferTextOut += "\n";
-		}
-	}
 
 	// 武将列伝用の特別なパッチ処理
 	pathOfBushouRetsuden(hdc, nXStart, nYStart, lpString, cbString);

@@ -43,6 +43,9 @@
     <Filter Include="武将列伝">
       <UniqueIdentifier>{26d234c1-7745-476e-804c-bcc90e96803a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="鬼車">
+      <UniqueIdentifier>{a6c4e4cd-9f7c-4336-a124-7fb695acb7a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -74,6 +77,12 @@
     </ClInclude>
     <ClInclude Include="bushou_retsuden.h">
       <Filter>武将列伝</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oniguruma\oniguruma.h">
+      <Filter>鬼車</Filter>
+    </ClInclude>
+    <ClInclude Include="onigwrap.h">
+      <Filter>鬼車</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +128,9 @@
     <ClCompile Include="hook_releasedc_custom.cpp">
       <Filter>フック関数</Filter>
     </ClCompile>
+    <ClCompile Include="onigwrap.cpp">
+      <Filter>鬼車</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
@@ -129,5 +141,10 @@
     <None Include="dllmain.def">
       <Filter>モジュール定義</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="oniguruma.lib">
+      <Filter>鬼車</Filter>
+    </Library>
   </ItemGroup>
 </Project>

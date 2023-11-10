@@ -75,12 +75,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\oniguruma\oniguruma.h" />
     <ClInclude Include="bushou_retsuden.h" />
     <ClInclude Include="data_bushou_struct.h" />
     <ClInclude Include="data_game.h" />
     <ClInclude Include="font.h" />
     <ClInclude Include="hook_functions.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="onigwrap.h" />
     <ClInclude Include="on_event.h" />
     <ClInclude Include="process.h" />
     <ClInclude Include="resource.h" />
@@ -98,6 +100,7 @@
     <ClCompile Include="hook_setmenu_custom.cpp" />
     <ClCompile Include="hook_textouta_custom.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="onigwrap.cpp" />
     <ClCompile Include="on_event.cpp" />
     <ClCompile Include="process.cpp" />
     <ClCompile Include="window.cpp" />
@@ -112,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dllmain.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="oniguruma.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

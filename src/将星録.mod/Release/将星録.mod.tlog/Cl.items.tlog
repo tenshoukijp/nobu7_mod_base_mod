@@ -9,6 +9,7 @@ C:\Users\master\source\repos\winmm\将星録.mod\hook_releasedc_custom.cpp;C:\Us
 C:\Users\master\source\repos\winmm\将星録.mod\hook_setmenu_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_setmenu_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_textouta_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_textouta_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\menu.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\menu.obj
+C:\Users\master\source\repos\winmm\将星録.mod\onigwrap.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\onigwrap.obj
 C:\Users\master\source\repos\winmm\将星録.mod\on_event.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\on_event.obj
 C:\Users\master\source\repos\winmm\将星録.mod\process.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\process.obj
 C:\Users\master\source\repos\winmm\将星録.mod\window.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\window.obj
