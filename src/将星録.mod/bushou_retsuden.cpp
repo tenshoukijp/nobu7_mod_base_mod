@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <string>
 
+#include "output_debug_stream.h"
 #include "onigwrap.h"
 
 using namespace std;
@@ -48,7 +49,7 @@ BOOL pathOfBushouRetsuden(
 		// 次にここに来たらオーバーライドするというフラグ
 		isNextStartOverride = TRUE;
 		isAlbedoRetsuden = TRUE;
-		OutputDebugString("アルベドの武将列伝\r\n");
+		OutputDebugStream("アルベドの武将列伝\r\n");
 	}
 
 	// アルベド列伝ではない。何も表示しないようにしておく

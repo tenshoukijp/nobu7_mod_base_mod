@@ -1,10 +1,10 @@
 
+#include "output_debug_stream.h"
 #include "dllextern.h"
-
 #include "loadmod.h"
 
 void onFinalize() {
     freeNB7Mod();
 
-    OutputDebugString("«¯˜^‚ÌI—¹\n");
+    OutputDebugStream("«¯˜^‚ÌI—¹\n");
 }

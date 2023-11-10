@@ -89,6 +89,7 @@
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="loadmod.h" />
     <ClInclude Include="on_event.h" />
+    <ClInclude Include="output_debug_stream.h" />
     <ClInclude Include="process.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
@@ -98,6 +99,7 @@
     <ClCompile Include="loadmod.cpp" />
     <ClCompile Include="on_finalize.cpp" />
     <ClCompile Include="on_initialize.cpp" />
+    <ClCompile Include="output_debug_stream.cpp" />
     <ClCompile Include="process.cpp" />
   </ItemGroup>
   <ItemGroup>

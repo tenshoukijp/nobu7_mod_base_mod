@@ -1,6 +1,9 @@
 #include <windows.h>
 #include <string>
 #include <map>
+
+#include "output_debug_stream.h"
+
 using namespace std;
 
 #include "on_event.h"
@@ -353,7 +356,7 @@ extern "C" {
     __declspec(naked) void WINAPI d_mmioAdvance() { _asm { jmp p_mmioAdvance } }
 
     void onMmioAscend() {
-        OutputDebugString("onMmioAscend\n");
+        OutputDebugStream("onMmioAscend\n");
     }
 
     __declspec(naked) void WINAPI d_mmioAscend() {
@@ -374,14 +377,14 @@ extern "C" {
 
     // map<HMMIO, string> mmioMap;
     MMRESULT WINAPI d_mmioClose(HMMIO hmmio, UINT fuClose) {
-        // OutputDebugString("onMmioClose\n");
+        // OutputDebugStream("onMmioClose\n");
         return p_mmioClose(hmmio, fuClose);
 	}
 
     __declspec(naked) void WINAPI d_mmioCreateChunk() { _asm { jmp p_mmioCreateChunk } }
 
     void onMmioDescend() {
-        OutputDebugString("onMmioDescend\n");
+        OutputDebugStream("onMmioDescend\n");
     }
 
     __declspec(naked) void WINAPI d_mmioDescend() {
@@ -396,9 +399,9 @@ extern "C" {
     __declspec(naked) void WINAPI d_mmioInstallIOProcW() { _asm { jmp p_mmioInstallIOProcW } }
     
     HMMIO WINAPI d_mmioOpenA( LPSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD fdwOpen ) {
-        OutputDebugString("onMmioOpenA\n");
-        OutputDebugStringA(pszFileName);
-        OutputDebugString("\r\n");
+        OutputDebugStream("onMmioOpenA\n");
+        OutputDebugStream(pszFileName);
+        OutputDebugStream("\r\n");
         HMMIO hmmio = p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
         // mmioMap[hmmio] = pszFileName;
         return hmmio;
@@ -415,7 +418,7 @@ extern "C" {
     __declspec(naked) void WINAPI d_mmioOpenW() { _asm { jmp p_mmioOpenW } }
     
     void onMmioRead() {
-        // OutputDebugString("onMmioRead\n");
+        // OutputDebugStream("onMmioRead\n");
     }
     __declspec(naked) void WINAPI d_mmioRead() {
         _asm {
@@ -428,7 +431,7 @@ extern "C" {
     __declspec(naked) void WINAPI d_mmioRenameW() { _asm { jmp p_mmioRenameW } }
 
     void onMmioSeek() {
-        // OutputDebugString("onMmioSeek\n");
+        // OutputDebugStream("onMmioSeek\n");
     }
 
     __declspec(naked) void WINAPI d_mmioSeek() {

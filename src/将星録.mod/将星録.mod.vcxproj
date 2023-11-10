@@ -84,6 +84,7 @@
     <ClInclude Include="menu.h" />
     <ClInclude Include="onigwrap.h" />
     <ClInclude Include="on_event.h" />
+    <ClInclude Include="output_debug_stream.h" />
     <ClInclude Include="process.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="window.h" />
@@ -102,6 +103,7 @@
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="onigwrap.cpp" />
     <ClCompile Include="on_event.cpp" />
+    <ClCompile Include="output_debug_stream.cpp" />
     <ClCompile Include="process.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>

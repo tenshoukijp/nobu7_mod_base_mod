@@ -46,6 +46,9 @@
     <Filter Include="鬼車">
       <UniqueIdentifier>{a6c4e4cd-9f7c-4336-a124-7fb695acb7a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="デバッグ出力">
+      <UniqueIdentifier>{175f9136-5599-4f41-900f-481d285712c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -83,6 +86,9 @@
     </ClInclude>
     <ClInclude Include="onigwrap.h">
       <Filter>鬼車</Filter>
+    </ClInclude>
+    <ClInclude Include="output_debug_stream.h">
+      <Filter>デバッグ出力</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="onigwrap.cpp">
       <Filter>鬼車</Filter>
+    </ClCompile>
+    <ClCompile Include="output_debug_stream.cpp">
+      <Filter>デバッグ出力</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

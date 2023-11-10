@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <string>
+#include "output_debug_stream.h"
 using namespace std;
 
 extern string bufferTextOut;
@@ -28,8 +29,8 @@ int Hook_ReleaseDCCustom(
 	nCheckTextOutYStart = -1;
 
 	if (bufferTextOut != "") {
-		OutputDebugString(bufferTextOut.c_str());
-		OutputDebugString("------------\n");
+		OutputDebugStream(bufferTextOut);
+		OutputDebugStream("------------\n");
 	}
 	bufferTextOut = "";
 

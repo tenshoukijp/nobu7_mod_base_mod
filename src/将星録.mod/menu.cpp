@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <string>
 #include <shellapi.h>
+#include "output_debug_stream.h"
 #include "menu.h"
 #include "window.h"
 
@@ -12,8 +13,8 @@ HMENU hNB7MenuCheckChange = NULL;
 
 // メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、
 BOOL onMenuPushed(int iMenuID) {
-	OutputDebugString(to_string(iMenuID).c_str());
-	OutputDebugString("\r\n");
+	OutputDebugStream(iMenuID);
+	OutputDebugStream("\r\n");
 	switch (iMenuID) {
 	case ADDITIONAL_MENU_ID_MEMORYEDITOR:
 		ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
@@ -24,8 +25,8 @@ BOOL onMenuPushed(int iMenuID) {
 
 // システムメニュー(アプリの左上を右クリックなどで出てくるメニュー)のメニューアイテムを実行した時、
 BOOL onSystemMenuPushed(int iMenuID) {
-	OutputDebugString(to_string(iMenuID).c_str());
-	OutputDebugString("\r\n");
+	OutputDebugStream(iMenuID);
+	OutputDebugStream("\r\n");
 	switch (iMenuID) {
 	case ADDITIONAL_MENU_ID_NOTEPAD:
 		ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);

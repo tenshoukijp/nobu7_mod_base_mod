@@ -173,7 +173,7 @@ HFONT WINAPI Hook_CreateFontA(
     DWORD  iPitchAndFamily,
     LPCSTR pszFaceName
 ) {
-   char* pOverrideFontName = getNB7FontName();
+    char* pOverrideFontName = getNB7FontName();
 
     HFONT hFont = ((PFNCREATEFONTA)pfnOrigCreateFontA)(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pOverrideFontName);
 

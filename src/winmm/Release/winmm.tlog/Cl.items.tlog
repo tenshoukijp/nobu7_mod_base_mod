@@ -3,4 +3,5 @@ C:\Users\master\source\repos\winmm\winmm\dllmain.cpp;C:\Users\master\source\repo
 C:\Users\master\source\repos\winmm\winmm\loadmod.cpp;C:\Users\master\source\repos\winmm\winmm\Release\loadmod.obj
 C:\Users\master\source\repos\winmm\winmm\on_finalize.cpp;C:\Users\master\source\repos\winmm\winmm\Release\on_finalize.obj
 C:\Users\master\source\repos\winmm\winmm\on_initialize.cpp;C:\Users\master\source\repos\winmm\winmm\Release\on_initialize.obj
+C:\Users\master\source\repos\winmm\winmm\output_debug_stream.cpp;C:\Users\master\source\repos\winmm\winmm\Release\output_debug_stream.obj
 C:\Users\master\source\repos\winmm\winmm\process.cpp;C:\Users\master\source\repos\winmm\winmm\Release\process.obj

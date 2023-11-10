@@ -9,6 +9,8 @@
 
 #include "hook_functions.h"
 
+#include "output_debug_stream.h"
+
 #pragma comment(lib, "user32.lib")
 
 // WinMM.dllから呼ばれる関数。概ね初期時に呼ばれる。
@@ -20,8 +22,8 @@ extern "C" __declspec(dllexport) void WINAPI onInitialize(void* bufOfNB7Wnd) {
 
 	char buffer[256] = "";
 	sprintf_s(buffer, _countof(buffer), "%x", nBaseAddress);
-	OutputDebugString(buffer);
+	OutputDebugStream(buffer);
 
-	OutputDebugString("onInitialize\r\n");
+	OutputDebugStream("onInitialize\r\n");
 }
 

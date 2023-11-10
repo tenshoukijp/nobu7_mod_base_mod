@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <string>
+#include "output_debug_stream.h"
 #include "menu.h"
 #include "on_event.h"
 
@@ -27,10 +28,10 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	if (hMenu != hNB7MenuCheckChange) {
 		hNB7MenuCheckChange = hMenu;
 
-		OutputDebugString(std::to_string(count).c_str());
-		OutputDebugString("個メニューが設定されます\r\n");
+		OutputDebugStream(std::to_string(count).c_str());
+		OutputDebugStream("個メニューが設定されます\r\n");
 
-		OutputDebugString("メニューが変わりました\r\n");
+		OutputDebugStream("メニューが変わりました\r\n");
 
 		// OpeningMovie時のメニューは2個
 		if (menu_count == 2) {
@@ -47,7 +48,7 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 			addMenuItem(GetMenu(hWnd), "メモリエディタ起動(&M)", RESOURCE_MENU_ID_BUSHOUEDIT, ADDITIONAL_MENU_ID_MEMORYEDITOR);
 			addMenuItem(GetMenu(hWnd), "---", RESOURCE_MENU_ID_BUSHOUEDIT, NULL);
 
-			OutputDebugString("メニューを追加した\n");
+			OutputDebugStream("メニューを追加した\n");
 		}
 	}
 

@@ -1,5 +1,6 @@
 #include <windows.h>
 #include "onigwrap.h"
+#include "output_debug_stream.h"
 
 // 正規表現マッチング用の関数
 // @str_target
@@ -33,7 +34,7 @@ int OnigMatch(string str_target, string str_regex, Matches* pmatches) {
 	if (r != ONIG_NORMAL) {
 		char s[ONIG_MAX_ERROR_MESSAGE_LEN];
 		onig_error_code_to_str((OnigUChar*)s, r, &einfo);
-		OutputDebugString("正規表現コンパイルエラー:\n");
+		OutputDebugStream("正規表現コンパイルエラー:\n");
 		return false;
 	}
 

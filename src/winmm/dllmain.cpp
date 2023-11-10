@@ -19,24 +19,26 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
     {
     case DLL_PROCESS_ATTACH:
     {
-        if (!IsWow64()) {
-            MessageBox(NULL, "エラー", "「SysWow64」環境ではないようです。", NULL);
-            return FALSE;
-        }
+        {
+            if (!IsWow64()) {
+                MessageBox(NULL, "エラー", "「SysWow64」環境ではないようです。", NULL);
+                return FALSE;
+            }
 
-        // C:\Windows\SysWow64のパスを取得。ほとんど全ての人はCドライブから変更していないとは思うが...
-        char sysWow64Path[512] = "";
-        UINT hasWow64Path = GetSystemWow64DirectoryA(sysWow64Path, sizeof(sysWow64Path));
-        if (hasWow64Path == 0) {
-            MessageBox(NULL, "エラー", "「SysWow64」のパスを取得できませんでした。", NULL);
-            return FALSE;
-        }
-        strcat_s(sysWow64Path, "\\winmm.dll");
+            // C:\Windows\SysWow64のパスを取得。ほとんど全ての人はCドライブから変更していないとは思うが...
+            char sysWow64Path[512] = "";
+            UINT hasWow64Path = GetSystemWow64DirectoryA(sysWow64Path, sizeof(sysWow64Path));
+            if (hasWow64Path == 0) {
+                MessageBox(NULL, "エラー", "「SysWow64」のパスを取得できませんでした。", NULL);
+                return FALSE;
+            }
+            strcat_s(sysWow64Path, "\\winmm.dll");
 
-        hOriginalDll = LoadLibrary(sysWow64Path);
-        if (hOriginalDll == NULL) {
-            MessageBox(NULL, "エラー", "「SysWow64」内のwinmm.dllをロードできませんでした。", NULL);
-            return FALSE;
+            hOriginalDll = LoadLibrary(sysWow64Path);
+            if (hOriginalDll == NULL) {
+                MessageBox(NULL, "エラー", "「SysWow64」内のwinmm.dllをロードできませんでした。", NULL);
+                return FALSE;
+            }
         }
 
         // プロセスのフルパスに「Nobunaga7WPK.exe」が含まれているか？

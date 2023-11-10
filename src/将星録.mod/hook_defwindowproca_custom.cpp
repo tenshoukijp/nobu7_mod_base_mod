@@ -1,5 +1,5 @@
 #include <windows.h>
-
+#include "output_debug_stream.h"
 #include "window.h"
 #include "menu.h"
 
@@ -237,15 +237,15 @@ LRESULT APIENTRY NB7WndProcCustom(
 {
 
 	if (Msg == WM_CLOSE) {
-		OutputDebugString("WM_CLOSE\n");
+		OutputDebugStream("WM_CLOSE\n");
 	}
 	else if (Msg == WM_DESTROY) {
 		onDestroyWindow();
-		OutputDebugString("WM_DESTROY\n");
+		OutputDebugStream("WM_DESTROY\n");
 	}
 	else if (Msg == WM_COMMAND) {
 		// これは送られてこないようだ。
-		OutputDebugString("WM_COMMAND\n");
+		OutputDebugStream("WM_COMMAND\n");
 
 		WORD menuID = LOWORD(wParam);
 		onMenuPushed(menuID);
@@ -255,7 +255,7 @@ LRESULT APIENTRY NB7WndProcCustom(
 	}
 	// アプリ左上のアイコンを右クリした時に出てくるシステムコマンドを選んだとき
 	else if (Msg == WM_SYSCOMMAND) {
-		OutputDebugString("WM_SYSCOMMAND\n");
+		OutputDebugStream("WM_SYSCOMMAND\n");
 
 		WORD menuID = LOWORD(wParam);
 		onSystemMenuPushed(menuID);
@@ -272,18 +272,18 @@ LRESULT APIENTRY NB7WndProcCustom(
 		*/
 	}
 	else if (Msg == WM_MENUSELECT) {
-		OutputDebugString("WM_MENUSELECT\n");
+		OutputDebugStream("WM_MENUSELECT\n");
 		HMENU hMenu = GetMenu(hWnd);
 	}
 	// ポップアップメニュー(メインメニューのサブとしてぶら下がってるものや、さらにそのサブのもの)が表示される直前に実行される。
 	else if (Msg == WM_INITMENUPOPUP) {
-		OutputDebugString("WM_INITMENUPOPUP\n");
+		OutputDebugStream("WM_INITMENUPOPUP\n");
 	}
 	else if (WM_KEYFIRST <= Msg && Msg <= WM_KEYLAST) {
 	}
 	// 右クリックとほぼ同義。lparamなどに入る値が違うだけ。
 	else if (Msg == WM_CONTEXTMENU) {
-		OutputDebugString("WM_CONTEXTMENU\n");
+		OutputDebugStream("WM_CONTEXTMENU\n");
 	}
 	// 最小化状態から元へと戻すとき
 	else if (Msg == WM_QUERYOPEN) {
@@ -293,24 +293,24 @@ LRESULT APIENTRY NB7WndProcCustom(
 		// return 0;
 	}
 	else if (Msg == WM_PAINT) {
-		// OutputDebugString("WM_PAINT\n");
+		// OutputDebugStream("WM_PAINT\n");
 
 	}
 	// フォーカスがなくなる直前に通知 
 	else if (Msg == WM_KILLFOCUS) {
-		OutputDebugString("WM_KILLFOCUS\n");
+		OutputDebugStream("WM_KILLFOCUS\n");
 		// ここはちゃんと来る
 
 	}
 	// ウインドウが入力フォーカスを得た
 	else if (Msg == WM_SETFOCUS) {
-		OutputDebugString("WM_SETFOCUS\n");
+		OutputDebugStream("WM_SETFOCUS\n");
 		// ここはちゃんと来る
 
 	}
 	// PCOPYDATASTRUCT型データの転送を得た
 	else if (Msg == WM_COPYDATA) {
-		// OutputDebugString("CPYDTA");
+		// OutputDebugStream("CPYDTA");
 		/*
 		受信側の例:
 
@@ -370,7 +370,7 @@ LRESULT APIENTRY NB7WndProcCustom(
 		 */
 		 // マウスによってアクティブになった
 		if (fActive == WA_CLICKACTIVE) {
-			// OutputDebugString("WM_ACTIVATE & WA_CLICKACTIVE \n");
+			// OutputDebugStream("WM_ACTIVATE & WA_CLICKACTIVE \n");
 			if (hNB7Wnd && IsIconic(hNB7Wnd)) {
 				OpenIcon(hNB7Wnd);
 			}
@@ -391,10 +391,10 @@ LRESULT Hook_DefWindowProcACustom(
 )
 {
 	if (Msg == WM_CREATE) {
-		OutputDebugString("WM_CREATE\n");
+		OutputDebugStream("WM_CREATE\n");
 		CREATESTRUCT* pCreateStruct = (CREATESTRUCT*)lParam;
-		OutputDebugString(pCreateStruct->lpszClass);
-		OutputDebugString("\r\n");
+		OutputDebugStream(pCreateStruct->lpszClass);
+		OutputDebugStream("\r\n");
 
 		// ウィンドウ生成のタイミングで、ウィンドウプロシージャをこのMod内のもので指しはさむ
 		wpOrigWndProc = (WNDPROC)SetWindowLong(hWnd, GWL_WNDPROC, (LONG)NB7WndProcCustom);
