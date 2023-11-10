@@ -5,12 +5,14 @@ c:\users\master\source\repos\winmm\将星録.mod\release\on_event.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\menu.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\hook_textouta_custom.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\hook_setmenu_custom.obj
+c:\users\master\source\repos\winmm\将星録.mod\release\hook_releasedc_custom.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\hook_functions.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\font.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\export_func.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\data_game.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\hook_defwindowproca_custom.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\hook_createfonta_custom.obj
+c:\users\master\source\repos\winmm\将星録.mod\release\bushou_retsuden.obj
 c:\users\master\source\repos\winmm\release\将星録.mod.dll
 c:\users\master\source\repos\winmm\release\将星録.mod.lib
 c:\users\master\source\repos\winmm\release\将星録.mod.exp

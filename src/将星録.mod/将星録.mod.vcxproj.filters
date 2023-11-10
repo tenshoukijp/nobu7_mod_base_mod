@@ -40,6 +40,9 @@
     <Filter Include="Onゲームイベント">
       <UniqueIdentifier>{7abd5f9c-161f-49fd-afce-f52023ba6196}</UniqueIdentifier>
     </Filter>
+    <Filter Include="武将列伝">
+      <UniqueIdentifier>{26d234c1-7745-476e-804c-bcc90e96803a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -68,6 +71,9 @@
     </ClInclude>
     <ClInclude Include="on_event.h">
       <Filter>Onゲームイベント</Filter>
+    </ClInclude>
+    <ClInclude Include="bushou_retsuden.h">
+      <Filter>武将列伝</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +112,12 @@
     </ClCompile>
     <ClCompile Include="on_event.cpp">
       <Filter>Onゲームイベント</Filter>
+    </ClCompile>
+    <ClCompile Include="bushou_retsuden.cpp">
+      <Filter>武将列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_releasedc_custom.cpp">
+      <Filter>フック関数</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

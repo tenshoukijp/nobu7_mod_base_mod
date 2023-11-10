@@ -24,12 +24,15 @@
 005056CB   6A F0            PUSH -10
  */
 
-
+//------------------------------------------------
+// 使っていない。Hook_CreateFontACustom()で処理するようにした。
+//------------------------------------------------
 void onFontInitialize() {
-    OutputDebugString("onFontInitialize\r\n");
-	// strcpy_s((char*)0x53EE04, 11, "将星 明朝");
 }
 
+//------------------------------------------------
+// 上書き用のフォント名。長いフォント名も可能。将来はJavaScriptか何か外部テキストから変更できるようにしたい。
+//------------------------------------------------
 char bufferCustomFontName[32] = "将星 明朝";
 char* getNB7FontName() {
 	return bufferCustomFontName;

@@ -10,6 +10,7 @@ using namespace std;
 
 HMENU hNB7MenuCheckChange = NULL;
 
+// メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、
 BOOL onMenuPushed(int iMenuID) {
 	OutputDebugString(to_string(iMenuID).c_str());
 	OutputDebugString("\r\n");
@@ -21,6 +22,7 @@ BOOL onMenuPushed(int iMenuID) {
 	return FALSE;
 }
 
+// システムメニュー(アプリの左上を右クリックなどで出てくるメニュー)のメニューアイテムを実行した時、
 BOOL onSystemMenuPushed(int iMenuID) {
 	OutputDebugString(to_string(iMenuID).c_str());
 	OutputDebugString("\r\n");
@@ -62,7 +64,7 @@ void addMenuItem(HMENU hTargetMenu, string menuname, int positionID, int menuID)
 	InsertMenuItem(hTargetMenu, positionID, FALSE, &info);
 }
 
-// メニューアイテムの追加。リドロー付き
+// メニューアイテムの追加。リドロー付き(メニューアイテムは追加しただけでは見た目が変化しないのだ)
 void addMenuItemAndRedraw(HMENU hTargetMenu, string menuname, int positionID, int menuID) {
 	addMenuItem(hTargetMenu, menuname, positionID, menuID);
 	DrawMenuBar(hNB7Wnd);

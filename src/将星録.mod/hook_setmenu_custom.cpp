@@ -31,6 +31,8 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 		OutputDebugString("個メニューが設定されます\r\n");
 
 		OutputDebugString("メニューが変わりました\r\n");
+
+		// OpeningMovie時のメニューは2個
 		if (menu_count == 2) {
 			changePopupString(hMenu, 1, "ムービー中止(&M)");
 			if (nCheckMenuCount != menu_count) {
@@ -39,7 +41,7 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 			}
 		}
 
-		// ゲームが出来る状態になると、メニューが9個になる。そうでない時には、２個
+		// ゲームが出来る状態になると、メニューが9個になる。一応8個以上で判定。
 		if (menu_count >= 8) {
 			// メニューを追加した
 			addMenuItem(GetMenu(hWnd), "メモリエディタ起動(&M)", RESOURCE_MENU_ID_BUSHOUEDIT, ADDITIONAL_MENU_ID_MEMORYEDITOR);

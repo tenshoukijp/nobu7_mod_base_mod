@@ -125,6 +125,8 @@ PROC pfnOrigTextOutA = GetProcAddress(GetModuleHandleA("gdi32.dll"), "TextOutA")
 
 extern BOOL Hook_TextOutACustom(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, int cbString);
 
+extern BOOL isOverrideTextOut;
+
 BOOL WINAPI Hook_TextOutA(
     HDC hdc,           // デバイスコンテキストのハンドル
     int nXStart,       // 開始位置（基準点）の x 座標
@@ -134,9 +136,15 @@ BOOL WINAPI Hook_TextOutA(
 ) {
     // 先にカスタムの方を実行。
     Hook_TextOutACustom(hdc, nXStart, nYStart, lpString, cbString);
+    BOOL nResult = FALSE;
 
-    // 元のものを呼び出す
-    BOOL nResult = ((PFNTEXTOUTA)pfnOrigTextOutA)(hdc, nXStart, nYStart, lpString, cbString);
+    // Hook_TextOutACustom でオーバーライドフラグが立っていたら、テキストは描画せずにスルーする
+    if (isOverrideTextOut) {
+    }
+    else {
+        // 元のものを呼び出す
+        nResult = ((PFNTEXTOUTA)pfnOrigTextOutA)(hdc, nXStart, nYStart, lpString, cbString);
+    }
 
     return nResult;
 }
@@ -191,6 +199,28 @@ BOOL WINAPI Hook_SetMenu(HWND hWnd, HMENU hMenu) {
 }
 
 
+//---------------------------ReleaseDC
+
+using PFNRELEASEDC = int(WINAPI *)(HWND, HDC);
+
+PROC pfnOrigReleaseDC = GetProcAddress(GetModuleHandleA("user32.dll"), "ReleaseDC");
+
+extern int Hook_ReleaseDCCustom(HWND hWnd, HDC hDC);
+
+int WINAPI Hook_ReleaseDC(
+    HWND hWnd,  // ウィンドウのハンドル
+    HDC hDC     // デバイスコンテキストのハンドル
+) {
+	// 先にカスタムの方を実行。
+	Hook_ReleaseDCCustom(hWnd, hDC);
+
+	// 元のものを呼び出す
+	int nResult = ((PFNRELEASEDC)pfnOrigReleaseDC)(hWnd, hDC);
+
+	return nResult;
+}
+
+
 /*----------------------------------------------------------------*
  HOOK系処理
  *----------------------------------------------------------------*/
@@ -198,6 +228,7 @@ bool isHookDefWindowProcA = false;
 bool isHookTextOutA = false;
 bool isHookCreateFontA = false;
 bool isHookSetMenu = false;
+bool isHookReleaseDC = false;
 
 void hookFunctions() {
     PROC pfnOrig;
@@ -221,5 +252,10 @@ void hookFunctions() {
         pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "SetMenu");
         ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_SetMenu);
     }
+    if (!isHookReleaseDC) {
+		isHookReleaseDC = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "ReleaseDC");
+		ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_ReleaseDC);
+	}
 
 }

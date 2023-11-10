@@ -8,12 +8,15 @@ HWND* referenceOfNB7Wnd = NULL;
 
 void onCreateWindow(HWND hWnd) {
 
+	// ウィンドウハンドルを保存
 	hNB7Wnd = hWnd;
 
-	*referenceOfNB7Wnd = hWnd; // 呼び出し元に、「今回の起動ではちゃんとウィンドウが生成されたよ」と伝える。よってゲーム本体が起動された。
+	// 呼び出し元(WinMM.dll)に、「今回の起動ではちゃんとウィンドウが生成されたよ」と伝える。よってゲーム本体が起動された。
+	*referenceOfNB7Wnd = hWnd;
 
 	OutputDebugString("ウィンドウ生成\n");
 
+	// メニューがころころ変わるので、メニューの変更を検知するため。最初にこれを代入。主にHook_SetMenuで、使われている。
 	hNB7MenuCheckChange = GetMenu(hNB7Wnd);
 
 	// changePopupString(GetMenu(hNB7Wnd), 0, "ファイル(&F)");

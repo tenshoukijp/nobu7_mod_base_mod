@@ -1,4 +1,5 @@
-﻿  hook_createfonta_custom.cpp
+﻿  bushou_retsuden.cpp
+  hook_createfonta_custom.cpp
   hook_defwindowproca_custom.cpp
   data_game.cpp
 C:\Users\master\source\repos\winmm\将星録.mod\data_game.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
@@ -6,6 +7,7 @@ C:\Users\master\source\repos\winmm\将星録.mod\data_bushou_struct.h(1,1): warn
   export_func.cpp
   font.cpp
   hook_functions.cpp
+  hook_releasedc_custom.cpp
   hook_setmenu_custom.cpp
   hook_textouta_custom.cpp
   menu.cpp
