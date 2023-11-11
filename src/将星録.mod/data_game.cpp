@@ -1,3 +1,4 @@
+
 #include <windows.h>
 #include "data_game.h"
 #include "data_bushou_struct.h"
@@ -20,3 +21,4 @@ void setGameDataStructPointer() {
 
 	nb7武将情報 = (NB7武将情報型*)((0x542348 - 0x400000) + nBaseAddress); // 0x400000で不動だとは思うがベースアドレスが0x400000の時にチェックしたので、目視でのチェック時のベースアドレスから対象のメモリアドレスまでの差を、実行時のベースアドレスに足す
 }
+

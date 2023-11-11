@@ -1,6 +1,7 @@
 c:\users\master\source\repos\winmm\将星録.mod\release\vc143.pdb
 c:\users\master\source\repos\winmm\将星録.mod\release\window.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\process.obj
+c:\users\master\source\repos\winmm\将星録.mod\release\output_debug_stream.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\on_event.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\onigwrap.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\menu.obj
@@ -14,10 +15,9 @@ c:\users\master\source\repos\winmm\将星録.mod\release\data_game.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\hook_defwindowproca_custom.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\hook_createfonta_custom.obj
 c:\users\master\source\repos\winmm\将星録.mod\release\bushou_retsuden.obj
-c:\users\master\source\repos\winmm\将星録.mod\release\output_debug_stream.obj
+c:\users\master\source\repos\winmm\release\将星録.mod.dll
 c:\users\master\source\repos\winmm\release\将星録.mod.lib
 c:\users\master\source\repos\winmm\release\将星録.mod.exp
-c:\users\master\source\repos\winmm\release\将星録.mod.dll
 c:\users\master\source\repos\winmm\将星録.mod\release\app.res
 c:\users\master\source\repos\winmm\将星録.mod\release\将星録.mod.tlog\cl.command.1.tlog
 c:\users\master\source\repos\winmm\将星録.mod\release\将星録.mod.tlog\cl.items.tlog
