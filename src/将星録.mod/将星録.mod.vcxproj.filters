@@ -9,9 +9,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="武将データ">
-      <UniqueIdentifier>{dd171165-7264-4b15-85d5-ab380fe64b65}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ゲームデータ">
       <UniqueIdentifier>{642480ca-3820-4287-9723-f5b5bb6fa6dc}</UniqueIdentifier>
     </Filter>
@@ -49,13 +46,16 @@
     <Filter Include="デバッグ出力">
       <UniqueIdentifier>{175f9136-5599-4f41-900f-481d285712c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 武将データ">
+      <UniqueIdentifier>{dd171165-7264-4b15-85d5-ab380fe64b65}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="data_bushou_struct.h">
-      <Filter>武将データ</Filter>
+      <Filter>ゲームデータ - 武将データ</Filter>
     </ClInclude>
     <ClInclude Include="data_game.h">
       <Filter>ゲームデータ</Filter>
