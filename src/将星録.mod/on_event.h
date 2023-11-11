@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 void onOpeningMovie();
 
 void onInitialGameMenu();
@@ -32,5 +34,6 @@ void onMenuKashinBushoIchiranStart();
 
 void onMenuKashinUnitIchiranStart();
 
+void onBattleTurn(std::string battleTurnInfo);
 
 int dispatchEvent();

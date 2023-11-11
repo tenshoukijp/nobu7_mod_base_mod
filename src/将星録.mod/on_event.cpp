@@ -79,6 +79,90 @@ void onMenuKashinUnitIchiranStart() {
     OutputDebugStream("ƒƒjƒ…[-‰Æb-ƒ†ƒjƒbƒgˆê——‰æ–Ê\n");
 }
 
+string previousBattleTurnInfo = "";
+string previousRegexBattleTurnInfo = "";
+void onBattleTurn(string battleTurnInfo) {
+    OutputDebugStream("í“¬ƒ^[ƒ“î•ñ:" + battleTurnInfo + "\n");
+
+    // ‘O‰ñ‚Æ‘S‚­“¯‚¶‚È‚çA‰½‚à‚µ‚È‚¢B‚±‚±‚Å‚Í‚¶‚­‚±‚Æ‚ÅˆÈ‰º‚Ì³‹K•\Œ»‚És‚­•p“x‚ğŒ¸‚ç‚·
+    if (previousBattleTurnInfo == battleTurnInfo) {
+        return;
+    }
+    // ˆá‚Á‚½‚çA¡‰ñ‚Ìí“¬ƒ^[ƒ“î•ñ‚ğ•Û‘¶‚·‚é
+    else {
+        previousBattleTurnInfo = battleTurnInfo;
+    }
+
+    Matches ma;
+
+    if (OnigMatch(battleTurnInfo, "ç”õ‘¤:(.+?)í“¬:(\\d+?)m‹C:(\\d+?)•º—Æ:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?UŒ‚‘¤:(.+?)í“¬:(\\d+?)m‹C:(\\d+?)•º—Æ:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(\\d+?)”N(\\d+?)Œc‚è(\\d+?)ƒ^[ƒ“(.+?\\d•”‘à‚Ìíp)", &ma)) {
+
+        OutputDebugStream("m0‚¾‚æ!!:" + ma[0] + "\n");
+        string regexBattleTurnInfo = ma[0];
+
+        // ³‹K•\Œ»‚Å‚Ìˆê’v•”•ª‚ª‘O‰ñ‚Æ‘S‚­“¯‚¶‚È‚çA‰½‚à‚µ‚È‚¢
+        if (previousRegexBattleTurnInfo == regexBattleTurnInfo) {
+            return;
+        }
+        // ˆá‚Á‚½‚çA¡‰ñ‚Ì³‹K•\Œ»‚Å‚Ìˆê’v•”•ª‚ğ•Û‘¶‚·‚é
+        else {
+            previousRegexBattleTurnInfo = regexBattleTurnInfo;
+        }
+
+        OutputDebugStream("ç”õ‘¤:" + ma[1] + "\n");
+        string syubigawa = ma[1];
+
+        OutputDebugStream("í“¬:" + ma[2] + "\n");
+        OutputDebugStream("m‹C:" + ma[3] + "\n");
+        OutputDebugStream("•º—Æ:" + ma[4] + "\n");
+        OutputDebugStream("‘æ‚P•”‘à•º”:" + ma[6] + "\n");
+        OutputDebugStream("‘æ‚P•”‘à“K³:" + ma[7] + "\n");
+        OutputDebugStream("‘æ‚Q•”‘à•º”:" + ma[9] + "\n");
+        OutputDebugStream("‘æ‚Q•”‘à“K³:" + ma[10] + "\n");
+        OutputDebugStream("‘æ‚R•”‘à•º”:" + ma[12] + "\n");
+        OutputDebugStream("‘æ‚R•”‘à“K³:" + ma[13] + "\n");
+        OutputDebugStream("‘æ‚S•”‘à•º”:" + ma[15] + "\n");
+        OutputDebugStream("‘æ‚S•”‘à“K³:" + ma[16] + "\n");
+        OutputDebugStream("‘æ‚T•”‘à•º”:" + ma[18] + "\n");
+        OutputDebugStream("‘æ‚T•”‘à“K³:" + ma[19] + "\n");
+
+        OutputDebugStream("UŒ‚‘¤:" + ma[20] + "\n");
+        string kougekigawa = ma[20];
+
+        OutputDebugStream("í“¬:" + ma[21] + "\n");
+        OutputDebugStream("m‹C:" + ma[22] + "\n");
+        OutputDebugStream("•º—Æ:" + ma[23] + "\n");
+        OutputDebugStream("‘æ‚P•”‘à•º”:" + ma[25] + "\n");
+        OutputDebugStream("‘æ‚P•”‘à“K³:" + ma[26] + "\n");
+        OutputDebugStream("‘æ‚Q•”‘à•º”:" + ma[28] + "\n");
+        OutputDebugStream("‘æ‚Q•”‘à“K³:" + ma[29] + "\n");
+        OutputDebugStream("‘æ‚R•”‘à•º”:" + ma[31] + "\n");
+        OutputDebugStream("‘æ‚R•”‘à“K³:" + ma[32] + "\n");
+        OutputDebugStream("‘æ‚S•”‘à•º”:" + ma[34] + "\n");
+        OutputDebugStream("‘æ‚S•”‘à“K³:" + ma[35] + "\n");
+        OutputDebugStream("‘æ‚T•”‘à•º”:" + ma[37] + "\n");
+        OutputDebugStream("‘æ‚T•”‘à“K³:" + ma[38] + "\n");
+        OutputDebugStream("”N:" + ma[39] + "\n");
+        OutputDebugStream("Œ:" + ma[40] + "\n");
+        OutputDebugStream("c‚èƒ^[ƒ“:" + ma[41] + "\n");
+
+        string turnButaiInfo = ma[42];
+        OutputDebugStream("ƒ^[ƒ“•”‘à:" + turnButaiInfo + "\n");
+
+        Matches turn_ma;
+
+        if (OnigMatch(turnButaiInfo, kougekigawa + "‘Î" + syubigawa + "(.+)ŒR‘æ(\\d)•”‘à‚Ìíp", &turn_ma)) {
+            OutputDebugStream("ƒ^[ƒ“ŒR:" + turn_ma[1] + "\n");
+            OutputDebugStream("ƒ^[ƒ“•”‘à”Ô†:" + turn_ma[2] + "\n");
+        }
+        else if (OnigMatch(turnButaiInfo, syubigawa + "‘Î" + kougekigawa + "(.+)ŒR‘æ(\\d)•”‘à‚Ìíp", &turn_ma)) {
+            OutputDebugStream("ƒ^[ƒ“ŒR:" + turn_ma[1] + "\n");
+            OutputDebugStream("ƒ^[ƒ“•”‘à”Ô†:" + turn_ma[2] + "\n");
+        }
+    }
+
+}
+
 int dispatchEvent() {
     // ³‹K•\Œ»‚Åó‹µ‚ğ”»’f‚·‚é
     const string bufferTextOut = getBufferTextOut();
@@ -94,5 +178,10 @@ int dispatchEvent() {
     else if (OnigMatch(bufferTextOut, "dŠ¯---”N­¡.+‚±‚ÌÒ‚ğÌ—p‚È‚³‚¢‚Ü‚·‚©H")) {
         onShikanWindow();
     }
+    else if (OnigMatch(bufferTextOut, "ç”õ‘¤:(.+?)í“¬:(\\d+?)m‹C:(\\d+?)•º—Æ:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?UŒ‚‘¤:(.+?)í“¬:(\\d+?)m‹C:(\\d+?)•º—Æ:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(\\d+?)”N(\\d+?)Œc‚è(\\d+?)ƒ^[ƒ“(.+?\\d•”‘à‚Ìíp)")) {
+        // ç”õ‘¤:z”g‹`“í“¬:28m‹C:90•º—Æ:3000:900:‚c:900:‚c:900:‚c:900:‚c:900:‚cUŒ‚‘¤:D“cM’·í“¬:103m‹C:90•º—Æ:3000:1000:‚`:1000:‚`:1000:‚`:1000:‚`:1000:‚`1551”N4Œc‚è4ƒ^[ƒ“D“cM’·‘Îz”g‹`“D“cM’·ŒR‘æ1•”‘à‚Ìíp------------
+        onBattleTurn(bufferTextOut);
+    }
+
     return 1;
 }

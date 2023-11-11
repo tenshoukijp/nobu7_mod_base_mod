@@ -179,8 +179,8 @@ HFONT WINAPI Hook_CreateFontA(
 ) {
     char* pOverrideFontName = getNB7FontName();
 
+    // フォントファミリーを指定のもので上書きする
     HFONT hFont = ((PFNCREATEFONTA)pfnOrigCreateFontA)(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pOverrideFontName);
-
     return hFont;
 }
 
