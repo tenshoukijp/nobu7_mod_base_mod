@@ -1,13 +1,13 @@
 
 #include <windows.h>
+#include <string>
 #include "data_game.h"
 #include "data_bushou_struct.h"
+#include "output_debug_stream.h"
 
 NB7武将情報型* nb7武将情報 = NULL;
 
 void setGameDataStructPointer() {
-
-	int* iTargetAddress = NULL;
 
 	/*
 	BaseAddress 0x400000時
@@ -19,6 +19,13 @@ void setGameDataStructPointer() {
 	00542448  ・..X...d...T...n...2...n...U...n...............ﾎ..........
 	*/
 
-	nb7武将情報 = (NB7武将情報型*)((0x542348 - 0x400000) + nBaseAddress); // 0x400000で不動だとは思うがベースアドレスが0x400000の時にチェックしたので、目視でのチェック時のベースアドレスから対象のメモリアドレスまでの差を、実行時のベースアドレスに足す
+	nb7武将情報 = (NB7武将情報型*)(0x542348);
+	OutputDebugStream(nb7武将情報[0].苗字);
+	OutputDebugStream(nb7武将情報[1].苗字);
+	/*
+	for (int iBushouID = 0; iBushouID < 100; iBushouID++) {
+		OutputDebugStream("武将ID:s%d ", iBushouID);
+	}
+	*/
 }
 

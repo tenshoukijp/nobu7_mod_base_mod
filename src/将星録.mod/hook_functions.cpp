@@ -224,6 +224,28 @@ int WINAPI Hook_ReleaseDC(
 	return nResult;
 }
 
+//---------------------------EnableMenuItem
+
+using PFNENABLEMENUITEM = BOOL(WINAPI *)(HMENU, UINT, UINT);
+
+PROC pfnOrigEnableMenuItem = GetProcAddress(GetModuleHandleA("user32.dll"), "EnableMenuItem");
+
+extern BOOL Hook_EnableMenuItemCustom(HMENU hMenu, UINT uIDEnableItem, UINT uEnable);
+
+BOOL WINAPI Hook_EnableMenuItem(
+    HMENU hMenu, // メニューのハンドル
+    UINT uIDEnableItem, // メニュー項目の識別子または位置
+    UINT uEnable // メニュー項目の状態
+) {
+	// 先にカスタムの方を実行。
+	Hook_EnableMenuItemCustom(hMenu, uIDEnableItem, uEnable);
+
+	// 元のものを呼び出す
+	BOOL nResult = ((PFNENABLEMENUITEM)pfnOrigEnableMenuItem)(hMenu, uIDEnableItem, uEnable);
+
+	return nResult;
+}
+
 
 /*----------------------------------------------------------------*
  HOOK系処理
@@ -233,6 +255,7 @@ bool isHookTextOutA = false;
 bool isHookCreateFontA = false;
 bool isHookSetMenu = false;
 bool isHookReleaseDC = false;
+bool isHookEnableMenuItem = false;
 
 void hookFunctions() {
     PROC pfnOrig;
@@ -261,5 +284,10 @@ void hookFunctions() {
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "ReleaseDC");
 		ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_ReleaseDC);
 	}
+    if (!isHookEnableMenuItem) {
+        isHookEnableMenuItem = true;
+        pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "EnableMenuItem");
+        ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_EnableMenuItem);
+    }
 
 }

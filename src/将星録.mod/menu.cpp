@@ -67,13 +67,15 @@ BOOL onMenuPushed(int iMenuID) {
 	return FALSE;
 }
 
+extern void setGameDataStructPointer();
 // システムメニュー(アプリの左上を右クリックなどで出てくるメニュー)のメニューアイテムを実行した時、
 BOOL onSystemMenuPushed(int iMenuID) {
 	OutputDebugStream(iMenuID);
 	OutputDebugStream("\r\n");
 	switch (iMenuID) {
 	case ADDITIONAL_MENU_ID_NOTEPAD:
-		ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
+		// ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
+		setGameDataStructPointer();
 		return TRUE;
 	}
 	return FALSE;

@@ -98,6 +98,7 @@
     <ClCompile Include="data_game.cpp" />
     <ClCompile Include="export_func.cpp" />
     <ClCompile Include="font.cpp" />
+    <ClCompile Include="hook_enablemenuitem_custom.cpp" />
     <ClCompile Include="hook_functions.cpp" />
     <ClCompile Include="hook_releasedc_custom.cpp" />
     <ClCompile Include="hook_setmenu_custom.cpp" />

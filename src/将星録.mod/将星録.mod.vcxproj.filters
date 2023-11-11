@@ -143,6 +143,9 @@
     <ClCompile Include="output_debug_stream.cpp">
       <Filter>デバッグ出力</Filter>
     </ClCompile>
+    <ClCompile Include="hook_enablemenuitem_custom.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
