@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <string>
 #include "output_debug_stream.h"
+#include "on_event.h"
+
 using namespace std;
 
 extern string bufferTextOut;
@@ -32,6 +34,9 @@ int Hook_ReleaseDCCustom(
 		OutputDebugStream(bufferTextOut);
 		OutputDebugStream("------------\n");
 	}
+
+	dispatchEvent();
+
 	bufferTextOut = "";
 
 	return 1;

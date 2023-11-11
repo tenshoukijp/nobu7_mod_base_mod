@@ -1,0 +1,8 @@
+LIBRARY JavaScript.mod
+EXPORTS
+	onInitialize = onInitialize @ 1
+	onFinalize = onFinalize @ 2
+	onRequestFont = onRequestFont @ 4
+	onRequestBGM = onRequestBGM @ 5
+	onRequestSound = onRequestSound @ 6
+

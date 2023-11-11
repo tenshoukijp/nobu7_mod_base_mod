@@ -12,6 +12,10 @@ string bufferTextOut = "";
 int nCheckTextOutYStart = -1;
 int nCheckTextOutXStart = -1;
 
+const string getBufferTextOut() {
+	return bufferTextOut;
+}
+
 
 BOOL Hook_TextOutACustom(
 	HDC hdc,           // デバイスコンテキストのハンドル

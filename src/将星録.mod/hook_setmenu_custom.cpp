@@ -28,10 +28,9 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	if (hMenu != hNB7MenuCheckChange) {
 		hNB7MenuCheckChange = hMenu;
 
-		OutputDebugStream(std::to_string(count).c_str());
-		OutputDebugStream("個メニューが設定されます\r\n");
-
-		OutputDebugStream("メニューが変わりました\r\n");
+		// OutputDebugStream(std::to_string(count).c_str());
+		// OutputDebugStream("個メニューが設定されます\r\n");
+		// OutputDebugStream("メニューが変わりました\r\n");
 
 		// OpeningMovie時のメニューは2個
 		if (menu_count == 2) {

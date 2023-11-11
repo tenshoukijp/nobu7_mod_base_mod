@@ -7,7 +7,11 @@
 #include <shellapi.h>
 #include <string>
 
+#include "output_debug_stream.h"
 #include "font.h"
+#include "onigwrap.h"
+#include "on_event.h"
+#include "hook_textouta_custom.h"
 
 // ImageDirectoryEntryToData
 #pragma comment(lib, "dbghelp.lib")

@@ -90,6 +90,9 @@
     <ClInclude Include="output_debug_stream.h">
       <Filter>デバッグ出力</Filter>
     </ClInclude>
+    <ClInclude Include="hook_textouta_custom.h">
+      <Filter>フック関数</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game.cpp">

@@ -4,6 +4,7 @@
 #include "output_debug_stream.h"
 #include "menu.h"
 #include "window.h"
+#include "on_event.h"
 
 #pragma comment(lib, "shell32.lib")
 
@@ -12,12 +13,55 @@ using namespace std;
 HMENU hNB7MenuCheckChange = NULL;
 
 // メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、
+// 番号は主にリソースエディタで確認できる
 BOOL onMenuPushed(int iMenuID) {
 	OutputDebugStream(iMenuID);
 	OutputDebugStream("\r\n");
 	switch (iMenuID) {
 	case ADDITIONAL_MENU_ID_MEMORYEDITOR:
 		ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
+		return TRUE;
+	case 313:
+		onMenuBushouEditStart();
+		return TRUE;
+	case 314:
+		onMenuShiroEditStart();
+		return TRUE;
+	case 302:
+		onMenuNenpyoSengokushiStart();
+		return TRUE;
+	case 125:
+		onMenuJyohoDaimyoIchiranStart();
+		return TRUE;
+	case 127:
+		onMenuJyohoShiroIchiranStart();
+		return TRUE;
+	case 126:
+		onMenuJyohoBushouIchiranStart();
+		return TRUE;
+	case 128:
+		onMenuJyohoUnitIchiranStart();
+		return TRUE;
+	case 129:
+		onMenuJyohoKahouIchiranStart();
+		return TRUE;
+	case 101:
+		onMenuJyohoKanniIchiranStart();
+		return TRUE;
+	case 182:
+		onMenuJyohoYakusyokuIchiranStart();
+		return TRUE;
+	case 115:
+		onMenuCyuChizuStart();
+		return TRUE;
+	case 111:
+		onMenuShiroIchiranStart();
+		return TRUE;
+	case 247:
+		onMenuKashinBushoIchiranStart();
+		return TRUE;
+	case 226:
+		onMenuKashinUnitIchiranStart();
 		return TRUE;
 	}
 	return FALSE;
