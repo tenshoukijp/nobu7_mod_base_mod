@@ -55,6 +55,9 @@
     <Filter Include="ゲームデータ - 城データ">
       <UniqueIdentifier>{345bef39-d12a-432b-98ab-740c97896ebf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 家宝データ">
+      <UniqueIdentifier>{157e01f6-6fa5-454a-9442-feb4d103b37e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -101,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="bushou_arubedo.h">
       <Filter>アルベド</Filter>
+    </ClInclude>
+    <ClInclude Include="data_kahou_struct.h">
+      <Filter>ゲームデータ - 家宝データ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +166,9 @@
     </ClCompile>
     <ClCompile Include="data_castle_struct.cpp">
       <Filter>ゲームデータ - 城データ</Filter>
+    </ClCompile>
+    <ClCompile Include="data_kahou_struct.cpp">
+      <Filter>ゲームデータ - 家宝データ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
