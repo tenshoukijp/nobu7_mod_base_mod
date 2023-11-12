@@ -4,7 +4,10 @@
 #include "output_debug_stream.h"
 #include "onigwrap.h"
 
+#include "bushou_arubedo.h"
+
 using namespace std;
+
 
 /*
 005D9638  0の娘。父の要請を受けて一軍の将となる。父親譲りの智謀と武勇を兼ね備える
@@ -45,7 +48,7 @@ BOOL pathOfBushouRetsuden(
 
 
 	// アルベドの武将列伝の場合、アルベドモードにする。
-	if (bufferTextOut.ends_with("武将列伝ΦΧΨ1535～????")) {
+	if (bufferTextOut.ends_with("武将列伝" + getArubedoMei() + "1535～????")) {
 		// 次にここに来たらオーバーライドするというフラグ
 		isNextStartOverride = TRUE;
 		isAlbedoRetsuden = TRUE;

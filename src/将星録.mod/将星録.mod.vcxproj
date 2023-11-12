@@ -78,8 +78,9 @@
   <ItemGroup>
     <ClInclude Include="..\oniguruma\oniguruma.h" />
     <ClInclude Include="bushou_retsuden.h" />
+    <ClInclude Include="bushou_arubedo.h" />
     <ClInclude Include="data_bushou_struct.h" />
-    <ClInclude Include="data_game.h" />
+    <ClInclude Include="data_game_struct.h" />
     <ClInclude Include="font.h" />
     <ClInclude Include="hook_functions.h" />
     <ClInclude Include="hook_textouta_custom.h" />
@@ -92,10 +93,11 @@
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bushou_albedo.cpp" />
     <ClCompile Include="bushou_retsuden.cpp" />
     <ClCompile Include="hook_createfonta_custom.cpp" />
     <ClCompile Include="hook_defwindowproca_custom.cpp" />
-    <ClCompile Include="data_game.cpp" />
+    <ClCompile Include="data_game_struct.cpp" />
     <ClCompile Include="export_func.cpp" />
     <ClCompile Include="font.cpp" />
     <ClCompile Include="hook_enablemenuitem_custom.cpp" />

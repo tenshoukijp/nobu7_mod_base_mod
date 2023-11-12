@@ -36,4 +36,6 @@ void onMenuKashinUnitIchiranStart();
 
 void onBattleTurn(std::string battleTurnInfo);
 
+void onStrategyPlayerDaimyoTurn();
+
 int dispatchEvent();

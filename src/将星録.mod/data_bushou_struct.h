@@ -3,6 +3,8 @@
 
 #pragma pack(1)
 
+
+
 struct NB7•«î•ñŒ^
 {
 	char •cš[7];	// •cš

@@ -49,6 +49,9 @@
     <Filter Include="ゲームデータ - 武将データ">
       <UniqueIdentifier>{dd171165-7264-4b15-85d5-ab380fe64b65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="アルベド">
+      <UniqueIdentifier>{7dbde52b-bacc-490b-89f4-a905490284fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -57,7 +60,7 @@
     <ClInclude Include="data_bushou_struct.h">
       <Filter>ゲームデータ - 武将データ</Filter>
     </ClInclude>
-    <ClInclude Include="data_game.h">
+    <ClInclude Include="data_game_struct.h">
       <Filter>ゲームデータ</Filter>
     </ClInclude>
     <ClInclude Include="menu.h">
@@ -93,9 +96,12 @@
     <ClInclude Include="hook_textouta_custom.h">
       <Filter>フック関数</Filter>
     </ClInclude>
+    <ClInclude Include="bushou_arubedo.h">
+      <Filter>アルベド</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="data_game.cpp">
+    <ClCompile Include="data_game_struct.cpp">
       <Filter>ゲームデータ</Filter>
     </ClCompile>
     <ClCompile Include="menu.cpp">
@@ -145,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="hook_enablemenuitem_custom.cpp">
       <Filter>フック関数</Filter>
+    </ClCompile>
+    <ClCompile Include="bushou_albedo.cpp">
+      <Filter>アルベド</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

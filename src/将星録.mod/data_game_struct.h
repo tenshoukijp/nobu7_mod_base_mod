@@ -6,3 +6,9 @@
 extern int nBaseAddress;
 
 extern NB7•«î•ñŒ^* nb7•«î•ñ;
+
+namespace Å‘å” {
+	namespace •«î•ñ {
+		const int ”z—ñ” = 732;
+	}
+}

@@ -15,12 +15,12 @@ extern "C" __declspec(dllexport) void WINAPI onRequestFont() {
 	OutputDebugStream("JavaScript/onFontInitialize\r\n");
 }
 
-// 将星録.mod.dllから呼ばれる関数。フォント要求時
+// 将星録.mod.dllから呼ばれる関数。BGM要求時
 extern "C" __declspec(dllexport) void WINAPI onRequestBGM() {
 	OutputDebugStream("JavaScript/onRequestBGM\r\n");
 }
 
-// 将星録.mod.dllから呼ばれる関数。フォント要求時
+// 将星録.mod.dllから呼ばれる関数。SOUND要求時
 extern "C" __declspec(dllexport) void WINAPI onRequestSound() {
 	OutputDebugStream("JavaScript/onRequestSound\r\n");
 }

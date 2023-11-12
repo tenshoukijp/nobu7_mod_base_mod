@@ -2,6 +2,8 @@
 #include "output_debug_stream.h"
 #include "hook_textouta_custom.h"
 #include "onigwrap.h"
+#include "data_game_struct.h"
+#include "bushou_arubedo.h"
 
 void onOpeningMovie() {
 	OutputDebugStream("オープニングムービー\n");
@@ -159,9 +161,35 @@ void onBattleTurn(string battleTurnInfo) {
             OutputDebugStream("ターン軍:" + turn_ma[1] + "\n");
             OutputDebugStream("ターン部隊番号:" + turn_ma[2] + "\n");
         }
+
+        string albedoSeiMei = getArubedoSeiMei();
+        if (ma[1] == albedoSeiMei || ma[2] == albedoSeiMei) {
+            overrideBushouAlbedo();
+        }
+    }
+}
+
+void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
+    Matches ma;
+
+    if (OnigMatch(strategyTurnInfo, "情報(.+?)様あなたの番となりました", &ma)) {
+        OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);
     }
 
+    overrideBushouAlbedo();
 }
+
+void onBushouCyuseiChange(string chanteInfo) {
+    Matches ma;
+
+    if (OnigMatch(chanteInfo, "確認(.+)の忠誠度が(\\d+)になりました", &ma)) {
+        OutputDebugStream("武将" + ma[1] + "の忠誠値が、" + ma[2] + "へと変化しました\n");
+    }
+
+    overrideBushouAlbedo();
+}
+
+
 
 int dispatchEvent() {
     // 正規表現で状況を判断する
@@ -183,6 +211,11 @@ int dispatchEvent() {
 
         onBattleTurn(bufferTextOut);
     }
-
+    else if (OnigMatch(bufferTextOut, "情報(.+?)様あなたの番となりました")) {
+        onStrategyPlayerDaimyoTurn(bufferTextOut);
+    }
+    else if (OnigMatch(bufferTextOut, "確認(.+)の忠誠度が(\\d+)になりました")) {
+        onBushouCyuseiChange(bufferTextOut);
+    }
     return 1;
 }

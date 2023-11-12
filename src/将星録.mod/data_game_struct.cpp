@@ -1,7 +1,7 @@
 
 #include <windows.h>
 #include <string>
-#include "data_game.h"
+#include "data_game_struct.h"
 #include "data_bushou_struct.h"
 #include "output_debug_stream.h"
 
@@ -13,7 +13,7 @@ void setGameDataStructPointer() {
 		OutputDebugStream("•«ID:%s ", nb7•«î•ñ[iBushouID].–¼‘O);
 		OutputDebugStream("­¡:%d ", nb7•«î•ñ[iBushouID].­¡);
 		OutputDebugStream("í“¬:%d ", nb7•«î•ñ[iBushouID].í“¬);
-		OutputDebugStream("’m–d:%d ", nb7•«î•ñ[iBushouID].’m–d);
+		OutputDebugStream("’m–d:%d ", nb7•«î•ñ[iBushouID].’q–d);
 		OutputDebugStream("‹R”n“K«:%d ", nb7•«î•ñ[iBushouID].‹R”n“K«);
 		OutputDebugStream("«•Ê:%s ", nb7•«î•ñ[iBushouID].«•Ê ? "—":"’j");
 		OutputDebugStream("\n");

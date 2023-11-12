@@ -1,7 +1,8 @@
-﻿  bushou_retsuden.cpp
+﻿  bushou_albedo.cpp
+  bushou_retsuden.cpp
   hook_createfonta_custom.cpp
   hook_defwindowproca_custom.cpp
-  data_game.cpp
+  data_game_struct.cpp
   export_func.cpp
   font.cpp
   hook_enablemenuitem_custom.cpp

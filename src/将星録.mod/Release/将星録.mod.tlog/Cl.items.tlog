@@ -1,7 +1,8 @@
+C:\Users\master\source\repos\winmm\将星録.mod\bushou_albedo.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\bushou_albedo.obj
 C:\Users\master\source\repos\winmm\将星録.mod\bushou_retsuden.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\bushou_retsuden.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_createfonta_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_createfonta_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_defwindowproca_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_defwindowproca_custom.obj
-C:\Users\master\source\repos\winmm\将星録.mod\data_game.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_game.obj
+C:\Users\master\source\repos\winmm\将星録.mod\data_game_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_game_struct.obj
 C:\Users\master\source\repos\winmm\将星録.mod\export_func.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\export_func.obj
 C:\Users\master\source\repos\winmm\将星録.mod\font.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\font.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_enablemenuitem_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_enablemenuitem_custom.obj
