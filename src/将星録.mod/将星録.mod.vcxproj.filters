@@ -52,6 +52,9 @@
     <Filter Include="アルベド">
       <UniqueIdentifier>{7dbde52b-bacc-490b-89f4-a905490284fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 城データ">
+      <UniqueIdentifier>{345bef39-d12a-432b-98ab-740c97896ebf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -154,6 +157,9 @@
     </ClCompile>
     <ClCompile Include="bushou_albedo.cpp">
       <Filter>アルベド</Filter>
+    </ClCompile>
+    <ClCompile Include="data_castle_struct.cpp">
+      <Filter>ゲームデータ - 城データ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

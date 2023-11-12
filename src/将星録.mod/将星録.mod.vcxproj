@@ -95,6 +95,7 @@
   <ItemGroup>
     <ClCompile Include="bushou_albedo.cpp" />
     <ClCompile Include="bushou_retsuden.cpp" />
+    <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="hook_createfonta_custom.cpp" />
     <ClCompile Include="hook_defwindowproca_custom.cpp" />
     <ClCompile Include="data_game_struct.cpp" />

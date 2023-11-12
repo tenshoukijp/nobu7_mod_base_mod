@@ -34,7 +34,7 @@ void onMenuKashinBushoIchiranStart();
 
 void onMenuKashinUnitIchiranStart();
 
-void onBattleTurn(std::string battleTurnInfo);
+void onYasenBattleTurn(std::string battleTurnInfo);
 
 void onStrategyPlayerDaimyoTurn();
 
