@@ -27,8 +27,9 @@ extern PROC pfnOrigTextOutA;
 
 extern std::string bufferTextOut;
 
-char pszBufferYasenWeaponMessage[256] = "このバルディッシュの一撃、その身に受けるがよい！　　　　　　　　　　　　";
-char pszBufferYasenAttackMessage[256] = "低俗な人間風情が！バルディッシュの錆にしてくれる！虫けらは死ねぃ！　　　　　　　　　　　　　　";
+char pszBufferYasenWeaponMessage[256] = "人間ごときが歯向かうとは、懺悔なさい！ハァー！！　　　　　　　　　　　　";
+// char pszBufferYasenWeaponMessage[256] = "このバルディッシュの一撃、受けなさい！ハァー！！　　　　　　　　　　　　";
+char pszBufferYasenAttackMessage[256] = "下等な人間風情が！バルディッシュの錆になりなさい！虫けらは死ぬぃ！　　　　　　　　　　　　　　";
 
 BOOL isNextSerifuStartOverride = false;  // 次にTextOutAが呼ばれたタイミングで isOverrideTextOutをTRUEにするためのフラグ
 BOOL isOverrideSerifuTextOut = false;    // このフラグがONだと、TextOutは描画をスルーするようにする。
