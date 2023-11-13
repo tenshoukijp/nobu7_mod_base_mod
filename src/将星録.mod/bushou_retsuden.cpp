@@ -3,8 +3,10 @@
 
 #include "output_debug_stream.h"
 #include "onigwrap.h"
-
+#include "hook_textouta_custom.h"
 #include "bushou_arubedo.h"
+#include "on_serihu_message.h"
+#include "hook_textouta_custom.h"
 
 using namespace std;
 
@@ -24,17 +26,14 @@ using PFNTEXTOUTA = BOOL(WINAPI*)(HDC, int, int, LPCTSTR, int);
 extern PROC pfnOrigTextOutA;
 
 
-BOOL isNextStartOverride = false;  // 次にTextOutAが呼ばれたタイミングで isOverrideTextOutをTRUEにするためのフラグ
-BOOL isOverrideTextOut = false;    // このフラグがONだと、TextOutは描画をスルーするようにする。
 
 BOOL isAlbedoRetsuden = false; // アルベドの列伝を表示しなければならないことを検出するための専用フラグ
 
-char AlbedoRetsuden[256] = "宰相。頭部からは２本の角、腰からは漆黒の翼を生やした妖艶なサキュバス。「慈悲深き純白の悪魔」の異名を持つ絶世の美女。　　　　　　　　　　　　　　　　　　　　";
-int nTextOutProceedCounter = 0;
+char pszAlbedoRetsuden[256] = "宰相。頭部からは２本の角、腰からは漆黒の翼を生やした妖艶なサキュバス。「慈悲深き純白の悪魔」の異名を持つ絶世の美女。　　　　　　　　　　　　　　　　　　　　";
 
 extern std::string bufferTextOut;
 
-BOOL pathOfBushouRetsuden(
+BOOL patchOfBushouRetsuden(
 	HDC hdc,           // デバイスコンテキストのハンドル
 	int nXStart,       // 開始位置（基準点）の x 座標
 	int nYStart,       // 開始位置（基準点）の y 座標
@@ -60,15 +59,14 @@ BOOL pathOfBushouRetsuden(
 
 		if (OnigMatch(bufferTextOut, "武将列伝.+～\\?\\?\\?\\?あ$", NULL)) {
 		// if (bufferTextOut.ends_with("～????あ")) {
-			char checkDummyRetsuden[256] = { 0 };
 
 			// 列伝の中身をコピーしてくる
-			strcpy_s(checkDummyRetsuden, 255, (char*)0x5D9638);
+			string checkDummyRetsuden = (char *)(セリフメッセージアドレス);
 			// 「ああああ」や「いいいい」が入っていたら、(アルベド以外は)何も表示しない。
-			if (strstr(checkDummyRetsuden, "ああああああああああ")) {
+			if (checkDummyRetsuden.find("ああああああああああ") != string::npos) {
 				isOverrideTextOut = TRUE;
 			}
-			if (strstr(checkDummyRetsuden, "いいいいいいいいいい")) {
+			if (checkDummyRetsuden.find("いいいいいいいいいい") != string::npos) {
 				isOverrideTextOut = TRUE;
 			}
 		}
@@ -77,7 +75,7 @@ BOOL pathOfBushouRetsuden(
 	// アルベドモードなら、列伝の描画を順次アルベドのもので上書き
 	if (isOverrideTextOut && isAlbedoRetsuden) {
 		// 将星録の描画は1文字ずつなので、1文字ずつ別の文字を描画する形となる。
-		((PFNTEXTOUTA)pfnOrigTextOutA)(hdc, nXStart, nYStart, (char*)(AlbedoRetsuden + nTextOutProceedCounter), 2);
+		((PFNTEXTOUTA)pfnOrigTextOutA)(hdc, nXStart, nYStart, (char*)(pszAlbedoRetsuden + nTextOutProceedCounter), 2);
 		nTextOutProceedCounter += 2;
 	}
 

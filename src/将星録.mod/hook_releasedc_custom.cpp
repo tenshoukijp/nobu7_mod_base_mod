@@ -2,16 +2,14 @@
 #include <string>
 #include "output_debug_stream.h"
 #include "on_event.h"
+#include "hook_textouta_custom.h"
+#include "on_serihu_message.h"
 
 using namespace std;
 
 extern string bufferTextOut;
 extern int nTextOutProceedCounter;
 
-extern BOOL isOverrideTextOut;
-extern BOOL isNextStartOverride;
-
-extern BOOL isAlbedoRetsuden;
 
 extern int nCheckTextOutXStart;
 extern int nCheckTextOutYStart;
@@ -23,9 +21,11 @@ int Hook_ReleaseDCCustom(
 	nTextOutProceedCounter = 0;
 
 	// DCへの描画中に立ては各種フラグは、このReleaseDCのタイミングでおろすようにする。
-	isOverrideTextOut = false;
-	isNextStartOverride = false;
-	isAlbedoRetsuden = false;
+	isOverrideTextOut = FALSE;
+	isNextStartOverride = FALSE;
+	isAlbedoRetsuden = FALSE;
+	isAlbedoYasenWeaponMessage = FALSE;
+	isAlbedoYasenAttackMessage = FALSE;
 
 	nCheckTextOutXStart = -1;
 	nCheckTextOutYStart = -1;

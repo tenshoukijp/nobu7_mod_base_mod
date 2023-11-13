@@ -58,6 +58,9 @@
     <Filter Include="ゲームデータ - 家宝データ">
       <UniqueIdentifier>{157e01f6-6fa5-454a-9442-feb4d103b37e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Onセリフ">
+      <UniqueIdentifier>{dd8a8d80-5da4-4c3a-9c68-95230d130e84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -107,6 +110,9 @@
     </ClInclude>
     <ClInclude Include="data_kahou_struct.h">
       <Filter>ゲームデータ - 家宝データ</Filter>
+    </ClInclude>
+    <ClInclude Include="on_serihu_message.h">
+      <Filter>Onセリフ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +175,9 @@
     </ClCompile>
     <ClCompile Include="data_kahou_struct.cpp">
       <Filter>ゲームデータ - 家宝データ</Filter>
+    </ClCompile>
+    <ClCompile Include="on_serihu_message.cpp">
+      <Filter>Onセリフ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

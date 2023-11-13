@@ -5,6 +5,7 @@ using namespace std;
 
 #include "data_game_struct.h"
 #include "bushou_arubedo.h"
+#include "output_debug_stream.h"
 
 
 string getArubedoSei() {
@@ -19,20 +20,44 @@ string getArubedoSeiMei() {
     return getArubedoSei() + getArubedoMei();
 }
 
-int overrideBushouAlbedo() {
-    return 1;
+// アルベドと対峙する武将の戦闘能力を1になってしまう
+int iOverrideBushouID = -1;
+int iBackupBushou戦闘 = 0;
+int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
 
-    for (int b = 0; b < 最大数::武将情報::配列数; b++) {
-        if (nb7武将情報[b].姓名 == getArubedoSeiMei()) {
-            nb7武将情報[b].戦闘 = 125;
-            nb7武将情報[b].最大戦闘 = 125;
-            nb7武将情報[b].智謀 = 123;
-            nb7武将情報[b].最大戦闘 = 123;
-            nb7武将情報[b].政治 = 124;
-            nb7武将情報[b].最大政治 = 124;
-            nb7武将情報[b].忠誠 = 100;
-        }
+    string targetBushouName = "";
+
+    OutputDebugStream("★★能力を上書き\n");
+
+    // 攻撃側がアルベドなら、守備側をターゲットにする
+    if (attack == getArubedoSeiMei()) {
+        targetBushouName = defend;
+    }
+    if (defend == getArubedoSeiMei()) {
+        targetBushouName = attack;
     }
 
+    // アルベドと対峙する武将の戦闘能力を1にしつつ、その武将の元々の戦闘値を保持しておく。
+    for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+        if (targetBushouName == nb7武将情報[iBushouID].姓名) {
+            iOverrideBushouID = iBushouID;
+            iBackupBushou戦闘 = nb7武将情報[iBushouID].戦闘;
+            nb7武将情報[iBushouID].戦闘 = 1;
+            break;
+        }
+    }
     return 1;
+}
+
+// 野戦で変更した戦闘相手の能力をもとへと戻す
+int resetYasenBattleAbirityChangeAlbedo() {
+
+    if (0 <= iOverrideBushouID && iOverrideBushouID < 最大数::武将情報::配列数) {
+        nb7武将情報[iOverrideBushouID].戦闘 = iBackupBushou戦闘;
+
+        iOverrideBushouID = -1;
+        iBackupBushou戦闘 = 0;
+    }
+
+    return TRUE;
 }

@@ -3,7 +3,10 @@
 
 #include "window.h"
 
+#include "hook_textouta_custom.h"
+
 #include "bushou_retsuden.h"
+#include "on_serihu_message.h"
 
 using namespace std;
 
@@ -16,6 +19,12 @@ const string getBufferTextOut() {
 	return bufferTextOut;
 }
 
+BOOL isNextStartOverride = false;  // 次にTextOutAが呼ばれたタイミングで isOverrideTextOutをTRUEにするためのフラグ
+BOOL isOverrideTextOut = false;    // このフラグがONだと、TextOutは描画をスルーするようにする。
+int nTextOutProceedCounter = 0;    // TextOutAの描画を順次上書きするためのカウンタ
+
+
+extern string prevSerihuMessage;
 
 BOOL Hook_TextOutACustom(
 	HDC hdc,           // デバイスコンテキストのハンドル
@@ -29,8 +38,17 @@ BOOL Hook_TextOutACustom(
 	memcpy(buffer, lpString, cbString);
 	bufferTextOut += buffer;
 
+	string message = (char*)(セリフメッセージアドレス); // on_serihu_message
+	if (prevSerihuMessage != message) {
+		onChangeSerifuMessage(message);
+		prevSerihuMessage = message;
+	}
+
 	// 武将列伝用の特別なパッチ処理
-	pathOfBushouRetsuden(hdc, nXStart, nYStart, lpString, cbString);
+	patchOfBushouRetsuden(hdc, nXStart, nYStart, lpString, cbString);
+
+	// 武将セリフの特別なパッチ処理
+	patchOfBushouMessage(hdc, nXStart, nYStart, lpString, cbString);
 
 	return TRUE;
 }

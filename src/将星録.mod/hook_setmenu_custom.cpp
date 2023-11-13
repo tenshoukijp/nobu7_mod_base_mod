@@ -6,6 +6,8 @@
 
 int nCheckMenuCount = 0;
 
+int prevMenuCount = 0;
+
 BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	if (hMenu == NULL) {
 		return FALSE;
@@ -42,13 +44,37 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 		}
 
 		// ゲームが出来る状態になると、メニューが9個になる。一応8個以上で判定。
-		if (menu_count >= 8) {
+		if (menu_count == 9) {
 			// メニューを追加した
 			addMenuItem(GetMenu(hWnd), "メモリエディタ起動(&M)", RESOURCE_MENU_ID_BUSHOUEDIT, ADDITIONAL_MENU_ID_MEMORYEDITOR);
 			addMenuItem(GetMenu(hWnd), "---", RESOURCE_MENU_ID_BUSHOUEDIT, NULL);
 
 			OutputDebugStream("メニューを追加した\n");
 		}
+	}
+
+	if (prevMenuCount != menu_count) {
+
+		if (menu_count == 3) {
+			OutputDebugStream("籠城戦スクリーン中である\n");
+		}
+
+		if (menu_count == 4) {
+			OutputDebugStream("戦闘スクリーン中である\n");
+		}
+
+		if (menu_count == 9) {
+			if (prevMenuCount == 4) {
+				onYasenBattleEnd();
+			}
+			if (prevMenuCount == 3) {
+				onCastleBattleEnd();
+			}
+			OutputDebugStream("戦術スクリーン中である\n");
+		}
+
+		prevMenuCount = menu_count;
+
 	}
 
 	return true;

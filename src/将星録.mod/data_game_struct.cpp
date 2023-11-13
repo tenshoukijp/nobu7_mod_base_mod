@@ -11,37 +11,34 @@ NB7‰Æ•óî•ñŒ^* nb7‰Æ•óî•ñ = (NB7‰Æ•óî•ñŒ^*)(0x5871B0); // data_kahou_struct‚É‚
 
 void setGameDataStructPointer() {
 
-	/*
 	for (int iBushouID = 0; iBushouID < Å‘å”::•«î•ñ::”z—ñ”; iBushouID++) {
 		OutputDebugStream("•«ID:%s ", nb7•«î•ñ[iBushouID].–¼‘O);
 		OutputDebugStream("­¡:%d ", nb7•«î•ñ[iBushouID].­¡);
 		OutputDebugStream("í“¬:%d ", nb7•«î•ñ[iBushouID].í“¬);
 		OutputDebugStream("’m–d:%d ", nb7•«î•ñ[iBushouID].’q–d);
-		OutputDebugStream("‹R”n“K«:%d ", nb7•«î•ñ[iBushouID].‹R”n“K«);
+		OutputDebugStream("E‹Æ:%d ", nb7•«î•ñ[iBushouID].E‹Æ);
 		OutputDebugStream("«•Ê:%s ", nb7•«î•ñ[iBushouID].«•Ê ? "—":"’j");
 		OutputDebugStream("\n");
 	}
-	*/
 
+
+	/*
 	for (int iKahouID = 0; iKahouID < Å‘å”::‰Æ•óî•ñ::”z—ñ”; iKahouID++) {
 		OutputDebugStream("‰Æ•ó–¼:%s ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼);
-		/*
 		OutputDebugStream("•º‰ÈŒø‰Ê:%d ", nb7‰Æ•óî•ñ[iKahouID].•º‰ÈŒø‰Ê);
 		OutputDebugStream("“™‹‰:%d ", nb7‰Æ•óî•ñ[iKahouID].“™‹‰);
 		OutputDebugStream("ƒOƒ‰ƒtƒBƒbƒN”Ô†:%d ", nb7‰Æ•óî•ñ[iKahouID].ƒOƒ‰ƒtƒBƒbƒN”Ô†);
 		OutputDebugStream("ã¸”\—Í’l:%d ", nb7‰Æ•óî•ñ[iKahouID].ã¸”\—Í’l);
 		OutputDebugStream("‰Æ•óí—Ş:%d ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•óí—Ş);
-		*/
 		int iBushouID = getBushouIDFromKahouID(iKahouID);
 		if (0 <= iBushouID && iBushouID < Å‘å”::•«î•ñ::”z—ñ”) {
 			OutputDebugStream("Š—LÒ:%s ", nb7•«î•ñ[iBushouID].©–¼);
 		}
-		/*
 		OutputDebugStream("‰Æ•ó”Ô†:%d ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó”Ô†);
 		OutputDebugStream("‰Æ•óÅ‘å”:%d ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•óÅ‘å”);
 		OutputDebugStream("”\—ÍŒø‰Ê:%d ", (int)nb7‰Æ•óî•ñ[iKahouID].”\—ÍŒø‰Ê);
-		*/
 		OutputDebugStream("\n");
 	}
+	*/
 }
 

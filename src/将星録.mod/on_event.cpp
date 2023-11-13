@@ -127,6 +127,7 @@ void onYasenBattleStart(string battleYanseStartInfo) {
 string previousBattleTurnInfo = "";
 string previousRegexBattleTurnInfo = "";
 BOOL isYasenBattle = FALSE;
+
 void onYasenBattleTurn(string battleYanseTurnInfo) {
     OutputDebugStream("戦闘ターン情報:" + battleYanseTurnInfo + "\n");
 
@@ -207,9 +208,11 @@ void onYasenBattleTurn(string battleYanseTurnInfo) {
         }
 
         string albedoSeiMei = getArubedoSeiMei();
-        if (ma[1] == albedoSeiMei || ma[2] == albedoSeiMei) {
-            overrideBushouAlbedo();
+        if (kougekigawa == albedoSeiMei || syubigawa == albedoSeiMei) {
+            overrideYasenBattleAbirityChangeAlbedo(syubigawa, kougekigawa);
         }
+
+
     }
 }
 
@@ -231,7 +234,16 @@ void onYasenBattleEnd(string endYanseBattleInfo) {
     )
     ) {
     }
+
+    resetYasenBattleAbirityChangeAlbedo();
+
     OutputDebugStream("野戦の戦闘が終了しました\n\n" + endYanseBattleInfo + "\n");
+}
+
+// 理由不明な終わり方
+void onYasenBattleEnd() {
+    resetYasenBattleAbirityChangeAlbedo();
+    OutputDebugStream("野戦の戦闘が終了しました\n\n");
 }
 
 BOOL isCastleBattle = FALSE;
@@ -262,7 +274,15 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
     ) {
     }
 
+    resetYasenBattleAbirityChangeAlbedo();
+
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" + battleCastleEndInfo + "\n");
+}
+
+// 理由不明な終わり方
+void onCastleBattleEnd() {
+    resetYasenBattleAbirityChangeAlbedo();
+    OutputDebugStream("城攻めの戦闘が終了しました\n\n" );
 }
 
 void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
@@ -271,8 +291,6 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
     if (OnigMatch(strategyTurnInfo, "情報(.+?)様あなたの番となりました", &ma)) {
         OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);
     }
-
-    overrideBushouAlbedo();
 }
 
 void onBushouCyuseiChange(string chanteInfo) {
@@ -281,8 +299,6 @@ void onBushouCyuseiChange(string chanteInfo) {
     if (OnigMatch(chanteInfo, "確認(.+)の忠誠度が(\\d+)になりました", &ma)) {
         OutputDebugStream("武将" + ma[1] + "の忠誠値が、" + ma[2] + "へと変化しました\n");
     }
-
-    overrideBushouAlbedo();
 }
 
 
@@ -364,9 +380,5 @@ int dispatchEvent() {
         isCastleBattle = FALSE;
     }
 
-    /*
-    情報岡崎城を攻め落としました
-情報岡崎城を攻め落とせませんでした
-*/
     return 1;
 }

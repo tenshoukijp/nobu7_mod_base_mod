@@ -8,4 +8,6 @@ std::string getArubedoMei();
 
 std::string getArubedoSeiMei();
 
-int overrideBushouAlbedo();
+int overrideYasenBattleAbirityChangeAlbedo(std::string, std::string);
+
+int resetYasenBattleAbirityChangeAlbedo();
