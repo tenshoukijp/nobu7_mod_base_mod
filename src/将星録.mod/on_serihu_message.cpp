@@ -27,8 +27,9 @@ extern PROC pfnOrigTextOutA;
 
 extern std::string bufferTextOut;
 
-char pszBufferYasenWeaponMessage[256] = "人間ごときが歯向かうとは、懺悔なさい！ハァー！！　　　　　　　　　　　　";
-// char pszBufferYasenWeaponMessage[256] = "このバルディッシュの一撃、受けなさい！ハァー！！　　　　　　　　　　　　";
+char pszBufferYasenWeaponMessage[256] = "この私に歯向かうとは身の程を知りなさいハァーッ！　　　　　　　　　　　　";
+//char pszBufferYasenWeaponMessage[256] = "バルディッシュの一撃、受けとめてみよ！ハァーッ！　　　　　　　　　　　　";
+
 char pszBufferYasenAttackMessage[256] = "下等な人間風情が！バルディッシュの錆になりなさい！虫けらは死ぬぃ！　　　　　　　　　　　　　　";
 
 BOOL isNextSerifuStartOverride = false;  // 次にTextOutAが呼ばれたタイミングで isOverrideTextOutをTRUEにするためのフラグ

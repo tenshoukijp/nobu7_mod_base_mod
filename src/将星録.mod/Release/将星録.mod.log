@@ -1,5 +1,6 @@
 ﻿  bushou_albedo.cpp
   bushou_retsuden.cpp
+  data_bushou_struct.cpp
   data_castle_struct.cpp
   data_kahou_struct.cpp
   hook_createfonta_custom.cpp

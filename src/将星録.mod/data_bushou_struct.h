@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include <string>
 
 #define 武将情報アドレス 0x542348
 
@@ -39,28 +39,32 @@ struct NB7武将情報型
 	int 一門;      // 一門衆№（例：子供・兄弟武将などのコードを参照すると良い）。255は特別な血縁がない番号。
 	int unknown8;   // 謎
 	int unknown9;   // 謎
-	int unknown10;  // 謎
+	int 口調;       // 本人の口調（0～7）→（0:無口、1:礼儀、2:粗暴、3:高貴、4:生意気、5:威厳、6:饒舌、7:一般）
 	int* pUnknown1; // 謎のポインタ1
 	int* pUnknown2; // 謎のポインタ2
 	int unknown11;  // 謎
-	WORD unknown12; // 謎
+	BYTE unused7;  // 未使用。基本は0と思われる。
+	bool syugyou_unused1 : 1;  // ※参照
+	bool syugyou_unused2 : 1;  // ※参照	
+	bool syugyou_unused3 : 1;  // ※参照	
+	bool 行動済 : 1;  // ※参照
+	bool 修行中 : 1;  // ※参照
+	bool 移動力増加済 : 1;  // ※参照
+	bool 忍者習得済み : 1;  // ※移動力増加 を参照
+	bool syugyou_unused4 : 1;  // ※参照	
 	bool 内技農業 : 1;      // 内政特技
 	bool 内技商業 : 1;      // 内政特技
 	bool 内技建設 : 1;      // 内政特技
 	bool 内技外交 : 1;      // 内政特技
 	bool 内技登用 : 1;      // 内政特技
 	bool 戦技抜穴 : 1;      // 内政特技
-	bool unused3 : 1;      // 内政特技
-	bool unused4 : 1;      // 内政特技
-	BYTE unused5;
+	BYTE unused3 : 2;      // 内政特技
+	BYTE unused1;
 	bool 戦技騎突 : 1;      // 戦闘特技
 	bool 戦技三段 : 1;      // 戦闘特技
 	bool 戦技焙烙 : 1;      // 戦闘特技
 	bool 戦技騎鉄 : 1;      // 戦闘特技
-	bool unused6 : 1;      // 戦闘特技
-	bool unused7 : 1;      // 戦闘特技
-	bool unused8 : 1;      // 戦闘特技
-	bool unused9 : 1;      // 戦闘特技
+	BYTE unused6 : 4;      // 戦闘特技
 	BYTE unused2;
 	/*
 	*/
@@ -80,7 +84,6 @@ struct NB7武将情報型
 	int 父親;      // 父親の武将№（例：武田信玄：DB.07）
 	int 序列;      // 居城での在城武将の順番
 	int 怨恨;      // 勧誘を受けても絶対に仕官しない勢力№（滅亡させられた勢力№）
-	int 口調;      // 本人の口調（0～7）→（0:無口、1:礼儀、2:粗暴、3:高貴、4:生意気、5:威厳、6:饒舌、7:一般）
 	int 所属;      // お家再興ｲﾍﾞﾝﾄ時の旧主の武将№(一門衆:大名武将№)
 	int unknown1;  // 謎のデータ
 	int 移動力増加;  // ※参照
@@ -90,6 +93,8 @@ struct NB7武将情報型
 #pragma pack()
 
 /*
+*
+※
 0000～0007,0080～0087に設定すると未行動となる。
 0008～000F,0088～008Fに設定すると行動済みとなる。
 0010～0017,0090～0097に設定すると修業中で未行動となる。
@@ -285,3 +290,8 @@ struct NB7武将情報型
 00563D38  02 00 00 00 08 00 00 00 00 00 00 00 00 00 00 00  ..............
 */
 
+std::string getBushou苗字FromBushouID(int iBushouID);
+
+std::string getBushou名前FromBushouID(int iBushouID);
+
+std::string getBushou姓名FromBushouID(int iBushouID);

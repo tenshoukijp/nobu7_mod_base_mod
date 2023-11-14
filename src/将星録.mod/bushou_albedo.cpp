@@ -39,7 +39,7 @@ int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
 
     // アルベドと対峙する武将の戦闘能力を1にしつつ、その武将の元々の戦闘値を保持しておく。
     for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
-        if (targetBushouName == nb7武将情報[iBushouID].姓名) {
+        if (targetBushouName == getBushou姓名FromBushouID(iBushouID) ) {
             iOverrideBushouID = iBushouID;
             iBackupBushou戦闘 = nb7武将情報[iBushouID].戦闘;
             nb7武将情報[iBushouID].戦闘 = 1;

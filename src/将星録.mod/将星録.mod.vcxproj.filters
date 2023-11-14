@@ -179,6 +179,9 @@
     <ClCompile Include="on_serihu_message.cpp">
       <Filter>Onセリフ</Filter>
     </ClCompile>
+    <ClCompile Include="data_bushou_struct.cpp">
+      <Filter>ゲームデータ - 武将データ</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
