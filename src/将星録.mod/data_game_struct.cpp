@@ -24,13 +24,20 @@ void setGameDataStructPointer() {
 			OutputDebugStream("’m–d:%d ", nb7•«î•ñ[iBushouID].’q–d);
 			OutputDebugStream("E‹Æ:%d ", nb7•«î•ñ[iBushouID].E‹Æ);
 			OutputDebugStream("\n");
+
+			/*
+			for (int iKahouID = 0; iKahouID < Å‘å”::‰Æ•óî•ñ::”z—ñ”; iKahouID++) {
+				if (string(nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼).find("ƒ¥ƒ¦") != string::npos) {
+					strcpy(nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼, "ƒ¨ƒ¥ƒ¦ƒ©ƒ§ƒª");
+					// setBushouIDToKahouID(iKahouID, iBushouID);
+				}
+			}
+			*/
 		}
+
 	}
 
 	for (int iKahouID = 0; iKahouID < Å‘å”::‰Æ•óî•ñ::”z—ñ”; iKahouID++) {
-		if (nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼ == "‹SŠÛ"s) {
-			strcpy(nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼, "••€");
-		}
 		/*
 		OutputDebugStream("‰Æ•ó–¼:%s ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼);
 		OutputDebugStream("•º‰ÈŒø‰Ê:%d ", nb7‰Æ•óî•ñ[iKahouID].•º‰ÈŒø‰Ê);
