@@ -102,6 +102,9 @@
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_kahou_struct.cpp" />
+    <ClCompile Include="hook_bitblt_custom.cpp" />
+    <ClCompile Include="hook_createcompatibledc_custom.cpp" />
+    <ClCompile Include="hook_createdibitmap.cpp" />
     <ClCompile Include="hook_createfonta_custom.cpp" />
     <ClCompile Include="hook_defwindowproca_custom.cpp" />
     <ClCompile Include="data_game_struct.cpp" />
@@ -109,6 +112,7 @@
     <ClCompile Include="font.cpp" />
     <ClCompile Include="hook_enablemenuitem_custom.cpp" />
     <ClCompile Include="hook_functions.cpp" />
+    <ClCompile Include="hook_getdibits_custom.cpp" />
     <ClCompile Include="hook_releasedc_custom.cpp" />
     <ClCompile Include="hook_setmenu_custom.cpp" />
     <ClCompile Include="hook_textouta_custom.cpp" />

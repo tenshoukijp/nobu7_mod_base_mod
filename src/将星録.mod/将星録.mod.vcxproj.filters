@@ -182,6 +182,18 @@
     <ClCompile Include="data_bushou_struct.cpp">
       <Filter>ゲームデータ - 武将データ</Filter>
     </ClCompile>
+    <ClCompile Include="hook_bitblt_custom.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_createdibitmap.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_createcompatibledc_custom.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_getdibits_custom.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

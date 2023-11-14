@@ -246,6 +246,106 @@ BOOL WINAPI Hook_EnableMenuItem(
 	return nResult;
 }
 
+//---------------------------BitBlt
+
+using PFNBITBLT = BOOL(WINAPI *)(HDC, int, int, int, int, HDC, int, int, DWORD);
+
+PROC pfnOrigBitBlt = GetProcAddress(GetModuleHandleA("gdi32.dll"), "BitBlt");
+
+extern BOOL Hook_BitBltCustom(HDC hdcDest, int nXDest, int nYDest, int nWidth, int nHeight, HDC hdcSrc, int nXSrc, int nYSrc, DWORD dwRop);
+
+BOOL WINAPI Hook_BitBlt(
+    HDC hdcDest, // 出力デバイスコンテキストのハンドル
+    int nXDest,  // 出力先の長方形の左上隅の x 座標
+    int nYDest,  // 出力先の長方形の左上隅の y 座標
+    int nWidth,  // 出力先の長方形の幅（ピクセル単位）
+    int nHeight, // 出力先の長方形の高さ（ピクセル単位）
+    HDC hdcSrc,  // 入力デバイスコンテキストのハンドル
+    int nXSrc,   // 入力元の長方形の左上隅の x 座標
+    int nYSrc,   // 入力元の長方形の左上隅の y 座標
+    DWORD dwRop  // ラスタオペレーションコード
+) {
+	// 先にカスタムの方を実行。
+    Hook_BitBltCustom(hdcDest, nXDest, nYDest, nWidth, nHeight, hdcSrc, nXSrc, nYSrc, dwRop);
+
+	// 元のものを呼び出す
+	BOOL nResult = ((PFNBITBLT)pfnOrigBitBlt)(hdcDest, nXDest, nYDest, nWidth, nHeight, hdcSrc, nXSrc, nYSrc, dwRop);
+
+	return nResult;
+}
+
+//---------------------------CreateDIBitmap
+
+using PFNCREATEDIBITMAP = HBITMAP(WINAPI *)(HDC, const BITMAPINFOHEADER *, DWORD, const void *, const BITMAPINFO *, UINT);
+
+PROC pfnOrigCreateDIBitmap = GetProcAddress(GetModuleHandleA("gdi32.dll"), "CreateDIBitmap");
+
+extern HBITMAP Hook_CreateDIBitmapCustom(HDC hdc, const BITMAPINFOHEADER *pbmih, DWORD flInit, const void *pjBits, const BITMAPINFO *pbmi, UINT iUsage);
+
+HBITMAP WINAPI Hook_CreateDIBitmap(
+    HDC hdc, // デバイスコンテキストのハンドル
+    const BITMAPINFOHEADER* pbmih, // ビットマップ情報のポインタ
+    DWORD flInit, // ビットマップの初期化方法
+    const void* pjBits, // ビットマップの初期化データ
+    const BITMAPINFO* pbmi, // ビットマップのカラーテーブル
+    UINT iUsage // ビットマップの使用方法
+) {
+	// 先にカスタムの方を実行。
+	Hook_CreateDIBitmapCustom(hdc, pbmih, flInit, pjBits, pbmi, iUsage);
+
+	// 元のものを呼び出す
+	HBITMAP nResult = ((PFNCREATEDIBITMAP)pfnOrigCreateDIBitmap)(hdc, pbmih, flInit, pjBits, pbmi, iUsage);
+
+	return nResult;
+}
+
+
+//---------------------------CreateCompatibleDC
+
+using PFNCREATECOMPATIBLEDC = HDC(WINAPI *)(HDC);
+
+PROC pfnOrigCreateCompatibleDC = GetProcAddress(GetModuleHandleA("gdi32.dll"), "CreateCompatibleDC");
+
+extern HDC Hook_CreateCompatibleDCCustom(HDC hdc);
+
+HDC WINAPI Hook_CreateCompatibleDC(
+    HDC hdc // デバイスコンテキストのハンドル
+) {
+	// 先にカスタムの方を実行。
+	Hook_CreateCompatibleDCCustom(hdc);
+
+	// 元のものを呼び出す
+	HDC nResult = ((PFNCREATECOMPATIBLEDC)pfnOrigCreateCompatibleDC)(hdc);
+
+	return nResult;
+}
+
+//---------------------------GetDIBits
+
+using PFNGETDIBITS = int(WINAPI *)(HDC, HBITMAP, UINT, UINT, LPVOID, LPBITMAPINFO, UINT);
+
+PROC pfnOrigGetDIBits = GetProcAddress(GetModuleHandleA("gdi32.dll"), "GetDIBits");
+
+extern int Hook_GetDIBitsCustom(HDC hdc, HBITMAP hbm, UINT start, UINT cLines, LPVOID lpvBits, LPBITMAPINFO lpbmi, UINT usage);
+
+int WINAPI Hook_GetDIBits(
+    HDC hdc, // デバイスコンテキストのハンドル
+    HBITMAP hbm, // ビットマップのハンドル
+    UINT start, // スキャンラインの最初のインデックス
+    UINT cLines, // スキャンラインの数
+    LPVOID lpvBits, // ビットマップデータのポインタ
+    LPBITMAPINFO lpbmi, // ビットマップ情報のポインタ
+    UINT usage // ビットマップの使用方法
+) {
+	// 先にカスタムの方を実行。
+	Hook_GetDIBitsCustom(hdc, hbm, start, cLines, lpvBits, lpbmi, usage);
+
+	// 元のもの
+    int nResult = ((PFNGETDIBITS)pfnOrigGetDIBits)(hdc, hbm, start, cLines, lpvBits, lpbmi, usage);
+
+    return nResult;
+}
+
 
 /*----------------------------------------------------------------*
  HOOK系処理
@@ -256,6 +356,10 @@ bool isHookCreateFontA = false;
 bool isHookSetMenu = false;
 bool isHookReleaseDC = false;
 bool isHookEnableMenuItem = false;
+bool isHookBitBlt = false;
+bool isHookCreateDIBitmap = false;
+bool isHookCreateCompatibleDC = false;
+bool isHookGetDIBits = false;
 
 void hookFunctions() {
     PROC pfnOrig;
@@ -289,5 +393,25 @@ void hookFunctions() {
         pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "EnableMenuItem");
         ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_EnableMenuItem);
     }
+    if (!isHookBitBlt) {
+		isHookBitBlt = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "BitBlt");
+		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_BitBlt);
+	}
+    if (!isHookCreateDIBitmap) {
+		isHookCreateDIBitmap = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "CreateDIBitmap");
+		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_CreateDIBitmap);
+	}
+    if (!isHookCreateCompatibleDC) {
+		isHookCreateCompatibleDC = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "CreateCompatibleDC");
+		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_CreateCompatibleDC);
+	}
+    if (!isHookGetDIBits) {
+		isHookGetDIBits = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "GetDIBits");
+		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_GetDIBits);
+	}
 
 }
