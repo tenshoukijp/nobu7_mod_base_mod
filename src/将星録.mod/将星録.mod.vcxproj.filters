@@ -105,7 +105,7 @@
     <ClInclude Include="hook_textouta_custom.h">
       <Filter>フック関数</Filter>
     </ClInclude>
-    <ClInclude Include="bushou_arubedo.h">
+    <ClInclude Include="bushou_albedo.h">
       <Filter>アルベド</Filter>
     </ClInclude>
     <ClInclude Include="data_kahou_struct.h">

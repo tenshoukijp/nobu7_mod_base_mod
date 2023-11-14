@@ -11,3 +11,7 @@ std::string getArubedoSeiMei();
 int overrideYasenBattleAbirityChangeAlbedo(std::string, std::string);
 
 int resetYasenBattleAbirityChangeAlbedo();
+
+void resetAlbedoKoudouCounter();
+
+int decreaseAlbedoKoudouCounter();

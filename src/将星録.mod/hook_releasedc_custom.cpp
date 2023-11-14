@@ -4,6 +4,7 @@
 #include "on_event.h"
 #include "hook_textouta_custom.h"
 #include "on_serihu_message.h"
+#include "bushou_albedo.h"
 
 using namespace std;
 
@@ -35,8 +36,8 @@ int Hook_ReleaseDCCustom(
 		OutputDebugStream("------------\n");
 	}
 
+	decreaseAlbedoKoudouCounter();
 	dispatchEvent();
-
 	bufferTextOut = "";
 
 	return 1;

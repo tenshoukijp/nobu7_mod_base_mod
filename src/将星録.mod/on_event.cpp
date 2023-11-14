@@ -3,7 +3,7 @@
 #include "hook_textouta_custom.h"
 #include "onigwrap.h"
 #include "data_game_struct.h"
-#include "bushou_arubedo.h"
+#include "bushou_albedo.h"
 
 void onOpeningMovie() {
 	OutputDebugStream("オープニングムービー\n");
@@ -11,6 +11,7 @@ void onOpeningMovie() {
 // ゲームの初期設定画面
 void onInitialGameMenu() {
 	OutputDebugStream("将星録の初期設定画面\n");
+    resetAlbedoKoudouCounter();
 }
 
 void onLoadSaveDataMenu() {
@@ -286,6 +287,10 @@ void onCastleBattleEnd() {
 }
 
 void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
+
+    // アルベドの行動済みカウンターのリセット
+    resetAlbedoKoudouCounter();
+
     Matches ma;
 
     if (OnigMatch(strategyTurnInfo, "情報(.+?)様あなたの番となりました", &ma)) {

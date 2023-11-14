@@ -4,7 +4,7 @@
 #include "output_debug_stream.h"
 #include "onigwrap.h"
 #include "hook_textouta_custom.h"
-#include "bushou_arubedo.h"
+#include "bushou_albedo.h"
 #include "on_serihu_message.h"
 #include "hook_textouta_custom.h"
 

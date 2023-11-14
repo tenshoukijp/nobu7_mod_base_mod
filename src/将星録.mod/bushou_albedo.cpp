@@ -4,7 +4,7 @@
 using namespace std;
 
 #include "data_game_struct.h"
-#include "bushou_arubedo.h"
+#include "bushou_albedo.h"
 #include "output_debug_stream.h"
 
 
@@ -57,6 +57,28 @@ int resetYasenBattleAbirityChangeAlbedo() {
 
         iOverrideBushouID = -1;
         iBackupBushou戦闘 = 0;
+    }
+
+    return TRUE;
+}
+
+int nAlbedo行動済み分割カウンター = -1;
+void resetAlbedoKoudouCounter() {
+    nAlbedo行動済み分割カウンター = 5;
+}
+
+int decreaseAlbedoKoudouCounter() {
+    for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+        // アルベドなら
+        if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+            // アルベドが「行動済み」になっても、毎月5回までは行動できるようにする
+            if (nAlbedo行動済み分割カウンター > 0) {
+                if (nb7武将情報[iBushouID].行動済) {
+                    nb7武将情報[iBushouID].行動済 = 0;
+                    nAlbedo行動済み分割カウンター--;
+                }
+            }
+		}
     }
 
     return TRUE;

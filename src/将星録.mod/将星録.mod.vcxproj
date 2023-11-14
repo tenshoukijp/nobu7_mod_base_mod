@@ -80,7 +80,7 @@
   <ItemGroup>
     <ClInclude Include="..\oniguruma\oniguruma.h" />
     <ClInclude Include="bushou_retsuden.h" />
-    <ClInclude Include="bushou_arubedo.h" />
+    <ClInclude Include="bushou_albedo.h" />
     <ClInclude Include="data_bushou_struct.h" />
     <ClInclude Include="data_game_struct.h" />
     <ClInclude Include="data_kahou_struct.h" />

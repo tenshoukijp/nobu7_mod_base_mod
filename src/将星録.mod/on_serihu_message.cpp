@@ -5,7 +5,7 @@
 #include "bushou_retsuden.h"
 #include "hook_textouta_custom.h"
 #include "on_serihu_message.h"
-#include "bushou_arubedo.h"
+#include "bushou_albedo.h"
 #include "onigwrap.h"
 
 using namespace std;
