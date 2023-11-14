@@ -5,14 +5,17 @@
 #include "data_bushou_struct.h"
 #include "output_debug_stream.h"
 #include "data_kahou_struct.h"
+#include "data_kanni_struct.h"
 
 using namespace std;
 
 NB7武将情報型* nb7武将情報 = (NB7武将情報型*)(武将情報アドレス); // data_bushou_structにこのアドレスの理由がある
 NB7家宝情報型* nb7家宝情報 = (NB7家宝情報型*)(0x5871B0); // data_kahou_structにこのアドレスの理由がある
+NB7官位情報型* nb7官位情報 = (NB7官位情報型*)(0x585460); // data_kanni_structにこのアドレスの理由がある
 
 void setGameDataStructPointer() {
 
+	/*
 	for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
 		OutputDebugStream(nb7武将情報[iBushouID].姓名);
 		OutputDebugStream("\n");
@@ -25,17 +28,16 @@ void setGameDataStructPointer() {
 			OutputDebugStream("職業:%d ", nb7武将情報[iBushouID].職業);
 			OutputDebugStream("\n");
 
-			/*
 			for (int iKahouID = 0; iKahouID < 最大数::家宝情報::配列数; iKahouID++) {
 				if (string(nb7家宝情報[iKahouID].家宝名).find("ΗΘ") != string::npos) {
-					strcpy(nb7家宝情報[iKahouID].家宝名, "ΚΗΘΛΙΜ");
+					// strcpy(nb7家宝情報[iKahouID].家宝名, "ΚΗΘΛΙΜ");
 					// setBushouIDToKahouID(iKahouID, iBushouID);
 				}
 			}
-			*/
 		}
 
 	}
+	*/
 
 	for (int iKahouID = 0; iKahouID < 最大数::家宝情報::配列数; iKahouID++) {
 		/*
@@ -54,6 +56,14 @@ void setGameDataStructPointer() {
 		OutputDebugStream("能力効果:%d ", (int)nb7家宝情報[iKahouID].能力効果);
 		OutputDebugStream("\n");
 		*/
+	}
+
+	for (int iKanniID = 0; iKanniID < 最大数::官位情報::配列数; iKanniID++) {
+		OutputDebugStream("官位名:%s ", nb7官位情報[iKanniID].官位名);
+		OutputDebugStream("官位番号:%d ", nb7官位情報[iKanniID].官位番号);
+		OutputDebugStream("階位:%d ", nb7官位情報[iKanniID].階位);
+		OutputDebugStream("\n");
+
 	}
 }
 

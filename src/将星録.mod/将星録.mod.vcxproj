@@ -84,6 +84,7 @@
     <ClInclude Include="data_bushou_struct.h" />
     <ClInclude Include="data_game_struct.h" />
     <ClInclude Include="data_kahou_struct.h" />
+    <ClInclude Include="data_kanni_struct.h" />
     <ClInclude Include="font.h" />
     <ClInclude Include="hook_functions.h" />
     <ClInclude Include="hook_textouta_custom.h" />

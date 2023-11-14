@@ -61,6 +61,9 @@
     <Filter Include="Onセリフ">
       <UniqueIdentifier>{dd8a8d80-5da4-4c3a-9c68-95230d130e84}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 官位">
+      <UniqueIdentifier>{564f0039-ef4e-4b6b-bb6f-9bd89bab5815}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="on_serihu_message.h">
       <Filter>Onセリフ</Filter>
+    </ClInclude>
+    <ClInclude Include="data_kanni_struct.h">
+      <Filter>ゲームデータ - 官位</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
