@@ -67,6 +67,9 @@
     <Filter Include="ゲームデータ - 役職データ">
       <UniqueIdentifier>{64497a27-ab8f-4b4b-8c05-a8b521ac8829}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲーム情報 - ターン">
+      <UniqueIdentifier>{3f66e7c7-89f3-40c6-a8b3-075c5b8ea1e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -125,6 +128,9 @@
     </ClInclude>
     <ClInclude Include="data_yakusyoku_struct.h">
       <Filter>ゲームデータ - 役職データ</Filter>
+    </ClInclude>
+    <ClInclude Include="data_turn_struct.h">
+      <Filter>ゲーム情報 - ターン</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
