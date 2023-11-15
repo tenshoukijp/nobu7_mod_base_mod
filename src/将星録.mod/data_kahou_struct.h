@@ -21,7 +21,7 @@ struct NB7‰Æ•óî•ñŒ^ {
 #pragma pack()
 
 
-// ‰Æ•óID‚©‚ç‚»‚ê‚ğŠ—L‚µ‚Ä‚¢‚é•«ID‚ğæ“¾‚·‚é
+// ‰Æ•óID‚©‚ç‚»‚ê‚ğŠ—L‚µ‚Ä‚¢‚é•«ID‚ğæ“¾‚·‚éB‚à‚Á‚Ä‚È‚©‚Á‚½‚ç0xFFFF
 int getBushouIDFromKahouID(int iKahouID);
 
 BOOL setBushouIDToKahouID(int iKahouID, int iBushouID);

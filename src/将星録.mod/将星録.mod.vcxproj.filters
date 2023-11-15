@@ -64,6 +64,9 @@
     <Filter Include="ゲームデータ - 官位">
       <UniqueIdentifier>{564f0039-ef4e-4b6b-bb6f-9bd89bab5815}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 役職データ">
+      <UniqueIdentifier>{64497a27-ab8f-4b4b-8c05-a8b521ac8829}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -119,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="data_kanni_struct.h">
       <Filter>ゲームデータ - 官位</Filter>
+    </ClInclude>
+    <ClInclude Include="data_yakusyoku_struct.h">
+      <Filter>ゲームデータ - 役職データ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +205,12 @@
     </ClCompile>
     <ClCompile Include="hook_getdibits_custom.cpp">
       <Filter>フック関数</Filter>
+    </ClCompile>
+    <ClCompile Include="data_kanni_struct.cpp">
+      <Filter>ゲームデータ - 官位</Filter>
+    </ClCompile>
+    <ClCompile Include="data_yakusyoku_struct.cpp">
+      <Filter>ゲームデータ - 役職データ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

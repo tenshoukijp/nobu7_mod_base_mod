@@ -3,6 +3,8 @@ C:\Users\master\source\repos\winmm\将星録.mod\bushou_retsuden.cpp;C:\Users\ma
 C:\Users\master\source\repos\winmm\将星録.mod\data_bushou_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_bushou_struct.obj
 C:\Users\master\source\repos\winmm\将星録.mod\data_castle_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_castle_struct.obj
 C:\Users\master\source\repos\winmm\将星録.mod\data_kahou_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_kahou_struct.obj
+C:\Users\master\source\repos\winmm\将星録.mod\data_kanni_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_kanni_struct.obj
+C:\Users\master\source\repos\winmm\将星録.mod\data_yakusyoku_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_yakusyoku_struct.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_bitblt_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_bitblt_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_createcompatibledc_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_createcompatibledc_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_createdibitmap.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_createdibitmap.obj

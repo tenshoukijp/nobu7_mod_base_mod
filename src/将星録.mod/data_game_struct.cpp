@@ -6,12 +6,14 @@
 #include "output_debug_stream.h"
 #include "data_kahou_struct.h"
 #include "data_kanni_struct.h"
+#include "data_yakusyoku_struct.h"
 
 using namespace std;
 
 NB7武将情報型* nb7武将情報 = (NB7武将情報型*)(武将情報アドレス); // data_bushou_structにこのアドレスの理由がある
-NB7家宝情報型* nb7家宝情報 = (NB7家宝情報型*)(0x5871B0); // data_kahou_structにこのアドレスの理由がある
-NB7官位情報型* nb7官位情報 = (NB7官位情報型*)(0x585460); // data_kanni_structにこのアドレスの理由がある
+NB7家宝情報型* nb7家宝情報 = (NB7家宝情報型*)(家宝情報アドレス); // data_kahou_structにこのアドレスの理由がある
+NB7官位情報型* nb7官位情報 = (NB7官位情報型*)(官位情報アドレス); // data_kanni_structにこのアドレスの理由がある
+NB7役職情報型* nb7役職情報 = (NB7役職情報型*)(役職情報アドレス); // data_yakusyoku_structにこのアドレスの理由がある
 
 void setGameDataStructPointer() {
 
@@ -63,7 +65,27 @@ void setGameDataStructPointer() {
 		OutputDebugStream("官位番号:%d ", nb7官位情報[iKanniID].官位番号);
 		OutputDebugStream("階位:%d ", nb7官位情報[iKanniID].階位);
 		OutputDebugStream("\n");
+		int iBushouID = getBushouIDFromKanniID(iKanniID);
+		if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
 
+			OutputDebugStream("所有者:%s ", nb7武将情報[iBushouID].姓名);
+		}
 	}
+
+	/*
+	for (int iYakusyokuID = 0; iYakusyokuID < 最大数::役職情報::配列数; iYakusyokuID++) {
+		OutputDebugStream("役職名:%s ", nb7役職情報[iYakusyokuID].役職名);
+		OutputDebugStream("役職番号:%d ", nb7役職情報[iYakusyokuID].役職番号);
+		OutputDebugStream("役位:%d ", nb7役職情報[iYakusyokuID].役位);
+		int iBushouID = getBushouIDFromYakusyokuID(iYakusyokuID);
+		OutputDebugStream("%d", iBushouID);
+		if ( 0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+			
+			OutputDebugStream("所有者:%s ", nb7武将情報[iBushouID].姓名);
+		}
+		OutputDebugStream("\n");
+	}
+	*/
+
 }
 

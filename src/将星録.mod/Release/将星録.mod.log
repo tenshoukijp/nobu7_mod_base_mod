@@ -3,6 +3,8 @@
   data_bushou_struct.cpp
   data_castle_struct.cpp
   data_kahou_struct.cpp
+  data_kanni_struct.cpp
+  data_yakusyoku_struct.cpp
   hook_bitblt_custom.cpp
   hook_createcompatibledc_custom.cpp
   hook_createdibitmap.cpp
