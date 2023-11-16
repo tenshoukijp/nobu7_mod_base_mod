@@ -81,6 +81,7 @@
     <ClInclude Include="..\oniguruma\oniguruma.h" />
     <ClInclude Include="bushou_retsuden.h" />
     <ClInclude Include="bushou_albedo.h" />
+    <ClInclude Include="data_castle_struct.h" />
     <ClInclude Include="data_turn_struct.h" />
     <ClInclude Include="data_bushou_struct.h" />
     <ClInclude Include="data_game_struct.h" />
@@ -109,7 +110,7 @@
     <ClCompile Include="data_yakusyoku_struct.cpp" />
     <ClCompile Include="hook_bitblt_custom.cpp" />
     <ClCompile Include="hook_createcompatibledc_custom.cpp" />
-    <ClCompile Include="hook_createdibitmap.cpp" />
+    <ClCompile Include="hook_createdibitmap_custom.cpp" />
     <ClCompile Include="hook_createfonta_custom.cpp" />
     <ClCompile Include="hook_defwindowproca_custom.cpp" />
     <ClCompile Include="data_game_struct.cpp" />

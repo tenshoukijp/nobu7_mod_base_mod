@@ -1,7 +1,8 @@
 #pragma once
 
 #include <windows.h>
-#include "data_turn_struct.h""
+
+#include "data_turn_struct.h"
 #include "data_bushou_struct.h"
 #include "data_kahou_struct.h"
 #include "data_kanni_struct.h"

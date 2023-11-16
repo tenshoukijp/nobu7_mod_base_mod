@@ -14,6 +14,7 @@ BOOL Hook_BitBltCustom(
     int nYSrc,   // 入力元の長方形の左上隅の y 座標
     DWORD dwRop  // ラスタオペレーションコード
 ) {
+
     /*
     OutputDebugStream("BitBlt\n");
     */

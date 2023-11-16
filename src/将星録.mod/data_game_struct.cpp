@@ -22,6 +22,19 @@ void setGameDataStructPointer() {
 	OutputDebugStream("西暦%d", ターン情報.西暦);
 	OutputDebugStream("月%d", ターン情報.月);
 
+	for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+
+		if (getBushou姓名FromBushouID(iBushouID) == "織田信長") {
+			OutputDebugStream("織田信長の武将番号 %x\n", iBushouID);
+		}
+		if (getBushou姓名FromBushouID(iBushouID) == "今川義元") {
+			OutputDebugStream("今川義元の武将番号 %x\n", iBushouID);
+		}
+		if (getBushou姓名FromBushouID(iBushouID) == "武田信玄") {
+			OutputDebugStream("武田信玄の武将番号 %x\n", iBushouID);
+		}
+
+	}
 
 	/*
 	for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {

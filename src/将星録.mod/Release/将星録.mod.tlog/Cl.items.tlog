@@ -7,7 +7,7 @@ C:\Users\master\source\repos\winmm\将星録.mod\data_kanni_struct.cpp;C:\Users\
 C:\Users\master\source\repos\winmm\将星録.mod\data_yakusyoku_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_yakusyoku_struct.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_bitblt_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_bitblt_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_createcompatibledc_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_createcompatibledc_custom.obj
-C:\Users\master\source\repos\winmm\将星録.mod\hook_createdibitmap.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_createdibitmap.obj
+C:\Users\master\source\repos\winmm\将星録.mod\hook_createdibitmap_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_createdibitmap_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_createfonta_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_createfonta_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_defwindowproca_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_defwindowproca_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\data_game_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_game_struct.obj

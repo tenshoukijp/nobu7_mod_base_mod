@@ -132,6 +132,9 @@
     <ClInclude Include="data_turn_struct.h">
       <Filter>ゲーム情報 - ターン</Filter>
     </ClInclude>
+    <ClInclude Include="data_castle_struct.h">
+      <Filter>ゲームデータ - 城データ</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -203,7 +206,7 @@
     <ClCompile Include="hook_bitblt_custom.cpp">
       <Filter>フック関数</Filter>
     </ClCompile>
-    <ClCompile Include="hook_createdibitmap.cpp">
+    <ClCompile Include="hook_createdibitmap_custom.cpp">
       <Filter>フック関数</Filter>
     </ClCompile>
     <ClCompile Include="hook_createcompatibledc_custom.cpp">
