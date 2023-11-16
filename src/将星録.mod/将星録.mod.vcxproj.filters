@@ -46,35 +46,35 @@
     <Filter Include="デバッグ出力">
       <UniqueIdentifier>{175f9136-5599-4f41-900f-481d285712c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ゲームデータ - 武将データ">
-      <UniqueIdentifier>{dd171165-7264-4b15-85d5-ab380fe64b65}</UniqueIdentifier>
-    </Filter>
     <Filter Include="アルベド">
       <UniqueIdentifier>{7dbde52b-bacc-490b-89f4-a905490284fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ゲームデータ - 城データ">
-      <UniqueIdentifier>{345bef39-d12a-432b-98ab-740c97896ebf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ゲームデータ - 家宝データ">
-      <UniqueIdentifier>{157e01f6-6fa5-454a-9442-feb4d103b37e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Onセリフ">
       <UniqueIdentifier>{dd8a8d80-5da4-4c3a-9c68-95230d130e84}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ゲームデータ - 官位">
+    <Filter Include="ゲームデータ - ユニット情報">
+      <UniqueIdentifier>{e72dd034-3cee-40a6-a1c4-5af3e82e6caf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームデータ - 家宝情報">
+      <UniqueIdentifier>{157e01f6-6fa5-454a-9442-feb4d103b37e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームデータ - 官位情報">
       <UniqueIdentifier>{564f0039-ef4e-4b6b-bb6f-9bd89bab5815}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ゲームデータ - 役職データ">
-      <UniqueIdentifier>{64497a27-ab8f-4b4b-8c05-a8b521ac8829}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ゲーム情報 - ターン">
-      <UniqueIdentifier>{3f66e7c7-89f3-40c6-a8b3-075c5b8ea1e5}</UniqueIdentifier>
+    <Filter Include="ゲームデータ - 城情報">
+      <UniqueIdentifier>{345bef39-d12a-432b-98ab-740c97896ebf}</UniqueIdentifier>
     </Filter>
     <Filter Include="ゲームデータ - 大名情報">
       <UniqueIdentifier>{7a65dbc0-14bb-418a-a29b-a085708bddb0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ゲームデータ - ユニット情報">
-      <UniqueIdentifier>{e72dd034-3cee-40a6-a1c4-5af3e82e6caf}</UniqueIdentifier>
+    <Filter Include="ゲームデータ - 武将情報">
+      <UniqueIdentifier>{dd171165-7264-4b15-85d5-ab380fe64b65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームデータ - 役職情報">
+      <UniqueIdentifier>{64497a27-ab8f-4b4b-8c05-a8b521ac8829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームデータ - ターン情報">
+      <UniqueIdentifier>{3f66e7c7-89f3-40c6-a8b3-075c5b8ea1e5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -82,7 +82,7 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="data_bushou_struct.h">
-      <Filter>ゲームデータ - 武将データ</Filter>
+      <Filter>ゲームデータ - 武将情報</Filter>
     </ClInclude>
     <ClInclude Include="data_game_struct.h">
       <Filter>ゲームデータ</Filter>
@@ -124,22 +124,22 @@
       <Filter>アルベド</Filter>
     </ClInclude>
     <ClInclude Include="data_kahou_struct.h">
-      <Filter>ゲームデータ - 家宝データ</Filter>
+      <Filter>ゲームデータ - 家宝情報</Filter>
     </ClInclude>
     <ClInclude Include="on_serihu_message.h">
       <Filter>Onセリフ</Filter>
     </ClInclude>
     <ClInclude Include="data_kanni_struct.h">
-      <Filter>ゲームデータ - 官位</Filter>
+      <Filter>ゲームデータ - 官位情報</Filter>
     </ClInclude>
     <ClInclude Include="data_yakusyoku_struct.h">
-      <Filter>ゲームデータ - 役職データ</Filter>
+      <Filter>ゲームデータ - 役職情報</Filter>
     </ClInclude>
     <ClInclude Include="data_turn_struct.h">
-      <Filter>ゲーム情報 - ターン</Filter>
+      <Filter>ゲームデータ - ターン情報</Filter>
     </ClInclude>
     <ClInclude Include="data_castle_struct.h">
-      <Filter>ゲームデータ - 城データ</Filter>
+      <Filter>ゲームデータ - 城情報</Filter>
     </ClInclude>
     <ClInclude Include="data_game_daimyo.h">
       <Filter>ゲームデータ - 大名情報</Filter>
@@ -204,16 +204,16 @@
       <Filter>アルベド</Filter>
     </ClCompile>
     <ClCompile Include="data_castle_struct.cpp">
-      <Filter>ゲームデータ - 城データ</Filter>
+      <Filter>ゲームデータ - 城情報</Filter>
     </ClCompile>
     <ClCompile Include="data_kahou_struct.cpp">
-      <Filter>ゲームデータ - 家宝データ</Filter>
+      <Filter>ゲームデータ - 家宝情報</Filter>
     </ClCompile>
     <ClCompile Include="on_serihu_message.cpp">
       <Filter>Onセリフ</Filter>
     </ClCompile>
     <ClCompile Include="data_bushou_struct.cpp">
-      <Filter>ゲームデータ - 武将データ</Filter>
+      <Filter>ゲームデータ - 武将情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_bitblt_custom.cpp">
       <Filter>フック関数</Filter>
@@ -228,10 +228,10 @@
       <Filter>フック関数</Filter>
     </ClCompile>
     <ClCompile Include="data_kanni_struct.cpp">
-      <Filter>ゲームデータ - 官位</Filter>
+      <Filter>ゲームデータ - 官位情報</Filter>
     </ClCompile>
     <ClCompile Include="data_yakusyoku_struct.cpp">
-      <Filter>ゲームデータ - 役職データ</Filter>
+      <Filter>ゲームデータ - 役職情報</Filter>
     </ClCompile>
     <ClCompile Include="data_unit_struct.cpp">
       <Filter>ゲームデータ - ユニット情報</Filter>
