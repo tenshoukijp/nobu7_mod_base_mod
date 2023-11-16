@@ -382,6 +382,7 @@ bool isHookGetDIBits = false;
 bool isHookIsDebuggerPresent = false;
 
 void hookFunctions() {
+
     PROC pfnOrig;
     if (!isHookDefWindowProcA) {
         isHookDefWindowProcA = true;
