@@ -17,6 +17,7 @@
   hook_enablemenuitem_custom.cpp
   hook_functions.cpp
   hook_getdibits_custom.cpp
+  hook_isdebuggerpresent_custom.cpp
   hook_releasedc_custom.cpp
   hook_setmenu_custom.cpp
   hook_textouta_custom.cpp

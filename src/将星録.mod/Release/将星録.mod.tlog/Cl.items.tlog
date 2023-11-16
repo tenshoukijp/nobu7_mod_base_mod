@@ -17,6 +17,7 @@ C:\Users\master\source\repos\winmm\将星録.mod\font.cpp;C:\Users\master\source
 C:\Users\master\source\repos\winmm\将星録.mod\hook_enablemenuitem_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_enablemenuitem_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_functions.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_functions.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_getdibits_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_getdibits_custom.obj
+C:\Users\master\source\repos\winmm\将星録.mod\hook_isdebuggerpresent_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_isdebuggerpresent_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_releasedc_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_releasedc_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_setmenu_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_setmenu_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_textouta_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_textouta_custom.obj

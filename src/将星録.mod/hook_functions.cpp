@@ -347,6 +347,25 @@ int WINAPI Hook_GetDIBits(
 }
 
 
+//---------------------------IsDebuggerPresent
+
+using PFNISDEBUGGERPRESENT = BOOL(WINAPI *)();
+
+PROC pfnOrigIsDebuggerPresent = GetProcAddress(GetModuleHandleA("kernel32.dll"), "IsDebuggerPresent");
+
+extern BOOL Hook_IsDebuggerPresentCustom();
+
+BOOL WINAPI Hook_IsDebuggerPresent() {
+	// 先にカスタムの方を実行。
+	Hook_IsDebuggerPresentCustom();
+
+	// 元のもの
+	BOOL nResult = ((PFNISDEBUGGERPRESENT)pfnOrigIsDebuggerPresent)();
+
+	return FALSE;
+}
+
+
 /*----------------------------------------------------------------*
  HOOK系処理
  *----------------------------------------------------------------*/
@@ -360,6 +379,7 @@ bool isHookBitBlt = false;
 bool isHookCreateDIBitmap = false;
 bool isHookCreateCompatibleDC = false;
 bool isHookGetDIBits = false;
+bool isHookIsDebuggerPresent = false;
 
 void hookFunctions() {
     PROC pfnOrig;
@@ -412,6 +432,11 @@ void hookFunctions() {
 		isHookGetDIBits = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "GetDIBits");
 		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_GetDIBits);
+	}
+    if (!isHookIsDebuggerPresent) {
+		isHookIsDebuggerPresent = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("kernel32.dll"), "IsDebuggerPresent");
+		ReplaceIATEntryInAllMods("kernel32.dll", pfnOrig, (PROC)Hook_IsDebuggerPresent);
 	}
 
 }

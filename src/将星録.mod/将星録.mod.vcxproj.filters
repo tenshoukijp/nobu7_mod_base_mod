@@ -236,6 +236,9 @@
     <ClCompile Include="data_unit_struct.cpp">
       <Filter>ゲームデータ - ユニット情報</Filter>
     </ClCompile>
+    <ClCompile Include="hook_isdebuggerpresent_custom.cpp">
+      <Filter>フック関数</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

@@ -122,6 +122,7 @@
     <ClCompile Include="hook_enablemenuitem_custom.cpp" />
     <ClCompile Include="hook_functions.cpp" />
     <ClCompile Include="hook_getdibits_custom.cpp" />
+    <ClCompile Include="hook_isdebuggerpresent_custom.cpp" />
     <ClCompile Include="hook_releasedc_custom.cpp" />
     <ClCompile Include="hook_setmenu_custom.cpp" />
     <ClCompile Include="hook_textouta_custom.cpp" />
