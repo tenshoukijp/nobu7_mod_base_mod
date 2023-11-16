@@ -1,9 +1,10 @@
 #include "data_game_struct.h"
+#include "output_debug_stream.h"
 
 // 城IDからそこの城主の武将IDを取得する。該当者が居なかったら0xFFFF
 // 実際に「城に居る」という意味であり、「その城に所属している」という意味ではない。
 // 例えば、開墾のために城の外にキャラクターが出ている武将は、「城に居ない」と見なされる。
-int getJyosyuBushouIDFromCastleID(int iCastleID) {
+int get城主BushouIDFromCastleID(int iCastleID) {
 	if (0 <= iCastleID && iCastleID < 最大数::城情報::配列数) {
 		// 所有武将のアドレスを直接さしている
 		int nBushouAddress = (int)(nb7城情報[iCastleID].p城主);
@@ -21,6 +22,24 @@ int getJyosyuBushouIDFromCastleID(int iCastleID) {
 	return 0xFFFF;
 }
 
+
+int get攻撃目標CastleIdFromCastleId(int iCastleID) {
+	if (0 <= iCastleID && iCastleID < 最大数::城情報::配列数) {
+		// 所有武将のアドレスを直接さしている
+		int nAttackCastleAddress = (int)(nb7城情報[iCastleID].p攻撃目標城);
+		OutputDebugStream("%x", nAttackCastleAddress);
+		// 武将の配列の先頭アドレスから引く
+		int sub = nAttackCastleAddress - (int)(城情報アドレス);
+
+		// 武将情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
+		int iAttackCastleID = sub / sizeof(NB7城情報型);
+		if (0 <= iAttackCastleID && iAttackCastleID < 最大数::城情報::配列数) {
+			return iAttackCastleID;
+		}
+	}
+
+	return 0xFFFF;
+}
 
 
 /*

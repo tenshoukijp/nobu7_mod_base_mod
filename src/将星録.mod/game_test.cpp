@@ -105,17 +105,12 @@ void doGameTest() {
 		}
 		*/
 
-		/*
 		for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {
-			OutputDebugStream("城名:%s ", nb7城情報[iCastleID].城名);
-			OutputDebugStream("兵数:%d\n ", nb7城情報[iCastleID].兵数);
-
-			int iBushouID = getJyosyuBushouIDFromCastleID(iCastleID);
-			if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
-				OutputDebugStream("城主:%s ", nb7武将情報[iBushouID].姓名);
+			if (nb7城情報[iCastleID].城名 == "那古野"s) {
+				nb7城情報[iCastleID].商人 = 0x1;
 			}
+
 		}
-		*/
 
 		/*
 		for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
