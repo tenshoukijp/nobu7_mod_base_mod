@@ -7,22 +7,31 @@
 #include "data_kahou_struct.h"
 #include "data_kanni_struct.h"
 #include "data_yakusyoku_struct.h"
+#include "data_castle_struct.h"
+#include "data_unit_struct.h"
 
 extern int nBaseAddress;
 
-extern NB7•«î•ñŒ^*const nb7•«î•ñ;
-extern NB7‰Æ•óî•ñŒ^*const nb7‰Æ•óî•ñ;
-extern NB7Š¯ˆÊî•ñŒ^*const nb7Š¯ˆÊî•ñ;
-extern NB7–ğEî•ñŒ^*const nb7–ğEî•ñ;
+extern NB7•«î•ñŒ^ * const nb7•«î•ñ;
+extern NB7‰Æ•óî•ñŒ^ * const nb7‰Æ•óî•ñ;
+extern NB7Š¯ˆÊî•ñŒ^ * const nb7Š¯ˆÊî•ñ;
+extern NB7–ğEî•ñŒ^ * const nb7–ğEî•ñ;
+extern NB7éî•ñŒ^ * const nb7éî•ñ;
+extern NB7ƒ†ƒjƒbƒgî•ñŒ^ * const nb7ƒ†ƒjƒbƒgî•ñ;
 
 extern NB7ƒ^[ƒ“î•ñŒ^* const _turnî•ñ;
-
 #define ƒ^[ƒ“î•ñ  _turnî•ñ[0]
 
 
 namespace Å‘å” {
 	namespace •«î•ñ {
 		const int ”z—ñ” = 732;
+	}
+	namespace ƒ†ƒjƒbƒgî•ñ {
+		const int ”z—ñ” = 744;
+	}
+	namespace éî•ñ {
+		const int ”z—ñ” = 64;
 	}
 	namespace ‰Æ•óî•ñ {
 		const int ”z—ñ” = 200;

@@ -1,3 +1,25 @@
+#include "data_game_struct.h"
+
+// 城IDからそこの城主の武将IDを取得する。該当者が居なかったら0xFFFF
+// 実際に「城に居る」という意味であり、「その城に所属している」という意味ではない。
+// 例えば、開墾のために城の外にキャラクターが出ている武将は、「城に居ない」と見なされる。
+int getJyosyuBushouIDFromCastleID(int iCastleID) {
+	if (0 <= iCastleID && iCastleID < 最大数::城情報::配列数) {
+		// 所有武将のアドレスを直接さしている
+		int nBushouAddress = (int)(nb7城情報[iCastleID].p城主);
+
+		// 武将の配列の先頭アドレスから引く
+		int sub = nBushouAddress - (int)(武将情報アドレス);
+
+		// 武将情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
+		int iBushouID = sub / sizeof(NB7武将情報型);
+		if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+			return iBushouID;
+		}
+	}
+
+	return 0xFFFF;
+}
 
 
 

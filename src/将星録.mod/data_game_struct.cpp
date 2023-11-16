@@ -7,6 +7,7 @@
 #include "data_kahou_struct.h"
 #include "data_kanni_struct.h"
 #include "data_yakusyoku_struct.h"
+#include "data_castle_struct.h"
 #include "data_turn_struct.h"
 
 using namespace std;
@@ -16,6 +17,8 @@ NB7武将情報型 * const nb7武将情報 = (NB7武将情報型*)(武将情報アドレス); // data_
 NB7家宝情報型 * const nb7家宝情報 = (NB7家宝情報型*)(家宝情報アドレス); // data_kahou_structにこのアドレスの理由がある
 NB7官位情報型 * const nb7官位情報 = (NB7官位情報型*)(官位情報アドレス); // data_kanni_structにこのアドレスの理由がある
 NB7役職情報型 * const nb7役職情報 = (NB7役職情報型*)(役職情報アドレス); // data_yakusyoku_structにこのアドレスの理由がある
+NB7城情報型 * const nb7城情報 = (NB7城情報型*)(城情報アドレス); // data_castle_structにこのアドレスの理由がある
+NB7ユニット情報型 * const nb7ユニット情報 = (NB7ユニット情報型*)(ユニット情報アドレス); // data_unit_structにこのアドレスの理由がある
 
 void setGameDataStructPointer() {
 
@@ -108,5 +111,24 @@ void setGameDataStructPointer() {
 	}
 	*/
 
+	/*
+	for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {
+		OutputDebugStream("城名:%s ", nb7城情報[iCastleID].城名);
+		OutputDebugStream("兵数:%d\n ", nb7城情報[iCastleID].兵数);
+
+		int iBushouID = getJyosyuBushouIDFromCastleID(iCastleID);
+		if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+			OutputDebugStream("城主:%s ", nb7武将情報[iBushouID].姓名);
+		}
+	}
+	*/
+
+	for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
+		int iBushouID = getBushouIDFromUnitID(iUnitID);
+		if (iBushouID != 0xFFFF) {
+			OutputDebugStream("ユニット坂東:%d ", nb7ユニット情報[iUnitID].ユニット番号);
+			OutputDebugStream("ユニット支配者:%s \n", (char *)(nb7ユニット情報[iUnitID].pユニット武将));
+		}
+	}
 }
 

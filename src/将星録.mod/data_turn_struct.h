@@ -14,11 +14,11 @@ struct NB7ターン情報型 {
 	int unknown3; //
 	int unknown4; //	
 	int 相場兵糧;      // この値の1/10が相場
-	int 相場兵糧MAX値; // この値の1/10が相場MAX
+	int 相場兵糧MAX; // この値の1/10が相場MAX
 	int 相場軍馬;      // この値の1/10が相場
-	int 相場軍馬MAX値; // この値の1/10が相場MAX
+	int 相場軍馬MAX; // この値の1/10が相場MAX
 	int 相場鉄砲;      // この値の1/10が相場
-	int 相場鉄砲MAX値; // この値の1/10が相場MAX
+	int 相場鉄砲MAX; // この値の1/10が相場MAX
 	int unknown11; //
 	int unknown12; //
 	int unknown13; //

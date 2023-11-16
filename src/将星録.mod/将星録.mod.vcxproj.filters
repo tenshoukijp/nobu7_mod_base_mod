@@ -70,6 +70,12 @@
     <Filter Include="ゲーム情報 - ターン">
       <UniqueIdentifier>{3f66e7c7-89f3-40c6-a8b3-075c5b8ea1e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 大名情報">
+      <UniqueIdentifier>{7a65dbc0-14bb-418a-a29b-a085708bddb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームデータ - ユニット情報">
+      <UniqueIdentifier>{e72dd034-3cee-40a6-a1c4-5af3e82e6caf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -134,6 +140,12 @@
     </ClInclude>
     <ClInclude Include="data_castle_struct.h">
       <Filter>ゲームデータ - 城データ</Filter>
+    </ClInclude>
+    <ClInclude Include="data_game_daimyo.h">
+      <Filter>ゲームデータ - 大名情報</Filter>
+    </ClInclude>
+    <ClInclude Include="data_unit_struct.h">
+      <Filter>ゲームデータ - ユニット情報</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +232,9 @@
     </ClCompile>
     <ClCompile Include="data_yakusyoku_struct.cpp">
       <Filter>ゲームデータ - 役職データ</Filter>
+    </ClCompile>
+    <ClCompile Include="data_unit_struct.cpp">
+      <Filter>ゲームデータ - ユニット情報</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
