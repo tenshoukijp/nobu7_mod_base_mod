@@ -2,7 +2,7 @@
 #include <winuser.h>
 #include <stdio.h>
 
-#include "window.h"
+#include "game_window.h"
 #include "process.h"
 
 

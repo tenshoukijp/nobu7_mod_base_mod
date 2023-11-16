@@ -2,10 +2,10 @@
 #include <winuser.h>
 #include <stdio.h>
 
-#include "process.h"
-#include "window.h"
-#include "menu.h"
-#include "font.h"
+#include "game_process.h"
+#include "game_window.h"
+#include "game_menu.h"
+#include "game_font.h"
 
 #include "hook_functions.h"
 

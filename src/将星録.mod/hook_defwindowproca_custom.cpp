@@ -1,7 +1,7 @@
 #include <windows.h>
 #include "output_debug_stream.h"
-#include "window.h"
-#include "menu.h"
+#include "game_window.h"
+#include "game_menu.h"
 
 using namespace std;
 

@@ -27,10 +27,15 @@ extern PROC pfnOrigTextOutA;
 
 extern std::string bufferTextOut;
 
-char pszBufferYasenWeaponMessage[256] = "この私に歯向かうとは身の程を知りなさいハァーッ！　　　　　　　　　　　　";
-//char pszBufferYasenWeaponMessage[256] = "バルディッシュの一撃、受けとめてみよ！ハァーッ！　　　　　　　　　　　　";
 
-char pszBufferYasenAttackMessage[256] = "下等な人間風情が！バルディッシュの錆になりなさい！虫けらは死ぬぃ！　　　　　　　　　　　　　　";
+char pszBufferYasenWeaponMessage1[256] = "命を奪われる時を感謝しながら待ちなさいハァーッ！　　　　　　　　　　　　";
+char pszBufferYasenWeaponMessage2[256] = "この私に歯向かうなど身の程を知りなさいハァーッ！　　　　　　　　　　　　";
+char pszBufferYasenWeaponMessage[256] = "";
+// char pszBufferYasenWeaponMessage[256] = "バルディッシュの一撃、受けとめてみよ！ハァーッ！　　　　　　　　　　　　";
+
+char pszBufferYasenAttackMessage1[256] = "下等な人間風情が。バルディッシュの錆になりなさい。虫けらは死ね！　　　　　　　　　　　　　　";
+char pszBufferYasenAttackMessage2[256] = "脆弱な下等生物が。虫のように踏み潰したら、どれだけキレイになるかしら　　　　　　　　　　　　";
+char pszBufferYasenAttackMessage[256] = "";
 
 BOOL isNextSerifuStartOverride = false;  // 次にTextOutAが呼ばれたタイミングで isOverrideTextOutをTRUEにするためのフラグ
 BOOL isOverrideSerifuTextOut = false;    // このフラグがONだと、TextOutは描画をスルーするようにする。
@@ -44,7 +49,7 @@ string prevSerihuMessage = "";
 
 BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, int cbString) {
 
-	// アルベドの武将列伝の場合、アルベドモードにする。
+	// アルベドが野戦中に会心の一撃を出した場合、アルベドモードにする。
 	if (bufferTextOut.ends_with(getArubedoMei() + "剣")) {
 
 		string message = (char*)(セリフメッセージアドレス); // on_serihu_message
@@ -53,11 +58,19 @@ BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, i
 				// 次にここに来たらオーバーライドするというフラグ
 				isOverrideTextOut = TRUE;
 				isAlbedoYasenWeaponMessage = TRUE;
+
+				// 半部の確率で、アルベドのセリフを変更する
+				if (rand()%2 == 0) {
+					strcpy_s(pszBufferYasenWeaponMessage, pszBufferYasenWeaponMessage1);
+				}
+				else {
+					strcpy_s(pszBufferYasenWeaponMessage, pszBufferYasenWeaponMessage2);
+				}
 			}
 		}
 	}
 
-	// アルベドの武将列伝の場合、アルベドモードにする。
+	// アルベドが野戦をしかけた場合のセリフで、アルベドモードにする。
 	if (bufferTextOut.ends_with(getArubedoMei() + "腕")) {
 
 		string message = (char*)(セリフメッセージアドレス); // on_serihu_message
@@ -66,6 +79,15 @@ BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, i
 				// 次にここに来たらオーバーライドするというフラグ
 				isOverrideTextOut = TRUE;
 				isAlbedoYasenAttackMessage = TRUE;
+
+				// 半部の確率で、アルベドのセリフを変更する
+				if (rand() % 2 == 0) {
+					strcpy_s(pszBufferYasenAttackMessage, pszBufferYasenAttackMessage1);
+				}
+				else {
+					strcpy_s(pszBufferYasenAttackMessage, pszBufferYasenAttackMessage2);
+				}
+
 			}
 		}
 	}

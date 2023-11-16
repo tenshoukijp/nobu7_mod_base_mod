@@ -1,12 +1,15 @@
 #include <windows.h>
 #include <string>
 #include "output_debug_stream.h"
-#include "menu.h"
+#include "game_menu.h"
 #include "on_event.h"
+#include "game_screen.h"
 
 int nCheckMenuCount = 0;
 
 int prevMenuCount = 0;
+
+extern ゲーム画面ステータス lastゲーム画面ステータス;
 
 BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	if (hMenu == NULL) {

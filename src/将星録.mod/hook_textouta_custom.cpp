@@ -1,7 +1,7 @@
 #include <windows.h>
 #include <string>
 
-#include "window.h"
+#include "game_window.h"
 
 #include "hook_textouta_custom.h"
 

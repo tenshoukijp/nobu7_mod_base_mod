@@ -6,6 +6,8 @@ C:\Users\master\source\repos\winmm\将星録.mod\data_kahou_struct.cpp;C:\Users\
 C:\Users\master\source\repos\winmm\将星録.mod\data_kanni_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_kanni_struct.obj
 C:\Users\master\source\repos\winmm\将星録.mod\data_unit_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_unit_struct.obj
 C:\Users\master\source\repos\winmm\将星録.mod\data_yakusyoku_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_yakusyoku_struct.obj
+C:\Users\master\source\repos\winmm\将星録.mod\game_screen.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\game_screen.obj
+C:\Users\master\source\repos\winmm\将星録.mod\game_test.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\game_test.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_bitblt_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_bitblt_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_createcompatibledc_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_createcompatibledc_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_createdibitmap_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_createdibitmap_custom.obj
@@ -13,7 +15,7 @@ C:\Users\master\source\repos\winmm\将星録.mod\hook_createfonta_custom.cpp;C:\
 C:\Users\master\source\repos\winmm\将星録.mod\hook_defwindowproca_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_defwindowproca_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\data_game_struct.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\data_game_struct.obj
 C:\Users\master\source\repos\winmm\将星録.mod\export_func.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\export_func.obj
-C:\Users\master\source\repos\winmm\将星録.mod\font.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\font.obj
+C:\Users\master\source\repos\winmm\将星録.mod\game_font.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\game_font.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_enablemenuitem_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_enablemenuitem_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_functions.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_functions.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_getdibits_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_getdibits_custom.obj
@@ -21,10 +23,10 @@ C:\Users\master\source\repos\winmm\将星録.mod\hook_isdebuggerpresent_custom.c
 C:\Users\master\source\repos\winmm\将星録.mod\hook_releasedc_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_releasedc_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_setmenu_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_setmenu_custom.obj
 C:\Users\master\source\repos\winmm\将星録.mod\hook_textouta_custom.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\hook_textouta_custom.obj
-C:\Users\master\source\repos\winmm\将星録.mod\menu.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\menu.obj
+C:\Users\master\source\repos\winmm\将星録.mod\game_menu.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\game_menu.obj
 C:\Users\master\source\repos\winmm\将星録.mod\onigwrap.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\onigwrap.obj
 C:\Users\master\source\repos\winmm\将星録.mod\on_event.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\on_event.obj
 C:\Users\master\source\repos\winmm\将星録.mod\on_serihu_message.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\on_serihu_message.obj
 C:\Users\master\source\repos\winmm\将星録.mod\output_debug_stream.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\output_debug_stream.obj
-C:\Users\master\source\repos\winmm\将星録.mod\process.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\process.obj
-C:\Users\master\source\repos\winmm\将星録.mod\window.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\window.obj
+C:\Users\master\source\repos\winmm\将星録.mod\game_process.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\game_process.obj
+C:\Users\master\source\repos\winmm\将星録.mod\game_window.cpp;C:\Users\master\source\repos\winmm\将星録.mod\Release\game_window.obj

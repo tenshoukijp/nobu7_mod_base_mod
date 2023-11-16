@@ -1,6 +1,6 @@
 #include <windows.h>
-#include "menu.h"
-#include "font.h"
+#include "game_menu.h"
+#include "game_font.h"
 #include "output_debug_stream.h"
 
 HWND hNB7Wnd = NULL;

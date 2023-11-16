@@ -4,13 +4,16 @@
 #include "onigwrap.h"
 #include "data_game_struct.h"
 #include "bushou_albedo.h"
+#include "game_screen.h"
 
 void onOpeningMovie() {
+    setゲーム画面ステータス(ゲーム画面ステータス::起動画面);
 	OutputDebugStream("オープニングムービー\n");
 }
 // ゲームの初期設定画面
 void onInitialGameMenu() {
-	OutputDebugStream("将星録の初期設定画面\n");
+    setゲーム画面ステータス(ゲーム画面ステータス::初期設定画面);
+    OutputDebugStream("将星録の初期設定画面\n");
     resetAlbedoKoudouCounter();
 }
 
@@ -83,7 +86,9 @@ void onMenuKashinUnitIchiranStart() {
 }
 
 void onYasenBattleStart(string battleYanseStartInfo) {
-	OutputDebugStream("野戦の戦闘が開始しました\n\n" + battleYanseStartInfo + "\n");
+    setゲーム画面ステータス(ゲーム画面ステータス::野戦画面);
+    
+    OutputDebugStream("野戦の戦闘が開始しました\n\n" + battleYanseStartInfo + "\n");
 
     Matches ma;
     if (OnigMatch(battleYanseStartInfo, "守備側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?攻撃側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(\\d+?)年(\\d+?)月残り(\\d+?)ターン(.+?\\d部隊の戦術)", &ma)) {
@@ -239,18 +244,25 @@ void onYasenBattleEnd(string endYanseBattleInfo) {
     resetYasenBattleAbirityChangeAlbedo();
 
     OutputDebugStream("野戦の戦闘が終了しました\n\n" + endYanseBattleInfo + "\n");
+
+    setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 }
 
 // 理由不明な終わり方
 void onYasenBattleEnd() {
     resetYasenBattleAbirityChangeAlbedo();
     OutputDebugStream("野戦の戦闘が終了しました\n\n");
+
+    setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 }
 
 BOOL isCastleBattle = FALSE;
 void onCastleBattleTurn(string battleCastleTurnInfo) {
     if (!isCastleBattle) {
 		isCastleBattle = TRUE;
+
+        setゲーム画面ステータス(ゲーム画面ステータス::籠城戦画面);
+
 		OutputDebugStream("城攻めの戦闘が開始しました\n\n" + battleCastleTurnInfo + "\n");
     }
 	OutputDebugStream("城攻めの戦闘ターン情報:" + battleCastleTurnInfo + "\n");
@@ -278,12 +290,26 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
     resetYasenBattleAbirityChangeAlbedo();
 
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" + battleCastleEndInfo + "\n");
+
+    setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 }
 
 // 理由不明な終わり方
 void onCastleBattleEnd() {
     resetYasenBattleAbirityChangeAlbedo();
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" );
+
+    setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+}
+
+void onStrategyDaimyoturnChanged(string strategyTurnInfo) {
+    Matches ma;
+    if (OnigMatch(strategyTurnInfo, "^(.+?)家(\\1(.+?))\\1家\\2$", &ma)) {
+        OutputDebugStream("大名ターンが変わりました。" + ma[1] + "家の" + ma[2] + "\n"s);
+
+        setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+    }
+
 }
 
 void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
@@ -294,6 +320,9 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
     Matches ma;
 
     if (OnigMatch(strategyTurnInfo, "情報(.+?)様あなたの番となりました", &ma)) {
+
+        setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+
         OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);
     }
 }
@@ -329,9 +358,9 @@ int dispatchEvent() {
     else if (OnigMatch(bufferTextOut, "守備側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?攻撃側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(\\d+?)年(\\d+?)月残り(\\d+?)ターン(.+?\\d部隊の戦術)")) {
         // 守備側:斯波義統戦闘:28士気:90兵糧:3000:900:Ｄ:900:Ｄ:900:Ｄ:900:Ｄ:900:Ｄ攻撃側:織田信長戦闘:103士気:90兵糧:3000:1000:Ａ:1000:Ａ:1000:Ａ:1000:Ａ:1000:Ａ1551年4月残り4ターン織田信長対斯波義統織田信長軍第1部隊の戦術------------
         if (!isYasenBattle) {
-			isYasenBattle = TRUE;
-			onYasenBattleStart(bufferTextOut);
-		}
+            isYasenBattle = TRUE;
+            onYasenBattleStart(bufferTextOut);
+        }
         isYasenBattle = TRUE;
         onYasenBattleTurn(bufferTextOut);
     }
@@ -344,7 +373,7 @@ int dispatchEvent() {
     }
     else if (
         OnigMatch(
-            bufferTextOut, 
+            bufferTextOut,
             "情報.+?率いる軍勢を全滅させました|"
             "情報.+?率いる軍勢が全滅しました|"
             "情報.+?率いる軍勢の士気を(0|０)にしました|"
@@ -383,6 +412,9 @@ int dispatchEvent() {
         ) {
         onCastleBattleEnd(bufferTextOut);
         isCastleBattle = FALSE;
+    }
+    else if(OnigMatch(bufferTextOut, "^(.+?)家(\\1(.+?))\\1家\\2$")) {
+        onStrategyDaimyoturnChanged(bufferTextOut);
     }
 
     return 1;

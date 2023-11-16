@@ -76,6 +76,12 @@
     <Filter Include="ゲームデータ - ターン情報">
       <UniqueIdentifier>{3f66e7c7-89f3-40c6-a8b3-075c5b8ea1e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="画面">
+      <UniqueIdentifier>{b2eb3d96-d136-4df0-a4d5-ad7514d02090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="テスト">
+      <UniqueIdentifier>{16b1ab7d-bfcf-45a9-9a78-87e39ea047a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -87,16 +93,16 @@
     <ClInclude Include="data_game_struct.h">
       <Filter>ゲームデータ</Filter>
     </ClInclude>
-    <ClInclude Include="menu.h">
+    <ClInclude Include="game_menu.h">
       <Filter>メニュー</Filter>
     </ClInclude>
-    <ClInclude Include="window.h">
+    <ClInclude Include="game_window.h">
       <Filter>ウィンドウ</Filter>
     </ClInclude>
-    <ClInclude Include="font.h">
+    <ClInclude Include="game_font.h">
       <Filter>フォント</Filter>
     </ClInclude>
-    <ClInclude Include="process.h">
+    <ClInclude Include="game_process.h">
       <Filter>プロセス</Filter>
     </ClInclude>
     <ClInclude Include="hook_functions.h">
@@ -147,24 +153,30 @@
     <ClInclude Include="data_unit_struct.h">
       <Filter>ゲームデータ - ユニット情報</Filter>
     </ClInclude>
+    <ClInclude Include="game_screen.h">
+      <Filter>画面</Filter>
+    </ClInclude>
+    <ClInclude Include="game_test.h">
+      <Filter>テスト</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
       <Filter>ゲームデータ</Filter>
     </ClCompile>
-    <ClCompile Include="menu.cpp">
+    <ClCompile Include="game_menu.cpp">
       <Filter>メニュー</Filter>
     </ClCompile>
-    <ClCompile Include="window.cpp">
+    <ClCompile Include="game_window.cpp">
       <Filter>ウィンドウ</Filter>
     </ClCompile>
-    <ClCompile Include="font.cpp">
+    <ClCompile Include="game_font.cpp">
       <Filter>フォント</Filter>
     </ClCompile>
     <ClCompile Include="export_func.cpp">
       <Filter>エキスポート関数</Filter>
     </ClCompile>
-    <ClCompile Include="process.cpp">
+    <ClCompile Include="game_process.cpp">
       <Filter>プロセス</Filter>
     </ClCompile>
     <ClCompile Include="hook_functions.cpp">
@@ -238,6 +250,12 @@
     </ClCompile>
     <ClCompile Include="hook_isdebuggerpresent_custom.cpp">
       <Filter>フック関数</Filter>
+    </ClCompile>
+    <ClCompile Include="game_screen.cpp">
+      <Filter>画面</Filter>
+    </ClCompile>
+    <ClCompile Include="game_test.cpp">
+      <Filter>テスト</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

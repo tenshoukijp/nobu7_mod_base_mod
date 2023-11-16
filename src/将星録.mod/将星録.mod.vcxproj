@@ -90,17 +90,19 @@
     <ClInclude Include="data_kahou_struct.h" />
     <ClInclude Include="data_kanni_struct.h" />
     <ClInclude Include="data_yakusyoku_struct.h" />
-    <ClInclude Include="font.h" />
+    <ClInclude Include="game_font.h" />
+    <ClInclude Include="game_screen.h" />
+    <ClInclude Include="game_test.h" />
     <ClInclude Include="hook_functions.h" />
     <ClInclude Include="hook_textouta_custom.h" />
-    <ClInclude Include="menu.h" />
+    <ClInclude Include="game_menu.h" />
     <ClInclude Include="onigwrap.h" />
     <ClInclude Include="on_event.h" />
     <ClInclude Include="on_serihu_message.h" />
     <ClInclude Include="output_debug_stream.h" />
-    <ClInclude Include="process.h" />
+    <ClInclude Include="game_process.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="window.h" />
+    <ClInclude Include="game_window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bushou_albedo.cpp" />
@@ -111,6 +113,8 @@
     <ClCompile Include="data_kanni_struct.cpp" />
     <ClCompile Include="data_unit_struct.cpp" />
     <ClCompile Include="data_yakusyoku_struct.cpp" />
+    <ClCompile Include="game_screen.cpp" />
+    <ClCompile Include="game_test.cpp" />
     <ClCompile Include="hook_bitblt_custom.cpp" />
     <ClCompile Include="hook_createcompatibledc_custom.cpp" />
     <ClCompile Include="hook_createdibitmap_custom.cpp" />
@@ -118,7 +122,7 @@
     <ClCompile Include="hook_defwindowproca_custom.cpp" />
     <ClCompile Include="data_game_struct.cpp" />
     <ClCompile Include="export_func.cpp" />
-    <ClCompile Include="font.cpp" />
+    <ClCompile Include="game_font.cpp" />
     <ClCompile Include="hook_enablemenuitem_custom.cpp" />
     <ClCompile Include="hook_functions.cpp" />
     <ClCompile Include="hook_getdibits_custom.cpp" />
@@ -126,13 +130,13 @@
     <ClCompile Include="hook_releasedc_custom.cpp" />
     <ClCompile Include="hook_setmenu_custom.cpp" />
     <ClCompile Include="hook_textouta_custom.cpp" />
-    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="game_menu.cpp" />
     <ClCompile Include="onigwrap.cpp" />
     <ClCompile Include="on_event.cpp" />
     <ClCompile Include="on_serihu_message.cpp" />
     <ClCompile Include="output_debug_stream.cpp" />
-    <ClCompile Include="process.cpp" />
-    <ClCompile Include="window.cpp" />
+    <ClCompile Include="game_process.cpp" />
+    <ClCompile Include="game_window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

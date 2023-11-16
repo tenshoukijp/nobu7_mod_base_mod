@@ -2,9 +2,10 @@
 #include <string>
 #include <shellapi.h>
 #include "output_debug_stream.h"
-#include "menu.h"
-#include "window.h"
+#include "game_menu.h"
+#include "game_window.h"
 #include "on_event.h"
+#include "game_test.h"
 
 #pragma comment(lib, "shell32.lib")
 
@@ -67,7 +68,6 @@ BOOL onMenuPushed(int iMenuID) {
 	return FALSE;
 }
 
-extern void setGameDataStructPointer();
 // システムメニュー(アプリの左上を右クリックなどで出てくるメニュー)のメニューアイテムを実行した時、
 BOOL onSystemMenuPushed(int iMenuID) {
 	OutputDebugStream(iMenuID);
@@ -76,7 +76,8 @@ BOOL onSystemMenuPushed(int iMenuID) {
 	case ADDITIONAL_MENU_ID_NOTEPAD:
 		// ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
 
-		setGameDataStructPointer();
+		doGameTest();
+
 
 		return TRUE;
 	}
