@@ -52,9 +52,9 @@ void OnSSRExeMessageDetailExecute() {
 		strcpy((char*)(セリフメッセージアドレス), "腕にはいささか自信があります\xAおなごと侮りめされるな□□□\xAでは、参りますぞ！□□□□□\xA");
 #pragma warning(default: 4996) // ワーニングの抑制を解除する
 	}
-	OutputDebugString("■■■");
-	OutputDebugString((char*)セリフメッセージアドレス);
-	OutputDebugString("\n");
+	OutputDebugStream("■■■");
+	OutputDebugStream((char*)セリフメッセージアドレス);
+	OutputDebugStream("\n");
 }
 
 
