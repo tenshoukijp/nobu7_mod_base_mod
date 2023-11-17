@@ -12,13 +12,14 @@
 #include "game_process.h"
 #include "on_serihu_message.h"
 #include "hook_functions_direct.h"
-
+#include "bushou_albedo.h"
 using namespace std;
 
 
 void WriteAsmJumperOnSSRExeMessageDetail();
 
 void doGameTest() {
+
 
 	OutputDebugStream("西暦%d", ターン情報.西暦);
 	OutputDebugStream("月%d", ターン情報.月);
@@ -130,6 +131,16 @@ void doGameTest() {
 	*/
 	auto ret = getゲーム画面ステータス();
 	OutputDebugStream("ゲーム画面ステータス: %d", (int)ret);
+
+	for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
+		int iBushouID = getBushouIDFromUnitID(iUnitID);
+		if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+			if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+
+				nb7ユニット情報[iUnitID].鉄甲船 = 1;
+			}
+		}
+	}
 
 }
 

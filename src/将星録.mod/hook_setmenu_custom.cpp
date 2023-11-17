@@ -60,10 +60,16 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	if (prevMenuCount != menu_count) {
 
 		if (menu_count == 3) {
+			if (prevMenuCount == 9) {
+				onCastleBattlePreStart();
+			}
 			OutputDebugStream("籠城戦スクリーン中である\n");
 		}
 
 		if (menu_count == 4) {
+			if (prevMenuCount == 9) {
+				onYasenBattlePreStart();
+			}
 			OutputDebugStream("戦闘スクリーン中である\n");
 		}
 

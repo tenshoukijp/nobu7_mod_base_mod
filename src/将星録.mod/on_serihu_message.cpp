@@ -33,8 +33,10 @@ char pszBufferYasenWeaponMessage2[256] = "この私に歯向かうなど身の程を知りなさい
 char pszBufferYasenWeaponMessage[256] = "";
 // char pszBufferYasenWeaponMessage[256] = "バルディッシュの一撃、受けとめてみよ！ハァーッ！　　　　　　　　　　　　";
 
-char pszBufferYasenAttackMessage1[256] = "下等な人間風情が。バルディッシュの錆になりなさい。虫けらは死ね！　　　　　　　　　　　　　　";
-char pszBufferYasenAttackMessage2[256] = "脆弱な下等生物が。虫のように踏み潰したら、どれだけキレイになるかしら　　　　　　　　　　　　";
+
+//                                                     
+char pszBufferYasenAttackMessage1[256] = "下等な人間風情が　バルディッシュの錆になりたいのかしら？虫けらは死になさい！　　　　　　　";
+char pszBufferYasenAttackMessage2[256] = "人間は脆弱な生き物、下等生物虫のように踏み潰したら少しはキレイになるかしら　　　　　　　　";
 char pszBufferYasenAttackMessage[256] = "";
 
 BOOL isNextSerifuStartOverride = false;  // 次にTextOutAが呼ばれたタイミングで isOverrideTextOutをTRUEにするためのフラグ
@@ -70,11 +72,13 @@ BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, i
 		}
 	}
 
+
 	// アルベドが野戦をしかけた場合のセリフで、アルベドモードにする。
 	if (bufferTextOut.ends_with(getArubedoMei() + "腕")) {
 
 		string message = (char*)(セリフメッセージアドレス); // on_serihu_message
-		if (message.find("腕にはいささか自信") != string::npos) {
+		if (message.find("腕にはいささか自信があります") != string::npos) {
+
 			if (!isAlbedoYasenAttackMessage) {
 				// 次にここに来たらオーバーライドするというフラグ
 				isOverrideTextOut = TRUE;
@@ -91,6 +95,7 @@ BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, i
 			}
 		}
 	}
+
 
 	if (isOverrideTextOut && isAlbedoYasenAttackMessage) {
 		// 将星録の描画は1文字ずつなので、1文字ずつ別の文字を描画する形となる。

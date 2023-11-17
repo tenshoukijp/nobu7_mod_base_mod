@@ -44,15 +44,13 @@ using namespace std;
 00496E02   0FB7C8           MOVZX ECX, AX
 */
 
-string onMsgBufferOriginal = "";
-BOOL isMustCopyOriginalMessage = FALSE;
 void OnSSRExeMessageDetailExecute() {
-	isMustCopyOriginalMessage = false;
 	string message = (char*)(セリフメッセージアドレス); // on_serihu_message
 
 	if (message.find("腕にはいささか自信") != string::npos) {
-		onMsgBufferOriginal = message;
-		isMustCopyOriginalMessage = TRUE;
+#pragma warning(disable:4996)
+		strcpy((char*)(セリフメッセージアドレス), "腕にはいささか自信があります\xAおなごと侮りめされるな□□□\xAでは、参りますぞ！□□□□□\xA");
+#pragma warning(default: 4996) // ワーニングの抑制を解除する
 	}
 	OutputDebugString("■■■");
 	OutputDebugString((char*)セリフメッセージアドレス);
@@ -79,6 +77,8 @@ int pSSRExeJumpFromToOnSSRExeMessageDetail = 0x496E6A; // 関数はこのアドレスから
 int pSSRExeReturnLblFromOnSSRExeMessageDetail = 0x496E71; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
 // この関数はTENSHOU.EXEがメッセージを読みを終えるたびに、直接実行される。
 // TENSHOU.EXE内でメッセージが構築されるタイミングでこのnaked関数が呼ばれる。
+#pragma warning(disable:4733)
+
 __declspec(naked) void WINAPI OnSSRExeMessageDetail() {
 	// スタックにためておく
 	__asm {
@@ -111,6 +111,7 @@ __declspec(naked) void WINAPI OnSSRExeMessageDetail() {
 		jmp pSSRExeReturnLblFromOnSSRExeMessageDetail
 	}
 }
+#pragma warning(default: 4733) // ワーニングの抑制を解除する
 
 
 

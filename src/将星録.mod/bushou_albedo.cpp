@@ -1,6 +1,7 @@
 #include <windows.h>
-
 #include <string>
+#include <vector>
+
 using namespace std;
 
 #include "data_game_struct.h"
@@ -64,7 +65,7 @@ int resetYasenBattleAbirityChangeAlbedo() {
 
 int nAlbedo行動済み分割カウンター = -1;
 void resetAlbedoKoudouCounter() {
-    nAlbedo行動済み分割カウンター = 5;
+    nAlbedo行動済み分割カウンター = 10;
 }
 
 int decreaseAlbedoKoudouCounter() {
@@ -76,10 +77,144 @@ int decreaseAlbedoKoudouCounter() {
                 if (nb7武将情報[iBushouID].行動済) {
                     nb7武将情報[iBushouID].行動済 = 0;
                     nAlbedo行動済み分割カウンター--;
+                    break;
                 }
             }
 		}
     }
 
     return TRUE;
+}
+
+vector<int> get未使用陣形(int iUnitID) {
+    // 
+    vector<int> 未使用陣形 = { 4,1,0,2,3,5,7,6,8 }; // 部隊の陣形で取りうる陣形番号。重要な位置から。
+
+    // 利用済みの陣形をカット
+    int target陣形位置 = 0;
+    
+    target陣形位置 = nb7ユニット情報[iUnitID].第１部隊の陣形位置;
+    vector<int>::iterator itr;
+    itr= std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
+    未使用陣形.erase(itr);
+
+    target陣形位置 = nb7ユニット情報[iUnitID].第２部隊の陣形位置;
+    itr = std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
+    未使用陣形.erase(itr);
+
+    target陣形位置 = nb7ユニット情報[iUnitID].第３部隊の陣形位置;
+    itr = std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
+    未使用陣形.erase(itr);
+
+    target陣形位置 = nb7ユニット情報[iUnitID].第４部隊の陣形位置;
+    itr = std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
+    未使用陣形.erase(itr);
+
+    target陣形位置 = nb7ユニット情報[iUnitID].第５部隊の陣形位置;
+    itr = std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
+    未使用陣形.erase(itr);
+
+    return 未使用陣形;
+}
+
+
+// アルベド部隊のユニットは、いつも兵数が満タンである。
+void resetAlbedoUnitHeisuu() {
+
+    for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
+        int iBushouID = getBushouIDFromUnitID(iUnitID);
+        if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+            if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+
+                vector<int> 未使用陣形 = get未使用陣形(iUnitID);
+                OutputDebugStream("宰相のユニットを発見\n");
+
+                nb7ユニット情報[iUnitID].兵糧 = 3000;
+                nb7ユニット情報[iUnitID].大砲 = 1;
+                nb7ユニット情報[iUnitID].鉄甲船 = 1;
+
+                int 身分 = nb7武将情報[iBushouID].身分;
+                int 最低兵数 = 400 + (身分 * 50);
+                int 現在兵数 = 0;
+                現在兵数 = nb7ユニット情報[iUnitID].第１部隊兵数;
+                if (現在兵数 < 最低兵数) {
+                    OutputDebugStream("第１兵数の回復\n");
+                    nb7ユニット情報[iUnitID].第１部隊兵数 = 最低兵数;
+
+                    // 部隊そのものが壊滅していたら、兵種を足軽として復活する
+                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
+                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
+
+                    int p = nb7ユニット情報[iUnitID].第１部隊の陣形位置;
+                    if (p == 0xFFFF) {
+                        nb7ユニット情報[iUnitID].第１部隊の陣形位置 = 未使用陣形[0];
+						未使用陣形.erase(未使用陣形.begin());
+                    }
+                }
+                現在兵数 = nb7ユニット情報[iUnitID].第２部隊兵数;
+                if (現在兵数 < 最低兵数) {
+                    OutputDebugStream("第２兵数の回復\n");
+                    nb7ユニット情報[iUnitID].第２部隊兵数 = 最低兵数;
+
+                    // 部隊そのものが壊滅していたら、兵種を足軽として復活する
+                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
+                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
+
+                    int p = nb7ユニット情報[iUnitID].第２部隊の陣形位置;
+                    if (p == 0xFFFF) {
+						nb7ユニット情報[iUnitID].第２部隊の陣形位置 = 未使用陣形[0];
+                        未使用陣形.erase(未使用陣形.begin());
+                    }
+                }
+                現在兵数 = nb7ユニット情報[iUnitID].第３部隊兵数;
+                if (現在兵数 < 最低兵数) {
+                    OutputDebugStream("第３兵数の回復\n");
+                    nb7ユニット情報[iUnitID].第３部隊兵数 = 最低兵数;
+
+                    // 部隊そのものが壊滅していたら、兵種を足軽として復活する
+                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
+                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
+
+                    int p = nb7ユニット情報[iUnitID].第３部隊の陣形位置;
+                    if (p == 0xFFFF) {
+                        nb7ユニット情報[iUnitID].第３部隊の陣形位置 = 未使用陣形[0];
+                        未使用陣形.erase(未使用陣形.begin());
+                    }
+                }
+                現在兵数 = nb7ユニット情報[iUnitID].第４部隊兵数;
+                if (現在兵数 < 最低兵数) {
+                    OutputDebugStream("第４兵数の回復\n");
+                    nb7ユニット情報[iUnitID].第４部隊兵数 = 最低兵数;
+
+                    // 部隊そのものが壊滅していたら、兵種を足軽として復活する
+                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
+                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
+
+                    int p = nb7ユニット情報[iUnitID].第４部隊の陣形位置;
+                    if (p == 0xFFFF) {
+                        nb7ユニット情報[iUnitID].第４部隊の陣形位置 = 未使用陣形[0];
+                        未使用陣形.erase(未使用陣形.begin());
+                    }
+
+                }
+                現在兵数 = nb7ユニット情報[iUnitID].第５部隊兵数;
+                if (現在兵数 < 最低兵数) {
+                    OutputDebugStream("第５兵数の回復\n");
+                    nb7ユニット情報[iUnitID].第５部隊兵数 = 最低兵数;
+
+                    // 部隊そのものが壊滅していたら、兵種を足軽として復活する
+                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
+                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
+
+                    int p = nb7ユニット情報[iUnitID].第５部隊の陣形位置;
+                    if (p == 0xFFFF) {
+                        nb7ユニット情報[iUnitID].第５部隊の陣形位置 = 未使用陣形[0];
+                        未使用陣形.erase(未使用陣形.begin());
+                    }
+                }
+
+                break;
+            }
+        }
+    }
 }

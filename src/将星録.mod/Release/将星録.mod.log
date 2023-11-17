@@ -1,6 +1,4 @@
-﻿  hook_releasedc_custom.cpp
-  hook_serihu_message.cpp
-C:\Users\master\source\repos\winmm\将星録.mod\hook_serihu_message.cpp(86): warning C4733: インライン asm は 'FS:0' に割り当てています: ハンドラーは安全なハンドラーとして登録されていません。
+﻿  on_event.cpp
      ライブラリ C:\Users\master\source\repos\winmm\Release\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\winmm\Release\将星録.mod.exp を作成中
 LINK : warning LNK4232: 名前 将星録.mod に ASCII 文字以外の文字が含まれています。932 以外の ANSI コードページを使用すると、DLL をシステムに読み込めない可能性があります
 将星録.mod.exp : warning LNK4070: .EXP 内の /OUT:将星録.mod ディレクティブの指定が出力ファイル名 'C:\Users\master\source\repos\winmm\Release\将星録.mod.dll' と異なっています。ディレクティブは無視されます。

@@ -15,3 +15,5 @@ int resetYasenBattleAbirityChangeAlbedo();
 void resetAlbedoKoudouCounter();
 
 int decreaseAlbedoKoudouCounter();
+
+void resetAlbedoUnitHeisuu();

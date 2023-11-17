@@ -86,10 +86,14 @@ void onMenuKashinUnitIchiranStart() {
     OutputDebugStream("メニュー-家臣-ユニット一覧画面\n");
 }
 
-void onYasenBattleStart(string battleYanseStartInfo) {
+void onYasenBattlePreStart() {
+    OutputDebugStream("野戦の戦闘が開始しました\n\n");
     setゲーム画面ステータス(ゲーム画面ステータス::野戦画面);
-    
-    OutputDebugStream("野戦の戦闘が開始しました\n\n" + battleYanseStartInfo + "\n");
+
+    resetAlbedoUnitHeisuu();
+}
+
+void onYasenBattleStart(string battleYanseStartInfo) {
 
     Matches ma;
     if (OnigMatch(battleYanseStartInfo, "守備側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?攻撃側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(\\d+?)年(\\d+?)月残り(\\d+?)ターン(.+?\\d部隊の戦術)", &ma)) {
@@ -252,20 +256,24 @@ void onYasenBattleEnd(string endYanseBattleInfo) {
 // 理由不明な終わり方
 void onYasenBattleEnd() {
     resetYasenBattleAbirityChangeAlbedo();
+
     OutputDebugStream("野戦の戦闘が終了しました\n\n");
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 }
 
 BOOL isCastleBattle = FALSE;
+void onCastleBattlePreStart() {
+    isCastleBattle = TRUE;
+
+    resetAlbedoUnitHeisuu();
+
+    setゲーム画面ステータス(ゲーム画面ステータス::籠城戦画面);
+
+    OutputDebugStream("城攻めの戦闘が開始しました\n");
+}
+
 void onCastleBattleTurn(string battleCastleTurnInfo) {
-    if (!isCastleBattle) {
-		isCastleBattle = TRUE;
-
-        setゲーム画面ステータス(ゲーム画面ステータス::籠城戦画面);
-
-		OutputDebugStream("城攻めの戦闘が開始しました\n\n" + battleCastleTurnInfo + "\n");
-    }
 	OutputDebugStream("城攻めの戦闘ターン情報:" + battleCastleTurnInfo + "\n");
 }
 
@@ -298,6 +306,7 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
 // 理由不明な終わり方
 void onCastleBattleEnd() {
     resetYasenBattleAbirityChangeAlbedo();
+
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" );
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
@@ -309,6 +318,8 @@ void onStrategyDaimyoturnChanged(string strategyTurnInfo) {
         OutputDebugStream("大名ターンが変わりました。" + ma[1] + "家の" + ma[2] + "\n"s);
 
         setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+
+        resetAlbedoUnitHeisuu();
     }
 
 }
@@ -317,6 +328,8 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
 
     // アルベドの行動済みカウンターのリセット
     resetAlbedoKoudouCounter();
+
+    resetAlbedoUnitHeisuu();
 
     Matches ma;
 

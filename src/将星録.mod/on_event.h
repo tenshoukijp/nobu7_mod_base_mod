@@ -38,9 +38,13 @@ void onYasenBattleTurn(std::string battleTurnInfo);
 
 void onStrategyPlayerDaimyoTurn(std::string strategyTurnInfo);
 
+void onYasenBattlePreStart();
+
 void onYasenBattleEnd(std::string endYanseBattleInfo);
 
 void onYasenBattleEnd();
+
+void onCastleBattlePreStart();
 
 void onCastleBattleEnd(std::string battleCastleEndInfo);
 
