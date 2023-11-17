@@ -112,15 +112,15 @@ void doGameTest() {
 
 		}
 
-		/*
 		for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
 			int iBushouID = getBushouIDFromUnitID(iUnitID);
 			if (iBushouID != 0xFFFF) {
-				OutputDebugStream("ユニット坂東:%d ", nb7ユニット情報[iUnitID].ユニット番号);
+				OutputDebugStream("ユニット番号:%d ", nb7ユニット情報[iUnitID].ユニット番号);
 				OutputDebugStream("ユニット支配者:%s \n", (char *)(nb7ユニット情報[iUnitID].pユニット武将));
+				OutputDebugStream("ユニット大砲:%d \n", nb7ユニット情報[iUnitID].大砲);
+				OutputDebugStream("ユニット鉄甲船:%d \n", nb7ユニット情報[iUnitID].鉄甲船);
 			}
 		}
-		*/
 
 	auto ret = getゲーム画面ステータス();
 	OutputDebugStream("ゲーム画面ステータス: %d", (int)ret);
