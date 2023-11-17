@@ -14,6 +14,7 @@ extern int nTextOutProceedCounter;
 
 extern int nCheckTextOutXStart;
 extern int nCheckTextOutYStart;
+extern BOOL isMustCopyOriginalMessage;
 
 int Hook_ReleaseDCCustom(
 	HWND hWnd,  // ウィンドウのハンドル
@@ -27,6 +28,7 @@ int Hook_ReleaseDCCustom(
 	isAlbedoRetsuden = FALSE;
 	isAlbedoYasenWeaponMessage = FALSE;
 	isAlbedoYasenAttackMessage = FALSE;
+	isMustCopyOriginalMessage = FALSE;
 
 	nCheckTextOutXStart = -1;
 	nCheckTextOutYStart = -1;

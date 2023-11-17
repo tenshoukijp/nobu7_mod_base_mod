@@ -31,9 +31,6 @@
     <Filter Include="プロセス">
       <UniqueIdentifier>{dc77d025-0a59-4d9b-91bc-95ac69ef75bb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="フック関数">
-      <UniqueIdentifier>{30d39105-c302-426f-87f9-2bcbf409c244}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Onゲームイベント">
       <UniqueIdentifier>{7abd5f9c-161f-49fd-afce-f52023ba6196}</UniqueIdentifier>
     </Filter>
@@ -82,6 +79,12 @@
     <Filter Include="テスト">
       <UniqueIdentifier>{16b1ab7d-bfcf-45a9-9a78-87e39ea047a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="フック関数置き換え系">
+      <UniqueIdentifier>{30d39105-c302-426f-87f9-2bcbf409c244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="フック関数ダイレクト">
+      <UniqueIdentifier>{036ca32a-9a48-41ad-bc6b-627233bf5629}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -105,8 +108,8 @@
     <ClInclude Include="game_process.h">
       <Filter>プロセス</Filter>
     </ClInclude>
-    <ClInclude Include="hook_functions.h">
-      <Filter>フック関数</Filter>
+    <ClInclude Include="hook_functions_replace.h">
+      <Filter>フック関数置き換え系</Filter>
     </ClInclude>
     <ClInclude Include="on_event.h">
       <Filter>Onゲームイベント</Filter>
@@ -124,7 +127,7 @@
       <Filter>デバッグ出力</Filter>
     </ClInclude>
     <ClInclude Include="hook_textouta_custom.h">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClInclude>
     <ClInclude Include="bushou_albedo.h">
       <Filter>アルベド</Filter>
@@ -159,6 +162,9 @@
     <ClInclude Include="game_test.h">
       <Filter>テスト</Filter>
     </ClInclude>
+    <ClInclude Include="hook_functions_direct.h">
+      <Filter>フック関数ダイレクト</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -179,20 +185,20 @@
     <ClCompile Include="game_process.cpp">
       <Filter>プロセス</Filter>
     </ClCompile>
-    <ClCompile Include="hook_functions.cpp">
-      <Filter>フック関数</Filter>
+    <ClCompile Include="hook_functions_replace.cpp">
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="hook_defwindowproca_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="hook_textouta_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="hook_createfonta_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="hook_setmenu_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="on_event.cpp">
       <Filter>Onゲームイベント</Filter>
@@ -201,7 +207,7 @@
       <Filter>武将列伝</Filter>
     </ClCompile>
     <ClCompile Include="hook_releasedc_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="onigwrap.cpp">
       <Filter>鬼車</Filter>
@@ -210,7 +216,7 @@
       <Filter>デバッグ出力</Filter>
     </ClCompile>
     <ClCompile Include="hook_enablemenuitem_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="bushou_albedo.cpp">
       <Filter>アルベド</Filter>
@@ -228,16 +234,16 @@
       <Filter>ゲームデータ - 武将情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_bitblt_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="hook_createdibitmap_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="hook_createcompatibledc_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="hook_getdibits_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="data_kanni_struct.cpp">
       <Filter>ゲームデータ - 官位情報</Filter>
@@ -249,13 +255,19 @@
       <Filter>ゲームデータ - ユニット情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_isdebuggerpresent_custom.cpp">
-      <Filter>フック関数</Filter>
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="game_screen.cpp">
       <Filter>画面</Filter>
     </ClCompile>
     <ClCompile Include="game_test.cpp">
       <Filter>テスト</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_serihu_message.cpp">
+      <Filter>Onセリフ</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_functions_direct.cpp">
+      <Filter>フック関数ダイレクト</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

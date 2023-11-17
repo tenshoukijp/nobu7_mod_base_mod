@@ -9,10 +9,14 @@
 #include "data_castle_struct.h"
 #include "data_turn_struct.h"
 #include "game_screen.h"
+#include "game_process.h"
+#include "on_serihu_message.h"
+#include "hook_functions_direct.h"
 
 using namespace std;
 
 
+void WriteAsmJumperOnSSRExeMessageDetail();
 
 void doGameTest() {
 
@@ -105,24 +109,30 @@ void doGameTest() {
 		}
 		*/
 
-		for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {
-			if (nb7城情報[iCastleID].城名 == "那古野"s) {
-				nb7城情報[iCastleID].商人 = 0x1;
-			}
-
+	/*
+	for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {
+		if (nb7城情報[iCastleID].城名 == "那古野"s) {
+			nb7城情報[iCastleID].商人 = 0x1;
 		}
 
-		for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
-			int iBushouID = getBushouIDFromUnitID(iUnitID);
-			if (iBushouID != 0xFFFF) {
-				OutputDebugStream("ユニット番号:%d ", nb7ユニット情報[iUnitID].ユニット番号);
-				OutputDebugStream("ユニット支配者:%s \n", (char *)(nb7ユニット情報[iUnitID].pユニット武将));
-				OutputDebugStream("ユニット大砲:%d \n", nb7ユニット情報[iUnitID].大砲);
-				OutputDebugStream("ユニット鉄甲船:%d \n", nb7ユニット情報[iUnitID].鉄甲船);
-			}
+	}
+	*/
+	/*
+	for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
+		int iBushouID = getBushouIDFromUnitID(iUnitID);
+		if (iBushouID != 0xFFFF) {
+			OutputDebugStream("ユニット番号:%d ", nb7ユニット情報[iUnitID].ユニット番号);
+			OutputDebugStream("ユニット支配者:%s \n", (char*)(nb7ユニット情報[iUnitID].pユニット武将));
+			OutputDebugStream("ユニット大砲:%d \n", nb7ユニット情報[iUnitID].大砲);
+			OutputDebugStream("ユニット鉄甲船:%d \n", nb7ユニット情報[iUnitID].鉄甲船);
 		}
-
+	}
+	*/
 	auto ret = getゲーム画面ステータス();
 	OutputDebugStream("ゲーム画面ステータス: %d", (int)ret);
 
 }
+
+
+
+

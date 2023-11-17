@@ -5,8 +5,9 @@
 #include "data_game_struct.h"
 #include "bushou_albedo.h"
 #include "game_screen.h"
-
+#include "hook_functions_direct.h"
 void onOpeningMovie() {
+    hookFunctionsDirect();
     setゲーム画面ステータス(ゲーム画面ステータス::起動画面);
 	OutputDebugStream("オープニングムービー\n");
 }

@@ -4,6 +4,7 @@
 #include "game_menu.h"
 #include "on_event.h"
 #include "game_screen.h"
+#include "hook_functions_direct.h"
 
 int nCheckMenuCount = 0;
 
@@ -67,6 +68,8 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 		}
 
 		if (menu_count == 9) {
+
+
 			if (prevMenuCount == 4) {
 				onYasenBattleEnd();
 			}
