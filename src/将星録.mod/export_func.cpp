@@ -11,11 +11,15 @@
 #include "hook_functions_direct.h"
 
 #include "output_debug_stream.h"
+#include <time.h>
 
 #pragma comment(lib, "user32.lib")
 
 // WinMM.dllから呼ばれる関数。概ね初期時に呼ばれる。
 extern "C" __declspec(dllexport) void WINAPI onInitialize(void* bufOfNB7Wnd) {
+
+	srand((unsigned int)time(NULL)); // 現在時刻の情報で初期化
+
 	// 本当に将星録本体のゲームが始まり、ウィンドウが描画されたのかのチェック。同じEXEでもランチャーへとバイパスされたりなど、色々あるためこのチェックが欠かせない。
 	referenceOfNB7Wnd = (HWND *)bufOfNB7Wnd;
 

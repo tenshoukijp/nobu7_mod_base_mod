@@ -12,20 +12,22 @@ struct NB7ユニット情報型 {
 	int p所属城; // [00 90 53]ならどこの城にも所属していない
 	int unknown1;
 	int* pユニット武将; // 武将へのポインタ(武将情報の配列の該当武将の情報の位置を直接指している)。ここが[B0 56 94]ならば、そもそもユニットを誰も率いていない。武将情報中の744人に入っているかどうかで判定するのが良いだろう。
-	int unknown2;
-	int unknown2_max;
+	int 金銭;
+	int 金銭MAX; // 50000=0xC350が常に入っている
 	int 兵糧;
-	int 兵糧MAX;
-	int unknown4;
-	int unknown4_max;
-	int unknown5;
-	int unknown5_max;
-	int unknown6;
-	int unknown6_max;
-	int unknown7;
-	int unknown8;
+	int 兵糧MAX; // 50000=0xC350が常に入っている
+	int 軍馬;
+	int 軍馬MAX; // 50000=0xC350が常に入っている
+	int 鉄砲;
+	int 鉄砲MAX; // 50000=0xC350が常に入っている
+	int 輸送兵士;    // 輸送用の兵士。軍隊用兵数ではない。
+	int 輸送兵士MAX; // 50000=0xC350が常に入っている
+	int 輸送大砲;    // 輸送用の大砲。軍隊用兵数ではない。
+	int 輸送大砲MAX; // 50000=0xC350が常に入っている
+	int マップ上のＸ座標;
+	int マップ上のＹ座標;
 	int unknown9; // [0xffffffff] が多い
-	BYTE unknown98[34];
+	BYTE unknown98[26];
 	/* 陣形位置
 	  ┌─┬─┬─┐
 	  │２│５│８│

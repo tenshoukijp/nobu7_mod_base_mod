@@ -7,9 +7,9 @@
 #pragma pack(1)
 struct NB7ターン情報型 {
 	int 西暦;     // ゲームの現在の西暦
-	int unknown1; // 0x7CF = 1999
+	int 西暦MAX;  // 0x7CF = 1999が常に入っている
 	int 月;       // ゲームの現在の月
-	int unknown2; // 
+	int 月MAX;    //  即ち12が常に入っている
 	int pポインタ; // 等のポインタ
 	int unknown3; //
 	int unknown4; //	

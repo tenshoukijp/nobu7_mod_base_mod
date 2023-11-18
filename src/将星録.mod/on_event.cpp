@@ -329,8 +329,6 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
     // アルベドの行動済みカウンターのリセット
     resetAlbedoKoudouCounter();
 
-    resetAlbedoUnitHeisuu();
-
     Matches ma;
 
     if (OnigMatch(strategyTurnInfo, "情報(.+?)様あなたの番となりました", &ma)) {

@@ -7,6 +7,7 @@
 #include "on_serihu_message.h"
 #include "bushou_albedo.h"
 #include "onigwrap.h"
+#include <time.h>
 
 using namespace std;
 
@@ -48,6 +49,7 @@ BOOL isAlbedoYasenWeaponMessage = FALSE;
 BOOL isAlbedoYasenAttackMessage = FALSE;
 
 string prevSerihuMessage = "";
+
 
 BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, int cbString) {
 

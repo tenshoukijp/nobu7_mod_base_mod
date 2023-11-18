@@ -110,14 +110,11 @@ void doGameTest() {
 		}
 		*/
 
-	/*
 	for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {
-		if (nb7城情報[iCastleID].城名 == "那古野"s) {
-			nb7城情報[iCastleID].商人 = 0x1;
-		}
-
+		OutputDebugStream(nb7城情報[iCastleID].城名);
+		OutputDebugStream("\t\n;");
 	}
-	*/
+
 	/*
 	for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
 		int iBushouID = getBushouIDFromUnitID(iUnitID);
@@ -126,9 +123,12 @@ void doGameTest() {
 			OutputDebugStream("ユニット支配者:%s \n", (char*)(nb7ユニット情報[iUnitID].pユニット武将));
 			OutputDebugStream("ユニット大砲:%d \n", nb7ユニット情報[iUnitID].大砲);
 			OutputDebugStream("ユニット鉄甲船:%d \n", nb7ユニット情報[iUnitID].鉄甲船);
+			OutputDebugStream("ユニット金銭:%d \n", nb7ユニット情報[iUnitID].金銭);
+			OutputDebugStream("ユニット兵糧:%d \n", nb7ユニット情報[iUnitID].兵糧);
 		}
 	}
 	*/
+	/*
 	auto ret = getゲーム画面ステータス();
 	OutputDebugStream("ゲーム画面ステータス: %d", (int)ret);
 
@@ -141,7 +141,7 @@ void doGameTest() {
 			}
 		}
 	}
-
+	*/
 }
 
 
