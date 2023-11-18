@@ -126,13 +126,27 @@ void resetAlbedoUnitHeisuu() {
         if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
             if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
 
-                vector<int> 未使用陣形 = get未使用陣形(iUnitID);
-                OutputDebugStream("宰相のユニットを発見\n");
+                // 第１部隊が存在しないということは、軍隊部隊ではないということ。何もしない
+                if (nb7ユニット情報[iUnitID].第１部隊の陣形位置 == 0xFFFF) {
+                    return;
+                }
 
+                // ユニット種別が「軍勢」でもなく「軍船」でもなければ、処理しない
+                if (nb7ユニット情報[iUnitID].ユニット種別 != ユニット情報::ユニット種別::軍勢 &&
+                    nb7ユニット情報[iUnitID].ユニット種別 != ユニット情報::ユニット種別::軍勢
+                    ) {
+                    return;
+                }
+
+                // まず、兵糧・大砲・鉄甲船の処理
                 nb7ユニット情報[iUnitID].兵糧 = 3000;
                 nb7ユニット情報[iUnitID].大砲 = 1;
                 nb7ユニット情報[iUnitID].鉄甲船 = 1;
 
+                // 使われていない陣形位置を取得
+                vector<int> 未使用陣形 = get未使用陣形(iUnitID);
+
+                // 兵数を回復し、(兵が壊滅していたら、未使用の陣形位置へと配備する)
                 int 身分 = nb7武将情報[iBushouID].身分;
                 int 最低兵数 = 400 + (身分 * 50);
                 int 現在兵数 = 0;

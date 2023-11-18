@@ -86,6 +86,14 @@ void onMenuKashinUnitIchiranStart() {
     OutputDebugStream("メニュー-家臣-ユニット一覧画面\n");
 }
 
+/*
+void onYanseBattlePrePreStart() {
+    OutputDebugStream("野戦にもうすぐ入ります\n\n");
+
+    resetAlbedoUnitHeisuu();
+}
+*/
+
 void onYasenBattlePreStart() {
     OutputDebugStream("野戦の戦闘が開始しました\n\n");
     setゲーム画面ステータス(ゲーム画面ステータス::野戦画面);
@@ -248,6 +256,8 @@ void onYasenBattleEnd(string endYanseBattleInfo) {
 
     resetYasenBattleAbirityChangeAlbedo();
 
+    resetAlbedoUnitHeisuu();
+
     OutputDebugStream("野戦の戦闘が終了しました\n\n" + endYanseBattleInfo + "\n");
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
@@ -256,6 +266,8 @@ void onYasenBattleEnd(string endYanseBattleInfo) {
 // 理由不明な終わり方
 void onYasenBattleEnd() {
     resetYasenBattleAbirityChangeAlbedo();
+
+    resetAlbedoUnitHeisuu();
 
     OutputDebugStream("野戦の戦闘が終了しました\n\n");
 
@@ -307,6 +319,8 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
 void onCastleBattleEnd() {
     resetYasenBattleAbirityChangeAlbedo();
 
+    resetAlbedoUnitHeisuu();
+
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" );
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
@@ -326,14 +340,16 @@ void onStrategyDaimyoturnChanged(string strategyTurnInfo) {
 
 void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
 
-    // アルベドの行動済みカウンターのリセット
-    resetAlbedoKoudouCounter();
-
     Matches ma;
 
     if (OnigMatch(strategyTurnInfo, "情報(.+?)様あなたの番となりました", &ma)) {
 
         setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+
+        // アルベドの行動済みカウンターのリセット
+        resetAlbedoKoudouCounter();
+
+        resetAlbedoUnitHeisuu();
 
         OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);
     }
@@ -367,6 +383,17 @@ int dispatchEvent() {
     else if (OnigMatch(bufferTextOut, "仕官---年政治.+この者を採用なさいますか？")) {
         onShikanWindow();
     }
+    /*
+    else if (OnigMatch(bufferTextOut,
+        "おのおのがた、.+?名花じゃくれぐれも油断なきよう！|"
+        "おなごに勝負を挑むは|"
+        "末代まで恥を残すな！|"
+        "その首この.+?が頂戴仕る|"
+        ".+?の軍勢を完膚なきまで蹴散らしてやるの"
+    )) {
+        onYanseBattlePrePreStart();
+    }
+    */
     else if (OnigMatch(bufferTextOut, "守備側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?攻撃側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(\\d+?)年(\\d+?)月残り(\\d+?)ターン(.+?\\d部隊の戦術)")) {
         // 守備側:斯波義統戦闘:28士気:90兵糧:3000:900:Ｄ:900:Ｄ:900:Ｄ:900:Ｄ:900:Ｄ攻撃側:織田信長戦闘:103士気:90兵糧:3000:1000:Ａ:1000:Ａ:1000:Ａ:1000:Ａ:1000:Ａ1551年4月残り4ターン織田信長対斯波義統織田信長軍第1部隊の戦術------------
         if (!isYasenBattle) {
