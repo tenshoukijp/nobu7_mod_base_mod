@@ -29,6 +29,7 @@ namespace 最大数 {
 	}
 	namespace ユニット情報 {
 		const int 配列数 = 744;
+		const int 軍勢部隊数 = 5; // 軍勢ユニットの最大部隊数
 	}
 	namespace 城情報 {
 		const int 配列数 = 64;
@@ -42,4 +43,5 @@ namespace 最大数 {
 	namespace 役職情報 {
 		const int 配列数 = 7;
 	}
+
 }

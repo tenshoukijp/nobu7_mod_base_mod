@@ -69,9 +69,19 @@ struct NB7ユニット情報型 {
 };
 #pragma pack()
 
+#pragma pack(1)
+struct NB7ユニット軍勢型 {
+	WORD 兵種; // 0:足軽 1:騎馬 2:鉄砲 3:騎馬鉄砲  部隊がなければ0
+	WORD 部隊の陣形位置; // 部隊がなければFFFF
+	int 部隊兵数; // 部隊がなければ0
+};
+#pragma pack()
+
 namespace ユニット情報 {
 	enum ユニット種別 { 軍勢 = 0, 軍船 = 1, 輸送 = 2, 開墾 = 3, 商業 = 4, 建設 = 5, 間者 = 6, 忍者 = 7, 使者 = 8, 移動 = 9, 浪人 = 10 };
 }
+
+int get軍勢ユニット部隊最大兵数(int iUnitID);
 
 // ユニットIDからそれを率いる武将IDを得る
 int getBushouIDFromUnitID(int iUnitID);

@@ -133,7 +133,7 @@ void resetAlbedoUnitHeisuu() {
 
                 // ユニット種別が「軍勢」でもなく「軍船」でもなければ、処理しない
                 if (nb7ユニット情報[iUnitID].ユニット種別 != ユニット情報::ユニット種別::軍勢 &&
-                    nb7ユニット情報[iUnitID].ユニット種別 != ユニット情報::ユニット種別::軍勢
+                    nb7ユニット情報[iUnitID].ユニット種別 != ユニット情報::ユニット種別::軍船
                     ) {
                     return;
                 }
@@ -148,85 +148,74 @@ void resetAlbedoUnitHeisuu() {
 
                 // 兵数を回復し、(兵が壊滅していたら、未使用の陣形位置へと配備する)
                 int 身分 = nb7武将情報[iBushouID].身分;
-                int 最低兵数 = 400 + (身分 * 50);
+                int 部隊最大兵数 = get軍勢ユニット部隊最大兵数(iUnitID);
+
                 int 現在兵数 = 0;
                 現在兵数 = nb7ユニット情報[iUnitID].第１部隊兵数;
-                if (現在兵数 < 最低兵数) {
+                if (現在兵数 < 部隊最大兵数) {
                     OutputDebugStream("第１兵数の回復\n");
-                    nb7ユニット情報[iUnitID].第１部隊兵数 = 最低兵数;
+                    nb7ユニット情報[iUnitID].第１部隊兵数 = 部隊最大兵数;
 
                     // 部隊そのものが壊滅していたら、兵種を足軽として復活する
-                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
-                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
-
-                    int p = nb7ユニット情報[iUnitID].第１部隊の陣形位置;
-                    if (p == 0xFFFF) {
+                    int j = nb7ユニット情報[iUnitID].第１部隊の陣形位置;
+                    if (j == 0xFFFF) {
                         nb7ユニット情報[iUnitID].第１部隊の陣形位置 = 未使用陣形[0];
-						未使用陣形.erase(未使用陣形.begin());
+                        未使用陣形.erase(未使用陣形.begin());
+                        nb7ユニット情報[iUnitID].第１部隊兵種 = 0;
                     }
                 }
                 現在兵数 = nb7ユニット情報[iUnitID].第２部隊兵数;
-                if (現在兵数 < 最低兵数) {
+                if (現在兵数 < 部隊最大兵数) {
                     OutputDebugStream("第２兵数の回復\n");
-                    nb7ユニット情報[iUnitID].第２部隊兵数 = 最低兵数;
+                    nb7ユニット情報[iUnitID].第２部隊兵数 = 部隊最大兵数;
 
                     // 部隊そのものが壊滅していたら、兵種を足軽として復活する
-                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
-                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
-
-                    int p = nb7ユニット情報[iUnitID].第２部隊の陣形位置;
-                    if (p == 0xFFFF) {
+                    int j = nb7ユニット情報[iUnitID].第２部隊の陣形位置;
+                    if (j == 0xFFFF) {
 						nb7ユニット情報[iUnitID].第２部隊の陣形位置 = 未使用陣形[0];
                         未使用陣形.erase(未使用陣形.begin());
+                        nb7ユニット情報[iUnitID].第１部隊兵種 = 0;
                     }
                 }
                 現在兵数 = nb7ユニット情報[iUnitID].第３部隊兵数;
-                if (現在兵数 < 最低兵数) {
+                if (現在兵数 < 部隊最大兵数) {
                     OutputDebugStream("第３兵数の回復\n");
-                    nb7ユニット情報[iUnitID].第３部隊兵数 = 最低兵数;
+                    nb7ユニット情報[iUnitID].第３部隊兵数 = 部隊最大兵数;
 
-                    // 部隊そのものが壊滅していたら、兵種を足軽として復活する
-                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
-                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
-
-                    int p = nb7ユニット情報[iUnitID].第３部隊の陣形位置;
-                    if (p == 0xFFFF) {
+                    int j = nb7ユニット情報[iUnitID].第３部隊の陣形位置;
+                    if (j == 0xFFFF) {
                         nb7ユニット情報[iUnitID].第３部隊の陣形位置 = 未使用陣形[0];
                         未使用陣形.erase(未使用陣形.begin());
+                        nb7ユニット情報[iUnitID].第１部隊兵種 = 0;
                     }
                 }
                 現在兵数 = nb7ユニット情報[iUnitID].第４部隊兵数;
-                if (現在兵数 < 最低兵数) {
+                if (現在兵数 < 部隊最大兵数) {
                     OutputDebugStream("第４兵数の回復\n");
-                    nb7ユニット情報[iUnitID].第４部隊兵数 = 最低兵数;
+                    nb7ユニット情報[iUnitID].第４部隊兵数 = 部隊最大兵数;
 
                     // 部隊そのものが壊滅していたら、兵種を足軽として復活する
-                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
-                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
-
-                    int p = nb7ユニット情報[iUnitID].第４部隊の陣形位置;
-                    if (p == 0xFFFF) {
+                    int j = nb7ユニット情報[iUnitID].第４部隊の陣形位置;
+                    if (j == 0xFFFF) {
                         nb7ユニット情報[iUnitID].第４部隊の陣形位置 = 未使用陣形[0];
                         未使用陣形.erase(未使用陣形.begin());
+                        nb7ユニット情報[iUnitID].第１部隊兵種 = 0;
                     }
 
                 }
                 現在兵数 = nb7ユニット情報[iUnitID].第５部隊兵数;
-                if (現在兵数 < 最低兵数) {
+                if (現在兵数 < 部隊最大兵数) {
                     OutputDebugStream("第５兵数の回復\n");
-                    nb7ユニット情報[iUnitID].第５部隊兵数 = 最低兵数;
+                    nb7ユニット情報[iUnitID].第５部隊兵数 = 部隊最大兵数;
 
                     // 部隊そのものが壊滅していたら、兵種を足軽として復活する
-                    int h = nb7ユニット情報[iUnitID].第１部隊兵種;
-                    if (h == 0xFFFF) { nb7ユニット情報[iUnitID].第１部隊兵種 = 0; }
-
-                    int p = nb7ユニット情報[iUnitID].第５部隊の陣形位置;
-                    if (p == 0xFFFF) {
+                    int j = nb7ユニット情報[iUnitID].第５部隊の陣形位置;
+                    if (j == 0xFFFF) {
                         nb7ユニット情報[iUnitID].第５部隊の陣形位置 = 未使用陣形[0];
                         未使用陣形.erase(未使用陣形.begin());
+                        nb7ユニット情報[iUnitID].第１部隊兵種 = 0;
                     }
                 }
-
                 break;
             }
         }

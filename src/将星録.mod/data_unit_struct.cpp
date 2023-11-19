@@ -1,7 +1,9 @@
 #include <windows.h>
+#include <vector>
 
 #include "data_game_struct.h"
 #include "output_debug_stream.h"
+
 
 
 // ユニットIDからそれを率いている武将IDを取得する
@@ -21,4 +23,41 @@ int getBushouIDFromUnitID(int iUnitID) {
 	}
 
 	return 0xFFFF;
+}
+
+
+int get軍勢ユニット部隊最大兵数(int iUnitID) {
+	if (0 <= iUnitID && iUnitID < 最大数::ユニット情報::配列数) {
+		int iBushouID = getBushouIDFromUnitID(iUnitID);
+		if ( 0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+			int status = nb7武将情報[iBushouID].状態;
+			// 大名、独立勢力、一向一揆勢力、一揆勢力なら、１部隊は1000
+			if (status == 0 || status == 2 || status == 6 || status == 7) {
+				return 1000;
+			}
+			// 現役の時は身分で判定
+			else if (status == 1) {
+				int mibun = nb7武将情報[iBushouID].身分;
+				if (mibun == 武将情報::身分::大名) {
+					return 1000;
+				}
+				else if (mibun == 武将情報::身分::宿老) {
+					return 900;
+				}
+				else if (mibun == 武将情報::身分::家老) {
+					return 750;
+				}
+				else if (mibun == 武将情報::身分::部将) {
+					return 600;
+				}
+				else if (mibun == 武将情報::身分::侍大将) {
+					return 500;
+				}
+				else if (mibun == 武将情報::身分::足軽頭) {
+					return 400;
+				}
+			}
+		}
+	}
+	return 0;
 }
