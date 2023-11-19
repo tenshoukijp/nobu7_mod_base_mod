@@ -111,12 +111,10 @@ void doGameTest() {
 		*/
 
 	for (int iCastleID = 0; iCastleID < Å‘å”::éî•ñ::”z—ñ”; iCastleID++) {
-		if (nb7éî•ñ[iCastleID].unknown_flag == 1) {
-			OutputDebugStream("%s\n", nb7éî•ñ[iCastleID].é–¼);
-		}
 		if (nb7éî•ñ[iCastleID].é–¼ == "•l¼"s) {
 			OutputDebugStream("ˆÏ”Có‘Ô %d\n", nb7éî•ñ[iCastleID].ˆÏ”Có‘Ô);
-			OutputDebugStream("’²¸ %d\n", nb7éî•ñ[iCastleID].unknown_flag);
+			OutputDebugStream("\t\n;");
+			OutputDebugStream("ˆÏ”CUŒ‚ %d\n", nb7éî•ñ[iCastleID].ˆÏ”CUŒ‚);
 			OutputDebugStream("\t\n;");
 		}
 	}
