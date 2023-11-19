@@ -1,37 +1,4 @@
-﻿  bushou_albedo.cpp
-  bushou_retsuden.cpp
-  data_bushou_struct.cpp
-  data_castle_struct.cpp
-  data_kahou_struct.cpp
-  data_kanni_struct.cpp
-  data_unit_struct.cpp
-  data_yakusyoku_struct.cpp
-  game_screen.cpp
-  game_test.cpp
-  hook_bitblt_custom.cpp
-  hook_createcompatibledc_custom.cpp
-  hook_createdibitmap_custom.cpp
-  hook_createfonta_custom.cpp
-  hook_defwindowproca_custom.cpp
-  data_game_struct.cpp
-  export_func.cpp
-  game_font.cpp
-  hook_enablemenuitem_custom.cpp
-  hook_functions_direct.cpp
-  hook_functions_replace.cpp
-  hook_getdibits_custom.cpp
-  hook_isdebuggerpresent_custom.cpp
-  hook_releasedc_custom.cpp
-  hook_serihu_message.cpp
-  hook_setmenu_custom.cpp
-  hook_textouta_custom.cpp
-  game_menu.cpp
-  onigwrap.cpp
-  on_event.cpp
-  on_serihu_message.cpp
-  output_debug_stream.cpp
-  game_process.cpp
-  game_window.cpp
+﻿  game_test.cpp
      ライブラリ C:\Users\master\source\repos\winmm\Release\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\winmm\Release\将星録.mod.exp を作成中
 LINK : warning LNK4232: 名前 将星録.mod に ASCII 文字以外の文字が含まれています。932 以外の ANSI コードページを使用すると、DLL をシステムに読み込めない可能性があります
 将星録.mod.exp : warning LNK4070: .EXP 内の /OUT:将星録.mod ディレクティブの指定が出力ファイル名 'C:\Users\master\source\repos\winmm\Release\将星録.mod.dll' と異なっています。ディレクティブは無視されます。
