@@ -244,7 +244,6 @@ LRESULT APIENTRY NB7WndProcCustom(
 		OutputDebugStream("WM_DESTROY\n");
 	}
 	else if (Msg == WM_COMMAND) {
-		// これは送られてこないようだ。
 		OutputDebugStream("WM_COMMAND\n");
 
 		WORD menuID = LOWORD(wParam);
@@ -299,7 +298,6 @@ LRESULT APIENTRY NB7WndProcCustom(
 	// フォーカスがなくなる直前に通知 
 	else if (Msg == WM_KILLFOCUS) {
 		OutputDebugStream("WM_KILLFOCUS\n");
-		// ここはちゃんと来る
 
 	}
 	// ウインドウが入力フォーカスを得た
@@ -369,6 +367,8 @@ LRESULT APIENTRY NB7WndProcCustom(
 		 2 (WA_CLICKACTIVE) マウスクリック
 		 */
 		 // マウスによってアクティブになった
+
+		// 最小化している時に、マウスを当てるだけで通常サイズでウィンドウ化する。
 		if (fActive == WA_CLICKACTIVE) {
 			// OutputDebugStream("WM_ACTIVATE & WA_CLICKACTIVE \n");
 			if (hNB7Wnd && IsIconic(hNB7Wnd)) {

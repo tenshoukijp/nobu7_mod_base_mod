@@ -9,6 +9,8 @@
 
 #include "output_debug_stream.h"
 #include "game_font.h"
+#include "game_process.h"
+#include "game_window.h"
 #include "onigwrap.h"
 #include "on_event.h"
 #include "hook_textouta_custom.h"
@@ -16,8 +18,6 @@
 // ImageDirectoryEntryToData
 #pragma comment(lib, "dbghelp.lib")
 
-#include "game_process.h"
-#include "game_window.h"
 
 // ひとつのモジュールに対してAPIフックを行う関数
 void ReplaceIATEntryInOneMod(

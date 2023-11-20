@@ -61,14 +61,14 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID lpReserv
     }
     case DLL_PROCESS_DETACH:
     {
-        if (hOriginalDll) {
-            FreeLibrary(hOriginalDll);
-            hOriginalDll = NULL;
-        }
-
         if (hNB7Wnd) {
             onFinalize();
             hNB7Wnd = NULL;
+        }
+
+        if (hOriginalDll) {
+            FreeLibrary(hOriginalDll);
+            hOriginalDll = NULL;
         }
 
         break;
