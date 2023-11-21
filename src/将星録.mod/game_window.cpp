@@ -32,7 +32,11 @@ void onCreateWindow(HWND hWnd) {
 	// onFontInitialize();
 }
 
-
+BOOL doneDestroyWindow = FALSE;
 void onDestroyWindow() {
-	OutputDebugStream("ウィンドウ破棄\r\n");
+	if (!doneDestroyWindow) {
+		OutputDebugStream("ウィンドウ破棄\r\n");
+	}
+
+	doneDestroyWindow = TRUE;
 }

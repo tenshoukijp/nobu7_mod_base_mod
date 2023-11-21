@@ -391,15 +391,21 @@ LRESULT Hook_DefWindowProcACustom(
 )
 {
 	if (Msg == WM_CREATE) {
-		OutputDebugStream("WM_CREATE\n");
-		CREATESTRUCT* pCreateStruct = (CREATESTRUCT*)lParam;
-		OutputDebugStream(pCreateStruct->lpszClass);
-		OutputDebugStream("\r\n");
 
-		// ウィンドウ生成のタイミングで、ウィンドウプロシージャをこのMod内のもので指しはさむ
-		wpOrigWndProc = (WNDPROC)SetWindowLong(hWnd, GWL_WNDPROC, (LONG)NB7WndProcCustom);
+		char pszClassName[256] = { 0 };
+		GetClassName(hWnd, pszClassName, _countof(pszClassName));
+		if (string(pszClassName) == NB7_WINDOW_CLASS_NAME) {
 
-		onCreateWindow(hWnd);
+			OutputDebugStream("WM_CREATE\n");
+			CREATESTRUCT* pCreateStruct = (CREATESTRUCT*)lParam;
+			OutputDebugStream(pCreateStruct->lpszClass);
+			OutputDebugStream("\r\n");
+
+			// ウィンドウ生成のタイミングで、ウィンドウプロシージャをこのMod内のもので指しはさむ
+			wpOrigWndProc = (WNDPROC)SetWindowLong(hWnd, GWL_WNDPROC, (LONG)NB7WndProcCustom);
+
+			onCreateWindow(hWnd);
+		}
 	}
 
 	return 0;
