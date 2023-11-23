@@ -269,6 +269,9 @@
     <ClCompile Include="hook_functions_direct.cpp">
       <Filter>フック関数ダイレクト</Filter>
     </ClCompile>
+    <ClCompile Include="data_game_daimyo.cpp">
+      <Filter>ゲームデータ - 大名情報</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

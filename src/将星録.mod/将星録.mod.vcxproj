@@ -110,6 +110,7 @@
     <ClCompile Include="bushou_retsuden.cpp" />
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />
+    <ClCompile Include="data_game_daimyo.cpp" />
     <ClCompile Include="data_kahou_struct.cpp" />
     <ClCompile Include="data_kanni_struct.cpp" />
     <ClCompile Include="data_unit_struct.cpp" />

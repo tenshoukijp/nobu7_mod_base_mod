@@ -9,6 +9,7 @@
 #include "data_yakusyoku_struct.h"
 #include "data_castle_struct.h"
 #include "data_unit_struct.h"
+#include "data_game_daimyo.h"
 
 extern int nBaseAddress;
 
@@ -17,6 +18,7 @@ extern NB7‰Æ•óî•ñŒ^ * const nb7‰Æ•óî•ñ;
 extern NB7Š¯ˆÊî•ñŒ^ * const nb7Š¯ˆÊî•ñ;
 extern NB7–ğEî•ñŒ^ * const nb7–ğEî•ñ;
 extern NB7éî•ñŒ^ * const nb7éî•ñ;
+extern NB7‘å–¼î•ñŒ^* const nb7‘å–¼î•ñ;
 extern NB7ƒ†ƒjƒbƒgî•ñŒ^ * const nb7ƒ†ƒjƒbƒgî•ñ;
 
 extern NB7ƒ^[ƒ“î•ñŒ^* const _turnî•ñ;
@@ -32,6 +34,9 @@ namespace Å‘å” {
 		const int ŒR¨•”‘à” = 5; // ŒR¨ƒ†ƒjƒbƒg‚ÌÅ‘å•”‘à”
 	}
 	namespace éî•ñ {
+		const int ”z—ñ” = 64;
+	}
+	namespace ‘å–¼î•ñ {
 		const int ”z—ñ” = 64;
 	}
 	namespace ‰Æ•óî•ñ {
