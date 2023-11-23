@@ -1,7 +1,0 @@
-﻿  JavaScript.mod.cpp
-  output_debug_stream.cpp
-  .NETFramework,Version=v4.8.AssemblyAttributes.cpp
-  コードを生成中...
-     ライブラリ C:\Users\master\source\repos\winmm\Release\JavaScript.mod.lib とオブジェクト C:\Users\master\source\repos\winmm\Release\JavaScript.mod.exp を作成中
-JavaScript.mod.exp : warning LNK4070: .EXP 内の /OUT:JavaScript.mod ディレクティブの指定が出力ファイル名 'C:\Users\master\source\repos\winmm\Release\JavaScript.mod.dll' と異なっています。ディレクティブは無視されます。
-  JavaScript.mod.vcxproj -> C:\Users\master\source\repos\winmm\Release\JavaScript.mod.dll
