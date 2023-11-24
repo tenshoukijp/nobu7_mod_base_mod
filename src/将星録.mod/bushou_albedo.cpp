@@ -28,8 +28,6 @@ int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
 
     string targetBushouName = "";
 
-    OutputDebugStream("★★能力を上書き\n");
-
     // 攻撃側がアルベドなら、守備側をターゲットにする
     if (attack == getArubedoSeiMei()) {
         targetBushouName = defend;
@@ -53,7 +51,6 @@ int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
 
 // 野戦で変更した戦闘相手の能力をもとへと戻す
 int resetYasenBattleAbirityChangeAlbedo() {
-
     for (auto itr = mapOverrideKeyBushouValueBattle.begin(); itr != mapOverrideKeyBushouValueBattle.end(); ++itr) {
 		int iSaveBushouID = itr->first;
 		int iSaveBattle = itr->second;
@@ -101,26 +98,38 @@ vector<int> get未使用陣形(int iUnitID) {
     // 利用済みの陣形をカット
     int target陣形位置 = 0;
     
-    target陣形位置 = nb7ユニット情報[iUnitID].第１部隊の陣形位置;
     vector<int>::iterator itr;
+
+    target陣形位置 = nb7ユニット情報[iUnitID].第１部隊の陣形位置;
     itr= std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
-    未使用陣形.erase(itr);
+    if (itr != 未使用陣形.end()) {
+        未使用陣形.erase(itr);
+    }
 
     target陣形位置 = nb7ユニット情報[iUnitID].第２部隊の陣形位置;
     itr = std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
-    未使用陣形.erase(itr);
+    if (itr != 未使用陣形.end()) {
+        未使用陣形.erase(itr);
+    }
 
     target陣形位置 = nb7ユニット情報[iUnitID].第３部隊の陣形位置;
     itr = std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
-    未使用陣形.erase(itr);
+    if (itr != 未使用陣形.end()) {
+		未使用陣形.erase(itr);
+	}
 
     target陣形位置 = nb7ユニット情報[iUnitID].第４部隊の陣形位置;
     itr = std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
-    未使用陣形.erase(itr);
+    if (itr != 未使用陣形.end()) {
+		未使用陣形.erase(itr);
+	}
 
     target陣形位置 = nb7ユニット情報[iUnitID].第５部隊の陣形位置;
+    OutputDebugStream("第5陣形位置:%d\n", target陣形位置);
     itr = std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
-    未使用陣形.erase(itr);
+    if (itr != 未使用陣形.end()) {
+        未使用陣形.erase(itr);
+    }
 
     return 未使用陣形;
 }
@@ -151,6 +160,7 @@ void resetAlbedoUnitHeisuu() {
                 nb7ユニット情報[iUnitID].大砲 = 1;
                 nb7ユニット情報[iUnitID].鉄甲船 = 1;
 
+                OutputDebugStream("未使用陣形チェック前\n");
                 // 使われていない陣形位置を取得
                 vector<int> 未使用陣形 = get未使用陣形(iUnitID);
 
@@ -230,30 +240,31 @@ void resetAlbedoUnitHeisuu() {
     }
 }
 
-// アルベドが居る城の浪人の遺恨を消し去る
+// アルベドが使える大名を恨む浪人から、遺恨を消し去る
 void resetAlbedo所属城下遺恨武将() {
-    /*
     for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
         if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
             // アルベドが「現役」である、もしくはアルベドは大名である
             if (nb7武将情報[iBushouID].状態 == 1 || nb7武将情報[iBushouID].状態 == 0) {
-                int pAlbedo居城 = (int)(nb7武将情報[iBushouID].p居城);
+                int iAlbedoCastleID = getCastleIdFromBushouID(iBushouID);
+                if (isValidCastleID(iAlbedoCastleID)) {
+                    int*pAlbedo所属大名 = nb7城情報[iAlbedoCastleID].p所属大名;
 
-                // その城にいる浪人から遺恨を消し去る
-                for (int b = 0; b < 最大数::武将情報::配列数; b++) {
-                    // 浪人である
-                    if (nb7武将情報[b].状態 == 3) {
-                        OutputDebugStream(nb7武将情報[b].名前 + "の遺恨を消去\n"s);
-                        // その浪人がアルベドと同じ城にいる
-                        if ((int)(nb7武将情報[b].p居城) == pAlbedo居城) {
-                            nb7武将情報[b].遺恨 = 0;
-                            nb7武将情報[b].p遺恨大名 = 武将情報::p遺恨大名::無し;
+                    // その大名を恨む浪人から遺恨を消し去る
+                    for (int b = 0; b < 最大数::武将情報::配列数; b++) {
+                        // 浪人である
+                        if (nb7武将情報[b].状態 == 3) {
+                            if (nb7武将情報[b].p遺恨大名 == pAlbedo所属大名) {
+                                OutputDebugStream("浪人:%s\n", nb7武将情報[b].姓名);
+                                //  nb7武将情報[b].遺恨 = 0;
+                                nb7武将情報[b].p遺恨大名 = 武将情報::p遺恨大名::無し;
+                            }
                         }
                     }
                 }
+
             }
             break;
         }
     }
-    */
 }

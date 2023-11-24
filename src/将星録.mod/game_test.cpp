@@ -153,6 +153,7 @@ void doGameTest() {
 	for (int iDaimyoID = 0; iDaimyoID < 最大数::ユニット情報::配列数; iDaimyoID++) {
 		int iBushouID = getBushouIDFromDaimyoID(iDaimyoID);
 		if ( isValidBushouID(iBushouID) ) {
+			OutputDebugStream("姓名:%s\n", nb7武将情報[iBushouID].姓名);
 		}
 	}
 }

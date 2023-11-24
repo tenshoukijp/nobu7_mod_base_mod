@@ -52,8 +52,6 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 			// メニューを追加した
 			addMenuItem(GetMenu(hWnd), "メモリエディタ起動(&M)", RESOURCE_MENU_ID_BUSHOUEDIT, ADDITIONAL_MENU_ID_MEMORYEDITOR);
 			addMenuItem(GetMenu(hWnd), "---", RESOURCE_MENU_ID_BUSHOUEDIT, NULL);
-
-			OutputDebugStream("メニューを追加した\n");
 		}
 	}
 

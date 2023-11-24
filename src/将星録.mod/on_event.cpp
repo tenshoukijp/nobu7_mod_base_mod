@@ -349,7 +349,7 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
         // アルベドの行動済みカウンターのリセット
         resetAlbedoKoudouCounter();
         resetAlbedoUnitHeisuu();
-
+        resetAlbedo所属城下遺恨武将();
         OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);
     }
 }
