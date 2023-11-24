@@ -348,7 +348,6 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
 
         // アルベドの行動済みカウンターのリセット
         resetAlbedoKoudouCounter();
-
         resetAlbedoUnitHeisuu();
 
         OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);

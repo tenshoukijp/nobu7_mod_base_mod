@@ -85,8 +85,12 @@ struct NB7•«î•ñŒ^
 
 namespace •«î•ñ {
 	enum g•ª { ‘å–¼ = 5, h˜V = 4, ‰Æ˜V=3, •”«=2, ˜‘å«=1, ‘«Œy“ª=0, ‚»‚Ì‘¼=0 };
+	namespace pˆâ¦‘å–¼ {
+		int*const –³‚µ = (int*)0x538EB8;
+	};
 }
 
+BOOL isValidBushouID(int iBushouID);
 
 std::string getBushou•cšFromBushouID(int iBushouID);
 

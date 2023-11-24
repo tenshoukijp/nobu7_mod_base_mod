@@ -83,6 +83,8 @@ namespace ユニット情報 {
 
 int get軍勢ユニット部隊最大兵数(int iUnitID);
 
+BOOL isValidUnitID(int iUnitID);
+
 // ユニットIDからそれを率いる武将IDを得る
 int getBushouIDFromUnitID(int iUnitID);
 

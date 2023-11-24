@@ -4,11 +4,16 @@
 #include "data_game_struct.h"
 #include "output_debug_stream.h"
 
-
+BOOL isValidUnitID(int iUnitID) {
+	if (0 <= iUnitID && iUnitID < 最大数::ユニット情報::配列数) {
+		return TRUE;
+	}
+	return FALSE;
+}
 
 // ユニットIDからそれを率いている武将IDを取得する
 int getBushouIDFromUnitID(int iUnitID) {
-	if (0 <= iUnitID && iUnitID < 最大数::ユニット情報::配列数) {
+	if (isValidUnitID(iUnitID)) {
 		// 所有武将のアドレスを直接さしている
 		int nBushouAddress = (int)(nb7ユニット情報[iUnitID].pユニット武将);
 
@@ -27,9 +32,9 @@ int getBushouIDFromUnitID(int iUnitID) {
 
 
 int get軍勢ユニット部隊最大兵数(int iUnitID) {
-	if (0 <= iUnitID && iUnitID < 最大数::ユニット情報::配列数) {
+	if (isValidUnitID(iUnitID)) {
 		int iBushouID = getBushouIDFromUnitID(iUnitID);
-		if ( 0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+		if (0 <= iBushouID && iBushouID < 最大数::ユニット情報::配列数) {
 			int status = nb7武将情報[iBushouID].状態;
 			// 大名、独立勢力、一向一揆勢力、一揆勢力なら、１部隊は1000
 			if (status == 0 || status == 2 || status == 6 || status == 7) {

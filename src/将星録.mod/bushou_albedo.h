@@ -17,3 +17,5 @@ void resetAlbedoKoudouCounter();
 int decreaseAlbedoKoudouCounter();
 
 void resetAlbedoUnitHeisuu();
+
+void resetAlbedoŠ‘®é‰ºˆâ¦•«();

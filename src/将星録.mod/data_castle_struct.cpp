@@ -1,11 +1,19 @@
 #include "data_game_struct.h"
 #include "output_debug_stream.h"
 
+BOOL isValidCastleID(int iCastleID) {
+	if (0 <= iCastleID && iCastleID < 最大数::城情報::配列数) {
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
 // 城IDからそこの城主の武将IDを取得する。該当者が居なかったら0xFFFF
 // 実際に「城に居る」という意味であり、「その城に所属している」という意味ではない。
 // 例えば、開墾のために城の外にキャラクターが出ている武将は、「城に居ない」と見なされる。
 int get城主BushouIDFromCastleID(int iCastleID) {
-	if (0 <= iCastleID && iCastleID < 最大数::城情報::配列数) {
+	if (isValidCastleID(iCastleID)) {
 		// 所有武将のアドレスを直接さしている
 		int nBushouAddress = (int)(nb7城情報[iCastleID].p城主);
 
@@ -14,7 +22,7 @@ int get城主BushouIDFromCastleID(int iCastleID) {
 
 		// 武将情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
 		int iBushouID = sub / sizeof(NB7武将情報型);
-		if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+		if (isValidBushouID(iBushouID)) {
 			return iBushouID;
 		}
 	}
@@ -24,7 +32,7 @@ int get城主BushouIDFromCastleID(int iCastleID) {
 
 
 int get攻撃目標CastleIdFromCastleId(int iCastleID) {
-	if (0 <= iCastleID && iCastleID < 最大数::城情報::配列数) {
+	if (isValidCastleID(iCastleID)) {
 		// 所有武将のアドレスを直接さしている
 		int nAttackCastleAddress = (int)(nb7城情報[iCastleID].p攻撃目標城);
 		OutputDebugStream("%x", nAttackCastleAddress);
@@ -33,7 +41,7 @@ int get攻撃目標CastleIdFromCastleId(int iCastleID) {
 
 		// 武将情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
 		int iAttackCastleID = sub / sizeof(NB7城情報型);
-		if (0 <= iAttackCastleID && iAttackCastleID < 最大数::城情報::配列数) {
+		if (isValidCastleID(iAttackCastleID)) {
 			return iAttackCastleID;
 		}
 	}

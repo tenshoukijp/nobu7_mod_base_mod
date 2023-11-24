@@ -18,7 +18,7 @@ int getBushouIDFromYakusyokuID(int iYakusyokuID) {
 
 		// 武将情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
 		int iBushouID = sub / sizeof(NB7武将情報型);
-		if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+		if (isValidBushouID(iBushouID)) {
 			return iBushouID;
 		}
 	}

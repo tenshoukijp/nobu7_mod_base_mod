@@ -16,6 +16,8 @@ struct NB7Š¯ˆÊî•ñŒ^ {
 };
 #pragma pack()
 
+BOOL isValidKanniID(int iKanniID);
+
 // Š¯ˆÊID‚©‚ç‚»‚ê‚ğŠ—L‚µ‚Ä‚¢‚é•«ID‚ğæ“¾‚·‚éB‚à‚Á‚Ä‚È‚©‚Á‚½‚ç0xFFFF
 int getBushouIDFromKanniID(int iKanniID);
 /*

@@ -24,6 +24,7 @@ void doGameTest() {
 	OutputDebugStream("西暦%d", ターン情報.西暦);
 	OutputDebugStream("月%d", ターン情報.月);
 
+	/*
 	for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
 
 		if (getBushou姓名FromBushouID(iBushouID) == "織田信長") {
@@ -35,8 +36,8 @@ void doGameTest() {
 		if (getBushou姓名FromBushouID(iBushouID) == "武田信玄") {
 			OutputDebugStream("武田信玄の武将番号 %x\n", iBushouID);
 		}
-
 	}
+	*/
 
 	/*
 	for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
@@ -110,6 +111,7 @@ void doGameTest() {
 		}
 		*/
 
+	/*
 	for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {
 		if (nb7城情報[iCastleID].城名 == "浜松"s) {
 			OutputDebugStream("委任状態 %d\n", nb7城情報[iCastleID].委任状態);
@@ -118,6 +120,7 @@ void doGameTest() {
 			OutputDebugStream("\t\n;");
 		}
 	}
+	*/
 
 	/*
 	for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
@@ -146,6 +149,12 @@ void doGameTest() {
 		}
 	}
 	*/
+
+	for (int iDaimyoID = 0; iDaimyoID < 最大数::ユニット情報::配列数; iDaimyoID++) {
+		int iBushouID = getBushouIDFromDaimyoID(iDaimyoID);
+		if ( isValidBushouID(iBushouID) ) {
+		}
+	}
 }
 
 

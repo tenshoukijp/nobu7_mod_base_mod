@@ -6,6 +6,14 @@
 
 using namespace std;
 
+BOOL isValidBushouID(int iBushouID) {
+	if ( 0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
 std::string getBushou苗字FromBushouID(int iBushouID) {
 	if (0 <= iBushouID && iBushouID < 最大数::ユニット情報::配列数) {
 		return nb7武将情報[iBushouID].苗字;

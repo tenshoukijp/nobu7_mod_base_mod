@@ -21,6 +21,8 @@ struct NB7‰Æ•óî•ñŒ^ {
 #pragma pack()
 
 
+BOOL isValidKahouID(int iKahouID);
+
 // ‰Æ•óID‚©‚ç‚»‚ê‚ğŠ—L‚µ‚Ä‚¢‚é•«ID‚ğæ“¾‚·‚éB‚à‚Á‚Ä‚È‚©‚Á‚½‚ç0xFFFF
 int getBushouIDFromKahouID(int iKahouID);
 

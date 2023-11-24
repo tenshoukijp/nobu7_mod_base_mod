@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <string>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -22,8 +23,7 @@ string getArubedoSeiMei() {
 }
 
 // アルベドと対峙する武将の戦闘能力を1になってしまう
-int iOverrideBushouID = -1;
-int iBackupBushou戦闘 = 0;
+map<int, int> mapOverrideKeyBushouValueBattle;
 int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
 
     string targetBushouName = "";
@@ -40,11 +40,12 @@ int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
 
     // アルベドと対峙する武将の戦闘能力を1にしつつ、その武将の元々の戦闘値を保持しておく。
     for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
-        if (targetBushouName == getBushou姓名FromBushouID(iBushouID) ) {
-            iOverrideBushouID = iBushouID;
-            iBackupBushou戦闘 = nb7武将情報[iBushouID].戦闘;
-            nb7武将情報[iBushouID].戦闘 = 1;
-            break;
+        if (targetBushouName == getBushou姓名FromBushouID(iBushouID)) {
+            if (nb7武将情報[iBushouID].戦闘 >= 3) {
+                mapOverrideKeyBushouValueBattle[iBushouID] = nb7武将情報[iBushouID].戦闘;
+                nb7武将情報[iBushouID].戦闘 = 1;
+                break;
+            }
         }
     }
     return 1;
@@ -53,12 +54,19 @@ int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
 // 野戦で変更した戦闘相手の能力をもとへと戻す
 int resetYasenBattleAbirityChangeAlbedo() {
 
-    if (0 <= iOverrideBushouID && iOverrideBushouID < 最大数::武将情報::配列数) {
-        nb7武将情報[iOverrideBushouID].戦闘 = iBackupBushou戦闘;
+    for (auto itr = mapOverrideKeyBushouValueBattle.begin(); itr != mapOverrideKeyBushouValueBattle.end(); ++itr) {
+		int iSaveBushouID = itr->first;
+		int iSaveBattle = itr->second;
 
-        iOverrideBushouID = -1;
-        iBackupBushou戦闘 = 0;
-    }
+        if (isValidBushouID(iSaveBushouID)) {
+            int iCurBattle = nb7武将情報[iSaveBushouID].戦闘;
+            if (0 <= iCurBattle && iCurBattle <= 3) {
+                nb7武将情報[iSaveBushouID].戦闘 = iSaveBattle;
+                mapOverrideKeyBushouValueBattle.erase(itr);
+                break;
+            }
+        }
+	}
 
     return TRUE;
 }
@@ -123,7 +131,7 @@ void resetAlbedoUnitHeisuu() {
 
     for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
         int iBushouID = getBushouIDFromUnitID(iUnitID);
-        if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+        if (isValidBushouID(iBushouID)) {
             if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
 
                 // 第１部隊が存在しないということは、軍隊部隊ではないということ。何もしない
@@ -220,4 +228,32 @@ void resetAlbedoUnitHeisuu() {
             }
         }
     }
+}
+
+// アルベドが居る城の浪人の遺恨を消し去る
+void resetAlbedo所属城下遺恨武将() {
+    /*
+    for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+        if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+            // アルベドが「現役」である、もしくはアルベドは大名である
+            if (nb7武将情報[iBushouID].状態 == 1 || nb7武将情報[iBushouID].状態 == 0) {
+                int pAlbedo居城 = (int)(nb7武将情報[iBushouID].p居城);
+
+                // その城にいる浪人から遺恨を消し去る
+                for (int b = 0; b < 最大数::武将情報::配列数; b++) {
+                    // 浪人である
+                    if (nb7武将情報[b].状態 == 3) {
+                        OutputDebugStream(nb7武将情報[b].名前 + "の遺恨を消去\n"s);
+                        // その浪人がアルベドと同じ城にいる
+                        if ((int)(nb7武将情報[b].p居城) == pAlbedo居城) {
+                            nb7武将情報[b].遺恨 = 0;
+                            nb7武将情報[b].p遺恨大名 = 武将情報::p遺恨大名::無し;
+                        }
+                    }
+                }
+            }
+            break;
+        }
+    }
+    */
 }
