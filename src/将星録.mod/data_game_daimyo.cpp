@@ -45,6 +45,7 @@ BOOL set大名友好ID(int iDaimyoID1, int iDaimyoID2, int i友好ID) {
 
 	nb7大名情報[iDaimyoID1].友好ID[iDaimyoID2] = i友好ID;
 	nb7大名情報[iDaimyoID2].友好ID[iDaimyoID1] = i友好ID;
+	return TRUE;
 }
 
 BOOL set大名同盟残(int iDaimyoID1, int iDaimyoID2, int 残月) {
@@ -57,6 +58,7 @@ BOOL set大名同盟残(int iDaimyoID1, int iDaimyoID2, int 残月) {
 
 	nb7大名情報[iDaimyoID1].同盟残[iDaimyoID2] = 残月;
 	nb7大名情報[iDaimyoID2].同盟残[iDaimyoID1] = 残月;
+	return TRUE;
 }
 
 BOOL set大名婚姻(int iDaimyouID1, int iDaimyouID2, BOOL 婚姻化) {
@@ -69,4 +71,5 @@ BOOL set大名婚姻(int iDaimyouID1, int iDaimyouID2, BOOL 婚姻化) {
 
 	nb7大名情報[iDaimyouID1].婚姻[iDaimyouID2] = 婚姻化;
 	nb7大名情報[iDaimyouID2].婚姻[iDaimyouID1] = 婚姻化;
+	return TRUE;
 }

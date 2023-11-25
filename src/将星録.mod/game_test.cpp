@@ -159,13 +159,14 @@ void doGameTest() {
 	}
 	*/
 
-	/*
-	for (int iDaimyouID = 0; iDaimyouID < 8; iDaimyouID++) {
-		OutputDebugStream("番号:%d\t", iDaimyouID);
-		OutputDebugStream("大名名:%s\n", nb7大名情報[iDaimyouID].p大名武将);
-		OutputDebugStream("朝廷:%d\n", nb7大名情報[iDaimyouID].朝廷);
+	for (int iDaimyouID = 0; iDaimyouID < 最大数::大名情報::配列数; iDaimyouID++) {
+		if (nb7大名情報[iDaimyouID].プレイヤ担当 > 0) {
+			OutputDebugStream("番号:%d\t", iDaimyouID);
+			OutputDebugStream("大名名:%s\n", nb7大名情報[iDaimyouID].p大名武将);
+			OutputDebugStream("朝廷:%d\n", nb7大名情報[iDaimyouID].朝廷);
+			OutputDebugStream("付加情報:%d\n", nb7大名情報[iDaimyouID]._プレイヤ担当付加情報);
+		}
 	}
-	*/
 }
 
 
