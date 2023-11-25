@@ -1,5 +1,12 @@
 #include "data_game_struct.h"
 
+BOOL isValidDaimyoID(int iDaimyoID) {
+	if (0 <= iDaimyoID && iDaimyoID < Å‘å”::‘å–¼î•ñ::”z—ñ”) {
+		return TRUE;
+	}
+	return FALSE;
+}
+
 // ‘å–¼ID‚©‚ç‚»‚Ì‘å–¼‚Ì•«ID‚ðŽæ“¾‚·‚é
 int getBushouIDFromDaimyoID(int iDaimyoID) {
 	if (0 <= iDaimyoID && iDaimyoID < Å‘å”::‘å–¼î•ñ::”z—ñ”) {
@@ -26,4 +33,40 @@ int get—FD’lFrom—FDID(int i—FDID) {
 		return —FD’lArray[i—FDID];
 	}
 	return 0xFFFF;
+}
+
+BOOL set‘å–¼—FDID(int iDaimyoID1, int iDaimyoID2, int i—FDID) {
+	if (!isValidDaimyoID(iDaimyoID1)) {
+		return FALSE;
+	}
+	if (!isValidDaimyoID(iDaimyoID2)) {
+		return FALSE;
+	}
+
+	nb7‘å–¼î•ñ[iDaimyoID1].—FDID[iDaimyoID2] = i—FDID;
+	nb7‘å–¼î•ñ[iDaimyoID2].—FDID[iDaimyoID1] = i—FDID;
+}
+
+BOOL set‘å–¼“¯–¿Žc(int iDaimyoID1, int iDaimyoID2, int ŽcŒŽ) {
+	if (!isValidDaimyoID(iDaimyoID1)) {
+		return FALSE;
+	}
+	if (!isValidDaimyoID(iDaimyoID2)) {
+		return FALSE;
+	}
+
+	nb7‘å–¼î•ñ[iDaimyoID1].“¯–¿Žc[iDaimyoID2] = ŽcŒŽ;
+	nb7‘å–¼î•ñ[iDaimyoID2].“¯–¿Žc[iDaimyoID1] = ŽcŒŽ;
+}
+
+BOOL set‘å–¼¥ˆ÷(int iDaimyouID1, int iDaimyouID2, BOOL ¥ˆ÷‰») {
+	if (!isValidDaimyoID(iDaimyouID1)) {
+		return FALSE;
+	}
+	if (!isValidDaimyoID(iDaimyouID2)) {
+		return FALSE;
+	}
+
+	nb7‘å–¼î•ñ[iDaimyouID1].¥ˆ÷[iDaimyouID2] = ¥ˆ÷‰»;
+	nb7‘å–¼î•ñ[iDaimyouID2].¥ˆ÷[iDaimyouID1] = ¥ˆ÷‰»;
 }

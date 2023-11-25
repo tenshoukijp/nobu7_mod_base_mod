@@ -11,9 +11,14 @@
 struct NB7大名情報型 {
 	int p大名武将; // その大名武将となる武将情報indexへのポインタが入っている
 	int 順列; // 大名一覧にする際に「北」から「南」へと並べる必要があるから、北の蠣崎を０、南端にいくほど番号が大きくなるよう序列が付いている。
-	WORD 友好値[64];
-	BYTE unknown[144]; // 未知のデータ
-	int p敵対大名; // 不明なポインタ
+	WORD 友好ID[64]; // この値直接操作せず、set大名友好IDで操作すること(２つの大名の値を操作する必要があるため)。友好値を意味するID。indexは大名配列のindex。友好値については0～Fであり、get友好値From友好IDで画面上で表示されている値と同じものとなる。 { 0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100 };
+	BYTE 同盟残[64]; // この値直接操作せず、set大名同盟残で操作すること(２つの大名の値を操作する必要があるため)。同盟期間の残り月数。indexは大名配列のindex。
+	BYTE 婚姻[64]; // この値直接操作せず、set大名婚姻で操作すること(２つの大名の値を操作する必要があるため)。婚姻有り無し。それぞれのindexは大名配列のindex。
+	int 朝廷; // 0～200
+	int 朝廷MAX; // 200が入っている
+	int unknown1; // 未知のデータ(役職？）
+	int unknown2; // 未知のデータ(役職MAX？）
+	int p敵対大名; // p敵対大名。該当の大名配列へのポインタがそのまま入っている。
 	int p不明3; // 不明なポインタ
 	int p不明4; // 不明なポインタ
 	int p不明5; // 不明なポインタ
@@ -27,11 +32,16 @@ struct NB7大名情報型 {
 };
 #pragma pack()
 
+BOOL isValidDaimyoID(int iDaimyoID);
+
 // 大名IDからその大名の武将IDを取得する
 int getBushouIDFromDaimyoID(int iDaimyoID);
 
 int get友好値From友好ID(int i友好ID);
 
+BOOL set大名友好ID(int iDaimyoID1, int iDaimyoID2, int i友好ID);
+BOOL set大名同盟残(int iDaimyoID, int iDaimyoID2, int iMonth);
+BOOL set大名婚姻(int iDaimyouID1, int iDaimyouID2, BOOL 婚姻化);
 
 
 /*

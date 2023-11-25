@@ -150,12 +150,22 @@ void doGameTest() {
 	}
 	*/
 
+	/*
 	for (int iDaimyoID = 0; iDaimyoID < 最大数::ユニット情報::配列数; iDaimyoID++) {
 		int iBushouID = getBushouIDFromDaimyoID(iDaimyoID);
 		if ( isValidBushouID(iBushouID) ) {
 			OutputDebugStream("姓名:%s\n", nb7武将情報[iBushouID].姓名);
 		}
 	}
+	*/
+
+	/*
+	for (int iDaimyouID = 0; iDaimyouID < 8; iDaimyouID++) {
+		OutputDebugStream("番号:%d\t", iDaimyouID);
+		OutputDebugStream("大名名:%s\n", nb7大名情報[iDaimyouID].p大名武将);
+		OutputDebugStream("朝廷:%d\n", nb7大名情報[iDaimyouID].朝廷);
+	}
+	*/
 }
 
 
