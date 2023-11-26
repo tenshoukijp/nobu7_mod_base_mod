@@ -10,7 +10,7 @@ struct NB7ターン情報型 {
 	int 西暦MAX;  // 0x7CF = 1999が常に入っている
 	int 月;       // ゲームの現在の月
 	int 月MAX;    //  即ち12が常に入っている
-	int pポインタ; // 等のポインタ
+	int pポインタ; // 謎のポインタ [B8 8E 53] = 0x538EB8 が多いか
 	int unknown3; //
 	int unknown4; //	
 	int 相場兵糧;      // この値の1/10が相場
