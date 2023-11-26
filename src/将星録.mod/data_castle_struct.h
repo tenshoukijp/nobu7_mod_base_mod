@@ -59,6 +59,63 @@ int get城主BushouIDFromCastleID(int iCastleID);
 // 指定の城の「攻撃目標城」の城IDを取得する。該当者が居なかったら0xFFFF
 int get攻撃目標CastleIdFromCastleId(int iCastleID);
 
+// 城の称号(城・館・御坊)のどれなのかを取得する
+std::string get城称(int iCastleID);
+
+/*
+00524C88  A2 82 C5 82 B7 82 A9 81 48 00 00 00 8A D9 00 00  ｢ですか？...館..
+00524C98  8C E4 96 56 00 00 00 00                          御坊....
+*/
+
+/*
+城称についてはデータはなく、ハードコーディングされているようだ。
+004A1C77   83FB 25          CMP EBX,25                     0x25 = 37 = 御山 であれば 524C98 = 御坊 にする
+004A1C7A   75 24            JNZ SHORT Nobunaga.004A1CA0
+004A1C7C   8D6424 00        LEA ESP,DWORD PTR SS:[ESP]
+004A1C80   8A46 01          MOV AL,BYTE PTR DS:[ESI+1]
+004A1C83   83C6 01          ADD ESI,1
+004A1C86   84C0             TEST AL,AL
+004A1C88  ^75 F6            JNZ SHORT Nobunaga.004A1C80
+004A1C8A   A1 984C5200      MOV EAX,DWORD PTR DS:[524C98]
+004A1C8F   8906             MOV DWORD PTR DS:[ESI],EAX
+004A1C91   8A0D 9C4C5200    MOV CL,BYTE PTR DS:[524C9C]
+004A1C97   5F               POP EDI
+004A1C98   884E 04          MOV BYTE PTR DS:[ESI+4],CL
+004A1C9B   5E               POP ESI
+004A1C9C   5B               POP EBX
+004A1C9D   C2 0C00          RETN 0C
+004A1CA0   83FB 2B          CMP EBX,2B                      0x2B = 43 = 躑躅ヶ崎 であれば 524C94 = 館 にする
+004A1CA3   75 22            JNZ SHORT Nobunaga.004A1CC7
+004A1CA5   8A46 01          MOV AL,BYTE PTR DS:[ESI+1]
+004A1CA8   83C6 01          ADD ESI,1
+004A1CAB   84C0             TEST AL,AL
+004A1CAD  ^75 F6            JNZ SHORT Nobunaga.004A1CA5
+004A1CAF   66:8B15 944C5200 MOV DX,WORD PTR DS:[524C94]
+004A1CB6   66:8916          MOV WORD PTR DS:[ESI],DX
+004A1CB9   A0 964C5200      MOV AL,BYTE PTR DS:[524C96]
+004A1CBE   5F               POP EDI
+004A1CBF   8846 02          MOV BYTE PTR DS:[ESI+2],AL
+004A1CC2   5E               POP ESI
+004A1CC3   5B               POP EBX
+004A1CC4   C2 0C00          RETN 0C
+004A1CC7   8A46 01          MOV AL,BYTE PTR DS:[ESI+1]
+004A1CCA   83C6 01          ADD ESI,1
+004A1CCD   84C0             TEST AL,AL
+004A1CCF  ^75 F6            JNZ SHORT Nobunaga.004A1CC7
+004A1CD1   66:8B0D 782B5200 MOV CX,WORD PTR DS:[522B78]
+004A1CD8   66:890E          MOV WORD PTR DS:[ESI],CX
+004A1CDB   8A15 7A2B5200    MOV DL,BYTE PTR DS:[522B7A]
+004A1CE1   5F               POP EDI
+004A1CE2   8856 02          MOV BYTE PTR DS:[ESI+2],DL
+004A1CE5   5E               POP ESI
+004A1CE6   5B               POP EBX
+004A1CE7   C2 0C00          RETN 0C
+004A1CEA   8B4424 08        MOV EAX,DWORD PTR SS:[ESP+8]
+004A1CEE   C600 00          MOV BYTE PTR DS:[EAX],0
+004A1CF1   5B               POP EBX
+004A1CF2   C2 0C00          RETN 0C
+*/
+
 /*
 	内
 	肝付

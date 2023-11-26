@@ -310,6 +310,17 @@ void onCastleBattlePreStart() {
 }
 
 void onCastleBattleTurn(string battleCastleTurnInfo) {
+    Matches ma;
+    if (OnigMatch(battleCastleTurnInfo, "^(.+?)(\\1)残(\\d+)ﾀｰﾝ残(\\d+)ﾀｰﾝ(.+?)(\\d+)(\\5)(\\6)(.+?)(\\d+)(\\9)(\\10)$", &ma)) {
+        OutputDebugStream("ma[1]:" + ma[1] + "\n");
+		OutputDebugStream("ma[3]:" + ma[3] + "\n");
+        OutputDebugStream("残ﾀｰﾝ:" + ma[4] + "\n");
+        OutputDebugStream("ma[5]" + ma[5] + "\n");
+		OutputDebugStream("ma[6]" + ma[6] + "\n");
+		OutputDebugStream("ma[9]" + ma[9] + "\n");
+		OutputDebugStream("ma[10]" + ma[10] + "\n");
+    }
+
 	OutputDebugStream("城攻めの戦闘ターン情報:" + battleCastleTurnInfo + "\n");
 }
 

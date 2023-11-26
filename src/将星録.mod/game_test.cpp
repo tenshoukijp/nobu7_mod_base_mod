@@ -111,16 +111,10 @@ void doGameTest() {
 		}
 		*/
 
-	/*
 	for (int iCastleID = 0; iCastleID < Å‘å”::éî•ñ::”z—ñ”; iCastleID++) {
-		if (nb7éî•ñ[iCastleID].é–¼ == "•l¼"s) {
-			OutputDebugStream("ˆÏ”Có‘Ô %d\n", nb7éî•ñ[iCastleID].ˆÏ”Có‘Ô);
-			OutputDebugStream("\t\n;");
-			OutputDebugStream("ˆÏ”CUŒ‚ %d\n", nb7éî•ñ[iCastleID].ˆÏ”CUŒ‚);
-			OutputDebugStream("\t\n;");
-		}
+		OutputDebugStream("é–¼:%s", nb7éî•ñ[iCastleID].é–¼);
+		OutputDebugStream(getéÌ(iCastleID) + "\n");
 	}
-	*/
 
 	/*
 	for (int iUnitID = 0; iUnitID < Å‘å”::ƒ†ƒjƒbƒgî•ñ::”z—ñ”; iUnitID++) {
@@ -159,6 +153,7 @@ void doGameTest() {
 	}
 	*/
 
+	/*
 	for (int iDaimyouID = 0; iDaimyouID < Å‘å”::‘å–¼î•ñ::”z—ñ”; iDaimyouID++) {
 		// if (nb7‘å–¼î•ñ[iDaimyouID].ƒvƒŒƒCƒ„’S“– > 0) {
 		if (nb7‘å–¼î•ñ[iDaimyouID].unknown17) {
@@ -172,6 +167,7 @@ void doGameTest() {
 			OutputDebugStream("unknown18:%d\n", nb7‘å–¼î•ñ[iDaimyouID].unknown18);
 		}
 	}
+	*/
 }
 
 

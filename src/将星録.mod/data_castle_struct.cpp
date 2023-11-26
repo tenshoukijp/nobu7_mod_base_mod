@@ -1,3 +1,4 @@
+#include <string>
 #include "data_game_struct.h"
 #include "output_debug_stream.h"
 
@@ -6,6 +7,23 @@ BOOL isValidCastleID(int iCastleID) {
 		return TRUE;
 	}
 	return FALSE;
+}
+
+std::string getéÌ(int iCastleID) {
+	if (isValidCastleID(iCastleID)) {
+		// index‚Å‚Í‚È‚­A”Ô†”äŠr
+		if (nb7éî•ñ[iCastleID].é”Ô† == 0x25) {
+			return "Œä–V";
+		}
+		else if (nb7éî•ñ[iCastleID].é”Ô† == 0x2B) {
+			return "ŠÙ";
+		}
+		else {
+			return "é";
+		}
+	}
+
+	return "";
 }
 
 
