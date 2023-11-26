@@ -86,6 +86,30 @@ void onMenuKashinUnitIchiranStart() {
     OutputDebugStream("メニュー-家臣-ユニット一覧画面\n");
 }
 
+void onChoteiKenjo(string choteiKenjoInfo) {
+
+    OutputDebugStream("朝廷菊亭晴季献上\n");
+
+    Matches ma;
+    if ( OnigMatch(choteiKenjoInfo, "献上使者(.+?)朝廷菊亭晴季友好度(\\d+)", &ma)) {
+    	OutputDebugStream("朝廷献上使者:" + ma[1] + "\n");
+		OutputDebugStream("朝廷友好度:" + ma[2] + "\n");
+
+        // 朝廷献上使者はアルベドである。
+        if (ma[1].find(getArubedoSeiMei()) != string::npos ) {
+			OutputDebugStream("アルベドが献上使者だったので、金を補充\n");
+			resetAlbedoSisyaUnitMoney();
+        }
+    }
+}
+
+void onDoumeiShisha(string doumeiShishaInfo) {
+    OutputDebugStream("同盟使者\n");
+    if (OnigMatch(doumeiShishaInfo, "同盟使者(.+?)友好度(\\d+)")) {
+        OutputDebugStream("同盟友好度\n");
+    }
+}
+
 /*
 void onYanseBattlePrePreStart() {
     OutputDebugStream("野戦にもうすぐ入ります\n\n");
@@ -350,6 +374,10 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
         resetAlbedoKoudouCounter();
         resetAlbedoUnitHeisuu();
         resetAlbedo所属城下遺恨武将();
+
+        // アルベドが「使者」ならお金を最低金額維持
+        resetAlbedoSisyaUnitMoney();
+
         OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);
     }
 }
@@ -362,7 +390,17 @@ void onBushouCyuseiChange(string chanteInfo) {
     }
 }
 
+void onPerishedDaimyo(string perishedDaimyoInfo) {
+	Matches ma;
 
+    if (OnigMatch(perishedDaimyoInfo, "^(.+?)家は\xA?滅亡しました", &ma)) {
+        resetAlbedo所属城下遺恨武将();
+
+        OutputDebugStream("大名" + ma[1] + "が滅亡しました\n");
+        OutputDebugStream("★★★★\n");
+
+    }
+}
 
 int dispatchEvent() {
     // 正規表現で状況を判断する
@@ -451,8 +489,17 @@ int dispatchEvent() {
         onCastleBattleEnd(bufferTextOut);
         isCastleBattle = FALSE;
     }
+    else if (OnigMatch(bufferTextOut, "^.+家は\xA?滅亡しました")) {
+        onPerishedDaimyo(bufferTextOut);
+    }
     else if(OnigMatch(bufferTextOut, "^(.+?)家(\\1(.+?))\\1家\\2$")) {
         onStrategyDaimyoturnChanged(bufferTextOut);
+    }
+    else if (OnigMatch(bufferTextOut, "献上使者(.+?)朝廷菊亭晴季友好度(\\d+)")) {
+        onChoteiKenjo(bufferTextOut);
+    }
+    else if (OnigMatch(bufferTextOut, "同盟使者(.+?)友好度(\\d+)")) {
+        onDoumeiShisha(bufferTextOut);
     }
 
     return 1;

@@ -18,4 +18,6 @@ int decreaseAlbedoKoudouCounter();
 
 void resetAlbedoUnitHeisuu();
 
+int resetAlbedoSisyaUnitMoney();
+
 void resetAlbedoŠ‘®é‰ºˆâ¦•«();

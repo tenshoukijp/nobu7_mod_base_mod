@@ -36,7 +36,9 @@ int Hook_ReleaseDCCustom(
 		OutputDebugStream("------------\n");
 	}
 
+	// アルベドの行動カウンタを減らす
 	decreaseAlbedoKoudouCounter();
+
 	dispatchEvent();
 	bufferTextOut = "";
 

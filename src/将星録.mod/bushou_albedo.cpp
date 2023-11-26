@@ -70,7 +70,7 @@ int resetYasenBattleAbirityChangeAlbedo() {
 
 int nAlbedo行動済み分割カウンター = -1;
 void resetAlbedoKoudouCounter() {
-    nAlbedo行動済み分割カウンター = 10;
+    nAlbedo行動済み分割カウンター = 20;
 }
 
 int decreaseAlbedoKoudouCounter() {
@@ -82,14 +82,39 @@ int decreaseAlbedoKoudouCounter() {
                 if (nb7武将情報[iBushouID].行動済) {
                     nb7武将情報[iBushouID].行動済 = 0;
                     nAlbedo行動済み分割カウンター--;
-                    break;
                 }
             }
-		}
+            break;
+        }
     }
 
     return TRUE;
 }
+
+int resetAlbedoSisyaUnitMoney() {
+    OutputDebugStream("resetAlbedoSisyaUnitMoney\n");
+    for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
+        int iBushouID = getBushouIDFromUnitID(iUnitID);
+        if (isValidBushouID(iBushouID)) {
+            if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+
+                OutputDebugStream("アルベドユニット種別%d\n", nb7ユニット情報[iUnitID].ユニット種別);
+
+                // 使者なら、金銭を最低3000にする
+                if (nb7ユニット情報[iUnitID].ユニット種別 == ユニット情報::ユニット種別::使者) {
+                    OutputDebugStream("アルベド使者の金銭%d\n", nb7ユニット情報[iUnitID].金銭);
+                    if (nb7ユニット情報[iUnitID].金銭 < 8000) {
+                        nb7ユニット情報[iUnitID].金銭 = 8000;
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+    return TRUE;
+}
+
 
 vector<int> get未使用陣形(int iUnitID) {
     // 
@@ -146,6 +171,14 @@ void resetAlbedoUnitHeisuu() {
                 // 第１部隊が存在しないということは、軍隊部隊ではないということ。何もしない
                 if (nb7ユニット情報[iUnitID].第１部隊の陣形位置 == 0xFFFF) {
                     return;
+                }
+
+                // 使者なら、金銭を最低3000にする
+                if (nb7ユニット情報[iUnitID].ユニット種別 == ユニット情報::ユニット種別::使者) {
+                    if (nb7ユニット情報[iUnitID].金銭 < 3000) {
+                        nb7ユニット情報[iUnitID].金銭 = 3000;
+                        return;
+                    }
                 }
 
                 // ユニット種別が「軍勢」でもなく「軍船」でもなければ、処理しない

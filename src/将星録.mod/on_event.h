@@ -50,6 +50,6 @@ void onCastleBattleEnd(std::string battleCastleEndInfo);
 
 void onCastleBattleEnd();
 
-
+void onPerishedDaimyo(std::string perishedDaimyoInfo);
 
 int dispatchEvent();
