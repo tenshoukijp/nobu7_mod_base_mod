@@ -9,7 +9,7 @@
 #include "data_yakusyoku_struct.h"
 #include "data_castle_struct.h"
 #include "data_unit_struct.h"
-#include "data_game_daimyo.h"
+#include "data_daimyo_struct.h"
 
 extern int nBaseAddress;
 

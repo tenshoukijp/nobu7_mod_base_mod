@@ -8,7 +8,7 @@
 #include "data_kanni_struct.h"
 #include "data_yakusyoku_struct.h"
 #include "data_castle_struct.h"
-#include "data_game_daimyo.h"
+#include "data_daimyo_struct.h"
 #include "data_turn_struct.h"
 #include "game_screen.h"
 

@@ -82,7 +82,7 @@
     <ClInclude Include="bushou_retsuden.h" />
     <ClInclude Include="bushou_albedo.h" />
     <ClInclude Include="data_castle_struct.h" />
-    <ClInclude Include="data_game_daimyo.h" />
+    <ClInclude Include="data_daimyo_struct.h" />
     <ClInclude Include="data_unit_struct.h" />
     <ClInclude Include="data_turn_struct.h" />
     <ClInclude Include="data_bushou_struct.h" />
@@ -110,7 +110,7 @@
     <ClCompile Include="bushou_retsuden.cpp" />
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />
-    <ClCompile Include="data_game_daimyo.cpp" />
+    <ClCompile Include="data_daimyo_struct.cpp" />
     <ClCompile Include="data_kahou_struct.cpp" />
     <ClCompile Include="data_kanni_struct.cpp" />
     <ClCompile Include="data_unit_struct.cpp" />
