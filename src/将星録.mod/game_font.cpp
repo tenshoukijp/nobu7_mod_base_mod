@@ -33,57 +33,14 @@ void onFontInitialize() {
 
 
 
-bool IsFontInstalled(String^ fontName)
-{
-	Graphics^ graphics = Graphics::FromHwnd(IntPtr::Zero);
-	try
-	{
-		//C# TO C++ CONVERTER NOTE: The following 'using' block is replaced by its C++ equivalent:
-		//ORIGINAL LINE: using (Font font = new Font(fontName, 12))
-		Font^ font = gcnew Font(fontName, 12);
-		try
-		{
-			if (String::Compare(font->Name, fontName, true) == 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		finally
-		{
-			delete font;
-		}
-	}
-	finally
-	{
-		delete graphics;
-	}
-}
-
 
 //------------------------------------------------
 // 上書き用のフォント名。長いフォント名も可能。将来はJavaScriptか何か外部テキストから変更できるようにしたい。
 //------------------------------------------------
 char bufferCustomFontName[32] = "将星 明朝";
-bool isCustomFontInstalledCheck = false;
-bool isCustomFontInstalled = false;
 const char* getNB7FontName() {
 
-	// フォントがインストールされているかどうかをチェックする。
-	if (!isCustomFontInstalledCheck) {
-		isCustomFontInstalledCheck = true;
-		isCustomFontInstalled = IsFontInstalled(gcnew String(bufferCustomFontName));
-	}
-
-	// インストールされていたら、それ。されてなければ、指定はせず、空を返しておく
-	if (isCustomFontInstalled) {
-		return bufferCustomFontName;
-	}
-	else {
-		return NULL;
-	}
+	// そのまま返す
+	return bufferCustomFontName;
 }
 
