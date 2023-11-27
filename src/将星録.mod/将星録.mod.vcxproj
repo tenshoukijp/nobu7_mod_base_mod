@@ -58,6 +58,7 @@
       <StringPooling>false</StringPooling>
       <DisableSpecificWarnings>4819;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
@@ -112,6 +113,7 @@
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
     <ClCompile Include="data_kahou_struct.cpp" />
+    <ClCompile Include="data_kahou_struct_extern.cpp" />
     <ClCompile Include="data_kanni_struct.cpp" />
     <ClCompile Include="data_unit_struct.cpp" />
     <ClCompile Include="data_yakusyoku_struct.cpp" />

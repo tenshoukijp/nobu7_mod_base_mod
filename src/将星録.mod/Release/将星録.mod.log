@@ -4,6 +4,7 @@
   data_castle_struct.cpp
   data_daimyo_struct.cpp
   data_kahou_struct.cpp
+  data_kahou_struct_extern.cpp
   data_kanni_struct.cpp
   data_unit_struct.cpp
   data_yakusyoku_struct.cpp

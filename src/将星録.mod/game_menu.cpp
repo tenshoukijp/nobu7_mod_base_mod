@@ -19,8 +19,29 @@ BOOL onMenuPushed(int iMenuID) {
 	OutputDebugStream(iMenuID);
 	OutputDebugStream("\r\n");
 	switch (iMenuID) {
-	case ADDITIONAL_MENU_ID_MEMORYEDITOR:
-		ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
+//	case ADDITIONAL_MENU_ID_MEMORYEDITOR:
+//		ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
+//		return TRUE;
+	case ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI:
+		// onMenuBushouEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_UNITEDIT_KAI:
+		// onMenuUnitEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI:
+		// onMenuDaimyoEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_KAHOUEDIT_KAI:
+		// onMenuKahouEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_KANNIEDIT_KAI:
+		// onMenuKanniEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_YAKUSYOKUEDIT_KAI:
+		// onMenuYakusyokuEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI:
+		// onMenuNenngetuEditStart();
 		return TRUE;
 	case 313:
 		onMenuBushouEditStart();

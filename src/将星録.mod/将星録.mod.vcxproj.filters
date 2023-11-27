@@ -272,6 +272,9 @@
     <ClCompile Include="data_daimyo_struct.cpp">
       <Filter>ゲームデータ - 大名情報</Filter>
     </ClCompile>
+    <ClCompile Include="data_kahou_struct_extern.cpp">
+      <Filter>ゲームデータ - 家宝情報</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
