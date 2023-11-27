@@ -4,7 +4,7 @@
   data_castle_struct.cpp
   data_daimyo_struct.cpp
   data_kahou_struct.cpp
-  data_kahou_struct_extern.cpp
+  mng_家宝情報.cpp
   data_kanni_struct.cpp
   data_unit_struct.cpp
   data_yakusyoku_struct.cpp
@@ -28,12 +28,14 @@
   hook_setmenu_custom.cpp
   hook_textouta_custom.cpp
   game_menu.cpp
+  mng_武将情報.cpp
   onigwrap.cpp
   on_event.cpp
   on_serihu_message.cpp
   output_debug_stream.cpp
   game_process.cpp
   game_window.cpp
+  .NETFramework,Version=v4.8.AssemblyAttributes.cpp
      ライブラリ C:\Users\master\source\repos\将星録Mod\Release\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\将星録Mod\Release\将星録.mod.exp を作成中
 LINK : warning LNK4232: 名前 将星録.mod に ASCII 文字以外の文字が含まれています。932 以外の ANSI コードページを使用すると、DLL をシステムに読み込めない可能性があります
 将星録.mod.exp : warning LNK4070: .EXP 内の /OUT:将星録.mod ディレクティブの指定が出力ファイル名 'C:\Users\master\source\repos\将星録Mod\Release\将星録.mod.dll' と異なっています。ディレクティブは無視されます。

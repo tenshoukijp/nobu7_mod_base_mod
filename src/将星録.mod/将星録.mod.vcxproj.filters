@@ -165,6 +165,12 @@
     <ClInclude Include="hook_functions_direct.h">
       <Filter>フック関数ダイレクト</Filter>
     </ClInclude>
+    <ClInclude Include="mng_家宝列挙.h">
+      <Filter>ゲームデータ - 家宝情報</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_武将列挙.h">
+      <Filter>ゲームデータ - 武将情報</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -272,8 +278,11 @@
     <ClCompile Include="data_daimyo_struct.cpp">
       <Filter>ゲームデータ - 大名情報</Filter>
     </ClCompile>
-    <ClCompile Include="data_kahou_struct_extern.cpp">
+    <ClCompile Include="mng_家宝情報.cpp">
       <Filter>ゲームデータ - 家宝情報</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_武将情報.cpp">
+      <Filter>ゲームデータ - 武将情報</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

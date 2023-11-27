@@ -1,4 +1,3 @@
 LIBRARY «¯˜^.mod
 EXPORTS
 	onInitialize = onInitialize @ 1
-	getKahouInfo = getKahouInfo @ 2

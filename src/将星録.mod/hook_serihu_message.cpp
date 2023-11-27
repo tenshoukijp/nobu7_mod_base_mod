@@ -14,6 +14,7 @@
 
 using namespace std;
 
+#pragma unmanaged
 /*
 メモリの呼び出し元、その①
 00496D8B   E8 80B20600      CALL Nobunaga.00502010
@@ -132,3 +133,4 @@ void WriteAsmJumperOnSSRExeMessageDetail() {
 	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeMessageDetail), cmdOnTenshouExeJumpFromGetDaimyoKoukeishaBushouID, 5, NULL); //5バイトのみ書き込む
 }
 
+#pragma managed
