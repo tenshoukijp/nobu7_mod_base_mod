@@ -185,6 +185,12 @@ HFONT WINAPI Hook_CreateFontA(
     if (pOverrideFontName) {
         // フォントファミリーを指定のもので上書きする
         hFont = ((PFNCREATEFONTA)pfnOrigCreateFontA)(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pOverrideFontName);
+        if (hFont == NULL) {
+            OutputDebugString("フォントがインストールされていない\n");
+        	// 上書きできなかった場合は、元のパラメータのままで委譲
+			hFont = ((PFNCREATEFONTA)pfnOrigCreateFontA)(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pszFaceName);
+		
+        }
 
     }
 

@@ -63,58 +63,60 @@ void doGameTest() {
 	}
 	*/
 
-	/*
 	for (int iKahouID = 0; iKahouID < Å‘å”::‰Æ•óî•ñ::”z—ñ”; iKahouID++) {
 		OutputDebugStream("‰Æ•ó–¼:%s ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼);
-		OutputDebugStream("•º‰ÈŒø‰Ê:%d ", nb7‰Æ•óî•ñ[iKahouID].•º‰ÈŒø‰Ê);
-		OutputDebugStream("“™‹‰:%d ", nb7‰Æ•óî•ñ[iKahouID].“™‹‰);
-		OutputDebugStream("ƒOƒ‰ƒtƒBƒbƒN”Ô†:%d ", nb7‰Æ•óî•ñ[iKahouID].ƒOƒ‰ƒtƒBƒbƒN”Ô†);
-		OutputDebugStream("ã¸”\—Í’l:%d ", nb7‰Æ•óî•ñ[iKahouID].ã¸”\—Í’l);
-		OutputDebugStream("‰Æ•óŽí—Þ:%d ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•óŽí—Þ);
+		// OutputDebugStream("•º‰ÈŒø‰Ê:%d ", nb7‰Æ•óî•ñ[iKahouID].•º‰ÈŒø‰Ê);
+		// OutputDebugStream("“™‹‰:%d ", nb7‰Æ•óî•ñ[iKahouID].“™‹‰);
+		OutputDebugStream("‰æ‘œ:%d ", nb7‰Æ•óî•ñ[iKahouID].‰æ‘œ);
+		// OutputDebugStream("ã¸”\—Í’l:%d ", nb7‰Æ•óî•ñ[iKahouID].”\—Íã¸);
+		// OutputDebugStream("‰Æ•óŽí—Þ:%d", nb7‰Æ•óî•ñ[iKahouID].Ží—Þ);
+		/*
 		int iBushouID = getBushouIDFromKahouID(iKahouID);
 		if (0 <= iBushouID && iBushouID < Å‘å”::•«î•ñ::”z—ñ”) {
 			OutputDebugStream("Š—LŽÒ:%s ", nb7•«î•ñ[iBushouID].©–¼);
 		}
 		OutputDebugStream("‰Æ•ó”Ô†:%d ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó”Ô†);
-		OutputDebugStream("‰Æ•óÅ‘å”:%d ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•óÅ‘å”);
+		OutputDebugStream("‰Æ•óÅ‘å”:%d ", nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó”Ô†MAX);
 		OutputDebugStream("”\—ÍŒø‰Ê:%d ", (int)nb7‰Æ•óî•ñ[iKahouID].”\—ÍŒø‰Ê);
+		*/
 		OutputDebugStream("\n");
 	}
-		*/
 
-		/*
-		for (int iKanniID = 0; iKanniID < Å‘å”::Š¯ˆÊî•ñ::”z—ñ”; iKanniID++) {
-			OutputDebugStream("Š¯ˆÊ–¼:%s ", nb7Š¯ˆÊî•ñ[iKanniID].Š¯ˆÊ–¼);
-			OutputDebugStream("Š¯ˆÊ”Ô†:%d ", nb7Š¯ˆÊî•ñ[iKanniID].Š¯ˆÊ”Ô†);
-			OutputDebugStream("ŠKˆÊ:%d ", nb7Š¯ˆÊî•ñ[iKanniID].ŠKˆÊ);
-			OutputDebugStream("\n");
-			int iBushouID = getBushouIDFromKanniID(iKanniID);
-			if (0 <= iBushouID && iBushouID < Å‘å”::•«î•ñ::”z—ñ”) {
+	/*
+	for (int iKanniID = 0; iKanniID < Å‘å”::Š¯ˆÊî•ñ::”z—ñ”; iKanniID++) {
+		OutputDebugStream("Š¯ˆÊ–¼:%s ", nb7Š¯ˆÊî•ñ[iKanniID].Š¯ˆÊ–¼);
+		OutputDebugStream("Š¯ˆÊ”Ô†:%d ", nb7Š¯ˆÊî•ñ[iKanniID].Š¯ˆÊ”Ô†);
+		OutputDebugStream("ŠKˆÊ:%d ", nb7Š¯ˆÊî•ñ[iKanniID].ŠKˆÊ);
+		OutputDebugStream("\n");
+		int iBushouID = getBushouIDFromKanniID(iKanniID);
+		if (0 <= iBushouID && iBushouID < Å‘å”::•«î•ñ::”z—ñ”) {
 
-				OutputDebugStream("Š—LŽÒ:%s ", nb7•«î•ñ[iBushouID].©–¼);
-			}
+			OutputDebugStream("Š—LŽÒ:%s ", nb7•«î•ñ[iBushouID].©–¼);
 		}
-		*/
+	}
+	*/
 
-		/*
-		for (int iYakusyokuID = 0; iYakusyokuID < Å‘å”::–ðEî•ñ::”z—ñ”; iYakusyokuID++) {
-			OutputDebugStream("–ðE–¼:%s ", nb7–ðEî•ñ[iYakusyokuID].–ðE–¼);
-			OutputDebugStream("–ðE”Ô†:%d ", nb7–ðEî•ñ[iYakusyokuID].–ðE”Ô†);
-			OutputDebugStream("–ðˆÊ:%d ", nb7–ðEî•ñ[iYakusyokuID].–ðˆÊ);
-			int iBushouID = getBushouIDFromYakusyokuID(iYakusyokuID);
-			OutputDebugStream("%d", iBushouID);
-			if ( 0 <= iBushouID && iBushouID < Å‘å”::•«î•ñ::”z—ñ”) {
+	/*
+	for (int iYakusyokuID = 0; iYakusyokuID < Å‘å”::–ðEî•ñ::”z—ñ”; iYakusyokuID++) {
+		OutputDebugStream("–ðE–¼:%s ", nb7–ðEî•ñ[iYakusyokuID].–ðE–¼);
+		OutputDebugStream("–ðE”Ô†:%d ", nb7–ðEî•ñ[iYakusyokuID].–ðE”Ô†);
+		OutputDebugStream("–ðˆÊ:%d ", nb7–ðEî•ñ[iYakusyokuID].–ðˆÊ);
+		int iBushouID = getBushouIDFromYakusyokuID(iYakusyokuID);
+		OutputDebugStream("%d", iBushouID);
+		if ( 0 <= iBushouID && iBushouID < Å‘å”::•«î•ñ::”z—ñ”) {
 
-				OutputDebugStream("Š—LŽÒ:%s ", nb7•«î•ñ[iBushouID].©–¼);
-			}
-			OutputDebugStream("\n");
+			OutputDebugStream("Š—LŽÒ:%s ", nb7•«î•ñ[iBushouID].©–¼);
 		}
-		*/
+		OutputDebugStream("\n");
+	}
+	*/
 
+	/*
 	for (int iCastleID = 0; iCastleID < Å‘å”::éî•ñ::”z—ñ”; iCastleID++) {
 		OutputDebugStream("é–¼:%s", nb7éî•ñ[iCastleID].é–¼);
 		OutputDebugStream(getéÌ(iCastleID) + "\n");
 	}
+	*/
 
 	/*
 	for (int iUnitID = 0; iUnitID < Å‘å”::ƒ†ƒjƒbƒgî•ñ::”z—ñ”; iUnitID++) {

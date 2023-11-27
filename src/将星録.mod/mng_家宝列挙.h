@@ -206,33 +206,39 @@ namespace —ñ‹“ {
 			static const int ‰Ì—¯‘½ = 198;
 			static const int —–šø‘Ò = 199;
 		};
-		/*
+
 		public ref class í—Ş {
 		public:
-			static const int ’ƒ˜q = 0;
-			static const int ’ƒšâ = 1;
-			static const int ’ƒ“ü = 2;
-			static const int ’ƒŠ˜ = 3;
-			static const int ‰Ô“ü = 4;
-			static const int “Œ• = 5;
-			static const int ‘„ = 6;
-			static const int ‹ï‘« = 7;
-			static const int ”n = 8;
-			static const int ˆÆ = 9;
-			static const int w‰HD = 10;
-			static const int Šªq–{ = 11;
-			static const int –¾’©’Ô–{ = 12;
-			static const int –Ø = 13;
-			static const int ’n‹…‹V = 14;
-			static const int “ì”ØŒv = 15;
-			static const int …–n‰æ = 16;
-			static const int ƒJƒXƒeƒ‰ = 17;
-			static const int ‹à•½“œ = 18;
-			static const int ‰Ì—¯‘½ = 19;
-			static const int ƒr[ƒhƒ”t = 20;
-			static const int ‰“Šá‹¾ = 21;
-			static const int ƒ‹ƒ\ƒ“šâ = 22;
-			static const int “ú•’«‘ = 23;
+			static const int ’ƒ“¹“¹‹ï = 0;
+			static const int •Ší = 1;
+			static const int •º‘••i = 2;
+			static const int –¼”n = 3;
+			static const int ’Z“› = 4;
+			static const int Œ•pŠ = 5;
+			static const int ”np‘ = 6;
+			static const int –Cp‘ = 7;
+			static const int •º–@‘ = 8;
+			static const int ˆãp‘ = 9;
+			static const int ”Ep‘ = 10;
+			static const int ’m¯‘ = 11;
+			static const int ”_­‘ = 12;
+			static const int ŠOŒğ‘ = 13;
+			static const int zp‘ = 14;
+			static const int Œš’z‘ = 15;
+			static const int —ğj‘ = 16;
+			static const int @‹³‘ = 17;
+			static const int •¶Šw‘ = 18;
+			static const int •§‹³‘ = 19;
+			static const int ŒR‹L•¨Œê = 20;
+			static const int ¤‹Æ‘ = 21;
+			static const int ŠG‰æ = 22;
+			static const int ’n} = 23;
+			static const int —…j”Õ = 24;
+			static const int “ì”ØŒv = 25;
+			static const int Z”Õ = 26;
+			static const int \š‰Ë = 27;
+			static const int ’¿•i = 28;
+			static const int –Ø = 29;
 		};
 
 		public ref class ‰æ‘œ {
@@ -242,25 +248,29 @@ namespace —ñ‹“ {
 			static const int ’ƒ“ü = 2;
 			static const int ’ƒŠ˜ = 3;
 			static const int ‰Ô“ü = 4;
-			static const int “Œ• = 5;
-			static const int ‘„ = 6;
-			static const int ‹ï‘« = 7;
-			static const int ”n = 8;
+			static const int ç’¹ = 5;
+			static const int “Œ• = 6;
+			static const int ‘„ = 7;
+			static const int ‹ï‘« = 8;
 			static const int ˆÆ = 9;
 			static const int w‰HD = 10;
-			static const int Šªq–{ = 11;
-			static const int –¾’©’Ô–{ = 12;
-			static const int …–n‰æ = 13;
-			static const int “ì”ØŒv = 14;
-			static const int ’n‹…‹V = 15;
-			static const int “ú•’«‘ = 16;
-			static const int ƒr[ƒhƒ”t = 17;
-			static const int ƒJƒXƒeƒ‰ = 18;
-			static const int ‰Ì—¯‘½ = 19;
-			static const int ‰“Šá‹¾ = 20;
-			static const int –Ø = 21;
+			static const int ”n = 11;
+			static const int ’Ô–{ = 12;
+			static const int Šªq–{ = 13;
+			static const int Š|ŠG = 14;
+			static const int ŠªŠG = 15;
+			static const int ’n} = 16;
+			static const int —…j”Õ = 17;
+			static const int “ì”ØŒv = 18;
+			static const int Z”Õ = 19;
+			static const int \š‰Ë = 20;
+			static const int ‰“Šá‹¾ = 21;
+			static const int ‰ŒŠÇ = 22;
+			static const int —mŠyŠí = 23;
+			static const int —V‹Y‹ï = 24;
+			static const int –Ø = 25;
+			static const int ’Z“› = 26;
 		};
-		*/
 	}
 }
 

@@ -214,6 +214,69 @@ Class 列挙.家宝.家宝リスト: AutoLayout, AnsiClass, Class, Public, Befor
     Int32 双六 IsConst : Public, Static, HasDefault
     Int32 歌留多 IsConst : Public, Static, HasDefault
     Int32 蘭奢待 IsConst : Public, Static, HasDefault
+Class 列挙.家宝.種類: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 茶道道具 IsConst : Public, Static, HasDefault
+    Int32 武器 IsConst : Public, Static, HasDefault
+    Int32 兵装品 IsConst : Public, Static, HasDefault
+    Int32 名馬 IsConst : Public, Static, HasDefault
+    Int32 短筒 IsConst : Public, Static, HasDefault
+    Int32 剣術所 IsConst : Public, Static, HasDefault
+    Int32 馬術書 IsConst : Public, Static, HasDefault
+    Int32 砲術書 IsConst : Public, Static, HasDefault
+    Int32 兵法書 IsConst : Public, Static, HasDefault
+    Int32 医術書 IsConst : Public, Static, HasDefault
+    Int32 忍術書 IsConst : Public, Static, HasDefault
+    Int32 知識書 IsConst : Public, Static, HasDefault
+    Int32 農政書 IsConst : Public, Static, HasDefault
+    Int32 外交書 IsConst : Public, Static, HasDefault
+    Int32 鉱術書 IsConst : Public, Static, HasDefault
+    Int32 建築書 IsConst : Public, Static, HasDefault
+    Int32 歴史書 IsConst : Public, Static, HasDefault
+    Int32 宗教書 IsConst : Public, Static, HasDefault
+    Int32 文学書 IsConst : Public, Static, HasDefault
+    Int32 仏教書 IsConst : Public, Static, HasDefault
+    Int32 軍記物語 IsConst : Public, Static, HasDefault
+    Int32 商業書 IsConst : Public, Static, HasDefault
+    Int32 絵画 IsConst : Public, Static, HasDefault
+    Int32 地図 IsConst : Public, Static, HasDefault
+    Int32 羅針盤 IsConst : Public, Static, HasDefault
+    Int32 南蛮時計 IsConst : Public, Static, HasDefault
+    Int32 算盤 IsConst : Public, Static, HasDefault
+    Int32 十字架 IsConst : Public, Static, HasDefault
+    Int32 珍品 IsConst : Public, Static, HasDefault
+    Int32 香木 IsConst : Public, Static, HasDefault
+Class 列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 茶碗 IsConst : Public, Static, HasDefault
+    Int32 茶壺 IsConst : Public, Static, HasDefault
+    Int32 茶入 IsConst : Public, Static, HasDefault
+    Int32 茶釜 IsConst : Public, Static, HasDefault
+    Int32 花入 IsConst : Public, Static, HasDefault
+    Int32 千鳥 IsConst : Public, Static, HasDefault
+    Int32 刀剣 IsConst : Public, Static, HasDefault
+    Int32 槍 IsConst : Public, Static, HasDefault
+    Int32 具足 IsConst : Public, Static, HasDefault
+    Int32 鞍 IsConst : Public, Static, HasDefault
+    Int32 陣羽織 IsConst : Public, Static, HasDefault
+    Int32 馬 IsConst : Public, Static, HasDefault
+    Int32 綴本 IsConst : Public, Static, HasDefault
+    Int32 巻子本 IsConst : Public, Static, HasDefault
+    Int32 掛絵 IsConst : Public, Static, HasDefault
+    Int32 巻絵 IsConst : Public, Static, HasDefault
+    Int32 地図 IsConst : Public, Static, HasDefault
+    Int32 羅針盤 IsConst : Public, Static, HasDefault
+    Int32 南蛮時計 IsConst : Public, Static, HasDefault
+    Int32 算盤 IsConst : Public, Static, HasDefault
+    Int32 十字架 IsConst : Public, Static, HasDefault
+    Int32 遠眼鏡 IsConst : Public, Static, HasDefault
+    Int32 煙管 IsConst : Public, Static, HasDefault
+    Int32 洋楽器 IsConst : Public, Static, HasDefault
+    Int32 遊戯具 IsConst : Public, Static, HasDefault
+    Int32 香木 IsConst : Public, Static, HasDefault
+    Int32 短筒 IsConst : Public, Static, HasDefault
 Class 家宝情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class 列挙.武将.武将リスト: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
