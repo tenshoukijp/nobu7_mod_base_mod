@@ -4,4 +4,4 @@
 
 void onFontInitialize();
 
-char* getNB7FontName();
+const char* getNB7FontName();

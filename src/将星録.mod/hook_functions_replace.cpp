@@ -177,10 +177,22 @@ HFONT WINAPI Hook_CreateFontA(
     DWORD  iPitchAndFamily,
     LPCSTR pszFaceName
 ) {
-    char* pOverrideFontName = getNB7FontName();
+    const char* pOverrideFontName = getNB7FontName();
 
-    // フォントファミリーを指定のもので上書きする
-    HFONT hFont = ((PFNCREATEFONTA)pfnOrigCreateFontA)(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pOverrideFontName);
+    HFONT hFont = NULL;
+
+    // フォントの指定があるならば
+    if (pOverrideFontName) {
+        // フォントファミリーを指定のもので上書きする
+        hFont = ((PFNCREATEFONTA)pfnOrigCreateFontA)(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pOverrideFontName);
+
+    }
+
+    // そうでなければ、元のパラメータのままで委譲
+	else {
+		hFont = ((PFNCREATEFONTA)pfnOrigCreateFontA)(cHeight, cWidth, cEscapement, cOrientation, cWeight, bItalic, bUnderline, bStrikeOut, iCharSet, iOutPrecision, iClipPrecision, iQuality, iPitchAndFamily, pszFaceName);
+	}
+
     return hFont;
 }
 
