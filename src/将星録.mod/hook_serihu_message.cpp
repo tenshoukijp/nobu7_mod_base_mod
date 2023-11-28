@@ -53,6 +53,11 @@ void OnSSRExeMessageDetailExecute() {
 		strcpy((char*)(セリフメッセージアドレス), "腕にはいささか自信があります\xAおなごと侮りめされるな□□□\xAでは、参りますぞ！□□□□□\xA");
 #pragma warning(default: 4996) // ワーニングの抑制を解除する
 	}
+	else if (message.find("手加減は無用です") != string::npos && message.find("私をおなごと思わずに") != string::npos) {
+#pragma warning(disable:4996)
+		strcpy((char*)(セリフメッセージアドレス), "手加減は無用です□□□□□□\xA私をおなごと思わずに□□□□\xA遠慮なくかかってらっしゃい！");
+#pragma warning(default: 4996) // ワーニングの抑制を解除する
+	}
 	OutputDebugStream("■■■");
 	OutputDebugStream((char*)セリフメッセージアドレス);
 	OutputDebugStream("\n");

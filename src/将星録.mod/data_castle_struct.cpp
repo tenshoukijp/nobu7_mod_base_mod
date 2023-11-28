@@ -57,7 +57,7 @@ int get攻撃目標CastleIdFromCastleId(int iCastleID) {
 		// 武将の配列の先頭アドレスから引く
 		int sub = nAttackCastleAddress - (int)(城情報アドレス);
 
-		// 武将情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
+		// 城情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
 		int iAttackCastleID = sub / sizeof(NB7城情報型);
 		if (isValidCastleID(iAttackCastleID)) {
 			return iAttackCastleID;
@@ -67,7 +67,22 @@ int get攻撃目標CastleIdFromCastleId(int iCastleID) {
 	return 0xFFFF;
 }
 
+int getDaimyoIDFromCastleID(int iCastleID) {
+	if (isValidCastleID(iCastleID)) {
+		// 所有武将のアドレスを直接さしている
+		int nDaimyoAddress = (int)(nb7城情報[iCastleID].p所属大名);
+		// 武将の配列の先頭アドレスから引く
+		int sub = nDaimyoAddress - (int)(大名情報アドレス);
 
+		// 大名情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
+		int iDaimyoID = sub / sizeof(NB7大名情報型);
+		if (isValidDaimyoID(iDaimyoID)) {
+			return iDaimyoID;
+		}
+	}
+
+	return 0xFFFF;
+}
 /*
 	内
 	肝付

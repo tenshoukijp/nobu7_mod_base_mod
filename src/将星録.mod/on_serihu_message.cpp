@@ -31,6 +31,7 @@ extern std::string bufferTextOut;
 
 char pszBufferYasenWeaponMessage1[256] = "命を奪われる時を感謝しながら待ちなさいハァーッ！　　　　　　　　　　　　";
 char pszBufferYasenWeaponMessage2[256] = "この私に歯向かうなど身の程を知りなさいハァーッ！　　　　　　　　　　　　";
+char pszBufferYasenWeaponMessage3[256] = "□□□□□□□□□□おんどりゃー！□□□□□□□　　　　　　　　　　　　";
 char pszBufferYasenWeaponMessage[256] = "";
 // char pszBufferYasenWeaponMessage[256] = "バルディッシュの一撃、受けとめてみよ！ハァーッ！　　　　　　　　　　　　";
 
@@ -40,6 +41,9 @@ char pszBufferYasenAttackMessage1[256] = "下等な人間風情が　バルディッシュの錆に
 char pszBufferYasenAttackMessage2[256] = "人間は脆弱な生き物、下等生物虫のように踏み潰したら少しはキレイになるかしら　　　　　　　　";
 char pszBufferYasenAttackMessage[256] = "";
 
+char pszBufferYasenDefendMessage[256] = "そんなに死にたいのかしら？　愚劣で下等な足掻きを　　　　わたくしに見せてごらんなさい　　　　　　";
+
+
 BOOL isNextSerifuStartOverride = false;  // 次にTextOutAが呼ばれたタイミングで isOverrideTextOutをTRUEにするためのフラグ
 BOOL isOverrideSerifuTextOut = false;    // このフラグがONだと、TextOutは描画をスルーするようにする。
 
@@ -47,6 +51,7 @@ BOOL isAlbedoSerifu = false; // アルベドのセリフを表示しなければならないことを検
 
 BOOL isAlbedoYasenWeaponMessage = FALSE;
 BOOL isAlbedoYasenAttackMessage = FALSE;
+BOOL isAlbedoYasenDefendMessage = FALSE;
 
 string prevSerihuMessage = "";
 
@@ -64,11 +69,15 @@ BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, i
 				isAlbedoYasenWeaponMessage = TRUE;
 
 				// 半部の確率で、アルベドのセリフを変更する
-				if (rand()%2 == 0) {
+				int rnd = rand();
+				if (rnd % 3 == 0) {
 					strcpy_s(pszBufferYasenWeaponMessage, pszBufferYasenWeaponMessage1);
 				}
-				else {
+				else if (rnd % 3 == 1) {
 					strcpy_s(pszBufferYasenWeaponMessage, pszBufferYasenWeaponMessage2);
+				}
+				else {
+					strcpy_s(pszBufferYasenWeaponMessage, pszBufferYasenWeaponMessage3);
 				}
 			}
 		}
@@ -98,6 +107,20 @@ BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, i
 		}
 	}
 
+	// アルベドが野戦中に会心の一撃を出した場合、アルベドモードにする。
+	if (bufferTextOut.ends_with(getArubedoMei() + "手")) {
+
+		string message = (char*)(セリフメッセージアドレス); // on_serihu_message
+		if (message.find("私をおなごと思わずに") != string::npos) {
+
+			if (!isAlbedoYasenDefendMessage) {
+				// 次にここに来たらオーバーライドするというフラグ
+				isOverrideTextOut = TRUE;
+				isAlbedoYasenDefendMessage = TRUE;
+			}
+		}
+	}
+
 
 	if (isOverrideTextOut && isAlbedoYasenAttackMessage) {
 		// 将星録の描画は1文字ずつなので、1文字ずつ別の文字を描画する形となる。
@@ -109,6 +132,12 @@ BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, i
 	else if (isOverrideTextOut && isAlbedoYasenWeaponMessage) {
 		// 将星録の描画は1文字ずつなので、1文字ずつ別の文字を描画する形となる。
 		((PFNTEXTOUTA)pfnOrigTextOutA)(hdc, nXStart, nYStart, (char*)(pszBufferYasenWeaponMessage + nTextOutProceedCounter), 2);
+		nTextOutProceedCounter += 2;
+	}
+
+	else if (isOverrideTextOut && isAlbedoYasenDefendMessage) {
+		// 将星録の描画は1文字ずつなので、1文字ずつ別の文字を描画する形となる。
+		((PFNTEXTOUTA)pfnOrigTextOutA)(hdc, nXStart, nYStart, (char*)(pszBufferYasenDefendMessage + nTextOutProceedCounter), 2);
 		nTextOutProceedCounter += 2;
 	}
 

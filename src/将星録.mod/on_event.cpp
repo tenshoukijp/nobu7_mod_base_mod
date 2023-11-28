@@ -6,6 +6,7 @@
 #include "bushou_albedo.h"
 #include "game_screen.h"
 #include "hook_functions_direct.h"
+#include "on_event.h"
 void onOpeningMovie() {
     hookFunctionsDirect();
     setゲーム画面ステータス(ゲーム画面ステータス::起動画面);
@@ -98,7 +99,7 @@ void onChoteiKenjo(string choteiKenjoInfo) {
         // 朝廷献上使者はアルベドである。
         if (ma[1].find(getArubedoSeiMei()) != string::npos ) {
 			OutputDebugStream("アルベドが献上使者だったので、金を補充\n");
-			resetAlbedoSisyaUnitMoney();
+			アルベド使者ユニット時のお金が復活();
         }
     }
 }
@@ -122,7 +123,7 @@ void onYasenBattlePreStart() {
     OutputDebugStream("野戦の戦闘が開始しました\n\n");
     setゲーム画面ステータス(ゲーム画面ステータス::野戦画面);
 
-    resetAlbedoUnitHeisuu();
+    アルベドのユニットが軍隊や軍船なら兵数復活();
 }
 
 void onYasenBattleStart(string battleYanseStartInfo) {
@@ -252,7 +253,7 @@ void onYasenBattleTurn(string battleYanseTurnInfo) {
 
         string albedoSeiMei = getArubedoSeiMei();
         if (kougekigawa == albedoSeiMei || syubigawa == albedoSeiMei) {
-            overrideYasenBattleAbirityChangeAlbedo(syubigawa, kougekigawa);
+            野戦中のアルベドの敵武将は戦闘値が最低となる(syubigawa, kougekigawa);
         }
 
 
@@ -278,9 +279,9 @@ void onYasenBattleEnd(string endYanseBattleInfo) {
     ) {
     }
 
-    resetYasenBattleAbirityChangeAlbedo();
+    reset野戦後のアルベドの敵武将の戦闘値();
 
-    resetAlbedoUnitHeisuu();
+    アルベドのユニットが軍隊や軍船なら兵数復活();
 
     OutputDebugStream("野戦の戦闘が終了しました\n\n" + endYanseBattleInfo + "\n");
 
@@ -289,9 +290,9 @@ void onYasenBattleEnd(string endYanseBattleInfo) {
 
 // 理由不明な終わり方
 void onYasenBattleEnd() {
-    resetYasenBattleAbirityChangeAlbedo();
+    reset野戦後のアルベドの敵武将の戦闘値();
 
-    resetAlbedoUnitHeisuu();
+    アルベドのユニットが軍隊や軍船なら兵数復活();
 
     OutputDebugStream("野戦の戦闘が終了しました\n\n");
 
@@ -302,27 +303,40 @@ BOOL isCastleBattle = FALSE;
 void onCastleBattlePreStart() {
     isCastleBattle = TRUE;
 
-    resetAlbedoUnitHeisuu();
+    アルベドのユニットが軍隊や軍船なら兵数復活();
 
     setゲーム画面ステータス(ゲーム画面ステータス::籠城戦画面);
 
     OutputDebugStream("城攻めの戦闘が開始しました\n");
 }
 
+int nPreviousCastleBattleTurn = -1;
 void onCastleBattleTurn(string battleCastleTurnInfo) {
     Matches ma;
     if (OnigMatch(battleCastleTurnInfo, "^(.+?)(\\1)残(\\d+)ﾀｰﾝ残(\\d+)ﾀｰﾝ(.+?)(\\d+)(\\5)(\\6)(.+?)(\\d+)(\\9)(\\10)$", &ma)) {
-        OutputDebugStream("ma[1]:" + ma[1] + "\n");
-		OutputDebugStream("ma[3]:" + ma[3] + "\n");
-        OutputDebugStream("残ﾀｰﾝ:" + ma[4] + "\n");
-        OutputDebugStream("ma[5]" + ma[5] + "\n");
-		OutputDebugStream("ma[6]" + ma[6] + "\n");
-		OutputDebugStream("ma[9]" + ma[9] + "\n");
-		OutputDebugStream("ma[10]" + ma[10] + "\n");
+        int nRemainTurn = stoi(ma[4], nullptr, 10);
+        if (nPreviousCastleBattleTurn != nRemainTurn) {
+            nPreviousCastleBattleTurn = nRemainTurn;
+
+            // まず最初のターンで、この城に帰属する武将達のリストを探す
+            if (nRemainTurn == 15) {
+                string sCastleName = ma[1];
+
+                籠城中のアルベドの敵武将は戦闘値が最低となる(sCastleName);
+            }
+            OutputDebugStream("城攻めの戦闘ターン情報:" + battleCastleTurnInfo + "\n");
+            OutputDebugStream("ma[1]:" + ma[1] + "\n");
+            OutputDebugStream("ma[3]:" + ma[3] + "\n");
+            OutputDebugStream("ma[5]" + ma[5] + "\n");
+            OutputDebugStream("ma[6]" + ma[6] + "\n");
+            OutputDebugStream("ma[9]" + ma[9] + "\n");
+            OutputDebugStream("ma[10]" + ma[10] + "\n");
+        }
     }
 
-	OutputDebugStream("城攻めの戦闘ターン情報:" + battleCastleTurnInfo + "\n");
 }
+
+
 
 void onCastleBattleEnd(string battleCastleEndInfo) {
 
@@ -343,7 +357,8 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
     ) {
     }
 
-    resetYasenBattleAbirityChangeAlbedo();
+    nPreviousCastleBattleTurn = -1;
+    reset野戦後のアルベドの敵武将の戦闘値();
 
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" + battleCastleEndInfo + "\n");
 
@@ -352,9 +367,10 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
 
 // 理由不明な終わり方
 void onCastleBattleEnd() {
-    resetYasenBattleAbirityChangeAlbedo();
+    nPreviousCastleBattleTurn = -1;
+    reset籠城後のアルベドの敵武将は戦闘値();
 
-    resetAlbedoUnitHeisuu();
+    アルベドのユニットが軍隊や軍船なら兵数復活();
 
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" );
 
@@ -368,7 +384,7 @@ void onStrategyDaimyoturnChanged(string strategyTurnInfo) {
 
         setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 
-        resetAlbedoUnitHeisuu();
+        アルベドのユニットが軍隊や軍船なら兵数復活();
     }
 
 }
@@ -383,11 +399,11 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
 
         // アルベドの行動済みカウンターのリセット
         resetAlbedoKoudouCounter();
-        resetAlbedoUnitHeisuu();
+        アルベドのユニットが軍隊や軍船なら兵数復活();
         resetAlbedo所属城下遺恨武将();
 
         // アルベドが「使者」ならお金を最低金額維持
-        resetAlbedoSisyaUnitMoney();
+        アルベド使者ユニット時のお金が復活();
 
         OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);
     }

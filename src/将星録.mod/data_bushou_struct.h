@@ -93,6 +93,8 @@ namespace •«î•ñ {
 // ŠY“–•«‚Ì‹é‚ğæ“¾‚·‚é
 int getCastleIdFromBushouID(int iBushouID);
 
+int getDaimyoIDFromBushouID(int iBushouID);
+
 BOOL isValidBushouID(int iBushouID);
 
 std::string getBushou•cšFromBushouID(int iBushouID);

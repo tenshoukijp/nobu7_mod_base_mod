@@ -7,6 +7,7 @@
 
 extern BOOL isAlbedoYasenWeaponMessage;
 extern BOOL isAlbedoYasenAttackMessage;
+extern BOOL isAlbedoYasenDefendMessage;
 
 BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, int cbString);
 

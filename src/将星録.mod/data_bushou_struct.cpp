@@ -29,7 +29,19 @@ int getCastleIdFromBushouID(int iBushouID) {
 	return 0xFFFF;
 }
 	
+int getDaimyoIDFromBushouID(int iBushouID) {
+	if (isValidBushouID(iBushouID)) {
+		int iCastleID = getCastleIdFromBushouID(iBushouID);
+		if (isValidCastleID(iCastleID)) {
+			int iDaimyoID = getDaimyoIDFromCastleID(iCastleID);
+			if (isValidDaimyoID(iDaimyoID)) {
+				return iDaimyoID;
+			}
+		}
+	}
 
+	return 0xFFFF;
+}
 
 
 std::string getBushou•cŽšFromBushouID(int iBushouID) {

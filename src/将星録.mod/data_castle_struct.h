@@ -59,6 +59,9 @@ int get城主BushouIDFromCastleID(int iCastleID);
 // 指定の城の「攻撃目標城」の城IDを取得する。該当者が居なかったら0xFFFF
 int get攻撃目標CastleIdFromCastleId(int iCastleID);
 
+// 城の帰属大名の大名IDを取得する。大名に帰属していなければ0xFFFF
+int getDaimyoIDFromCastleID(int iCastleID);
+
 // 城の称号(城・館・御坊)のどれなのかを取得する
 std::string get城称(int iCastleID);
 

@@ -48,6 +48,8 @@ void onCastleBattlePreStart();
 
 void onCastleBattleEnd(std::string battleCastleEndInfo);
 
+void NewFunction(std::string& sCastleName);
+
 void onCastleBattleEnd();
 
 void onPerishedDaimyo(std::string perishedDaimyoInfo);

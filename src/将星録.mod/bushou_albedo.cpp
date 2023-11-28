@@ -23,8 +23,8 @@ string getArubedoSeiMei() {
 }
 
 // アルベドと対峙する武将の戦闘能力を1になってしまう
-map<int, int> mapOverrideKeyBushouValueBattle;
-int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
+map<int, int> mapOverrideKeyBushouValueYasenBattle;
+int 野戦中のアルベドの敵武将は戦闘値が最低となる(string attack, string defend) {
 
     string targetBushouName = "";
 
@@ -40,7 +40,7 @@ int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
     for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
         if (targetBushouName == getBushou姓名FromBushouID(iBushouID)) {
             if (nb7武将情報[iBushouID].戦闘 >= 3) {
-                mapOverrideKeyBushouValueBattle[iBushouID] = nb7武将情報[iBushouID].戦闘;
+                mapOverrideKeyBushouValueYasenBattle[iBushouID] = nb7武将情報[iBushouID].戦闘;
                 nb7武将情報[iBushouID].戦闘 = 1;
                 break;
             }
@@ -50,8 +50,8 @@ int overrideYasenBattleAbirityChangeAlbedo(string attack, string defend) {
 }
 
 // 野戦で変更した戦闘相手の能力をもとへと戻す
-int resetYasenBattleAbirityChangeAlbedo() {
-    for (auto itr = mapOverrideKeyBushouValueBattle.begin(); itr != mapOverrideKeyBushouValueBattle.end(); ++itr) {
+int reset野戦後のアルベドの敵武将の戦闘値() {
+    for (auto itr = mapOverrideKeyBushouValueYasenBattle.begin(); itr != mapOverrideKeyBushouValueYasenBattle.end(); ++itr) {
 		int iSaveBushouID = itr->first;
 		int iSaveBattle = itr->second;
 
@@ -59,7 +59,7 @@ int resetYasenBattleAbirityChangeAlbedo() {
             int iCurBattle = nb7武将情報[iSaveBushouID].戦闘;
             if (0 <= iCurBattle && iCurBattle <= 3) {
                 nb7武将情報[iSaveBushouID].戦闘 = iSaveBattle;
-                mapOverrideKeyBushouValueBattle.erase(itr);
+                mapOverrideKeyBushouValueYasenBattle.erase(itr);
                 break;
             }
         }
@@ -91,7 +91,7 @@ int decreaseAlbedoKoudouCounter() {
     return TRUE;
 }
 
-int resetAlbedoSisyaUnitMoney() {
+int アルベド使者ユニット時のお金が復活() {
     OutputDebugStream("resetAlbedoSisyaUnitMoney\n");
     for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
         int iBushouID = getBushouIDFromUnitID(iUnitID);
@@ -161,7 +161,7 @@ vector<int> get未使用陣形(int iUnitID) {
 
 
 // アルベド部隊のユニットは、いつも兵数が満タンである。
-void resetAlbedoUnitHeisuu() {
+void アルベドのユニットが軍隊や軍船なら兵数復活() {
 
     for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
         int iBushouID = getBushouIDFromUnitID(iUnitID);
@@ -300,4 +300,63 @@ void resetAlbedo所属城下遺恨武将() {
             break;
         }
     }
+}
+
+
+// 籠城戦時に戦闘力を１にした人一覧
+map<int, int> mapOverrideKeyBushouValueCastleBattle;
+void 籠城中のアルベドの敵武将は戦闘値が最低となる(std::string sCastleName)
+{
+    // アルベドの所属大名を得る
+    int iAlbedoDaimyoID = -1;
+    for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+        if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+            iAlbedoDaimyoID = getDaimyoIDFromBushouID(iBushouID);
+            break;
+        }
+    }
+
+    for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {
+        // 該当の城名が見つかったなら
+        if (sCastleName == nb7城情報[iCastleID].城名 + get城称(iCastleID)) {
+            int iRoujoCastleID = iCastleID;
+            OutputDebugStream("CastleIDは:%dです\n", iCastleID);
+            for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+                // 現役か大名である
+                if (nb7武将情報[iBushouID].状態 == 1 || nb7武将情報[iBushouID].状態 == 0) {
+                    int iBushouCastleID = getCastleIdFromBushouID(iBushouID);
+                    // 該当武将は籠城戦中の城に帰属している(籠城戦に参加しているとは限らない)
+                    if (iBushouCastleID == iRoujoCastleID) {
+                        // アルベドとは大名が異なる
+                        if (getDaimyoIDFromBushouID(iBushouID) != iAlbedoDaimyoID) {
+                            // 戦闘力を１にしておき、元の戦闘力は保存しておく。
+                            if (nb7武将情報[iBushouID].戦闘 >= 3) {
+                                mapOverrideKeyBushouValueCastleBattle[iBushouID] = nb7武将情報[iBushouID].戦闘;
+                                nb7武将情報[iBushouID].戦闘 = 1;
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+        }
+    }
+}
+
+// 籠城戦で変更した戦闘相手の能力をもとへと戻す
+int reset籠城後のアルベドの敵武将は戦闘値() {
+    for (auto itr = mapOverrideKeyBushouValueCastleBattle.begin(); itr != mapOverrideKeyBushouValueCastleBattle.end(); ++itr) {
+        int iSaveBushouID = itr->first;
+        int iSaveBattle = itr->second;
+
+        if (isValidBushouID(iSaveBushouID)) {
+            int iCurBattle = nb7武将情報[iSaveBushouID].戦闘;
+            if (0 <= iCurBattle && iCurBattle <= 3) {
+                nb7武将情報[iSaveBushouID].戦闘 = iSaveBattle;
+                mapOverrideKeyBushouValueCastleBattle.erase(itr);
+            }
+        }
+    }
+
+    return TRUE;
 }
