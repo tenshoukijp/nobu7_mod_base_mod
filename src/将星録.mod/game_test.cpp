@@ -67,9 +67,10 @@ void doGameTest() {
 		OutputDebugStream("家宝名:%s ", nb7家宝情報[iKahouID].家宝名);
 		// OutputDebugStream("兵科効果:%d ", nb7家宝情報[iKahouID].兵科効果);
 		// OutputDebugStream("等級:%d ", nb7家宝情報[iKahouID].等級);
-		OutputDebugStream("画像:%d ", nb7家宝情報[iKahouID].画像);
+		// OutputDebugStream("画像:%d ", nb7家宝情報[iKahouID].画像);
 		// OutputDebugStream("上昇能力値:%d ", nb7家宝情報[iKahouID].能力上昇);
 		// OutputDebugStream("家宝種類:%d", nb7家宝情報[iKahouID].種類);
+		if (nb7家宝情報[iKahouID].南蛮) OutputDebugStream("不明3:%d", nb7家宝情報[iKahouID].南蛮);
 		/*
 		int iBushouID = getBushouIDFromKahouID(iKahouID);
 		if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {

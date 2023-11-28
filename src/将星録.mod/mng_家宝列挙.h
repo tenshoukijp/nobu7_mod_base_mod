@@ -3,7 +3,7 @@
 
 namespace 列挙 {
 	namespace 家宝 {
-		public ref class 家宝リスト {
+		public ref class リスト {
 		public:
 			static const int 曜変稲葉天目 = 0;
 			static const int 灰被虹天目 = 1;

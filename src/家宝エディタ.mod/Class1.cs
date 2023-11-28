@@ -10,7 +10,6 @@ namespace 家宝エディタ.mod
     {
         void abc()
         {
-            int a = 列挙.家宝.家宝リスト.万川集海;
         }
     }
 }

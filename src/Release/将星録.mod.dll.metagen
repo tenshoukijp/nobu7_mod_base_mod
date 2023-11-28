@@ -11,7 +11,7 @@ Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Class 列挙.家宝.家宝リスト: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class 列挙.家宝.リスト: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 曜変稲葉天目 IsConst : Public, Static, HasDefault
