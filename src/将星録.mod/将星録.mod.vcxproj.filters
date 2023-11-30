@@ -88,6 +88,9 @@
     <Filter Include="文字列変換">
       <UniqueIdentifier>{74158cc2-ecb8-49fc-a5d3-4b19f1f73310}</UniqueIdentifier>
     </Filter>
+    <Filter Include="フォーム系Mod">
+      <UniqueIdentifier>{9db79092-7022-462e-834e-9f18c8ca6688}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -182,6 +185,12 @@
     </ClInclude>
     <ClInclude Include="mng_文字列変換.h">
       <Filter>文字列変換</Filter>
+    </ClInclude>
+    <ClInclude Include="load_form_mod.h">
+      <Filter>フォーム系Mod</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_フォント.h">
+      <Filter>フォント</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -298,6 +307,12 @@
     </ClCompile>
     <ClCompile Include="mng_文字列変換.cpp">
       <Filter>文字列変換</Filter>
+    </ClCompile>
+    <ClCompile Include="load_form_mod.cpp">
+      <Filter>フォーム系Mod</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_フォント.cpp">
+      <Filter>フォント</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

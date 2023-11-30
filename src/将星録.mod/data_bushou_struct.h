@@ -83,11 +83,22 @@ struct NB7•«î•ñŒ^
 };
 #pragma pack()
 
-namespace •«î•ñ {
-	enum g•ª { ‘å–¼ = 5, h˜V = 4, ‰Æ˜V=3, •”«=2, ˜‘å«=1, ‘«Œy“ª=0, ‚»‚Ì‘¼=0 };
-	namespace pˆâ¦‘å–¼ {
-		int*const –³‚µ = (int*)0x538EB8;
-	};
+namespace «¯˜^ {
+	namespace •«î•ñ {
+		public ref class g•ª {
+		public:
+			static const int ‘å–¼ = 5;
+			static const int h˜V = 4;
+			static const int ‰Æ˜V = 3;
+			static const int •”« = 2;
+			static const int ˜‘å« = 1;
+			static const int ‘«Œy“ª = 0;
+			static const int ‚»‚Ì‘¼ = 0;
+		};
+		namespace pˆâ¦‘å–¼ {
+			int*const –³‚µ = (int*)0x538EB8;
+		};
+	}
 }
 
 // ŠY“–•«‚Ì‹é‚ğæ“¾‚·‚é

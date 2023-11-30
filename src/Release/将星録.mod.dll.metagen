@@ -9,8 +9,20 @@ Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e0
 	hash=None, flags=None
 Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
 	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class 将星録.武将情報.身分: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 大名 IsConst : Public, Static, HasDefault
+    Int32 宿老 IsConst : Public, Static, HasDefault
+    Int32 家老 IsConst : Public, Static, HasDefault
+    Int32 部将 IsConst : Public, Static, HasDefault
+    Int32 侍大将 IsConst : Public, Static, HasDefault
+    Int32 足軽頭 IsConst : Public, Static, HasDefault
+    Int32 その他 IsConst : Public, Static, HasDefault
 Class 将星録.列挙.ユニット.種別: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -55,6 +67,12 @@ Class 将星録.最大数.役職情報: AutoLayout, AnsiClass, Class, Public, Be
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.アプリケーション.フォント: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String フォント名 'get ' : 
+  Methods:
+    get_フォント名(): PrivateScope, Public, Static, HideBySig, SpecialName
 Class 将星録.列挙.家宝.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -321,7 +339,7 @@ Class 将星録.列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, Befo
     Int32 遊戯具 IsConst : Public, Static, HasDefault
     Int32 香木 IsConst : Public, Static, HasDefault
     Int32 短筒 IsConst : Public, Static, HasDefault
-Class 家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class 将星録.家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
     Int32 抑制   'get set' : 

@@ -15,6 +15,8 @@ void onCreateWindow(HWND hWnd) {
 	// 呼び出し元(WinMM.dll)に、「今回の起動ではちゃんとウィンドウが生成されたよ」と伝える。よってゲーム本体が起動された。
 	*referenceOfNB7Wnd = hWnd;
 
+	onFontInitialize();
+
 	OutputDebugStream("ウィンドウ生成\n");
 
 	// メニューがころころ変わるので、メニューの変更を検知するため。最初にこれを代入。主にHook_SetMenuで、使われている。
@@ -29,7 +31,6 @@ void onCreateWindow(HWND hWnd) {
 
 	OutputDebugStream("将星録の開始\n");
 
-	// onFontInitialize();
 }
 
 BOOL doneDestroyWindow = FALSE;

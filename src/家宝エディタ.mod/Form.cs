@@ -1,0 +1,144 @@
+﻿using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using 将星録;
+using 将星録.列挙.家宝;
+
+namespace 将星録
+{
+    public class 家宝エディタ : Form
+    {
+        DataGridView dgv = new DataGridView();
+
+        public 家宝エディタ()
+        {
+            setFormAttribute();
+            setDataGridAttribute();
+        }
+
+        private void setFormAttribute()
+        {
+            this.Text = "家宝エディタ";
+            this.Width = 800;
+            this.Height = 800;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.ShowIcon = false;
+        }
+
+        enum タイトル { 配列IX = 0, 家宝名 = 1, 種類 = 2, 等級 = 3, 画像 = 4, 兵科効果 = 5, 政治 = 6, 戦闘 = 7, 智謀 = 8, 南蛮 = 9, 抑制 = 10, 所有武将配列IX = 11 };
+        private void setDataGridAttribute()
+        {
+            dgv.Dock = DockStyle.Fill;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+
+            string fontName = 将星録.アプリケーション.フォント.フォント名;
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
+            /*
+            List<string> fontList = new List<string>();
+            System.Drawing.Text.PrivateFontCollection pfc = new System.Drawing.Text.PrivateFontCollection();
+            try
+            {
+
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts"))
+                {
+                    string[] valueNames = key?.GetValueNames();
+                    if (valueNames != null)
+                    {
+                        foreach (string valueName in valueNames)
+                        {
+                            string path = key.GetValue(valueName).ToString();
+                            pfc.AddFontFile("C:\\Users\\master\\AppData\\Local\\Microsoft\\Windows\\Fonts\\srr_mincho_アルベド.ttf");
+                        }
+                    }
+                }
+
+
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            foreach(var f in pfc.Families)
+            {
+                System.Diagnostics.Trace.WriteLine("★" + f.Name + "\r\n");
+            }
+            */
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
+
+
+            string[] colTitleArray =
+            {
+                nameof(タイトル.配列IX),
+                nameof(タイトル.家宝名),
+                nameof(タイトル.種類),
+                nameof(タイトル.等級),
+                nameof(タイトル.画像),
+                nameof(タイトル.兵科効果),
+                nameof(タイトル.政治),
+                nameof(タイトル.戦闘),
+                nameof(タイトル.智謀),
+                nameof(タイトル.南蛮),
+                nameof(タイトル.抑制),
+                nameof(タイトル.所有武将配列IX)
+            };
+            /*
+            dgv.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            dgv.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            dgv.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            */
+
+            for (int i = 0; i <colTitleArray.Length; i++)
+            {
+                // 縦列のオブジェクトを作り
+                DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
+                // タイトル文字列を設定
+                dgvtbc.HeaderText = colTitleArray[i];
+                // グリッドビューに縦列として追加。
+                dgv.Columns.Add(dgvtbc);
+            }
+
+            // 各カラムに天翔記のデータ(532人の武将の、名字、名前、政才、戦才、智才)を足してゆく
+            DgvDataImport();
+
+            // データグリッドのセルを編集した時のイベントハンドラを登録する。
+            // dgv.CellValueChanged += dgv_CellValueChanged;
+
+            // データグリッドビューをフォームに乗っける
+            this.Controls.Add(dgv);
+        }
+
+        void DgvDataImport()
+        {
+
+            // 横列単位で足してゆく、index:0, 姓:1, 名:2, 政治:3 戦闘:4 智謀:5 の順番通り
+            for (int i = 0; i < 将星録.最大数.家宝情報.配列数; i++)
+            {
+                var 家宝 = new 将星録.家宝情報型(i);
+                dgv.Rows.Add(
+                  家宝.配列IX,
+                  家宝.家宝名,
+                  家宝.種類,
+                  家宝.等級,
+                  家宝.画像,
+                  家宝.兵科効果,
+                  家宝.政治,
+                  家宝.戦闘,
+                  家宝.智謀,
+                  家宝.南蛮,
+                  家宝.抑制,
+                  家宝.所有武将配列IX
+                  );
+
+            }
+        }
+    }
+}

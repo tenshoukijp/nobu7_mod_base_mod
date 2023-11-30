@@ -8,6 +8,8 @@
 using namespace std;
 using namespace «¯˜^::—ñ‹“;
 
+using namespace System::Collections::Generic;
+
 ‰Æ•óî•ñŒ^::‰Æ•óî•ñŒ^(int ‰Æ•ó”z—ñIX)
 {
 	if (isValidKahouID(‰Æ•ó”z—ñIX)) {
@@ -192,6 +194,4 @@ void ‰Æ•óî•ñŒ^::—}§::set(int value) {
 		throw gcnew System::ArgumentOutOfRangeException("—}§‚ª•s³‚Å‚·B");
 	}
 }
-
-
 

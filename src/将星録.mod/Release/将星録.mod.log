@@ -4,6 +4,8 @@
   data_castle_struct.cpp
   data_daimyo_struct.cpp
   data_kahou_struct.cpp
+  load_form_mod.cpp
+  mng_フォント.cpp
   mng_家宝情報.cpp
   data_kanni_struct.cpp
   data_unit_struct.cpp

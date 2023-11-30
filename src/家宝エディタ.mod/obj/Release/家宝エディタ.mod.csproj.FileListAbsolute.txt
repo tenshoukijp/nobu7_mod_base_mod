@@ -6,3 +6,5 @@ C:\Users\master\source\repos\将星録Mod\家宝エディタ.mod\obj\Release\家
 C:\Users\master\source\repos\将星録Mod\家宝エディタ.mod\obj\Release\家宝エディタ.mod.csproj.CopyComplete
 C:\Users\master\source\repos\将星録Mod\家宝エディタ.mod\obj\Release\家宝エディタ.mod.dll
 C:\Users\master\source\repos\将星録Mod\家宝エディタ.mod\obj\Release\家宝エディタ.mod.pdb
+C:\Users\master\source\repos\将星録Mod\Release\家宝エディタ.mod.dll
+C:\Users\master\source\repos\将星録Mod\Release\家宝エディタ.mod.pdb

@@ -99,6 +99,8 @@
     <ClInclude Include="hook_functions_replace.h" />
     <ClInclude Include="hook_textouta_custom.h" />
     <ClInclude Include="game_menu.h" />
+    <ClInclude Include="load_form_mod.h" />
+    <ClInclude Include="mng_フォント.h" />
     <ClInclude Include="mng_ユニット情報.h" />
     <ClInclude Include="mng_家宝情報.h" />
     <ClInclude Include="mng_文字列変換.h" />
@@ -119,6 +121,8 @@
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
     <ClCompile Include="data_kahou_struct.cpp" />
+    <ClCompile Include="load_form_mod.cpp" />
+    <ClCompile Include="mng_フォント.cpp" />
     <ClCompile Include="mng_家宝情報.cpp" />
     <ClCompile Include="data_kanni_struct.cpp" />
     <ClCompile Include="data_unit_struct.cpp" />
@@ -159,6 +163,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>

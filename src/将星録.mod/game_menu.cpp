@@ -6,12 +6,17 @@
 #include "game_window.h"
 #include "on_event.h"
 #include "game_test.h"
+#include "load_form_mod.h"
 
 #pragma comment(lib, "shell32.lib")
 
 using namespace std;
 
 HMENU hNB7MenuCheckChange = NULL;
+
+void onMenuKahouEditStart() {
+	Show_FormMod("家宝エディタ.mod.dll", "将星録.家宝エディタ");
+}
 
 // メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、
 // 番号は主にリソースエディタで確認できる
@@ -32,7 +37,7 @@ BOOL onMenuPushed(int iMenuID) {
 		// onMenuDaimyoEditStart();
 		return TRUE;
 	case ADDITIONAL_MENU_ID_KAHOUEDIT_KAI:
-		// onMenuKahouEditStart();
+		onMenuKahouEditStart();
 		return TRUE;
 	case ADDITIONAL_MENU_ID_KANNIEDIT_KAI:
 		// onMenuKanniEditStart();
