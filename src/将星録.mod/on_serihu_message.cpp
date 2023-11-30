@@ -31,7 +31,7 @@ extern std::string bufferTextOut;
 
 char pszBufferYasenWeaponMessage1[256] = "命を奪われる時を感謝しながら待ちなさいハァーッ！　　　　　　　　　　　　";
 char pszBufferYasenWeaponMessage2[256] = "この私に歯向かうなど身の程を知りなさいハァーッ！　　　　　　　　　　　　";
-char pszBufferYasenWeaponMessage3[256] = "□□□□□□□□□□おんどりゃー！□□□□□□□　　　　　　　　　　　　";
+char pszBufferYasenWeaponMessage3[256] = "　　　　　　　　　　おんどりゃー！　　　　　　　　　　　　　　　　　　　";
 char pszBufferYasenWeaponMessage[256] = "";
 // char pszBufferYasenWeaponMessage[256] = "バルディッシュの一撃、受けとめてみよ！ハァーッ！　　　　　　　　　　　　";
 

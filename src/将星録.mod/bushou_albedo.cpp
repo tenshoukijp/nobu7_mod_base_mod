@@ -9,7 +9,6 @@ using namespace std;
 #include "bushou_albedo.h"
 #include "output_debug_stream.h"
 
-
 string getArubedoSei() {
     return "宰相";
 }
@@ -37,7 +36,7 @@ int 野戦中のアルベドの敵武将は戦闘値が最低となる(string attack, string defend) {
     }
 
     // アルベドと対峙する武将の戦闘能力を1にしつつ、その武将の元々の戦闘値を保持しておく。
-    for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+    for (int iBushouID = 0; iBushouID < 最大数::武将情報::総配列数; iBushouID++) {
         if (targetBushouName == getBushou姓名FromBushouID(iBushouID)) {
             if (nb7武将情報[iBushouID].戦闘 >= 3) {
                 mapOverrideKeyBushouValueYasenBattle[iBushouID] = nb7武将情報[iBushouID].戦闘;
@@ -98,10 +97,10 @@ int アルベド使者ユニット時のお金が復活() {
         if (isValidBushouID(iBushouID)) {
             if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
 
-                OutputDebugStream("アルベドユニット種別%d\n", nb7ユニット情報[iUnitID].ユニット種別);
+                OutputDebugStream("アルベドユニット種別%d\n", nb7ユニット情報[iUnitID].種別);
 
                 // 使者なら、金銭を最低3000にする
-                if (nb7ユニット情報[iUnitID].ユニット種別 == ユニット情報::ユニット種別::使者) {
+                if (nb7ユニット情報[iUnitID].種別 == 列挙::ユニット::種別::使者) {
                     OutputDebugStream("アルベド使者の金銭%d\n", nb7ユニット情報[iUnitID].金銭);
                     if (nb7ユニット情報[iUnitID].金銭 < 8000) {
                         nb7ユニット情報[iUnitID].金銭 = 8000;
@@ -173,17 +172,9 @@ void アルベドのユニットが軍隊や軍船なら兵数復活() {
                     return;
                 }
 
-                // 使者なら、金銭を最低3000にする
-                if (nb7ユニット情報[iUnitID].ユニット種別 == ユニット情報::ユニット種別::使者) {
-                    if (nb7ユニット情報[iUnitID].金銭 < 3000) {
-                        nb7ユニット情報[iUnitID].金銭 = 3000;
-                        return;
-                    }
-                }
-
                 // ユニット種別が「軍勢」でもなく「軍船」でもなければ、処理しない
-                if (nb7ユニット情報[iUnitID].ユニット種別 != ユニット情報::ユニット種別::軍勢 &&
-                    nb7ユニット情報[iUnitID].ユニット種別 != ユニット情報::ユニット種別::軍船
+                if (nb7ユニット情報[iUnitID].種別 != 列挙::ユニット::種別::軍勢 &&
+                    nb7ユニット情報[iUnitID].種別 != 列挙::ユニット::種別::軍船
                     ) {
                     return;
                 }

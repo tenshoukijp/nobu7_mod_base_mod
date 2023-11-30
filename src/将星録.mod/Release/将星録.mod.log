@@ -28,6 +28,7 @@
   hook_setmenu_custom.cpp
   hook_textouta_custom.cpp
   game_menu.cpp
+  mng_文字列変換.cpp
   mng_武将情報.cpp
   onigwrap.cpp
   on_event.cpp

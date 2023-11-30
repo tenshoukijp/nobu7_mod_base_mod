@@ -70,17 +70,16 @@ void doGameTest() {
 		// OutputDebugStream("画像:%d ", nb7家宝情報[iKahouID].画像);
 		// OutputDebugStream("上昇能力値:%d ", nb7家宝情報[iKahouID].能力上昇);
 		// OutputDebugStream("家宝種類:%d", nb7家宝情報[iKahouID].種類);
-		if (nb7家宝情報[iKahouID].南蛮) OutputDebugStream("不明3:%d", nb7家宝情報[iKahouID].南蛮);
-		/*
+		// if (nb7家宝情報[iKahouID].南蛮) OutputDebugStream("不明3:%d", nb7家宝情報[iKahouID].南蛮);
 		int iBushouID = getBushouIDFromKahouID(iKahouID);
 		if (0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
-			OutputDebugStream("所有者:%s ", nb7武将情報[iBushouID].姓名);
-		}
-		OutputDebugStream("家宝番号:%d ", nb7家宝情報[iKahouID].家宝番号);
-		OutputDebugStream("家宝最大数:%d ", nb7家宝情報[iKahouID].家宝番号MAX);
-		OutputDebugStream("能力効果:%d ", (int)nb7家宝情報[iKahouID].能力効果);
-		*/
-		OutputDebugStream("\n");
+			// OutputDebugStream("所有者:%s ", nb7武将情報[iBushouID].姓名);
+		} else {
+			OutputDebugStream("所有者:%x\n", nb7家宝情報[iKahouID].p所有者);
+		}	
+		// OutputDebugStream("家宝番号:%d ", nb7家宝情報[iKahouID].家宝番号);
+		// OutputDebugStream("家宝最大数:%d ", nb7家宝情報[iKahouID].家宝番号MAX);
+		// OutputDebugStream("\n");
 	}
 
 	/*

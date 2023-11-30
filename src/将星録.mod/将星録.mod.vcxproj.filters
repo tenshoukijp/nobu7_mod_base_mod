@@ -85,6 +85,9 @@
     <Filter Include="フック関数ダイレクト">
       <UniqueIdentifier>{036ca32a-9a48-41ad-bc6b-627233bf5629}</UniqueIdentifier>
     </Filter>
+    <Filter Include="文字列変換">
+      <UniqueIdentifier>{74158cc2-ecb8-49fc-a5d3-4b19f1f73310}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -170,6 +173,15 @@
     </ClInclude>
     <ClInclude Include="mng_武将列挙.h">
       <Filter>ゲームデータ - 武将情報</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_ユニット情報.h">
+      <Filter>ゲームデータ - ユニット情報</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_家宝情報.h">
+      <Filter>ゲームデータ - 家宝情報</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_文字列変換.h">
+      <Filter>文字列変換</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +295,9 @@
     </ClCompile>
     <ClCompile Include="mng_武将情報.cpp">
       <Filter>ゲームデータ - 武将情報</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_文字列変換.cpp">
+      <Filter>文字列変換</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@
 using namespace std;
 
 BOOL isValidBushouID(int iBushouID) {
-	if ( 0 <= iBushouID && iBushouID < 最大数::武将情報::配列数) {
+	if ( 0 <= iBushouID && iBushouID < 最大数::武将情報::総配列数) {
 		return TRUE;
 	}
 	return FALSE;
@@ -45,7 +45,7 @@ int getDaimyoIDFromBushouID(int iBushouID) {
 
 
 std::string getBushou苗字FromBushouID(int iBushouID) {
-	if (0 <= iBushouID && iBushouID < 最大数::ユニット情報::配列数) {
+	if (0 <= iBushouID && iBushouID < 最大数::武将情報::総配列数) {
 		return nb7武将情報[iBushouID].苗字;
 	}
 
@@ -53,7 +53,7 @@ std::string getBushou苗字FromBushouID(int iBushouID) {
 }
 
 std::string getBushou名前FromBushouID(int iBushouID) {
-	if (0 <= iBushouID && iBushouID < 最大数::ユニット情報::配列数) {
+	if (0 <= iBushouID && iBushouID < 最大数::武将情報::総配列数) {
 		return nb7武将情報[iBushouID].名前;
 	}
 
@@ -61,7 +61,7 @@ std::string getBushou名前FromBushouID(int iBushouID) {
 }
 
 std::string getBushou姓名FromBushouID(int iBushouID) {
-	if (0 <= iBushouID && iBushouID < 最大数::ユニット情報::配列数) {
+	if (0 <= iBushouID && iBushouID < 最大数::武将情報::総配列数) {
 		return nb7武将情報[iBushouID].姓名;
 	}
 

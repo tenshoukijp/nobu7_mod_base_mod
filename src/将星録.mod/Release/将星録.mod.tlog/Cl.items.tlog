@@ -28,6 +28,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_serihu_message.cpp;
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setmenu_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_setmenu_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_textouta_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_textouta_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\game_menu.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\game_menu.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_文字列変換.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\mng_文字列変換.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_武将情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\mng_武将情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\onigwrap.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\onigwrap.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\on_event.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\on_event.obj

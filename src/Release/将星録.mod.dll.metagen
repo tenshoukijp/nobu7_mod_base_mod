@@ -11,7 +11,51 @@ Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Class 列挙.家宝.リスト: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class 将星録.列挙.ユニット.種別: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 軍勢 IsConst : Public, Static, HasDefault
+    Int32 軍船 IsConst : Public, Static, HasDefault
+    Int32 輸送 IsConst : Public, Static, HasDefault
+    Int32 開墾 IsConst : Public, Static, HasDefault
+    Int32 商業 IsConst : Public, Static, HasDefault
+    Int32 建設 IsConst : Public, Static, HasDefault
+    Int32 間者 IsConst : Public, Static, HasDefault
+    Int32 忍者 IsConst : Public, Static, HasDefault
+    Int32 使者 IsConst : Public, Static, HasDefault
+    Int32 移動 IsConst : Public, Static, HasDefault
+    Int32 浪人 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.武将情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+    Int32 総配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.ユニット情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+    Int32 軍勢部隊数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.城情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.大名情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.家宝情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.官位情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.役職情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.家宝.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 曜変稲葉天目 IsConst : Public, Static, HasDefault
@@ -214,7 +258,7 @@ Class 列挙.家宝.リスト: AutoLayout, AnsiClass, Class, Public, BeforeField
     Int32 双六 IsConst : Public, Static, HasDefault
     Int32 歌留多 IsConst : Public, Static, HasDefault
     Int32 蘭奢待 IsConst : Public, Static, HasDefault
-Class 列挙.家宝.種類: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class 将星録.列挙.家宝.種類: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 茶道道具 IsConst : Public, Static, HasDefault
@@ -247,7 +291,7 @@ Class 列挙.家宝.種類: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
     Int32 十字架 IsConst : Public, Static, HasDefault
     Int32 珍品 IsConst : Public, Static, HasDefault
     Int32 香木 IsConst : Public, Static, HasDefault
-Class 列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class 将星録.列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 茶碗 IsConst : Public, Static, HasDefault
@@ -277,9 +321,49 @@ Class 列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
     Int32 遊戯具 IsConst : Public, Static, HasDefault
     Int32 香木 IsConst : Public, Static, HasDefault
     Int32 短筒 IsConst : Public, Static, HasDefault
-Class 家宝情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class 列挙.武将.武将リスト: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class 家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 抑制   'get set' : 
+    Int32 南蛮   'get set' : 
+    Int32 智謀   'get set' : 
+    Int32 戦闘   'get set' : 
+    Int32 政治   'get set' : 
+    Int32 兵科効果 'get set' : 
+    Int32 所有武将配列IX 'get set' : 
+    Int32 画像   'get set' : 
+    Int32 能力上昇 'get set' : 
+    Int32 等級   'get set' : 
+    Int32 種類   'get set' : 
+    System.String 家宝名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_家宝名(): PrivateScope, Public, HideBySig, SpecialName
+    set_家宝名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_種類(): PrivateScope, Public, HideBySig, SpecialName
+    set_種類(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_等級(): PrivateScope, Public, HideBySig, SpecialName
+    set_等級(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_能力上昇(): PrivateScope, Public, HideBySig, SpecialName
+    set_能力上昇(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_画像(): PrivateScope, Public, HideBySig, SpecialName
+    set_画像(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所有武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所有武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_兵科効果(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵科効果(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_政治(): PrivateScope, Public, HideBySig, SpecialName
+    set_政治(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_戦闘(): PrivateScope, Public, HideBySig, SpecialName
+    set_戦闘(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_智謀(): PrivateScope, Public, HideBySig, SpecialName
+    set_智謀(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_南蛮(): PrivateScope, Public, HideBySig, SpecialName
+    set_南蛮(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_抑制(): PrivateScope, Public, HideBySig, SpecialName
+    set_抑制(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.列挙.武将.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 蠣崎季広 IsConst : Public, Static, HasDefault

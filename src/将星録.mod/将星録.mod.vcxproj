@@ -99,6 +99,9 @@
     <ClInclude Include="hook_functions_replace.h" />
     <ClInclude Include="hook_textouta_custom.h" />
     <ClInclude Include="game_menu.h" />
+    <ClInclude Include="mng_ユニット情報.h" />
+    <ClInclude Include="mng_家宝情報.h" />
+    <ClInclude Include="mng_文字列変換.h" />
     <ClInclude Include="mng_武将列挙.h" />
     <ClInclude Include="onigwrap.h" />
     <ClInclude Include="on_event.h" />
@@ -140,6 +143,7 @@
     <ClCompile Include="hook_setmenu_custom.cpp" />
     <ClCompile Include="hook_textouta_custom.cpp" />
     <ClCompile Include="game_menu.cpp" />
+    <ClCompile Include="mng_文字列変換.cpp" />
     <ClCompile Include="mng_武将情報.cpp" />
     <ClCompile Include="onigwrap.cpp" />
     <ClCompile Include="on_event.cpp" />

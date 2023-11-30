@@ -3,6 +3,68 @@
 #include "data_game_struct.h"
 #include "output_debug_stream.h"
 
+
+BOOL isValidKahouID(int iKahouID) {
+	if (0 <= iKahouID && iKahouID < 最大数::家宝情報::配列数) {
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
+// 家宝IDからそれを所有している武将IDを取得する
+int getBushouIDFromKahouID(int iKahouID) {
+	if (isValidKahouID(iKahouID)) {
+		// 所有武将のアドレスを直接さしている
+		int nBushouAddress = (int)(nb7家宝情報[iKahouID].p所有者);
+
+		// 武将の配列の先頭アドレスから引く
+		int sub = nBushouAddress - (int)(武将情報アドレス);
+
+		// 武将情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
+		int iBushouID = sub / sizeof(NB7武将情報型);
+		if (isValidBushouID(iBushouID)) {
+			return iBushouID;
+		}
+	}
+
+	return 0xFFFF;
+}
+
+BOOL setBushouIDToKahouID(int iKahouID, int iBushouID) {
+	if (isValidKahouID(iKahouID)) {
+		if (isValidBushouID(iBushouID)) {
+			// 武将情報のアドレスを取得
+			int iBushouAddress = (int)(武将情報アドレス) + iBushouID * sizeof(NB7武将情報型);
+
+			// 家宝情報の所有者に武将情報のアドレスを設定
+			nb7家宝情報[iKahouID].p所有者 = (int*)iBushouAddress;
+			return TRUE;
+		}
+		else if (iBushouID == 0xFFFF) {
+			// 所有者なし
+			nb7家宝情報[iKahouID].p所有者 = (int *)家宝所有者なし;
+			return TRUE;
+		
+		}
+	}
+	return FALSE;
+
+}
+
+BOOL setKahouName(int iKahouID, std::string strKahhouoName) {
+	if (isValidKahouID(iKahouID)) {
+		char bufLarge[256] = "";
+		int length = sizeof(bufLarge);
+		strcpy_s(bufLarge, length, strKahhouoName.c_str());
+		bufLarge[length-1] = '\0'; // 13文字目は必ず\0にする
+		// 家宝名を設定
+		strcpy_s(nb7家宝情報[iKahouID].家宝名, sizeof(nb7家宝情報[iKahouID].家宝名), bufLarge);
+		return TRUE;
+	}
+	return FALSE;
+}
+
 /*
 005871B0  97 6A 95 CF 88 EE 97 74 93 56 96 DA 00 00 00 00  曜変稲葉天目....
 005871C0  00 00 05 00 00 00 00 00 00 00 06 00 00 00 00 00  ..............
@@ -606,54 +668,3 @@
 00589720  00 00 B0 94 56 00 C8 00 00 00 C8 00 00 00 20 00  ..ｰ之.ﾈ...ﾈ... .
 
 */
-
-BOOL isValidKahouID(int iKahouID) {
-	if (0 <= iKahouID && iKahouID < 最大数::家宝情報::配列数) {
-		return TRUE;
-	}
-	return FALSE;
-}
-
-
-// 家宝IDからそれを所有している武将IDを取得する
-int getBushouIDFromKahouID(int iKahouID) {
-	if (isValidKahouID(iKahouID)) {
-		// 所有武将のアドレスを直接さしている
-		int nBushouAddress = (int)(nb7家宝情報[iKahouID].p所有者);
-
-		// 武将の配列の先頭アドレスから引く
-		int sub = nBushouAddress - (int)(武将情報アドレス);
-
-		// 武将情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
-		int iBushouID = sub / sizeof(NB7武将情報型);
-		if (isValidBushouID(iBushouID)) {
-			return iBushouID;
-		}
-	}
-
-	return 0xFFFF;
-}
-
-
-BOOL setBushouIDToKahouID(int iKahouID, int iBushouID) {
-
-	if (isValidKahouID(iKahouID)) {
-
-	}
-	else {
-		return FALSE;
-	}
-
-	if (isValidBushouID(iBushouID)) {
-
-	}
-	else {
-		return FALSE;
-	}
-
-	int iBushouAddress = (int)(武将情報アドレス) + iBushouID * sizeof(NB7武将情報型);
-
-	nb7家宝情報[iKahouID].p所有者 = (int*)iBushouAddress;
-
-	return TRUE;
-}
