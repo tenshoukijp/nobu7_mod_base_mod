@@ -5,9 +5,6 @@
 
 #define セリフメッセージアドレス 0x5D9638
 
-extern BOOL isAlbedoYasenWeaponMessage;
-extern BOOL isAlbedoYasenAttackMessage;
-extern BOOL isAlbedoYasenDefendMessage;
 
 BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, int cbString);
 

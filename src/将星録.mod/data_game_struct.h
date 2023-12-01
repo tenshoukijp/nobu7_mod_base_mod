@@ -11,6 +11,7 @@
 #include "data_castle_struct.h"
 #include "data_unit_struct.h"
 #include "data_daimyo_struct.h"
+#include "data_bushou_message.h"
 
 
 extern int nBaseAddress;
@@ -23,8 +24,11 @@ extern NB7城情報型 * const nb7城情報;
 extern NB7大名情報型* const nb7大名情報;
 extern NB7ユニット情報型 * const nb7ユニット情報;
 
-extern NB7ターン情報型* const _turn情報;
-#define ターン情報  _turn情報[0]
+extern NB7ターン情報型* const _ターン情報;
+#define ターン情報  _ターン情報[0]
+
+extern NB7メッセージ武将情報型* const _nb7メッセージ武将情報;
+#define メッセージ武将情報 _nb7メッセージ武将情報[0]
 
 namespace 将星録 {
 	namespace 最大数 {

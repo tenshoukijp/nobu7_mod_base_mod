@@ -192,6 +192,12 @@
     <ClInclude Include="mng_フォント.h">
       <Filter>フォント</Filter>
     </ClInclude>
+    <ClInclude Include="data_bushou_message.h">
+      <Filter>Onセリフ</Filter>
+    </ClInclude>
+    <ClInclude Include="message_albedo.h">
+      <Filter>アルベド</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -313,6 +319,12 @@
     </ClCompile>
     <ClCompile Include="mng_フォント.cpp">
       <Filter>フォント</Filter>
+    </ClCompile>
+    <ClCompile Include="data_bushou_message.cpp">
+      <Filter>Onセリフ</Filter>
+    </ClCompile>
+    <ClCompile Include="message_albedo.cpp">
+      <Filter>アルベド</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

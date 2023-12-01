@@ -100,6 +100,7 @@
     <ClInclude Include="hook_textouta_custom.h" />
     <ClInclude Include="game_menu.h" />
     <ClInclude Include="load_form_mod.h" />
+    <ClInclude Include="message_albedo.h" />
     <ClInclude Include="mng_フォント.h" />
     <ClInclude Include="mng_ユニット情報.h" />
     <ClInclude Include="mng_家宝情報.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="mng_武将列挙.h" />
     <ClInclude Include="onigwrap.h" />
     <ClInclude Include="on_event.h" />
+    <ClInclude Include="data_bushou_message.h" />
     <ClInclude Include="on_serihu_message.h" />
     <ClInclude Include="output_debug_stream.h" />
     <ClInclude Include="game_process.h" />
@@ -117,11 +119,13 @@
   <ItemGroup>
     <ClCompile Include="bushou_albedo.cpp" />
     <ClCompile Include="bushou_retsuden.cpp" />
+    <ClCompile Include="data_bushou_message.cpp" />
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
     <ClCompile Include="data_kahou_struct.cpp" />
     <ClCompile Include="load_form_mod.cpp" />
+    <ClCompile Include="message_albedo.cpp" />
     <ClCompile Include="mng_フォント.cpp" />
     <ClCompile Include="mng_家宝情報.cpp" />
     <ClCompile Include="data_kanni_struct.cpp" />

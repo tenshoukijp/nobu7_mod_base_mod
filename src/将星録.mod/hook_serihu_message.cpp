@@ -11,6 +11,9 @@
 #include "game_screen.h"
 #include "game_process.h"
 #include "on_serihu_message.h"
+#include "bushou_albedo.h"
+#include "game_screen.h"
+#include "message_albedo.h"
 
 using namespace std;
 
@@ -45,19 +48,27 @@ using namespace std;
 00496E02   0FB7C8           MOVZX ECX, AX
 */
 
-void OnSSRExeMessageDetailExecute() {
-	string message = (char*)(セリフメッセージアドレス); // on_serihu_message
 
-	if (message.find("腕にはいささか自信") != string::npos) {
-#pragma warning(disable:4996)
-		strcpy((char*)(セリフメッセージアドレス), "腕にはいささか自信があります\xAおなごと侮りめされるな□□□\xAでは、参りますぞ！□□□□□\xA");
-#pragma warning(default: 4996) // ワーニングの抑制を解除する
+void OnSSRExeMessageDetailExecute() {
+
+	if (getゲーム画面ステータス() == ゲーム画面ステータス::戦略画面 || getゲーム画面ステータス() == ゲーム画面ステータス::野戦画面 || getゲーム画面ステータス() == ゲーム画面ステータス::籠城戦画面) {
+		int i主体BushouID = get主体BushouIDFromMessageBushou();
+		if (isValidBushouID(i主体BushouID)) {
+			OutputDebugStream("★主体は%s★\n", nb7武将情報[i主体BushouID].姓名);
+			string message = (char*)(セリフメッセージアドレス); // on_serihu_message
+			if (nb7武将情報[i主体BushouID].姓名 == getArubedoSeiMei()) {
+				changeAlbedoMessage(i主体BushouID, message);
+			}
+
+		}
+
+		int i相手BushouID = get相手BushouIDFromMessageBushou();
+		if (isValidBushouID(i相手BushouID)) {
+			OutputDebugStream("★相手は%s★\n", nb7武将情報[i相手BushouID].姓名);
+		}
+
 	}
-	else if (message.find("手加減は無用です") != string::npos && message.find("私をおなごと思わずに") != string::npos) {
-#pragma warning(disable:4996)
-		strcpy((char*)(セリフメッセージアドレス), "手加減は無用です□□□□□□\xA私をおなごと思わずに□□□□\xA遠慮なくかかってらっしゃい！");
-#pragma warning(default: 4996) // ワーニングの抑制を解除する
-	}
+
 	OutputDebugStream("■■■");
 	OutputDebugStream((char*)セリフメッセージアドレス);
 	OutputDebugStream("\n");

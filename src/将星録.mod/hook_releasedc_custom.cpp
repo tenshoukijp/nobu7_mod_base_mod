@@ -25,9 +25,6 @@ int Hook_ReleaseDCCustom(
 	isOverrideTextOut = FALSE;
 	isNextStartOverride = FALSE;
 	isAlbedoRetsuden = FALSE;
-	isAlbedoYasenWeaponMessage = FALSE;
-	isAlbedoYasenAttackMessage = FALSE;
-	isAlbedoYasenDefendMessage = FALSE;
 
 	nCheckTextOutXStart = -1;
 	nCheckTextOutYStart = -1;
