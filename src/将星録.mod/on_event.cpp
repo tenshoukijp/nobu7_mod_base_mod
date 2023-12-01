@@ -442,6 +442,20 @@ void onPerishedDaimyo(string perishedDaimyoInfo) {
     }
 }
 
+void onTouyouPrevious(string touyouInfo) {
+	Matches ma;
+
+    if (OnigMatch(touyouInfo, "^“o—p(.+?)­¡(\\d+?)’q–d(\\d+)", &ma)) {
+        string “o—p‚·‚é‘¤‚Ì•«–¼ = ma[1];
+        string “o—p‚·‚é‘¤‚Ì­¡ = ma[2];
+        string “o—p‚·‚é‘¤‚Ì’q–d = ma[3];
+        if (“o—p‚·‚é‘¤‚Ì•«–¼ == getArubedoSeiMei()) {
+            OutputDebugStream("“o—p‚·‚é‚Ì‚ÅƒŠƒZƒbƒg\n");
+            resetAlbedoŠ‘®é‰ºˆâ¦•«();
+        }
+    }
+}
+
 int dispatchEvent() {
     // ³‹K•\Œ»‚Åó‹µ‚ğ”»’f‚·‚é
     const string bufferTextOut = getBufferTextOut();
@@ -543,6 +557,9 @@ int dispatchEvent() {
     }
     else if (OnigMatch(bufferTextOut, "v•¨gÒ(.+?)—FD“x(\\d+)")) {
         onGoumotsuShisha(bufferTextOut);
+    }
+    else if (OnigMatch(bufferTextOut, "^“o—p(.+?)­¡(\\d+?)’q–d(\\d+)")) {
+        onTouyouPrevious(bufferTextOut);
     }
 
     return 1;

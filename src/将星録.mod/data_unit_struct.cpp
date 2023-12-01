@@ -15,7 +15,7 @@ BOOL isValidUnitID(int iUnitID) {
 int getBushouIDFromUnitID(int iUnitID) {
 	if (isValidUnitID(iUnitID)) {
 		// 所有武将のアドレスを直接さしている
-		int nBushouAddress = (int)(nb7ユニット情報[iUnitID].pユニット武将);
+		int nBushouAddress = (int)(nb7ユニット情報[iUnitID].p指揮武将);
 
 		// 武将の配列の先頭アドレスから引く
 		int sub = nBushouAddress - (int)(武将情報アドレス);

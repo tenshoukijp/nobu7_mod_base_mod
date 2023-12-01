@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -41,30 +43,13 @@ namespace 将星録
             string fontName = 将星録.アプリケーション.フォント.フォント名;
             dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
 
-
-            string[] colTitleArray =
-            {
-                nameof(タイトル.配列IX),
-                nameof(タイトル.家宝名),
-                nameof(タイトル.種類),
-                nameof(タイトル.画像),
-                nameof(タイトル.等級),
-                nameof(タイトル.能力上昇),
-                nameof(タイトル.政治),
-                nameof(タイトル.戦闘),
-                nameof(タイトル.智謀),
-                nameof(タイトル.南蛮),
-                nameof(タイトル.抑制),
-                nameof(タイトル.兵科効果),
-                nameof(タイトル.所有武将配列IX)
-            };
-
-            for (int i = 0; i <colTitleArray.Length; i++)
+            string[] names = Enum.GetNames(typeof(タイトル));
+            for (int i = 0; i < names.Length; i++)
             {
                 // 縦列のオブジェクトを作り
                 DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
                 // タイトル文字列を設定
-                dgvtbc.HeaderText = colTitleArray[i];
+                dgvtbc.HeaderText = names[i];
                 // グリッドビューに縦列として追加。
                 dgv.Columns.Add(dgvtbc);
             }
@@ -73,21 +58,164 @@ namespace 将星録
             DgvDataImport();
 
             // データグリッドのセルを編集した時のイベントハンドラを登録する。
+            dgv.DataError += dvg_DataError;
             dgv.CellValueChanged += dgv_CellValueChanged;
 
             // データグリッドビューをフォームに乗っける
             this.Controls.Add(dgv);
         }
 
+        // 誤った型データを入れた場合は、元の値へと戻すようにする。
+        private void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = false;
+        }
+
         private void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            // throw new NotImplementedException();
+            int iKahouID = e.RowIndex;
+            var 家宝情報 = new 将星録.家宝情報型(iKahouID);
+            // 対象のセル
+            var cell = dgv[e.ColumnIndex, e.RowIndex];
+            if (e.ColumnIndex == (int)タイトル.家宝名)
+            {
+                try
+                {
+                    家宝情報.家宝名 = cell.Value.ToString();
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.家宝名;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.種類)
+            {
+                try
+                {
+                    System.Diagnostics.Trace.WriteLine(cell.Value.GetType());
+                    家宝情報.種類 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.種類;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.画像)
+            {
+                try
+                {
+                    家宝情報.画像 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.画像;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.等級)
+            {
+                try
+                {
+                    家宝情報.等級 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.等級;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.能力上昇)
+            {
+                try
+                {
+                    家宝情報.能力上昇 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.能力上昇;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.政治)
+            {
+                try
+                {
+                    家宝情報.政治 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.政治;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.戦闘)
+            {
+                try
+                {
+                    家宝情報.戦闘 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.戦闘;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.智謀)
+            {
+                try
+                {
+                    家宝情報.智謀 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.智謀;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.南蛮)
+            {
+                try
+                {
+                    家宝情報.南蛮 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.南蛮;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.抑制)
+            {
+                try
+                {
+                    家宝情報.抑制 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.抑制;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.兵科効果)
+            {
+                try
+                {
+                    家宝情報.兵科効果 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.兵科効果;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.所有武将配列IX)
+            {
+                try
+                {
+                    家宝情報.所有武将配列IX = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 家宝情報.所有武将配列IX;
+                }
+            }
+
         }
 
         void DgvDataImport()
         {
-
-            // 横列単位で足してゆく、index:0, 姓:1, 名:2, 政治:3 戦闘:4 智謀:5 の順番通り
+            // 横列単位で足してゆく、
             for (int i = 0; i < 将星録.最大数.家宝情報.配列数; i++)
             {
                 var 家宝 = new 将星録.家宝情報型(i);
@@ -106,8 +234,23 @@ namespace 将星録
                   家宝.兵科効果,
                   家宝.所有武将配列IX
                   );
-                dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
             }
+
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.家宝名].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.種類].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.画像].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.等級].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.能力上昇].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.政治].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.戦闘].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.智謀].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.南蛮].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.抑制].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.兵科効果].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.所有武将配列IX].ValueType = typeof(int);
+
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
