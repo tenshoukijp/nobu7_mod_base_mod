@@ -15,6 +15,7 @@
 using namespace std;
 
 NB7ターン情報型 * const _ターン情報 = (NB7ターン情報型*)(ターン情報アドレス);
+NB7プレイヤターン城情報型* const _ターン城情報 = (NB7プレイヤターン城情報型*)(プレイヤターン城情報アドレス);
 NB7武将情報型 * const nb7武将情報 = (NB7武将情報型*)(武将情報アドレス); // data_bushou_structにこのアドレスの理由がある
 NB7家宝情報型 * const nb7家宝情報 = (NB7家宝情報型*)(家宝情報アドレス); // data_kahou_structにこのアドレスの理由がある
 NB7官位情報型 * const nb7官位情報 = (NB7官位情報型*)(官位情報アドレス); // data_kanni_structにこのアドレスの理由がある

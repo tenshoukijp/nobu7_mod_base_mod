@@ -90,10 +90,8 @@ void OnSSRExeMessageDetailExecute() {
 
 
 */
-int pSSRExeJumpFromToOnSSRExeMessageDetail = 0x496E6A; // 関数はこのアドレスから、OnTenshouExeGetDaimyoKoukeishaBushouIDへとジャンプしてくる。
+int pSSRExeJumpFromToOnSSRExeMessageDetail = 0x496E6A; // 関数はこのアドレスから、OnSSRExeMessageDetailへとジャンプしてくる。
 int pSSRExeReturnLblFromOnSSRExeMessageDetail = 0x496E71; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
-// この関数はTENSHOU.EXEがメッセージを読みを終えるたびに、直接実行される。
-// TENSHOU.EXE内でメッセージが構築されるタイミングでこのnaked関数が呼ばれる。
 #pragma warning(disable:4733)
 
 __declspec(naked) void WINAPI OnSSRExeMessageDetail() {
@@ -132,7 +130,7 @@ __declspec(naked) void WINAPI OnSSRExeMessageDetail() {
 
 
 
-char cmdOnTenshouExeJumpFromGetDaimyoKoukeishaBushouID[6] = "\xE9";
+char cmdOnSSRExeJumpFromMessageDetail[6] = "\xE9";
 // 元の命令が5バイト、以後の関数で生まれる命令が合計５バイトなので… 最後１つ使わない
 
 
@@ -143,10 +141,10 @@ void WriteAsmJumperOnSSRExeMessageDetail() {
 	int iAddress = (int)OnSSRExeMessageDetail;
 	int SubAddress = iAddress - (pSSRExeJumpFromToOnSSRExeMessageDetail + 5);
 	// ５というのは、0046C194  -E9 ????????  JMP TSMod.OnTSExeGetDaimyoKoukeishaBushouID  の命令に必要なバイト数。要するに５バイト足すと次のニーモニック命令群に移動するのだ。そしてそこからの差分がジャンプする際の目的格として利用される。
-	memcpy(cmdOnTenshouExeJumpFromGetDaimyoKoukeishaBushouID + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
+	memcpy(cmdOnSSRExeJumpFromMessageDetail + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
 
 	// 構築したニーモニック命令をTENSHOU.EXEのメモリに書き換える
-	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeMessageDetail), cmdOnTenshouExeJumpFromGetDaimyoKoukeishaBushouID, 5, NULL); //5バイトのみ書き込む
+	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeMessageDetail), cmdOnSSRExeJumpFromMessageDetail, 5, NULL); //5バイトのみ書き込む
 }
 
 #pragma managed

@@ -7,3 +7,4 @@ BOOL patchOfBushouRetsuden(
 	LPCTSTR lpString,  // •¶š—ñ
 	int cbString       // •¶š”
 );
+

@@ -5,6 +5,7 @@
   data_castle_struct.cpp
   data_daimyo_struct.cpp
   data_kahou_struct.cpp
+  data_turn_struct.cpp
   load_form_mod.cpp
   message_albedo.cpp
   mng_フォント.cpp

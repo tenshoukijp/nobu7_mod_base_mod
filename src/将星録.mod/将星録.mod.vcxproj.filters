@@ -91,6 +91,9 @@
     <Filter Include="フォーム系Mod">
       <UniqueIdentifier>{9db79092-7022-462e-834e-9f18c8ca6688}</UniqueIdentifier>
     </Filter>
+    <Filter Include="配列ポインタ">
+      <UniqueIdentifier>{9a61ef47-fede-4f9f-a03c-e91ad3a728e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -197,6 +200,9 @@
     </ClInclude>
     <ClInclude Include="message_albedo.h">
       <Filter>アルベド</Filter>
+    </ClInclude>
+    <ClInclude Include="game_array.h">
+      <Filter>配列ポインタ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +331,12 @@
     </ClCompile>
     <ClCompile Include="message_albedo.cpp">
       <Filter>アルベド</Filter>
+    </ClCompile>
+    <ClCompile Include="data_turn_struct.cpp">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_bushou_retsuden.cpp">
+      <Filter>武将列伝</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

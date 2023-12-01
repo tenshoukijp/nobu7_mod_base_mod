@@ -390,6 +390,7 @@ void onCastleBattleEnd() {
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 }
 
+
 void onStrategyDaimyoturnChanged(string strategyTurnInfo) {
     Matches ma;
     if (OnigMatch(strategyTurnInfo, "^(.+?)家(\\1(.+?))\\1家\\2$", &ma)) {
@@ -402,6 +403,15 @@ void onStrategyDaimyoturnChanged(string strategyTurnInfo) {
 
 }
 
+void checkStrategyPlayerTurnInformation()
+{
+    int iCastleID = getStrategyPlayerTurnCastleID();
+    OutputDebugStream("%d", iCastleID);
+    if (isValidCastleID(iCastleID)) {
+        OutputDebugStream("ターンの城は"s + nb7城情報[iCastleID].城名 + get城称(iCastleID) + "\n");
+    }
+}
+
 void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
 
     Matches ma;
@@ -409,6 +419,8 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
     if (OnigMatch(strategyTurnInfo, "情報(.+?)様あなたの番となりました", &ma)) {
 
         setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+
+        checkStrategyPlayerTurnInformation();
 
         // アルベドの行動済みカウンターのリセット
         resetAlbedoKoudouCounter();

@@ -8,5 +8,4 @@ void hookFunctionsDirect() {
 		isWriteAsmJumperOnSSRExeMessageDetail = true;
 		WriteAsmJumperOnSSRExeMessageDetail();
 	}
-
 }

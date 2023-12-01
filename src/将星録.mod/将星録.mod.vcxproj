@@ -92,6 +92,7 @@
     <ClInclude Include="data_kahou_struct.h" />
     <ClInclude Include="data_kanni_struct.h" />
     <ClInclude Include="data_yakusyoku_struct.h" />
+    <ClInclude Include="game_array.h" />
     <ClInclude Include="game_font.h" />
     <ClInclude Include="game_screen.h" />
     <ClInclude Include="game_test.h" />
@@ -124,6 +125,10 @@
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
     <ClCompile Include="data_kahou_struct.cpp" />
+    <ClCompile Include="data_turn_struct.cpp" />
+    <ClCompile Include="hook_bushou_retsuden.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="load_form_mod.cpp" />
     <ClCompile Include="message_albedo.cpp" />
     <ClCompile Include="mng_フォント.cpp" />

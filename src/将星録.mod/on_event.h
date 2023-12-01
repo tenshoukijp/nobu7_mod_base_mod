@@ -52,6 +52,8 @@ void NewFunction(std::string& sCastleName);
 
 void onCastleBattleEnd();
 
+void NewFunction();
+
 void onPerishedDaimyo(std::string perishedDaimyoInfo);
 
 int dispatchEvent();
