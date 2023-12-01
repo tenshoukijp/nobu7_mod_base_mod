@@ -89,18 +89,21 @@ void onMenuKashinUnitIchiranStart() {
 
 void onChoteiKenjo(string choteiKenjoInfo) {
 
-    OutputDebugStream("朝廷菊亭晴季献上\n");
+    OutputDebugStream("★朝廷献上\n");
 
     Matches ma;
-    if ( OnigMatch(choteiKenjoInfo, "献上使者(.+?)朝廷菊亭晴季友好度(\\d+)", &ma)) {
+    if ( OnigMatch(choteiKenjoInfo, "献上使者(.+?)朝廷(菊亭晴季|山科言継)友好度(\\d+)", &ma)) {
     	OutputDebugStream("朝廷献上使者:" + ma[1] + "\n");
-		OutputDebugStream("朝廷友好度:" + ma[2] + "\n");
+		OutputDebugStream("朝廷友好度:" + ma[3] + "\n");
 
         // 朝廷献上使者はアルベドである。
         if (ma[1].find(getArubedoSeiMei()) != string::npos ) {
 			OutputDebugStream("アルベドが献上使者だったので、金を補充\n");
 			アルベド使者ユニット時のお金が復活();
         }
+    } else {
+        		OutputDebugStream("朝廷献上使者はいませんでした\n");
+	
     }
 }
 
@@ -110,6 +113,16 @@ void onDoumeiShisha(string doumeiShishaInfo) {
         OutputDebugStream("同盟友好度\n");
     }
 }
+
+void onGoumotsuShisha(string goumotsuShishaInfo) {
+    OutputDebugStream("貢物使者\n");
+    if (OnigMatch(goumotsuShishaInfo, "貢物使者(.+?)友好度(\\d+)")) {
+        OutputDebugStream("貢物友好度\n");
+    }
+}
+
+
+
 
 /*
 void onYanseBattlePrePreStart() {
@@ -522,11 +535,14 @@ int dispatchEvent() {
     else if(OnigMatch(bufferTextOut, "^(.+?)家(\\1(.+?))\\1家\\2$")) {
         onStrategyDaimyoturnChanged(bufferTextOut);
     }
-    else if (OnigMatch(bufferTextOut, "献上使者(.+?)朝廷菊亭晴季友好度(\\d+)")) {
+    else if (OnigMatch(bufferTextOut, "献上使者(.+?)朝廷(菊亭晴季|山科言継)友好度(\\d+)")) {
         onChoteiKenjo(bufferTextOut);
     }
     else if (OnigMatch(bufferTextOut, "同盟使者(.+?)友好度(\\d+)")) {
         onDoumeiShisha(bufferTextOut);
+    }
+    else if (OnigMatch(bufferTextOut, "貢物使者(.+?)友好度(\\d+)")) {
+        onGoumotsuShisha(bufferTextOut);
     }
 
     return 1;

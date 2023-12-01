@@ -48,7 +48,6 @@ const char* getNB7FontName() {
 	if (isFontExist) {
 		return bufferCustomFontName;
 	}
-	OutputDebugStream("指定のフォントは存在しないため、デフォルトのフォントを使用します。\n");
 	// そのまま返す
 	return bufferDefaultFontName;
 }
@@ -75,6 +74,10 @@ BOOL fontExistCheck() {
 			for each (String ^ valueName in valueNames)
 			{
 				String^ path = key->GetValue(valueName)->ToString();
+				if (valueName->Contains(targetFontName)) {
+					// フォント名が指定のフォント名を含んでいる場合は、フォントを追加する
+					FontGlobal::pfc->AddFontFile(path);
+				}
 				FontGlobal::pfc->AddFontFile(path);
 			}
 

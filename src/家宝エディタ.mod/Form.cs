@@ -40,38 +40,6 @@ namespace 将星録
 
             string fontName = 将星録.アプリケーション.フォント.フォント名;
             dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
-            /*
-            List<string> fontList = new List<string>();
-            System.Drawing.Text.PrivateFontCollection pfc = new System.Drawing.Text.PrivateFontCollection();
-            try
-            {
-
-                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts"))
-                {
-                    string[] valueNames = key?.GetValueNames();
-                    if (valueNames != null)
-                    {
-                        foreach (string valueName in valueNames)
-                        {
-                            string path = key.GetValue(valueName).ToString();
-                            pfc.AddFontFile("C:\\Users\\master\\AppData\\Local\\Microsoft\\Windows\\Fonts\\srr_mincho_アルベド.ttf");
-                        }
-                    }
-                }
-
-
-            }
-            catch (Exception e)
-            {
-
-            }
-
-            foreach(var f in pfc.Families)
-            {
-                System.Diagnostics.Trace.WriteLine("★" + f.Name + "\r\n");
-            }
-            */
-            dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
 
 
             string[] colTitleArray =

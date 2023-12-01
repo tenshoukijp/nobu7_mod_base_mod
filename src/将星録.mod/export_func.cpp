@@ -30,5 +30,7 @@ extern "C" __declspec(dllexport) void WINAPI onInitialize(void* bufOfNB7Wnd) {
 	OutputDebugStream(buffer);
 
 	OutputDebugStream("onInitialize\r\n");
+
+	onFontInitialize();
 }
 
