@@ -25,13 +25,13 @@ namespace 将星録
         private void setFormAttribute()
         {
             this.Text = "家宝エディタ";
-            this.Width = 800;
+            this.Width = 900;
             this.Height = 800;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.ShowIcon = false;
         }
 
-        enum タイトル { 配列IX = 0, 家宝名 = 1, 種類 = 2, 等級 = 3, 画像 = 4, 兵科効果 = 5, 政治 = 6, 戦闘 = 7, 智謀 = 8, 南蛮 = 9, 抑制 = 10, 所有武将配列IX = 11 };
+        enum タイトル { 配列IX=0, 家宝名, 種類, 画像, 等級, 能力上昇, 政治, 戦闘, 智謀, 南蛮, 抑制, 兵科効果, 所有武将配列IX };
         private void setDataGridAttribute()
         {
             dgv.Dock = DockStyle.Fill;
@@ -47,22 +47,17 @@ namespace 将星録
                 nameof(タイトル.配列IX),
                 nameof(タイトル.家宝名),
                 nameof(タイトル.種類),
-                nameof(タイトル.等級),
                 nameof(タイトル.画像),
-                nameof(タイトル.兵科効果),
+                nameof(タイトル.等級),
+                nameof(タイトル.能力上昇),
                 nameof(タイトル.政治),
                 nameof(タイトル.戦闘),
                 nameof(タイトル.智謀),
                 nameof(タイトル.南蛮),
                 nameof(タイトル.抑制),
+                nameof(タイトル.兵科効果),
                 nameof(タイトル.所有武将配列IX)
             };
-            /*
-            dgv.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            dgv.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            dgv.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(255, 255, 255);
-            dgv.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(0, 0, 0);
-            */
 
             for (int i = 0; i <colTitleArray.Length; i++)
             {
@@ -78,10 +73,15 @@ namespace 将星録
             DgvDataImport();
 
             // データグリッドのセルを編集した時のイベントハンドラを登録する。
-            // dgv.CellValueChanged += dgv_CellValueChanged;
+            dgv.CellValueChanged += dgv_CellValueChanged;
 
             // データグリッドビューをフォームに乗っける
             this.Controls.Add(dgv);
+        }
+
+        private void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // throw new NotImplementedException();
         }
 
         void DgvDataImport()
@@ -95,18 +95,21 @@ namespace 将星録
                   家宝.配列IX,
                   家宝.家宝名,
                   家宝.種類,
-                  家宝.等級,
                   家宝.画像,
-                  家宝.兵科効果,
+                  家宝.等級,
+                  家宝.能力上昇,
                   家宝.政治,
                   家宝.戦闘,
                   家宝.智謀,
                   家宝.南蛮,
                   家宝.抑制,
+                  家宝.兵科効果,
                   家宝.所有武将配列IX
                   );
-
+                dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
             }
+
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
     }
 }

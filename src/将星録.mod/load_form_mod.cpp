@@ -26,11 +26,29 @@ int Show_FormMod(String^ dllPath, String^ fullClassName) {
 			closeTargefForm->Close();
 			closeTargefForm = nullptr;
 			FormGlobalInstance::formMap->Remove(dllPath);
-			FormGlobalInstance::formMap->Add(dllPath, form);
 		}
+		// インスタンス確保という意味でMapにファイルパス対応するフォームを登録する
+		FormGlobalInstance::formMap->Add(dllPath, form);
 
 		form->Show();
 
+		return 1;
+	}
+	catch (Exception^ ex) {
+		System::Diagnostics::Trace::WriteLine(ex);
+	}
+
+	return 0;
+}
+
+int Close_FormMod() {
+	try {
+		for each (KeyValuePair<String^, Form^>^ pair in FormGlobalInstance::formMap) {
+			Form^ form = pair->Value;
+			form->Close();
+			form = nullptr;
+		}
+		FormGlobalInstance::formMap->Clear();
 		return 1;
 	}
 	catch (Exception^ ex) {

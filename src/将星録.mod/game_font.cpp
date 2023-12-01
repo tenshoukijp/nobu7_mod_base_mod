@@ -82,8 +82,7 @@ BOOL fontExistCheck() {
 			}
 
 			// 独自フォント一覧に指定のフォントが存在するかどうかをチェックする
-			for (int i = 0; FontGlobal::pfc->Families->Length; i++) {
-				System::Drawing::FontFamily^ font = FontGlobal::pfc->Families[i];
+			for each (System::Drawing::FontFamily^ font in FontGlobal::pfc->Families) {
 				if (font->Name == targetFontName) {
 					isFontExist = true;
 					return TRUE;
@@ -105,8 +104,7 @@ BOOL fontExistCheck() {
 		// 独自フォントではなく最初からウィンドウズに入っているフォントを指定しているかもしれない。
 		System::Drawing::Text::InstalledFontCollection^ fonts = gcnew System::Drawing::Text::InstalledFontCollection();
 
-		for (int i = 0; fonts->Families->Length; i++) {
-			System::Drawing::FontFamily^ font = FontGlobal::pfc->Families[i];
+		for each (System::Drawing::FontFamily^ font in fonts->Families) {
 			if (font->Name == targetFontName) {
 				isFontExist = true;
 				return TRUE;

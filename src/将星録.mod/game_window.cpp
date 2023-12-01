@@ -2,6 +2,7 @@
 #include "game_menu.h"
 #include "game_font.h"
 #include "output_debug_stream.h"
+#include "load_form_mod.h"
 
 HWND hNB7Wnd = NULL;
 
@@ -35,6 +36,7 @@ BOOL doneDestroyWindow = FALSE;
 void onDestroyWindow() {
 	if (!doneDestroyWindow) {
 		OutputDebugStream("ウィンドウ破棄\r\n");
+		Close_FormMod();
 	}
 
 	doneDestroyWindow = TRUE;
