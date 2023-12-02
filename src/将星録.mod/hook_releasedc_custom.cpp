@@ -10,7 +10,6 @@
 using namespace std;
 
 extern string bufferTextOut;
-extern int nTextOutProceedCounter;
 
 
 extern int nCheckTextOutXStart;
@@ -20,12 +19,6 @@ int Hook_ReleaseDCCustom(
 	HWND hWnd,  // ウィンドウのハンドル
 	HDC hDC     // デバイスコンテキストのハンドル
 ) {
-	nTextOutProceedCounter = 0;
-
-	// DCへの描画中に立ては各種フラグは、このReleaseDCのタイミングでおろすようにする。
-	isOverrideTextOut = FALSE;
-	isNextStartOverride = FALSE;
-	isAlbedoRetsuden = FALSE;
 
 	nCheckTextOutXStart = -1;
 	nCheckTextOutYStart = -1;

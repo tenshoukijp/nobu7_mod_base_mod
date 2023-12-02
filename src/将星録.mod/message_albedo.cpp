@@ -3,11 +3,7 @@
 #include "on_serihu_message.h"
 using namespace std;
 
-void replaceMessage(string message) {
-#pragma warning(disable:4996)
-	strcpy((char*)(セリフメッセージアドレス), message.c_str());
-#pragma warning(default: 4996) // ワーニングの抑制を解除する
-}
+extern void replaceMessage(string message);
 
 void changeAlbedoMessage(int iBushouID, string message) {
 	if (message.find("腕にはいささか自信") != string::npos) {

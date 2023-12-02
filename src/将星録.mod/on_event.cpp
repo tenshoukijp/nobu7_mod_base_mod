@@ -102,9 +102,6 @@ void onChoteiKenjo(string choteiKenjoInfo) {
 			OutputDebugStream("アルベドが献上使者だったので、金を補充\n");
 			アルベド使者ユニット時のお金が復活();
         }
-    } else {
-        		OutputDebugStream("朝廷献上使者はいませんでした\n");
-	
     }
 }
 

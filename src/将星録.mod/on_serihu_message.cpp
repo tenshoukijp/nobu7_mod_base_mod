@@ -28,18 +28,4 @@ extern PROC pfnOrigTextOutA;
 
 extern std::string bufferTextOut;
 
-string prevSerihuMessage = "";
 
-
-BOOL patchOfBushouMessage(HDC hdc, int nXStart, int nYStart, LPCTSTR lpString, int cbString) {
-
-	return TRUE;
-}
-
-// セリフ系や詳細説明系のメッセージが変更になった時に呼ばれる
-BOOL onChangeSerifuMessage(std::string message) {
-	OutputDebugStream("メッセージが変更になりました:");
-	OutputDebugStream(message);
-	OutputDebugStream("\r\n");
-	return TRUE;
-}

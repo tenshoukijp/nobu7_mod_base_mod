@@ -140,15 +140,9 @@ BOOL WINAPI Hook_TextOutA(
 ) {
     // 先にカスタムの方を実行。
     Hook_TextOutACustom(hdc, nXStart, nYStart, lpString, cbString);
-    BOOL nResult = FALSE;
 
-    // Hook_TextOutACustom でオーバーライドフラグが立っていたら、テキストは描画せずにスルーする
-    if (isOverrideTextOut) {
-    }
-    else {
-        // 元のものを呼び出す
-        nResult = ((PFNTEXTOUTA)pfnOrigTextOutA)(hdc, nXStart, nYStart, lpString, cbString);
-    }
+    // 元のものを呼び出す
+    BOOL nResult = ((PFNTEXTOUTA)pfnOrigTextOutA)(hdc, nXStart, nYStart, lpString, cbString);
 
     return nResult;
 }

@@ -19,10 +19,6 @@ const string getBufferTextOut() {
 	return bufferTextOut;
 }
 
-BOOL isNextStartOverride = false;  // 次にTextOutAが呼ばれたタイミングで isOverrideTextOutをTRUEにするためのフラグ
-BOOL isOverrideTextOut = false;    // このフラグがONだと、TextOutは描画をスルーするようにする。
-int nTextOutProceedCounter = 0;    // TextOutAの描画を順次上書きするためのカウンタ
-
 
 extern string prevSerihuMessage;
 
@@ -37,18 +33,6 @@ BOOL Hook_TextOutACustom(
 	char buffer[1024] = { 0 };
 	memcpy(buffer, lpString, cbString);
 	bufferTextOut += buffer;
-
-	string message = (char*)(セリフメッセージアドレス); // on_serihu_message
-	if (prevSerihuMessage != message) {
-		onChangeSerifuMessage(message);
-		prevSerihuMessage = message;
-	}
-
-	// 武将列伝用の特別なパッチ処理
-	patchOfBushouRetsuden(hdc, nXStart, nYStart, lpString, cbString);
-
-	// 武将セリフの特別なパッチ処理
-	patchOfBushouMessage(hdc, nXStart, nYStart, lpString, cbString);
 
 	return TRUE;
 }

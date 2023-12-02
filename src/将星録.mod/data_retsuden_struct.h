@@ -11,6 +11,6 @@ struct NB7武将列伝表示情報型 {
 };
 #pragma pack()
 
-// 表示しようとしている列伝武将ID
-int getLatestRetsudenBushouID();
+// 表示しようとしている列伝武将ID  列伝が表示される直前にこの関数で取得できる値は更新される。(一度更新されたら新たな列伝が表示されるまではそのまま)
+int getRetsudenBushouID();
 
