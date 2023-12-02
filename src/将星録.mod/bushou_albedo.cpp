@@ -149,7 +149,6 @@ vector<int> get未使用陣形(int iUnitID) {
 	}
 
     target陣形位置 = nb7ユニット情報[iUnitID].第５部隊の陣形位置;
-    OutputDebugStream("第5陣形位置:%d\n", target陣形位置);
     itr = std::find(未使用陣形.begin(), 未使用陣形.end(), target陣形位置);
     if (itr != 未使用陣形.end()) {
         未使用陣形.erase(itr);

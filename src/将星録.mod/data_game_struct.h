@@ -12,6 +12,8 @@
 #include "data_unit_struct.h"
 #include "data_daimyo_struct.h"
 #include "data_bushou_message.h"
+#include "data_turn_daimyo_struct.h"
+#include "data_retsuden_struct.h"
 
 
 extern int nBaseAddress;
@@ -29,6 +31,9 @@ extern NB7ターン情報型* const _ターン情報;
 
 extern NB7プレイヤターン城情報型* const _ターン城情報;
 #define ターン城情報  _ターン城情報[0]
+
+extern NB7ターン大名情報型* const _ターン大名情報;
+#define ターン大名情報  _ターン大名[0]
 
 extern NB7メッセージ武将情報型* const _nb7メッセージ武将情報;
 #define メッセージ武将情報 _nb7メッセージ武将情報[0]

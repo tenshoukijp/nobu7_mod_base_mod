@@ -9,7 +9,7 @@ BOOL isValidDaimyoID(int iDaimyoID) {
 
 // 大名IDからその大名の武将IDを取得する
 int getBushouIDFromDaimyoID(int iDaimyoID) {
-	if (0 <= iDaimyoID && iDaimyoID < 最大数::大名情報::配列数) {
+	if (isValidDaimyoID(iDaimyoID)) {
 		// 所有武将のアドレスを直接さしている
 		int nBushouAddress = (int)(nb7大名情報[iDaimyoID].p大名武将);
 

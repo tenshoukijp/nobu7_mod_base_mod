@@ -7,6 +7,7 @@
 #include "game_screen.h"
 #include "hook_functions_direct.h"
 #include "on_event.h"
+
 void onOpeningMovie() {
     hookFunctionsDirect();
     setゲーム画面ステータス(ゲーム画面ステータス::起動画面);
@@ -396,20 +397,24 @@ void onStrategyDaimyoturnChanged(string strategyTurnInfo) {
     if (OnigMatch(strategyTurnInfo, "^(.+?)家(\\1(.+?))\\1家\\2$", &ma)) {
         OutputDebugStream("大名ターンが変わりました。" + ma[1] + "家の" + ma[2] + "\n"s);
 
+        int iBushouID = getStrategyTurnDaimyoBushouID();
+        if (isValidBushouID(iBushouID)) {
+			OutputDebugStream("大名ターンの武将は"s + nb7武将情報[iBushouID].姓名 + "\n");
+		}
+
         setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 
         アルベドのユニットが軍隊や軍船なら兵数復活();
     }
-
 }
 
 void checkStrategyPlayerTurnInformation()
 {
-    int iCastleID = getStrategyPlayerTurnCastleID();
-    OutputDebugStream("%d", iCastleID);
-    if (isValidCastleID(iCastleID)) {
-        OutputDebugStream("ターンの城は"s + nb7城情報[iCastleID].城名 + get城称(iCastleID) + "\n");
+    int iBushouID = getStrategyTurnDaimyoBushouID();
+    if (isValidBushouID(iBushouID)) {
+        OutputDebugStream("大名ターンの武将は"s + nb7武将情報[iBushouID].姓名 + "\n");
     }
+
 }
 
 void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {

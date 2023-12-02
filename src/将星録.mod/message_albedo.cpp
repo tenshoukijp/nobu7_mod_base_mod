@@ -42,7 +42,12 @@ void changeAlbedoMessage(int iBushouID, string message) {
 	}
 	else if (message.find("‚¨‚Ù‚Ù") != string::npos) {
 		string old_pattern = "‚¨‚Ù‚Ù";
-		string new_message = message.replace(message.find("‚¨‚Ù‚Ù"), old_pattern.size(), "‚¤‚Ó‚Ó");
+		string new_message = message.replace(message.find(old_pattern), old_pattern.size(), "‚¤‚Ó‚Ó");
+		replaceMessage(new_message);
+	}
+	else if (message.find("‚©‚©‚Á‚Ä‚±‚¢") != string::npos) {
+		string old_pattern = "‚©‚©‚Á‚Ä‚±‚¢";
+		string new_message = message.replace(message.find(old_pattern), old_pattern.size(), "‚©‚©‚Á‚Ä‚ç‚Á‚µ‚á‚¢");
 		replaceMessage(new_message);
 	}
 }

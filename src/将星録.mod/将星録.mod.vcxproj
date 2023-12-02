@@ -85,6 +85,9 @@
     <ClInclude Include="bushou_albedo.h" />
     <ClInclude Include="data_castle_struct.h" />
     <ClInclude Include="data_daimyo_struct.h" />
+    <ClInclude Include="data_retsuden_struct.h" />
+    <ClInclude Include="data_turn_daimyo_struct.h" />
+    <ClInclude Include="data_turn_player_castle.h" />
     <ClInclude Include="data_unit_struct.h" />
     <ClInclude Include="data_turn_struct.h" />
     <ClInclude Include="data_bushou_struct.h" />
@@ -125,10 +128,20 @@
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
     <ClCompile Include="data_kahou_struct.cpp" />
-    <ClCompile Include="data_turn_struct.cpp" />
-    <ClCompile Include="hook_bushou_retsuden.cpp">
+    <ClCompile Include="data_retsuden_struct.cpp" />
+    <ClCompile Include="data_turn_daimyo_struct.cpp" />
+    <ClCompile Include="data_turn_player_castle.cpp" />
+    <ClCompile Include="hook_unknown_dialog3.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="hook_bushou_retsuden_init.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="hook_daimyo_turn.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="hook_unknown_dialog1.cpp" />
+    <ClCompile Include="hook_unknown_dialog2.cpp" />
     <ClCompile Include="load_form_mod.cpp" />
     <ClCompile Include="message_albedo.cpp" />
     <ClCompile Include="mng_フォント.cpp" />

@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <string>
 
+#include "data_game_struct.h"
 #include "output_debug_stream.h"
 #include "onigwrap.h"
 #include "hook_textouta_custom.h"
@@ -45,6 +46,12 @@ BOOL patchOfBushouRetsuden(
 		isOverrideTextOut = TRUE;
 	}
 
+	if (bufferTextOut.ends_with("武将列伝")) {
+		int iBushouID = getLatestRetsudenBushouID();
+		if (isValidBushouID(iBushouID)) {
+			OutputDebugStream("★★★武将ID:%d:%sの武将列伝\n", iBushouID, nb7武将情報[iBushouID].姓名);
+		}
+	}
 
 	// アルベドの武将列伝の場合、アルベドモードにする。
 	if (bufferTextOut.ends_with("武将列伝" + getArubedoMei() + "1535～????")) {

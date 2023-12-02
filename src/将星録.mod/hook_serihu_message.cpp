@@ -51,7 +51,8 @@ using namespace std;
 
 void OnSSRExeMessageDetailExecute() {
 
-	if (getゲーム画面ステータス() == ゲーム画面ステータス::戦略画面 || getゲーム画面ステータス() == ゲーム画面ステータス::野戦画面 || getゲーム画面ステータス() == ゲーム画面ステータス::籠城戦画面) {
+	ゲーム画面ステータス status = getゲーム画面ステータス();
+	if (status == ゲーム画面ステータス::戦略画面 || status == ゲーム画面ステータス::野戦画面 || status == ゲーム画面ステータス::籠城戦画面) {
 		int i主体BushouID = get主体BushouIDFromMessageBushou();
 		if (isValidBushouID(i主体BushouID)) {
 			OutputDebugStream("★主体は%s★\n", nb7武将情報[i主体BushouID].姓名);

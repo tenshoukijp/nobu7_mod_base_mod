@@ -204,6 +204,15 @@
     <ClInclude Include="game_array.h">
       <Filter>配列ポインタ</Filter>
     </ClInclude>
+    <ClInclude Include="data_turn_daimyo_struct.h">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClInclude>
+    <ClInclude Include="data_turn_player_castle.h">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClInclude>
+    <ClInclude Include="data_retsuden_struct.h">
+      <Filter>武将列伝</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -332,10 +341,28 @@
     <ClCompile Include="message_albedo.cpp">
       <Filter>アルベド</Filter>
     </ClCompile>
-    <ClCompile Include="data_turn_struct.cpp">
+    <ClCompile Include="data_turn_player_castle.cpp">
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClCompile>
-    <ClCompile Include="hook_bushou_retsuden.cpp">
+    <ClCompile Include="hook_unknown_dialog3.cpp">
+      <Filter>武将列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_daimyo_turn.cpp">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClCompile>
+    <ClCompile Include="data_turn_daimyo_struct.cpp">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_bushou_retsuden_init.cpp">
+      <Filter>武将列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_unknown_dialog1.cpp">
+      <Filter>武将列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_unknown_dialog2.cpp">
+      <Filter>武将列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="data_retsuden_struct.cpp">
       <Filter>武将列伝</Filter>
     </ClCompile>
   </ItemGroup>
