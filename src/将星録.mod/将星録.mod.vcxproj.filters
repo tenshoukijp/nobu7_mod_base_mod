@@ -219,6 +219,12 @@
     <ClInclude Include="mng_官位情報.h">
       <Filter>ゲームデータ - 官位情報</Filter>
     </ClInclude>
+    <ClInclude Include="data_yasen_battle_turn.h">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClInclude>
+    <ClInclude Include="data_castle_battle_turn.h">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">

@@ -82,6 +82,8 @@
   <ItemGroup>
     <ClInclude Include="..\oniguruma\oniguruma.h" />
     <ClInclude Include="bushou_albedo.h" />
+    <ClInclude Include="data_castle_battle_turn.h" />
+    <ClInclude Include="data_yasen_battle_turn.h" />
     <ClInclude Include="data_castle_struct.h" />
     <ClInclude Include="data_daimyo_struct.h" />
     <ClInclude Include="data_bushou_retsuden_struct.h" />

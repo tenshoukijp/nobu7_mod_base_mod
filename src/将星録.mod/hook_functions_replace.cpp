@@ -307,8 +307,6 @@ HBITMAP WINAPI Hook_CreateDIBitmap(
 	// 先にカスタムの方を実行。
 	Hook_CreateDIBitmapCustom(hdc, pbmih, flInit, pjBits, pbmi, iUsage);
 
-    OutputDebugStream("CreateDIBitmap:長さ%d\n", pbmi->bmiHeader.biWidth);
-
 	// 元のものを呼び出す
 	HBITMAP nResult = ((PFNCREATEDIBITMAP)pfnOrigCreateDIBitmap)(hdc, pbmih, flInit, pjBits, pbmi, iUsage);
 
@@ -508,6 +506,27 @@ BOOL WINAPI Hook_CloseHandle(
 }
 
 
+//---------------------------SelectObject
+
+using PFNSELECTOBJECT = HGDIOBJ(WINAPI *)(HDC, HGDIOBJ);
+
+PROC pfnOrigSelectObject = GetProcAddress(GetModuleHandleA("gdi32.dll"), "SelectObject");
+
+// extern HGDIOBJ Hook_SelectObjectCustom(HDC hdc, HGDIOBJ h);
+
+HGDIOBJ WINAPI Hook_SelectObject(
+    HDC hdc, // デバイスコンテキストのハンドル
+    HGDIOBJ h // オブジェクトのハンドル
+) {
+	// 先にカスタムの方を実行。
+    // Hook_SelectObjectCustom(hdc, h);
+
+	// 元のもの
+	HGDIOBJ nResult = ((PFNSELECTOBJECT)pfnOrigSelectObject)(hdc, h);
+
+	return nResult;
+}
+
 //---------------------------IsDebuggerPresent
 
 using PFNISDEBUGGERPRESENT = BOOL(WINAPI *)();
@@ -546,6 +565,7 @@ bool isHookIsDebuggerPresent = false;
 bool isHookCreateFileA = false;
 bool isHookSetFilePointer = false;
 bool isHookReadFile = false;
+bool isHookSelectObject = false;
 bool isHookCloseHandle = false;
 
 void hookFunctionsReplace() {
@@ -620,6 +640,11 @@ void hookFunctionsReplace() {
 		isHookCloseHandle = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("kernel32.dll"), "CloseHandle");
 		ReplaceIATEntryInAllMods("kernel32.dll", pfnOrig, (PROC)Hook_CloseHandle);
+	}
+    if (!isHookSelectObject) {
+		isHookSelectObject = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "SelectObject");
+		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_SelectObject);
 	}
     if (!isHookIsDebuggerPresent) {
 		isHookIsDebuggerPresent = true;

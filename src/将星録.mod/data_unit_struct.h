@@ -38,19 +38,24 @@ struct NB7ƒ†ƒjƒbƒgî•ñŒ^ {
 	  „ ‚O„ ‚R„ ‚U„ 
 	  „¤„Ÿ„¨„Ÿ„¨„Ÿ„£
 	*/
-	WORD ‘æ‚P•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚P•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚P•”‘à¬—; // 1‚È‚ç¬— 0‚È‚ç•’Ê
 	WORD ‘æ‚P•”‘à‚ÌwŒ`ˆÊ’u; // •”‘à‚ª‚È‚¯‚ê‚ÎFFFF
 	int ‘æ‚P•”‘à•º”; // •”‘à‚ª‚È‚¯‚ê‚Î0
-	WORD ‘æ‚Q•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚Q•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚Q•”‘à¬—; // 1‚È‚ç¬— 0‚È‚ç•’Ê
 	WORD ‘æ‚Q•”‘à‚ÌwŒ`ˆÊ’u; // •”‘à‚ª‚È‚¯‚ê‚ÎFFFF
 	int ‘æ‚Q•”‘à•º”; // •”‘à‚ª‚È‚¯‚ê‚Î0
-	WORD ‘æ‚R•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚R•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚R•”‘à¬—; // 1‚È‚ç¬— 0‚È‚ç•’Ê
 	WORD ‘æ‚R•”‘à‚ÌwŒ`ˆÊ’u; // •”‘à‚ª‚È‚¯‚ê‚ÎFFFF
 	int ‘æ‚R•”‘à•º”; // •”‘à‚ª‚È‚¯‚ê‚Î0
-	WORD ‘æ‚S•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚S•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚S•”‘à¬—; // 1‚È‚ç¬— 0‚È‚ç•’Ê
 	WORD ‘æ‚S•”‘à‚ÌwŒ`ˆÊ’u; // •”‘à‚ª‚È‚¯‚ê‚ÎFFFF
 	int ‘æ‚S•”‘à•º”; // •”‘à‚ª‚È‚¯‚ê‚Î0
-	WORD ‘æ‚T•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚T•”‘à•ºŽí; // 0:‘«Œy 1:‹R”n 2:“S–C 3:‹R”n“S–C  •”‘à‚ª‚È‚¯‚ê‚Î0
+	BYTE ‘æ‚T•”‘à¬—; // 1‚È‚ç¬— 0‚È‚ç•’Ê
 	WORD ‘æ‚T•”‘à‚ÌwŒ`ˆÊ’u; // •”‘à‚ª‚È‚¯‚ê‚ÎFFFF
 	int ‘æ‚T•”‘à•º”; // •”‘à‚ª‚È‚¯‚ê‚Î0
 	int ƒ†ƒjƒbƒg”Ô†;   // 1‚©‚ç‚Ì”Ô†‚ªU‚ç‚ê‚Ä‚¢‚éB
@@ -137,4 +142,18 @@ int getBushouIDFromUnitID(int iUnitID);
 005EEBCC  00 00 00 00 00 00 00 00 00 00 00 00 05 00 00 00  ...............
 005EEBDC  00 00 00 00 03 00 00 00 00 00 18 00 00 00 E8 02  ............E
 005EEBEC  00 00 00 10                                    ....
+*/
+
+/*
+‘æ5•”‘à‚ª¬—‚µ‚Ä‚¢‚éŽž
+005EEAC8  C8 DA 5D 00 00 00 00 00 48 3C 56 00 00 00 00 00  ÈÚ].....H<V.....
+005EEAD8  50 C3 00 00 B8 0B 00 00 B8 0B 00 00 00 00 00 00  PÃ..¸..¸......
+005EEAE8  50 C3 00 00 00 00 00 00 50 C3 00 00 00 00 00 00  PÃ......PÃ......
+005EEAF8  50 C3 00 00 00 00 00 00 50 C3 00 00 9B 00 00 00  PÃ......PÃ..E..
+005EEB08  47 00 00 00 FF FF FF FF FF FF FF FF FF FF FF FF  G...ÿÿÿÿÿÿÿÿÿÿÿÿ
+005EEB18  00 00 00 00 FF 0F 00 00 00 00 20 21 5F 00 03 00  ....ÿ.... !_..
+005EEB28  00 00 03 00 04 00 84 03 00 00 03 00 02 00 84 03  ....E....E
+005EEB38  00 00 03 00 00 00 84 03 00 00 03 00 01 00 84 03  .....E....E
+005EEB48  00 00 00 00 03 00 84 03 01 00 17 00 00 00 E8 02  .....E....E
+005EEB58  00 00 00 06                                      ...
 */
