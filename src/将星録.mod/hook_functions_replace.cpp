@@ -307,6 +307,8 @@ HBITMAP WINAPI Hook_CreateDIBitmap(
 	// 先にカスタムの方を実行。
 	Hook_CreateDIBitmapCustom(hdc, pbmih, flInit, pjBits, pbmi, iUsage);
 
+    OutputDebugStream("CreateDIBitmap:長さ%d\n", pbmi->bmiHeader.biWidth);
+
 	// 元のものを呼び出す
 	HBITMAP nResult = ((PFNCREATEDIBITMAP)pfnOrigCreateDIBitmap)(hdc, pbmih, flInit, pjBits, pbmi, iUsage);
 
@@ -366,9 +368,10 @@ using PFNCREATEFILEA = HANDLE(WINAPI *)(LPCSTR, DWORD, DWORD, LPSECURITY_ATTRIBU
 
 PROC pfnOrigCreateFileA = GetProcAddress(GetModuleHandleA("kernel32.dll"), "CreateFileA");
 int nTargetKaoID = -1;
-
+int nTargetKahouGazouID = -1;
 // extern HANDLE Hook_CreateFileACustom(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
 HANDLE hFileKAODATA = NULL;
+HANDLE hFileITEMDATA = NULL;
 HANDLE WINAPI Hook_CreateFileA(
 	LPCSTR lpFileName, // ファイル名
 	DWORD dwDesiredAccess, // アクセス方法
@@ -381,6 +384,7 @@ HANDLE WINAPI Hook_CreateFileA(
 	// 先にカスタムの方を実行。
 	// Hook_CreateFileACustom(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
     nTargetKaoID = -1;
+    nTargetKahouGazouID = -1;
 
 	// 元のもの
 	HANDLE nResult = ((PFNCREATEFILEA)pfnOrigCreateFileA)(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
@@ -389,9 +393,16 @@ HANDLE WINAPI Hook_CreateFileA(
      if (filename == "KAODATA.NB7") {
          OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
          hFileKAODATA = nResult;
+         hFileITEMDATA = NULL;
+     }
+     else if (filename == "ITEMDATA.NB7") {
+         OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
+         hFileITEMDATA = nResult;
+         hFileKAODATA = NULL;
      }
      else {
          hFileKAODATA = NULL;
+         hFileITEMDATA = NULL;
      }
 	return nResult;
 }
@@ -412,15 +423,22 @@ DWORD WINAPI Hook_SetFilePointer(
 	// Hook_SetFilePointerCustom(hFile, lDistanceToMove, lpDistanceToMoveHigh, dwMoveMethod);
 
     nTargetKaoID = -1;
+    nTargetKahouGazouID = -1;
 	// 元のもの
 	DWORD nResult = ((PFNSETFILEPOINTER)pfnOrigSetFilePointer)(hFile, lDistanceToMove, lpDistanceToMoveHigh, dwMoveMethod);
     if (hFileKAODATA == hFile) {
-        const int pic_data_size = 5120 * 769; // 769個の顔画像が入っている
+        const int pic_data_size = (64 * 80) * 769; // 769個の顔画像が入っている
         const int file_org_size = 3949588; // KAODATA.NB7のファイルサイズ
         const int header_size = file_org_size - pic_data_size;
-        nTargetKaoID = (lDistanceToMove - header_size) / 5120;
-        OutputDebugStream("SetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
-        OutputDebugStream("メソッド%d\n", dwMoveMethod);
+        nTargetKaoID = (lDistanceToMove - header_size) / (64 * 80);
+        OutputDebugStream("顔SetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
+    }
+    else if (hFileITEMDATA == hFile) {
+        const int pic_data_size = (64 * 64) * 27; // 27個の家宝画像が入っている
+        const int file_org_size = 111028; // ITEMDATA.NB7のファイルサイズ
+        const int header_size = file_org_size - pic_data_size;
+        nTargetKahouGazouID = (lDistanceToMove - header_size) / (64 * 64);
+        OutputDebugStream("家宝SetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
     }
 	return nResult;
 }
@@ -432,7 +450,8 @@ using PFNREADFILE = BOOL(WINAPI *)(HANDLE, LPVOID, DWORD, LPDWORD, LPOVERLAPPED)
 
 PROC pfnOrigReadFile = GetProcAddress(GetModuleHandleA("kernel32.dll"), "ReadFile");
 
-extern BOOL Hook_ReadFileCustom(HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPOVERLAPPED lpOverlapped);
+extern BOOL Hook_ReadFileCustom_BushouKao(HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPOVERLAPPED lpOverlapped);
+extern BOOL Hook_ReadFileCustom_KahouPic(HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPOVERLAPPED lpOverlapped);
 
 BOOL WINAPI Hook_ReadFile(
 	HANDLE hFile, // ファイルのハンドル
@@ -447,13 +466,47 @@ BOOL WINAPI Hook_ReadFile(
 
     if (hFileKAODATA == hFile) {
         OutputDebugStream("読み込むバイト数%d", nNumberOfBytesToRead);
-        Hook_ReadFileCustom(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
+        Hook_ReadFileCustom_BushouKao(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
+    }
+    else if (hFileITEMDATA == hFile) {
+        OutputDebugStream("読み込むバイト数%d", nNumberOfBytesToRead);
+        Hook_ReadFileCustom_KahouPic(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
     }
 
     nTargetKaoID = -1;
-    
+    nTargetKahouGazouID = -1;
+  
     return nResult;
 }
+
+//---------------------------CloseHandle
+
+using PFNCLOSEHANDLE = BOOL(WINAPI *)(HANDLE);
+
+PROC pfnOrigCloseHandle = GetProcAddress(GetModuleHandleA("kernel32.dll"), "CloseHandle");
+
+BOOL WINAPI Hook_CloseHandle(
+    HANDLE hObject // オブジェクトのハンドル
+) {
+
+    if (hFileKAODATA == hObject) {
+			OutputDebugStream("CloseHandle:KAODATA\n");
+			hFileKAODATA = NULL;
+		}
+    else if (hFileITEMDATA == hObject) {
+			OutputDebugStream("CloseHandle:ITEMDATA\n");
+			hFileITEMDATA = NULL;
+		}
+    else {
+			// OutputDebugStream("CloseHandle:その他\n");
+	}
+
+	// 元のもの
+	BOOL nResult = ((PFNCLOSEHANDLE)pfnOrigCloseHandle)(hObject);
+
+	return nResult;
+}
+
 
 //---------------------------IsDebuggerPresent
 
@@ -493,7 +546,7 @@ bool isHookIsDebuggerPresent = false;
 bool isHookCreateFileA = false;
 bool isHookSetFilePointer = false;
 bool isHookReadFile = false;
-
+bool isHookCloseHandle = false;
 
 void hookFunctionsReplace() {
 
@@ -563,6 +616,11 @@ void hookFunctionsReplace() {
         pfnOrig = ::GetProcAddress(GetModuleHandleA("kernel32.dll"), "ReadFile");
         ReplaceIATEntryInAllMods("kernel32.dll", pfnOrig, (PROC)Hook_ReadFile);
     }
+    if (!isHookCloseHandle) {
+		isHookCloseHandle = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("kernel32.dll"), "CloseHandle");
+		ReplaceIATEntryInAllMods("kernel32.dll", pfnOrig, (PROC)Hook_CloseHandle);
+	}
     if (!isHookIsDebuggerPresent) {
 		isHookIsDebuggerPresent = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("kernel32.dll"), "IsDebuggerPresent");

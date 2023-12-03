@@ -13,6 +13,7 @@
 #include "on_serihu_message.h"
 #include "hook_functions_direct.h"
 #include "bushou_albedo.h"
+
 using namespace std;
 
 

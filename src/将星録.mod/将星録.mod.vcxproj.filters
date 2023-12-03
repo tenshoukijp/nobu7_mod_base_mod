@@ -408,4 +408,9 @@
       <Filter>鬼車</Filter>
     </Library>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="bitmap描画でやっているであろう流れ.txt">
+      <Filter>フック関数置き換え系</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

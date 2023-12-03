@@ -15,7 +15,7 @@ extern string bufferTextOut;
 extern int nCheckTextOutXStart;
 extern int nCheckTextOutYStart;
 int isKahouRetsudenMode = -1;
-
+extern HANDLE hFileITEMDATA;
 int Hook_ReleaseDCCustom(
 	HWND hWnd,  // ウィンドウのハンドル
 	HDC hDC     // デバイスコンテキストのハンドル

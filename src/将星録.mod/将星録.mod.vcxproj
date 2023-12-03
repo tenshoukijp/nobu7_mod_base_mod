@@ -202,6 +202,9 @@
   <ItemGroup>
     <Library Include="oniguruma.lib" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="bitmap描画でやっているであろう流れ.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
