@@ -13,7 +13,8 @@
 #include "data_daimyo_struct.h"
 #include "data_bushou_message.h"
 #include "data_turn_daimyo_struct.h"
-#include "data_retsuden_struct.h"
+#include "data_bushou_retsuden_struct.h"
+#include "data_kahou_retsuden_struct.h"
 
 
 extern int nBaseAddress;

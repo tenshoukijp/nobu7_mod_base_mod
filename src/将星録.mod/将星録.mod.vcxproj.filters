@@ -34,9 +34,6 @@
     <Filter Include="Onゲームイベント">
       <UniqueIdentifier>{7abd5f9c-161f-49fd-afce-f52023ba6196}</UniqueIdentifier>
     </Filter>
-    <Filter Include="武将列伝">
-      <UniqueIdentifier>{26d234c1-7745-476e-804c-bcc90e96803a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="鬼車">
       <UniqueIdentifier>{a6c4e4cd-9f7c-4336-a124-7fb695acb7a6}</UniqueIdentifier>
     </Filter>
@@ -94,6 +91,12 @@
     <Filter Include="配列ポインタ">
       <UniqueIdentifier>{9a61ef47-fede-4f9f-a03c-e91ad3a728e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="列伝 - 武将列伝">
+      <UniqueIdentifier>{26d234c1-7745-476e-804c-bcc90e96803a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列伝 - 家宝列伝">
+      <UniqueIdentifier>{6bf2bd3a-5bc7-445f-bdfb-f30180e4ea7d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -122,9 +125,6 @@
     </ClInclude>
     <ClInclude Include="on_event.h">
       <Filter>Onゲームイベント</Filter>
-    </ClInclude>
-    <ClInclude Include="bushou_retsuden.h">
-      <Filter>武将列伝</Filter>
     </ClInclude>
     <ClInclude Include="..\oniguruma\oniguruma.h">
       <Filter>鬼車</Filter>
@@ -210,8 +210,8 @@
     <ClInclude Include="data_turn_player_castle.h">
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClInclude>
-    <ClInclude Include="data_retsuden_struct.h">
-      <Filter>武将列伝</Filter>
+    <ClInclude Include="data_bushou_retsuden_struct.h">
+      <Filter>列伝 - 武将列伝</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -250,9 +250,6 @@
     </ClCompile>
     <ClCompile Include="on_event.cpp">
       <Filter>Onゲームイベント</Filter>
-    </ClCompile>
-    <ClCompile Include="bushou_retsuden.cpp">
-      <Filter>武将列伝</Filter>
     </ClCompile>
     <ClCompile Include="hook_releasedc_custom.cpp">
       <Filter>フック関数置き換え系</Filter>
@@ -345,7 +342,7 @@
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_unknown_dialog3.cpp">
-      <Filter>武将列伝</Filter>
+      <Filter>列伝 - 武将列伝</Filter>
     </ClCompile>
     <ClCompile Include="hook_daimyo_turn.cpp">
       <Filter>ゲームデータ - ターン情報</Filter>
@@ -354,16 +351,31 @@
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_bushou_retsuden_init.cpp">
-      <Filter>武将列伝</Filter>
+      <Filter>列伝 - 武将列伝</Filter>
     </ClCompile>
     <ClCompile Include="hook_unknown_dialog1.cpp">
-      <Filter>武将列伝</Filter>
+      <Filter>列伝 - 武将列伝</Filter>
     </ClCompile>
     <ClCompile Include="hook_unknown_dialog2.cpp">
-      <Filter>武将列伝</Filter>
+      <Filter>列伝 - 武将列伝</Filter>
     </ClCompile>
-    <ClCompile Include="data_retsuden_struct.cpp">
-      <Filter>武将列伝</Filter>
+    <ClCompile Include="data_bushou_retsuden_struct.cpp">
+      <Filter>列伝 - 武将列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="data_kahou_retsuden_struct.cpp">
+      <Filter>列伝 - 家宝列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="bushou_retsuden_albedo.cpp">
+      <Filter>アルベド</Filter>
+    </ClCompile>
+    <ClCompile Include="bushou_retsuden.cpp">
+      <Filter>列伝 - 武将列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="kahou_retsuden.cpp">
+      <Filter>列伝 - 家宝列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="kahou_retsuden_albedo.cpp">
+      <Filter>アルベド</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -374,6 +386,9 @@
   <ItemGroup>
     <None Include="dllmain.def">
       <Filter>モジュール定義</Filter>
+    </None>
+    <None Include="data_kahou_retsuden_struct.h">
+      <Filter>列伝 - 家宝列伝</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

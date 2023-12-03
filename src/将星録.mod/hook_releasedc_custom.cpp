@@ -14,6 +14,7 @@ extern string bufferTextOut;
 
 extern int nCheckTextOutXStart;
 extern int nCheckTextOutYStart;
+int isKahouRetsudenMode = -1;
 
 int Hook_ReleaseDCCustom(
 	HWND hWnd,  // ウィンドウのハンドル
@@ -28,6 +29,12 @@ int Hook_ReleaseDCCustom(
 		OutputDebugStream("------------\n");
 	}
 
+	if (isKahouRetsudenMode > -1) {
+		isKahouRetsudenMode--;
+	}
+	if (bufferTextOut == "家宝一覧") {
+		isKahouRetsudenMode = 3;
+	}
 
 	// アルベドの行動カウンタを減らす
 	decreaseAlbedoKoudouCounter();

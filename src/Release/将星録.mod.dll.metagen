@@ -67,12 +67,6 @@ Class 将星録.最大数.役職情報: AutoLayout, AnsiClass, Class, Public, Be
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 配列数 IsConst : Public, Static, HasDefault
-Class 将星録.アプリケーション.フォント: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Properties:
-    System.String フォント名 'get ' : 
-  Methods:
-    get_フォント名(): PrivateScope, Public, Static, HideBySig, SpecialName
 Class 将星録.列挙.家宝.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -339,6 +333,12 @@ Class 将星録.列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, Befo
     Int32 遊戯具 IsConst : Public, Static, HasDefault
     Int32 香木 IsConst : Public, Static, HasDefault
     Int32 短筒 IsConst : Public, Static, HasDefault
+Class 将星録.アプリケーション.フォント: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String フォント名 'get ' : 
+  Methods:
+    get_フォント名(): PrivateScope, Public, Static, HideBySig, SpecialName
 Class 将星録.家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:

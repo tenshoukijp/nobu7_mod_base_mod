@@ -2,7 +2,6 @@
 #include <string>
 
 #include "output_debug_stream.h"
-#include "bushou_retsuden.h"
 #include "hook_textouta_custom.h"
 #include "on_serihu_message.h"
 #include "bushou_albedo.h"

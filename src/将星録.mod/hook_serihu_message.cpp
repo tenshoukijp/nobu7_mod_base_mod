@@ -56,169 +56,18 @@ void replaceMessage(string message) {
 #pragma warning(default: 4996) // ワーニングの抑制を解除する
 }
 
-
-BOOL isNextMessageIsRekishiBushouRetsuden = FALSE;
-BOOL isNextMessageIsRekishiHimeRetsuden = FALSE;
-BOOL isNextMessageIsKasouHimeRetsuden = FALSE;
-
-/*
-005D9638  0の娘。父の要請を受けて一軍の将となる。父親譲りの智謀と武勇を兼ね備える
-005D967F  。.I択してください...........
-*/
-
-
-/*
-ナザリック地下大墳墓の守護者統括。頭部からは
-２本の角、腰からは漆黒の翼を生やし
-た妖艶なサキュバス。「慈悲深き純白
-の悪魔」の異名を持つ絶世の美女。*/
-
-vector<string> getOverrideBushouRetsuden(int iBushouID) {
-	vector<string> ret;
-	if (isValidBushouID(iBushouID)) {
-		if (nb7武将情報[iBushouID].姓名 == getArubedoSeiMei()) {
-			ret.push_back("アルベド 守護者統括 ????～????");
-			ret.push_back("ナザリック地下大墳墓の守護者統括。頭\xA"
-				          "部からは２本の角、腰からは漆黒の翼を\xA"
-			              "生やした妖艶なサキュバス。「慈悲深き\xA"
-			              "純白の悪魔」の異名を持つ絶世の美女。"
-			);
-			return ret;
-		}
-	}
-
-	return ret;
-}
+extern void checkReplaceBushouRetsuden();
+extern void checkReplaceKahouRetsuden();
 
 void OnSSRExeMessageDetailExecute() {
 
-	// 列伝の詳細の置き換えが立っていれば、詳細を置き換える
-	if (isNextMessageIsRekishiBushouRetsuden) {
-		isNextMessageIsRekishiBushouRetsuden = FALSE;
-		int iRetsudenBushouID = getRetsudenBushouID();
-		if (isValidBushouID(iRetsudenBushouID)) {
-			auto ret = getOverrideBushouRetsuden(iRetsudenBushouID);
-			if (ret.size() == 2) {
-				string detail = ret[1];
-				if (detail.size() > 0) {
-					replaceMessage(detail);
-				}
-			}
-		}
-	}
-	// 列伝の詳細の置き換えが立っていれば、詳細を置き換える
-	if (isNextMessageIsRekishiHimeRetsuden) {
-		isNextMessageIsRekishiHimeRetsuden = FALSE;
-		int iRetsudenBushouID = getRetsudenBushouID();
-		if (isValidBushouID(iRetsudenBushouID)) {
-			auto ret = getOverrideBushouRetsuden(iRetsudenBushouID);
-			if (ret.size() == 2) {
-				string detail = ret[1];
-				if (detail.size() > 0) {
-					replaceMessage(detail);
-				}
-			}
-		}
-	}
-	// 列伝の詳細の置き換えが立っていれば、詳細を置き換える
-	if (isNextMessageIsKasouHimeRetsuden) {
-		isNextMessageIsKasouHimeRetsuden = FALSE;
-		int iRetsudenBushouID = getRetsudenBushouID();
-		if (isValidBushouID(iRetsudenBushouID)) {
-			auto ret = getOverrideBushouRetsuden(iRetsudenBushouID);
-			if (ret.size() == 2) {
-				string detail = ret[1];
-				if (detail.size() > 0) {
-					replaceMessage(detail);
-				}
-			}
-		}
-	}
+	checkReplaceBushouRetsuden();
 
-	ゲーム画面ステータス status = getゲーム画面ステータス();
-	if (status == ゲーム画面ステータス::戦略画面 || status == ゲーム画面ステータス::野戦画面 || status == ゲーム画面ステータス::籠城戦画面) {
-		// 主体武将と相手武将を求める。値は有効でも主体武将自体前回のものが残っているだけかもしれない。ただし吹き出し会話なのであれば主体武将は必ずセットされる。
-		int i主体BushouID = get主体BushouIDFromMessageBushou();
-		if (isValidBushouID(i主体BushouID)) {
-			OutputDebugStream("★主体は%s★\n", nb7武将情報[i主体BushouID].姓名);
-			string message = (char*)(セリフメッセージアドレス); // on_serihu_message
-			if (nb7武将情報[i主体BushouID].姓名 == getArubedoSeiMei()) {
-				changeAlbedoMessage(i主体BushouID, message);
-			}
+	checkReplaceKahouRetsuden();
 
-		}
-
-		int i相手BushouID = get相手BushouIDFromMessageBushou();
-		if (isValidBushouID(i相手BushouID)) {
-			OutputDebugStream("★相手は%s★\n", nb7武将情報[i相手BushouID].姓名);
-		}
-
-		int iRetsudenBushouID = getRetsudenBushouID();
-		if (isValidBushouID(iRetsudenBushouID)) {
-			OutputDebugStream("メッセージ段階でチェックしているiRetsudenBushouIDは%d\n", iRetsudenBushouID);
-			// 通常の武将は 「姓名 ﾖﾐ ????～????」のフォーマットを取る 
-			if (0 <= iRetsudenBushouID && iRetsudenBushouID < 700) {
-				string message = (char*)(セリフメッセージアドレス); // on_serihu_message
-				Matches ma;
-				if (OnigMatch(message, "^(.+?) (.+?) [0-9\\?]{4}～[0-9\\?]{4}$", &ma)) {
-					OutputDebugStream("マップしたよ!!");
-					// 0～699番の通常の武将達は、姓名がそろっている
-					if (ma[1] == nb7武将情報[iRetsudenBushouID].姓名) {
-						// 次にメッセージ部分が来たら、列伝の詳細を置き換える
-						isNextMessageIsRekishiBushouRetsuden = true;
-						// 列伝用のタイトル部分を置き換える
-						auto ret = getOverrideBushouRetsuden(iRetsudenBushouID);
-						if (ret.size() == 2) {
-							string title = ret[0];
-							if (title.size() > 0) {
-								replaceMessage(title);
-							}
-						}
-					}
-				}
-			}
-			// 歴史姫は、「名 ﾖﾐ ????～????」のフォーマットを取る
-			else if (700 <= iRetsudenBushouID && iRetsudenBushouID < 716) {
-				string message = (char*)(セリフメッセージアドレス); // on_serihu_message
-				Matches ma;
-				if (OnigMatch(message, "^(.+?) (.+?) [0-9\\?]{4}～[0-9\\?]{4}$", &ma)) {
-					// 700～715番の歴史姫達は、名のみ
-					if (ma[1] == nb7武将情報[iRetsudenBushouID].名前) {
-						// 次にメッセージ部分が来たら、列伝の詳細を置き換える
-						isNextMessageIsRekishiHimeRetsuden = true;
-						// 列伝用のタイトル部分を置き換える
-						auto ret = getOverrideBushouRetsuden(iRetsudenBushouID);
-						if (ret.size() == 2) {
-							string title = ret[0];
-							if (title.size() > 0) {
-								replaceMessage(title);
-							}
-						}
-					}
-				}
-			}
-			// 仮想姫は、「名 ????～????」のフォーマットを取る
-			else if (716 <= iRetsudenBushouID && iRetsudenBushouID < 732) {
-				string message = (char*)(セリフメッセージアドレス); // on_serihu_message
-				Matches ma;
-				if (OnigMatch(message, "^(.+?) [0-9\\?]{4}～[0-9\\?]{4}$", &ma)) {
-					// 716～731番の仮想姫達は、名のみ
-					if (ma[1] == nb7武将情報[iRetsudenBushouID].名前) {
-						// 次にメッセージ部分が来たら、列伝の詳細を置き換える
-						isNextMessageIsKasouHimeRetsuden = true;
-						// 列伝用のタイトル部分を置き換える
-						auto ret = getOverrideBushouRetsuden(iRetsudenBushouID);
-						if (ret.size() == 2) {
-							string title = ret[0];
-							if (title.size() > 0) {
-								replaceMessage(title);
-							}
-						}
-					}
-				}
-			}
-		}
-
+	int iKahouID = getRetsudenKahouID();
+	if (isValidKahouID(iKahouID)) {
+		OutputDebugStream("列伝家宝名%s\n", nb7家宝情報[iKahouID].家宝名);
 	}
 
 	OutputDebugStream("■■■");

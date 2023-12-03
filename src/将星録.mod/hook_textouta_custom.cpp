@@ -5,7 +5,6 @@
 
 #include "hook_textouta_custom.h"
 
-#include "bushou_retsuden.h"
 #include "on_serihu_message.h"
 
 using namespace std;
