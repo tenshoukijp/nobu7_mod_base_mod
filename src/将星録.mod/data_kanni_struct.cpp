@@ -28,6 +28,28 @@ int getBushouIDFromKanniID(int iKanniID) {
 
 }
 
+BOOL setBushouIDToKanniID(int iKanniID, int iBushouID) {
+	if (isValidKanniID(iKanniID)) {
+		if (isValidBushouID(iBushouID)) {
+			// 武将情報のアドレスを取得
+			int iBushouAddress = (int)(武将情報アドレス)+iBushouID * sizeof(NB7武将情報型);
+
+			// 官位情報の所有者に武将情報のアドレスを設定
+			nb7官位情報[iKanniID].p所有者 = (int*)iBushouAddress;
+			return TRUE;
+		}
+		else if (iBushouID == 0xFFFF) {
+			// 所有者なし
+			nb7官位情報[iKanniID].p所有者 = (int*)官位所有者なし;
+			return TRUE;
+
+		}
+	}
+	return FALSE;
+
+}
+
+
 BOOL setKanniName(int iKanniID, std::string strKanniName) {
 	if (isValidKanniID(iKanniID)) {
 		char bufLarge[256] = "";
@@ -40,3 +62,4 @@ BOOL setKanniName(int iKanniID, std::string strKanniName) {
 	}
 	return FALSE;
 }
+

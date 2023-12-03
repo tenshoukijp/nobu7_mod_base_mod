@@ -25,12 +25,10 @@ namespace «¯˜^ {
 			void set(int value);
 		}
 
-		/*
 		property int Š—L•«”z—ñIX {
 			int get();
 			void set(int value);
 		}
-		*/
 	};
 
 };

@@ -365,6 +365,21 @@ Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, Befo
     Int32 従七位下 IsConst : Public, Static, HasDefault
     Int32 正八位上 IsConst : Public, Static, HasDefault
     Int32 正八位下 IsConst : Public, Static, HasDefault
+Class 将星録.官位情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 所有武将配列IX 'get set' : 
+    Int32 階位   'get set' : 
+    System.String 官位名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_官位名(): PrivateScope, Public, HideBySig, SpecialName
+    set_官位名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_階位(): PrivateScope, Public, HideBySig, SpecialName
+    set_階位(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所有武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所有武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:

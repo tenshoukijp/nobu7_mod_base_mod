@@ -386,6 +386,9 @@
     <ClCompile Include="mng_官位情報.cpp">
       <Filter>ゲームデータ - 官位情報</Filter>
     </ClCompile>
+    <ClCompile Include="hook_readfile_custom.cpp">
+      <Filter>フック関数置き換え系</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

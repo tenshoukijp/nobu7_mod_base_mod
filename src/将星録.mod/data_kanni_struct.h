@@ -6,11 +6,13 @@
 
 #define 官位情報アドレス 0x585460
 
+#define 官位所有者なし (int *)0x5694B0
+
 #pragma pack(1)
 struct NB7官位情報型 {
 	char 官位名[14];  // 官位名
 	int 階位;    // 22が関白、 0は主膳佑  22が正一位、0が従八位下
-	int* p所有者;      // 所有武将へのポインタ(武将情報の配列の該当武将の情報の位置を直接指している)
+	int* p所有者;      // 所有武将へのポインタ(武将情報の配列の該当武将の情報の位置を直接指している) [B0 94 56]= 0x05694B0 だと誰も所有してない
 	int 官位番号;      // 官位番号
 	int 官位数;    // 官位の総数。FA000000 = (250)が全てのデータに入っている。
 };
@@ -22,6 +24,10 @@ BOOL setKanniName(int iKanniID, std::string strKanniName);
 
 // 官位IDからそれを所有している武将IDを取得する。もってなかったら0xFFFF
 int getBushouIDFromKanniID(int iKanniID);
+
+// 特定の武将に官位をセットする。(能力の変動は伴わない)。iBushouIDに0xFFFFをセットした場合は朝廷を所有者とする（ようする所有者なし）とする。
+BOOL setBushouIDToKanniID(int iKanniID, int iBushouID);
+
 /*
 00585460  8A D6 94 92 00 00 00 00 00 00 00 00 00 00 16 00  関白...........
 00585470  00 00 B0 94 56 00 01 00 00 00 FA 00 00 00 91 BE  ..ｰ之....・..太

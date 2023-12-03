@@ -59,7 +59,6 @@ void 官位情報型::階位::set(int value) {
 	}
 }
 
-/*
 int 官位情報型::所有武将配列IX::get()
 {
 	return getBushouIDFromKanniID(iKanniID);;
@@ -76,5 +75,4 @@ void 官位情報型::所有武将配列IX::set(int value) {
 		throw gcnew System::ArgumentOutOfRangeException("所有武将配列IXが不正です。");
 	}
 }
-*/
 
