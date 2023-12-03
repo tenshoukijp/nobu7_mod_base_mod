@@ -52,11 +52,11 @@ BOOL setBushouIDToKahouID(int iKahouID, int iBushouID) {
 
 }
 
-BOOL setKahouName(int iKahouID, std::string strKahhouoName) {
+BOOL setKahouName(int iKahouID, std::string strKahhouName) {
 	if (isValidKahouID(iKahouID)) {
 		char bufLarge[256] = "";
 		int length = sizeof(bufLarge);
-		strcpy_s(bufLarge, length, strKahhouoName.c_str());
+		strcpy_s(bufLarge, length, strKahhouName.c_str());
 		bufLarge[length-1] = '\0'; // 13•¶š–Ú‚Í•K‚¸\0‚É‚·‚é
 		// ‰Æ•ó–¼‚ğİ’è
 		strcpy_s(nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼, sizeof(nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼), bufLarge);

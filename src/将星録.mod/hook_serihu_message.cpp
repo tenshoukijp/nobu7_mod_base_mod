@@ -65,12 +65,7 @@ void OnSSRExeMessageDetailExecute() {
 
 	checkReplaceKahouRetsuden();
 
-	int iKahouID = getRetsudenKahouID();
-	if (isValidKahouID(iKahouID)) {
-		OutputDebugStream("列伝家宝名%s\n", nb7家宝情報[iKahouID].家宝名);
-	}
-
-	OutputDebugStream("■■■");
+	OutputDebugStream("■OnMessageDetail■:");
 	OutputDebugStream((char*)セリフメッセージアドレス);
 	OutputDebugStream("\n");
 }

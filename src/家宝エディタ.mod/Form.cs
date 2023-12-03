@@ -1,16 +1,7 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using 将星録;
-using 将星録.列挙.家宝;
 
 namespace 将星録
 {
@@ -18,10 +9,22 @@ namespace 将星録
     {
         DataGridView dgv = new DataGridView();
 
+        List<家宝情報型> 家宝配列 = new();
+
         public 家宝エディタ()
         {
+            create家宝配列();
+
             setFormAttribute();
             setDataGridAttribute();
+        }
+
+        private void create家宝配列()
+        {
+            for ( int i=0; i< 将星録.最大数.家宝情報.配列数; i++)
+            {
+                家宝配列.Add(new 家宝情報型(i));
+            }
         }
 
         private void setFormAttribute()
@@ -216,9 +219,8 @@ namespace 将星録
         void DgvDataImport()
         {
             // 横列単位で足してゆく、
-            for (int i = 0; i < 将星録.最大数.家宝情報.配列数; i++)
+            foreach(var 家宝 in 家宝配列)
             {
-                var 家宝 = new 将星録.家宝情報型(i);
                 dgv.Rows.Add(
                   家宝.配列IX,
                   家宝.家宝名,

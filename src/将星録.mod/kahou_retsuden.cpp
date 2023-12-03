@@ -41,12 +41,12 @@ void checkReplaceKahouRetsuden() {
 	// —ñ“`‚ÌÚ×‚Ì’u‚«Š·‚¦‚ª—§‚Á‚Ä‚¢‚ê‚ÎAÚ×‚ğ’u‚«Š·‚¦‚é
 	if (isNextMessageIsKahouRetsuden) {
 		isNextMessageIsKahouRetsuden = FALSE;
+		isKahouRetsudenMode = 0;
 		int iRetsudenKahouID = getRetsudenKahouID();
 		if (isValidKahouID(iRetsudenKahouID)) {
 			auto [title, detail] = getOverrideKahouRetsuden(iRetsudenKahouID);
 			if (detail.size() > 0) {
 				replaceMessage(detail);
-				isKahouRetsudenMode = 0;
 			}
 		}
 	}

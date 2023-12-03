@@ -9,7 +9,7 @@
 #pragma pack(1)
 struct NB7官位情報型 {
 	char 官位名[14];  // 官位名
-	int 階位;    // 16が関白、 0は主膳佑
+	int 階位;    // 22が関白、 0は主膳佑  22が正一位、0が従八位下
 	int* p所有者;      // 所有武将へのポインタ(武将情報の配列の該当武将の情報の位置を直接指している)
 	int 官位番号;      // 官位番号
 	int 官位数;    // 官位の総数。FA000000 = (250)が全てのデータに入っている。
@@ -17,6 +17,8 @@ struct NB7官位情報型 {
 #pragma pack()
 
 BOOL isValidKanniID(int iKanniID);
+
+BOOL setKanniName(int iKanniID, std::string strKanniName);
 
 // 官位IDからそれを所有している武将IDを取得する。もってなかったら0xFFFF
 int getBushouIDFromKanniID(int iKanniID);

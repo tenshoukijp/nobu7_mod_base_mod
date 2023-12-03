@@ -213,6 +213,12 @@
     <ClInclude Include="data_bushou_retsuden_struct.h">
       <Filter>列伝 - 武将列伝</Filter>
     </ClInclude>
+    <ClInclude Include="mng_官位列挙.h">
+      <Filter>ゲームデータ - 官位情報</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_官位情報.h">
+      <Filter>ゲームデータ - 官位情報</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -376,6 +382,9 @@
     </ClCompile>
     <ClCompile Include="kahou_retsuden_albedo.cpp">
       <Filter>アルベド</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_官位情報.cpp">
+      <Filter>ゲームデータ - 官位情報</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -339,6 +339,32 @@ Class 将星録.アプリケーション.フォント: AutoLayout, AnsiClass, Cl
     System.String フォント名 'get ' : 
   Methods:
     get_フォント名(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 正一位 IsConst : Public, Static, HasDefault
+    Int32 従一位 IsConst : Public, Static, HasDefault
+    Int32 正二位 IsConst : Public, Static, HasDefault
+    Int32 従二位 IsConst : Public, Static, HasDefault
+    Int32 正三位 IsConst : Public, Static, HasDefault
+    Int32 従三位 IsConst : Public, Static, HasDefault
+    Int32 正四位上 IsConst : Public, Static, HasDefault
+    Int32 正四位下 IsConst : Public, Static, HasDefault
+    Int32 従四位下 IsConst : Public, Static, HasDefault
+    Int32 正五位上 IsConst : Public, Static, HasDefault
+    Int32 正五位下 IsConst : Public, Static, HasDefault
+    Int32 従五位上 IsConst : Public, Static, HasDefault
+    Int32 従五位下 IsConst : Public, Static, HasDefault
+    Int32 正六位上 IsConst : Public, Static, HasDefault
+    Int32 正六位下 IsConst : Public, Static, HasDefault
+    Int32 従六位上 IsConst : Public, Static, HasDefault
+    Int32 従六位下 IsConst : Public, Static, HasDefault
+    Int32 正七位上 IsConst : Public, Static, HasDefault
+    Int32 正七位下 IsConst : Public, Static, HasDefault
+    Int32 従七位上 IsConst : Public, Static, HasDefault
+    Int32 従七位下 IsConst : Public, Static, HasDefault
+    Int32 正八位上 IsConst : Public, Static, HasDefault
+    Int32 正八位下 IsConst : Public, Static, HasDefault
 Class 将星録.家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:

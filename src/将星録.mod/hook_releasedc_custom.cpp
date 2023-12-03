@@ -25,7 +25,7 @@ int Hook_ReleaseDCCustom(
 	nCheckTextOutYStart = -1;
 
 	if (bufferTextOut != "") {
-		OutputDebugStream(bufferTextOut);
+		OutputDebugStream("Å°OnReleaseDCÅ°:" + bufferTextOut);
 		OutputDebugStream("------------\n");
 	}
 
