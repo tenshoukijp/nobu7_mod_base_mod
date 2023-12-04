@@ -1,3 +1,25 @@
+#include <windows.h>
+#include <string>
+#include "data_game_struct.h"
+#include "data_bushou_struct.h"
+#include "output_debug_stream.h"
+#include "data_kahou_struct.h"
+#include "data_kanni_struct.h"
+#include "data_yakusyoku_struct.h"
+#include "data_castle_struct.h"
+#include "data_turn_struct.h"
+#include "game_screen.h"
+#include "game_process.h"
+#include "on_serihu_message.h"
+#include "bushou_albedo.h"
+#include "game_screen.h"
+#include "message_albedo.h"
+
+
+using namespace std;
+
+#pragma unmanaged
+
 /*
 野戦のターン切変わり目
 00477BAB   894C24 24        MOV DWORD PTR SS:[ESP+24],ECX
@@ -83,5 +105,110 @@
 00477CDE   CC               INT3
 00477CDF   CC               INT3
 00477CE0   83EC 2C          SUB ESP,2C
-
 */
+
+static int YasenCurrentAttackBushouPointer = -1; // 現在攻撃している方の武将ポインタ
+static int iYasenTurnButaiOf1to5 = -1; // 部隊の１～５のどれが攻撃しているのか
+void OnSSRExeYasenTurnButaiOf1to5Execute() {
+
+	int iAttackBushouID = getBushouIDFromBushouPtr((int *)YasenCurrentAttackBushouPointer);
+	if (isValidBushouID(iAttackBushouID)) {
+		OutputDebugStream("只今攻撃している武将は%s\n", nb7武将情報[iAttackBushouID].姓名);
+	}
+
+	OutputDebugStream("攻撃部隊は第%d部隊:%x\n", iYasenTurnButaiOf1to5);
+
+	/*
+	int* a = (int*)0x53EDE0;
+	OutputDebugStream("0x53EDE0:%d\n", *a);
+
+	int* b = (int*)0x60C888;
+	OutputDebugStream("0x60C888:%d\n", *b);
+
+	int* c = (int*)0x60C88C;
+	OutputDebugStream("0x60C88C:%d\n", *c);
+	*/
+
+}
+
+
+/*
+00477C96   890D E0ED5300    MOV DWORD PTR DS:[53EDE0],ECX
+00477C9C   890D 88C86000    MOV DWORD PTR DS:[60C888],ECX
+00477CA2   893D 8CC86000    MOV DWORD PTR DS:[60C88C],EDI
+00477CA8   8B8E 94000000    MOV ECX,DWORD PTR DS:[ESI+94]
+00477CAE   894424 0C        MOV DWORD PTR SS:[ESP+C],EAX
+00477CB2   8BF0             MOV ESI,EAX
+00477CB4   E8 57310000      CALL Nobunaga.0047AE10
+00477CB9   83C0 01          ADD EAX,1
+00477CBC   50               PUSH EAX
+00477CBD   8BCE             MOV ECX,ESI
+00477CBF   E8 5C59FAFF      CALL Nobunaga.0041D620
+00477CC4   50               PUSH EAX
+00477CC5   68 A43D5200      PUSH Nobunaga.00523DA4                   ; ASCII "%12s軍 第%d部隊の戦術"
+00477CCA   68 A8C86000      PUSH Nobunaga.0060C8A8                   ; ASCII "儚"
+00477CCF   E8 FEC80800      CALL Nobunaga.005045D2
+00477CD4   83C4 10          ADD ESP,10
+*/
+
+int pSSRExeJumpFromToOnSSRExeYasenTurnButaiOf1to5 = 0x477CBF; // 関数はこのアドレスから、OnSSRExeYasenTurnButaiOf1to5へとジャンプしてくる。
+int pSSRExeJumpCallFromToOnSSRExeYasenTurnButaiOf1to5 = 0x41D620; // 元々あった処理のCall先
+int pSSRExeReturnLblFromOnSSRExeYasenTurnButaiOf1to5 = 0x477CC4; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+
+#pragma warning(disable:4733)
+
+
+__declspec(naked) void WINAPI OnSSRExeYasenTurnButaiOf1to5() {
+	// スタックにためておく
+	__asm {
+		mov YasenCurrentAttackBushouPointer, ecx
+		mov iYasenTurnButaiOf1to5, eax
+		push eax
+		push ebx
+		push ecx
+		push edx
+		push esp
+		push ebp
+		push esi
+		push edi
+	}
+
+	OnSSRExeYasenTurnButaiOf1to5Execute();
+
+	// スタックに引き出す
+	__asm {
+		pop edi
+		pop esi
+		pop ebp
+		pop esp
+		pop edx
+		pop ecx
+		pop ebx
+		pop eax
+
+		call pSSRExeJumpCallFromToOnSSRExeYasenTurnButaiOf1to5 // 元の処理
+
+		jmp pSSRExeReturnLblFromOnSSRExeYasenTurnButaiOf1to5
+	}
+}
+#pragma warning(default: 4733) // ワーニングの抑制を解除する
+
+
+
+char cmdOnSSRExeJumpFromYasenTurnButaiOf1to5[6] = "\xE9";
+// 元の命令が5バイト、以後の関数で生まれる命令が合計５バイトなので… 最後１つ使わない
+
+// ニーモニック書き換え用
+void WriteAsmJumperOnSSRExeYasenTurnButaiOf1to5() {
+
+	// まずアドレスを数字として扱う
+	int iAddress = (int)OnSSRExeYasenTurnButaiOf1to5;
+	int SubAddress = iAddress - (pSSRExeJumpFromToOnSSRExeYasenTurnButaiOf1to5 + 5);
+	// ５というのは、0046C194  -E9 ????????  JMP TSMod.OnTSExeGetDaimyoKoukeishaBushouID  の命令に必要なバイト数。要するに５バイト足すと次のニーモニック命令群に移動するのだ。そしてそこからの差分がジャンプする際の目的格として利用される。
+	memcpy(cmdOnSSRExeJumpFromYasenTurnButaiOf1to5 + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
+
+	// 構築したニーモニック命令をTENSHOU.EXEのメモリに書き換える
+	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeYasenTurnButaiOf1to5), cmdOnSSRExeJumpFromYasenTurnButaiOf1to5, 5, NULL); //5バイトのみ書き込む
+}
+
+#pragma managed

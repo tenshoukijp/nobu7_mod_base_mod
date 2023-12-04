@@ -83,7 +83,7 @@
     <ClInclude Include="..\oniguruma\oniguruma.h" />
     <ClInclude Include="bushou_albedo.h" />
     <ClInclude Include="data_castle_battle_turn.h" />
-    <ClInclude Include="data_yasen_battle_turn.h" />
+    <ClInclude Include="data_unknown_turn.h" />
     <ClInclude Include="data_castle_struct.h" />
     <ClInclude Include="data_daimyo_struct.h" />
     <ClInclude Include="data_bushou_retsuden_struct.h" />
@@ -96,6 +96,7 @@
     <ClInclude Include="data_kahou_struct.h" />
     <ClInclude Include="data_kanni_struct.h" />
     <ClInclude Include="data_yakusyoku_struct.h" />
+    <ClInclude Include="data_yasen_battle_turn.h" />
     <ClInclude Include="game_array.h" />
     <ClInclude Include="game_font.h" />
     <ClInclude Include="game_screen.h" />
@@ -148,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="hook_unknown_dialog1.cpp" />
     <ClCompile Include="hook_unknown_dialog2.cpp" />
+    <ClCompile Include="hook_yasen_battle_turn.cpp" />
+    <ClCompile Include="hook_yasen_battle_turn_both_bushou.cpp" />
+    <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp" />
     <ClCompile Include="kahou_retsuden_albedo.cpp" />
     <ClCompile Include="kahou_retsuden.cpp" />
     <ClCompile Include="load_form_mod.cpp" />

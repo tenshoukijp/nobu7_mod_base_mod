@@ -1,3 +1,25 @@
+#include <windows.h>
+#include <string>
+#include "data_game_struct.h"
+#include "data_bushou_struct.h"
+#include "output_debug_stream.h"
+#include "data_kahou_struct.h"
+#include "data_kanni_struct.h"
+#include "data_yakusyoku_struct.h"
+#include "data_castle_struct.h"
+#include "data_turn_struct.h"
+#include "game_screen.h"
+#include "game_process.h"
+#include "on_serihu_message.h"
+#include "bushou_albedo.h"
+#include "game_screen.h"
+#include "message_albedo.h"
+
+
+using namespace std;
+
+#pragma unmanaged
+
 /*
 野戦のターン切変わり目
 00477BAB   894C24 24        MOV DWORD PTR SS:[ESP+24],ECX
@@ -85,3 +107,84 @@
 00477CE0   83EC 2C          SUB ESP,2C
 
 */
+
+
+static int nRemainYasenTurn = -1;
+void OnSSRExeYasenTurnChangeExecute() {
+	OutputDebugStream("★★★★野戦ターンの変更時★%d\n", nRemainYasenTurn);
+}
+
+
+/*
+00477BF1   2B8E 80000000    SUB ECX,DWORD PTR DS:[ESI+80]
+00477BF7   51               PUSH ECX                                　　// ここでECXを見れば、ターンがわかる。
+00477BF8   68 FC095200      PUSH Nobunaga.005209FC                   ; ASCII "残り%2dターン"
+00477BFD   68 A8C86000      PUSH Nobunaga.0060C8A8                   ; ASCII "儚"
+00477C02   E8 CBC90800      CALL Nobunaga.005045D2
+00477C07   8D5424 1C        LEA EDX,DWORD PTR SS:[ESP+1C]
+/*
+
+
+
+*/
+int pSSRExeJumpFromToOnSSRExeYasenTurnChange = 0x477C02; // 関数はこのアドレスから、OnSSRExeYasenTurnChangeへとジャンプしてくる。
+int pSSRExeJumpCallFromToOnSSRExeYasenTurnChange = 0x5045D2; // 元々あった処理のCall先
+int pSSRExeReturnLblFromOnSSRExeYasenTurnChange = 0x477C07; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+
+#pragma warning(disable:4733)
+
+__declspec(naked) void WINAPI OnSSRExeYasenTurnChange() {
+	// スタックにためておく
+	__asm {
+
+		mov nRemainYasenTurn, ecx  // ここで残りターン数を取得する
+
+		push eax
+		push ebx
+		push ecx
+		push edx
+		push esp
+		push ebp
+		push esi
+		push edi
+	}
+
+	OnSSRExeYasenTurnChangeExecute();
+
+	// スタックに引き出す
+	__asm {
+		pop edi
+		pop esi
+		pop ebp
+		pop esp
+		pop edx
+		pop ecx
+		pop ebx
+		pop eax
+
+		call pSSRExeJumpCallFromToOnSSRExeYasenTurnChange // 元の処理
+
+		jmp pSSRExeReturnLblFromOnSSRExeYasenTurnChange
+	}
+}
+#pragma warning(default: 4733) // ワーニングの抑制を解除する
+
+
+
+char cmdOnSSRExeJumpFromYasenTurnChange[6] = "\xE9";
+// 元の命令が5バイト、以後の関数で生まれる命令が合計５バイトなので… 最後１つ使わない
+
+// ニーモニック書き換え用
+void WriteAsmJumperOnSSRExeYasenTurnChange() {
+
+	// まずアドレスを数字として扱う
+	int iAddress = (int)OnSSRExeYasenTurnChange;
+	int SubAddress = iAddress - (pSSRExeJumpFromToOnSSRExeYasenTurnChange + 5);
+	// ５というのは、0046C194  -E9 ????????  JMP TSMod.OnTSExeGetDaimyoKoukeishaBushouID  の命令に必要なバイト数。要するに５バイト足すと次のニーモニック命令群に移動するのだ。そしてそこからの差分がジャンプする際の目的格として利用される。
+	memcpy(cmdOnSSRExeJumpFromYasenTurnChange + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
+
+	// 構築したニーモニック命令をTENSHOU.EXEのメモリに書き換える
+	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeYasenTurnChange), cmdOnSSRExeJumpFromYasenTurnChange, 5, NULL); //5バイトのみ書き込む
+}
+
+#pragma managed

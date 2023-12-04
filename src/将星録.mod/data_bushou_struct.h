@@ -106,6 +106,9 @@ int getCastleIdFromBushouID(int iBushouID);
 
 int getDaimyoIDFromBushouID(int iBushouID);
 
+// •«‚Ö‚Ìƒ|ƒCƒ“ƒ^‚©‚çBushouID‚ğæ“¾‚·‚é
+int getBushouIDFromBushouPtr(int* iBushouPtr);
+
 BOOL isValidBushouID(int iBushouID);
 
 std::string getBushou•cšFromBushouID(int iBushouID);

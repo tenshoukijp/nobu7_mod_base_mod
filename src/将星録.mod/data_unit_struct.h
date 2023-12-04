@@ -90,6 +90,9 @@ BOOL isValidUnitID(int iUnitID);
 // ユニットIDからそれを率いる武将IDを得る
 int getBushouIDFromUnitID(int iUnitID);
 
+// ユニットポインタからユニットIDを取得する
+int getUnitIDFromUnitPtr(int* iUnitPtr);
+
 /*
 1人目のユニット情報
 005EDE10  00 90 53 00 00 00 00 00 88 4C 54 00 00 00 00 00  .心.....・T.....

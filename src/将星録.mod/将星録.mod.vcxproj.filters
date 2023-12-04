@@ -219,10 +219,13 @@
     <ClInclude Include="mng_官位情報.h">
       <Filter>ゲームデータ - 官位情報</Filter>
     </ClInclude>
-    <ClInclude Include="data_yasen_battle_turn.h">
+    <ClInclude Include="data_unknown_turn.h">
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClInclude>
     <ClInclude Include="data_castle_battle_turn.h">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClInclude>
+    <ClInclude Include="data_yasen_battle_turn.h">
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClInclude>
   </ItemGroup>
@@ -394,6 +397,15 @@
     </ClCompile>
     <ClCompile Include="hook_readfile_custom.cpp">
       <Filter>フック関数置き換え系</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_yasen_battle_turn.cpp">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_yasen_battle_turn_both_bushou.cpp">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp">
+      <Filter>ゲームデータ - ターン情報</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

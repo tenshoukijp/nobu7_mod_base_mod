@@ -14,6 +14,9 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom.cpp
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog3.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_unknown_dialog3.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog1.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_unknown_dialog1.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog2.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_unknown_dialog2.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_battle_turn.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_both_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_battle_turn_both_bushou.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_butai_of_1to5.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_battle_turn_butai_of_1to5.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden_albedo.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\kahou_retsuden_albedo.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\kahou_retsuden.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\load_form_mod.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\load_form_mod.obj

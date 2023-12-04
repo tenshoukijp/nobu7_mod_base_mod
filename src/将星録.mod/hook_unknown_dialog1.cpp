@@ -85,7 +85,7 @@ void OnSSRExeUnknownDialog1Execute() {
 
 */
 int pSSRExeJumpFromToOnSSRExeUnknownDialog1 = 0x42FE24; // 関数はこのアドレスから、OnSSRExeUnknownDialog1へとジャンプしてくる。
-int pSSRExeJumpCallFromToOnSSRExeUnknownDialog1 = 0x042C970; // 元々あった処理のCall先
+int pSSRExeJumpCallFromToOnSSRExeUnknownDialog1 = 0x42C970; // 元々あった処理のCall先
 int pSSRExeReturnLblFromOnSSRExeUnknownDialog1 = 0x42FE29; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
 
 #pragma warning(disable:4733)
