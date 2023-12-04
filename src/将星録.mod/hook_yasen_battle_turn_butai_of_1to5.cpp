@@ -116,7 +116,7 @@ void OnSSRExeYasenTurnButaiOf1to5Execute() {
 		OutputDebugStream("‘ü¡UŒ‚‚µ‚Ä‚¢‚é•«‚Í%s\n", nb7•«î•ñ[iAttackBushouID].©–¼);
 	}
 
-	OutputDebugStream("UŒ‚•”‘à‚Í‘æ%d•”‘à:%x\n", iYasenTurnButaiOf1to5);
+	OutputDebugStream("UŒ‚•”‘à‚Í‘æ%d•”‘à\n", iYasenTurnButaiOf1to5);
 
 	/*
 	int* a = (int*)0x53EDE0;
