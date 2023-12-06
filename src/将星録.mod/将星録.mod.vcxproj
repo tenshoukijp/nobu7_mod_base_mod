@@ -139,6 +139,7 @@
     <ClCompile Include="data_turn_daimyo_struct.cpp" />
     <ClCompile Include="data_turn_player_castle.cpp" />
     <ClCompile Include="file_attribute.cpp" />
+    <ClCompile Include="hook_movie_filename.cpp" />
     <ClCompile Include="hook_readfile_custom.cpp" />
     <ClCompile Include="hook_unknown_dialog3.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>

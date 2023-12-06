@@ -100,6 +100,9 @@
     <Filter Include="ファイル">
       <UniqueIdentifier>{225e076a-a50f-4047-96b6-63f39cdef67d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ムービー">
+      <UniqueIdentifier>{ee07e381-d835-414a-90a3-205a00c8fb0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -415,6 +418,9 @@
     </ClCompile>
     <ClCompile Include="file_attribute.cpp">
       <Filter>ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_movie_filename.cpp">
+      <Filter>ムービー</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
