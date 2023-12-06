@@ -97,6 +97,9 @@
     <Filter Include="列伝 - 家宝列伝">
       <UniqueIdentifier>{6bf2bd3a-5bc7-445f-bdfb-f30180e4ea7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ファイル">
+      <UniqueIdentifier>{225e076a-a50f-4047-96b6-63f39cdef67d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -227,6 +230,9 @@
     </ClInclude>
     <ClInclude Include="data_yasen_battle_turn.h">
       <Filter>ゲームデータ - ターン情報</Filter>
+    </ClInclude>
+    <ClInclude Include="file_attribute.h">
+      <Filter>ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -406,6 +412,9 @@
     </ClCompile>
     <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp">
       <Filter>ゲームデータ - ターン情報</Filter>
+    </ClCompile>
+    <ClCompile Include="file_attribute.cpp">
+      <Filter>ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

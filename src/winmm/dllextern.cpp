@@ -3,7 +3,7 @@
 #include <map>
 
 #include "output_debug_stream.h"
-
+#include "file_attribute.h"
 using namespace std;
 
 #include "on_event.h"
@@ -398,13 +398,21 @@ extern "C" {
     __declspec(naked) void WINAPI d_mmioInstallIOProcA() { _asm { jmp p_mmioInstallIOProcA } }
     __declspec(naked) void WINAPI d_mmioInstallIOProcW() { _asm { jmp p_mmioInstallIOProcW } }
     
+    char bufOverrideFileName[1024] = "";
     HMMIO WINAPI d_mmioOpenA( LPSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD fdwOpen ) {
         OutputDebugStream("onMmioOpenA\n");
         OutputDebugStream(pszFileName);
         OutputDebugStream("\r\n");
-        HMMIO hmmio = p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
-        // mmioMap[hmmio] = pszFileName;
-        return hmmio;
+
+        // OVERRIDEフォルダに対応するファイルがあるかもしれない
+        string dfOverrideFileName = string("OVERRIDE\\") + pszFileName;
+        if (isFileExists(dfOverrideFileName)) {
+            strcpy_s(bufOverrideFileName, dfOverrideFileName.c_str());
+            return p_mmioOpenA(bufOverrideFileName, pmmioinfo, fdwOpen);
+        }
+
+        // 通常通り
+        return p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
     }
 
     /*

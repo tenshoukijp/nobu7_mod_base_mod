@@ -5,6 +5,7 @@
 #include <vector>
 #include <windows.h>
 #include "output_debug_stream.h"
+#include "file_attribute.h"
 
 // 顔の画像は幅が64, 高さが80。マジックナンバーになってしまうが、今後変更になったりは永久にしないため、そのまま埋め込む。(そっちの方が定数名使うよりわかりやすい)
 
@@ -32,10 +33,10 @@ BOOL Hook_ReadFileCustom_BushouKao(
 ) {
 
     char filenameBuf[512] = "";
-    sprintf_s(filenameBuf, "KAODATA\\%04d.bmp", nTargetKaoID);
+    sprintf_s(filenameBuf, "OVERRIDE\\KAODATA\\%04d.bmp", nTargetKaoID);
     OutputDebugStream("★★★はあるか？%s\n" ,filenameBuf);
     std::string filename = filenameBuf;
-    if (!fileExists(filename)) {
+    if (!isFileExists(filename)) {
         return FALSE;
     }
 
@@ -97,10 +98,10 @@ BOOL Hook_ReadFileCustom_KahouPic(
 ) {
 
     char filenameBuf[512] = "";
-    sprintf_s(filenameBuf, "ITEMDATA\\%03d.bmp", nTargetKahouGazouID);
+    sprintf_s(filenameBuf, "OVERRIDE\\ITEMDATA\\%03d.bmp", nTargetKahouGazouID);
     OutputDebugStream("★★★はあるか？%s\n", filenameBuf);
     std::string filename = filenameBuf;
-    if (!fileExists(filename)) {
+    if (!isFileExists(filename)) {
         return FALSE;
     }
 

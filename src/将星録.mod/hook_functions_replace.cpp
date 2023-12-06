@@ -16,6 +16,7 @@
 #include "onigwrap.h"
 #include "on_event.h"
 #include "hook_textouta_custom.h"
+#include "file_attribute.h"
 
 // ImageDirectoryEntryToData
 #pragma comment(lib, "dbghelp.lib")
@@ -362,7 +363,7 @@ int WINAPI Hook_GetDIBits(
 
 //---------------------------CreateFileA
 
-using PFNCREATEFILEA = HANDLE(WINAPI *)(LPCSTR, DWORD, DWORD, LPSECURITY_ATTRIBUTES, DWORD, DWORD, HANDLE);
+using PFNCREATEFILEA = HANDLE(WINAPI*)(LPCSTR, DWORD, DWORD, LPSECURITY_ATTRIBUTES, DWORD, DWORD, HANDLE);
 
 PROC pfnOrigCreateFileA = GetProcAddress(GetModuleHandleA("kernel32.dll"), "CreateFileA");
 int nTargetKaoID = -1;
@@ -371,38 +372,42 @@ int nTargetKahouGazouID = -1;
 HANDLE hFileKAODATA = NULL;
 HANDLE hFileITEMDATA = NULL;
 HANDLE WINAPI Hook_CreateFileA(
-	LPCSTR lpFileName, // ファイル名
-	DWORD dwDesiredAccess, // アクセス方法
-	DWORD dwShareMode, // 共有方法
-	LPSECURITY_ATTRIBUTES lpSecurityAttributes, // セキュリティ記述子
-	DWORD dwCreationDisposition, // 作成方法
-	DWORD dwFlagsAndAttributes, // ファイル属性
-	HANDLE hTemplateFile // テンプレートファイルのハンドル
+    LPCSTR lpFileName, // ファイル名
+    DWORD dwDesiredAccess, // アクセス方法
+    DWORD dwShareMode, // 共有方法
+    LPSECURITY_ATTRIBUTES lpSecurityAttributes, // セキュリティ記述子
+    DWORD dwCreationDisposition, // 作成方法
+    DWORD dwFlagsAndAttributes, // ファイル属性
+    HANDLE hTemplateFile // テンプレートファイルのハンドル
 ) {
-	// 先にカスタムの方を実行。
-	// Hook_CreateFileACustom(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
+
+    HANDLE nResult;
+
+    string overrideFileName = string("OVERRIDE\\") + lpFileName;
+    if (isFileExists(overrideFileName)) {
+        // 元のもの
+        nResult = ((PFNCREATEFILEA)pfnOrigCreateFileA)(overrideFileName.c_str(), dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
+    }
+    else {
+        // 元のもの
+        nResult = ((PFNCREATEFILEA)pfnOrigCreateFileA)(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
+    }
+    // 先にカスタムの方を実行。
+    // Hook_CreateFileACustom(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
     nTargetKaoID = -1;
     nTargetKahouGazouID = -1;
 
-	// 元のもの
-	HANDLE nResult = ((PFNCREATEFILEA)pfnOrigCreateFileA)(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
     string filename = string(lpFileName);
-     std::transform(filename.begin(), filename.end(), filename.begin(), [](unsigned char c) { return std::toupper(c); });
-     if (filename == "KAODATA.NB7") {
-         OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
-         hFileKAODATA = nResult;
-         hFileITEMDATA = NULL;
-     }
-     else if (filename == "ITEMDATA.NB7") {
-         OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
-         hFileITEMDATA = nResult;
-         hFileKAODATA = NULL;
-     }
-     else {
-         hFileKAODATA = NULL;
-         hFileITEMDATA = NULL;
-     }
-	return nResult;
+    std::transform(filename.begin(), filename.end(), filename.begin(), [](unsigned char c) { return std::toupper(c); });
+    if (filename == "KAODATA.NB7") {
+        OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
+        hFileKAODATA = nResult;
+    }
+    else if (filename == "ITEMDATA.NB7") {
+        OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
+        hFileITEMDATA = nResult;
+    }
+    return nResult;
 }
 
 //---------------------------SetFilePointer
@@ -488,16 +493,16 @@ BOOL WINAPI Hook_CloseHandle(
 ) {
 
     if (hFileKAODATA == hObject) {
-			OutputDebugStream("CloseHandle:KAODATA\n");
-			hFileKAODATA = NULL;
-		}
+        OutputDebugStream("CloseHandle:KAODATA\n");
+        hFileKAODATA = NULL;
+    }
     else if (hFileITEMDATA == hObject) {
-			OutputDebugStream("CloseHandle:ITEMDATA\n");
-			hFileITEMDATA = NULL;
-		}
+        OutputDebugStream("CloseHandle:ITEMDATA\n");
+        hFileITEMDATA = NULL;
+    }
     else {
-			// OutputDebugStream("CloseHandle:その他\n");
-	}
+        // OutputDebugStream("CloseHandle:その他\n");
+    }
 
 	// 元のもの
 	BOOL nResult = ((PFNCLOSEHANDLE)pfnOrigCloseHandle)(hObject);
