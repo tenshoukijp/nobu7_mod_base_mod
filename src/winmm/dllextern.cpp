@@ -10,7 +10,7 @@ using namespace std;
 #include "mmsystem.h"
 
 HINSTANCE hOriginalDll;
-
+extern HWND hNB7Wnd;
 
 FARPROC p_NONAME1;
 FARPROC p_mciExecute;
@@ -400,9 +400,13 @@ extern "C" {
     
     char bufOverrideFileName[1024] = "";
     HMMIO WINAPI d_mmioOpenA( LPSTR pszFileName, LPMMIOINFO pmmioinfo, DWORD fdwOpen ) {
+        // 将星録でないなら、WINMMの元来の機能通り
+        if (!hNB7Wnd) {
+			return p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
+        }
+
         OutputDebugStream("onMmioOpenA\n");
-        OutputDebugStream(pszFileName);
-        OutputDebugStream("\r\n");
+        OutputDebugStream(pszFileName + "\r\n"s);
 
         // OVERRIDEフォルダに対応するファイルがあるかもしれない
         string dfOverrideFileName = string("OVERRIDE\\") + pszFileName;
