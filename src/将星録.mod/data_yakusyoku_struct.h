@@ -4,18 +4,26 @@
 
 #define 役職情報アドレス 0x585398
 
+#define 役職所有者なし 0x538EB8
+
 #pragma pack(1)
 struct NB7役職情報型 {
 	char 役職名[12];  // 役職名
 	int 役位;    // 6が征夷大将軍、 0は羽州探題
-	int* p所有者;      // 所有武将へのポインタ(武将情報の配列の該当武将の情報の位置を直接指している)
+	int* p所有大名;      // 所有大名へのポインタ(大名情報の配列の該当大名の情報の位置を直接指している) [B8 8E 53] = 0x538EB8 なら誰も所持していない
 	int 役職番号;      // 役職番号
 	int 役職数;    // 官位の総数。7個なので、7という値が全てのデータに入っている。
 };
 #pragma pack()
 
+BOOL isValidYakusyokuID(int iYakusyokuID);
+
 // 役職IDからそれを所有している武将IDを取得する。もってなかったら0xFFFF
-int getBushouIDFromYakusyokuID(int iYakusyokuID);
+int getDaimyoIDFromYakusyokuID(int iYakusyokuID);
+
+BOOL setDaimyoIDToYakusyokuID(int iYakusyokuID, int iBushouID);
+
+BOOL setYakusyokuName(int iYakusyokuID, std::string strYakusyokuName);
 
 /*
 00585398  90 AA 88 CE 91 E5 8F AB 8C 52 00 00 06 00 00 00  征夷大将軍.....

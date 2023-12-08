@@ -103,6 +103,9 @@
     <Filter Include="ムービー">
       <UniqueIdentifier>{ee07e381-d835-414a-90a3-205a00c8fb0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ＢＧＭ">
+      <UniqueIdentifier>{fbf0d457-423a-4c13-ba35-d9137a0bfb5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -236,6 +239,12 @@
     </ClInclude>
     <ClInclude Include="file_attribute.h">
       <Filter>ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_役職列挙.h">
+      <Filter>ゲームデータ - 役職情報</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_役職情報.h">
+      <Filter>ゲームデータ - 役職情報</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -421,6 +430,15 @@
     </ClCompile>
     <ClCompile Include="hook_movie_filename.cpp">
       <Filter>ムービー</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_bgm_filename.cpp">
+      <Filter>ＢＧＭ</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_bgm2_filename.cpp">
+      <Filter>ＢＧＭ</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_役職情報.cpp">
+      <Filter>ゲームデータ - 役職情報</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

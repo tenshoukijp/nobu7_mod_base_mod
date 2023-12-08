@@ -1,7 +1,5 @@
 #pragma once
 
-#pragma once
-
 namespace «¯˜^ {
 	namespace —ñ‹“ {
 		namespace Š¯ˆÊ {

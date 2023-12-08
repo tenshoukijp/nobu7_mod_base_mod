@@ -3,6 +3,7 @@ extern void WriteAsmJumperOnSSRExeYasenTurnChange();
 extern void WriteAsmJumperOnSSRExeYasenTurnBothBushou();
 extern void WriteAsmJumperOnSSRExeYasenTurnButaiOf1to5();
 extern void WriteAsmJumperOnSSRExeMovieFileName();
+extern void WriteAsmJumperOnSSRExePlayBGM();
 extern void WriteAsmJumperOnSSRExeUnknownDialog1();
 extern void WriteAsmJumperOnSSRExeUnknownDialog2();
 extern void WriteAsmJumperOnSSRExeUnknownDialog3();
@@ -13,6 +14,7 @@ bool isWriteAsmJumperOnSSRExeYasenTurnChange = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnBothBushou = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnButaiOf1to5 = false;
 bool isWriteAsmJumperOnSSRExeMovieFileName = false;
+bool isWriteAsmJumperOnSSRExePlayBGM = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog1 = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog2 = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog3 = false;
@@ -42,6 +44,11 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeMovieFileName) {
 		isWriteAsmJumperOnSSRExeMovieFileName = true;
 		WriteAsmJumperOnSSRExeMovieFileName();
+	}
+
+	if (!isWriteAsmJumperOnSSRExePlayBGM) {
+		isWriteAsmJumperOnSSRExePlayBGM = true;
+		WriteAsmJumperOnSSRExePlayBGM();
 	}
 
 	if (!isWriteAsmJumperOnSSRExeUnknownDialog1) {

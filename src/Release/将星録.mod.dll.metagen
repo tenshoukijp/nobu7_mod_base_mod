@@ -422,6 +422,31 @@ Class 将星録.家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_南蛮(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_抑制(): PrivateScope, Public, HideBySig, SpecialName
     set_抑制(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.列挙.役職.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 征夷大将軍 IsConst : Public, Static, HasDefault
+    Int32 管領 IsConst : Public, Static, HasDefault
+    Int32 関東管領 IsConst : Public, Static, HasDefault
+    Int32 奥州探題 IsConst : Public, Static, HasDefault
+    Int32 西国探題 IsConst : Public, Static, HasDefault
+    Int32 九州探題 IsConst : Public, Static, HasDefault
+    Int32 羽州探題 IsConst : Public, Static, HasDefault
+Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 所有大名配列IX 'get set' : 
+    Int32 役位   'get set' : 
+    System.String 役職名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_役職名(): PrivateScope, Public, HideBySig, SpecialName
+    set_役職名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_役位(): PrivateScope, Public, HideBySig, SpecialName
+    set_役位(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所有大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所有大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.武将.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

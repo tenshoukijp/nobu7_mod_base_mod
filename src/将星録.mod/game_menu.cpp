@@ -22,6 +22,10 @@ void onMenuKanniEditStart() {
 	Show_FormMod("官位エディタ.mod.dll", "将星録.官位エディタ");
 }
 
+void onMenuYakusyokuEditStart() {
+	Show_FormMod("役職エディタ.mod.dll", "将星録.役職エディタ");
+}
+
 // メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、
 // 番号は主にリソースエディタで確認できる
 BOOL onMenuPushed(int iMenuID) {
@@ -47,7 +51,7 @@ BOOL onMenuPushed(int iMenuID) {
 		onMenuKanniEditStart();
 		return TRUE;
 	case ADDITIONAL_MENU_ID_YAKUSYOKUEDIT_KAI:
-		// onMenuYakusyokuEditStart();
+		onMenuYakusyokuEditStart();
 		return TRUE;
 	case ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI:
 		// onMenuNenngetuEditStart();

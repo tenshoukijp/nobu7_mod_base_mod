@@ -3,13 +3,6 @@
 #include "data_game_struct.h"
 #include "data_kanni_struct.h"
 #include "mng_Š¯ˆÊ—ñ‹“.h"
-
-
-#include <string>
-
-#include "data_game_struct.h"
-#include "data_Kanni_struct.h"
-#include "mng_Š¯ˆÊ—ñ‹“.h"
 #include "mng_Š¯ˆÊî•ñ.h"
 
 using namespace std;

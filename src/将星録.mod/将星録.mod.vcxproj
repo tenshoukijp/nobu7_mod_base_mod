@@ -113,6 +113,8 @@
     <ClInclude Include="mng_官位列挙.h" />
     <ClInclude Include="mng_官位情報.h" />
     <ClInclude Include="mng_家宝情報.h" />
+    <ClInclude Include="mng_役職列挙.h" />
+    <ClInclude Include="mng_役職情報.h" />
     <ClInclude Include="mng_文字列変換.h" />
     <ClInclude Include="mng_武将列挙.h" />
     <ClInclude Include="onigwrap.h" />
@@ -139,6 +141,10 @@
     <ClCompile Include="data_turn_daimyo_struct.cpp" />
     <ClCompile Include="data_turn_player_castle.cpp" />
     <ClCompile Include="file_attribute.cpp" />
+    <ClCompile Include="hook_bgm_filename.cpp" />
+    <ClCompile Include="hook_bgm2_filename.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="hook_movie_filename.cpp" />
     <ClCompile Include="hook_readfile_custom.cpp" />
     <ClCompile Include="hook_unknown_dialog3.cpp">
@@ -185,6 +191,7 @@
     <ClCompile Include="hook_setmenu_custom.cpp" />
     <ClCompile Include="hook_textouta_custom.cpp" />
     <ClCompile Include="game_menu.cpp" />
+    <ClCompile Include="mng_役職情報.cpp" />
     <ClCompile Include="mng_文字列変換.cpp" />
     <ClCompile Include="mng_武将情報.cpp" />
     <ClCompile Include="onigwrap.cpp" />
