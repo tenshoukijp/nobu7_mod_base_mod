@@ -66,9 +66,14 @@ using namespace std;
 
 
 BOOL nPlayBGMNextIsMMio = FALSE; // ‚±‚Ì’¼Œã‚ÌMMIO‚É‚æ‚é§Œä‚ª–{“–‚É«¯˜^‚Ì‚à‚Ì‚Å‚ ‚é‚±‚Æ‚Ì•ÛØ‚É—˜—p‚·‚é
+static int nPlayBgmEaxBackup = -1;
+static int nPlayBgmArg1 = -1;
+static int nPlayBgmArg2 = -1;
+static int nPlayBgmArg3 = -1;
 void OnSSRExePlayBGMExecute() {
 	nPlayBGMNextIsMMio = TRUE; // ‚±‚Ìƒtƒ‰ƒO‚Í¡‚Ì‚Æ‚±‚ë—˜—p‚µ‚Ä‚¢‚È‚¢‚ªA¡Œã‚Ì‚½‚ß‚Éc‚µ‚Ä‚¨‚­B
 	OutputDebugStream("BGM‚ÌÄ¶ŠÖ”‚ªŒÄ‚Î‚ê‚½‚æ!!");
+	OutputDebugStream("%d, %d, ”Ô†%d\n", nPlayBgmArg1, nPlayBgmArg2, nPlayBgmArg3);
 }
 
 
@@ -88,6 +93,17 @@ int pSSRExeReturnLblFromOnSSRExePlayBGM = 0x4193E6; // ŠÖ”‚ªÅŒã‚Ü‚Å‚¢‚­‚ÆA‚±‚
 __declspec(naked) void WINAPI OnSSRExePlayBGM() {
 	// ƒXƒ^ƒbƒN‚É‚½‚ß‚Ä‚¨‚­
 	__asm {
+		mov nPlayBgmEaxBackup, eax          // Œã‚Å•œŒ³‚·‚é‚½‚ßAŒ»ó‚ÌEAX‚Íæ‚Á‚Ä‚¨‚­
+
+		MOV eax, DWORD PTR SS : [ESP + 0x4] // 3”Ô–Ú‚Ìˆø”‚ğæ“¾
+		mov nPlayBgmArg3, eax
+		MOV eax, DWORD PTR SS : [ESP + 0x8] // 2”Ô–Ú‚Ìˆø”‚ğæ“¾
+		mov nPlayBgmArg2, eax
+		MOV eax, DWORD PTR SS : [ESP + 0xC] // 1”Ô–Ú‚Ìˆø”‚ğæ“¾
+		mov nPlayBgmArg1, eax
+
+		mov eax, nPlayBgmEaxBackup		     // EAX‚ğ•œŒ³‚·‚é
+
 		SUB ESP, 0x104   // Œ³‚Ì‹Lq‚ğ‚±‚±‚É
 
 		push eax

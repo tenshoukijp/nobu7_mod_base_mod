@@ -246,6 +246,9 @@
     <ClInclude Include="mng_役職情報.h">
       <Filter>ゲームデータ - 役職情報</Filter>
     </ClInclude>
+    <ClInclude Include="mng_ゲーム画面.h">
+      <Filter>画面</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">

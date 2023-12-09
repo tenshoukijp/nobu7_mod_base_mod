@@ -268,7 +268,7 @@ void resetAlbedo所属城下遺恨武将() {
     for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
         if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
             // アルベドが「現役」である、もしくはアルベドは大名である
-            if (nb7武将情報[iBushouID].状態 == 1 || nb7武将情報[iBushouID].状態 == 0) {
+            if (nb7武将情報[iBushouID].状態 == 列挙::武将::状態::現役 || nb7武将情報[iBushouID].状態 == 列挙::武将::状態::大名) {
                 int iAlbedoCastleID = getCastleIdFromBushouID(iBushouID);
                 if (isValidCastleID(iAlbedoCastleID)) {
                     int*pAlbedo所属大名 = nb7城情報[iAlbedoCastleID].p所属大名;
@@ -276,7 +276,7 @@ void resetAlbedo所属城下遺恨武将() {
                     // その大名を恨む浪人から遺恨を消し去る
                     for (int b = 0; b < 最大数::武将情報::配列数; b++) {
                         // 浪人である
-                        if (nb7武将情報[b].状態 == 3) {
+                        if (nb7武将情報[b].状態 == 列挙::武将::状態::浪人) {
                             if (nb7武将情報[b].p遺恨大名 == pAlbedo所属大名) {
                                 OutputDebugStream("浪人:%s\n", nb7武将情報[b].姓名);
                                 //  nb7武将情報[b].遺恨 = 0;
@@ -313,7 +313,7 @@ void 籠城中のアルベドの敵武将は戦闘値が最低となる(std::string sCastleName)
             OutputDebugStream("CastleIDは:%dです\n", iCastleID);
             for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
                 // 現役か大名である
-                if (nb7武将情報[iBushouID].状態 == 1 || nb7武将情報[iBushouID].状態 == 0) {
+                if (nb7武将情報[iBushouID].状態 == 列挙::武将::状態::現役 || nb7武将情報[iBushouID].状態 == 列挙::武将::状態::大名) {
                     int iBushouCastleID = getCastleIdFromBushouID(iBushouID);
                     // 該当武将は籠城戦中の城に帰属している(籠城戦に参加しているとは限らない)
                     if (iBushouCastleID == iRoujoCastleID) {

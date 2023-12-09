@@ -2,6 +2,7 @@
 
 
 #include <windows.h>
+#include "mng_•«—ñ‹“.h"
 
 #define ‘å–¼î•ñƒAƒhƒŒƒX 0x569848
 

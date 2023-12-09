@@ -239,6 +239,7 @@ public class 家宝エディタ : Form
 
         dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.Gray;
         dgv.Columns[(int)タイトル.家宝名].ValueType = typeof(string);
         dgv.Columns[(int)タイトル.種類].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.画像].ValueType = typeof(int);

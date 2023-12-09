@@ -18,7 +18,6 @@ using namespace std;
 
 
 void WriteAsmJumperOnSSRExeMessageDetail();
-
 void doGameTest() {
 
 	/*
@@ -169,10 +168,5 @@ void doGameTest() {
 		}
 	}
 	*/
-
-	nb7‰Æ•óî•ñ[42].‰æ‘œ = 27;
 }
-
-
-
 

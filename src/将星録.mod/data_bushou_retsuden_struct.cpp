@@ -1,8 +1,10 @@
 #include "data_game_struct.h"
 #include "game_screen.h"
 
+using namespace 列挙;
+
 int getRetsudenBushouID() {
-	ゲーム画面ステータス status = getゲーム画面ステータス();
+	int status = getゲーム画面ステータス();
 	if (status == ゲーム画面ステータス::戦略画面 || status == ゲーム画面ステータス::野戦画面 || status == ゲーム画面ステータス::籠城戦画面) {
 		// 所有武将のアドレスを直接さしている
 		int nBushouAddress = *(int*)(武将列伝武将情報アドレス);

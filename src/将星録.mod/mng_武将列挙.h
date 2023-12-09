@@ -3,165 +3,19 @@
 namespace «¯˜^ {
 	namespace —ñ‹“ {
 		namespace •« {
-			/*
-			public ref class •º‰È {
-			public:
-				static const int ‘«Œy = 0;
-				static const int ‹R”n = 1;
-				static const int “S–C = 2;
-				static const int ‹R”n“S–C = 3;
-			};
-			public ref class vl {
-			public:
-				static const int –¼« = 0;
-				static const int –Ò« = 1;
-				static const int Œ˜„ = 2;
-				static const int ‰}í = 3;
-				static const int “à­ = 4;
-				static const int ’²—ª = 5;
-				static const int ˆê”Ê = 6;
-				static const int •P = 7;
-				static const int ‚»‚Ì‘¼ = 255;
-			};
-
-			public ref class E‹Æ {
-			public:
-				static const int –³‚µ = 0;
-				static const int ”EÒ = 0x10;
-				static const int ’ƒl = 0x20;
-				static const int Œ•‹ = 0x30;
-				static const int ‘m—µ = 0x40;
-			};
-
-			public ref class ­¡“K« {
-			public:
-				static const int ‚` = 2;
-				static const int ‚a = 1;
-				static const int ‚b = 0;
-			};
-
-			public ref class í“¬“K« {
-			public:
-				static const int ‚` = 2;
-				static const int ‚a = 1;
-				static const int ‚b = 0;
-			};
-
-			public ref class ’q–d“K« {
-			public:
-				static const int ‚` = 2;
-				static const int ‚a = 1;
-				static const int ‚b = 0;
-			};
-
-
-			public ref class ‘«Œy“K« {
-			public:
-				static const int ‚r = 5;
-				static const int ‚` = 4;
-				static const int ‚a = 3;
-				static const int ‚b = 2;
-				static const int ‚c = 1;
-				static const int ‚d = 0;
-			};
-
-			public ref class ‹R”n“K« {
-			public:
-				static const int ‚r = 5;
-				static const int ‚` = 4;
-				static const int ‚a = 3;
-				static const int ‚b = 2;
-				static const int ‚c = 1;
-				static const int ‚d = 0;
-			};
-
-			public ref class “S–C“K« {
-			public:
-				static const int ‚r = 5;
-				static const int ‚` = 4;
-				static const int ‚a = 3;
-				static const int ‚b = 2;
-				static const int ‚c = 1;
-				static const int ‚d = 0;
-			};
-
-			public ref class …ŒR“K« {
-			public:
-				static const int ‚r = 5;
-				static const int ‚` = 4;
-				static const int ‚a = 3;
-				static const int ‚b = 2;
-				static const int ‚c = 1;
-				static const int ‚d = 0;
-			};
-
-			public ref class Œû’² {
-			public:
-				static const int –³Œû = 0;
-				static const int —ç‹V = 1;
-				static const int ‘e–\ = 2;
-				static const int ‚‹M = 3;
-				static const int ¶ˆÓ‹C = 4;
-				static const int ˆĞŒµ = 5;
-				static const int é`ã = 6;
-				static const int ˆê”Ê = 7;
-			};
-
 			public ref class ó‘Ô {
 			public:
 				static const int ‘å–¼ = 0;
-				static const int ŒR’c’· = 1;
-				static const int Œ»–ğ = 2;
-				static const int ‰B‹ = 3;
-				static const int ˜Ql = 4;
-				static const int •P = 5;
-				static const int ‘Ò‹@ = 6;
-				static const int €–S = 7;
+				static const int Œ»–ğ = 1;
+				static const int “Æ—§¨—Í = 2;
+				static const int ˜Ql = 3;
+				static const int •P = 4;
+				static const int –¢“oê = 5;
+				static const int ˆêŒüˆê„¨—Í = 6;
+				static const int ˆê„¨—Í = 7;
+				static const int €–S = 8;
 			};
 
-			public ref class g•ª {
-			public:
-				static const int ‰B‹ = 0;
-				static const int ‘å–¼ = 1;
-				static const int h˜V = 2;
-				static const int ‰Æ˜V = 3;
-				static const int •”« = 4;
-				static const int ˜‘å« = 5;
-				static const int ‘«Œy“ª = 6;
-			};
-
-			public ref class «•Ê {
-			public:
-				static const int ’j = 0;
-				static const int — = 1;
-			};
-
-			public ref class ·Š·Šç”Ô† {
-			public:
-				static const int jÀ‚P = 0;
-				static const int æ‚P = 3800;
-			};
-
-			namespace í‘ˆ {
-				public ref class Qí—§ê {
-				public:
-					static const int •s–¾ = 0;
-					static const int UŒ‚ŒR = 1;
-					static const int ç”õŒR = 2;
-					static const int UŒ‚‚Ì‰‡ŒR = 3;
-					static const int ç”õ‚Ì‰‡ŒR = 4;
-					static const int ’†—§ŒR = 5;
-				};
-
-				public ref class ¬—ó‘Ô {
-				public:
-					static const int –³‚µ = 0;
-					static const int ¬— = 1;
-					static const int ‘å¬— = 2;
-					static const int ’§”­¬— = 3;
-				};
-			}
-			*/
 			public ref class ”z—ñ {
 			public:
 				static const int åyè‹GL = 0;

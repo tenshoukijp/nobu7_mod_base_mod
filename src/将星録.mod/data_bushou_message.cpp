@@ -13,6 +13,7 @@
 #include "onigwrap.h"
 
 using namespace std;
+using namespace 列挙;
 
 int get主体BushouIDFromMessageBushou() {
 	// 所有武将のアドレスを直接さしている
@@ -47,7 +48,7 @@ int get相手BushouIDFromMessageBushou() {
 }
 
 void checkReplaceBushouSerifuMessage() {
-	ゲーム画面ステータス status = getゲーム画面ステータス();
+	int status = getゲーム画面ステータス();
 	if (status == ゲーム画面ステータス::戦略画面 || status == ゲーム画面ステータス::野戦画面 || status == ゲーム画面ステータス::籠城戦画面) {
 		// 主体武将と相手武将を求める。値は有効でも主体武将自体前回のものが残っているだけかもしれない。ただし吹き出し会話なのであれば主体武将は必ずセットされる。
 		int i主体BushouID = get主体BushouIDFromMessageBushou();

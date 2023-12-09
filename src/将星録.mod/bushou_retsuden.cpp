@@ -12,7 +12,7 @@
 #include "message_albedo.h"
 #include "onigwrap.h"
 using namespace std;
-
+using namespace 列挙;
 /*
 メモリの呼び出し元、その①
 00496D8B   E8 80B20600      CALL Nobunaga.00502010
@@ -107,7 +107,7 @@ void checkReplaceBushouRetsuden() {
 		}
 	}
 
-	ゲーム画面ステータス status = getゲーム画面ステータス();
+	int status = getゲーム画面ステータス();
 	if (status == ゲーム画面ステータス::戦略画面 || status == ゲーム画面ステータス::野戦画面 || status == ゲーム画面ステータス::籠城戦画面) {
 		checkReplaceBushouSerifuMessage();
 

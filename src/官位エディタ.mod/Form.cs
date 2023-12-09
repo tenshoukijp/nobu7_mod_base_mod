@@ -122,17 +122,20 @@ public class 官位エディタ : Form
         foreach (var 官位 in 官位配列)
         {
             dgv.Rows.Add(
-              官位.配列IX,
-              官位.官位名,
-              官位.階位,
-              官位.所有武将配列IX
-              );
+                官位.配列IX,
+                官位.官位名,
+                官位.階位,
+                官位.所有武将配列IX
+                );
         }
 
         dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.Gray;
         dgv.Columns[(int)タイトル.官位名].ValueType = typeof(string);
         dgv.Columns[(int)タイトル.階位].ValueType = typeof(int);
+        dgv.Columns[(int)タイトル.階位].ReadOnly = true;
+        dgv.Columns[(int)タイトル.階位].DefaultCellStyle.BackColor = Color.Gray;
         dgv.Columns[(int)タイトル.所有武将配列IX].ValueType = typeof(int);
 
 

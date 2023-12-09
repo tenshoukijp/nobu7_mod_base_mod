@@ -8,6 +8,8 @@
 #include "hook_functions_direct.h"
 #include "on_event.h"
 
+using namespace 列挙;
+
 void onOpeningMovie() {
     hookFunctionsDirect();
     setゲーム画面ステータス(ゲーム画面ステータス::起動画面);
@@ -93,7 +95,7 @@ void onChoteiKenjo(string choteiKenjoInfo) {
     OutputDebugStream("★朝廷献上\n");
 
     Matches ma;
-    if ( OnigMatch(choteiKenjoInfo, "献上使者(.+?)朝廷(菊亭晴季|山科言継)友好度(\\d+)", &ma)) {
+    if ( OnigMatch(choteiKenjoInfo, "献上使者(.+?)朝廷(菊亭晴季|山科言継|勧修寺晴豊)友好度(\\d+)", &ma)) {
     	OutputDebugStream("朝廷献上使者:" + ma[1] + "\n");
 		OutputDebugStream("朝廷友好度:" + ma[3] + "\n");
 
@@ -132,7 +134,7 @@ void onYanseBattlePrePreStart() {
 
 void onYasenBattlePreStart() {
     OutputDebugStream("野戦の戦闘が開始しました\n\n");
-    setゲーム画面ステータス(ゲーム画面ステータス::野戦画面);
+    setゲーム画面ステータス(列挙::ゲーム画面ステータス::野戦画面);
 
     アルベドのユニットが軍隊や軍船なら兵数復活();
 }
@@ -563,7 +565,7 @@ int dispatchEvent() {
     else if(OnigMatch(bufferTextOut, "^(.+?)家(\\1(.+?))\\1家\\2$")) {
         onStrategyDaimyoturnChanged(bufferTextOut);
     }
-    else if (OnigMatch(bufferTextOut, "献上使者(.+?)朝廷(菊亭晴季|山科言継)友好度(\\d+)")) {
+    else if (OnigMatch(bufferTextOut, "献上使者(.+?)朝廷(菊亭晴季|山科言継|勧修寺晴豊)友好度(\\d+)")) {
         onChoteiKenjo(bufferTextOut);
     }
     else if (OnigMatch(bufferTextOut, "同盟使者(.+?)友好度(\\d+)")) {

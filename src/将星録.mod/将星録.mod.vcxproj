@@ -108,6 +108,7 @@
     <ClInclude Include="game_menu.h" />
     <ClInclude Include="load_form_mod.h" />
     <ClInclude Include="message_albedo.h" />
+    <ClInclude Include="mng_ゲーム画面.h" />
     <ClInclude Include="mng_フォント.h" />
     <ClInclude Include="mng_ユニット情報.h" />
     <ClInclude Include="mng_官位列挙.h" />

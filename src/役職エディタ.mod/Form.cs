@@ -131,9 +131,11 @@ public class 役職エディタ : Form
 
         dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.Gray;
         dgv.Columns[(int)タイトル.役職名].ValueType = typeof(string);
         dgv.Columns[(int)タイトル.役位].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.役位].ReadOnly = true;
+        dgv.Columns[(int)タイトル.役位].DefaultCellStyle.BackColor = Color.Gray;
         dgv.Columns[(int)タイトル.所有大名配列IX].ValueType = typeof(int);
 
 

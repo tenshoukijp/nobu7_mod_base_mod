@@ -37,416 +37,18 @@ Class 将星録.列挙.ユニット.種別: AutoLayout, AnsiClass, Class, Public
     Int32 使者 IsConst : Public, Static, HasDefault
     Int32 移動 IsConst : Public, Static, HasDefault
     Int32 浪人 IsConst : Public, Static, HasDefault
-Class 将星録.最大数.武将情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class 将星録.列挙.武将.状態: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
-    Int32 配列数 IsConst : Public, Static, HasDefault
-    Int32 総配列数 IsConst : Public, Static, HasDefault
-Class 将星録.最大数.ユニット情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 配列数 IsConst : Public, Static, HasDefault
-    Int32 軍勢部隊数 IsConst : Public, Static, HasDefault
-Class 将星録.最大数.城情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 配列数 IsConst : Public, Static, HasDefault
-Class 将星録.最大数.大名情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 配列数 IsConst : Public, Static, HasDefault
-Class 将星録.最大数.家宝情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 配列数 IsConst : Public, Static, HasDefault
-Class 将星録.最大数.官位情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 配列数 IsConst : Public, Static, HasDefault
-Class 将星録.最大数.役職情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 配列数 IsConst : Public, Static, HasDefault
-Class 将星録.列挙.家宝.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 曜変稲葉天目 IsConst : Public, Static, HasDefault
-    Int32 灰被虹天目 IsConst : Public, Static, HasDefault
-    Int32 青磁砧馬蝗絆 IsConst : Public, Static, HasDefault
-    Int32 雲鶴匹田筒 IsConst : Public, Static, HasDefault
-    Int32 大井戸加賀 IsConst : Public, Static, HasDefault
-    Int32 三島桶 IsConst : Public, Static, HasDefault
-    Int32 三好粉吹 IsConst : Public, Static, HasDefault
-    Int32 魚屋飯櫃高麗 IsConst : Public, Static, HasDefault
-    Int32 黒楽大黒 IsConst : Public, Static, HasDefault
-    Int32 赤楽早船 IsConst : Public, Static, HasDefault
-    Int32 松花 IsConst : Public, Static, HasDefault
-    Int32 松島 IsConst : Public, Static, HasDefault
-    Int32 三日月 IsConst : Public, Static, HasDefault
-    Int32 四十石 IsConst : Public, Static, HasDefault
-    Int32 橋立 IsConst : Public, Static, HasDefault
-    Int32 九十九髪茄子 IsConst : Public, Static, HasDefault
-    Int32 楢柴肩衝 IsConst : Public, Static, HasDefault
-    Int32 新田肩衝 IsConst : Public, Static, HasDefault
-    Int32 初花肩衝 IsConst : Public, Static, HasDefault
-    Int32 国司茄子 IsConst : Public, Static, HasDefault
-    Int32 富士茄子 IsConst : Public, Static, HasDefault
-    Int32 紹鴎茄子 IsConst : Public, Static, HasDefault
-    Int32 珠光小茄子 IsConst : Public, Static, HasDefault
-    Int32 似たり茄子 IsConst : Public, Static, HasDefault
-    Int32 稲葉瓢箪 IsConst : Public, Static, HasDefault
-    Int32 上杉瓢箪 IsConst : Public, Static, HasDefault
-    Int32 朝倉文琳 IsConst : Public, Static, HasDefault
-    Int32 打雲大海 IsConst : Public, Static, HasDefault
-    Int32 遅桜肩衝 IsConst : Public, Static, HasDefault
-    Int32 松屋肩衝 IsConst : Public, Static, HasDefault
-    Int32 平蜘蛛釜 IsConst : Public, Static, HasDefault
-    Int32 芦屋真形釜 IsConst : Public, Static, HasDefault
-    Int32 乙御前釜 IsConst : Public, Static, HasDefault
-    Int32 大講堂釜 IsConst : Public, Static, HasDefault
-    Int32 達磨堂釜 IsConst : Public, Static, HasDefault
-    Int32 青磁砧大内筒 IsConst : Public, Static, HasDefault
-    Int32 一重切園城寺 IsConst : Public, Static, HasDefault
-    Int32 二重切夜長 IsConst : Public, Static, HasDefault
-    Int32 尺八 IsConst : Public, Static, HasDefault
-    Int32 貨狄 IsConst : Public, Static, HasDefault
-    Int32 青磁千鳥 IsConst : Public, Static, HasDefault
-    Int32 鬼切 IsConst : Public, Static, HasDefault
-    Int32 鬼丸 IsConst : Public, Static, HasDefault
-    Int32 甲斐国郷 IsConst : Public, Static, HasDefault
-    Int32 圧切 IsConst : Public, Static, HasDefault
-    Int32 妙法村正 IsConst : Public, Static, HasDefault
-    Int32 宗三左文字 IsConst : Public, Static, HasDefault
-    Int32 影秀 IsConst : Public, Static, HasDefault
-    Int32 吉光骨喰 IsConst : Public, Static, HasDefault
-    Int32 雷切 IsConst : Public, Static, HasDefault
-    Int32 戒杖刀国宗 IsConst : Public, Static, HasDefault
-    Int32 童子切安綱 IsConst : Public, Static, HasDefault
-    Int32 大般若長光 IsConst : Public, Static, HasDefault
-    Int32 片鎌槍 IsConst : Public, Static, HasDefault
-    Int32 蜻蛉切 IsConst : Public, Static, HasDefault
-    Int32 日本 IsConst : Public, Static, HasDefault
-    Int32 十文字槍 IsConst : Public, Static, HasDefault
-    Int32 笹葉槍 IsConst : Public, Static, HasDefault
-    Int32 金小札色々威 IsConst : Public, Static, HasDefault
-    Int32 白糸素懸威胴 IsConst : Public, Static, HasDefault
-    Int32 紅糸威小腹巻 IsConst : Public, Static, HasDefault
-    Int32 黒漆塗五枚胴 IsConst : Public, Static, HasDefault
-    Int32 南蛮胴具足 IsConst : Public, Static, HasDefault
-    Int32 昇梯子二枚胴 IsConst : Public, Static, HasDefault
-    Int32 熏辜素懸威 IsConst : Public, Static, HasDefault
-    Int32 縹糸下散紅威 IsConst : Public, Static, HasDefault
-    Int32 金陀美具足 IsConst : Public, Static, HasDefault
-    Int32 花色日の丸威 IsConst : Public, Static, HasDefault
-    Int32 稲妻型蒔絵鞍 IsConst : Public, Static, HasDefault
-    Int32 芦穂蒔絵鞍 IsConst : Public, Static, HasDefault
-    Int32 水玉紋陣羽織 IsConst : Public, Static, HasDefault
-    Int32 菊鍾馗陣羽織 IsConst : Public, Static, HasDefault
-    Int32 緋羅紗陣羽織 IsConst : Public, Static, HasDefault
-    Int32 天鵞絨洋套 IsConst : Public, Static, HasDefault
-    Int32 帝釈栗毛 IsConst : Public, Static, HasDefault
-    Int32 松風 IsConst : Public, Static, HasDefault
-    Int32 黒雲 IsConst : Public, Static, HasDefault
-    Int32 放生月毛 IsConst : Public, Static, HasDefault
-    Int32 星崎 IsConst : Public, Static, HasDefault
-    Int32 鬼鹿毛 IsConst : Public, Static, HasDefault
-    Int32 白石 IsConst : Public, Static, HasDefault
-    Int32 太平楽 IsConst : Public, Static, HasDefault
-    Int32 桜野 IsConst : Public, Static, HasDefault
-    Int32 三国黒 IsConst : Public, Static, HasDefault
-    Int32 馬上筒 IsConst : Public, Static, HasDefault
-    Int32 指火式銃 IsConst : Public, Static, HasDefault
-    Int32 籠筒 IsConst : Public, Static, HasDefault
-    Int32 懐鉄砲 IsConst : Public, Static, HasDefault
-    Int32 腰指筒 IsConst : Public, Static, HasDefault
-    Int32 新当流兵法書 IsConst : Public, Static, HasDefault
-    Int32 陰流之私 IsConst : Public, Static, HasDefault
-    Int32 ト伝百首 IsConst : Public, Static, HasDefault
-    Int32 五輪書 IsConst : Public, Static, HasDefault
-    Int32 示現流兵法書 IsConst : Public, Static, HasDefault
-    Int32 夕雲流剣術書 IsConst : Public, Static, HasDefault
-    Int32 新陰百首 IsConst : Public, Static, HasDefault
-    Int32 大坪流馬術書 IsConst : Public, Static, HasDefault
-    Int32 荒木流馬術書 IsConst : Public, Static, HasDefault
-    Int32 稲富流砲術書 IsConst : Public, Static, HasDefault
-    Int32 津田流砲術書 IsConst : Public, Static, HasDefault
-    Int32 一火流砲術書 IsConst : Public, Static, HasDefault
-    Int32 砲術真業録 IsConst : Public, Static, HasDefault
-    Int32 西村流砲術書 IsConst : Public, Static, HasDefault
-    Int32 霞流砲術書 IsConst : Public, Static, HasDefault
-    Int32 外記流砲術書 IsConst : Public, Static, HasDefault
-    Int32 鉄砲打方 IsConst : Public, Static, HasDefault
-    Int32 岸和田流砲書 IsConst : Public, Static, HasDefault
-    Int32 安見流砲術書 IsConst : Public, Static, HasDefault
-    Int32 孫子 IsConst : Public, Static, HasDefault
-    Int32 六韜 IsConst : Public, Static, HasDefault
-    Int32 黄石公三略 IsConst : Public, Static, HasDefault
-    Int32 闘戦経 IsConst : Public, Static, HasDefault
-    Int32 呉子 IsConst : Public, Static, HasDefault
-    Int32 医書大全 IsConst : Public, Static, HasDefault
-    Int32 三喜廻翁医書 IsConst : Public, Static, HasDefault
-    Int32 八十一難経 IsConst : Public, Static, HasDefault
-    Int32 外療新明集 IsConst : Public, Static, HasDefault
-    Int32 啓迪集 IsConst : Public, Static, HasDefault
-    Int32 万川集海 IsConst : Public, Static, HasDefault
-    Int32 忍秘伝 IsConst : Public, Static, HasDefault
-    Int32 正忍記 IsConst : Public, Static, HasDefault
-    Int32 忍法秘巻 IsConst : Public, Static, HasDefault
-    Int32 神伝忍術秘書 IsConst : Public, Static, HasDefault
-    Int32 塵塚物語 IsConst : Public, Static, HasDefault
-    Int32 尺素往来 IsConst : Public, Static, HasDefault
-    Int32 貞永式目抄 IsConst : Public, Static, HasDefault
-    Int32 貞観政要 IsConst : Public, Static, HasDefault
-    Int32 節用集 IsConst : Public, Static, HasDefault
-    Int32 朗詠集 IsConst : Public, Static, HasDefault
-    Int32 日葡辞書 IsConst : Public, Static, HasDefault
-    Int32 日本大文典 IsConst : Public, Static, HasDefault
-    Int32 農政全書 IsConst : Public, Static, HasDefault
-    Int32 清良記 IsConst : Public, Static, HasDefault
-    Int32 政基公旅引付 IsConst : Public, Static, HasDefault
-    Int32 身自鏡 IsConst : Public, Static, HasDefault
-    Int32 善隣国宝記 IsConst : Public, Static, HasDefault
-    Int32 唐船日記 IsConst : Public, Static, HasDefault
-    Int32 海東諸国記 IsConst : Public, Static, HasDefault
-    Int32 菽園雑記 IsConst : Public, Static, HasDefault
-    Int32 梅津政景日記 IsConst : Public, Static, HasDefault
-    Int32 匠明 IsConst : Public, Static, HasDefault
-    Int32 士鑑用法 IsConst : Public, Static, HasDefault
-    Int32 兵法雄鑑 IsConst : Public, Static, HasDefault
-    Int32 兵法雌鑑 IsConst : Public, Static, HasDefault
-    Int32 武教全書 IsConst : Public, Static, HasDefault
-    Int32 築城記 IsConst : Public, Static, HasDefault
-    Int32 愚子見記 IsConst : Public, Static, HasDefault
-    Int32 史記 IsConst : Public, Static, HasDefault
-    Int32 古事記 IsConst : Public, Static, HasDefault
-    Int32 聖書 IsConst : Public, Static, HasDefault
-    Int32 罪人の導き IsConst : Public, Static, HasDefault
-    Int32 源氏物語 IsConst : Public, Static, HasDefault
-    Int32 伊勢物語 IsConst : Public, Static, HasDefault
-    Int32 万葉集 IsConst : Public, Static, HasDefault
-    Int32 古今和歌集 IsConst : Public, Static, HasDefault
-    Int32 神曲 IsConst : Public, Static, HasDefault
-    Int32 東方見聞録 IsConst : Public, Static, HasDefault
-    Int32 伊曽保物語 IsConst : Public, Static, HasDefault
-    Int32 本願念仏集 IsConst : Public, Static, HasDefault
-    Int32 教行信証 IsConst : Public, Static, HasDefault
-    Int32 歎異抄 IsConst : Public, Static, HasDefault
-    Int32 立正安国論 IsConst : Public, Static, HasDefault
-    Int32 興禅護国論 IsConst : Public, Static, HasDefault
-    Int32 正法眼蔵 IsConst : Public, Static, HasDefault
-    Int32 一遍上人絵伝 IsConst : Public, Static, HasDefault
-    Int32 太平記 IsConst : Public, Static, HasDefault
-    Int32 平家物語 IsConst : Public, Static, HasDefault
-    Int32 三國志演義 IsConst : Public, Static, HasDefault
-    Int32 水滸伝 IsConst : Public, Static, HasDefault
-    Int32 雑兵物語 IsConst : Public, Static, HasDefault
-    Int32 陰徳太平記 IsConst : Public, Static, HasDefault
-    Int32 宗湛日記 IsConst : Public, Static, HasDefault
-    Int32 島井宗室訓戒 IsConst : Public, Static, HasDefault
-    Int32 今井宗久日記 IsConst : Public, Static, HasDefault
-    Int32 遠宗拾遺 IsConst : Public, Static, HasDefault
-    Int32 松屋筆記 IsConst : Public, Static, HasDefault
-    Int32 菓子図 IsConst : Public, Static, HasDefault
-    Int32 白鷺図 IsConst : Public, Static, HasDefault
-    Int32 夕陽朝山図 IsConst : Public, Static, HasDefault
-    Int32 鴨図 IsConst : Public, Static, HasDefault
-    Int32 瀟湘八景図 IsConst : Public, Static, HasDefault
-    Int32 観音図 IsConst : Public, Static, HasDefault
-    Int32 石菖蒲図 IsConst : Public, Static, HasDefault
-    Int32 布袋図 IsConst : Public, Static, HasDefault
-    Int32 地球儀 IsConst : Public, Static, HasDefault
-    Int32 坤輿万国全図 IsConst : Public, Static, HasDefault
-    Int32 拾芥抄 IsConst : Public, Static, HasDefault
-    Int32 慶長日本総図 IsConst : Public, Static, HasDefault
-    Int32 行基図 IsConst : Public, Static, HasDefault
-    Int32 羅針盤 IsConst : Public, Static, HasDefault
-    Int32 自鳴鐘 IsConst : Public, Static, HasDefault
-    Int32 置時計 IsConst : Public, Static, HasDefault
-    Int32 算盤 IsConst : Public, Static, HasDefault
-    Int32 十字架 IsConst : Public, Static, HasDefault
-    Int32 遠眼鏡 IsConst : Public, Static, HasDefault
-    Int32 煙草 IsConst : Public, Static, HasDefault
-    Int32 ヴァージナル IsConst : Public, Static, HasDefault
-    Int32 双六 IsConst : Public, Static, HasDefault
-    Int32 歌留多 IsConst : Public, Static, HasDefault
-    Int32 蘭奢待 IsConst : Public, Static, HasDefault
-Class 将星録.列挙.家宝.種類: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 茶道道具 IsConst : Public, Static, HasDefault
-    Int32 武器 IsConst : Public, Static, HasDefault
-    Int32 兵装品 IsConst : Public, Static, HasDefault
-    Int32 名馬 IsConst : Public, Static, HasDefault
-    Int32 短筒 IsConst : Public, Static, HasDefault
-    Int32 剣術所 IsConst : Public, Static, HasDefault
-    Int32 馬術書 IsConst : Public, Static, HasDefault
-    Int32 砲術書 IsConst : Public, Static, HasDefault
-    Int32 兵法書 IsConst : Public, Static, HasDefault
-    Int32 医術書 IsConst : Public, Static, HasDefault
-    Int32 忍術書 IsConst : Public, Static, HasDefault
-    Int32 知識書 IsConst : Public, Static, HasDefault
-    Int32 農政書 IsConst : Public, Static, HasDefault
-    Int32 外交書 IsConst : Public, Static, HasDefault
-    Int32 鉱術書 IsConst : Public, Static, HasDefault
-    Int32 建築書 IsConst : Public, Static, HasDefault
-    Int32 歴史書 IsConst : Public, Static, HasDefault
-    Int32 宗教書 IsConst : Public, Static, HasDefault
-    Int32 文学書 IsConst : Public, Static, HasDefault
-    Int32 仏教書 IsConst : Public, Static, HasDefault
-    Int32 軍記物語 IsConst : Public, Static, HasDefault
-    Int32 商業書 IsConst : Public, Static, HasDefault
-    Int32 絵画 IsConst : Public, Static, HasDefault
-    Int32 地図 IsConst : Public, Static, HasDefault
-    Int32 羅針盤 IsConst : Public, Static, HasDefault
-    Int32 南蛮時計 IsConst : Public, Static, HasDefault
-    Int32 算盤 IsConst : Public, Static, HasDefault
-    Int32 十字架 IsConst : Public, Static, HasDefault
-    Int32 珍品 IsConst : Public, Static, HasDefault
-    Int32 香木 IsConst : Public, Static, HasDefault
-Class 将星録.列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 茶碗 IsConst : Public, Static, HasDefault
-    Int32 茶壺 IsConst : Public, Static, HasDefault
-    Int32 茶入 IsConst : Public, Static, HasDefault
-    Int32 茶釜 IsConst : Public, Static, HasDefault
-    Int32 花入 IsConst : Public, Static, HasDefault
-    Int32 千鳥 IsConst : Public, Static, HasDefault
-    Int32 刀剣 IsConst : Public, Static, HasDefault
-    Int32 槍 IsConst : Public, Static, HasDefault
-    Int32 具足 IsConst : Public, Static, HasDefault
-    Int32 鞍 IsConst : Public, Static, HasDefault
-    Int32 陣羽織 IsConst : Public, Static, HasDefault
-    Int32 馬 IsConst : Public, Static, HasDefault
-    Int32 綴本 IsConst : Public, Static, HasDefault
-    Int32 巻子本 IsConst : Public, Static, HasDefault
-    Int32 掛絵 IsConst : Public, Static, HasDefault
-    Int32 巻絵 IsConst : Public, Static, HasDefault
-    Int32 地図 IsConst : Public, Static, HasDefault
-    Int32 羅針盤 IsConst : Public, Static, HasDefault
-    Int32 南蛮時計 IsConst : Public, Static, HasDefault
-    Int32 算盤 IsConst : Public, Static, HasDefault
-    Int32 十字架 IsConst : Public, Static, HasDefault
-    Int32 遠眼鏡 IsConst : Public, Static, HasDefault
-    Int32 煙管 IsConst : Public, Static, HasDefault
-    Int32 洋楽器 IsConst : Public, Static, HasDefault
-    Int32 遊戯具 IsConst : Public, Static, HasDefault
-    Int32 香木 IsConst : Public, Static, HasDefault
-    Int32 短筒 IsConst : Public, Static, HasDefault
-Class 将星録.アプリケーション.フォント: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Properties:
-    System.String フォント名 'get ' : 
-  Methods:
-    get_フォント名(): PrivateScope, Public, Static, HideBySig, SpecialName
-Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 正一位 IsConst : Public, Static, HasDefault
-    Int32 従一位 IsConst : Public, Static, HasDefault
-    Int32 正二位 IsConst : Public, Static, HasDefault
-    Int32 従二位 IsConst : Public, Static, HasDefault
-    Int32 正三位 IsConst : Public, Static, HasDefault
-    Int32 従三位 IsConst : Public, Static, HasDefault
-    Int32 正四位上 IsConst : Public, Static, HasDefault
-    Int32 正四位下 IsConst : Public, Static, HasDefault
-    Int32 従四位下 IsConst : Public, Static, HasDefault
-    Int32 正五位上 IsConst : Public, Static, HasDefault
-    Int32 正五位下 IsConst : Public, Static, HasDefault
-    Int32 従五位上 IsConst : Public, Static, HasDefault
-    Int32 従五位下 IsConst : Public, Static, HasDefault
-    Int32 正六位上 IsConst : Public, Static, HasDefault
-    Int32 正六位下 IsConst : Public, Static, HasDefault
-    Int32 従六位上 IsConst : Public, Static, HasDefault
-    Int32 従六位下 IsConst : Public, Static, HasDefault
-    Int32 正七位上 IsConst : Public, Static, HasDefault
-    Int32 正七位下 IsConst : Public, Static, HasDefault
-    Int32 従七位上 IsConst : Public, Static, HasDefault
-    Int32 従七位下 IsConst : Public, Static, HasDefault
-    Int32 正八位上 IsConst : Public, Static, HasDefault
-    Int32 正八位下 IsConst : Public, Static, HasDefault
-Class 将星録.官位情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Properties:
-    Int32 所有武将配列IX 'get set' : 
-    Int32 階位   'get set' : 
-    System.String 官位名 'get set' : 
-    Int32 配列IX 'get ' : 
-  Methods:
-    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
-    get_官位名(): PrivateScope, Public, HideBySig, SpecialName
-    set_官位名(String): PrivateScope, Public, HideBySig, SpecialName
-    get_階位(): PrivateScope, Public, HideBySig, SpecialName
-    set_階位(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_所有武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
-    set_所有武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
-Class 将星録.家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Properties:
-    Int32 抑制   'get set' : 
-    Int32 南蛮   'get set' : 
-    Int32 智謀   'get set' : 
-    Int32 戦闘   'get set' : 
-    Int32 政治   'get set' : 
-    Int32 兵科効果 'get set' : 
-    Int32 所有武将配列IX 'get set' : 
-    Int32 画像   'get set' : 
-    Int32 能力上昇 'get set' : 
-    Int32 等級   'get set' : 
-    Int32 種類   'get set' : 
-    System.String 家宝名 'get set' : 
-    Int32 配列IX 'get ' : 
-  Methods:
-    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
-    get_家宝名(): PrivateScope, Public, HideBySig, SpecialName
-    set_家宝名(String): PrivateScope, Public, HideBySig, SpecialName
-    get_種類(): PrivateScope, Public, HideBySig, SpecialName
-    set_種類(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_等級(): PrivateScope, Public, HideBySig, SpecialName
-    set_等級(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_能力上昇(): PrivateScope, Public, HideBySig, SpecialName
-    set_能力上昇(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_画像(): PrivateScope, Public, HideBySig, SpecialName
-    set_画像(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_所有武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
-    set_所有武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_兵科効果(): PrivateScope, Public, HideBySig, SpecialName
-    set_兵科効果(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_政治(): PrivateScope, Public, HideBySig, SpecialName
-    set_政治(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_戦闘(): PrivateScope, Public, HideBySig, SpecialName
-    set_戦闘(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_智謀(): PrivateScope, Public, HideBySig, SpecialName
-    set_智謀(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_南蛮(): PrivateScope, Public, HideBySig, SpecialName
-    set_南蛮(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_抑制(): PrivateScope, Public, HideBySig, SpecialName
-    set_抑制(Int32): PrivateScope, Public, HideBySig, SpecialName
-Class 将星録.列挙.役職.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    Int32 征夷大将軍 IsConst : Public, Static, HasDefault
-    Int32 管領 IsConst : Public, Static, HasDefault
-    Int32 関東管領 IsConst : Public, Static, HasDefault
-    Int32 奥州探題 IsConst : Public, Static, HasDefault
-    Int32 西国探題 IsConst : Public, Static, HasDefault
-    Int32 九州探題 IsConst : Public, Static, HasDefault
-    Int32 羽州探題 IsConst : Public, Static, HasDefault
-Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Properties:
-    Int32 所有大名配列IX 'get set' : 
-    Int32 役位   'get set' : 
-    System.String 役職名 'get set' : 
-    Int32 配列IX 'get ' : 
-  Methods:
-    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
-    get_役職名(): PrivateScope, Public, HideBySig, SpecialName
-    set_役職名(String): PrivateScope, Public, HideBySig, SpecialName
-    get_役位(): PrivateScope, Public, HideBySig, SpecialName
-    set_役位(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_所有大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
-    set_所有大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Int32 大名 IsConst : Public, Static, HasDefault
+    Int32 現役 IsConst : Public, Static, HasDefault
+    Int32 独立勢力 IsConst : Public, Static, HasDefault
+    Int32 浪人 IsConst : Public, Static, HasDefault
+    Int32 姫 IsConst : Public, Static, HasDefault
+    Int32 未登場 IsConst : Public, Static, HasDefault
+    Int32 一向一揆勢力 IsConst : Public, Static, HasDefault
+    Int32 一揆勢力 IsConst : Public, Static, HasDefault
+    Int32 死亡 IsConst : Public, Static, HasDefault
 Class 将星録.列挙.武将.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -1194,3 +796,413 @@ Class 将星録.列挙.武将.配列: AutoLayout, AnsiClass, Class, Public, Befo
     Int32 農民和平 IsConst : Public, Static, HasDefault
     Int32 だみい１ IsConst : Public, Static, HasDefault
     Int32 だみい２ IsConst : Public, Static, HasDefault
+Class 将星録.最大数.武将情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+    Int32 総配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.ユニット情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+    Int32 軍勢部隊数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.城情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.大名情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.家宝情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.官位情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.役職情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.家宝.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 曜変稲葉天目 IsConst : Public, Static, HasDefault
+    Int32 灰被虹天目 IsConst : Public, Static, HasDefault
+    Int32 青磁砧馬蝗絆 IsConst : Public, Static, HasDefault
+    Int32 雲鶴匹田筒 IsConst : Public, Static, HasDefault
+    Int32 大井戸加賀 IsConst : Public, Static, HasDefault
+    Int32 三島桶 IsConst : Public, Static, HasDefault
+    Int32 三好粉吹 IsConst : Public, Static, HasDefault
+    Int32 魚屋飯櫃高麗 IsConst : Public, Static, HasDefault
+    Int32 黒楽大黒 IsConst : Public, Static, HasDefault
+    Int32 赤楽早船 IsConst : Public, Static, HasDefault
+    Int32 松花 IsConst : Public, Static, HasDefault
+    Int32 松島 IsConst : Public, Static, HasDefault
+    Int32 三日月 IsConst : Public, Static, HasDefault
+    Int32 四十石 IsConst : Public, Static, HasDefault
+    Int32 橋立 IsConst : Public, Static, HasDefault
+    Int32 九十九髪茄子 IsConst : Public, Static, HasDefault
+    Int32 楢柴肩衝 IsConst : Public, Static, HasDefault
+    Int32 新田肩衝 IsConst : Public, Static, HasDefault
+    Int32 初花肩衝 IsConst : Public, Static, HasDefault
+    Int32 国司茄子 IsConst : Public, Static, HasDefault
+    Int32 富士茄子 IsConst : Public, Static, HasDefault
+    Int32 紹鴎茄子 IsConst : Public, Static, HasDefault
+    Int32 珠光小茄子 IsConst : Public, Static, HasDefault
+    Int32 似たり茄子 IsConst : Public, Static, HasDefault
+    Int32 稲葉瓢箪 IsConst : Public, Static, HasDefault
+    Int32 上杉瓢箪 IsConst : Public, Static, HasDefault
+    Int32 朝倉文琳 IsConst : Public, Static, HasDefault
+    Int32 打雲大海 IsConst : Public, Static, HasDefault
+    Int32 遅桜肩衝 IsConst : Public, Static, HasDefault
+    Int32 松屋肩衝 IsConst : Public, Static, HasDefault
+    Int32 平蜘蛛釜 IsConst : Public, Static, HasDefault
+    Int32 芦屋真形釜 IsConst : Public, Static, HasDefault
+    Int32 乙御前釜 IsConst : Public, Static, HasDefault
+    Int32 大講堂釜 IsConst : Public, Static, HasDefault
+    Int32 達磨堂釜 IsConst : Public, Static, HasDefault
+    Int32 青磁砧大内筒 IsConst : Public, Static, HasDefault
+    Int32 一重切園城寺 IsConst : Public, Static, HasDefault
+    Int32 二重切夜長 IsConst : Public, Static, HasDefault
+    Int32 尺八 IsConst : Public, Static, HasDefault
+    Int32 貨狄 IsConst : Public, Static, HasDefault
+    Int32 青磁千鳥 IsConst : Public, Static, HasDefault
+    Int32 鬼切 IsConst : Public, Static, HasDefault
+    Int32 鬼丸 IsConst : Public, Static, HasDefault
+    Int32 甲斐国郷 IsConst : Public, Static, HasDefault
+    Int32 圧切 IsConst : Public, Static, HasDefault
+    Int32 妙法村正 IsConst : Public, Static, HasDefault
+    Int32 宗三左文字 IsConst : Public, Static, HasDefault
+    Int32 影秀 IsConst : Public, Static, HasDefault
+    Int32 吉光骨喰 IsConst : Public, Static, HasDefault
+    Int32 雷切 IsConst : Public, Static, HasDefault
+    Int32 戒杖刀国宗 IsConst : Public, Static, HasDefault
+    Int32 童子切安綱 IsConst : Public, Static, HasDefault
+    Int32 大般若長光 IsConst : Public, Static, HasDefault
+    Int32 片鎌槍 IsConst : Public, Static, HasDefault
+    Int32 蜻蛉切 IsConst : Public, Static, HasDefault
+    Int32 日本 IsConst : Public, Static, HasDefault
+    Int32 十文字槍 IsConst : Public, Static, HasDefault
+    Int32 笹葉槍 IsConst : Public, Static, HasDefault
+    Int32 金小札色々威 IsConst : Public, Static, HasDefault
+    Int32 白糸素懸威胴 IsConst : Public, Static, HasDefault
+    Int32 紅糸威小腹巻 IsConst : Public, Static, HasDefault
+    Int32 黒漆塗五枚胴 IsConst : Public, Static, HasDefault
+    Int32 南蛮胴具足 IsConst : Public, Static, HasDefault
+    Int32 昇梯子二枚胴 IsConst : Public, Static, HasDefault
+    Int32 熏辜素懸威 IsConst : Public, Static, HasDefault
+    Int32 縹糸下散紅威 IsConst : Public, Static, HasDefault
+    Int32 金陀美具足 IsConst : Public, Static, HasDefault
+    Int32 花色日の丸威 IsConst : Public, Static, HasDefault
+    Int32 稲妻型蒔絵鞍 IsConst : Public, Static, HasDefault
+    Int32 芦穂蒔絵鞍 IsConst : Public, Static, HasDefault
+    Int32 水玉紋陣羽織 IsConst : Public, Static, HasDefault
+    Int32 菊鍾馗陣羽織 IsConst : Public, Static, HasDefault
+    Int32 緋羅紗陣羽織 IsConst : Public, Static, HasDefault
+    Int32 天鵞絨洋套 IsConst : Public, Static, HasDefault
+    Int32 帝釈栗毛 IsConst : Public, Static, HasDefault
+    Int32 松風 IsConst : Public, Static, HasDefault
+    Int32 黒雲 IsConst : Public, Static, HasDefault
+    Int32 放生月毛 IsConst : Public, Static, HasDefault
+    Int32 星崎 IsConst : Public, Static, HasDefault
+    Int32 鬼鹿毛 IsConst : Public, Static, HasDefault
+    Int32 白石 IsConst : Public, Static, HasDefault
+    Int32 太平楽 IsConst : Public, Static, HasDefault
+    Int32 桜野 IsConst : Public, Static, HasDefault
+    Int32 三国黒 IsConst : Public, Static, HasDefault
+    Int32 馬上筒 IsConst : Public, Static, HasDefault
+    Int32 指火式銃 IsConst : Public, Static, HasDefault
+    Int32 籠筒 IsConst : Public, Static, HasDefault
+    Int32 懐鉄砲 IsConst : Public, Static, HasDefault
+    Int32 腰指筒 IsConst : Public, Static, HasDefault
+    Int32 新当流兵法書 IsConst : Public, Static, HasDefault
+    Int32 陰流之私 IsConst : Public, Static, HasDefault
+    Int32 ト伝百首 IsConst : Public, Static, HasDefault
+    Int32 五輪書 IsConst : Public, Static, HasDefault
+    Int32 示現流兵法書 IsConst : Public, Static, HasDefault
+    Int32 夕雲流剣術書 IsConst : Public, Static, HasDefault
+    Int32 新陰百首 IsConst : Public, Static, HasDefault
+    Int32 大坪流馬術書 IsConst : Public, Static, HasDefault
+    Int32 荒木流馬術書 IsConst : Public, Static, HasDefault
+    Int32 稲富流砲術書 IsConst : Public, Static, HasDefault
+    Int32 津田流砲術書 IsConst : Public, Static, HasDefault
+    Int32 一火流砲術書 IsConst : Public, Static, HasDefault
+    Int32 砲術真業録 IsConst : Public, Static, HasDefault
+    Int32 西村流砲術書 IsConst : Public, Static, HasDefault
+    Int32 霞流砲術書 IsConst : Public, Static, HasDefault
+    Int32 外記流砲術書 IsConst : Public, Static, HasDefault
+    Int32 鉄砲打方 IsConst : Public, Static, HasDefault
+    Int32 岸和田流砲書 IsConst : Public, Static, HasDefault
+    Int32 安見流砲術書 IsConst : Public, Static, HasDefault
+    Int32 孫子 IsConst : Public, Static, HasDefault
+    Int32 六韜 IsConst : Public, Static, HasDefault
+    Int32 黄石公三略 IsConst : Public, Static, HasDefault
+    Int32 闘戦経 IsConst : Public, Static, HasDefault
+    Int32 呉子 IsConst : Public, Static, HasDefault
+    Int32 医書大全 IsConst : Public, Static, HasDefault
+    Int32 三喜廻翁医書 IsConst : Public, Static, HasDefault
+    Int32 八十一難経 IsConst : Public, Static, HasDefault
+    Int32 外療新明集 IsConst : Public, Static, HasDefault
+    Int32 啓迪集 IsConst : Public, Static, HasDefault
+    Int32 万川集海 IsConst : Public, Static, HasDefault
+    Int32 忍秘伝 IsConst : Public, Static, HasDefault
+    Int32 正忍記 IsConst : Public, Static, HasDefault
+    Int32 忍法秘巻 IsConst : Public, Static, HasDefault
+    Int32 神伝忍術秘書 IsConst : Public, Static, HasDefault
+    Int32 塵塚物語 IsConst : Public, Static, HasDefault
+    Int32 尺素往来 IsConst : Public, Static, HasDefault
+    Int32 貞永式目抄 IsConst : Public, Static, HasDefault
+    Int32 貞観政要 IsConst : Public, Static, HasDefault
+    Int32 節用集 IsConst : Public, Static, HasDefault
+    Int32 朗詠集 IsConst : Public, Static, HasDefault
+    Int32 日葡辞書 IsConst : Public, Static, HasDefault
+    Int32 日本大文典 IsConst : Public, Static, HasDefault
+    Int32 農政全書 IsConst : Public, Static, HasDefault
+    Int32 清良記 IsConst : Public, Static, HasDefault
+    Int32 政基公旅引付 IsConst : Public, Static, HasDefault
+    Int32 身自鏡 IsConst : Public, Static, HasDefault
+    Int32 善隣国宝記 IsConst : Public, Static, HasDefault
+    Int32 唐船日記 IsConst : Public, Static, HasDefault
+    Int32 海東諸国記 IsConst : Public, Static, HasDefault
+    Int32 菽園雑記 IsConst : Public, Static, HasDefault
+    Int32 梅津政景日記 IsConst : Public, Static, HasDefault
+    Int32 匠明 IsConst : Public, Static, HasDefault
+    Int32 士鑑用法 IsConst : Public, Static, HasDefault
+    Int32 兵法雄鑑 IsConst : Public, Static, HasDefault
+    Int32 兵法雌鑑 IsConst : Public, Static, HasDefault
+    Int32 武教全書 IsConst : Public, Static, HasDefault
+    Int32 築城記 IsConst : Public, Static, HasDefault
+    Int32 愚子見記 IsConst : Public, Static, HasDefault
+    Int32 史記 IsConst : Public, Static, HasDefault
+    Int32 古事記 IsConst : Public, Static, HasDefault
+    Int32 聖書 IsConst : Public, Static, HasDefault
+    Int32 罪人の導き IsConst : Public, Static, HasDefault
+    Int32 源氏物語 IsConst : Public, Static, HasDefault
+    Int32 伊勢物語 IsConst : Public, Static, HasDefault
+    Int32 万葉集 IsConst : Public, Static, HasDefault
+    Int32 古今和歌集 IsConst : Public, Static, HasDefault
+    Int32 神曲 IsConst : Public, Static, HasDefault
+    Int32 東方見聞録 IsConst : Public, Static, HasDefault
+    Int32 伊曽保物語 IsConst : Public, Static, HasDefault
+    Int32 本願念仏集 IsConst : Public, Static, HasDefault
+    Int32 教行信証 IsConst : Public, Static, HasDefault
+    Int32 歎異抄 IsConst : Public, Static, HasDefault
+    Int32 立正安国論 IsConst : Public, Static, HasDefault
+    Int32 興禅護国論 IsConst : Public, Static, HasDefault
+    Int32 正法眼蔵 IsConst : Public, Static, HasDefault
+    Int32 一遍上人絵伝 IsConst : Public, Static, HasDefault
+    Int32 太平記 IsConst : Public, Static, HasDefault
+    Int32 平家物語 IsConst : Public, Static, HasDefault
+    Int32 三國志演義 IsConst : Public, Static, HasDefault
+    Int32 水滸伝 IsConst : Public, Static, HasDefault
+    Int32 雑兵物語 IsConst : Public, Static, HasDefault
+    Int32 陰徳太平記 IsConst : Public, Static, HasDefault
+    Int32 宗湛日記 IsConst : Public, Static, HasDefault
+    Int32 島井宗室訓戒 IsConst : Public, Static, HasDefault
+    Int32 今井宗久日記 IsConst : Public, Static, HasDefault
+    Int32 遠宗拾遺 IsConst : Public, Static, HasDefault
+    Int32 松屋筆記 IsConst : Public, Static, HasDefault
+    Int32 菓子図 IsConst : Public, Static, HasDefault
+    Int32 白鷺図 IsConst : Public, Static, HasDefault
+    Int32 夕陽朝山図 IsConst : Public, Static, HasDefault
+    Int32 鴨図 IsConst : Public, Static, HasDefault
+    Int32 瀟湘八景図 IsConst : Public, Static, HasDefault
+    Int32 観音図 IsConst : Public, Static, HasDefault
+    Int32 石菖蒲図 IsConst : Public, Static, HasDefault
+    Int32 布袋図 IsConst : Public, Static, HasDefault
+    Int32 地球儀 IsConst : Public, Static, HasDefault
+    Int32 坤輿万国全図 IsConst : Public, Static, HasDefault
+    Int32 拾芥抄 IsConst : Public, Static, HasDefault
+    Int32 慶長日本総図 IsConst : Public, Static, HasDefault
+    Int32 行基図 IsConst : Public, Static, HasDefault
+    Int32 羅針盤 IsConst : Public, Static, HasDefault
+    Int32 自鳴鐘 IsConst : Public, Static, HasDefault
+    Int32 置時計 IsConst : Public, Static, HasDefault
+    Int32 算盤 IsConst : Public, Static, HasDefault
+    Int32 十字架 IsConst : Public, Static, HasDefault
+    Int32 遠眼鏡 IsConst : Public, Static, HasDefault
+    Int32 煙草 IsConst : Public, Static, HasDefault
+    Int32 ヴァージナル IsConst : Public, Static, HasDefault
+    Int32 双六 IsConst : Public, Static, HasDefault
+    Int32 歌留多 IsConst : Public, Static, HasDefault
+    Int32 蘭奢待 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.家宝.種類: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 茶道道具 IsConst : Public, Static, HasDefault
+    Int32 武器 IsConst : Public, Static, HasDefault
+    Int32 兵装品 IsConst : Public, Static, HasDefault
+    Int32 名馬 IsConst : Public, Static, HasDefault
+    Int32 短筒 IsConst : Public, Static, HasDefault
+    Int32 剣術所 IsConst : Public, Static, HasDefault
+    Int32 馬術書 IsConst : Public, Static, HasDefault
+    Int32 砲術書 IsConst : Public, Static, HasDefault
+    Int32 兵法書 IsConst : Public, Static, HasDefault
+    Int32 医術書 IsConst : Public, Static, HasDefault
+    Int32 忍術書 IsConst : Public, Static, HasDefault
+    Int32 知識書 IsConst : Public, Static, HasDefault
+    Int32 農政書 IsConst : Public, Static, HasDefault
+    Int32 外交書 IsConst : Public, Static, HasDefault
+    Int32 鉱術書 IsConst : Public, Static, HasDefault
+    Int32 建築書 IsConst : Public, Static, HasDefault
+    Int32 歴史書 IsConst : Public, Static, HasDefault
+    Int32 宗教書 IsConst : Public, Static, HasDefault
+    Int32 文学書 IsConst : Public, Static, HasDefault
+    Int32 仏教書 IsConst : Public, Static, HasDefault
+    Int32 軍記物語 IsConst : Public, Static, HasDefault
+    Int32 商業書 IsConst : Public, Static, HasDefault
+    Int32 絵画 IsConst : Public, Static, HasDefault
+    Int32 地図 IsConst : Public, Static, HasDefault
+    Int32 羅針盤 IsConst : Public, Static, HasDefault
+    Int32 南蛮時計 IsConst : Public, Static, HasDefault
+    Int32 算盤 IsConst : Public, Static, HasDefault
+    Int32 十字架 IsConst : Public, Static, HasDefault
+    Int32 珍品 IsConst : Public, Static, HasDefault
+    Int32 香木 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 茶碗 IsConst : Public, Static, HasDefault
+    Int32 茶壺 IsConst : Public, Static, HasDefault
+    Int32 茶入 IsConst : Public, Static, HasDefault
+    Int32 茶釜 IsConst : Public, Static, HasDefault
+    Int32 花入 IsConst : Public, Static, HasDefault
+    Int32 千鳥 IsConst : Public, Static, HasDefault
+    Int32 刀剣 IsConst : Public, Static, HasDefault
+    Int32 槍 IsConst : Public, Static, HasDefault
+    Int32 具足 IsConst : Public, Static, HasDefault
+    Int32 鞍 IsConst : Public, Static, HasDefault
+    Int32 陣羽織 IsConst : Public, Static, HasDefault
+    Int32 馬 IsConst : Public, Static, HasDefault
+    Int32 綴本 IsConst : Public, Static, HasDefault
+    Int32 巻子本 IsConst : Public, Static, HasDefault
+    Int32 掛絵 IsConst : Public, Static, HasDefault
+    Int32 巻絵 IsConst : Public, Static, HasDefault
+    Int32 地図 IsConst : Public, Static, HasDefault
+    Int32 羅針盤 IsConst : Public, Static, HasDefault
+    Int32 南蛮時計 IsConst : Public, Static, HasDefault
+    Int32 算盤 IsConst : Public, Static, HasDefault
+    Int32 十字架 IsConst : Public, Static, HasDefault
+    Int32 遠眼鏡 IsConst : Public, Static, HasDefault
+    Int32 煙管 IsConst : Public, Static, HasDefault
+    Int32 洋楽器 IsConst : Public, Static, HasDefault
+    Int32 遊戯具 IsConst : Public, Static, HasDefault
+    Int32 香木 IsConst : Public, Static, HasDefault
+    Int32 短筒 IsConst : Public, Static, HasDefault
+Class 将星録.アプリケーション.フォント: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String フォント名 'get ' : 
+  Methods:
+    get_フォント名(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 正一位 IsConst : Public, Static, HasDefault
+    Int32 従一位 IsConst : Public, Static, HasDefault
+    Int32 正二位 IsConst : Public, Static, HasDefault
+    Int32 従二位 IsConst : Public, Static, HasDefault
+    Int32 正三位 IsConst : Public, Static, HasDefault
+    Int32 従三位 IsConst : Public, Static, HasDefault
+    Int32 正四位上 IsConst : Public, Static, HasDefault
+    Int32 正四位下 IsConst : Public, Static, HasDefault
+    Int32 従四位下 IsConst : Public, Static, HasDefault
+    Int32 正五位上 IsConst : Public, Static, HasDefault
+    Int32 正五位下 IsConst : Public, Static, HasDefault
+    Int32 従五位上 IsConst : Public, Static, HasDefault
+    Int32 従五位下 IsConst : Public, Static, HasDefault
+    Int32 正六位上 IsConst : Public, Static, HasDefault
+    Int32 正六位下 IsConst : Public, Static, HasDefault
+    Int32 従六位上 IsConst : Public, Static, HasDefault
+    Int32 従六位下 IsConst : Public, Static, HasDefault
+    Int32 正七位上 IsConst : Public, Static, HasDefault
+    Int32 正七位下 IsConst : Public, Static, HasDefault
+    Int32 従七位上 IsConst : Public, Static, HasDefault
+    Int32 従七位下 IsConst : Public, Static, HasDefault
+    Int32 正八位上 IsConst : Public, Static, HasDefault
+    Int32 正八位下 IsConst : Public, Static, HasDefault
+Class 将星録.官位情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 所有武将配列IX 'get set' : 
+    Int32 階位   'get set' : 
+    System.String 官位名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_官位名(): PrivateScope, Public, HideBySig, SpecialName
+    set_官位名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_階位(): PrivateScope, Public, HideBySig, SpecialName
+    set_階位(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所有武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所有武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 抑制   'get set' : 
+    Int32 南蛮   'get set' : 
+    Int32 智謀   'get set' : 
+    Int32 戦闘   'get set' : 
+    Int32 政治   'get set' : 
+    Int32 兵科効果 'get set' : 
+    Int32 所有武将配列IX 'get set' : 
+    Int32 画像   'get set' : 
+    Int32 能力上昇 'get set' : 
+    Int32 等級   'get set' : 
+    Int32 種類   'get set' : 
+    System.String 家宝名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_家宝名(): PrivateScope, Public, HideBySig, SpecialName
+    set_家宝名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_種類(): PrivateScope, Public, HideBySig, SpecialName
+    set_種類(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_等級(): PrivateScope, Public, HideBySig, SpecialName
+    set_等級(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_能力上昇(): PrivateScope, Public, HideBySig, SpecialName
+    set_能力上昇(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_画像(): PrivateScope, Public, HideBySig, SpecialName
+    set_画像(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所有武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所有武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_兵科効果(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵科効果(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_政治(): PrivateScope, Public, HideBySig, SpecialName
+    set_政治(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_戦闘(): PrivateScope, Public, HideBySig, SpecialName
+    set_戦闘(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_智謀(): PrivateScope, Public, HideBySig, SpecialName
+    set_智謀(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_南蛮(): PrivateScope, Public, HideBySig, SpecialName
+    set_南蛮(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_抑制(): PrivateScope, Public, HideBySig, SpecialName
+    set_抑制(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.列挙.役職.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 征夷大将軍 IsConst : Public, Static, HasDefault
+    Int32 管領 IsConst : Public, Static, HasDefault
+    Int32 関東管領 IsConst : Public, Static, HasDefault
+    Int32 奥州探題 IsConst : Public, Static, HasDefault
+    Int32 西国探題 IsConst : Public, Static, HasDefault
+    Int32 九州探題 IsConst : Public, Static, HasDefault
+    Int32 羽州探題 IsConst : Public, Static, HasDefault
+Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 所有大名配列IX 'get set' : 
+    Int32 役位   'get set' : 
+    System.String 役職名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_役職名(): PrivateScope, Public, HideBySig, SpecialName
+    set_役職名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_役位(): PrivateScope, Public, HideBySig, SpecialName
+    set_役位(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所有大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所有大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName

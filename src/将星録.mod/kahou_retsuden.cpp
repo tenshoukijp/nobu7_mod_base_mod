@@ -51,8 +51,8 @@ void checkReplaceKahouRetsuden() {
 		}
 	}
 
-	ゲーム画面ステータス status = getゲーム画面ステータス();
-	if (isKahouRetsudenMode > 0 && status == ゲーム画面ステータス::戦略画面 || status == ゲーム画面ステータス::野戦画面 || status == ゲーム画面ステータス::籠城戦画面) {
+	int status = getゲーム画面ステータス();
+	if (isKahouRetsudenMode > 0 && status == 列挙::ゲーム画面ステータス::戦略画面 || status == 列挙::ゲーム画面ステータス::野戦画面 || status == 列挙::ゲーム画面ステータス::籠城戦画面) {
 
 		int iRetsudenKahouID = getRetsudenKahouID();
 		if (isValidKahouID(iRetsudenKahouID)) {

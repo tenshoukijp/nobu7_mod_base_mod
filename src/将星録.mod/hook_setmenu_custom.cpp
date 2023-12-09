@@ -10,7 +10,6 @@ int nCheckMenuCount = 0;
 
 int prevMenuCount = 0;
 
-extern ゲーム画面ステータス lastゲーム画面ステータス;
 
 BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	if (hMenu == NULL) {

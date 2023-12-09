@@ -1,8 +1,10 @@
 #include "data_game_struct.h"
 #include "game_screen.h"
 
+using namespace 列挙;
+
 int getRetsudenKahouID() {
-	ゲーム画面ステータス status = getゲーム画面ステータス();
+	int status = getゲーム画面ステータス();
 	if (status == ゲーム画面ステータス::戦略画面 || status == ゲーム画面ステータス::野戦画面 || status == ゲーム画面ステータス::籠城戦画面) {
 		// 家宝のアドレスを直接さしている
 		int nKahouAddress = *(int*)(家宝列伝家宝情報アドレス);
