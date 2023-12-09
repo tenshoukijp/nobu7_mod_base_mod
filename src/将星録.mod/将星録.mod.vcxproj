@@ -111,6 +111,7 @@
     <ClInclude Include="mng_ゲーム画面.h" />
     <ClInclude Include="mng_フォント.h" />
     <ClInclude Include="mng_ユニット情報.h" />
+    <ClInclude Include="mng_城列挙.h" />
     <ClInclude Include="mng_官位列挙.h" />
     <ClInclude Include="mng_官位情報.h" />
     <ClInclude Include="mng_家宝情報.h" />

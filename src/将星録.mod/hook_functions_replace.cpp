@@ -523,10 +523,7 @@ HGDIOBJ WINAPI Hook_SelectObject(
     HDC hdc, // デバイスコンテキストのハンドル
     HGDIOBJ h // オブジェクトのハンドル
 ) {
-	// 先にカスタムの方を実行。
-    // Hook_SelectObjectCustom(hdc, h);
-
-	// 元のもの
+    // 元のもの
 	HGDIOBJ nResult = ((PFNSELECTOBJECT)pfnOrigSelectObject)(hdc, h);
 
 	return nResult;

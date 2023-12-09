@@ -249,6 +249,9 @@
     <ClInclude Include="mng_ゲーム画面.h">
       <Filter>画面</Filter>
     </ClInclude>
+    <ClInclude Include="mng_城列挙.h">
+      <Filter>ゲームデータ - 城情報</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
