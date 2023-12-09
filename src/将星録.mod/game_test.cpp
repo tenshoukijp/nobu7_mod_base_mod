@@ -80,10 +80,10 @@ void doGameTest() {
 	}
 	*/
 
+	/*
 	for (int iKanniID = 0; iKanniID < 最大数::官位情報::配列数; iKanniID++) {
 		OutputDebugStream("%s", nb7官位情報[iKanniID].官位名);
 		OutputDebugStream("階位:%d\n", nb7官位情報[iKanniID].階位);
-		/*
 		OutputDebugStream("官位番号:%d ", nb7官位情報[iKanniID].官位番号);
 		OutputDebugStream("\n");
 		int iBushouID = getBushouIDFromKanniID(iKanniID);
@@ -91,8 +91,8 @@ void doGameTest() {
 
 			OutputDebugStream("所有者:%s ", nb7武将情報[iBushouID].姓名);
 		}
-		*/
 	}
+	*/
 
 	/*
 	for (int iYakusyokuID = 0; iYakusyokuID < 最大数::役職情報::配列数; iYakusyokuID++) {
@@ -116,19 +116,30 @@ void doGameTest() {
 	}
 	*/
 
-	/*
 	for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
 		int iBushouID = getBushouIDFromUnitID(iUnitID);
 		if (iBushouID != 0xFFFF) {
 			OutputDebugStream("ユニット番号:%d ", nb7ユニット情報[iUnitID].ユニット番号);
-			OutputDebugStream("ユニット支配者:%s \n", (char*)(nb7ユニット情報[iUnitID].pユニット武将));
-			OutputDebugStream("ユニット大砲:%d \n", nb7ユニット情報[iUnitID].大砲);
-			OutputDebugStream("ユニット鉄甲船:%d \n", nb7ユニット情報[iUnitID].鉄甲船);
-			OutputDebugStream("ユニット金銭:%d \n", nb7ユニット情報[iUnitID].金銭);
-			OutputDebugStream("ユニット兵糧:%d \n", nb7ユニット情報[iUnitID].兵糧);
+			int iBushouID = getBushouIDFromUnitID(iUnitID);
+			if (isValidBushouID(iBushouID)) {
+				OutputDebugStream("%s", nb7武将情報[iBushouID].姓名);
+				/*
+				OutputDebugStream("ユニット大砲:%d \n", nb7ユニット情報[iUnitID].大砲);
+				OutputDebugStream("ユニット鉄甲船:%d \n", nb7ユニット情報[iUnitID].鉄甲船);
+				OutputDebugStream("ユニット金銭:%d \n", nb7ユニット情報[iUnitID].金銭);
+				OutputDebugStream("ユニット兵糧:%d \n", nb7ユニット情報[iUnitID].兵糧);
+				*/
+				int pNextUnit = (int)nb7ユニット情報[iUnitID].p次のユニット;
+				int iNextUnitID = getUnitIDFromUnitPtr(nb7ユニット情報[iUnitID].p次のユニット);
+				if (isValidUnitID(iNextUnitID)) {
+					OutputDebugStream("次のユニット:%d \n", getUnitIDFromUnitPtr(nb7ユニット情報[iUnitID].p次のユニット));
+				} else {
+					OutputDebugStream("★次のユニットはなし:%x\n", nb7ユニット情報[iUnitID].p次のユニット);
+				}
+			}
 		}
 	}
-	*/
+
 	/*
 	auto ret = getゲーム画面ステータス();
 	OutputDebugStream("ゲーム画面ステータス: %d", (int)ret);
