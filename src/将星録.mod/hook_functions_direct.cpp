@@ -2,9 +2,10 @@ extern void WriteAsmJumperOnSSRExeMessageDetail();
 extern void WriteAsmJumperOnSSRExeYasenTurnChange();
 extern void WriteAsmJumperOnSSRExeYasenTurnBothBushou();
 extern void WriteAsmJumperOnSSRExeYasenTurnButaiOf1to5();
-void NewFunction(int iAttackBushouID);
 extern void WriteAsmJumperOnSSRExeMovieFileName();
 extern void WriteAsmJumperOnSSRExePlayBGM();
+extern void WriteAsmJumperOnSSRExeKahouShowBgn();
+extern void WriteAsmJumperOnSSRExeKahouShowEnd();
 extern void WriteAsmJumperOnSSRExeUnknownDialog1();
 extern void WriteAsmJumperOnSSRExeUnknownDialog2();
 extern void WriteAsmJumperOnSSRExeUnknownDialog3();
@@ -17,6 +18,8 @@ bool isWriteAsmJumperOnSSRExeYasenTurnBothBushou = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnButaiOf1to5 = false;
 bool isWriteAsmJumperOnSSRExeMovieFileName = false;
 bool isWriteAsmJumperOnSSRExePlayBGM = false;
+bool isWriteAsmJumperOnSSRExeKahouShowBgn = false;
+bool isWriteAsmJumperOnSSRExeKahouShowEnd = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog1 = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog2 = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog3 = false;
@@ -52,6 +55,16 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExePlayBGM) {
 		isWriteAsmJumperOnSSRExePlayBGM = true;
 		WriteAsmJumperOnSSRExePlayBGM();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeKahouShowBgn) {
+		isWriteAsmJumperOnSSRExeKahouShowBgn = true;
+		WriteAsmJumperOnSSRExeKahouShowBgn();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeKahouShowEnd) {
+		isWriteAsmJumperOnSSRExeKahouShowEnd = true;
+		WriteAsmJumperOnSSRExeKahouShowEnd();
 	}
 
 	if (!isWriteAsmJumperOnSSRExeUnknownDialog1) {

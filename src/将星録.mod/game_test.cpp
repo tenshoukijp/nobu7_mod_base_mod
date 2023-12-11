@@ -17,16 +17,7 @@
 using namespace std;
 
 
-void WriteAsmJumperOnSSRExeMessageDetail();
 void doGameTest() {
-
-	for (int i = 0; i < 5; i++) {
-		OutputDebugStream("%d, %d\n", i, nb7–ìíŽç”õ‘¤•”‘àî•ñ[i].•º”);
-	}
-	for (int i = 0; i < 5; i++) {
-		OutputDebugStream("%d, %d\n", i, nb7–ìíUŒ‚‘¤•”‘àî•ñ[i].•º”);
-	}
-	return;
 	/*
 	for (int iBushouID = 0; iBushouID < Å‘å”::•«î•ñ::”z—ñ”; iBushouID++) {
 

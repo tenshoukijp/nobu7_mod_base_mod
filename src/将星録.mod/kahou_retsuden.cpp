@@ -35,14 +35,19 @@ std::pair<string, string> getOverrideKahouRetsuden(int iKahouID) {
 }
 
 extern int isKahouRetsudenMode;
-
+extern int iKahouIDShowBgn;
+extern int isKahouRetsudenBeginning;
 void checkReplaceKahouRetsuden() {
+	// 家宝列伝表示開始中でなければ、何もしない
+	if (!isKahouRetsudenBeginning) {
+		return;
+	}
 
 	// 列伝の詳細の置き換えが立っていれば、詳細を置き換える
 	if (isNextMessageIsKahouRetsuden) {
 		isNextMessageIsKahouRetsuden = FALSE;
 		isKahouRetsudenMode = 0;
-		int iRetsudenKahouID = getRetsudenKahouID();
+		int iRetsudenKahouID = iKahouIDShowBgn;
 		if (isValidKahouID(iRetsudenKahouID)) {
 			auto [title, detail] = getOverrideKahouRetsuden(iRetsudenKahouID);
 			if (detail.size() > 0) {
@@ -54,7 +59,7 @@ void checkReplaceKahouRetsuden() {
 	int status = getゲーム画面ステータス();
 	if (isKahouRetsudenMode > 0 && status == 列挙::ゲーム画面ステータス::戦略画面 || status == 列挙::ゲーム画面ステータス::野戦画面 || status == 列挙::ゲーム画面ステータス::籠城戦画面) {
 
-		int iRetsudenKahouID = getRetsudenKahouID();
+		int iRetsudenKahouID = iKahouIDShowBgn;
 		if (isValidKahouID(iRetsudenKahouID)) {
 			OutputDebugStream("メッセージ段階でチェックしているiRetsudenKahouIDは%d\n", iRetsudenKahouID);
 			// 通常の家宝は 「家宝名　(←全角空白)ﾖ」のフォーマットを取る 

@@ -82,6 +82,7 @@ int decreaseAlbedoKoudouCounter() {
             if (nAlbedo行動済み分割カウンター > 0) {
                 if (nb7武将情報[iBushouID].行動済) {
                     nb7武将情報[iBushouID].行動済 = 0;
+                    アルベドのユニットが軍隊や軍船なら兵数復活();
                     nAlbedo行動済み分割カウンター--;
                 }
             }

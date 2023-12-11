@@ -455,6 +455,12 @@
     <ClCompile Include="hook_yasen_butai_info_update.cpp">
       <Filter>ゲームデータ - 野戦</Filter>
     </ClCompile>
+    <ClCompile Include="hook_kahou_retsuden_show_end.cpp">
+      <Filter>列伝 - 家宝列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_kahou_retsuden_shou_bgn.cpp">
+      <Filter>列伝 - 家宝列伝</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

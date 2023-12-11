@@ -138,7 +138,9 @@
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
-    <ClCompile Include="data_kahou_retsuden_struct.cpp" />
+    <ClCompile Include="data_kahou_retsuden_struct.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="data_kahou_struct.cpp" />
     <ClCompile Include="data_bushou_retsuden_struct.cpp" />
     <ClCompile Include="data_turn_daimyo_struct.cpp" />
@@ -148,6 +150,8 @@
     <ClCompile Include="hook_bgm2_filename.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="hook_kahou_retsuden_shou_bgn.cpp" />
+    <ClCompile Include="hook_kahou_retsuden_show_end.cpp" />
     <ClCompile Include="hook_movie_filename.cpp" />
     <ClCompile Include="hook_readfile_custom.cpp" />
     <ClCompile Include="hook_yasen_butai_info_update.cpp" />
@@ -216,7 +220,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data_kahou_retsuden_struct.h" />
+    <None Include="data_kahou_retsuden_struct.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </None>
     <None Include="dllmain.def" />
   </ItemGroup>
   <ItemGroup>

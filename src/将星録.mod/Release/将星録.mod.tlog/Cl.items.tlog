@@ -12,6 +12,8 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\data_turn_daimyo_struct.
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_turn_player_castle.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_turn_player_castle.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\file_attribute.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\file_attribute.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bgm_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_bgm_filename.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_shou_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_shou_bgn.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_end.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_movie_filename.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_readfile_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_butai_info_update.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_butai_info_update.obj
