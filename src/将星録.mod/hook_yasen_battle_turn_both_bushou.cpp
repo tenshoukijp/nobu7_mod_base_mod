@@ -109,9 +109,14 @@ using namespace std;
 */
 
 
+
 static int YasenAttackUnitPointer = -1;
 static int YasenDefendUnitPointer = -1;
 static int YasenInfoPointer = -1;
+
+int iLastAttackBushouID = -1;
+int iLastDefendBushouID = -1;
+
 void OnSSRExeYasenTurnBothBushouExecute() {
 	int iAttackUnitID = getUnitIDFromUnitPtr((int *)YasenAttackUnitPointer);
 	int iDefendUnitID = getUnitIDFromUnitPtr((int *)YasenDefendUnitPointer);
@@ -120,6 +125,8 @@ void OnSSRExeYasenTurnBothBushouExecute() {
 	if ( isValidUnitID(iAttackUnitID) && isValidUnitID(iDefendUnitID)) {
 		int iAttackBushouID = getBushouIDFromUnitID(iAttackUnitID);
 		int iDefendBushouID = getBushouIDFromUnitID(iDefendUnitID);
+		iLastAttackBushouID = iAttackBushouID;
+		iLastDefendBushouID = iDefendBushouID;
 		if (isValidBushouID(iAttackBushouID) && isValidBushouID(iDefendBushouID)) {
 			OutputDebugStream("★★★★野戦ターンの変更時の攻撃武将名★%s\n", nb7武将情報[iAttackBushouID].姓名);
 			OutputDebugStream("★★★★野戦ターンの変更時の守備武将名★%s\n", nb7武将情報[iDefendBushouID].姓名);

@@ -20,6 +20,13 @@ using namespace std;
 void WriteAsmJumperOnSSRExeMessageDetail();
 void doGameTest() {
 
+	for (int i = 0; i < 5; i++) {
+		OutputDebugStream("%d, %d\n", i, nb7野戦守備側部隊情報[i].兵数);
+	}
+	for (int i = 0; i < 5; i++) {
+		OutputDebugStream("%d, %d\n", i, nb7野戦攻撃側部隊情報[i].兵数);
+	}
+	return;
 	/*
 	for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
 
@@ -116,6 +123,8 @@ void doGameTest() {
 	}
 	*/
 
+	/*
+
 	for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
 		int iBushouID = getBushouIDFromUnitID(iUnitID);
 		if (iBushouID != 0xFFFF) {
@@ -123,12 +132,10 @@ void doGameTest() {
 			int iBushouID = getBushouIDFromUnitID(iUnitID);
 			if (isValidBushouID(iBushouID)) {
 				OutputDebugStream("%s", nb7武将情報[iBushouID].姓名);
-				/*
 				OutputDebugStream("ユニット大砲:%d \n", nb7ユニット情報[iUnitID].大砲);
 				OutputDebugStream("ユニット鉄甲船:%d \n", nb7ユニット情報[iUnitID].鉄甲船);
 				OutputDebugStream("ユニット金銭:%d \n", nb7ユニット情報[iUnitID].金銭);
 				OutputDebugStream("ユニット兵糧:%d \n", nb7ユニット情報[iUnitID].兵糧);
-				*/
 				int pNextUnit = (int)nb7ユニット情報[iUnitID].p次のユニット;
 				int iNextUnitID = getUnitIDFromUnitPtr(nb7ユニット情報[iUnitID].p次のユニット);
 				if (isValidUnitID(iNextUnitID)) {
@@ -139,6 +146,7 @@ void doGameTest() {
 			}
 		}
 	}
+	*/
 
 	/*
 	auto ret = getゲーム画面ステータス();

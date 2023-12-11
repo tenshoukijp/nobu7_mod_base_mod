@@ -9,6 +9,8 @@ using namespace std;
 #include "bushou_albedo.h"
 #include "output_debug_stream.h"
 
+
+
 string getArubedoSei() {
     return "宰相";
 }
@@ -189,7 +191,7 @@ void アルベドのユニットが軍隊や軍船なら兵数復活() {
 
                 // 兵数を回復し、(兵が壊滅していたら、未使用の陣形位置へと配備する)
                 int 身分 = nb7武将情報[iBushouID].身分;
-                int 部隊最大兵数 = get軍勢ユニット部隊最大兵数(iUnitID);
+                int 部隊最大兵数 = get軍勢ユニット部隊最大兵数FromUnitID(iUnitID);
 
                 int 現在兵数 = 0;
                 現在兵数 = nb7ユニット情報[iUnitID].第１部隊兵数;
@@ -349,4 +351,64 @@ int reset籠城後のアルベドの敵武将は戦闘値() {
     }
 
     return TRUE;
+}
+
+
+extern int iLastAttackBushouID;
+extern int iLastDefendBushouID;
+
+static int iPreviousAttackTurnBushouID = -1; // １つ前にチェックした時の攻撃側武将ID
+static int iPreviousButaiID = -1; // １つ前にチェックした時の攻撃側武将の部隊ID
+
+extern int nRemainYasenTurn;
+static int iPreviousRemainYasenTurn; // １つ前にチェックした時の残り野戦ターン数
+
+void doアルベド部隊ターン兵数回復(int iCurrentAttackTurnBushouID, int iButaiID)
+{
+    // 前回と状況が変わっていないなら、何もしない。アニメーションとかウィンドウのアクティブが変わって戻ってきたりして再度実行されたのだろう。
+    if (iPreviousRemainYasenTurn == nRemainYasenTurn &&
+        iCurrentAttackTurnBushouID == iPreviousAttackTurnBushouID &&
+        iButaiID == iPreviousButaiID) {
+		return;
+	}
+    iPreviousAttackTurnBushouID = iCurrentAttackTurnBushouID;
+    iPreviousButaiID = iButaiID;
+
+    OutputDebugStream("★★★攻撃側武将ID:%d\n", iLastAttackBushouID);
+    OutputDebugStream("★★★守備側武将ID:%d\n", iLastDefendBushouID);
+
+    if (isValidBushouID(iLastAttackBushouID)) {
+        // 攻撃側がアルベドなら
+        if (nb7武将情報[iLastAttackBushouID].姓名 == getArubedoSeiMei()) {
+            // アルベドのユニットIDを求める
+            int 最大兵数 = get軍勢ユニット部隊最大兵数FromBushouID(iLastAttackBushouID);
+            int bix = iButaiID;
+            for (int bix = 0; bix < 最大数::ユニット情報::軍勢部隊数; bix++) {
+                if (0 < nb7野戦攻撃側部隊情報[bix].兵数 && nb7野戦攻撃側部隊情報[bix].兵数 < 最大兵数) {
+                    nb7野戦攻撃側部隊情報[bix].兵数 = (nb7野戦攻撃側部隊情報[bix].兵数 * 3 + 最大兵数) / 4; // 兵数が少し回復する
+                }
+                // 最大兵数近くまで行ったら、それにする
+                if (最大兵数 - nb7野戦攻撃側部隊情報[bix].兵数 < 10) {
+                    nb7野戦攻撃側部隊情報[bix].兵数 = 最大兵数;
+                }
+            }
+        }
+    }
+    if (isValidBushouID(iLastDefendBushouID)) {
+        // 攻撃側がアルベドなら
+        if (nb7武将情報[iLastDefendBushouID].姓名 == getArubedoSeiMei()) {
+            // アルベドのユニットIDを求める
+            int 最大兵数 = get軍勢ユニット部隊最大兵数FromBushouID(iLastDefendBushouID);
+            int bix = iButaiID;
+            for (int bix = 0; bix < 最大数::ユニット情報::軍勢部隊数; bix++) {
+                if (0 < nb7野戦守備側部隊情報[bix].兵数 && nb7野戦守備側部隊情報[bix].兵数 < 最大兵数) {
+                    nb7野戦守備側部隊情報[bix].兵数 = (nb7野戦守備側部隊情報[bix].兵数 * 3 + 最大兵数) / 4; // 兵数が少し回復する
+                }
+                // 最大兵数近くまで行ったら、それにする
+                if (最大兵数 - nb7野戦守備側部隊情報[bix].兵数 < 10) {
+                    nb7野戦守備側部隊情報[bix].兵数 = 最大兵数;
+                }
+            }
+        }
+    }
 }

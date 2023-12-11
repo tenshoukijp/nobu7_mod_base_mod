@@ -37,9 +37,6 @@
     <Filter Include="鬼車">
       <UniqueIdentifier>{a6c4e4cd-9f7c-4336-a124-7fb695acb7a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="デバッグ出力">
-      <UniqueIdentifier>{175f9136-5599-4f41-900f-481d285712c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="アルベド">
       <UniqueIdentifier>{7dbde52b-bacc-490b-89f4-a905490284fd}</UniqueIdentifier>
     </Filter>
@@ -105,6 +102,12 @@
     </Filter>
     <Filter Include="ＢＧＭ">
       <UniqueIdentifier>{fbf0d457-423a-4c13-ba35-d9137a0bfb5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="デバッグ出力">
+      <UniqueIdentifier>{175f9136-5599-4f41-900f-481d285712c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームデータ - 野戦">
+      <UniqueIdentifier>{def7fd94-3d83-4ec3-a13b-ea86e7d969bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -234,9 +237,6 @@
     <ClInclude Include="data_castle_battle_turn.h">
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClInclude>
-    <ClInclude Include="data_yasen_battle_turn.h">
-      <Filter>ゲームデータ - ターン情報</Filter>
-    </ClInclude>
     <ClInclude Include="file_attribute.h">
       <Filter>ファイル</Filter>
     </ClInclude>
@@ -251,6 +251,12 @@
     </ClInclude>
     <ClInclude Include="mng_城列挙.h">
       <Filter>ゲームデータ - 城情報</Filter>
+    </ClInclude>
+    <ClInclude Include="data_yasen_battle_turn.h">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClInclude>
+    <ClInclude Include="data_yasen_butai_struct.h">
+      <Filter>ゲームデータ - 野戦</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -422,15 +428,6 @@
     <ClCompile Include="hook_readfile_custom.cpp">
       <Filter>フック関数置き換え系</Filter>
     </ClCompile>
-    <ClCompile Include="hook_yasen_battle_turn.cpp">
-      <Filter>ゲームデータ - ターン情報</Filter>
-    </ClCompile>
-    <ClCompile Include="hook_yasen_battle_turn_both_bushou.cpp">
-      <Filter>ゲームデータ - ターン情報</Filter>
-    </ClCompile>
-    <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp">
-      <Filter>ゲームデータ - ターン情報</Filter>
-    </ClCompile>
     <ClCompile Include="file_attribute.cpp">
       <Filter>ファイル</Filter>
     </ClCompile>
@@ -445,6 +442,18 @@
     </ClCompile>
     <ClCompile Include="mng_役職情報.cpp">
       <Filter>ゲームデータ - 役職情報</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_yasen_battle_turn.cpp">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_yasen_battle_turn_both_bushou.cpp">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_yasen_butai_info_update.cpp">
+      <Filter>ゲームデータ - 野戦</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

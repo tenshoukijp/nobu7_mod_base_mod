@@ -2,11 +2,13 @@ extern void WriteAsmJumperOnSSRExeMessageDetail();
 extern void WriteAsmJumperOnSSRExeYasenTurnChange();
 extern void WriteAsmJumperOnSSRExeYasenTurnBothBushou();
 extern void WriteAsmJumperOnSSRExeYasenTurnButaiOf1to5();
+void NewFunction(int iAttackBushouID);
 extern void WriteAsmJumperOnSSRExeMovieFileName();
 extern void WriteAsmJumperOnSSRExePlayBGM();
 extern void WriteAsmJumperOnSSRExeUnknownDialog1();
 extern void WriteAsmJumperOnSSRExeUnknownDialog2();
 extern void WriteAsmJumperOnSSRExeUnknownDialog3();
+extern void WriteAsmJumperOnSSRExeGetYasenHeisuu1();
 
 
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
@@ -18,6 +20,7 @@ bool isWriteAsmJumperOnSSRExePlayBGM = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog1 = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog2 = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog3 = false;
+bool isWriteAsmJumperOnSSRExeGetYasenHeisuu1 = false;
 
 void hookFunctionsDirect() {
 
@@ -64,5 +67,10 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeUnknownDialog3) {
 		isWriteAsmJumperOnSSRExeUnknownDialog3 = true;
 		WriteAsmJumperOnSSRExeUnknownDialog3();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeGetYasenHeisuu1) {
+		isWriteAsmJumperOnSSRExeGetYasenHeisuu1 = true;
+		WriteAsmJumperOnSSRExeGetYasenHeisuu1();
 	}
 }

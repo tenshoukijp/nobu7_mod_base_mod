@@ -87,7 +87,10 @@ struct NB7ユニット軍勢型 {
 };
 #pragma pack()
 
-int get軍勢ユニット部隊最大兵数(int iUnitID);
+int get軍勢ユニット部隊最大兵数FromUnitID(int iUnitID);
+
+int get軍勢ユニット部隊最大兵数FromBushouID(int iBushouID);
+
 
 BOOL isValidUnitID(int iUnitID);
 

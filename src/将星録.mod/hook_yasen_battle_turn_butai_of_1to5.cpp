@@ -107,6 +107,8 @@ using namespace std;
 00477CE0   83EC 2C          SUB ESP,2C
 */
 
+extern void doアルベド部隊ターン兵数回復(int iAttackBushouID, int iButaiID);
+
 static int YasenCurrentAttackBushouPointer = -1; // 現在攻撃している方の武将ポインタ
 static int iYasenTurnButaiOf1to5 = -1; // 部隊の１～５のどれが攻撃しているのか
 void OnSSRExeYasenTurnButaiOf1to5Execute() {
@@ -117,6 +119,10 @@ void OnSSRExeYasenTurnButaiOf1to5Execute() {
 	}
 
 	OutputDebugStream("攻撃部隊は第%d部隊\n", iYasenTurnButaiOf1to5);
+
+	doアルベド部隊ターン兵数回復(iAttackBushouID, iYasenTurnButaiOf1to5);
+
+
 
 	/*
 	int* a = (int*)0x53EDE0;

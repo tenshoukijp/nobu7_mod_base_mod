@@ -109,7 +109,7 @@ using namespace std;
 */
 
 
-static int nRemainYasenTurn = -1;
+int nRemainYasenTurn = -1;
 void OnSSRExeYasenTurnChangeExecute() {
 	OutputDebugStream("šššš–ìíƒ^[ƒ“‚Ì•ÏXš%d\n", nRemainYasenTurn);
 }

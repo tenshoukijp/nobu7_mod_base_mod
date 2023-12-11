@@ -97,6 +97,7 @@
     <ClInclude Include="data_kanni_struct.h" />
     <ClInclude Include="data_yakusyoku_struct.h" />
     <ClInclude Include="data_yasen_battle_turn.h" />
+    <ClInclude Include="data_yasen_butai_struct.h" />
     <ClInclude Include="file_attribute.h" />
     <ClInclude Include="game_array.h" />
     <ClInclude Include="game_font.h" />
@@ -149,6 +150,7 @@
     </ClCompile>
     <ClCompile Include="hook_movie_filename.cpp" />
     <ClCompile Include="hook_readfile_custom.cpp" />
+    <ClCompile Include="hook_yasen_butai_info_update.cpp" />
     <ClCompile Include="hook_unknown_dialog3.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>

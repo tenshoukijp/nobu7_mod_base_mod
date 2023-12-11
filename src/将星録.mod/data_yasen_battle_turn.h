@@ -1,3 +1,4 @@
+
 /*
 –ìí‚Ìƒ^[ƒ“Ø•Ï‚í‚è–Ú
 00477BAB   894C24 24        MOV DWORD PTR SS:[ESP+24],ECX
@@ -83,5 +84,113 @@
 00477CDE   CC               INT3
 00477CDF   CC               INT3
 00477CE0   83EC 2C          SUB ESP,2C
+
+00477DE5  |. E8 A6E0FFFF    CALL Nobunaga.00475E90
+00477DEA  |. 8B4C24 40      MOV ECX,DWORD PTR SS:[ESP+40]
+00477DEE  |. 3B0D 14925300  CMP ECX,DWORD PTR DS:[539214]            ;  Nobunaga.00539190
+00477DF4  |. 894C24 10      MOV DWORD PTR SS:[ESP+10],ECX
+00477DF8  |. 0F84 5D010000  JE Nobunaga.00477F5B
+00477DFE  |. BE 24535800    MOV ESI,Nobunaga.00585324                       
+00477E03  |> 81FE 4C535800  /CMP ESI,Nobunaga.0058534C                         ‘æ1•”‘à`‘æ5•”‘à‚Ü‚Å‚±‚±‚ÅA0x477E03`0x477F55‚ÅŒJ‚è•Ô‚µ‚Ä‚¢‚é
+00477E09  |. 0F8D 4C010000  |JGE Nobunaga.00477F5B
+00477E0F  |. E8 1C300000    |CALL Nobunaga.0047AE30
+00477E14  |. 85C0           |TEST EAX,EAX
+00477E16  |. 0F84 11010000  |JE Nobunaga.00477F2D
+00477E1C  |. 8B4E 04        |MOV ECX,DWORD PTR DS:[ESI+4]
+00477E1F  |. 8B5424 30      |MOV EDX,DWORD PTR SS:[ESP+30]
+00477E23  |. 8B06           |MOV EAX,DWORD PTR DS:[ESI]
+00477E25  |. 03CA           |ADD ECX,EDX
+00477E27  |. 51             |PUSH ECX                                ; /Arg2
+00477E28  |. 8B4C24 30      |MOV ECX,DWORD PTR SS:[ESP+30]           ; |
+00477E2C  |. 03C1           |ADD EAX,ECX                             ; |
+00477E2E  |. 50             |PUSH EAX                                ; |Arg1
+00477E2F  |. 8D4C24 3C      |LEA ECX,DWORD PTR SS:[ESP+3C]           ; |
+00477E33  |. E8 E7AB0800    |CALL Nobunaga.00502A1F                  ; \Nobunaga.00502A1F          ‚±‚±‚Í•’Ê‚Él‚¦‚Äu‡@`‡D‚Ì‚Ç‚ê‚©‚ð•`‰æ‚µ‚Ä‚é‚ÆŽv‚í‚ê‚é
+00477E38  |. 8B10           |MOV EDX,DWORD PTR DS:[EAX]
+00477E3A  |. 6A 10          |PUSH 10
+00477E3C  |. 6A 17          |PUSH 17
+00477E3E  |. 6A 04          |PUSH 4
+00477E40  |. 895424 30      |MOV DWORD PTR SS:[ESP+30],EDX
+00477E44  |. 8B40 04        |MOV EAX,DWORD PTR DS:[EAX+4]
+00477E47  |. 83EC 08        |SUB ESP,8
+00477E4A  |. 8D5424 38      |LEA EDX,DWORD PTR SS:[ESP+38]
+00477E4E  |. 8BCC           |MOV ECX,ESP
+00477E50  |. 52             |PUSH EDX                                ; /Arg1
+00477E51  |. 894424 40      |MOV DWORD PTR SS:[ESP+40],EAX           ; |
+00477E55  |. E8 DAAB0800    |CALL Nobunaga.00502A34                  ; \Nobunaga.00502A34
+00477E5A  |. 8D85 F0030000  |LEA EAX,DWORD PTR SS:[EBP+3F0]
+00477E60  |. 50             |PUSH EAX
+00477E61  |. B9 380F5800    |MOV ECX,Nobunaga.00580F38
+00477E66  |. E8 B5D7FEFF    |CALL Nobunaga.00465620
+00477E6B  |. 8B4C24 28      |MOV ECX,DWORD PTR SS:[ESP+28]
+00477E6F  |. 8B4424 24      |MOV EAX,DWORD PTR SS:[ESP+24]
+00477E73  |. 83C0 10        |ADD EAX,10
+00477E76  |. 890D 8CC86000  |MOV DWORD PTR DS:[60C88C],ECX
+00477E7C  |. 8B4C24 10      |MOV ECX,DWORD PTR SS:[ESP+10]
+00477E80  |. A3 E0ED5300    |MOV DWORD PTR DS:[53EDE0],EAX
+00477E85  |. A3 88C86000    |MOV DWORD PTR DS:[60C888],EAX
+00477E8A  |. E8 A12F0000    |CALL Nobunaga.0047AE30
+00477E8F  |. 50             |PUSH EAX
+00477E90  |. 68 DC3D5200    |PUSH Nobunaga.00523DDC                  ;  ASCII ":%4d:"
+00477E95  |. 68 A8C86000    |PUSH Nobunaga.0060C8A8                  ;  ASCII " ™R"
+00477E9A  |. E8 33C70800    |CALL Nobunaga.005045D2
+00477E9F  |. 8B5424 34      |MOV EDX,DWORD PTR SS:[ESP+34]
+00477EA3  |. 8B4424 30      |MOV EAX,DWORD PTR SS:[ESP+30]
+00477EA7  |. 8B7C24 1C      |MOV EDI,DWORD PTR SS:[ESP+1C]
+00477EAB  |. 83C4 0C        |ADD ESP,0C
+00477EAE  |. 6A 10          |PUSH 10
+00477EB0  |. 6A 17          |PUSH 17
+00477EB2  |. 6A 00          |PUSH 0
+00477EB4  |. 83EC 08        |SUB ESP,8
+00477EB7  |. 8BCC           |MOV ECX,ESP
+00477EB9  |. 52             |PUSH EDX                                ; /Arg2
+00477EBA  |. 83C0 40        |ADD EAX,40                              ; |
+00477EBD  |. 50             |PUSH EAX                                ; |Arg1
+00477EBE  |. E8 5CAB0800    |CALL Nobunaga.00502A1F                  ; \Nobunaga.00502A1F@@@@@u‘«Œyvu‹R”nvu“S–Cvu‹R”n“S–Cv‚Ì•\Ž¦‚Ü‚í‚è‚ÆŽv‚í‚ê‚é
+00477EC3  |. 8BCF           |MOV ECX,EDI
+00477EC5  |. E8 562F0000    |CALL Nobunaga.0047AE20
+00477ECA  |. 05 EA030000    |ADD EAX,3EA
+00477ECF  |. 50             |PUSH EAX
+00477ED0  |. B9 380F5800    |MOV ECX,Nobunaga.00580F38
+00477ED5  |. E8 46D7FEFF    |CALL Nobunaga.00465620
+00477EDA  |. 8B4C24 28      |MOV ECX,DWORD PTR SS:[ESP+28]
+00477EDE  |. 8B4424 24      |MOV EAX,DWORD PTR SS:[ESP+24]
+00477EE2  |. 83C0 68        |ADD EAX,68
+00477EE5  |. 890D 8CC86000  |MOV DWORD PTR DS:[60C88C],ECX
+00477EEB  |. 8B4C24 10      |MOV ECX,DWORD PTR SS:[ESP+10]
+00477EEF  |. A3 E0ED5300    |MOV DWORD PTR DS:[53EDE0],EAX
+00477EF4  |. A3 88C86000    |MOV DWORD PTR DS:[60C888],EAX
+00477EF9  |. E8 123C0000    |CALL Nobunaga.0047BB10
+00477EFE  |. 50             |PUSH EAX
+00477EFF  |. 68 D83D5200    |PUSH Nobunaga.00523DD8                  ;  ASCII "%2s"
+00477F04  |. 68 A8C86000    |PUSH Nobunaga.0060C8A8                  ; /Arg1 = 0060C8A8
+00477F09  |. E8 C4C60800    |CALL Nobunaga.005045D2                  ; \Nobunaga.005045D2@@@@@‚¨‚»‚ç‚­‚Í‚d`‚r‚Ì•\Ž¦
+00477F0E  |. 83C4 04        |ADD ESP,4
+00477F11  |. 8D5424 34      |LEA EDX,DWORD PTR SS:[ESP+34]           ; |
+00477F15  |. 8BCC           |MOV ECX,ESP                             ; |
+00477F17  |. 52             |PUSH EDX                                ; |/Arg1
+00477F18  |. E8 17AB0800    |CALL Nobunaga.00502A34                  ; |\Nobunaga.00502A34
+00477F1D  |. 8B4424 18      |MOV EAX,DWORD PTR SS:[ESP+18]           ; |
+00477F21  |. 50             |PUSH EAX                                ; |Arg1
+00477F22  |. 8BCB           |MOV ECX,EBX                             ; |
+00477F24  |. E8 A7F0FFFF    |CALL Nobunaga.00476FD0                  ; \Nobunaga.00476FD0
+00477F29  |. 8B7C24 1C      |MOV EDI,DWORD PTR SS:[ESP+1C]
+00477F2D  |> 83C5 01        |ADD EBP,1
+00477F30  |. 8D0C2F         |LEA ECX,DWORD PTR DS:[EDI+EBP]
+00477F33  |. 51             |PUSH ECX
+00477F34  |. 8D5424 44      |LEA EDX,DWORD PTR SS:[ESP+44]
+00477F38  |. 52             |PUSH EDX
+00477F39  |. 8D8B E0000000  |LEA ECX,DWORD PTR DS:[EBX+E0]
+00477F3F  |. 83C6 08        |ADD ESI,8
+00477F42  |. E8 49DFFFFF    |CALL Nobunaga.00475E90
+00477F47  |. 8B4C24 40      |MOV ECX,DWORD PTR SS:[ESP+40]
+00477F4B  |. 3B0D 14925300  |CMP ECX,DWORD PTR DS:[539214]           ;  Nobunaga.00539190
+00477F51  |. 894C24 10      |MOV DWORD PTR SS:[ESP+10],ECX
+00477F55  |.^0F85 A8FEFFFF  \JNZ Nobunaga.00477E03
+00477F5B  |> 5F             POP EDI
+00477F5C  |. 5E             POP ESI
+00477F5D  |. 5D             POP EBP
+
+
 
 */
