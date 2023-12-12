@@ -123,6 +123,8 @@
     <ClInclude Include="onigwrap.h" />
     <ClInclude Include="on_event.h" />
     <ClInclude Include="data_bushou_message.h" />
+    <ClInclude Include="on_load_savedata.h" />
+    <ClInclude Include="on_load_scenariodata.h" />
     <ClInclude Include="on_serihu_message.h" />
     <ClInclude Include="output_debug_stream.h" />
     <ClInclude Include="game_process.h" />
@@ -150,10 +152,13 @@
     <ClCompile Include="hook_bgm2_filename.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="hook_cretefilea_custom.cpp" />
     <ClCompile Include="hook_kahou_retsuden_shou_bgn.cpp" />
     <ClCompile Include="hook_kahou_retsuden_show_end.cpp" />
+    <ClCompile Include="hook_kahou_retsuden_show_pic.cpp" />
     <ClCompile Include="hook_movie_filename.cpp" />
     <ClCompile Include="hook_readfile_custom.cpp" />
+    <ClCompile Include="hook_setfilepointer_custom.cpp" />
     <ClCompile Include="hook_yasen_butai_info_update.cpp" />
     <ClCompile Include="hook_unknown_dialog3.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -204,6 +209,7 @@
     <ClCompile Include="mng_武将情報.cpp" />
     <ClCompile Include="onigwrap.cpp" />
     <ClCompile Include="on_event.cpp" />
+    <ClCompile Include="on_game_pic_show.cpp" />
     <ClCompile Include="on_serihu_message.cpp" />
     <ClCompile Include="output_debug_stream.cpp" />
     <ClCompile Include="game_process.cpp" />

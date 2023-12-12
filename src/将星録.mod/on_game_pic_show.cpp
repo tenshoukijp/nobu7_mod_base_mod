@@ -1,0 +1,477 @@
+/*
+画像を汎用的に表示する関数
+
+00465580   8B4424 04        MOV EAX,DWORD PTR SS:[ESP+4]
+00465584   56               PUSH ESI
+00465585   50               PUSH EAX
+00465586   8BF1             MOV ESI,ECX
+00465588   E8 23FEFFFF      CALL Nobunaga.004653B0
+0046558D   85C0             TEST EAX,EAX
+0046558F   74 7C            JE SHORT Nobunaga.0046560D
+00465591   8B4C24 1C        MOV ECX,DWORD PTR SS:[ESP+1C]
+00465595   8B5424 18        MOV EDX,DWORD PTR SS:[ESP+18]
+00465599   8B4424 14        MOV EAX,DWORD PTR SS:[ESP+14]
+0046559D   51               PUSH ECX
+0046559E   52               PUSH EDX
+0046559F   50               PUSH EAX
+004655A0   E8 EB070A00      CALL Nobunaga.00505D90
+004655A5   83C4 0C          ADD ESP,0C
+004655A8   83BE 56020000 FF CMP DWORD PTR DS:[ESI+256],-1
+004655AF   74 2E            JE SHORT Nobunaga.004655DF
+004655B1   8B86 5A020000    MOV EAX,DWORD PTR DS:[ESI+25A]
+004655B7   85C0             TEST EAX,EAX
+004655B9   74 24            JE SHORT Nobunaga.004655DF
+004655BB   83BE 4E020000 00 CMP DWORD PTR DS:[ESI+24E],0
+004655C2   74 1B            JE SHORT Nobunaga.004655DF
+004655C4   83BE 52020000 00 CMP DWORD PTR DS:[ESI+252],0
+004655CB   74 12            JE SHORT Nobunaga.004655DF
+004655CD   8038 2A          CMP BYTE PTR DS:[EAX],2A
+004655D0   75 0D            JNZ SHORT Nobunaga.004655DF
+004655D2   8078 01 38       CMP BYTE PTR DS:[EAX+1],38
+004655D6   75 07            JNZ SHORT Nobunaga.004655DF
+004655D8   B8 06000000      MOV EAX,6
+004655DD   EB 02            JMP SHORT Nobunaga.004655E1
+004655DF   33C0             XOR EAX,EAX
+004655E1   8B96 52020000    MOV EDX,DWORD PTR DS:[ESI+252]
+004655E7   0FBFC8           MOVSX ECX,AX
+004655EA   038E 5A020000    ADD ECX,DWORD PTR DS:[ESI+25A]
+004655F0   8B86 4E020000    MOV EAX,DWORD PTR DS:[ESI+24E]
+004655F6   51               PUSH ECX
+004655F7   8B4C24 14        MOV ECX,DWORD PTR SS:[ESP+14]
+004655FB   52               PUSH EDX
+004655FC   8B5424 14        MOV EDX,DWORD PTR SS:[ESP+14]
+00465600   50               PUSH EAX
+00465601   51               PUSH ECX
+00465602   52               PUSH EDX
+00465603   B9 A8C86000      MOV ECX,Nobunaga.0060C8A8                ; ASCII "儚"
+00465608   E8 49EC0900      CALL Nobunaga.00504256
+0046560D   5E               POP ESI
+0046560E   C2 1800          RETN 18
+
+*/
+
+
+
+/*
+画像の表示やキャッシュ等をつかさどっている関数と思われる。
+00506E80   83EC 20          SUB ESP,20
+00506E83   A1 C0296100      MOV EAX,DWORD PTR DS:[6129C0]
+00506E88   53               PUSH EBX
+00506E89   56               PUSH ESI
+00506E8A   8B7424 2C        MOV ESI,DWORD PTR SS:[ESP+2C]
+00506E8E   8B0CC5 18D96000  MOV ECX,DWORD PTR DS:[EAX*8+60D918]
+00506E95   57               PUSH EDI
+00506E96   8B7C24 34        MOV EDI,DWORD PTR SS:[ESP+34]
+00506E9A   8D140E           LEA EDX,DWORD PTR DS:[ESI+ECX]
+00506E9D   895424 1C        MOV DWORD PTR SS:[ESP+1C],EDX
+00506EA1   8B14C5 1CD96000  MOV EDX,DWORD PTR DS:[EAX*8+60D91C]
+00506EA8   C1E0 04          SHL EAX,4
+00506EAB   8D1C17           LEA EBX,DWORD PTR DS:[EDI+EDX]
+00506EAE   05 A02A6100      ADD EAX,Nobunaga.00612AA0
+00506EB3   895C24 20        MOV DWORD PTR SS:[ESP+20],EBX
+00506EB7   8B5C24 38        MOV EBX,DWORD PTR SS:[ESP+38]
+00506EBB   03F3             ADD ESI,EBX
+00506EBD   50               PUSH EAX
+00506EBE   8D4424 20        LEA EAX,DWORD PTR SS:[ESP+20]
+00506EC2   8D4C0E FF        LEA ECX,DWORD PTR DS:[ESI+ECX-1]
+00506EC6   8B7424 40        MOV ESI,DWORD PTR SS:[ESP+40]
+00506ECA   894C24 28        MOV DWORD PTR SS:[ESP+28],ECX
+00506ECE   50               PUSH EAX
+00506ECF   8D0C3E           LEA ECX,DWORD PTR DS:[ESI+EDI]
+00506ED2   8D5411 FF        LEA EDX,DWORD PTR DS:[ECX+EDX-1]
+00506ED6   8D4C24 14        LEA ECX,DWORD PTR SS:[ESP+14]
+00506EDA   51               PUSH ECX
+00506EDB   895424 34        MOV DWORD PTR SS:[ESP+34],EDX
+00506EDF   E8 2CF3FFFF      CALL Nobunaga.00506210
+00506EE4   83C4 0C          ADD ESP,0C
+00506EE7   85C0             TEST EAX,EAX
+00506EE9   0F84 60010000    JE Nobunaga.0050704F
+00506EEF   8B15 C0296100    MOV EDX,DWORD PTR DS:[6129C0]
+00506EF5   55               PUSH EBP
+00506EF6   833C95 38DC6000 >CMP DWORD PTR DS:[EDX*4+60DC38],7
+00506EFE   75 06            JNZ SHORT Nobunaga.00506F06
+00506F00   8B6C24 44        MOV EBP,DWORD PTR SS:[ESP+44]
+00506F04   EB 2B            JMP SHORT Nobunaga.00506F31
+00506F06   8BC6             MOV EAX,ESI
+00506F08   0FAFC3           IMUL EAX,EBX
+00506F0B   50               PUSH EAX
+00506F0C   6A 00            PUSH 0
+00506F0E   FF15 9C015200    CALL DWORD PTR DS:[<&KERNEL32.GlobalAllo>; KERNEL32.GlobalAlloc
+00506F14   50               PUSH EAX
+00506F15   894424 38        MOV DWORD PTR SS:[ESP+38],EAX
+00506F19   FF15 98015200    CALL DWORD PTR DS:[<&KERNEL32.GlobalLock>; KERNEL32.GlobalWire
+00506F1F   8B4C24 44        MOV ECX,DWORD PTR SS:[ESP+44]
+00506F23   8BE8             MOV EBP,EAX
+00506F25   55               PUSH EBP
+00506F26   51               PUSH ECX
+00506F27   56               PUSH ESI
+00506F28   53               PUSH EBX
+00506F29   E8 32210000      CALL Nobunaga.00509060
+00506F2E   83C4 10          ADD ESP,10
+00506F31   8B5424 14        MOV EDX,DWORD PTR SS:[ESP+14]
+00506F35   8B4424 10        MOV EAX,DWORD PTR SS:[ESP+10]
+00506F39   52               PUSH EDX
+00506F3A   50               PUSH EAX
+00506F3B   E8 A0EFFFFF      CALL Nobunaga.00505EE0
+00506F40   8B5424 1C        MOV EDX,DWORD PTR SS:[ESP+1C]
+00506F44   8B4C24 2C        MOV ECX,DWORD PTR SS:[ESP+2C]
+00506F48   8BF2             MOV ESI,EDX
+00506F4A   8B7C24 28        MOV EDI,DWORD PTR SS:[ESP+28]
+00506F4E   2BF1             SUB ESI,ECX
+00506F50   8B4C24 18        MOV ECX,DWORD PTR SS:[ESP+18]
+00506F54   0FAFF3           IMUL ESI,EBX
+00506F57   03F1             ADD ESI,ECX
+00506F59   83C4 08          ADD ESP,8
+00506F5C   2BF7             SUB ESI,EDI
+00506F5E   8B7C24 1C        MOV EDI,DWORD PTR SS:[ESP+1C]
+00506F62   03EE             ADD EBP,ESI
+00506F64   8B7424 18        MOV ESI,DWORD PTR SS:[ESP+18]
+00506F68   2BF1             SUB ESI,ECX
+00506F6A   8B0D C0296100    MOV ECX,DWORD PTR DS:[6129C0]
+00506F70   2BFA             SUB EDI,EDX
+00506F72   46               INC ESI
+00506F73   8B148D 60F76000  MOV EDX,DWORD PTR DS:[ECX*4+60F760]
+00506F7A   47               INC EDI
+00506F7B   83FA 05          CMP EDX,5                                ; Switch (cases 0..5)
+00506F7E   0F87 9A000000    JA Nobunaga.0050701E
+00506F84   FF2495 58705000  JMP DWORD PTR DS:[EDX*4+507058]
+00506F8B   8B148D 38DC6000  MOV EDX,DWORD PTR DS:[ECX*4+60DC38]      ; Cases 0,5 of switch 00506F7B
+00506F92   52               PUSH EDX
+00506F93   50               PUSH EAX
+00506F94   8B048D F0F86000  MOV EAX,DWORD PTR DS:[ECX*4+60F8F0]
+00506F9B   55               PUSH EBP
+00506F9C   53               PUSH EBX
+00506F9D   50               PUSH EAX
+00506F9E   57               PUSH EDI
+00506F9F   56               PUSH ESI
+00506FA0   E8 1B1D0000      CALL Nobunaga.00508CC0
+00506FA5   EB 6E            JMP SHORT Nobunaga.00507015
+00506FA7   8B148D 38DC6000  MOV EDX,DWORD PTR DS:[ECX*4+60DC38]      ; Case 2 of switch 00506F7B
+00506FAE   52               PUSH EDX
+00506FAF   50               PUSH EAX
+00506FB0   8B048D F0F86000  MOV EAX,DWORD PTR DS:[ECX*4+60F8F0]
+00506FB7   55               PUSH EBP
+00506FB8   53               PUSH EBX
+00506FB9   50               PUSH EAX
+00506FBA   57               PUSH EDI
+00506FBB   56               PUSH ESI
+00506FBC   E8 4F1D0000      CALL Nobunaga.00508D10
+00506FC1   EB 52            JMP SHORT Nobunaga.00507015
+00506FC3   8B148D 38DC6000  MOV EDX,DWORD PTR DS:[ECX*4+60DC38]      ; Case 3 of switch 00506F7B
+00506FCA   52               PUSH EDX
+00506FCB   50               PUSH EAX
+00506FCC   8B048D F0F86000  MOV EAX,DWORD PTR DS:[ECX*4+60F8F0]
+00506FD3   55               PUSH EBP
+00506FD4   53               PUSH EBX
+00506FD5   50               PUSH EAX
+00506FD6   57               PUSH EDI
+00506FD7   56               PUSH ESI
+00506FD8   E8 831D0000      CALL Nobunaga.00508D60
+00506FDD   EB 36            JMP SHORT Nobunaga.00507015
+00506FDF   8B148D 38DC6000  MOV EDX,DWORD PTR DS:[ECX*4+60DC38]      ; Case 1 of switch 00506F7B
+00506FE6   52               PUSH EDX
+00506FE7   50               PUSH EAX
+00506FE8   8B048D F0F86000  MOV EAX,DWORD PTR DS:[ECX*4+60F8F0]
+00506FEF   55               PUSH EBP
+00506FF0   53               PUSH EBX
+00506FF1   50               PUSH EAX
+00506FF2   57               PUSH EDI
+00506FF3   56               PUSH ESI
+00506FF4   E8 B71D0000      CALL Nobunaga.00508DB0
+00506FF9   EB 1A            JMP SHORT Nobunaga.00507015
+00506FFB   8B148D 38DC6000  MOV EDX,DWORD PTR DS:[ECX*4+60DC38]      ; Case 4 of switch 00506F7B
+00507002   52               PUSH EDX
+00507003   50               PUSH EAX
+00507004   8B048D F0F86000  MOV EAX,DWORD PTR DS:[ECX*4+60F8F0]
+0050700B   55               PUSH EBP
+0050700C   53               PUSH EBX
+0050700D   50               PUSH EAX
+0050700E   57               PUSH EDI
+0050700F   56               PUSH ESI
+00507010   E8 FB1D0000      CALL Nobunaga.00508E10
+00507015   8B0D C0296100    MOV ECX,DWORD PTR DS:[6129C0]
+0050701B   83C4 1C          ADD ESP,1C
+0050701E   833C8D 38DC6000 >CMP DWORD PTR DS:[ECX*4+60DC38],7        ; Default case of switch 00506F7B
+00507026   74 12            JE SHORT Nobunaga.0050703A
+00507028   8B5C24 34        MOV EBX,DWORD PTR SS:[ESP+34]
+0050702C   53               PUSH EBX
+0050702D   FF15 A4015200    CALL DWORD PTR DS:[<&KERNEL32.GlobalUnlo>; KERNEL32.GlobalUnlock
+00507033   53               PUSH EBX
+00507034   FF15 A0015200    CALL DWORD PTR DS:[<&KERNEL32.GlobalFree>; KERNEL32.GlobalFree
+0050703A   8B4C24 14        MOV ECX,DWORD PTR SS:[ESP+14]
+0050703E   8B5424 10        MOV EDX,DWORD PTR SS:[ESP+10]
+00507042   57               PUSH EDI
+00507043   56               PUSH ESI
+00507044   51               PUSH ECX
+00507045   52               PUSH EDX
+00507046   E8 95E2FFFF      CALL Nobunaga.005052E0
+0050704B   83C4 10          ADD ESP,10
+0050704E   5D               POP EBP
+0050704F   5F               POP EDI
+00507050   5E               POP ESI
+00507051   5B               POP EBX
+00507052   83C4 20          ADD ESP,20
+00507055   C3               RETN
+00507056   8BFF             MOV EDI,EDI
+00507058   8B6F 50          MOV EBP,DWORD PTR DS:[EDI+50]            ; Switch table used at 00506F84
+0050705B   00DF             ADD BH,BL
+0050705D   6F               OUTS DX,DWORD PTR ES:[EDI]               ; I/O ｺﾏﾝﾄﾞ　
+0050705E   50               PUSH EAX
+0050705F   00A7 6F5000C3    ADD BYTE PTR DS:[EDI+C300506F],AH
+00507065   6F               OUTS DX,DWORD PTR ES:[EDI]               ; I/O ｺﾏﾝﾄﾞ　
+00507066   50               PUSH EAX
+00507067   00FB             ADD BL,BH
+00507069   6F               OUTS DX,DWORD PTR ES:[EDI]               ; I/O ｺﾏﾝﾄﾞ　
+0050706A   50               PUSH EAX
+0050706B   008B 6F500083    ADD BYTE PTR DS:[EBX+8300506F],CL
+00507071   EC               IN AL,DX                                 ; I/O ｺﾏﾝﾄﾞ　
+00507072   20A1 C0296100    AND BYTE PTR DS:[ECX+6129C0],AH
+00507078   53               PUSH EBX
+00507079   55               PUSH EBP
+0050707A   56               PUSH ESI
+0050707B   8B0CC5 18D96000  MOV ECX,DWORD PTR DS:[EAX*8+60D918]
+00507082   8B5C24 34        MOV EBX,DWORD PTR SS:[ESP+34]
+00507086   57               PUSH EDI
+00507087   8B7C24 34        MOV EDI,DWORD PTR SS:[ESP+34]
+0050708B   8D140F           LEA EDX,DWORD PTR DS:[EDI+ECX]
+0050708E   895424 20        MOV DWORD PTR SS:[ESP+20],EDX
+00507092   8B14C5 1CD96000  MOV EDX,DWORD PTR DS:[EAX*8+60D91C]
+00507099   C1E0 04          SHL EAX,4
+0050709C   8D3413           LEA ESI,DWORD PTR DS:[EBX+EDX]
+0050709F   05 60DF6000      ADD EAX,Nobunaga.0060DF60
+005070A4   897424 24        MOV DWORD PTR SS:[ESP+24],ESI
+005070A8   8B7424 3C        MOV ESI,DWORD PTR SS:[ESP+3C]
+005070AC   03FE             ADD EDI,ESI
+005070AE   50               PUSH EAX
+005070AF   8D4424 24        LEA EAX,DWORD PTR SS:[ESP+24]
+005070B3   8D4C0F FF        LEA ECX,DWORD PTR DS:[EDI+ECX-1]
+005070B7   50               PUSH EAX
+005070B8   894C24 30        MOV DWORD PTR SS:[ESP+30],ECX
+005070BC   8B4C24 48        MOV ECX,DWORD PTR SS:[ESP+48]
+005070C0   03CB             ADD ECX,EBX
+005070C2   8D5411 FF        LEA EDX,DWORD PTR DS:[ECX+EDX-1]
+005070C6   8D4C24 18        LEA ECX,DWORD PTR SS:[ESP+18]
+005070CA   51               PUSH ECX
+005070CB   895424 38        MOV DWORD PTR SS:[ESP+38],EDX
+005070CF   E8 3CF1FFFF      CALL Nobunaga.00506210
+005070D4   83C4 0C          ADD ESP,0C
+005070D7   85C0             TEST EAX,EAX
+005070D9   0F84 F2000000    JE Nobunaga.005071D1
+005070DF   8B5424 14        MOV EDX,DWORD PTR SS:[ESP+14]
+005070E3   8B4424 10        MOV EAX,DWORD PTR SS:[ESP+10]
+005070E7   52               PUSH EDX
+005070E8   50               PUSH EAX
+005070E9   E8 F2EDFFFF      CALL Nobunaga.00505EE0
+005070EE   8B7C24 20        MOV EDI,DWORD PTR SS:[ESP+20]
+005070F2   8B5424 18        MOV EDX,DWORD PTR SS:[ESP+18]
+005070F6   8B5C24 24        MOV EBX,DWORD PTR SS:[ESP+24]
+005070FA   8B2D C0296100    MOV EBP,DWORD PTR DS:[6129C0]
+00507100   8BC8             MOV ECX,EAX
+00507102   8B4424 1C        MOV EAX,DWORD PTR SS:[ESP+1C]
+00507106   2BFA             SUB EDI,EDX
+00507108   83C4 08          ADD ESP,8
+0050710B   2BD8             SUB EBX,EAX
+0050710D   47               INC EDI
+0050710E   43               INC EBX
+0050710F   833CAD 38DC6000 >CMP DWORD PTR DS:[EBP*4+60DC38],3
+00507117   894C24 34        MOV DWORD PTR SS:[ESP+34],ECX
+0050711B   0F8F 86000000    JG Nobunaga.005071A7
+00507121   8B4C24 40        MOV ECX,DWORD PTR SS:[ESP+40]
+00507125   0FAFCE           IMUL ECX,ESI
+00507128   41               INC ECX
+00507129   51               PUSH ECX
+0050712A   6A 00            PUSH 0
+0050712C   FF15 9C015200    CALL DWORD PTR DS:[<&KERNEL32.GlobalAllo>; KERNEL32.GlobalAlloc
+00507132   8BE8             MOV EBP,EAX
+00507134   55               PUSH EBP
+00507135   FF15 98015200    CALL DWORD PTR DS:[<&KERNEL32.GlobalLock>; KERNEL32.GlobalWire
+0050713B   8B5424 14        MOV EDX,DWORD PTR SS:[ESP+14]
+0050713F   8B4C24 24        MOV ECX,DWORD PTR SS:[ESP+24]
+00507143   2BD1             SUB EDX,ECX
+00507145   8B4C24 20        MOV ECX,DWORD PTR SS:[ESP+20]
+00507149   0FAFD6           IMUL EDX,ESI
+0050714C   894424 38        MOV DWORD PTR SS:[ESP+38],EAX
+00507150   03D0             ADD EDX,EAX
+00507152   8B4424 10        MOV EAX,DWORD PTR SS:[ESP+10]
+00507156   03D0             ADD EDX,EAX
+00507158   8B4424 34        MOV EAX,DWORD PTR SS:[ESP+34]
+0050715C   2BD1             SUB EDX,ECX
+0050715E   8B0D C0296100    MOV ECX,DWORD PTR DS:[6129C0]
+00507164   52               PUSH EDX
+00507165   50               PUSH EAX
+00507166   8B148D F0F86000  MOV EDX,DWORD PTR DS:[ECX*4+60F8F0]
+0050716D   56               PUSH ESI
+0050716E   52               PUSH EDX
+0050716F   53               PUSH EBX
+00507170   57               PUSH EDI
+00507171   E8 0A1D0000      CALL Nobunaga.00508E80
+00507176   8B4424 5C        MOV EAX,DWORD PTR SS:[ESP+5C]
+0050717A   8B4C24 50        MOV ECX,DWORD PTR SS:[ESP+50]
+0050717E   8B5424 58        MOV EDX,DWORD PTR SS:[ESP+58]
+00507182   83C4 18          ADD ESP,18
+00507185   50               PUSH EAX
+00507186   51               PUSH ECX
+00507187   52               PUSH EDX
+00507188   56               PUSH ESI
+00507189   E8 721E0000      CALL Nobunaga.00509000
+0050718E   83C4 10          ADD ESP,10
+00507191   55               PUSH EBP
+00507192   FF15 A4015200    CALL DWORD PTR DS:[<&KERNEL32.GlobalUnlo>; KERNEL32.GlobalUnlock
+00507198   55               PUSH EBP
+00507199   FF15 A0015200    CALL DWORD PTR DS:[<&KERNEL32.GlobalFree>; KERNEL32.GlobalFree
+0050719F   5F               POP EDI
+005071A0   5E               POP ESI
+005071A1   5D               POP EBP
+005071A2   5B               POP EBX
+005071A3   83C4 20          ADD ESP,20
+005071A6   C3               RETN
+005071A7   2B4424 24        SUB EAX,DWORD PTR SS:[ESP+24]
+005071AB   0FAFC6           IMUL EAX,ESI
+005071AE   03C2             ADD EAX,EDX
+005071B0   8B5424 44        MOV EDX,DWORD PTR SS:[ESP+44]
+005071B4   03C2             ADD EAX,EDX
+005071B6   8B5424 20        MOV EDX,DWORD PTR SS:[ESP+20]
+005071BA   2BC2             SUB EAX,EDX
+005071BC   50               PUSH EAX
+005071BD   8B04AD F0F86000  MOV EAX,DWORD PTR DS:[EBP*4+60F8F0]
+005071C4   51               PUSH ECX
+005071C5   56               PUSH ESI
+005071C6   50               PUSH EAX
+005071C7   53               PUSH EBX
+005071C8   57               PUSH EDI
+005071C9   E8 B21C0000      CALL Nobunaga.00508E80
+005071CE   83C4 18          ADD ESP,18
+005071D1   5F               POP EDI
+005071D2   5E               POP ESI
+005071D3   5D               POP EBP
+005071D4   5B               POP EBX
+005071D5   83C4 20          ADD ESP,20
+005071D8   C3               RETN
+
+*/
+
+
+
+// このファイルは調査失敗。役に立たない。コンパイル対象から外れている
+
+#include <windows.h>
+#include <string>
+#include "data_game_struct.h"
+#include "data_bushou_struct.h"
+#include "output_debug_stream.h"
+#include "data_kahou_struct.h"
+#include "data_kanni_struct.h"
+#include "data_yakusyoku_struct.h"
+#include "data_castle_struct.h"
+#include "data_turn_struct.h"
+#include "game_screen.h"
+#include "game_process.h"
+#include "on_serihu_message.h"
+#include "bushou_albedo.h"
+#include "game_screen.h"
+#include "message_albedo.h"
+
+
+// このファイルは調査失敗。役に立たない。コンパイル対象から外れている
+
+#include <windows.h>
+#include <string>
+#include "data_game_struct.h"
+#include "data_bushou_struct.h"
+#include "output_debug_stream.h"
+#include "data_kahou_struct.h"
+#include "data_kanni_struct.h"
+#include "data_yakusyoku_struct.h"
+#include "data_castle_struct.h"
+#include "data_turn_struct.h"
+#include "game_screen.h"
+#include "game_process.h"
+#include "on_serihu_message.h"
+#include "bushou_albedo.h"
+#include "game_screen.h"
+#include "message_albedo.h"
+
+
+using namespace std;
+
+#pragma unmanaged
+
+
+void OnSSRExeLoadDataResourceExecute() {
+	OutputDebugStream("★★★★LoadDataResource!!!★\n");
+}
+
+
+/*
+00506EDA   51               PUSH ECX
+00506EDB   895424 34        MOV DWORD PTR SS:[ESP+34],EDX
+00506EDF   E8 2CF3FFFF      CALL Nobunaga.00506210
+00506EE4   83C4 0C          ADD ESP,0C
+*/
+/*
+
+
+
+*/
+int pSSRExeJumpFromToOnSSRExeLoadDataResource = 0x506EDF; // 関数はこのアドレスから、OnSSRExeLoadDataResourceへとジャンプしてくる。
+int pSSRExeJumpCallFromToOnSSRExeLoadDataResource = 0x506210; // 元々あった処理のCall先
+int pSSRExeReturnLblFromOnSSRExeLoadDataResource = 0x506EE4; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+
+#pragma warning(disable:4733)
+
+__declspec(naked) void WINAPI OnSSRExeLoadDataResource() {
+	// スタックにためておく
+	__asm {
+
+		push eax
+		push ebx
+		push ecx
+		push edx
+		push esp
+		push ebp
+		push esi
+		push edi
+	}
+
+	OnSSRExeLoadDataResourceExecute();
+
+	// スタックに引き出す
+	__asm {
+		pop edi
+		pop esi
+		pop ebp
+		pop esp
+		pop edx
+		pop ecx
+		pop ebx
+		pop eax
+
+		call pSSRExeJumpCallFromToOnSSRExeLoadDataResource // 元の処理
+
+		jmp pSSRExeReturnLblFromOnSSRExeLoadDataResource
+	}
+}
+#pragma warning(default: 4733) // ワーニングの抑制を解除する
+
+
+
+char cmdOnSSRExeJumpFromLoadDataResource[6] = "\xE9";
+// 元の命令が5バイト、以後の関数で生まれる命令が合計５バイトなので… 最後１つ使わない
+
+
+// ニーモニック書き換え用
+void WriteAsmJumperOnSSRExeShowDIBitmap() {
+	// アニメする度に実行されるので無理がある。
+	return;
+
+	// まずアドレスを数字として扱う
+	int iAddress = (int)OnSSRExeLoadDataResource;
+	int SubAddress = iAddress - (pSSRExeJumpFromToOnSSRExeLoadDataResource + 5);
+	// ５というのは、0046C194  -E9 ????????  JMP TSMod.OnTSExeGetDaimyoKoukeishaBushouID  の命令に必要なバイト数。要するに５バイト足すと次のニーモニック命令群に移動するのだ。そしてそこからの差分がジャンプする際の目的格として利用される。
+	memcpy(cmdOnSSRExeJumpFromLoadDataResource + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
+
+	// 構築したニーモニック命令をTENSHOU.EXEのメモリに書き換える
+	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeLoadDataResource), cmdOnSSRExeJumpFromLoadDataResource, 5, NULL); //5バイトのみ書き込む
+}
+
+#pragma managed

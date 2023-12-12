@@ -109,6 +109,15 @@
     <Filter Include="ゲームデータ - 野戦">
       <UniqueIdentifier>{def7fd94-3d83-4ec3-a13b-ea86e7d969bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="セーブデータ">
+      <UniqueIdentifier>{068a1f75-0364-4889-ba41-572b25970c51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="シナリオデータ">
+      <UniqueIdentifier>{031e49fb-915a-4491-a98d-e70a79e0bca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="画像表示">
+      <UniqueIdentifier>{02cae30b-7f97-406e-bf94-dd7e43f5f680}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -257,6 +266,12 @@
     </ClInclude>
     <ClInclude Include="data_yasen_butai_struct.h">
       <Filter>ゲームデータ - 野戦</Filter>
+    </ClInclude>
+    <ClInclude Include="on_load_scenariodata.h">
+      <Filter>シナリオデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="on_load_savedata.h">
+      <Filter>セーブデータ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -460,6 +475,18 @@
     </ClCompile>
     <ClCompile Include="hook_kahou_retsuden_shou_bgn.cpp">
       <Filter>列伝 - 家宝列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_setfilepointer_custom.cpp">
+      <Filter>フック関数置き換え系</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_cretefilea_custom.cpp">
+      <Filter>フック関数置き換え系</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_kahou_retsuden_show_pic.cpp">
+      <Filter>列伝 - 家宝列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="on_game_pic_show.cpp">
+      <Filter>画像表示</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
