@@ -349,7 +349,7 @@ void onCastleBattleTurn(string battleCastleTurnInfo) {
 
 }
 
-
+extern int iLastBattleRemainTurn;
 
 void onCastleBattleEnd(string battleCastleEndInfo) {
 
@@ -370,9 +370,9 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
     ) {
     }
 
+    iLastBattleRemainTurn = -1;
     nPreviousCastleBattleTurn = -1;
     reset野戦後のアルベドの敵武将の戦闘値();
-
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" + battleCastleEndInfo + "\n");
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
@@ -380,6 +380,7 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
 
 // 理由不明な終わり方
 void onCastleBattleEnd() {
+    iLastBattleRemainTurn = -1;
     nPreviousCastleBattleTurn = -1;
     reset籠城後のアルベドの敵武将は戦闘値();
 

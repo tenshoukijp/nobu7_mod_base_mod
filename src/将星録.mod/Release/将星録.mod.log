@@ -12,6 +12,7 @@
   data_turn_player_castle.cpp
   file_attribute.cpp
   hook_bgm_filename.cpp
+  hook_castle_battle_turn.cpp
   hook_cretefilea_custom.cpp
   hook_kahou_retsuden_shou_bgn.cpp
   hook_kahou_retsuden_show_end.cpp

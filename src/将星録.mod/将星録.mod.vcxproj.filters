@@ -118,6 +118,9 @@
     <Filter Include="画像表示">
       <UniqueIdentifier>{02cae30b-7f97-406e-bf94-dd7e43f5f680}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 籠城戦">
+      <UniqueIdentifier>{ee8456f5-f425-4309-bcae-12b40c644de5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -240,10 +243,7 @@
     <ClInclude Include="mng_官位情報.h">
       <Filter>ゲームデータ - 官位情報</Filter>
     </ClInclude>
-    <ClInclude Include="data_unknown_turn.h">
-      <Filter>ゲームデータ - ターン情報</Filter>
-    </ClInclude>
-    <ClInclude Include="data_castle_battle_turn.h">
+    <ClInclude Include="data_unknown_battle_turn.h">
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClInclude>
     <ClInclude Include="file_attribute.h">
@@ -272,6 +272,9 @@
     </ClInclude>
     <ClInclude Include="on_load_savedata.h">
       <Filter>セーブデータ</Filter>
+    </ClInclude>
+    <ClInclude Include="hook_castle_battle_turn.h">
+      <Filter>ゲームデータ - 籠城戦</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -487,6 +490,9 @@
     </ClCompile>
     <ClCompile Include="on_game_pic_show.cpp">
       <Filter>画像表示</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_turn.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@ extern void WriteAsmJumperOnSSRExeMessageDetail();
 extern void WriteAsmJumperOnSSRExeYasenTurnChange();
 extern void WriteAsmJumperOnSSRExeYasenTurnBothBushou();
 extern void WriteAsmJumperOnSSRExeYasenTurnButaiOf1to5();
+extern void WriteAsmJumperOnSSRExeCastleBattleTurn();
 extern void WriteAsmJumperOnSSRExeMovieFileName();
 extern void WriteAsmJumperOnSSRExePlayBGM();
 extern void WriteAsmJumperOnSSRExeKahouShowBgn();
@@ -19,6 +20,7 @@ bool isWriteAsmJumperOnSSRExeMessageDetail = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnChange = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnBothBushou = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnButaiOf1to5 = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleTurn = false;
 bool isWriteAsmJumperOnSSRExeMovieFileName = false;
 bool isWriteAsmJumperOnSSRExePlayBGM = false;
 bool isWriteAsmJumperOnSSRExeKahouShowBgn = false;
@@ -51,6 +53,11 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeYasenTurnButaiOf1to5) {
 		isWriteAsmJumperOnSSRExeYasenTurnButaiOf1to5 = true;
 		WriteAsmJumperOnSSRExeYasenTurnButaiOf1to5();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleTurn) {
+		isWriteAsmJumperOnSSRExeCastleBattleTurn = true;
+		WriteAsmJumperOnSSRExeCastleBattleTurn();
 	}
 
 	if (!isWriteAsmJumperOnSSRExeMovieFileName) {
