@@ -13,6 +13,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\data_turn_player_castle.
 C:\Users\master\source\repos\将星録Mod\将星録.mod\file_attribute.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\file_attribute.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bgm_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_bgm_filename.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_turn.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_turn_bgn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_cretefilea_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_cretefilea_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_shou_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_shou_bgn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_end.obj
@@ -67,4 +68,5 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\on_serihu_message.cpp;C:
 C:\Users\master\source\repos\将星録Mod\将星録.mod\output_debug_stream.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\output_debug_stream.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\game_process.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\game_process.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\game_window.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\game_window.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\watch_writememory.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\watch_writememory.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\.NETFramework,Version=v4.8.AssemblyAttributes.obj

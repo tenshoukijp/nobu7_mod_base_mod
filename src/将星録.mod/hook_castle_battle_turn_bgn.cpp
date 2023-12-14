@@ -154,44 +154,78 @@ using namespace std;
 
 #pragma unmanaged
 
-int iCastleBattleRemainTurn = -1;
-int iLastBattleRemainTurn = -1;
-void OnSSRExeCastleBattleTurnExecute() {
-	if (iLastBattleRemainTurn != iCastleBattleRemainTurn) {
-		iLastBattleRemainTurn = iCastleBattleRemainTurn;
-		OutputDebugStream("★★★★CastleBattleTurn:%d★\n", iCastleBattleRemainTurn);
+static int iCastleBattleBackupEAX = -1;
+static int iCastleBattleAfterECX = -1; // これは城配列へのポインタ
+static int iCastleBattleEDI = -1;
+static int iCastleBattleEAX = -1;
+static int iCastleBattleECX = -1;
+static int iCastleBattleESI = -1;
+static int nCastleBattleTurnBgnArg1 = -1;
+static int nCastleBattleTurnBgnArg2 = -1;
+static int nCastleBattleTurnBgnArg3 = -1;
+void OnSSRExeCastleBattleTurnBgnExecute() {
+	OutputDebugStream("★★★★iCastleBattleEDI:%x★\n", iCastleBattleEDI);
+	OutputDebugStream("★★★★iCastleBattleEAX:%x★\n", iCastleBattleEAX);
+	OutputDebugStream("★★★★iCastleBattleECX:%x★\n", iCastleBattleECX);
+	OutputDebugStream("★★★★iCastleBattleESI:%x★\n", iCastleBattleESI);
+	OutputDebugStream("★★★★nCastleBattleTurnBgnArg1:%x★\n", nCastleBattleTurnBgnArg1);
+	OutputDebugStream("★★★★nCastleBattleTurnBgnArg2:%x★\n", nCastleBattleTurnBgnArg2);
+	OutputDebugStream("★★★★nCastleBattleTurnBgnArg3:%x★\n", nCastleBattleTurnBgnArg3);
+	OutputDebugStream("★★★★iCastleBattleAfterECX:%x★\n", iCastleBattleAfterECX);
+
+	int iCastleID = getCastleIDFromCastlePointer((int *)iCastleBattleAfterECX);
+	if (isValidCastleID(iCastleID)) {
+		OutputDebugStream("★★★★城名:%s★\n", nb7城情報[iCastleID].城名);
 	}
 }
 
 
 /*
-0040E65C   8BCE             MOV ECX,ESI
-0040E65E   E8 3DFFFFFF      CALL Nobunaga.0040E5A0
-0040E663   B9 280F5400      MOV ECX,Nobunaga.00540F28
-0040E668   E8 4384FFFF      CALL Nobunaga.00406AB0
-0040E66D   B9 0F000000      MOV ECX,0F
-0040E672   2BC8             SUB ECX,EAX
-0040E674   51               PUSH ECX
-0040E675   68 B8095200      PUSH Nobunaga.005209B8                   ; ASCII "残%2dﾀｰﾝ"
-0040E67A   68 D8A55D00      PUSH Nobunaga.005DA5D8                   ; ASCII "  浅井家   500"
-0040E67F   E8 F3400F00      CALL Nobunaga.00502777
-0040E684   83C4 0C          ADD ESP,0C
-0040E687   68 D8A55D00      PUSH Nobunaga.005DA5D8                   ; ASCII "  浅井家   500"
-0040E68C   6A 10            PUSH 10
-0040E68E   68 B4020000      PUSH 2B4
+0040E620   83EC 08          SUB ESP,8
+0040E623   56               PUSH ESI
+0040E624   57               PUSH EDI
+0040E625   8D4424 08        LEA EAX,DWORD PTR SS:[ESP+8]
+0040E629   8BF1             MOV ESI,ECX
+0040E62B   50               PUSH EAX
+0040E62C   B9 280F5400      MOV ECX,Nobunaga.00540F28
+0040E631   E8 4A84FFFF      CALL Nobunaga.00406A80
+0040E636   8B08             MOV ECX,DWORD PTR DS:[EAX]
+0040E638   E8 A3F20900      CALL Nobunaga.004AD8E0
+0040E63D   50               PUSH EAX
 */
 
 
-int pSSRExeJumpFromToOnSSRExeCastleBattleTurn = 0x40E67F; // 関数はこのアドレスから、OnSSRExeCastleBattleTurnへとジャンプしてくる。
-int pSSRExeJumpCallFromToOnSSRExeCastleBattleTurn = 0x502777; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleTurn = 0x40E684; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeJumpFromToOnSSRExeCastleBattleTurnBgn = 0x40E631; // 関数はこのアドレスから、OnSSRExeCastleBattleTurnBgnへとジャンプしてくる。
+int pSSRExeJumpCallFromToOnSSRExeCastleBattleTurnBgn = 0x406A80; // 元々あった処理のCall先
+int pSSRExeReturnLblFromOnSSRExeCastleBattleTurnBgn = 0x40E638; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
 
 #pragma warning(disable:4733)
 
-__declspec(naked) void WINAPI OnSSRExeCastleBattleTurn() {
+__declspec(naked) void WINAPI OnSSRExeCastleBattleTurnBgn() {
 	// スタックにためておく
 	__asm {
-		mov iCastleBattleRemainTurn, ECX
+		mov iCastleBattleEDI, EDI
+		mov iCastleBattleEAX, EAX
+		mov iCastleBattleECX, ECX
+		mov iCastleBattleESI, ESI
+
+		mov iCastleBattleBackupEAX, eax          // 後で復元するため、現状のEAXは取っておく
+
+		MOV eax, DWORD PTR SS : [ESP + 0x4] // 3番目の引数を取得
+		mov nCastleBattleTurnBgnArg3, eax
+		MOV eax, DWORD PTR SS : [ESP + 0x8] // 2番目の引数を取得
+		mov nCastleBattleTurnBgnArg2, eax
+		MOV eax, DWORD PTR SS : [ESP + 0xC] // 1番目の引数を取得
+		mov nCastleBattleTurnBgnArg1, eax
+
+		mov eax, iCastleBattleBackupEAX		     // EAXを復元する
+
+		call pSSRExeJumpCallFromToOnSSRExeCastleBattleTurnBgn // 元の処理
+
+		MOV ECX, DWORD PTR DS : [EAX]
+
+		mov iCastleBattleAfterECX, ecx
+
 		push eax
 		push ebx
 		push ecx
@@ -202,7 +236,7 @@ __declspec(naked) void WINAPI OnSSRExeCastleBattleTurn() {
 		push edi
 	}
 
-	OnSSRExeCastleBattleTurnExecute();
+	OnSSRExeCastleBattleTurnBgnExecute();
 
 	// スタックに引き出す
 	__asm {
@@ -215,30 +249,29 @@ __declspec(naked) void WINAPI OnSSRExeCastleBattleTurn() {
 		pop ebx
 		pop eax
 
-		call pSSRExeJumpCallFromToOnSSRExeCastleBattleTurn // 元の処理
 
-		jmp pSSRExeReturnLblFromOnSSRExeCastleBattleTurn
+		jmp pSSRExeReturnLblFromOnSSRExeCastleBattleTurnBgn
 	}
 }
 #pragma warning(default: 4733) // ワーニングの抑制を解除する
 
 
 
-char cmdOnSSRExeJumpFromCastleBattleTurn[6] = "\xE9";
+char cmdOnSSRExeJumpFromCastleBattleTurnBgn[6] = "\xE9";
 // 元の命令が5バイト、以後の関数で生まれる命令が合計５バイトなので… 最後１つ使わない
 
 
 // ニーモニック書き換え用
-void WriteAsmJumperOnSSRExeCastleBattleTurn() {
+void WriteAsmJumperOnSSRExeCastleBattleTurnBgn() {
 
 	// まずアドレスを数字として扱う
-	int iAddress = (int)OnSSRExeCastleBattleTurn;
-	int SubAddress = iAddress - (pSSRExeJumpFromToOnSSRExeCastleBattleTurn + 5);
+	int iAddress = (int)OnSSRExeCastleBattleTurnBgn;
+	int SubAddress = iAddress - (pSSRExeJumpFromToOnSSRExeCastleBattleTurnBgn + 5);
 	// ５というのは、0046C194  -E9 ????????  JMP TSMod.OnTSExeGetDaimyoKoukeishaBushouID  の命令に必要なバイト数。要するに５バイト足すと次のニーモニック命令群に移動するのだ。そしてそこからの差分がジャンプする際の目的格として利用される。
-	memcpy(cmdOnSSRExeJumpFromCastleBattleTurn + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
+	memcpy(cmdOnSSRExeJumpFromCastleBattleTurnBgn + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
 
 	// 構築したニーモニック命令をTENSHOU.EXEのメモリに書き換える
-	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeCastleBattleTurn), cmdOnSSRExeJumpFromCastleBattleTurn, 5, NULL); //5バイトのみ書き込む
+	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeCastleBattleTurnBgn), cmdOnSSRExeJumpFromCastleBattleTurnBgn, 5, NULL); //5バイトのみ書き込む
 }
 
 #pragma managed

@@ -121,6 +121,9 @@
     <Filter Include="ゲームデータ - 籠城戦">
       <UniqueIdentifier>{ee8456f5-f425-4309-bcae-12b40c644de5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="メモリ書き込み監視">
+      <UniqueIdentifier>{6eaacde4-c161-4a2d-af21-c467313b54b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -492,6 +495,12 @@
       <Filter>画像表示</Filter>
     </ClCompile>
     <ClCompile Include="hook_castle_battle_turn.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
+    <ClCompile Include="watch_writememory.cpp">
+      <Filter>メモリ書き込み監視</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_turn_bgn.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
   </ItemGroup>

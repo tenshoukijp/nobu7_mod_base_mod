@@ -26,6 +26,20 @@ std::string get城称(int iCastleID) {
 	return "";
 }
 
+int getCastleIDFromCastlePointer(int* iCastlePtr) {
+	// 所有武将のアドレスを直接さしている
+	int iCastleAddress = (int)(iCastlePtr);
+	int sub = iCastleAddress - (int)(城情報アドレス);
+
+	// 城情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
+	int iCastleID = sub / sizeof(NB7城情報型);
+	if (isValidCastleID(iCastleID)) {
+		return iCastleID;
+	}
+
+	return 0xFFFF;
+}
+
 
 // 城IDからそこの城主の武将IDを取得する。該当者が居なかったら0xFFFF
 // 実際に「城に居る」という意味であり、「その城に所属している」という意味ではない。
