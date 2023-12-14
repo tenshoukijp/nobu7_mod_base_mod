@@ -503,6 +503,12 @@
     <ClCompile Include="hook_castle_battle_turn_bgn.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
+    <ClCompile Include="hook_castle_battle_turn_daimyo_a.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_turn_daimyo_b.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

@@ -46,6 +46,9 @@ BOOL isValidDaimyoID(int iDaimyoID);
 // ‘å–¼ID‚©‚ç‚»‚Ì‘å–¼‚Ì•«ID‚ğæ“¾‚·‚é
 int getBushouIDFromDaimyoID(int iDaimyoID);
 
+
+int getDaimyoIDFromDaimyoPtr(int* iDaimyoPtr);
+
 int get—FD’lFrom—FDID(int i—FDID);
 
 BOOL set‘å–¼—FDID(int iDaimyoID1, int iDaimyoID2, int i—FDID);

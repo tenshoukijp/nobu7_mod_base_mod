@@ -7,6 +7,23 @@ BOOL isValidDaimyoID(int iDaimyoID) {
 	return FALSE;
 }
 
+int getDaimyoIDFromDaimyoPtr(int* iDaimyoPtr) {
+	int nDaimyoAddress = (int)iDaimyoPtr;
+
+	// 大名の配列の先頭アドレスから引く
+	int sub = nDaimyoAddress - (int)(大名情報アドレス);
+
+	// 大名情報の構造体のサイズで割れば、何番目の大名なのかがわかる。
+	int iDaimyoID = sub / sizeof(NB7大名情報型);
+	if (isValidDaimyoID(iDaimyoID)) {
+		return iDaimyoID;
+	}
+
+	return 0xFFFF;
+
+}
+
+
 // 大名IDからその大名の武将IDを取得する
 int getBushouIDFromDaimyoID(int iDaimyoID) {
 	if (isValidDaimyoID(iDaimyoID)) {
