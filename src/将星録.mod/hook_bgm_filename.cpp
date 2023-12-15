@@ -69,11 +69,19 @@ BOOL nPlayBGMNextIsMMio = FALSE; // この直後のMMIOによる制御が本当に将星録のもの
 static int nPlayBgmEaxBackup = -1;
 static int nPlayBgmArg1 = -1;
 static int nPlayBgmArg2 = -1;
-static int nPlayBgmArg3 = -1;
+int nPlayBgmArg3 = -1;
+
+extern int bgm_noloop_issue_patch(int iBGMNo);
+
 void OnSSRExePlayBGMExecute() {
 	nPlayBGMNextIsMMio = TRUE; // このフラグは今のところ利用していないが、今後のために残しておく。
-	OutputDebugStream("BGMの再生関数が呼ばれたよ!!");
-	OutputDebugStream("%d, %d, 番号%d\n", nPlayBgmArg1, nPlayBgmArg2, nPlayBgmArg3);
+	OutputDebugStream("BGMの再生関数が呼ばれたよ!!\n");
+	OutputDebugStream("BGM%d, %d, 番号%d\n", nPlayBgmArg1, nPlayBgmArg2, nPlayBgmArg3);
+
+	// 戦略画面で、他のシーンに行って戻ってくるとBGMが再開しないというバグの修正
+	nPlayBgmArg3 = bgm_noloop_issue_patch(nPlayBgmArg3);
+
+	int iBGMID = nPlayBgmArg3; // これが再生されるBGMのID;
 }
 
 
@@ -104,8 +112,6 @@ __declspec(naked) void WINAPI OnSSRExePlayBGM() {
 
 		mov eax, nPlayBgmEaxBackup		     // EAXを復元する
 
-		SUB ESP, 0x104   // 元の記述をここに
-
 		push eax
 		push ebx
 		push ecx
@@ -128,6 +134,13 @@ __declspec(naked) void WINAPI OnSSRExePlayBGM() {
 		pop ecx
 		pop ebx
 		pop eax
+
+		MOV nPlayBgmEaxBackup, EAX
+		MOV EAX, nPlayBgmArg3
+		MOV DWORD PTR SS : [ESP + 0x4], EAX // メイン画面に戻ってきた時、BGMが鳴らないことがあるのでパッチ
+		MOV EAX, nPlayBgmEaxBackup
+
+		SUB ESP, 0x104   // 元の記述をここに
 
 		jmp pSSRExeReturnLblFromOnSSRExePlayBGM
 	}

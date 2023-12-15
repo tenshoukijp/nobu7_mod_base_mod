@@ -109,15 +109,27 @@ void onChoteiKenjo(string choteiKenjoInfo) {
 
 void onDoumeiShisha(string doumeiShishaInfo) {
     OutputDebugStream("同盟使者\n");
-    if (OnigMatch(doumeiShishaInfo, "同盟使者(.+?)友好度(\\d+)")) {
+    Matches ma;
+    if (OnigMatch(doumeiShishaInfo, "同盟使者(.+?)友好度(\\d+)", &ma)) {
         OutputDebugStream("同盟友好度\n");
+        // 朝廷献上使者はアルベドである。
+        if (ma[1].find(getArubedoSeiMei()) != string::npos) {
+            OutputDebugStream("アルベドが献上使者だったので、金を補充\n");
+            アルベド使者ユニット時のお金が復活();
+        }
     }
 }
 
 void onGoumotsuShisha(string goumotsuShishaInfo) {
     OutputDebugStream("貢物使者\n");
-    if (OnigMatch(goumotsuShishaInfo, "貢物使者(.+?)友好度(\\d+)")) {
+    Matches ma;
+    if (OnigMatch(goumotsuShishaInfo, "貢物使者(.+?)友好度(\\d+)", &ma)) {
         OutputDebugStream("貢物友好度\n");
+        // 朝廷献上使者はアルベドである。
+        if (ma[1].find(getArubedoSeiMei()) != string::npos) {
+            OutputDebugStream("アルベドが献上使者だったので、金を補充\n");
+            アルベド使者ユニット時のお金が復活();
+        }
     }
 }
 
