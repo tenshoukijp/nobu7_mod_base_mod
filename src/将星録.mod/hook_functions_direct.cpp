@@ -8,6 +8,8 @@ extern void WriteAsmJumperOnSSRExeCastleBattleTurnDaimyoA();
 extern void WriteAsmJumperOnSSRExeCastleBattleTurnDaimyoB();
 extern void WriteAsmJumperOnSSRExeMovieFileName();
 extern void WriteAsmJumperOnSSRExePlayBGM();
+extern void WriteAsmJumperOnSSRExePlayBGM2();
+extern void WriteAsmJumperOnSSRExePlayBGM3();
 extern void WriteAsmJumperOnSSRExeKahouShowBgn();
 extern void WriteAsmJumperOnSSRExeKahouShowPic();
 extern void WriteAsmJumperOnSSRExeKahouShowEnd();
@@ -29,6 +31,8 @@ bool isWriteAsmJumperOnSSRExeCastleBattleTurnDaimyoA = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleTurnDaimyoB = false;
 bool isWriteAsmJumperOnSSRExeMovieFileName = false;
 bool isWriteAsmJumperOnSSRExePlayBGM = false;
+bool isWriteAsmJumperOnSSRExePlayBGM2 = false;
+bool isWriteAsmJumperOnSSRExePlayBGM3 = false;
 bool isWriteAsmJumperOnSSRExeKahouShowBgn = false;
 bool isWriteAsmJumperOnSSRExeKahouShowPic = false;
 bool isWriteAsmJumperOnSSRExeKahouShowEnd = false;
@@ -89,6 +93,16 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExePlayBGM) {
 		isWriteAsmJumperOnSSRExePlayBGM = true;
 		WriteAsmJumperOnSSRExePlayBGM();
+	}
+
+	if (!isWriteAsmJumperOnSSRExePlayBGM2) {
+		isWriteAsmJumperOnSSRExePlayBGM2 = true;
+		WriteAsmJumperOnSSRExePlayBGM2();
+	}
+
+	if (!isWriteAsmJumperOnSSRExePlayBGM3) {
+		isWriteAsmJumperOnSSRExePlayBGM3 = true;
+		WriteAsmJumperOnSSRExePlayBGM3();
 	}
 
 	if (!isWriteAsmJumperOnSSRExeKahouShowBgn) {

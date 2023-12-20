@@ -78,7 +78,7 @@ void OnSSRExePlayBGMExecute() {
 	OutputDebugStream("BGMの再生関数が呼ばれたよ!!\n");
 	OutputDebugStream("BGM%d, %d, 番号%d\n", nPlayBgmArg1, nPlayBgmArg2, nPlayBgmArg3);
 
-	// 戦略画面で、他のシーンに行って戻ってくるとBGMが再開しないというバグの修正
+	// 外交画面などで、他のシーンに行って戻ってくるとBGMが再開しないというバグの修正
 	nPlayBgmArg3 = bgm_noloop_issue_patch(nPlayBgmArg3);
 
 	int iBGMID = nPlayBgmArg3; // これが再生されるBGMのID;

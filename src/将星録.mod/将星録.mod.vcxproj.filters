@@ -512,6 +512,9 @@
     <ClCompile Include="bgm_noloop_issue_patch.cpp">
       <Filter>ＢＧＭ</Filter>
     </ClCompile>
+    <ClCompile Include="hook_bgm3_filename.cpp">
+      <Filter>ＢＧＭ</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

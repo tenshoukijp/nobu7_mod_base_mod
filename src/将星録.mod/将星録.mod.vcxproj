@@ -149,9 +149,10 @@
     <ClCompile Include="data_turn_daimyo_struct.cpp" />
     <ClCompile Include="data_turn_player_castle.cpp" />
     <ClCompile Include="file_attribute.cpp" />
+    <ClCompile Include="hook_bgm3_filename.cpp" />
     <ClCompile Include="hook_bgm_filename.cpp" />
     <ClCompile Include="hook_bgm2_filename.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="hook_castle_battle_turn.cpp" />
     <ClCompile Include="hook_castle_battle_turn_bgn.cpp" />

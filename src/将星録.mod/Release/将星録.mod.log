@@ -12,7 +12,9 @@
   data_turn_daimyo_struct.cpp
   data_turn_player_castle.cpp
   file_attribute.cpp
+  hook_bgm3_filename.cpp
   hook_bgm_filename.cpp
+  hook_bgm2_filename.cpp
   hook_castle_battle_turn.cpp
   hook_castle_battle_turn_bgn.cpp
   hook_castle_battle_turn_daimyo_a.cpp
