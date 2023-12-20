@@ -403,6 +403,9 @@ void onCastleBattleEnd() {
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 }
 
+void onStrategyScreen() {
+    setゲーム画面ステータス(将星録::列挙::ゲーム画面ステータス::戦略画面);
+}
 
 void onStrategyDaimyoturnChanged(string strategyTurnInfo) {
     Matches ma;

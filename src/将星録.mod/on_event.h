@@ -36,6 +36,8 @@ void onMenuKashinUnitIchiranStart();
 
 void onYasenBattleTurn(std::string battleTurnInfo);
 
+void onStrategyScreen();
+
 void onStrategyPlayerDaimyoTurn(std::string strategyTurnInfo);
 
 void onYasenBattlePreStart();
@@ -48,11 +50,7 @@ void onCastleBattlePreStart();
 
 void onCastleBattleEnd(std::string battleCastleEndInfo);
 
-void NewFunction(std::string& sCastleName);
-
 void onCastleBattleEnd();
-
-void NewFunction();
 
 void onPerishedDaimyo(std::string perishedDaimyoInfo);
 

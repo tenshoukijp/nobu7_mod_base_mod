@@ -16,9 +16,9 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 		return FALSE;
 	}
 
-	int count = GetMenuItemCount(hMenu);
+	int menu_count = GetMenuItemCount(hMenu);
 
-	if (count >= 8) {
+	if (menu_count >= 8) {
 		// 「ユニット」のメニューアイテムを全角に変更
 		changeMenuItemString(hMenu, 226, "ユニット(&U)"); // 226はリソースエディタでわかる「ユニット」のメニューID
 
@@ -27,7 +27,7 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	// 「ファイル」のPOPUPを全角に変更
 	changePopupString(hMenu, 0, "ファイル(&F)");
 
-	int menu_count = GetMenuItemCount(hMenu);
+	menu_count = GetMenuItemCount(hMenu); // 一応変わらないはずだけど再度取得しておく。
 
 	// メニューのインスタンスが変更されている
 	if (hMenu != hNB7MenuCheckChange) {
@@ -82,9 +82,15 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 			if (prevMenuCount == 4) {
 				onYasenBattleEnd();
 			}
-			if (prevMenuCount == 3) {
+			else if (prevMenuCount == 3) {
 				onCastleBattleEnd();
 			}
+
+			// 初期状態
+			else {
+				onStrategyScreen();
+			}
+
 			OutputDebugStream("戦術スクリーン中である\n");
 		}
 
