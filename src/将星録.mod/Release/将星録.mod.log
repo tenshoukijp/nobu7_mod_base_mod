@@ -20,6 +20,7 @@
   hook_castle_battle_turn_daimyo_a.cpp
   hook_castle_battle_turn_daimyo_b.cpp
   hook_cretefilea_custom.cpp
+  hook_gaikou_comment.cpp
   hook_kahou_retsuden_shou_bgn.cpp
   hook_kahou_retsuden_show_end.cpp
   hook_kahou_retsuden_show_pic.cpp

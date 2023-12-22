@@ -124,6 +124,9 @@
     <Filter Include="メモリ書き込み監視">
       <UniqueIdentifier>{6eaacde4-c161-4a2d-af21-c467313b54b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="外交">
+      <UniqueIdentifier>{55b55c3b-f131-4a6e-9a0b-8a3b6242d503}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -514,6 +517,9 @@
     </ClCompile>
     <ClCompile Include="hook_bgm3_filename.cpp">
       <Filter>ＢＧＭ</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_gaikou_comment.cpp">
+      <Filter>外交</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
