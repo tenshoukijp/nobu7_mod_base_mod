@@ -163,6 +163,8 @@
     <ClCompile Include="hook_kahou_retsuden_shou_bgn.cpp" />
     <ClCompile Include="hook_kahou_retsuden_show_end.cpp" />
     <ClCompile Include="hook_kahou_retsuden_show_pic.cpp" />
+    <ClCompile Include="hook_load_gaiji.cpp" />
+    <ClCompile Include="hook_load_scenariodata.cpp" />
     <ClCompile Include="hook_movie_filename.cpp" />
     <ClCompile Include="hook_readfile_custom.cpp" />
     <ClCompile Include="hook_setfilepointer_custom.cpp" />

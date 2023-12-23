@@ -404,6 +404,7 @@ void onCastleBattleEnd() {
 }
 
 void onStrategyScreen() {
+    OutputDebugStream("onStrategyScreen\n");
     setゲーム画面ステータス(将星録::列挙::ゲーム画面ステータス::戦略画面);
 }
 
@@ -432,6 +433,9 @@ void checkStrategyPlayerTurnInformation()
 
 }
 
+
+extern void initAlbedoKahou();
+
 void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
 
     Matches ma;
@@ -440,6 +444,7 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
 
         setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 
+        initAlbedoKahou();
         checkStrategyPlayerTurnInformation();
 
         // アルベドの行動済みカウンターのリセット

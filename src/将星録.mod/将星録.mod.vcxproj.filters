@@ -127,6 +127,12 @@
     <Filter Include="外交">
       <UniqueIdentifier>{55b55c3b-f131-4a6e-9a0b-8a3b6242d503}</UniqueIdentifier>
     </Filter>
+    <Filter Include="シナリオ">
+      <UniqueIdentifier>{c66905d0-e129-4bb8-824c-331a8f9c64dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="外字">
+      <UniqueIdentifier>{bb026655-105e-4917-b2b9-abf685288eaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -520,6 +526,12 @@
     </ClCompile>
     <ClCompile Include="hook_gaikou_comment.cpp">
       <Filter>外交</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_load_scenariodata.cpp">
+      <Filter>シナリオ</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_load_gaiji.cpp">
+      <Filter>外字</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

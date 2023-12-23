@@ -199,6 +199,34 @@ HFONT WINAPI Hook_CreateFontA(
     return hFont;
 }
 
+//---------------------------LoadMenuA
+
+using PFNLOADMENUA = HMENU(WINAPI *)(HINSTANCE, LPCSTR);
+
+PROC pfnOrigLoadMenuA = GetProcAddress(GetModuleHandleA("user32.dll"), "LoadMenuA");
+
+// extern HMENU Hook_LoadMenuACustom(HINSTANCE hInstance, LPCSTR lpMenuName);
+
+HMENU WINAPI Hook_LoadMenuA(
+    HINSTANCE hInstance, // インスタンスのハンドル
+    LPCSTR lpMenuName // メニュー名
+) {
+	// 先にカスタムの方を実行。
+	// Hook_LoadMenuACustom(hInstance, lpMenuName);
+
+    OutputDebugStream("Hook_LoadMenuA\n");
+
+	// 元のものを呼び出す
+	HMENU nResult = ((PFNLOADMENUA)pfnOrigLoadMenuA)(hInstance, lpMenuName);
+
+	return nResult;
+}
+
+
+
+
+
+
 //---------------------------SetMenu
 using PFNSETMENU = BOOL(WINAPI *)(HWND, HMENU);
 
@@ -368,9 +396,11 @@ using PFNCREATEFILEA = HANDLE(WINAPI*)(LPCSTR, DWORD, DWORD, LPSECURITY_ATTRIBUT
 PROC pfnOrigCreateFileA = GetProcAddress(GetModuleHandleA("kernel32.dll"), "CreateFileA");
 int nTargetKaoID = -1;
 int nTargetKahouGazouID = -1;
+
 // extern HANDLE Hook_CreateFileACustom(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
 HANDLE hFileKAODATA = NULL;
 HANDLE hFileITEMDATA = NULL;
+// HANDLE hFileWINFRAME = NULL;
 HANDLE WINAPI Hook_CreateFileA(
     LPCSTR lpFileName, // ファイル名
     DWORD dwDesiredAccess, // アクセス方法
@@ -407,6 +437,14 @@ HANDLE WINAPI Hook_CreateFileA(
         OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
         hFileITEMDATA = nResult;
     }
+    /*
+    else if (filename == "WINFRAME.NB7") {
+        OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
+        hFileWINFRAME = nResult;
+
+    }
+    */
+
     return nResult;
 }
 
@@ -443,6 +481,11 @@ DWORD WINAPI Hook_SetFilePointer(
         nTargetKahouGazouID = (lDistanceToMove - header_size) / (64 * 64);
         OutputDebugStream("家宝SetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
     }
+    /*
+    else if (hFileWINFRAME == hFile) {
+        OutputDebugStream("フレームSetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
+    }
+    */
 	return nResult;
 }
 
@@ -468,13 +511,18 @@ BOOL WINAPI Hook_ReadFile(
 	BOOL nResult = ((PFNREADFILE)pfnOrigReadFile)(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
 
     if (hFileKAODATA == hFile) {
-        OutputDebugStream("読み込むバイト数%d", nNumberOfBytesToRead);
+        OutputDebugStream("読み込むバイト数%d\n", nNumberOfBytesToRead);
         Hook_ReadFileCustom_BushouKao(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
     }
     else if (hFileITEMDATA == hFile) {
-        OutputDebugStream("読み込むバイト数%d", nNumberOfBytesToRead);
+        OutputDebugStream("読み込むバイト数%d\n", nNumberOfBytesToRead);
         Hook_ReadFileCustom_KahouPic(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
     }
+    /*
+    else if (hFileWINFRAME == hFile) {
+        OutputDebugStream("フレーム読み込むバイト数%d:\n", nNumberOfBytesToRead);
+    }
+    */
 
     nTargetKaoID = -1;
     nTargetKahouGazouID = -1;
@@ -500,6 +548,11 @@ BOOL WINAPI Hook_CloseHandle(
         OutputDebugStream("CloseHandle:ITEMDATA\n");
         hFileITEMDATA = NULL;
     }
+    /*
+    else if (hFileWINFRAME == hObject) {
+        hFileWINFRAME = NULL;
+    }
+    */
     else {
         // OutputDebugStream("CloseHandle:その他\n");
     }
@@ -557,6 +610,7 @@ bool isHookDefWindowProcA = false;
 bool isHookTextOutA = false;
 bool isHookCreateFontA = false;
 bool isHookSetMenu = false;
+bool isHookLoadMenuA = false;
 bool isHookReleaseDC = false;
 bool isHookEnableMenuItem = false;
 bool isHookBitBlt = false;
@@ -587,6 +641,11 @@ void hookFunctionsReplace() {
 		isHookCreateFontA = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "CreateFontA");
 		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_CreateFontA);
+    }
+    if (!isHookLoadMenuA) {
+        isHookLoadMenuA = true;
+        pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "LoadMenuA");
+        ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_LoadMenuA);
     }
     if (!isHookSetMenu) {
         isHookSetMenu = true;

@@ -11,6 +11,21 @@
 using namespace std;
 using namespace 将星録;
 
+void initAlbedoKahou() {
+	for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+		// アルベドが居る
+		if (nb7武将情報[iBushouID].姓名 == getArubedoSeiMei()) {
+			// 千鳥は独自画像ではなく茶釜にしておく
+			nb7家宝情報[列挙::家宝::配列::青磁千鳥].画像 = 列挙::家宝::画像::茶釜;
+
+			// バルディッシュは千鳥画像にしておく
+			nb7家宝情報[列挙::家宝::配列::鬼丸].画像 = 列挙::家宝::画像::千鳥;
+			break;
+		}
+	}
+
+}
+
 std::pair<string, string> getAlbedoKahouRetsuden(int iKahouID) {
 	if (isValidBushouID(iKahouID)) {
 		if (iKahouID == 列挙::家宝::配列::鬼丸) {

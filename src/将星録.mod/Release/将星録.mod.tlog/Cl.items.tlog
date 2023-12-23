@@ -24,6 +24,8 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_gaikou_comment.cpp;
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_shou_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_shou_bgn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_end.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_pic.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_pic.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_gaiji.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_load_gaiji.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_scenariodata.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_load_scenariodata.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_movie_filename.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_readfile_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setfilepointer_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_setfilepointer_custom.obj

@@ -11,5 +11,6 @@ int getゲーム画面ステータス() {
 }
 
 void setゲーム画面ステータス(int value) {
+	OutputDebugStream("setゲーム画面ステータス画面:%d\n", value);
 	curゲーム画面ステータス = value;
 }
