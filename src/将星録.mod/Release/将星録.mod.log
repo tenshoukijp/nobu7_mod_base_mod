@@ -28,6 +28,9 @@
   hook_load_scenariodata.cpp
   hook_movie_filename.cpp
   hook_update_month.cpp
+  hook_update_soba_kome.cpp
+  hook_update_soba_teppou.cpp
+  hook_update_soba_uma.cpp
   hook_write_month.cpp
   hook_write_soba_kome.cpp
   hook_write_soba_teppou.cpp

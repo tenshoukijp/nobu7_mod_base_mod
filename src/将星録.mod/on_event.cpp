@@ -115,6 +115,15 @@ void onWriteSobaKome(int iSobaKome) {
     }
 }
 
+void onUpdateSobaKome(int iSobaKome) {
+}
+
+void onUpdateSobaUma(int iSobaUma) {
+}
+
+void onUpdateSobaTeppou(int iSobaTeppou) {
+}
+
 // ”n‚Ì‘Šê‚Ì‰‘‚«‚İ‚ª‚³‚ê‚½
 void onWriteSobaUma(int iSobaUma) {
 }

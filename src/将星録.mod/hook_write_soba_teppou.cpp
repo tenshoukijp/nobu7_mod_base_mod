@@ -52,7 +52,7 @@ using namespace std;
 
 static int iWriteSobaTeppouEAX = -1;
 void OnSSRExeWriteSobaTeppouExecute() {
-	OutputDebugStream("šššš“S–C‚ª‰‘‚«‚İ‚³‚ê‚Ü‚µ‚½!!!:%d\n", iWriteSobaTeppouEAX);
+	OutputDebugStream("šššš“S–C‘Šê‚ª‰‘‚«‚İ‚³‚ê‚Ü‚µ‚½!!!:%d\n", iWriteSobaTeppouEAX);
 	onWriteSobaTeppou(iWriteSobaTeppouEAX);
 }
 

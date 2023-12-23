@@ -24,6 +24,9 @@ extern void WriteAsmJumperOnSSRExeWriteSobaKome();
 extern void WriteAsmJumperOnSSRExeWriteSobaUma();
 extern void WriteAsmJumperOnSSRExeWriteSobaTeppou();
 extern void WriteAsmJumperOnSSRExeUpdateMonth();
+extern void WriteAsmJumperOnSSRExeUpdateSobaKome();
+extern void WriteAsmJumperOnSSRExeUpdateSobaUma();
+extern void WriteAsmJumperOnSSRExeUpdateSobaTeppou();
 
 
 
@@ -53,6 +56,9 @@ bool isWriteAsmJumperOnSSRExeWriteSobaKome = false;
 bool isWriteAsmJumperOnSSRExeWriteSobaUma = false;
 bool isWriteAsmJumperOnSSRExeWriteSobaTeppou = false;
 bool isWriteAsmJumperOnSSRExeUpdateMonth = false;
+bool isWriteAsmJumperOnSSRExeUpdateSobaKome = false;
+bool isWriteAsmJumperOnSSRExeUpdateSobaUma = false;
+bool isWriteAsmJumperOnSSRExeUpdateSobaTeppou = false;
 
 
 void hookFunctionsDirect() {
@@ -182,8 +188,23 @@ void hookFunctionsDirect() {
 		WriteAsmJumperOnSSRExeWriteSobaTeppou();
 	}
 
-if (!isWriteAsmJumperOnSSRExeUpdateMonth) {
+	if (!isWriteAsmJumperOnSSRExeUpdateMonth) {
 		isWriteAsmJumperOnSSRExeUpdateMonth = true;
 		WriteAsmJumperOnSSRExeUpdateMonth();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeUpdateSobaKome) {
+		isWriteAsmJumperOnSSRExeUpdateSobaKome = true;
+		WriteAsmJumperOnSSRExeUpdateSobaKome();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeUpdateSobaUma) {
+		isWriteAsmJumperOnSSRExeUpdateSobaUma = true;
+		WriteAsmJumperOnSSRExeUpdateSobaUma();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeUpdateSobaTeppou) {
+		isWriteAsmJumperOnSSRExeUpdateSobaTeppou = true;
+		WriteAsmJumperOnSSRExeUpdateSobaTeppou();
 	}
 }

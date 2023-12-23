@@ -42,6 +42,12 @@ void onUpdateMonth(int iMonth);
 
 void onWriteSobaKome(int iSobaKome);
 
+void onUpdateSobaKome(int iSobaKome);
+
+void onUpdateSobaUma(int iSobaUma);
+
+void onUpdateSobaTeppou(int iSobaTeppou);
+
 void onWriteSobaUma(int iSobaUma);
 
 void onWriteSobaTeppou(int iSobaTeppou);

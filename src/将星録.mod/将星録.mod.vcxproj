@@ -167,6 +167,9 @@
     <ClCompile Include="hook_load_scenariodata.cpp" />
     <ClCompile Include="hook_movie_filename.cpp" />
     <ClCompile Include="hook_update_month.cpp" />
+    <ClCompile Include="hook_update_soba_kome.cpp" />
+    <ClCompile Include="hook_update_soba_teppou.cpp" />
+    <ClCompile Include="hook_update_soba_uma.cpp" />
     <ClCompile Include="hook_write_month.cpp" />
     <ClCompile Include="hook_write_soba_kome.cpp" />
     <ClCompile Include="hook_write_soba_teppou.cpp" />

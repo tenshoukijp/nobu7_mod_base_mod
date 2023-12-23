@@ -28,6 +28,9 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_gaiji.cpp;C:\U
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_scenariodata.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_load_scenariodata.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_movie_filename.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_month.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_update_month.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_soba_kome.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_update_soba_kome.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_soba_teppou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_update_soba_teppou.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_soba_uma.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_update_soba_uma.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_month.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_month.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_kome.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_soba_kome.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_teppou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_soba_teppou.obj

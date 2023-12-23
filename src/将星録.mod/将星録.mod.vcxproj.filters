@@ -551,6 +551,15 @@
     <ClCompile Include="hook_update_month.cpp">
       <Filter>年月</Filter>
     </ClCompile>
+    <ClCompile Include="hook_update_soba_kome.cpp">
+      <Filter>相場</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_update_soba_uma.cpp">
+      <Filter>相場</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_update_soba_teppou.cpp">
+      <Filter>相場</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
