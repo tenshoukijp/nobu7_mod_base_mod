@@ -121,9 +121,6 @@
     <Filter Include="ゲームデータ - 籠城戦">
       <UniqueIdentifier>{ee8456f5-f425-4309-bcae-12b40c644de5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="メモリ書き込み監視">
-      <UniqueIdentifier>{6eaacde4-c161-4a2d-af21-c467313b54b6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="外交">
       <UniqueIdentifier>{55b55c3b-f131-4a6e-9a0b-8a3b6242d503}</UniqueIdentifier>
     </Filter>
@@ -132,6 +129,12 @@
     </Filter>
     <Filter Include="外字">
       <UniqueIdentifier>{bb026655-105e-4917-b2b9-abf685288eaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="年月">
+      <UniqueIdentifier>{acc36f09-edb3-4506-b261-0aa0a0892f96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="相場">
+      <UniqueIdentifier>{3573cb65-9bed-4e78-a2fc-1165a77425d4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -506,9 +509,6 @@
     <ClCompile Include="hook_castle_battle_turn.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
-    <ClCompile Include="watch_writememory.cpp">
-      <Filter>メモリ書き込み監視</Filter>
-    </ClCompile>
     <ClCompile Include="hook_castle_battle_turn_bgn.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
@@ -532,6 +532,24 @@
     </ClCompile>
     <ClCompile Include="hook_load_gaiji.cpp">
       <Filter>外字</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_write_year.cpp">
+      <Filter>年月</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_write_month.cpp">
+      <Filter>年月</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_write_soba_kome.cpp">
+      <Filter>相場</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_write_soba_uma.cpp">
+      <Filter>相場</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_write_soba_teppou.cpp">
+      <Filter>相場</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_update_month.cpp">
+      <Filter>年月</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

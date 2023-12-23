@@ -214,7 +214,7 @@ HMENU WINAPI Hook_LoadMenuA(
 	// 先にカスタムの方を実行。
 	// Hook_LoadMenuACustom(hInstance, lpMenuName);
 
-    OutputDebugStream("Hook_LoadMenuA\n");
+    // OutputDebugStream("Hook_LoadMenuA\n");
 
 	// 元のものを呼び出す
 	HMENU nResult = ((PFNLOADMENUA)pfnOrigLoadMenuA)(hInstance, lpMenuName);

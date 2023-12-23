@@ -18,6 +18,12 @@ extern void WriteAsmJumperOnSSRExeUnknownDialog2();
 extern void WriteAsmJumperOnSSRExeUnknownDialog3();
 extern void WriteAsmJumperOnSSRExeShowDIBitmap();
 extern void WriteAsmJumperOnSSRExeGetYasenHeisuu1();
+extern void WriteAsmJumperOnSSRExeWriteYear();
+extern void WriteAsmJumperOnSSRExeWriteMonth();
+extern void WriteAsmJumperOnSSRExeWriteSobaKome();
+extern void WriteAsmJumperOnSSRExeWriteSobaUma();
+extern void WriteAsmJumperOnSSRExeWriteSobaTeppou();
+extern void WriteAsmJumperOnSSRExeUpdateMonth();
 
 
 
@@ -41,6 +47,12 @@ bool isWriteAsmJumperOnSSRExeUnknownDialog2 = false;
 bool isWriteAsmJumperOnSSRExeUnknownDialog3 = false;
 bool isWriteAsmJumperOnSSRExeLoadDataResource = false;
 bool isWriteAsmJumperOnSSRExeGetYasenHeisuu1 = false;
+bool isWriteAsmJumperOnSSRExeWriteYear = false;
+bool isWriteAsmJumperOnSSRExeWriteMonth = false;
+bool isWriteAsmJumperOnSSRExeWriteSobaKome = false;
+bool isWriteAsmJumperOnSSRExeWriteSobaUma = false;
+bool isWriteAsmJumperOnSSRExeWriteSobaTeppou = false;
+bool isWriteAsmJumperOnSSRExeUpdateMonth = false;
 
 
 void hookFunctionsDirect() {
@@ -145,4 +157,33 @@ void hookFunctionsDirect() {
 		WriteAsmJumperOnSSRExeGetYasenHeisuu1();
 	}
 
+	if (!isWriteAsmJumperOnSSRExeWriteYear) {
+		isWriteAsmJumperOnSSRExeWriteYear = true;
+		WriteAsmJumperOnSSRExeWriteYear();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeWriteMonth) {
+		isWriteAsmJumperOnSSRExeWriteMonth = true;
+		WriteAsmJumperOnSSRExeWriteMonth();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeWriteSobaKome) {
+		isWriteAsmJumperOnSSRExeWriteSobaKome = true;
+		WriteAsmJumperOnSSRExeWriteSobaKome();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeWriteSobaUma) {
+		isWriteAsmJumperOnSSRExeWriteSobaUma = true;
+		WriteAsmJumperOnSSRExeWriteSobaUma();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeWriteSobaTeppou) {
+		isWriteAsmJumperOnSSRExeWriteSobaTeppou = true;
+		WriteAsmJumperOnSSRExeWriteSobaTeppou();
+	}
+
+if (!isWriteAsmJumperOnSSRExeUpdateMonth) {
+		isWriteAsmJumperOnSSRExeUpdateMonth = true;
+		WriteAsmJumperOnSSRExeUpdateMonth();
+	}
 }

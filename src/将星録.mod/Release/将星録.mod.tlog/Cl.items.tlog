@@ -27,6 +27,12 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_gaiji.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_load_gaiji.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_scenariodata.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_load_scenariodata.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_movie_filename.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_month.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_update_month.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_month.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_month.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_kome.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_soba_kome.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_teppou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_soba_teppou.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_uma.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_soba_uma.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_year.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_year.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_readfile_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setfilepointer_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_setfilepointer_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_butai_info_update.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_butai_info_update.obj
@@ -76,5 +82,4 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\on_serihu_message.cpp;C:
 C:\Users\master\source\repos\将星録Mod\将星録.mod\output_debug_stream.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\output_debug_stream.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\game_process.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\game_process.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\game_window.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\game_window.obj
-C:\Users\master\source\repos\将星録Mod\将星録.mod\watch_writememory.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\watch_writememory.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\.NETFramework,Version=v4.8.AssemblyAttributes.obj

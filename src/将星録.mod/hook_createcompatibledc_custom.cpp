@@ -6,7 +6,7 @@ HDC Hook_CreateCompatibleDCCustom(
 	HDC hdc // デバイスコンテキストのハンドル
 ) {
 
-	OutputDebugStream("CreateCompatibleDC\n");
+	// OutputDebugStream("CreateCompatibleDC\n");
 
 	return NULL;
 }

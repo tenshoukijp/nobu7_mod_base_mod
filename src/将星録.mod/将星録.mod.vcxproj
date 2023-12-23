@@ -166,6 +166,12 @@
     <ClCompile Include="hook_load_gaiji.cpp" />
     <ClCompile Include="hook_load_scenariodata.cpp" />
     <ClCompile Include="hook_movie_filename.cpp" />
+    <ClCompile Include="hook_update_month.cpp" />
+    <ClCompile Include="hook_write_month.cpp" />
+    <ClCompile Include="hook_write_soba_kome.cpp" />
+    <ClCompile Include="hook_write_soba_teppou.cpp" />
+    <ClCompile Include="hook_write_soba_uma.cpp" />
+    <ClCompile Include="hook_write_year.cpp" />
     <ClCompile Include="hook_readfile_custom.cpp" />
     <ClCompile Include="hook_setfilepointer_custom.cpp" />
     <ClCompile Include="hook_yasen_butai_info_update.cpp" />
@@ -223,7 +229,6 @@
     <ClCompile Include="output_debug_stream.cpp" />
     <ClCompile Include="game_process.cpp" />
     <ClCompile Include="game_window.cpp" />
-    <ClCompile Include="watch_writememory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

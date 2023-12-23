@@ -89,6 +89,7 @@
     <ClInclude Include="dllextern.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="file_attribute.h" />
+    <ClInclude Include="loadantidebug.h" />
     <ClInclude Include="loadmod.h" />
     <ClInclude Include="on_event.h" />
     <ClInclude Include="output_debug_stream.h" />
@@ -100,6 +101,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="file_attribute.cpp" />
     <ClCompile Include="loadmod.cpp" />
+    <ClCompile Include="loadantidebug.cpp" />
     <ClCompile Include="on_event.cpp" />
     <ClCompile Include="output_debug_stream.cpp" />
     <ClCompile Include="process.cpp" />

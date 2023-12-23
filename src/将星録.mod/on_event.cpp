@@ -90,6 +90,43 @@ void onMenuKashinUnitIchiranStart() {
     OutputDebugStream("メニュー-家臣-ユニット一覧画面\n");
 }
 
+void onStrategyGameStart() {
+    OutputDebugStream("戦略画面でゲームがスタートしました\n");
+}
+
+// 年の初書き込みがされた
+void onWriteYear() {
+}
+
+// 月の初書き込みがされた
+void onWriteMonth() {
+}
+
+void onUpdateMonth(int iMonth) {
+    setゲーム画面ステータス(列挙::ゲーム画面ステータス::戦略画面);
+    resetAlbedoKoudouCounter();
+    OutputDebugStream("月が変わったのでアルベドのカウンタをリセットします\n");
+}
+
+// 兵糧の相場の初書き込みがされた
+void onWriteSobaKome(int iSobaKome) {
+    if (iSobaKome != 0) {
+        setゲーム画面ステータス(列挙::ゲーム画面ステータス::戦略画面);
+    }
+}
+
+// 馬の相場の初書き込みがされた
+void onWriteSobaUma(int iSobaUma) {
+}
+
+// 鉄砲の相場の初書き込みがされた
+void onWriteSobaTeppou(int iSobaTeppou) {
+    if (iSobaTeppou != 0) {
+        onStrategyGameStart();
+    }
+}
+
+
 void onChoteiKenjo(string choteiKenjoInfo) {
 
     OutputDebugStream("★朝廷献上\n");
@@ -405,7 +442,6 @@ void onCastleBattleEnd() {
 
 void onStrategyScreen() {
     OutputDebugStream("onStrategyScreen\n");
-    setゲーム画面ステータス(将星録::列挙::ゲーム画面ステータス::戦略画面);
 }
 
 void onStrategyDaimyoturnChanged(string strategyTurnInfo) {

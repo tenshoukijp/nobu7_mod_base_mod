@@ -34,6 +34,18 @@ void onMenuKashinBushoIchiranStart();
 
 void onMenuKashinUnitIchiranStart();
 
+void onWriteYear();
+
+void onWriteMonth();
+
+void onUpdateMonth(int iMonth);
+
+void onWriteSobaKome(int iSobaKome);
+
+void onWriteSobaUma(int iSobaUma);
+
+void onWriteSobaTeppou(int iSobaTeppou);
+
 void onYasenBattleTurn(std::string battleTurnInfo);
 
 void onStrategyScreen();

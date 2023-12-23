@@ -71,7 +71,7 @@ int reset野戦後のアルベドの敵武将の戦闘値() {
 
 int nAlbedo行動済み分割カウンター = -1;
 void resetAlbedoKoudouCounter() {
-    nAlbedo行動済み分割カウンター = 50;
+    nAlbedo行動済み分割カウンター = 100;
 }
 
 int decreaseAlbedoKoudouCounter() {
