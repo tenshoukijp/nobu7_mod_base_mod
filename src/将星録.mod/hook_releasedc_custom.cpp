@@ -36,9 +36,6 @@ int Hook_ReleaseDCCustom(
 		isKahouRetsudenMode = 3;
 	}
 
-	// アルベドの行動カウンタを減らす
-	decreaseAlbedoKoudouCounter();
-
 	dispatchEvent();
 	bufferTextOut = "";
 

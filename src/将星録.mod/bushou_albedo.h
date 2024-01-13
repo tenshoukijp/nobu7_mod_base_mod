@@ -18,7 +18,7 @@ int reset籠城後のアルベドの敵武将は戦闘値();
 
 void resetAlbedoKoudouCounter();
 
-int decreaseAlbedoKoudouCounter();
+int decreaseAlbedoKoudouCounter(int iBushouID);
 
 void アルベドのユニットが軍隊や軍船なら兵数復活();
 

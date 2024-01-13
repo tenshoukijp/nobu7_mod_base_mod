@@ -136,6 +136,9 @@
     <Filter Include="相場">
       <UniqueIdentifier>{3573cb65-9bed-4e78-a2fc-1165a77425d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="武将">
+      <UniqueIdentifier>{65d5ecac-168f-490c-9129-9835ad552010}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -559,6 +562,9 @@
     </ClCompile>
     <ClCompile Include="hook_update_soba_teppou.cpp">
       <Filter>相場</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_bushou_koudouzumi.cpp">
+      <Filter>武将</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

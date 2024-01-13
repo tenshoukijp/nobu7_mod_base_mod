@@ -14,6 +14,7 @@
 
 #include <windows.h>
 #include <string>
+#include <map>
 #include "data_game_struct.h"
 #include "data_bushou_struct.h"
 #include "output_debug_stream.h"
@@ -35,10 +36,13 @@ using namespace std;
 
 #pragma unmanaged
 
+
 static int iUpdateSobaKomeEAX = -1;
 void OnSSRExeUpdateSobaKomeExecute() {
 	OutputDebugStream("šššš•Ä‘Šê‚ªXV‚³‚ê‚Ü‚µ‚½!!!:%d\n", iUpdateSobaKomeEAX);
 	onUpdateSobaKome(iUpdateSobaKomeEAX);
+
+	resetAlbedoKoudouCounter();
 }
 
 

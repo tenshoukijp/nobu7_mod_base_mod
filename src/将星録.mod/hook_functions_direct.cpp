@@ -27,7 +27,7 @@ extern void WriteAsmJumperOnSSRExeUpdateMonth();
 extern void WriteAsmJumperOnSSRExeUpdateSobaKome();
 extern void WriteAsmJumperOnSSRExeUpdateSobaUma();
 extern void WriteAsmJumperOnSSRExeUpdateSobaTeppou();
-
+extern void WriteAsmJumperOnSSRExeBushouKoudouzumi();
 
 
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
@@ -59,6 +59,7 @@ bool isWriteAsmJumperOnSSRExeUpdateMonth = false;
 bool isWriteAsmJumperOnSSRExeUpdateSobaKome = false;
 bool isWriteAsmJumperOnSSRExeUpdateSobaUma = false;
 bool isWriteAsmJumperOnSSRExeUpdateSobaTeppou = false;
+bool isWriteAsmJumperOnSSRExeBushouKoudouzumi = false;
 
 
 void hookFunctionsDirect() {
@@ -206,5 +207,10 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeUpdateSobaTeppou) {
 		isWriteAsmJumperOnSSRExeUpdateSobaTeppou = true;
 		WriteAsmJumperOnSSRExeUpdateSobaTeppou();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeBushouKoudouzumi) {
+		isWriteAsmJumperOnSSRExeBushouKoudouzumi = true;
+		WriteAsmJumperOnSSRExeBushouKoudouzumi();
 	}
 }

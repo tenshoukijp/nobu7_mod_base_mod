@@ -104,7 +104,6 @@ void onWriteMonth() {
 
 void onUpdateMonth(int iMonth) {
     setゲーム画面ステータス(列挙::ゲーム画面ステータス::戦略画面);
-    resetAlbedoKoudouCounter();
     OutputDebugStream("月が変わったのでアルベドのカウンタをリセットします\n");
 }
 
@@ -492,8 +491,6 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
         initAlbedoKahou();
         checkStrategyPlayerTurnInformation();
 
-        // アルベドの行動済みカウンターのリセット
-        resetAlbedoKoudouCounter();
         アルベドのユニットが軍隊や軍船なら兵数復活();
         resetAlbedo所属城下遺恨武将();
 

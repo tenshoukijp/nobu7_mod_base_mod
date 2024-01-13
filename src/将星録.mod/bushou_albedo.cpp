@@ -74,19 +74,16 @@ void resetAlbedoKoudouCounter() {
     nAlbedo行動済み分割カウンター = 100;
 }
 
-int decreaseAlbedoKoudouCounter() {
-    for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
-        // アルベドなら
-        if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
-            // アルベドが「行動済み」になっても、毎月5回までは行動できるようにする
-            if (nAlbedo行動済み分割カウンター > 0) {
-                if (nb7武将情報[iBushouID].行動済) {
-                    nb7武将情報[iBushouID].行動済 = 0;
-                    アルベドのユニットが軍隊や軍船なら兵数復活();
-                    nAlbedo行動済み分割カウンター--;
-                }
+int decreaseAlbedoKoudouCounter(int iBushouID) {
+    // アルベドなら
+    if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+        // アルベドが「行動済み」になっても、毎月5回までは行動できるようにする
+        if (nAlbedo行動済み分割カウンター > 0) {
+            if (nb7武将情報[iBushouID].行動済) {
+                nb7武将情報[iBushouID].行動済 = 0;
+                アルベドのユニットが軍隊や軍船なら兵数復活();
+                nAlbedo行動済み分割カウンター--;
             }
-            break;
         }
     }
 
