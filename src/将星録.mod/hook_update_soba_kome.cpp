@@ -36,6 +36,7 @@ using namespace std;
 
 #pragma unmanaged
 
+extern void resetMapBushouKoudouzumiCacheInMonth();
 
 static int iUpdateSobaKomeEAX = -1;
 void OnSSRExeUpdateSobaKomeExecute() {
@@ -43,6 +44,8 @@ void OnSSRExeUpdateSobaKomeExecute() {
 	onUpdateSobaKome(iUpdateSobaKomeEAX);
 
 	resetAlbedoKoudouCounter();
+
+	resetMapBushouKoudouzumiCacheInMonth();
 }
 
 

@@ -15,11 +15,14 @@ void onOpeningMovie() {
     setゲーム画面ステータス(ゲーム画面ステータス::起動画面);
 	OutputDebugStream("オープニングムービー\n");
 }
+
+extern void resetMapBushouKoudouzumiCacheInMonth();
 // ゲームの初期設定画面
 void onInitialGameMenu() {
     setゲーム画面ステータス(ゲーム画面ステータス::初期設定画面);
     OutputDebugStream("将星録の初期設定画面\n");
     resetAlbedoKoudouCounter();
+    resetMapBushouKoudouzumiCacheInMonth();
 }
 
 void onLoadSaveDataMenu() {

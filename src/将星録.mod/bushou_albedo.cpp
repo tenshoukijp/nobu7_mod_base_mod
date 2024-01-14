@@ -9,6 +9,7 @@ using namespace std;
 #include "bushou_albedo.h"
 #include "output_debug_stream.h"
 
+#pragma comment(lib, "winmm.lib")
 
 
 string getArubedoSei() {
@@ -69,25 +70,28 @@ int reset野戦後のアルベドの敵武将の戦闘値() {
     return TRUE;
 }
 
-int nAlbedo行動済み分割カウンター = -1;
+int nAlbedo行動済み分割カウンタ = -1;
 void resetAlbedoKoudouCounter() {
-    nAlbedo行動済み分割カウンター = 100;
+    nAlbedo行動済み分割カウンタ = 100;
 }
 
 int decreaseAlbedoKoudouCounter(int iBushouID) {
     // アルベドなら
     if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
         // アルベドが「行動済み」になっても、毎月5回までは行動できるようにする
-        if (nAlbedo行動済み分割カウンター > 0) {
+        if (nAlbedo行動済み分割カウンタ > 0) {
+            // 前回から1秒移動経過している。
             if (nb7武将情報[iBushouID].行動済) {
                 nb7武将情報[iBushouID].行動済 = 0;
                 アルベドのユニットが軍隊や軍船なら兵数復活();
-                nAlbedo行動済み分割カウンター--;
+                nAlbedo行動済み分割カウンタ--;
+                OutputDebugStream("カウンタ減少\n");
+                return 0;
             }
         }
     }
 
-    return TRUE;
+    return 1;
 }
 
 int アルベド使者ユニット時のお金が復活() {

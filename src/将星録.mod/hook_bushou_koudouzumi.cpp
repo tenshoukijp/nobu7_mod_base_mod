@@ -53,15 +53,53 @@ using namespace std;
 #pragma unmanaged
 
 static int iBushouKoudouzumiESI = -1;
+static int iPrevisouBushouIDKoudouzumi = -1;
+static int iPreviousTimeGetTime = timeGetTime();
+
+// 行動済みのキャッシュ。0.2秒だけ有効。これは行動済みのこのフックが複数回実行されてしまうため。
+static const int iCacheTime = 200;
+map<int, int> mapBushouKoudouzumiCacheInMonth;
+void resetMapBushouKoudouzumiCacheInMonth() {
+	mapBushouKoudouzumiCacheInMonth.clear();
+}
+
 void OnSSRExeBushouKoudouzumiExecute() {
 
+
 	int iBushouID = getBushouIDFromBushouPtr((int *)iBushouKoudouzumiESI);
+
+	int iCurrentTimeGetTime = timeGetTime();
+
 	if (isValidBushouID(iBushouID)) {
-		// まだ「今季」はこのフックを通過したことがない
+
+		// 前回の武将IDと同じでかつ、200ミリ秒以内だとすると、前回フックした人だよ。
+		if (iPrevisouBushouIDKoudouzumi == iBushouID && (iCurrentTimeGetTime - iPreviousTimeGetTime) < iCacheTime) {
+			// その武将の特別な行動済み要件がキャッシュとして登録されている
+			if (mapBushouKoudouzumiCacheInMonth.find(iBushouID) != mapBushouKoudouzumiCacheInMonth.end()) {
+				OutputDebugStream(getBushou姓名FromBushouID(iBushouID) + "のキャッシュを利用しました\n");
+				nb7武将情報[iBushouID].行動済 = mapBushouKoudouzumiCacheInMonth[iBushouID];
+
+			}
+			return;
+		}
+		// 異なる人、もしくは時間経過しすぎでキャッシュ無効
+		else {
+			iPrevisouBushouIDKoudouzumi = iBushouID;
+			iPreviousTimeGetTime = iCurrentTimeGetTime;
+			resetMapBushouKoudouzumiCacheInMonth();
+		}
+
+		// 新たにフック
 		OutputDebugStream(getBushou姓名FromBushouID(iBushouID) + "、は行動済みのフックを通過しました\n");
 
 		// アルベドの行動カウンタを減らす
-		decreaseAlbedoKoudouCounter(iBushouID);
+		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+			int 行動済 = decreaseAlbedoKoudouCounter(iBushouID);
+			mapBushouKoudouzumiCacheInMonth[iBushouID] = 行動済;
+		}
+
+		// ★★★ここでJavaScriptのメソッドを実行して、返り値を取得して、それが特別ならば、
+		// 登録する。undefinedの返り値(要するに返り値を返していないならば)、登録しない
 	}
 }
 
