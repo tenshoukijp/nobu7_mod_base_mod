@@ -193,6 +193,8 @@
     <ClCompile Include="hook_yasen_battle_turn.cpp" />
     <ClCompile Include="hook_yasen_battle_turn_both_bushou.cpp" />
     <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp" />
+    <ClCompile Include="hook_yasen_weather_change.cpp" />
+    <ClCompile Include="hook_yasen_weather_write.cpp" />
     <ClCompile Include="kahou_retsuden_albedo.cpp" />
     <ClCompile Include="kahou_retsuden.cpp" />
     <ClCompile Include="load_form_mod.cpp" />

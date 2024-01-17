@@ -40,6 +40,9 @@ static int iUpdateSobaTeppouEAX = -1;
 void OnSSRExeUpdateSobaTeppouExecute() {
 	OutputDebugStream("★★★★鉄砲相場が更新されました!!!:%d\n", iUpdateSobaTeppouEAX);
 	onUpdateSobaTeppou(iUpdateSobaTeppouEAX);
+
+	// ★★★ ここ「ひと月に一度だけする処理」を書くのに適している。
+	// JavaScriptなどで「相場が変更になった時（月が変更になった時）」といった処理を追加するのに適している。
 }
 
 

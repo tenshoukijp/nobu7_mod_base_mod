@@ -566,6 +566,12 @@
     <ClCompile Include="hook_bushou_koudouzumi.cpp">
       <Filter>武将</Filter>
     </ClCompile>
+    <ClCompile Include="hook_yasen_weather_change.cpp">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_yasen_weather_write.cpp">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

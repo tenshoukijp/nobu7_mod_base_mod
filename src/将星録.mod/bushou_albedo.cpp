@@ -75,6 +75,15 @@ void resetAlbedoKoudouCounter() {
     nAlbedo行動済み分割カウンタ = 100;
 }
 
+void resetAlbedoKoudouZumi() {
+    for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+        if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+            nb7武将情報[iBushouID].行動済 = 0;
+            break;
+        }
+    }
+}
+
 int decreaseAlbedoKoudouCounter(int iBushouID) {
     // アルベドなら
     if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {

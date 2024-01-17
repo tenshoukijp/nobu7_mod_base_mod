@@ -482,7 +482,6 @@ void checkStrategyPlayerTurnInformation()
 
 
 extern void initAlbedoKahou();
-
 void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
 
     Matches ma;

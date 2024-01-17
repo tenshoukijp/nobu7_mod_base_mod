@@ -130,7 +130,6 @@
 */
 
 
-// このファイルは調査失敗。役に立たない。コンパイル対象から外れている
 
 #include <windows.h>
 #include <string>

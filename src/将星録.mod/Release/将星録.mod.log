@@ -46,6 +46,8 @@
   hook_yasen_battle_turn.cpp
   hook_yasen_battle_turn_both_bushou.cpp
   hook_yasen_battle_turn_butai_of_1to5.cpp
+  hook_yasen_weather_change.cpp
+  hook_yasen_weather_write.cpp
   kahou_retsuden_albedo.cpp
   kahou_retsuden.cpp
   load_form_mod.cpp

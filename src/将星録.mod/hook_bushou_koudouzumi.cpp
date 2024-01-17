@@ -52,7 +52,7 @@ using namespace std;
 
 #pragma unmanaged
 
-static int iBushouKoudouzumiESI = -1;
+static int iBushouKoudouzumiECX = -1;
 static int iPrevisouBushouIDKoudouzumi = -1;
 static int iPreviousTimeGetTime = timeGetTime();
 
@@ -66,7 +66,7 @@ void resetMapBushouKoudouzumiCacheInMonth() {
 void OnSSRExeBushouKoudouzumiExecute() {
 
 
-	int iBushouID = getBushouIDFromBushouPtr((int *)iBushouKoudouzumiESI);
+	int iBushouID = getBushouIDFromBushouPtr((int *)iBushouKoudouzumiECX);
 
 	int iCurrentTimeGetTime = timeGetTime();
 
@@ -141,7 +141,7 @@ __declspec(naked) void WINAPI OnSSRExeBushouKoudouzumi() {
 	// スタックにためておく
 	__asm {
 
-		mov iBushouKoudouzumiESI, ESI
+		mov iBushouKoudouzumiECX, ECX
 
 		OR WORD PTR DS: [ECX + 0xA0] , AX // 行動済みを立てる
 
