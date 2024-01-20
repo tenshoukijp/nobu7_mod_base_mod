@@ -92,10 +92,13 @@ void OnSSRExeBushouKoudouzumiExecute() {
 		// 新たにフック
 		OutputDebugStream(getBushou姓名FromBushouID(iBushouID) + "、は行動済みのフックを通過しました\n");
 
-		// アルベドの行動カウンタを減らす
 		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+			// アルベドの行動カウンタを減らす
 			int 行動済 = decreaseAlbedoKoudouCounter(iBushouID);
 			mapBushouKoudouzumiCacheInMonth[iBushouID] = 行動済;
+
+			// アルベドが「使者」ならお金を最低金額維持
+			アルベド使者ユニット時のお金が復活();
 		}
 
 		// ★★★ここでJavaScriptのメソッドを実行して、返り値を取得して、それが特別ならば、

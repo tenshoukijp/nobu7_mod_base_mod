@@ -496,9 +496,6 @@ void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
         アルベドのユニットが軍隊や軍船なら兵数復活();
         resetAlbedo所属城下遺恨武将();
 
-        // アルベドが「使者」ならお金を最低金額維持
-        アルベド使者ユニット時のお金が復活();
-
         OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);
     }
 }

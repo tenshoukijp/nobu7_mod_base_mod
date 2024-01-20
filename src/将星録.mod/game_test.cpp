@@ -18,6 +18,7 @@ using namespace std;
 
 
 void doGameTest() {
+	ƒ^[ƒ“î•ñ.¼—ï = 1561;
 	/*
 	for (int iBushouID = 0; iBushouID < Å‘å”::•«î•ñ::”z—ñ”; iBushouID++) {
 
