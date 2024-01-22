@@ -63,8 +63,6 @@ void OnSSRExeMessageDetailExecute() {
 
 	checkReplaceBushouRetsuden();
 
-	checkReplaceKahouRetsuden();
-
 	OutputDebugStream("■OnMessageDetail■:");
 	OutputDebugStream((char*)セリフメッセージアドレス);
 	OutputDebugStream("\n");

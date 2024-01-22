@@ -51,6 +51,17 @@ std::pair<string, string> getAlbedoKahouRetsuden(int iKahouID) {
 				};
 			}
 		}
+		else if (iKahouID == 列挙::家宝::配列::十字架) {
+			if (nb7家宝情報[iKahouID].家宝名 == "ギЁЖЗИプ"s) {
+				return {
+					"ギЁЖЗИプ　ｷﾞﾝﾇﾝｶﾞｶﾞﾌﾟ",
+					"「真なる無」ともいう。広範囲に渡って\xA"
+					"物体を破壊することができるワールドア\xA"
+					"イテム。対物体では絶対的な性能を持つ\xA"
+					"一方、対生物にはあまり効果がない。"
+				};
+			}
+		}
 	}
 
 	return { "","" };

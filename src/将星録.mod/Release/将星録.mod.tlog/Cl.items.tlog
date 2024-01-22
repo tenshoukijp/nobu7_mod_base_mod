@@ -22,6 +22,8 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_daimyo_b.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_turn_daimyo_b.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_cretefilea_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_cretefilea_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_gaikou_comment.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_gaikou_comment.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_detail.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_kahou_detail.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_title.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_kahou_title.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_shou_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_shou_bgn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_end.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_pic.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_pic.obj

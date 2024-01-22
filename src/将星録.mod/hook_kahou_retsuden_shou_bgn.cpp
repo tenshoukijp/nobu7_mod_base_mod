@@ -1,8 +1,8 @@
 /*
 0047E720   . 55             PUSH EBP
 0047E721   . 56             PUSH ESI
-0047E722   . 8BF1           MOV ESI,ECX
-0047E724   . 8B8E 80000000  MOV ECX,DWORD PTR DS:[ESI+80]
+0047E722   . 8BF1           MOV ESI,ECX                              
+0047E724   . 8B8E 80000000  MOV ECX,DWORD PTR DS:[ESI+80]          // ECXÇ™äYìñâ∆ïÛÇ÷ÇÃâ∆ïÛèÓïÒÉ|ÉCÉìÉ^
 0047E72A   . 57             PUSH EDI
 0047E72B   . E8 80DCFFFF    CALL Nobunaga.0047C3B0
 0047E730   . 8BCE           MOV ECX,ESI

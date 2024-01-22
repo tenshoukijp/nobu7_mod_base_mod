@@ -30,6 +30,8 @@ extern void WriteAsmJumperOnSSRExeUpdateSobaTeppou();
 extern void WriteAsmJumperOnSSRExeBushouKoudouzumi();
 extern void WriteAsmJumperOnSSRExeYasenWeatherChange();
 extern void WriteAsmJumperOnSSRExeYasenWeatherWrite();
+extern void WriteAsmJumperOnSSRExeKahouTitle();
+extern void WriteAsmJumperOnSSRExeKahouDetail();
 
 
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
@@ -64,6 +66,8 @@ bool isWriteAsmJumperOnSSRExeUpdateSobaTeppou = false;
 bool isWriteAsmJumperOnSSRExeBushouKoudouzumi = false;
 bool isWriteAsmJumperOnSSRExeYasenWeatherChange = false;
 bool isWriteAsmJumperOnSSRExeYasenWeatherWrite = false;
+bool isWriteAsmJumperOnSSRExeKahouTitle = false;
+bool isWriteAsmJumperOnSSRExeKahouDetail = false;
 
 
 
@@ -227,5 +231,15 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeYasenWeatherWrite) {
 		isWriteAsmJumperOnSSRExeYasenWeatherWrite = true;
 		WriteAsmJumperOnSSRExeYasenWeatherWrite();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeKahouTitle) {
+		isWriteAsmJumperOnSSRExeKahouTitle = true;
+		WriteAsmJumperOnSSRExeKahouTitle();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeKahouDetail) {
+		isWriteAsmJumperOnSSRExeKahouDetail = true;
+		WriteAsmJumperOnSSRExeKahouDetail();
 	}
 }
