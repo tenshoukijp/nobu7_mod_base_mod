@@ -203,6 +203,7 @@ void onYasenBattleStart(string battleYanseStartInfo) {
 
     Matches ma;
     if (OnigMatch(battleYanseStartInfo, "守備側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?攻撃側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(\\d+?)年(\\d+?)月残り(\\d+?)ターン(.+?\\d部隊の戦術)", &ma)) {
+        /*
         OutputDebugStream("守備側:" + ma[1] + "\n");
         string syubigawa = ma[1];
 
@@ -238,6 +239,7 @@ void onYasenBattleStart(string battleYanseStartInfo) {
         OutputDebugStream("第５部隊適正:" + ma[38] + "\n");
         OutputDebugStream("年:" + ma[39] + "\n");
         OutputDebugStream("月:" + ma[40] + "\n");
+        */
     }
 }
 
@@ -273,6 +275,7 @@ void onYasenBattleTurn(string battleYanseTurnInfo) {
             previousRegexBattleTurnInfo = regexBattleTurnInfo;
         }
 
+        /*
         OutputDebugStream("守備側:" + ma[1] + "\n");
         string syubigawa = ma[1];
 
@@ -324,12 +327,7 @@ void onYasenBattleTurn(string battleYanseTurnInfo) {
             OutputDebugStream("ターン部隊番号:" + turn_ma[2] + "\n");
         }
 
-        string albedoSeiMei = getArubedoSeiMei();
-        if (kougekigawa == albedoSeiMei || syubigawa == albedoSeiMei) {
-            野戦中のアルベドの敵武将は戦闘値が最低となる(syubigawa, kougekigawa);
-        }
-
-
+        */
     }
 }
 
@@ -352,13 +350,11 @@ void onYasenBattleEnd(string endYanseBattleInfo) {
     ) {
     }
 
-    reset野戦後のアルベドの敵武将の戦闘値();
-
-    アルベドのユニットが軍隊や軍船なら兵数復活();
-
     OutputDebugStream("野戦の戦闘が終了しました\n\n" + endYanseBattleInfo + "\n");
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+
+    isYasenBattle = FALSE;
 }
 
 // 理由不明な終わり方
@@ -370,6 +366,8 @@ void onYasenBattleEnd() {
     OutputDebugStream("野戦の戦闘が終了しました\n\n");
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+
+    isYasenBattle = FALSE;
 }
 
 BOOL isCastleBattle = FALSE;
@@ -597,7 +595,6 @@ int dispatchEvent() {
         )
         ) {
         onYasenBattleEnd(bufferTextOut);
-        isYasenBattle = FALSE;
     }
     else if (OnigMatch(bufferTextOut, "^(.+?)(\\1)残(\\d+)ﾀｰﾝ残(\\d+)ﾀｰﾝ(.+?)(\\d+)(\\5)(\\6)(.+?)(\\d+)(\\9)(\\10)$")) {
         onCastleBattleTurn(bufferTextOut);

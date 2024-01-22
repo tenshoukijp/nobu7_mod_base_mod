@@ -180,6 +180,8 @@
     <ClCompile Include="hook_write_year.cpp" />
     <ClCompile Include="hook_readfile_custom.cpp" />
     <ClCompile Include="hook_setfilepointer_custom.cpp" />
+    <ClCompile Include="hook_yasen_end.cpp" />
+    <ClCompile Include="hook_yasen_start.cpp" />
     <ClCompile Include="hook_yasen_butai_info_update.cpp" />
     <ClCompile Include="hook_unknown_dialog3.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>

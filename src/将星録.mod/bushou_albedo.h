@@ -8,7 +8,7 @@ std::string getArubedoMei();
 
 std::string getArubedoSeiMei();
 
-int 野戦中のアルベドの敵武将は戦闘値が最低となる(std::string, std::string);
+int 野戦中のアルベドの敵武将は戦闘値が最低となる(int iAttackBushouID, int iDefendBushouID);
 
 int reset野戦後のアルベドの敵武将の戦闘値();
 

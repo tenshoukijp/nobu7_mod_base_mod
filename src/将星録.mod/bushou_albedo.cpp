@@ -26,28 +26,31 @@ string getArubedoSeiMei() {
 
 // アルベドと対峙する武将の戦闘能力を1になってしまう
 map<int, int> mapOverrideKeyBushouValueYasenBattle;
-int 野戦中のアルベドの敵武将は戦闘値が最低となる(string attack, string defend) {
+int 野戦中のアルベドの敵武将は戦闘値が最低となる(int iAttackBushouID, int iDefendBushouID) {
 
     string targetBushouName = "";
 
-    // 攻撃側がアルベドなら、守備側をターゲットにする
-    if (attack == getArubedoSeiMei()) {
-        targetBushouName = defend;
+    if (isValidBushouID(iAttackBushouID) == FALSE || isValidBushouID(iDefendBushouID) == FALSE) {
+		return 0;
+	}
+
+    int iTargetBushouID = -1;
+    // アルベドが攻撃側なら
+    if (getArubedoSeiMei() == getBushou姓名FromBushouID(iAttackBushouID)) {
+        iTargetBushouID = iDefendBushouID;
     }
-    if (defend == getArubedoSeiMei()) {
-        targetBushouName = attack;
+    else if (getArubedoSeiMei() == getBushou姓名FromBushouID(iDefendBushouID)) {
+        iTargetBushouID = iAttackBushouID;
     }
 
-    // アルベドと対峙する武将の戦闘能力を1にしつつ、その武将の元々の戦闘値を保持しておく。
-    for (int iBushouID = 0; iBushouID < 最大数::武将情報::総配列数; iBushouID++) {
-        if (targetBushouName == getBushou姓名FromBushouID(iBushouID)) {
-            if (nb7武将情報[iBushouID].戦闘 >= 3) {
-                mapOverrideKeyBushouValueYasenBattle[iBushouID] = nb7武将情報[iBushouID].戦闘;
-                nb7武将情報[iBushouID].戦闘 = 1;
-                break;
-            }
+    if (isValidBushouID(iTargetBushouID)) {
+        // アルベドと対峙する武将の戦闘能力を1にしつつ、その武将の元々の戦闘値を保持しておく。
+        if (nb7武将情報[iTargetBushouID].戦闘 >= 3) {
+            mapOverrideKeyBushouValueYasenBattle[iTargetBushouID] = nb7武将情報[iTargetBushouID].戦闘;
+            nb7武将情報[iTargetBushouID].戦闘 = 1;
         }
     }
+
     return 1;
 }
 

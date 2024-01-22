@@ -117,23 +117,33 @@ static int YasenInfoPointer = -1;
 int iLastAttackBushouID = -1;
 int iLastDefendBushouID = -1;
 
+extern bool isWriteYasenWeather;
+
 void OnSSRExeYasenTurnBothBushouExecute() {
-	int iAttackUnitID = getUnitIDFromUnitPtr((int *)YasenAttackUnitPointer);
-	int iDefendUnitID = getUnitIDFromUnitPtr((int *)YasenDefendUnitPointer);
-//	OutputDebugStream("★★★★野戦ターンの変更時の攻撃武将ポインタ★%x\n", YasenAttackUnitPointer);
-//	OutputDebugStream("★★★★野戦ターンの変更時の守備武将ポインタ★%x\n", YasenDefendUnitPointer);
-	if ( isValidUnitID(iAttackUnitID) && isValidUnitID(iDefendUnitID)) {
-		int iAttackBushouID = getBushouIDFromUnitID(iAttackUnitID);
-		int iDefendBushouID = getBushouIDFromUnitID(iDefendUnitID);
-		iLastAttackBushouID = iAttackBushouID;
-		iLastDefendBushouID = iDefendBushouID;
-		if (isValidBushouID(iAttackBushouID) && isValidBushouID(iDefendBushouID)) {
-			OutputDebugStream("★★★★野戦ターンの変更時の攻撃武将名★%s\n", nb7武将情報[iAttackBushouID].姓名);
-			OutputDebugStream("★★★★野戦ターンの変更時の守備武将名★%s\n", nb7武将情報[iDefendBushouID].姓名);
+	// 何回も来るので天候が書き換えられた後だけ実行する
+	if (isWriteYasenWeather) {
+		isWriteYasenWeather = false;
+		int iAttackUnitID = getUnitIDFromUnitPtr((int*)YasenAttackUnitPointer);
+		int iDefendUnitID = getUnitIDFromUnitPtr((int*)YasenDefendUnitPointer);
+		//	OutputDebugStream("★★★★野戦ターンの変更時の攻撃武将ポインタ★%x\n", YasenAttackUnitPointer);
+		//	OutputDebugStream("★★★★野戦ターンの変更時の守備武将ポインタ★%x\n", YasenDefendUnitPointer);
+		if (isValidUnitID(iAttackUnitID) && isValidUnitID(iDefendUnitID)) {
+			int iAttackBushouID = getBushouIDFromUnitID(iAttackUnitID);
+			int iDefendBushouID = getBushouIDFromUnitID(iDefendUnitID);
+			iLastAttackBushouID = iAttackBushouID;
+			iLastDefendBushouID = iDefendBushouID;
+			if (isValidBushouID(iAttackBushouID) && isValidBushouID(iDefendBushouID)) {
+				OutputDebugStream("★★★★野戦ターンの変更時の攻撃武将名★%s\n", nb7武将情報[iAttackBushouID].姓名);
+				OutputDebugStream("★★★★野戦ターンの変更時の守備武将名★%s\n", nb7武将情報[iDefendBushouID].姓名);
+
+				野戦中のアルベドの敵武将は戦闘値が最低となる(iAttackBushouID, iDefendBushouID);
+			}
+
+
 		}
+		OutputDebugStream("情報の場所ESI+0x148:%x\n", YasenInfoPointer + 0x148);
+		OutputDebugStream("情報の場所ESI+0x14C:%x\n", YasenInfoPointer + 0x14C);
 	}
-	OutputDebugStream("情報の場所ESI+0x148:%x\n", YasenInfoPointer + 0x148);
-	OutputDebugStream("情報の場所ESI+0x14C:%x\n", YasenInfoPointer + 0x14C);
 }
 
 

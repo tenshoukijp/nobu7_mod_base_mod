@@ -37,8 +37,9 @@ using namespace std;
 
 #pragma unmanaged
 
-
+bool isWriteYasenWeather = false;
 void OnSSRExeYasenWeatherWriteExecute() {
+	isWriteYasenWeather = true;
 	OutputDebugStream("šššš–ìí‚Ì“VŒó‘‚«Š·‚¦š%d\n", getYanseWeather());
 
 	// setYangseWeather(3);

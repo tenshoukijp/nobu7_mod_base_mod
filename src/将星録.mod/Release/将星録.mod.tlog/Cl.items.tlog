@@ -41,6 +41,8 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_uma.cpp;
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_year.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_year.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_readfile_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setfilepointer_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_setfilepointer_custom.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_end.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_start.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_start.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_butai_info_update.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_butai_info_update.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog3.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_unknown_dialog3.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog1.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_unknown_dialog1.obj
