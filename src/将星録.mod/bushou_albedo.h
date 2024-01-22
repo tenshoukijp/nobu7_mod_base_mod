@@ -12,7 +12,7 @@ int 野戦中のアルベドの敵武将は戦闘値が最低となる(int iAttackBushouID, int iDefen
 
 int reset野戦後のアルベドの敵武将の戦闘値();
 
-void 籠城中のアルベドの敵武将は戦闘値が最低となる(std::string sCastleName);
+void 籠城中のアルベドの敵武将は戦闘値が最低となる(int iCastleID);
 
 int reset籠城後のアルベドの敵武将は戦闘値();
 

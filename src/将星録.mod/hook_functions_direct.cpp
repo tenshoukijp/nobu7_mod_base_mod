@@ -33,6 +33,7 @@ extern void WriteAsmJumperOnSSRExeYasenWeatherWrite();
 extern void WriteAsmJumperOnSSRExeKahouTitle();
 extern void WriteAsmJumperOnSSRExeKahouDetail();
 extern void WriteAsmJumperOnSSRExeYasenBattleEnd();
+extern void WriteAsmJumperOnSSRExeCastleBattleEnd();
 
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnChange = false;
@@ -69,6 +70,7 @@ bool isWriteAsmJumperOnSSRExeYasenWeatherWrite = false;
 bool isWriteAsmJumperOnSSRExeKahouTitle = false;
 bool isWriteAsmJumperOnSSRExeKahouDetail = false;
 bool isWriteAsmJumperOnSSRExeYasenBattleEnd = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleEnd = false;
 
 
 void hookFunctionsDirect() {
@@ -246,5 +248,10 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeYasenBattleEnd) {
 		isWriteAsmJumperOnSSRExeYasenBattleEnd = true;
 		WriteAsmJumperOnSSRExeYasenBattleEnd();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleEnd) {
+		isWriteAsmJumperOnSSRExeCastleBattleEnd = true;
+		WriteAsmJumperOnSSRExeCastleBattleEnd();
 	}
 }

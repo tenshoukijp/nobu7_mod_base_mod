@@ -311,7 +311,7 @@ void resetAlbedo所属城下遺恨武将() {
 
 // 籠城戦時に戦闘力を１にした人一覧
 map<int, int> mapOverrideKeyBushouValueCastleBattle;
-void 籠城中のアルベドの敵武将は戦闘値が最低となる(std::string sCastleName)
+void 籠城中のアルベドの敵武将は戦闘値が最低となる(int iCastleID)
 {
     // アルベドの所属大名を得る
     int iAlbedoDaimyoID = -1;
@@ -322,29 +322,25 @@ void 籠城中のアルベドの敵武将は戦闘値が最低となる(std::string sCastleName)
         }
     }
 
-    for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {
-        // 該当の城名が見つかったなら
-        if (sCastleName == nb7城情報[iCastleID].城名 + get城称(iCastleID)) {
-            int iRoujoCastleID = iCastleID;
-            OutputDebugStream("CastleIDは:%dです\n", iCastleID);
-            for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
-                // 現役か大名である
-                if (nb7武将情報[iBushouID].状態 == 列挙::武将::状態::現役 || nb7武将情報[iBushouID].状態 == 列挙::武将::状態::大名) {
-                    int iBushouCastleID = getCastleIdFromBushouID(iBushouID);
-                    // 該当武将は籠城戦中の城に帰属している(籠城戦に参加しているとは限らない)
-                    if (iBushouCastleID == iRoujoCastleID) {
-                        // アルベドとは大名が異なる
-                        if (getDaimyoIDFromBushouID(iBushouID) != iAlbedoDaimyoID) {
-                            // 戦闘力を１にしておき、元の戦闘力は保存しておく。
-                            if (nb7武将情報[iBushouID].戦闘 >= 3) {
-                                mapOverrideKeyBushouValueCastleBattle[iBushouID] = nb7武将情報[iBushouID].戦闘;
-                                nb7武将情報[iBushouID].戦闘 = 1;
-                            }
+    if (isValidCastleID(iCastleID)) {
+        int iRoujoCastleID = iCastleID;
+        OutputDebugStream("CastleIDは:%dです\n", iRoujoCastleID);
+        for (int iBushouID = 0; iBushouID < 最大数::武将情報::配列数; iBushouID++) {
+            // 現役か大名である
+            if (nb7武将情報[iBushouID].状態 == 列挙::武将::状態::現役 || nb7武将情報[iBushouID].状態 == 列挙::武将::状態::大名) {
+                int iBushouCastleID = getCastleIdFromBushouID(iBushouID);
+                // 該当武将は籠城戦中の城に帰属している(籠城戦に参加しているとは限らない)
+                if (iBushouCastleID == iRoujoCastleID) {
+                    // アルベドとは大名が異なる
+                    if (getDaimyoIDFromBushouID(iBushouID) != iAlbedoDaimyoID) {
+                        // 戦闘力を１にしておき、元の戦闘力は保存しておく。
+                        if (nb7武将情報[iBushouID].戦闘 >= 3) {
+                            mapOverrideKeyBushouValueCastleBattle[iBushouID] = nb7武将情報[iBushouID].戦闘;
+                            nb7武将情報[iBushouID].戦闘 = 1;
                         }
                     }
                 }
             }
-            break;
         }
     }
 }

@@ -155,6 +155,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="hook_bushou_koudouzumi.cpp" />
+    <ClCompile Include="hook_castle_battle_end.cpp" />
     <ClCompile Include="hook_castle_battle_turn.cpp" />
     <ClCompile Include="hook_castle_battle_turn_bgn.cpp" />
     <ClCompile Include="hook_castle_battle_turn_daimyo_a.cpp" />

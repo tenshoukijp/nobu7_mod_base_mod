@@ -16,6 +16,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bgm3_filename.cpp;C
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bgm_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_bgm_filename.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bgm2_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_bgm2_filename.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bushou_koudouzumi.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_bushou_koudouzumi.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_end.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_turn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_turn_bgn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_daimyo_a.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_turn_daimyo_a.obj

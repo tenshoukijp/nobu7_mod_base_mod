@@ -584,6 +584,9 @@
     <ClCompile Include="hook_yasen_end.cpp">
       <Filter>ゲームデータ - 野戦</Filter>
     </ClCompile>
+    <ClCompile Include="hook_castle_battle_end.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

@@ -16,6 +16,7 @@
   hook_bgm_filename.cpp
   hook_bgm2_filename.cpp
   hook_bushou_koudouzumi.cpp
+  hook_castle_battle_end.cpp
   hook_castle_battle_turn.cpp
   hook_castle_battle_turn_bgn.cpp
   hook_castle_battle_turn_daimyo_a.cpp

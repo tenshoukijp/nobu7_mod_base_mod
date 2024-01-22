@@ -153,8 +153,9 @@ using namespace std;
 
 #pragma unmanaged
 
-int iCastleBattleRemainTurn = -1;
-int iLastBattleRemainTurn = -1;
+extern int iCastleBattleRemainTurn;
+extern int iLastBattleRemainTurn;
+
 void OnSSRExeCastleBattleTurnExecute() {
 	if (iLastBattleRemainTurn != iCastleBattleRemainTurn) {
 		iLastBattleRemainTurn = iCastleBattleRemainTurn;

@@ -17,10 +17,12 @@ void onOpeningMovie() {
 }
 
 extern void resetMapBushouKoudouzumiCacheInMonth();
+extern void resetCastleBattleInfo();
 // ゲームの初期設定画面
 void onInitialGameMenu() {
     setゲーム画面ステータス(ゲーム画面ステータス::初期設定画面);
     OutputDebugStream("将星録の初期設定画面\n");
+    resetCastleBattleInfo();
     resetAlbedoKoudouCounter();
     resetMapBushouKoudouzumiCacheInMonth();
 }
@@ -389,12 +391,6 @@ void onCastleBattleTurn(string battleCastleTurnInfo) {
         if (nPreviousCastleBattleTurn != nRemainTurn) {
             nPreviousCastleBattleTurn = nRemainTurn;
 
-            // まず最初のターンで、この城に帰属する武将達のリストを探す
-            if (nRemainTurn == 15) {
-                string sCastleName = ma[1];
-
-                籠城中のアルベドの敵武将は戦闘値が最低となる(sCastleName);
-            }
             OutputDebugStream("城攻めの戦闘ターン情報:" + battleCastleTurnInfo + "\n");
             OutputDebugStream("ma[1]:" + ma[1] + "\n");
             OutputDebugStream("ma[3]:" + ma[3] + "\n");

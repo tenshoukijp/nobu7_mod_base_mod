@@ -153,6 +153,8 @@ using namespace std;
 
 #pragma unmanaged
 
+extern bool isCastleBattleMode;
+
 static int iCastleBattleBackupEAX = -1;
 static int iCastleBattleAfterECX = -1; // これは城配列へのポインタ
 static int iCastleBattleEDI = -1;
@@ -163,6 +165,11 @@ static int nCastleBattleTurnBgnArg1 = -1;
 static int nCastleBattleTurnBgnArg2 = -1;
 static int nCastleBattleTurnBgnArg3 = -1;
 void OnSSRExeCastleBattleTurnBgnExecute() {
+	if (isCastleBattleMode) {
+		return;
+	}
+	isCastleBattleMode = true;
+
 	OutputDebugStream("CastleBattleTurnBgn\n");
 
 	OutputDebugStream("★★★★iCastleBattleEDI:%x★\n", iCastleBattleEDI);
@@ -177,6 +184,7 @@ void OnSSRExeCastleBattleTurnBgnExecute() {
 	int iCastleID = getCastleIDFromCastlePointer((int *)iCastleBattleAfterECX);
 	if (isValidCastleID(iCastleID)) {
 		OutputDebugStream("★★★★城名:%s★\n", nb7城情報[iCastleID].城名);
+		籠城中のアルベドの敵武将は戦闘値が最低となる(iCastleID);
 	}
 }
 
