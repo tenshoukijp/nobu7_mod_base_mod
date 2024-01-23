@@ -14,7 +14,6 @@ extern string bufferTextOut;
 
 extern int nCheckTextOutXStart;
 extern int nCheckTextOutYStart;
-int isKahouRetsudenMode = -1;
 extern HANDLE hFileITEMDATA;
 int Hook_ReleaseDCCustom(
 	HWND hWnd,  // ウィンドウのハンドル
@@ -27,13 +26,6 @@ int Hook_ReleaseDCCustom(
 	if (bufferTextOut != "") {
 		OutputDebugStream("■OnReleaseDC■:" + bufferTextOut);
 		OutputDebugStream("------------\n");
-	}
-
-	if (isKahouRetsudenMode > -1) {
-		isKahouRetsudenMode--;
-	}
-	if (bufferTextOut == "家宝一覧") {
-		isKahouRetsudenMode = 3;
 	}
 
 	dispatchEvent();

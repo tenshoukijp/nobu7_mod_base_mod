@@ -34,6 +34,8 @@ extern void WriteAsmJumperOnSSRExeKahouTitle();
 extern void WriteAsmJumperOnSSRExeKahouDetail();
 extern void WriteAsmJumperOnSSRExeYasenBattleEnd();
 extern void WriteAsmJumperOnSSRExeCastleBattleEnd();
+extern void WriteAsmJumperOnSSRExeMainGameStart();
+extern void WriteAsmJumperOnSSRExeMainStrategyPlayerTurn();
 
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnChange = false;
@@ -71,6 +73,8 @@ bool isWriteAsmJumperOnSSRExeKahouTitle = false;
 bool isWriteAsmJumperOnSSRExeKahouDetail = false;
 bool isWriteAsmJumperOnSSRExeYasenBattleEnd = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleEnd = false;
+bool isWriteAsmJumperOnSSRExeMainGameStart = false;
+bool isWriteAsmJumperOnSSRExeMainStrategyPlayerTurn = false;
 
 
 void hookFunctionsDirect() {
@@ -253,5 +257,15 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeCastleBattleEnd) {
 		isWriteAsmJumperOnSSRExeCastleBattleEnd = true;
 		WriteAsmJumperOnSSRExeCastleBattleEnd();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeMainGameStart) {
+		isWriteAsmJumperOnSSRExeMainGameStart = true;
+		WriteAsmJumperOnSSRExeMainGameStart();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeMainStrategyPlayerTurn) {
+		isWriteAsmJumperOnSSRExeMainStrategyPlayerTurn = true;
+		WriteAsmJumperOnSSRExeMainStrategyPlayerTurn();
 	}
 }

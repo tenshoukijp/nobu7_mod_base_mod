@@ -56,7 +56,7 @@ void onYasenBattleTurn(std::string battleTurnInfo);
 
 void onStrategyScreen();
 
-void onStrategyPlayerDaimyoTurn(std::string strategyTurnInfo);
+void onStrategyPlayerDaimyoTurn(int iDaimyoID);
 
 void onYasenBattlePreStart();
 

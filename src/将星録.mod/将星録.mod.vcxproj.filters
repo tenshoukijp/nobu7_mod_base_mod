@@ -139,6 +139,12 @@
     <Filter Include="武将">
       <UniqueIdentifier>{65d5ecac-168f-490c-9129-9835ad552010}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - ターン情報 - メインゲーム開始">
+      <UniqueIdentifier>{7270e8fa-928d-4ab5-9874-51087562856c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームデータ - ターン情報 - プレイヤ戦略">
+      <UniqueIdentifier>{849d68ca-3fd2-4ce1-bb93-3d23c355d035}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -260,9 +266,6 @@
     </ClInclude>
     <ClInclude Include="mng_官位情報.h">
       <Filter>ゲームデータ - 官位情報</Filter>
-    </ClInclude>
-    <ClInclude Include="data_unknown_battle_turn.h">
-      <Filter>ゲームデータ - ターン情報</Filter>
     </ClInclude>
     <ClInclude Include="file_attribute.h">
       <Filter>ファイル</Filter>
@@ -425,9 +428,6 @@
     <ClCompile Include="hook_unknown_dialog3.cpp">
       <Filter>列伝 - 武将列伝</Filter>
     </ClCompile>
-    <ClCompile Include="hook_daimyo_turn.cpp">
-      <Filter>ゲームデータ - ターン情報</Filter>
-    </ClCompile>
     <ClCompile Include="data_turn_daimyo_struct.cpp">
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClCompile>
@@ -586,6 +586,18 @@
     </ClCompile>
     <ClCompile Include="hook_castle_battle_end.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
+    <ClCompile Include="data_daimyo_turn.cpp">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_maingame_start.cpp">
+      <Filter>ゲームデータ - ターン情報 - メインゲーム開始</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_player_strategy_turn.cpp">
+      <Filter>ゲームデータ - ターン情報 - プレイヤ戦略</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_daimyo_strategy_turn.cpp">
+      <Filter>ゲームデータ - ターン情報 - プレイヤ戦略</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

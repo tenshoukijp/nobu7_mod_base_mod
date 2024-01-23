@@ -134,9 +134,6 @@ void onWriteSobaUma(int iSobaUma) {
 
 // 鉄砲の相場の初書き込みがされた
 void onWriteSobaTeppou(int iSobaTeppou) {
-    if (iSobaTeppou != 0) {
-        onStrategyGameStart();
-    }
 }
 
 
@@ -476,22 +473,15 @@ void checkStrategyPlayerTurnInformation()
 
 
 extern void initAlbedoKahou();
-void onStrategyPlayerDaimyoTurn(string strategyTurnInfo) {
+void onStrategyPlayerDaimyoTurn(int iDaimyoID) {
+    setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 
-    Matches ma;
+    initAlbedoKahou();
+    checkStrategyPlayerTurnInformation();
 
-    if (OnigMatch(strategyTurnInfo, "情報(.+?)様あなたの番となりました", &ma)) {
+    アルベドのユニットが軍隊や軍船なら兵数復活();
+    resetAlbedo所属城下遺恨武将();
 
-        setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
-
-        initAlbedoKahou();
-        checkStrategyPlayerTurnInformation();
-
-        アルベドのユニットが軍隊や軍船なら兵数復活();
-        resetAlbedo所属城下遺恨武将();
-
-        OutputDebugStream("プレイヤー担当大名ターン:" + ma[1]);
-    }
 }
 
 void onBushouCyuseiChange(string chanteInfo) {
@@ -566,10 +556,10 @@ int dispatchEvent() {
         isYasenBattle = TRUE;
         onYasenBattleTurn(bufferTextOut);
     }
+    /*
     else if (OnigMatch(bufferTextOut, "情報(.+?)様あなたの番となりました")) {
-        isYasenBattle = FALSE;
-        onStrategyPlayerDaimyoTurn(bufferTextOut);
     }
+    */
     else if (OnigMatch(bufferTextOut, "確認(.+)の忠誠度が(\\d+)になりました")) {
         onBushouCyuseiChange(bufferTextOut);
     }
