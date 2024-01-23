@@ -18,13 +18,19 @@ void onOpeningMovie() {
 
 extern void resetMapBushouKoudouzumiCacheInMonth();
 extern void resetCastleBattleInfo();
+BOOL isYasenBattle = FALSE;
+BOOL isCastleBattle = FALSE;
 // ゲームの初期設定画面
 void onInitialGameMenu() {
-    setゲーム画面ステータス(ゲーム画面ステータス::初期設定画面);
+
+    isYasenBattle = FALSE;
+    isCastleBattle = FALSE;
+
     OutputDebugStream("将星録の初期設定画面\n");
-    resetCastleBattleInfo();
     resetAlbedoKoudouCounter();
     resetMapBushouKoudouzumiCacheInMonth();
+    resetCastleBattleInfo();
+    setゲーム画面ステータス(ゲーム画面ステータス::初期設定画面);
 }
 
 void onLoadSaveDataMenu() {
@@ -244,7 +250,6 @@ void onYasenBattleStart(string battleYanseStartInfo) {
 
 string previousBattleTurnInfo = "";
 string previousRegexBattleTurnInfo = "";
-BOOL isYasenBattle = FALSE;
 
 void onYasenBattleTurn(string battleYanseTurnInfo) {
     OutputDebugStream("戦闘ターン情報:" + battleYanseTurnInfo + "\n");
@@ -369,7 +374,6 @@ void onYasenBattleEnd() {
     isYasenBattle = FALSE;
 }
 
-BOOL isCastleBattle = FALSE;
 void onCastleBattlePreStart() {
     isCastleBattle = TRUE;
 
@@ -427,6 +431,8 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" + battleCastleEndInfo + "\n");
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+
+    isCastleBattle = FALSE;
 }
 
 // 理由不明な終わり方
@@ -440,24 +446,16 @@ void onCastleBattleEnd() {
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" );
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+
+    isCastleBattle = FALSE;
 }
 
 void onStrategyScreen() {
     OutputDebugStream("onStrategyScreen\n");
 }
 
-void onStrategyDaimyoturnChanged(string strategyTurnInfo) {
-    Matches ma;
-    if (OnigMatch(strategyTurnInfo, "^(.+?)家(\\1(.+?))\\1家\\2$", &ma)) {
-        OutputDebugStream("大名ターンが変わりました。" + ma[1] + "家の" + ma[2] + "\n"s);
-
-        int iBushouID = getStrategyTurnDaimyoBushouID();
-        if (isValidBushouID(iBushouID)) {
-			OutputDebugStream("大名ターンの武将は"s + nb7武将情報[iBushouID].姓名 + "\n");
-		}
-
-        setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
-
+void onStrategyDaimyoTurnChanged(int iDaimyoID) {
+    if (isValidDaimyoID(iDaimyoID)) {
         アルベドのユニットが軍隊や軍船なら兵数復活();
     }
 }
@@ -521,11 +519,13 @@ void onTouyouPrevious(string touyouInfo) {
 int dispatchEvent() {
     // 正規表現で状況を判断する
     const string bufferTextOut = getBufferTextOut();
+    /*
     if (OnigMatch(bufferTextOut, "初期設定.+ＢＧＭ効果音アニメ難易度ﾒｯｾｰｼﾞ野戦攻城戦盗賊ｲﾍﾞﾝﾄ新しくゲームを始める場合は「ｼﾅﾘｵ」を前回の続きから始める場合は「ﾛｰﾄﾞ」を選択してくださいｼﾅﾘｵ1ｼﾅﾘｵ2ｼﾅﾘｵ3ｼﾅﾘｵ4ｼﾅﾘｵ5ｼﾅﾘｵ6ｼﾅﾘｵ7ｼﾅﾘｵ8ｼﾅﾘｵ9ｼﾅﾘｵ10入切入切入切初上速中遅全委否全委否有無有無ロード")) {
         isYasenBattle = FALSE;
         onInitialGameMenu();
     }
-    else if (OnigMatch(bufferTextOut, "ロードシナリオ.+\\d\\d/\\d\\d/\\d\\d\\d\\d:\\d\\d:\\d\\d")) {
+    */
+    if (OnigMatch(bufferTextOut, "ロードシナリオ.+\\d\\d/\\d\\d/\\d\\d\\d\\d:\\d\\d:\\d\\d")) {
         isYasenBattle = FALSE;
         onLoadSaveDataMenu();
     }
@@ -606,9 +606,6 @@ int dispatchEvent() {
     }
     else if (OnigMatch(bufferTextOut, "^.+家は\xA?滅亡しました")) {
         onPerishedDaimyo(bufferTextOut);
-    }
-    else if(OnigMatch(bufferTextOut, "^(.+?)家(\\1(.+?))\\1家\\2$")) {
-        onStrategyDaimyoturnChanged(bufferTextOut);
     }
     else if (OnigMatch(bufferTextOut, "献上使者(.+?)朝廷(菊亭晴季|山科言継|勧修寺晴豊)友好度(\\d+)")) {
         onChoteiKenjo(bufferTextOut);

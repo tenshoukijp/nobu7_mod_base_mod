@@ -39,7 +39,6 @@ extern void onCastleBattleEnd();
 int iCastleBattleRemainTurn = -1;
 int iLastBattleRemainTurn = -1;
 bool isCastleBattleMode = false;
-
 void resetCastleBattleInfo() {
 	isCastleBattleMode = false;
 	iCastleBattleRemainTurn = -1;

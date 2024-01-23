@@ -1,6 +1,97 @@
+/*
+ÇPåéì‡ÇÃêÌó™âÊñ Ç≈ÅAëÂñºÇ≤Ç∆Ç…Ç±ÇÃîÕàÕÇÉãÅ[ÉvÇ∑ÇÈÅB
+00434CC0   8B8E FC000000    /MOV ECX,DWORD PTR DS:[ESI+FC]
+00434CC6   E8 85DB0000      |CALL Nobunaga.00442850
+00434CCB   85C0             |TEST EAX,EAX
+00434CCD   0F84 E7000000    |JE Nobunaga.00434DBA
+00434CD3   B9 D8AA5800      |MOV ECX,Nobunaga.0058AAD8               ; ASCII "LCR"
+00434CD8   E8 53F30400      |CALL Nobunaga.00484030
+00434CDD   8B8E FC000000    |MOV ECX,DWORD PTR DS:[ESI+FC]
+00434CE3   E8 18FBFFFF      |CALL Nobunaga.00434800
+00434CE8   8B8E FC000000    |MOV ECX,DWORD PTR DS:[ESI+FC]
+00434CEE   E8 5DDB0000      |CALL Nobunaga.00442850
+00434CF3   B9 80E95700      |MOV ECX,Nobunaga.0057E980
+00434CF8   E8 737A0200      |CALL Nobunaga.0045C770
+00434CFD   85C0             |TEST EAX,EAX
+00434CFF   0F85 F4000000    |JNZ Nobunaga.00434DF9
+00434D05   8B8E FC000000    |MOV ECX,DWORD PTR DS:[ESI+FC]
+00434D0B   E8 70DB0000      |CALL Nobunaga.00442880
+00434D10   85C0             |TEST EAX,EAX
+00434D12   0F84 86000000    |JE Nobunaga.00434D9E
+00434D18   B9 F0BF5E00      |MOV ECX,Nobunaga.005EBFF0
+00434D1D   E8 EEFD0800      |CALL Nobunaga.004C4B10
+00434D22   85C0             |TEST EAX,EAX
+00434D24   75 0E            |JNZ SHORT Nobunaga.00434D34
+00434D26   B9 F0BF5E00      |MOV ECX,Nobunaga.005EBFF0
+00434D2B   E8 40FE0800      |CALL Nobunaga.004C4B70
+00434D30   85C0             |TEST EAX,EAX
+00434D32   74 6A            |JE SHORT Nobunaga.00434D9E
+00434D34   57               |PUSH EDI
+00434D35   8D5424 1C        |LEA EDX,DWORD PTR SS:[ESP+1C]
+00434D39   52               |PUSH EDX
+00434D3A   8BCB             |MOV ECX,EBX
+00434D3C   E8 4F620000      |CALL Nobunaga.0043AF90
+00434D41   A1 F8915300      |MOV EAX,DWORD PTR DS:[5391F8]
+00434D46   394424 18        |CMP DWORD PTR SS:[ESP+18],EAX
+00434D4A   74 19            |JE SHORT Nobunaga.00434D65
+00434D4C   57               |PUSH EDI
+00434D4D   8D4424 20        |LEA EAX,DWORD PTR SS:[ESP+20]
+00434D51   50               |PUSH EAX
+00434D52   8BCB             |MOV ECX,EBX
+00434D54   E8 37620000      |CALL Nobunaga.0043AF90
+00434D59   8B4C24 1C        |MOV ECX,DWORD PTR SS:[ESP+1C]
+00434D5D   898E FC000000    |MOV DWORD PTR DS:[ESI+FC],ECX
+00434D63   EB 06            |JMP SHORT Nobunaga.00434D6B
+00434D65   8986 FC000000    |MOV DWORD PTR DS:[ESI+FC],EAX
+00434D6B   83EC 10          |SUB ESP,10
+00434D6E   8BFC             |MOV EDI,ESP
+00434D70   68 E0AA5800      |PUSH Nobunaga.0058AAE0
+00434D75   8BCF             |MOV ECX,EDI
+00434D77   E8 B8DC0C00      |CALL Nobunaga.00502A34
+00434D7C   68 E8AA5800      |PUSH Nobunaga.0058AAE8
+00434D81   8D4F 08          |LEA ECX,DWORD PTR DS:[EDI+8]
+00434D84   E8 ABDC0C00      |CALL Nobunaga.00502A34
+00434D89   8B15 D8AA5800    |MOV EDX,DWORD PTR DS:[58AAD8]           ; Nobunaga.0052434C
+00434D8F   8B42 44          |MOV EAX,DWORD PTR DS:[EDX+44]
+00434D92   68 D8AA5800      |PUSH Nobunaga.0058AAD8                  ; ASCII "LCR"
+00434D97   B9 D8AA5800      |MOV ECX,Nobunaga.0058AAD8               ; ASCII "LCR"
+00434D9C   FFD0             |CALL NEAR EAX
+00434D9E   B9 80E95700      |MOV ECX,Nobunaga.0057E980
+00434DA3   E8 08880200      |CALL Nobunaga.0045D5B0
+00434DA8   85C0             |TEST EAX,EAX
+00434DAA   74 0E            |JE SHORT Nobunaga.00434DBA
+00434DAC   E8 3F580700      |CALL Nobunaga.004AA5F0
+00434DB1   85C0             |TEST EAX,EAX
+00434DB3   74 05            |JE SHORT Nobunaga.00434DBA
+00434DB5   E8 66FBFFFF      |CALL Nobunaga.00434920
+00434DBA   8B7C24 14        |MOV EDI,DWORD PTR SS:[ESP+14]
+00434DBE   83C5 01          |ADD EBP,1
+00434DC1   55               |PUSH EBP
+00434DC2   8D4C24 14        |LEA ECX,DWORD PTR SS:[ESP+14]
+00434DC6   51               |PUSH ECX
+00434DC7   83C7 01          |ADD EDI,1
+00434DCA   8BCB             |MOV ECX,EBX
+00434DCC   897C24 1C        |MOV DWORD PTR SS:[ESP+1C],EDI
+00434DD0   E8 BB610000      |CALL Nobunaga.0043AF90
+00434DD5   8B4424 10        |MOV EAX,DWORD PTR SS:[ESP+10]
+00434DD9   8986 FC000000    |MOV DWORD PTR DS:[ESI+FC],EAX
+00434DDF   3B05 F8915300    |CMP EAX,DWORD PTR DS:[5391F8]           ; Nobunaga.00538EB8
+00434DE5  ^0F85 D5FEFFFF    \JNZ Nobunaga.00434CC0
+
+*/
 
 
-// Ç±ÇÃÉtÉ@ÉCÉãÇÕî˜ñ≠Ç…äOÇÍÇƒÇ¢ÇÈÅH Ç≈Ç‡èdóvÇ»èÓïÒÇ™Ç†ÇÈÇÊÇ§Ç…Ç‡évÇ¶ÇÈ
+
+
+/*
+00434CC0   8B8E FC000000    /MOV ECX,DWORD PTR DS:[ESI+FC]         ECXÇÕëÂñºèÓïÒÇÃäYìñëÂñºÇ÷ÇÃÉ|ÉCÉìÉ^
+00434CC6   E8 85DB0000      |CALL Nobunaga.00442850
+00434CCB   85C0             |TEST EAX,EAX
+*/
+
+
+
+
 #include <windows.h>
 #include <string>
 #include "data_game_struct.h"
@@ -17,76 +108,48 @@
 #include "bushou_albedo.h"
 #include "game_screen.h"
 #include "message_albedo.h"
+#include "on_event.h"
 
 
 using namespace std;
 
 #pragma unmanaged
 
-/*
-ëÂñºÉ^Å[ÉìÇÃèÓïÒÇ™Ç†ÇÈÇ©Ç‡ÇµÇÍÇ»Ç¢èÍèä
-00569280  28 00 00 00 78 00 00 00 14 00 00 00 64 00 00 00  (...x......d...
-00569290  00 00 00 00 00 00 00 00 A0 00 00 00 A0 00 00 00  ........†...†...
-005692A0  [26 AB 56] 00 16 00 00 00 40 00 00 00 01 00 00 00  &´V....@......
-005692B0  00 00 00 00 [26 AB 56] 00 58 27 CE 07 01 00 00 00  ....&´V.X'Œ...
-005692C0  16 00 00 00 E8 6F D4 07 40 2E 00 00 7A A6 00 00  ...Ëo‘@...z¶..
-005692D0  B6 3F 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ∂?..............
-005692E0  8C 5B 00 00 DA 1D 00 00 00 00 00 00 00 00 00 00  å[..⁄..........
+extern void onStrategyDaimyoTurnChanged(int iDaimyoID);
 
-0057EA74  78 A1 CE 07 01 00 00 00 [26 AB 56] 00 B8 8E 53 00  x°Œ...&´V.∏éS. ÉAÉhÉåÉX0x57EA7C = Ç±Ç±ÇÃ[ ] Ç™ëÂñºÉ^Å[ÉìÇÃëÂñºÉAÉhÉåÉXÇ÷ÇÃíºê⁄ÇÃÉ|ÉCÉìÉ^ [B8 8E 53 00] ÇæÇ∆ÅAíNÇ‡É^Å[ÉìóàÇƒÇ»Ç¢ÅB
-0057EA84  [26 AB 56] 00 B8 8E 53 00 B8 8E 53 00 B8 8E 53 00  &´V.∏éS.∏éS.∏éS.
-0057EA94  B8 8E 53 00 B8 8E 53 00 B8 8E 53 00 B8 8E 53 00  ∏éS.∏éS.∏éS.∏éS.
-0057EAA4  05 00 00 00 05 00 00 00 00 00 00 00 FF FF 00 00  ..........ˇˇ..
-*/#pragma once
+static int iTurnDaimyoPointerOfStrategy = -1;
 
-/*
-Ç±ÇÃ0x57EA7CÇ÷Ç∆ë„ì¸ÇµÇƒÇ¢ÇÈâ”èäÇÕÇΩÇæÇPÇ¬ÅB
-004C4F7A   8B15 F8915300    MOV EDX,DWORD PTR DS:[5391F8]            ; Nobunaga.00538EB8
-004C4F80   8915 7CEA5700    MOV DWORD PTR DS:[57EA7C],EDX
-004C4F86   837C24 1C 00     CMP DWORD PTR SS:[ESP+1C],0
-004C4F8B   0F85 AB000000    JNZ Nobunaga.004C503C
-004C4F91   33FF             XOR EDI,EDI
-004C4F93   8D6B 08          LEA EBP,DWORD PTR DS:[EBX+8]
-*/
+void OnSSRExeMainStrategyDaimyoTurnExecute() {
+	OutputDebugStream("ÅöÅöÅöÅöëÂñºÉ^Å[Éì(ÉtÉbÉN)Ç…ìûíBÇµÇ‹ÇµÇΩ\n");
+	int iDaimyoID = getDaimyoIDFromDaimyoPtr((int*)iTurnDaimyoPointerOfStrategy);
+	if (isValidDaimyoID(iDaimyoID)) {
+		int iBushouID = getBushouIDFromDaimyoID(iDaimyoID);
 
-/*
-ÇªÇÃè„ãLÇåƒÇ—èoÇµÇƒÇ¢ÇÈä÷êîÇÕÇΩÇ¡ÇΩÇPÇ¬
-0045F58B   B9 F0BF5E00      MOV ECX,Nobunaga.005EBFF0
-0045F590   E8 5B590600      CALL Nobunaga.004C4EF0
-0045F595   8B4C24 14        MOV ECX,DWORD PTR SS:[ESP+14]
-0045F599   8D8424 44450000  LEA EAX,DWORD PTR SS:[ESP+4544]
-0045F5A0   50               PUSH EAX
-*/
+		OutputDebugStream(getBushouê©ñºFromBushouID(iBushouID) + "ÇÃëÂñºÉ^Å[ÉìíºëOÇ≈Ç∑\n");
 
+		onStrategyDaimyoTurnChanged(iDaimyoID);
 
-
-void OnSSRExeDaimyoTurnExecute() {
-	OutputDebugStream("ëÂñºÉ^Å[ÉìóàÇΩÇÊëOÅö\n");
+	}
 }
 
+
 /*
-Ç±ÇÃ0x57EA7CÇ÷Ç∆ë„ì¸ÇµÇƒÇ¢ÇÈâ”èäÇÕÇΩÇæÇPÇ¬ÅB
-004C4F7A   8B15 F8915300    MOV EDX,DWORD PTR DS:[5391F8]            ; Nobunaga.00538EB8
-004C4F80   8915 7CEA5700    MOV DWORD PTR DS:[57EA7C],EDX <--- Ç±Ç±ÇÉWÉÉÉìÉvÇ÷Ç∆èëÇ´ä∑Ç¶ÇÈ
-004C4F86   837C24 1C 00     CMP DWORD PTR SS:[ESP+1C],0
-004C4F8B   0F85 AB000000    JNZ Nobunaga.004C503C
-004C4F91   33FF             XOR EDI,EDI
-004C4F93   8D6B 08          LEA EBP,DWORD PTR DS:[EBX+8]
+00434CC0   8B8E FC000000    /MOV ECX,DWORD PTR DS:[ESI+FC]         ECXÇÕëÂñºèÓïÒÇÃäYìñëÂñºÇ÷ÇÃÉ|ÉCÉìÉ^
+00434CC6   E8 85DB0000      |CALL Nobunaga.00442850
+00434CCB   85C0             |TEST EAX,EAX
 */
 
-
-
-int pSSRExeJumpFromToOnSSRExeDaimyoTurn = 0x4C4F80; // ä÷êîÇÕÇ±ÇÃÉAÉhÉåÉXÇ©ÇÁÅAOnSSRExeDaimyoTurnÇ÷Ç∆ÉWÉÉÉìÉvÇµÇƒÇ≠ÇÈÅB
-// int pSSRExeJumpCallFromToOnSSRExeDaimyoTurn = 0x4C4EF0; // å≥ÅXÇ†Ç¡ÇΩèàóùÇÃCallêÊ
-int pSSRExeReturnLblFromOnSSRExeDaimyoTurn = 0x4C4F86; // ä÷êîÇ™ç≈å„Ç‹Ç≈Ç¢Ç≠Ç∆ÅAÇ±ÇÃTENSHOU.EXEì‡Ç…íºê⁄ÉWÉÉÉìÉvÇ∑ÇÈ
+int pSSRExeJumpFromToOnSSRExeMainStrategyDaimyoTurn = 0x434CC6; // ä÷êîÇÕÇ±ÇÃÉAÉhÉåÉXÇ©ÇÁÅAOnSSRExeMainStrategyDaimyoTurnÇ÷Ç∆ÉWÉÉÉìÉvÇµÇƒÇ≠ÇÈÅB
+int pSSRExeJumpCallFromToOnSSRExeMainStrategyDaimyoTurn = 0x442850; // å≥ÅXÇ†Ç¡ÇΩèàóùÇÃCallêÊ
+int pSSRExeReturnLblFromOnSSRExeMainStrategyDaimyoTurn = 0x434CCB; // ä÷êîÇ™ç≈å„Ç‹Ç≈Ç¢Ç≠Ç∆ÅAÇ±ÇÃTENSHOU.EXEì‡Ç…íºê⁄ÉWÉÉÉìÉvÇ∑ÇÈ
 
 #pragma warning(disable:4733)
 
-__declspec(naked) void WINAPI OnSSRExeDaimyoTurn() {
+__declspec(naked) void WINAPI OnSSRExeMainStrategyDaimyoTurn() {
 	// ÉXÉ^ÉbÉNÇ…ÇΩÇﬂÇƒÇ®Ç≠
 	__asm {
 
-		MOV DWORD PTR DS : [0x57EA7C] , EDX
+		mov iTurnDaimyoPointerOfStrategy, ECX
 
 		push eax
 		push ebx
@@ -98,8 +161,9 @@ __declspec(naked) void WINAPI OnSSRExeDaimyoTurn() {
 		push edi
 	}
 
-	OnSSRExeDaimyoTurnExecute();
+	OnSSRExeMainStrategyDaimyoTurnExecute();
 
+	// ÉXÉ^ÉbÉNÇ…à¯Ç´èoÇ∑
 	__asm {
 		pop edi
 		pop esi
@@ -110,28 +174,30 @@ __declspec(naked) void WINAPI OnSSRExeDaimyoTurn() {
 		pop ebx
 		pop eax
 
-		jmp pSSRExeReturnLblFromOnSSRExeDaimyoTurn
+		call pSSRExeJumpCallFromToOnSSRExeMainStrategyDaimyoTurn // å≥ÇÃèàóù
+
+		jmp pSSRExeReturnLblFromOnSSRExeMainStrategyDaimyoTurn
 	}
 }
 #pragma warning(default: 4733) // ÉèÅ[ÉjÉìÉOÇÃó}êßÇâèúÇ∑ÇÈ
 
 
 
-char cmdOnSSRExeJumpFromDaimyoTurn[6] = "\xE9";
+char cmdOnSSRExeJumpFromMainStrategyDaimyoTurn[6] = "\xE9";
 // å≥ÇÃñΩóﬂÇ™5ÉoÉCÉgÅAà»å„ÇÃä÷êîÇ≈ê∂Ç‹ÇÍÇÈñΩóﬂÇ™çáåvÇTÉoÉCÉgÇ»ÇÃÇ≈Åc ç≈å„ÇPÇ¬égÇÌÇ»Ç¢
 
 
 // ÉjÅ[ÉÇÉjÉbÉNèëÇ´ä∑Ç¶óp
-void WriteAsmJumperOnSSRExeDaimyoTurn() {
+void WriteAsmJumperOnSSRExeMainStrategyDaimyoTurn() {
 
 	// Ç‹Ç∏ÉAÉhÉåÉXÇêîéöÇ∆ÇµÇƒàµÇ§
-	int iAddress = (int)OnSSRExeDaimyoTurn;
-	int SubAddress = iAddress - (pSSRExeJumpFromToOnSSRExeDaimyoTurn + 5);
+	int iAddress = (int)OnSSRExeMainStrategyDaimyoTurn;
+	int SubAddress = iAddress - (pSSRExeJumpFromToOnSSRExeMainStrategyDaimyoTurn + 5);
 	// ÇTÇ∆Ç¢Ç§ÇÃÇÕÅA0046C194  -E9 ????????  JMP TSMod.OnTSExeGetDaimyoKoukeishaBushouID  ÇÃñΩóﬂÇ…ïKóvÇ»ÉoÉCÉgêîÅBóvÇ∑ÇÈÇ…ÇTÉoÉCÉgë´Ç∑Ç∆éüÇÃÉjÅ[ÉÇÉjÉbÉNñΩóﬂåQÇ…à⁄ìÆÇ∑ÇÈÇÃÇæÅBÇªÇµÇƒÇªÇ±Ç©ÇÁÇÃç∑ï™Ç™ÉWÉÉÉìÉvÇ∑ÇÈç€ÇÃñ⁄ìIäiÇ∆ÇµÇƒóòópÇ≥ÇÍÇÈÅB
-	memcpy(cmdOnSSRExeJumpFromDaimyoTurn + 1, &SubAddress, 4); // +1 ÇÕE9ÇÃéüÇ©ÇÁ4ÉoÉCÉgï™èëÇ´ä∑Ç¶ÇÈÇ©ÇÁÅB
+	memcpy(cmdOnSSRExeJumpFromMainStrategyDaimyoTurn + 1, &SubAddress, 4); // +1 ÇÕE9ÇÃéüÇ©ÇÁ4ÉoÉCÉgï™èëÇ´ä∑Ç¶ÇÈÇ©ÇÁÅB
 
 	// ç\ízÇµÇΩÉjÅ[ÉÇÉjÉbÉNñΩóﬂÇTENSHOU.EXEÇÃÉÅÉÇÉäÇ…èëÇ´ä∑Ç¶ÇÈ
-	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeDaimyoTurn), cmdOnSSRExeJumpFromDaimyoTurn, 5, NULL); //5ÉoÉCÉgÇÃÇ›èëÇ´çûÇﬁ
+	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeMainStrategyDaimyoTurn), cmdOnSSRExeJumpFromMainStrategyDaimyoTurn, 5, NULL); //5ÉoÉCÉgÇÃÇ›èëÇ´çûÇﬁ
 }
 
 #pragma managed

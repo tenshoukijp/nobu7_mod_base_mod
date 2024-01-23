@@ -1,3 +1,4 @@
+extern void WriteAsmJumperOnSSRExeInitalGameSettings();
 extern void WriteAsmJumperOnSSRExeMessageDetail();
 extern void WriteAsmJumperOnSSRExeYasenTurnChange();
 extern void WriteAsmJumperOnSSRExeYasenTurnBothBushou();
@@ -36,7 +37,9 @@ extern void WriteAsmJumperOnSSRExeYasenBattleEnd();
 extern void WriteAsmJumperOnSSRExeCastleBattleEnd();
 extern void WriteAsmJumperOnSSRExeMainGameStart();
 extern void WriteAsmJumperOnSSRExeMainStrategyPlayerTurn();
+extern void WriteAsmJumperOnSSRExeMainStrategyDaimyoTurn();
 
+bool isWriteAsmJumperOnSSRExeInitalGameSettings = false;
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnChange = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnBothBushou = false;
@@ -75,9 +78,15 @@ bool isWriteAsmJumperOnSSRExeYasenBattleEnd = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleEnd = false;
 bool isWriteAsmJumperOnSSRExeMainGameStart = false;
 bool isWriteAsmJumperOnSSRExeMainStrategyPlayerTurn = false;
+bool isWriteAsmJumperOnSSRExeMainStrategyDaimyoTurn = false;
 
 
 void hookFunctionsDirect() {
+
+	if (!isWriteAsmJumperOnSSRExeInitalGameSettings) {
+		isWriteAsmJumperOnSSRExeInitalGameSettings = true;
+		WriteAsmJumperOnSSRExeInitalGameSettings();
+	}
 
 	if (!isWriteAsmJumperOnSSRExeMessageDetail) {
 		isWriteAsmJumperOnSSRExeMessageDetail = true;
@@ -267,5 +276,10 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeMainStrategyPlayerTurn) {
 		isWriteAsmJumperOnSSRExeMainStrategyPlayerTurn = true;
 		WriteAsmJumperOnSSRExeMainStrategyPlayerTurn();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeMainStrategyDaimyoTurn) {
+		isWriteAsmJumperOnSSRExeMainStrategyDaimyoTurn = true;
+		WriteAsmJumperOnSSRExeMainStrategyDaimyoTurn();
 	}
 }

@@ -140,7 +140,7 @@
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
-    <ClCompile Include="data_daimyo_turn.cpp" />
+    <ClCompile Include="hook_daimyo_strategy_turn.cpp" />
     <ClCompile Include="data_kahou_retsuden_struct.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -162,6 +162,7 @@
     <ClCompile Include="hook_castle_battle_turn_daimyo_b.cpp" />
     <ClCompile Include="hook_cretefilea_custom.cpp" />
     <ClCompile Include="hook_gaikou_comment.cpp" />
+    <ClCompile Include="hook_initial_game_settings.cpp" />
     <ClCompile Include="hook_kahou_retsuden_kahou_detail.cpp" />
     <ClCompile Include="hook_kahou_retsuden_kahou_title.cpp" />
     <ClCompile Include="hook_kahou_retsuden_shou_bgn.cpp" />
@@ -190,9 +191,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="hook_bushou_retsuden_init.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="hook_daimyo_strategy_turn.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="hook_unknown_dialog1.cpp" />

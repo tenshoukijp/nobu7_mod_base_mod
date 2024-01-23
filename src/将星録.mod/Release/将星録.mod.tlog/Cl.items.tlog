@@ -6,7 +6,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\data_bushou_message.cpp;
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_bushou_struct.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_bushou_struct.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_castle_struct.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_castle_struct.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_daimyo_struct.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_daimyo_struct.obj
-C:\Users\master\source\repos\将星録Mod\将星録.mod\data_daimyo_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_daimyo_turn.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_daimyo_strategy_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_daimyo_strategy_turn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_kahou_retsuden_struct.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_kahou_retsuden_struct.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_kahou_struct.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_kahou_struct.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_bushou_retsuden_struct.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_bushou_retsuden_struct.obj
@@ -24,6 +24,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_daimyo_b.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_turn_daimyo_b.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_cretefilea_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_cretefilea_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_gaikou_comment.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_gaikou_comment.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_initial_game_settings.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_initial_game_settings.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_detail.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_kahou_detail.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_title.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_kahou_title.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_shou_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_shou_bgn.obj

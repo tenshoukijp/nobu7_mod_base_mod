@@ -80,6 +80,10 @@ using namespace std;
 
 extern void onYasenBattleEnd();
 
+void resetYasenBattleInfo() {
+
+}
+
 void OnSSRExeYasenBattleEndExecute() {
 	OutputDebugStream("šššš–ìíI—¹šššš\n");
 	onYasenBattleEnd();

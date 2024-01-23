@@ -145,6 +145,9 @@
     <Filter Include="ゲームデータ - ターン情報 - プレイヤ戦略">
       <UniqueIdentifier>{849d68ca-3fd2-4ce1-bb93-3d23c355d035}</UniqueIdentifier>
     </Filter>
+    <Filter Include="初期設定">
+      <UniqueIdentifier>{651689e0-63b8-4674-b602-8b35b1305e11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -587,14 +590,14 @@
     <ClCompile Include="hook_castle_battle_end.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
-    <ClCompile Include="data_daimyo_turn.cpp">
-      <Filter>ゲームデータ - ターン情報</Filter>
-    </ClCompile>
     <ClCompile Include="hook_maingame_start.cpp">
       <Filter>ゲームデータ - ターン情報 - メインゲーム開始</Filter>
     </ClCompile>
     <ClCompile Include="hook_player_strategy_turn.cpp">
       <Filter>ゲームデータ - ターン情報 - プレイヤ戦略</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_initial_game_settings.cpp">
+      <Filter>初期設定</Filter>
     </ClCompile>
     <ClCompile Include="hook_daimyo_strategy_turn.cpp">
       <Filter>ゲームデータ - ターン情報 - プレイヤ戦略</Filter>

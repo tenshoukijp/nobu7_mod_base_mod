@@ -39,7 +39,7 @@ extern void onStrategyGameStart();
 
 static int iTurnPlayerDaimyoPointerOfStrategy = -1;
 
-extern int isYasenBattle;
+extern BOOL isYasenBattle;
 void OnSSRExeMainStrategyPlayerTurnExecute() {
 	OutputDebugStream("★★★★プレイヤーターン(フック)に到達しました\n");
 	int iDaimyoID = getDaimyoIDFromDaimyoPtr((int*)iTurnPlayerDaimyoPointerOfStrategy);
