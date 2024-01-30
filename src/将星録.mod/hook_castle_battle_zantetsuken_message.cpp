@@ -52,12 +52,16 @@ void OnSSRExeCastleBattleMessageZantetsukenExecute() {
 		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
 			string message1 = "まるで紙のような脆き門ね\xA唸れ、バルディッシュ！";
 			string message2 = "震えて死ぬのを待ちなさい\xA唸れ、バルディッシュ！";
+			string message3 = "おんどりゃー！\xA虫けらが！";
 			int rnd = rand() % 2;
-			if (rnd == 0) {
+			if (rnd == 2) {
 				strcpy_s(customZantetsukenMessage, message1.c_str());
 			}
-			else {
+			else if (rnd == 1) {
 				strcpy_s(customZantetsukenMessage, message2.c_str());
+			}
+			else {
+				strcpy_s(customZantetsukenMessage, message3.c_str());
 			}
 			CustomZantetsukenMessagePtr = (int)customZantetsukenMessage;
 		}
