@@ -6,6 +6,8 @@
   data_bushou_struct.cpp
   data_castle_struct.cpp
   data_daimyo_struct.cpp
+  hook_castle_battle_butai_syoutotsu.cpp
+  hook_castle_battle_zantetsuken_message.cpp
   hook_daimyo_strategy_turn.cpp
   data_kahou_retsuden_struct.cpp
   data_kahou_struct.cpp
@@ -35,6 +37,8 @@
   hook_maingame_start.cpp
   hook_movie_filename.cpp
   hook_player_strategy_turn.cpp
+  hook_castle_battle_zantetsuken.cpp
+  hook_serihu_message_func.cpp
   hook_update_month.cpp
   hook_update_soba_kome.cpp
   hook_update_soba_teppou.cpp

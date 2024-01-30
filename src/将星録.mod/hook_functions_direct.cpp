@@ -38,6 +38,8 @@ extern void WriteAsmJumperOnSSRExeCastleBattleEnd();
 extern void WriteAsmJumperOnSSRExeMainGameStart();
 extern void WriteAsmJumperOnSSRExeMainStrategyPlayerTurn();
 extern void WriteAsmJumperOnSSRExeMainStrategyDaimyoTurn();
+extern void WriteAsmJumperOnSSRExeCastleBattleZantetsuken();
+extern void WriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken();
 
 bool isWriteAsmJumperOnSSRExeInitalGameSettings = false;
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
@@ -79,6 +81,8 @@ bool isWriteAsmJumperOnSSRExeCastleBattleEnd = false;
 bool isWriteAsmJumperOnSSRExeMainGameStart = false;
 bool isWriteAsmJumperOnSSRExeMainStrategyPlayerTurn = false;
 bool isWriteAsmJumperOnSSRExeMainStrategyDaimyoTurn = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleZantetsuken = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken = false;
 
 
 void hookFunctionsDirect() {
@@ -281,5 +285,15 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeMainStrategyDaimyoTurn) {
 		isWriteAsmJumperOnSSRExeMainStrategyDaimyoTurn = true;
 		WriteAsmJumperOnSSRExeMainStrategyDaimyoTurn();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleZantetsuken) {
+		isWriteAsmJumperOnSSRExeCastleBattleZantetsuken = true;
+		WriteAsmJumperOnSSRExeCastleBattleZantetsuken();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken) {
+		isWriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken = true;
+		WriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken();
 	}
 }

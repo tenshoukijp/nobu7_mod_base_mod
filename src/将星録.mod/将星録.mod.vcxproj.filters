@@ -148,6 +148,9 @@
     <Filter Include="初期設定">
       <UniqueIdentifier>{651689e0-63b8-4674-b602-8b35b1305e11}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 籠城戦 - 斬鉄剣">
+      <UniqueIdentifier>{b8cd9d0e-26b7-493a-92bd-ffbafd993570}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -601,6 +604,18 @@
     </ClCompile>
     <ClCompile Include="hook_daimyo_strategy_turn.cpp">
       <Filter>ゲームデータ - ターン情報 - プレイヤ戦略</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_zantetsuken.cpp">
+      <Filter>ゲームデータ - 籠城戦 - 斬鉄剣</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_butai_syoutotsu.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_serihu_message_func.cpp">
+      <Filter>Onセリフ</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_zantetsuken_message.cpp">
+      <Filter>ゲームデータ - 籠城戦 - 斬鉄剣</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

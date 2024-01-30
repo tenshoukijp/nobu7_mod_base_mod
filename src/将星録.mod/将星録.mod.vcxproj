@@ -140,6 +140,8 @@
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
+    <ClCompile Include="hook_castle_battle_butai_syoutotsu.cpp" />
+    <ClCompile Include="hook_castle_battle_zantetsuken_message.cpp" />
     <ClCompile Include="hook_daimyo_strategy_turn.cpp" />
     <ClCompile Include="data_kahou_retsuden_struct.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -173,6 +175,8 @@
     <ClCompile Include="hook_maingame_start.cpp" />
     <ClCompile Include="hook_movie_filename.cpp" />
     <ClCompile Include="hook_player_strategy_turn.cpp" />
+    <ClCompile Include="hook_castle_battle_zantetsuken.cpp" />
+    <ClCompile Include="hook_serihu_message_func.cpp" />
     <ClCompile Include="hook_update_month.cpp" />
     <ClCompile Include="hook_update_soba_kome.cpp" />
     <ClCompile Include="hook_update_soba_teppou.cpp" />

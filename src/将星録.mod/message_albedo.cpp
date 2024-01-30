@@ -1,6 +1,7 @@
 #include <string>
 #include "data_game_struct.h"
 #include "on_serihu_message.h"
+#include "onigwrap.h"
 using namespace std;
 
 extern void replaceMessage(string message);
@@ -49,6 +50,10 @@ void changeAlbedoMessage(int iBushouID, string message) {
 	else if (message.find("かかってこい") != string::npos) {
 		string old_pattern = "かかってこい";
 		string new_message = message.replace(message.find(old_pattern), old_pattern.size(), "かかってらっしゃい");
+		replaceMessage(new_message);
+	}
+	else if (OnigMatch(message, "^斬鉄剣")) {
+		string new_message = "ふっ...バルディッシュ!!";
 		replaceMessage(new_message);
 	}
 }
