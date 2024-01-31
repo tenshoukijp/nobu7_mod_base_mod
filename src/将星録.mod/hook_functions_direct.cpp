@@ -40,6 +40,9 @@ extern void WriteAsmJumperOnSSRExeMainStrategyPlayerTurn();
 extern void WriteAsmJumperOnSSRExeMainStrategyDaimyoTurn();
 extern void WriteAsmJumperOnSSRExeCastleBattleZantetsuken();
 extern void WriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken();
+extern void WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackBushou();
+extern void WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuDefendDamage();
+extern void WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackDamage();
 
 bool isWriteAsmJumperOnSSRExeInitalGameSettings = false;
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
@@ -83,6 +86,9 @@ bool isWriteAsmJumperOnSSRExeMainStrategyPlayerTurn = false;
 bool isWriteAsmJumperOnSSRExeMainStrategyDaimyoTurn = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleZantetsuken = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackBushou = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuDefendDamage = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackDamage = false;
 
 
 void hookFunctionsDirect() {
@@ -295,5 +301,20 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken) {
 		isWriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken = true;
 		WriteAsmJumperOnSSRExeCastleBattleMessageZantetsuken();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackBushou) {
+		isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackBushou = true;
+		WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackBushou();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuDefendDamage) {
+		isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuDefendDamage = true;
+		WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuDefendDamage();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackDamage) {
+		isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackDamage = true;
+		WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackDamage();
 	}
 }

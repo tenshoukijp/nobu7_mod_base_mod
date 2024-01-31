@@ -140,7 +140,9 @@
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
-    <ClCompile Include="hook_castle_battle_butai_syoutotsu.cpp" />
+    <ClCompile Include="hook_castle_battle_butai_syoutotsu_attack_damage.cpp" />
+    <ClCompile Include="hook_castle_battle_butai_syoutotsu_defend_damange.cpp" />
+    <ClCompile Include="hook_castle_battle_butai_syoutotsu_attack_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_zantetsuken_message.cpp" />
     <ClCompile Include="hook_daimyo_strategy_turn.cpp" />
     <ClCompile Include="data_kahou_retsuden_struct.cpp">
