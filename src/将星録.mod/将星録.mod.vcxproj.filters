@@ -154,6 +154,9 @@
     <Filter Include="ゲームデータ - 籠城戦 - 部隊衝突">
       <UniqueIdentifier>{8fc2f9ff-416b-4726-b2cf-d9dc6b444946}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 籠城戦 - 門">
+      <UniqueIdentifier>{d3359762-cd0a-4144-95c0-ba0cff5491b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -304,6 +307,9 @@
       <Filter>セーブデータ</Filter>
     </ClInclude>
     <ClInclude Include="hook_castle_battle_turn.h">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClInclude>
+    <ClInclude Include="castle_battle_attack_heisuu_sum.h">
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClInclude>
   </ItemGroup>
@@ -631,6 +637,12 @@
     </ClCompile>
     <ClCompile Include="castle_battle_defend_heisuu_sum.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_butai_attack_door_damage.cpp">
+      <Filter>ゲームデータ - 籠城戦 - 門</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_taihou_attack_door_damage.cpp">
+      <Filter>ゲームデータ - 籠城戦 - 門</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

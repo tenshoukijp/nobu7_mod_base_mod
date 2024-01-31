@@ -45,6 +45,8 @@ extern void WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuDefendDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleAttackHeisuuSum();
 extern void WriteAsmJumperOnSSRExeCastleBattleDefendHeisuuSum();
+extern void WriteAsmJumperOnSSRExeCastleBattleButaiDefendDoorDamage();
+extern void WriteAsmJumperOnSSRExeCastleBattleTaihouDefendDoorDamage();
 
 bool isWriteAsmJumperOnSSRExeInitalGameSettings = false;
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
@@ -93,6 +95,9 @@ bool isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuDefendDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleAttackHeisuuSum = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleDefendHeisuuSum = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleButaiDefendDoorDamage = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendDoorDamage = false;
+
 
 
 void hookFunctionsDirect() {
@@ -331,4 +336,15 @@ void hookFunctionsDirect() {
 		isWriteAsmJumperOnSSRExeCastleBattleDefendHeisuuSum = true;
 		WriteAsmJumperOnSSRExeCastleBattleDefendHeisuuSum();
 	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleButaiDefendDoorDamage) {
+		isWriteAsmJumperOnSSRExeCastleBattleButaiDefendDoorDamage = true;
+		WriteAsmJumperOnSSRExeCastleBattleButaiDefendDoorDamage();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendDoorDamage) {
+		isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendDoorDamage = true;
+		WriteAsmJumperOnSSRExeCastleBattleTaihouDefendDoorDamage();
+	}
+
 }
