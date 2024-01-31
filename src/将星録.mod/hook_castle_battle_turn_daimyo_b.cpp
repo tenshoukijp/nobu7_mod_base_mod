@@ -158,15 +158,15 @@ static int iCastleBattleDaimyoPointer = -1; // ‘å–¼î•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^
 static int iCastleBattle‘•º” = -1; // ‚»‚¿‚ç‚Ì‘å–¼‘¤‚Ì‘•º”
 static int iCastleBattleECX = -1;
 void OnSSRExeCastleBattleTurnDaimyoBExecute() {
-	OutputDebugStream("CastleBattleTurnDaimyoB\n");
-	OutputDebugStream("ššššiCastleBattleEDI:%xš\n", iCastleBattleDaimyoPointer);
-	OutputDebugStream("šššš‘•º”:%xš\n", iCastleBattle‘•º”);
-	OutputDebugStream("ššššiCastleBattleECX:%xš\n", iCastleBattleECX);
 
 	int iDaimyoID = getDaimyoIDFromDaimyoPtr((int*)iCastleBattleDaimyoPointer);
 	if (isValidDaimyoID(iDaimyoID)) {
 		int iBushouID = getBushouIDFromDaimyoID(iDaimyoID);
 		if (isValidBushouID(iBushouID)) {
+			OutputDebugStream("CastleBattleTurnDaimyoB\n");
+			OutputDebugStream("ššššiCastleBattleEDI:%xš\n", iCastleBattleDaimyoPointer);
+			OutputDebugStream("šššš‘•º”:%xš\n", iCastleBattle‘•º”);
+			OutputDebugStream("ššššiCastleBattleECX:%xš\n", iCastleBattleECX);
 			OutputDebugStream("‘å–¼•«:%s", nb7•«î•ñ[iBushouID].©–¼);
 		}
 	}

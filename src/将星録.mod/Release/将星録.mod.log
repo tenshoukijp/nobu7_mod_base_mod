@@ -2,6 +2,8 @@
   bushou_albedo.cpp
   bushou_retsuden.cpp
   bushou_retsuden_albedo.cpp
+  castle_battle_attack_heisuu_sum.cpp
+  castle_battle_defend_heisuu_sum_comment.cpp
   data_bushou_message.cpp
   data_bushou_struct.cpp
   data_castle_struct.cpp

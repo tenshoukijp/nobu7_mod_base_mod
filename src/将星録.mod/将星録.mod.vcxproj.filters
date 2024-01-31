@@ -626,6 +626,12 @@
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_attack_damage.cpp">
       <Filter>ゲームデータ - 籠城戦 - 部隊衝突</Filter>
     </ClCompile>
+    <ClCompile Include="castle_battle_attack_heisuu_sum.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
+    <ClCompile Include="castle_battle_defend_heisuu_sum_comment.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
