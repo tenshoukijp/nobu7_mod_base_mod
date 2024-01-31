@@ -137,7 +137,7 @@
     <ClCompile Include="bushou_retsuden.cpp" />
     <ClCompile Include="bushou_retsuden_albedo.cpp" />
     <ClCompile Include="castle_battle_attack_heisuu_sum.cpp" />
-    <ClCompile Include="castle_battle_defend_heisuu_sum_comment.cpp" />
+    <ClCompile Include="castle_battle_defend_heisuu_sum.cpp" />
     <ClCompile Include="data_bushou_message.cpp" />
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />

@@ -68,7 +68,7 @@
 #include "game_screen.h"
 #include "message_albedo.h"
 
-// 46ƒoƒCƒg
+// 50ƒoƒCƒg
 struct âÄéíUŒ‚‘¤•”‘àî•ñ {
 	int •”‘à”Ô†; // 1`25
 	int unknown1;
@@ -97,8 +97,11 @@ static int ECXOfCastleBattleAttackHeisuuSum = -1; // •”‘àî•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^B•”‘à
 static int ESIOfCastleBattleAttackHeisuuSum = -1; // ‰½”Ô–Ú‚Ì•”‘à‚È‚Ì‚©B0-25
 void OnSSRExeCastleBattleAttackHeisuuSumExecute() {
 
+	int index = ESIOfCastleBattleAttackHeisuuSum;
 
-	if (listUŒ‚‘¤•”‘àî•ñ.size() == 0) {
+	// index‚ª0‚Ì‚ÍA•”‘àî•ñ‚ğ‘S•”‰Šú‰»‚·‚é
+	if (index == 0) {
+		listUŒ‚‘¤•”‘àî•ñ.clear();
 		for (int i = 0; i < 0x19; i++) { // 0x19=25
 			âÄéíUŒ‚‘¤•”‘àî•ñ info;
 			ZeroMemory(&info, sizeof(info));
@@ -106,17 +109,17 @@ void OnSSRExeCastleBattleAttackHeisuuSumExecute() {
 		}
 	}
 
-	int index = ESIOfCastleBattleAttackHeisuuSum;
-
 	if (index < (int)listUŒ‚‘¤•”‘àî•ñ.size()) {
 		âÄéíUŒ‚‘¤•”‘àî•ñ* p•”‘àî•ñ = (âÄéíUŒ‚‘¤•”‘àî•ñ*)ECXOfCastleBattleAttackHeisuuSum;
 		int differ = memcmp(&listUŒ‚‘¤•”‘àî•ñ[index], p•”‘àî•ñ, sizeof(âÄéíUŒ‚‘¤•”‘àî•ñ));
 		if (differ) {
 			listUŒ‚‘¤•”‘àî•ñ[index] = *p•”‘àî•ñ; // •”‘àî•ñ‚ğ‚P‚ÂƒRƒs[B
-			OutputDebugStream("•”‘à”Ô† %d\n", listUŒ‚‘¤•”‘àî•ñ[index].•”‘à”Ô†);
-			OutputDebugStream("•”‘à•º” %d\n", listUŒ‚‘¤•”‘àî•ñ[index].•º”);
 			int iBushouID = getBushouIDFromBushouPtr((int*)listUŒ‚‘¤•”‘àî•ñ[index].pwŠö•«);
-			OutputDebugStream("wŠöŠ¯" + getBushou©–¼FromBushouID(iBushouID) + "\n");
+			if (isValidBushouID(iBushouID) && listUŒ‚‘¤•”‘àî•ñ[index].•º” > 0 && listUŒ‚‘¤•”‘àî•ñ[index].•”‘à”Ô† > 0) {
+				OutputDebugStream("wŠöŠ¯" + getBushou©–¼FromBushouID(iBushouID) + "\n");
+				OutputDebugStream("•”‘à”Ô† %d\n", listUŒ‚‘¤•”‘àî•ñ[index].•”‘à”Ô†);
+				OutputDebugStream("•”‘à•º” %d\n", listUŒ‚‘¤•”‘àî•ñ[index].•º”);
+			}
 		}
 	}
 
