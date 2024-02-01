@@ -133,6 +133,7 @@
     <ClInclude Include="mng_家宝列挙.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="hook_castle_battle_taihou_defend_kyoten_damage.cpp" />
     <ClCompile Include="bgm_noloop_issue_patch.cpp" />
     <ClCompile Include="bushou_albedo.cpp" />
     <ClCompile Include="bushou_retsuden.cpp" />
@@ -143,11 +144,11 @@
     <ClCompile Include="data_bushou_struct.cpp" />
     <ClCompile Include="data_castle_struct.cpp" />
     <ClCompile Include="data_daimyo_struct.cpp" />
-    <ClCompile Include="hook_castle_battle_butai_attack_door_damage.cpp" />
+    <ClCompile Include="hook_castle_battle_butai_defend_door_damage.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_attack_damage.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_defend_damange.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_attack_bushou.cpp" />
-    <ClCompile Include="hook_castle_battle_taihou_attack_door_damage.cpp" />
+    <ClCompile Include="hook_castle_battle_taihou_defend_door_damage.cpp" />
     <ClCompile Include="hook_castle_battle_zantetsuken_message.cpp" />
     <ClCompile Include="hook_daimyo_strategy_turn.cpp" />
     <ClCompile Include="data_kahou_retsuden_struct.cpp">

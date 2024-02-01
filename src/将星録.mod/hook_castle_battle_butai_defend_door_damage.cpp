@@ -39,7 +39,7 @@ static int ESPOfCastleBattleButaiDefendDoorDamage = 0;
 static int ECXOfCastleBattleButaiDefendDoorDamage = 0;
 static int EAXOfCastleBattleButaiDefendDoorDamage = 0;
 void OnSSRExeCastleBattleButaiDefendDoorDamageExecute() {
-	int* pRemainDoorPtr = (int*)((BYTE*)(ECXOfCastleBattleButaiDefendDoorDamage)+0xA); // ここに攻撃した武将ポインタが入っている
+	int* pRemainDoorPtr = (int*)((BYTE*)(ECXOfCastleBattleButaiDefendDoorDamage)+0xA); // ここにドアの防御値へのポインタが入っている
 	int* pp攻撃武将ポインタ = (int*)ESPOfCastleBattleButaiDefendDoorDamage;
 	籠城戦攻撃側部隊情報* p攻撃側部隊情報 = (籠城戦攻撃側部隊情報*)(*pp攻撃武将ポインタ);
 	int iBushouID = getBushouIDFromBushouPtr((int*)p攻撃側部隊情報->p指揮武将);
@@ -48,6 +48,7 @@ void OnSSRExeCastleBattleButaiDefendDoorDamageExecute() {
 		OutputDebugStream("攻撃者" + getBushou姓名FromBushouID(iBushouID) + "\n");
 
 		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
+			OutputDebugStream("アルベドによるドアの残り耐久度の上書き\n");
 			*pRemainDoorPtr = 0;                            // ここで残り防御を0にする
 			EAXOfCastleBattleButaiDefendDoorDamage = 0; // EAXにも残り防御を入れておく。これが画面で表示する用
 		}

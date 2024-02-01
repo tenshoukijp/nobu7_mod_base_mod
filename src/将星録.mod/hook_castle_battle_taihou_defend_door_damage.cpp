@@ -6,10 +6,6 @@
 00415D69   68 A80D5200      PUSH Nobunaga.00520DA8                   ; ASCII "–hŒä“x : %d ---> %d"
 00415D6E   68 D8A55D00      PUSH Nobunaga.005DA5D8                   ; ASCII "242"
 
-00540A22  06 00 00 00 07 00 00 00 01 00 00 00 B0 01 00 00  .........°..
-00540A32  94 01 00 00 FF FF FF FF FF FF FF FF FF FF FF FF  E..ÿÿÿÿÿÿÿÿÿÿÿÿ
-00540A42  FF FF FF FF FF FF FF FF FF FF FF FF 8C 94 56 00  ÿÿÿÿÿÿÿÿÿÿÿÿŒ”V.
-
 */
 
 
@@ -39,7 +35,7 @@ using namespace std;
 static int ECXOfCastleBattleTaihouDefendDoorDamage = 0;
 static int EAXOfCastleBattleTaihouDefendDoorDamage = 0;
 void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
-	int* pRemainDoorPtr = (int*)((BYTE*)(ECXOfCastleBattleTaihouDefendDoorDamage)+0xA); // ‚±‚±‚ÉUŒ‚‚µ‚½•«ƒ|ƒCƒ“ƒ^‚ª“ü‚Á‚Ä‚¢‚é
+	int* pRemainDoorPtr = (int*)((BYTE*)(ECXOfCastleBattleTaihouDefendDoorDamage)+0xA); // ‚±‚±‚ÉƒhƒA‚Ì–hŒä’l‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ª“ü‚Á‚Ä‚¢‚é
 
 	int nBushouAddress = (int)(ƒƒbƒZ[ƒW•«î•ñ.på‘Ì•«);
 	int iBushouID = getBushouIDFromBushouPtr((int *)nBushouAddress);
@@ -49,6 +45,7 @@ void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 
 
 		if (getBushou©–¼FromBushouID(iBushouID) == getArubedoSeiMei()) {
+			OutputDebugStream("ƒAƒ‹ƒxƒh‚É‚æ‚éƒhƒA‚Ìc‚è‘Ï‹v“x‚Ìã‘‚«\n");
 			*pRemainDoorPtr = 0;                            // ‚±‚±‚Åc‚è–hŒä‚ğ0‚É‚·‚é
 			EAXOfCastleBattleTaihouDefendDoorDamage = 0; // EAX‚É‚àc‚è–hŒä‚ğ“ü‚ê‚Ä‚¨‚­B‚±‚ê‚ª‰æ–Ê‚Å•\¦‚·‚é—p
 		}

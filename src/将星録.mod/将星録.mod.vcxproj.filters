@@ -157,6 +157,9 @@
     <Filter Include="ゲームデータ - 籠城戦 - 門">
       <UniqueIdentifier>{d3359762-cd0a-4144-95c0-ba0cff5491b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 籠城戦 - 防御拠点">
+      <UniqueIdentifier>{8a572eb0-a99a-4d44-8af8-f5fd31e7e8ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -638,11 +641,14 @@
     <ClCompile Include="castle_battle_defend_heisuu_sum.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
-    <ClCompile Include="hook_castle_battle_butai_attack_door_damage.cpp">
+    <ClCompile Include="hook_castle_battle_butai_defend_door_damage.cpp">
       <Filter>ゲームデータ - 籠城戦 - 門</Filter>
     </ClCompile>
-    <ClCompile Include="hook_castle_battle_taihou_attack_door_damage.cpp">
+    <ClCompile Include="hook_castle_battle_taihou_defend_door_damage.cpp">
       <Filter>ゲームデータ - 籠城戦 - 門</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_taihou_defend_kyoten_damage.cpp">
+      <Filter>ゲームデータ - 籠城戦 - 防御拠点</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
