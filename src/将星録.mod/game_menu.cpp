@@ -118,10 +118,9 @@ BOOL onSystemMenuPushed(int iMenuID) {
 	return FALSE;
 }
 
-
 // メニューアイテムの追加
 // menuname メニューアイテムの文字列。"---"だとセパレータとなる。
-void addMenuItem(HMENU hTargetMenu, string menuname, int positionID, int menuID) {
+void insertMenuItem(HMENU hTargetMenu, string menuname, int positionID, int menuID) {
 
 	MENUITEMINFO info;
 
@@ -148,9 +147,17 @@ void addMenuItem(HMENU hTargetMenu, string menuname, int positionID, int menuID)
 	InsertMenuItem(hTargetMenu, positionID, FALSE, &info);
 }
 
+// メニューアイテムの追加
+// menuname メニューアイテムの文字列。"---"だとセパレータとなる。
+void appendMenuItem(HMENU hTargetMenu, string menuname, int positionID, int menuID) {
+	insertMenuItem(hTargetMenu, menuname, positionID + 1, menuID);
+}
+
+
+
 // メニューアイテムの追加。リドロー付き(メニューアイテムは追加しただけでは見た目が変化しないのだ)
-void addMenuItemAndRedraw(HMENU hTargetMenu, string menuname, int positionID, int menuID) {
-	addMenuItem(hTargetMenu, menuname, positionID, menuID);
+void insertMenuItemAndRedraw(HMENU hTargetMenu, string menuname, int positionID, int menuID) {
+	insertMenuItem(hTargetMenu, menuname, positionID, menuID);
 	DrawMenuBar(hNB7Wnd);
 }
 

@@ -26,7 +26,8 @@ MENUITEM "城エディタ(&C)",  314
 
 extern HMENU hNB7MenuCheckChange;
 
-void addMenuItem(HMENU hTargetMenu, std::string menuname, int positionID, int menuID);
+void insertMenuItem(HMENU hTargetMenu, std::string menuname, int positionID, int menuID);
+void appendMenuItem(HMENU hTargetMenu, std::string menuname, int positionID, int menuID);
 
 BOOL onMenuPushed(int iMenuID);
 

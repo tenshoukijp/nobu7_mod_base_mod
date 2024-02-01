@@ -24,7 +24,7 @@ void onCreateWindow(HWND hWnd) {
 	// changePopupString(GetMenu(hNB7Wnd), 0, "ファイル(&F)");
 
 	// メニューを追加した
-	addMenuItem(GetSystemMenu(hNB7Wnd, FALSE), "メモ帳起動(&M)", RESOURCE_MENU_ID_EXIT, ADDITIONAL_MENU_ID_NOTEPAD);
+	insertMenuItem(GetSystemMenu(hNB7Wnd, FALSE), "メモ帳起動(&M)", RESOURCE_MENU_ID_EXIT, ADDITIONAL_MENU_ID_NOTEPAD);
 
 	OutputDebugStream("メニューを追加した\n");
 
