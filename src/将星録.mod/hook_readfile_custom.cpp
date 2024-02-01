@@ -6,6 +6,7 @@
 #include <windows.h>
 #include "output_debug_stream.h"
 #include "file_attribute.h"
+#include "game_screen.h"
 
 // 顔の画像は幅が64, 高さが80。マジックナンバーになってしまうが、今後変更になったりは永久にしないため、そのまま埋め込む。(そっちの方が定数名使うよりわかりやすい)
 
@@ -31,12 +32,33 @@ BOOL Hook_ReadFileCustom_BushouKao(
     LPDWORD lpNumberOfBytesRead, // 実際に読み込んだバイト数
     LPOVERLAPPED lpOverlapped // オーバーラップ構造体のポインタ
 ) {
+    if (nTargetKaoID < 0) {
+        return FALSE;
+    }
 
     char filenameBuf[512] = "";
-    sprintf_s(filenameBuf, "OVERRIDE\\KAODATA\\%04d.bmp", nTargetKaoID);
-    OutputDebugStream("★★★はあるか？%s\n" ,filenameBuf);
-    std::string filename = filenameBuf;
-    if (!isFileExists(filename)) {
+    std::string filename = "";
+    int status = getゲーム画面ステータス();
+
+    // 戦闘中なら 0000_B.bmp のようなファイルが存在すればそちらを優先で使うことを試みる
+    if (status == 将星録::列挙::ゲーム画面ステータス::野戦画面 || status == 将星録::列挙::ゲーム画面ステータス::籠城戦画面) {
+        sprintf_s(filenameBuf, "OVERRIDE\\KAODATA\\%04d_B.bmp", nTargetKaoID);
+        OutputDebugStream("★★★はあるか？%s\n", filenameBuf);
+        if (isFileExists(filenameBuf)) {
+            filename = filenameBuf;
+        }
+    }
+
+    // 0000_Bファイルが存在しないか、もしくは戦闘中以外は、0000.bmp のようなファイルを使うことを試みる
+    if (filename == "") {
+        sprintf_s(filenameBuf, "OVERRIDE\\KAODATA\\%04d.bmp", nTargetKaoID);
+        OutputDebugStream("★★★はあるか？%s\n", filenameBuf);
+        if (isFileExists(filenameBuf)) {
+            filename = filenameBuf;
+        }
+    }
+
+    if (filename == "" || !isFileExists(filename)) {
         return FALSE;
     }
 
@@ -96,6 +118,9 @@ BOOL Hook_ReadFileCustom_KahouPic(
     LPDWORD lpNumberOfBytesRead, // 実際に読み込んだバイト数
     LPOVERLAPPED lpOverlapped // オーバーラップ構造体のポインタ
 ) {
+    if (nTargetKahouGazouID < 0) {
+        return FALSE;
+    }
 
     char filenameBuf[512] = "";
     sprintf_s(filenameBuf, "OVERRIDE\\ITEMDATA\\%03d.bmp", nTargetKahouGazouID);
