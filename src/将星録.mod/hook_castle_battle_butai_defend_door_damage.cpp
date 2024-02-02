@@ -49,7 +49,7 @@ void OnSSRExeCastleBattleButaiDefendDoorDamageExecute() {
 
 		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
 			OutputDebugStream("アルベドによるドアの残り耐久度の上書き\n");
-			*pRemainDoorPtr = 0;                            // ここで残り防御を0にする
+			*pRemainDoorPtr = 0;                            // ここで残り防御を0へと近づける
 			EAXOfCastleBattleButaiDefendDoorDamage = 0; // EAXにも残り防御を入れておく。これが画面で表示する用
 		}
 

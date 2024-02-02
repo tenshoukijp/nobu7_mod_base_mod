@@ -42,7 +42,7 @@ void OnSSRExeCastleBattleButaisyoutotsuDefendDamageExecute() {
 	if (isValidBushouID(iBushouID)) {
 		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
 			OutputDebugStream("★★★アルベド攻撃なので残り兵数が0\n");
-			*pRemainHeisuPtr = 0;                            // ここで残り兵数を0にする
+			*pRemainHeisuPtr = 0;                            // ここで残り兵数を0へと近づける
 			EAXOfCastleBattleButaisyoutotsuDefendDamage = 0; // EAXにも残り兵数を入れておく。これが画面で表示する用
 		}
 	}

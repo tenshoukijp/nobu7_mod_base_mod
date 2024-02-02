@@ -101,9 +101,11 @@ void OnSSRExeCastleBattleAttackHeisuuSumExecute() {
 			listUŒ‚‘¤•”‘àî•ñ[index] = *p•”‘àî•ñ; // •”‘àî•ñ‚ğ‚P‚ÂƒRƒs[B
 			int iBushouID = getBushouIDFromBushouPtr((int*)listUŒ‚‘¤•”‘àî•ñ[index].pwŠö•«);
 			if (isValidBushouID(iBushouID) && listUŒ‚‘¤•”‘àî•ñ[index].•º” > 0 && listUŒ‚‘¤•”‘àî•ñ[index].•”‘à”Ô† > 0) {
+				/*
 				OutputDebugStream("wŠöŠ¯" + getBushou©–¼FromBushouID(iBushouID) + "\n");
 				OutputDebugStream("•”‘à”Ô† %d\n", listUŒ‚‘¤•”‘àî•ñ[index].•”‘à”Ô†);
 				OutputDebugStream("•”‘à•º” %d\n", listUŒ‚‘¤•”‘àî•ñ[index].•º”);
+				*/
 			}
 		}
 	}

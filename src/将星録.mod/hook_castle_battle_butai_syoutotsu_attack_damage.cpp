@@ -46,8 +46,9 @@ void OnSSRExeCastleBattleButaisyoutotsuAttackDamageExecute() {
 		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
 			OutputDebugStream("★★★アルベド攻撃なので部隊数維持\n");
 			int reimainMax = get軍勢ユニット部隊最大兵数FromBushouID(iBushouID);
-			*pRemainHeisuPtr = reimainMax;                            // ここで残り兵数を0にする
-			EAXOfCastleBattleButaisyoutotsuAttackDamage = reimainMax; // EAXにも残り兵数を入れておく。これが画面で表示する用
+			int value = (reimainMax + *pRemainHeisuPtr) / 2;
+			*pRemainHeisuPtr = value;                            // ここで残り兵数を最大に近づける
+			EAXOfCastleBattleButaisyoutotsuAttackDamage = value; // EAXにも残り兵数を入れておく。これが画面で表示する用
 		}
 	}
 }

@@ -31,14 +31,24 @@ using namespace std;
 
 #pragma unmanaged
 
-
+extern int iCastleBattleTaihouAttackBushou;
 static int ECXOfCastleBattleTaihouDefendKyotenDamage = 0;
 static int EAXOfCastleBattleTaihouDefendKyotenDamage = 0;
 void OnSSRExeCastleBattleTaihouDefendKyotenDamageExecute() {
 	int* pRemainKyotenPtr = (int*)((BYTE*)(ECXOfCastleBattleTaihouDefendKyotenDamage)+0x8); // ここに拠点への防御値へのポインタが入っている
 
 	int nBushouAddress = (int)(メッセージ武将情報.p主体武将);
-	int iBushouID = getBushouIDFromBushouPtr((int*)nBushouAddress);
+	int iDefendBushouID = getBushouIDFromBushouPtr((int*)nBushouAddress);
+	// これが等しいということは、防御側の武将はセリフと吐いていないということなので、防御側は指揮官が居ない
+	if (iCastleBattleTaihouAttackBushou == iDefendBushouID) {
+
+	}
+	else {
+		// 異なるということは、防御側の武将がセリフと吐いたということなので、防御側は指揮官が居る
+	}
+
+	OutputDebugStream("★★★大砲の攻撃側の武将" + getBushou姓名FromBushouID(iCastleBattleTaihouAttackBushou) + "\n");
+	int iBushouID = iCastleBattleTaihouAttackBushou;
 	if (isValidBushouID(iBushouID)) {
 		OutputDebugStream("拠点の残り耐久度%d\n", *pRemainKyotenPtr);
 		OutputDebugStream("攻撃者" + getBushou姓名FromBushouID(iBushouID) + "\n");
