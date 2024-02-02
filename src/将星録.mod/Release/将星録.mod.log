@@ -1,6 +1,4 @@
-﻿  hook_castle_battle_taihou_defend_kyoten_damage.cpp
-  hook_functions_direct.cpp
-  hook_castle_battle_taihou_defend_honmaru_damage.cpp
+﻿  hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp
      ライブラリ C:\Users\master\source\repos\将星録Mod\Release\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\将星録Mod\Release\将星録.mod.exp を作成中
 LINK : warning LNK4232: 名前 将星録.mod に ASCII 文字以外の文字が含まれています。932 以外の ANSI コードページを使用すると、DLL をシステムに読み込めない可能性があります
 将星録.mod.exp : warning LNK4070: .EXP 内の /OUT:将星録.mod ディレクティブの指定が出力ファイル名 'C:\Users\master\source\repos\将星録Mod\Release\将星録.mod.dll' と異なっています。ディレクティブは無視されます。
