@@ -160,6 +160,9 @@
     <Filter Include="ゲームデータ - 籠城戦 - 防御拠点">
       <UniqueIdentifier>{8a572eb0-a99a-4d44-8af8-f5fd31e7e8ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 籠城戦 - 本丸">
+      <UniqueIdentifier>{b1176c33-89fa-4e49-bc6e-de421a7dde6e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -652,6 +655,9 @@
     </ClCompile>
     <ClCompile Include="hook_castle_battle_taihou_attack_kyoten_bushou.cpp">
       <Filter>ゲームデータ - 籠城戦 - 防御拠点</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_damage.cpp">
+      <Filter>ゲームデータ - 籠城戦 - 本丸</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

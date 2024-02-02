@@ -1,7 +1,7 @@
 /*
 004131E9   8BCE             MOV ECX,ESI
 004131EB   E8 A0F8FEFF      CALL Nobunaga.00402A90
-004131F0   50               PUSH EAX                                 この時のEAXが攻撃側の減少後の防御値。ECX+0xAのアドレスに EAXの値と同じ値を入れること。
+004131F0   50               PUSH EAX                                 この時のEAXが攻撃側の減少後の防御値。ECX+0x8のアドレスに EAXの値と同じ値を入れること。
 004131F1   57               PUSH EDI
 004131F2   68 B40C5200      PUSH Nobunaga.00520CB4                   ; ASCII "防御拠点 : %d ---> %d"
 

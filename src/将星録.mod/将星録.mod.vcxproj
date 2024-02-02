@@ -253,6 +253,7 @@
     <ClCompile Include="output_debug_stream.cpp" />
     <ClCompile Include="game_process.cpp" />
     <ClCompile Include="game_window.cpp" />
+    <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_damage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
