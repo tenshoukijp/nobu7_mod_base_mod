@@ -1,3 +1,4 @@
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_defend_honmaru_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_defend_honmaru_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syototsu_kyoten_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_syototsu_kyoten_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_syoutotsu_kyoten_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_attack_kyoten_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_taihou_attack_kyoten_bushou.obj
@@ -18,6 +19,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syoutotsu_attack_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_syoutotsu_attack_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_door_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_taihou_defend_door_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_zantetsuken_message.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_zantetsuken_message.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_defend_honmaru_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_defend_honmaru_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_daimyo_strategy_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_daimyo_strategy_turn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_kahou_retsuden_struct.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_kahou_retsuden_struct.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_kahou_struct.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\data_kahou_struct.obj

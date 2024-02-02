@@ -55,6 +55,7 @@ void OnSSRExeCastleBattleButaiSyototsuKyotenBushouExecute() {
 	int nBushouInfoPtr = *((int *)(nBushouAddress));
 	int iBushouID = getBushouIDFromBushouPtr((int *)nBushouInfoPtr);
 	if (isValidBushouID(iBushouID)) {
+		OutputDebugStream("iCastleBattleButaiKyotenAttackBushou ‚Ì‘ã“ü\n");
 		iCastleBattleButaiKyotenAttackBushou = iBushouID;
 		OutputDebugStream("‹’“_‚Ö‚Ì’ÊíUŒ‚‚Ì•«" + getBushou©–¼FromBushouID(iBushouID) + "\n");
 	}

@@ -77,6 +77,7 @@ using namespace std;
 int iCastleBattleButaishoutotsuAttackBushouID = -1;
 static int EspOfCastleBattleButaisyoutotsuAttackBushou = 0;
 void OnSSRExeCastleBattleButaisyoutotsuAttackBushouExecute() {
+	iCastleBattleButaishoutotsuAttackBushouID = -1;
 	OutputDebugStream("★★★籠城戦・部隊衝突・攻撃武将★★★\n");
 	BYTE* pBushouPtr = (BYTE*)(EspOfCastleBattleButaisyoutotsuAttackBushou)+0x10; // ここに攻撃した武将ポインタが入っている
 	int AttackBushouPtrOfCastleBattleButaishoutotsu = *((int*)(pBushouPtr));
@@ -85,6 +86,7 @@ void OnSSRExeCastleBattleButaisyoutotsuAttackBushouExecute() {
 
 	int iBushouID = getBushouIDFromBushouPtr((int*)AttackBushouPtrOfCastleBattleButaishoutotsu);
 	OutputDebugStream("攻撃武将ID%d", iBushouID);
+	OutputDebugStream("iCastleBattleButaishoutotsuAttackBushouID への代入\n");
 	iCastleBattleButaishoutotsuAttackBushouID = iBushouID;
 	if (isValidBushouID(iBushouID)) {
 		OutputDebugStream("武将%d\n", iBushouID);

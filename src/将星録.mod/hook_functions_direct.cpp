@@ -52,6 +52,8 @@ extern void WriteAsmJumperOnSSRExeCastleBattleTaihouDefendKyotenBushou();
 extern void WriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleButaiSyototsuKyotenDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleButaiSyototsuKyotenBushou();
+extern void WriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruDamage();
+extern void WriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou();
 
 
 
@@ -109,6 +111,8 @@ bool isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendKyotenBushou = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleButaiSyototsuKyotenDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleButaiSyototsuKyotenBushou = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruDamage = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou = false;
 
 
 void hookFunctionsDirect() {
@@ -382,4 +386,16 @@ void hookFunctionsDirect() {
 		isWriteAsmJumperOnSSRExeCastleBattleButaiSyototsuKyotenBushou = true;
 		WriteAsmJumperOnSSRExeCastleBattleButaiSyototsuKyotenBushou();
 	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruDamage) {
+		isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruDamage = true;
+		WriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruDamage();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou) {
+		isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou = true;
+		WriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou();
+	}
+
+
 }

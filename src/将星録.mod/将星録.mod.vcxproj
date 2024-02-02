@@ -133,6 +133,7 @@
     <ClInclude Include="mng_家宝列挙.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="hook_castle_battle_butai_defend_honmaru_damage.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syototsu_kyoten_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_attack_kyoten_bushou.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_attack_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_defend_door_damage.cpp" />
     <ClCompile Include="hook_castle_battle_zantetsuken_message.cpp" />
+    <ClCompile Include="hook_castle_battle_butai_defend_honmaru_bushou.cpp" />
     <ClCompile Include="hook_daimyo_strategy_turn.cpp" />
     <ClCompile Include="data_kahou_retsuden_struct.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
