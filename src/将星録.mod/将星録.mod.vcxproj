@@ -137,6 +137,8 @@
     <ClCompile Include="hook_castle_battle_butai_syototsu_kyoten_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_attack_kyoten_bushou.cpp" />
+    <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_bushou.cpp" />
+    <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_syubi_busyou.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_defend_kyoten_damage.cpp" />
     <ClCompile Include="bgm_noloop_issue_patch.cpp" />
     <ClCompile Include="bushou_albedo.cpp" />

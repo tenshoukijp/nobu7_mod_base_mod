@@ -32,7 +32,7 @@ using namespace std;
 
 #pragma unmanaged
 
-extern int iCastleBattleTaihouAttackBushou;
+extern int iCastleBattleTaihouHonmaruAttackBushou;
 static int ECXOfCastleBattleTaihouDefendHonmaruDamage = 0;
 static int EAXOfCastleBattleTaihouDefendHonmaruDamage = 0;
 void OnSSRExeCastleBattleTaihouDefendHonmaruDamageExecute() {
@@ -41,15 +41,15 @@ void OnSSRExeCastleBattleTaihouDefendHonmaruDamageExecute() {
 	int nBushouAddress = (int)(メッセージ武将情報.p主体武将);
 	int iDefendBushouID = getBushouIDFromBushouPtr((int*)nBushouAddress);
 	// これが等しいということは、防御側の武将はセリフと吐いていないということなので、防御側は指揮官が居ない
-	if (iCastleBattleTaihouAttackBushou == iDefendBushouID) {
+	if (iCastleBattleTaihouHonmaruAttackBushou == iDefendBushouID) {
 
 	}
 	else {
 		// 異なるということは、防御側の武将がセリフと吐いたということなので、防御側は指揮官が居る
 	}
 
-	OutputDebugStream("★★★大砲の攻撃側の武将" + getBushou姓名FromBushouID(iCastleBattleTaihouAttackBushou) + "\n");
-	int iBushouID = iCastleBattleTaihouAttackBushou;
+	OutputDebugStream("★★★大砲の攻撃側の武将" + getBushou姓名FromBushouID(iCastleBattleTaihouHonmaruAttackBushou) + "\n");
+	int iBushouID = iCastleBattleTaihouHonmaruAttackBushou;
 	if (isValidBushouID(iBushouID)) {
 		OutputDebugStream("拠点の残り耐久度%d\n", *pRemainHonmaruPtr);
 		OutputDebugStream("攻撃者" + getBushou姓名FromBushouID(iBushouID) + "\n");

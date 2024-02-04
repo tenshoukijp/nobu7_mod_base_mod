@@ -671,6 +671,12 @@
     <ClCompile Include="hook_castle_battle_butai_defend_honmaru_bushou.cpp">
       <Filter>ゲームデータ - 籠城戦 - 本丸</Filter>
     </ClCompile>
+    <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_bushou.cpp">
+      <Filter>ゲームデータ - 籠城戦 - 本丸</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_syubi_busyou.cpp">
+      <Filter>ゲームデータ - 籠城戦 - 本丸</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

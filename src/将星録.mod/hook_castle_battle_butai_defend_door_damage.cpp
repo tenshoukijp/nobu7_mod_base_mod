@@ -1,4 +1,9 @@
 /*
+00417662   8BCE             MOV ECX,ESI
+00417664   E8 97BFFEFF      CALL Nobunaga.00403600
+00417669   85C0             TEST EAX,EAX                             // EAXにECX+0xAのアドレスの値が入る。これが減少後の防御値
+*/
+/*
 00417693   85C0             TEST EAX,EAX
 00417695   74 53            JE SHORT Nobunaga.004176EA
 00417697   8BCE             MOV ECX,ESI
@@ -59,21 +64,14 @@ void OnSSRExeCastleBattleButaiDefendDoorDamageExecute() {
 }
 
 /*
-00417693   85C0             TEST EAX,EAX
-00417695   74 53            JE SHORT Nobunaga.004176EA
-00417697   8BCE             MOV ECX,ESI
-00417699   E8 62BFFEFF      CALL Nobunaga.00403600                   // EAXにECX+0xAのアドレスの値が入る。これが減少後の防御値
-0041769E   8B5424 58        MOV EDX,DWORD PTR SS:[ESP+58]
-004176A2   50               PUSH EAX                                 この時のEAXが攻撃側の減少後の防御値。ECX+0xAのアドレスに EAXの値と同じ値を入れること。
-004176A3   52               PUSH EDX
-004176A4   68 A80D5200      PUSH Nobunaga.00520DA8                   ; ASCII "防御度 : %d ---> %d"
-004176A9   68 D8A55D00      PUSH Nobunaga.005DA5D8                   ; ASCII "  0"
-004176AE   E8 C4B00E00      CALL Nobunaga.00502777
+00417662   8BCE             MOV ECX,ESI
+00417664   E8 97BFFEFF      CALL Nobunaga.00403600
+00417669   85C0             TEST EAX,EAX                             // EAXにECX+0xAのアドレスの値が入る。これが減少後の防御値
 */
 
-int pSSRExeJumpFromToOnSSRExeCastleBattleButaiDefendDoorDamage = 0x417699; // 関数はこのアドレスから、OnSSRExeCastleBattleButaiDefendDoorDamageへとジャンプしてくる。
+int pSSRExeJumpFromToOnSSRExeCastleBattleButaiDefendDoorDamage = 0x417664; // 関数はこのアドレスから、OnSSRExeCastleBattleButaiDefendDoorDamageへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleBattleButaiDefendDoorDamage = 0x403600; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleButaiDefendDoorDamage = 0x41769E; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleButaiDefendDoorDamage = 0x417669; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
 
 #pragma warning(disable:4733)
 
