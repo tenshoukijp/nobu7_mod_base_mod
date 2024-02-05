@@ -20,6 +20,16 @@ using namespace std;
 void doGameTest() {
 
 	/*
+	for (int iCastleID = 0; iCastleID < Å‘å”::éî•ñ::”z—ñ”; iCastleID++) {
+		if (nb7éî•ñ[iCastleID].é–¼ == "•l¼"s) {
+			OutputDebugStream("•l¼‚ÌˆÏ”C:%d\n", (int)nb7éî•ñ[iCastleID].ˆÏ”Có‘Ô);
+			OutputDebugStream("•l¼‚ÌˆÏ”CUŒ‚:%d\n", (int)nb7éî•ñ[iCastleID].ˆÏ”CUŒ‚);
+			OutputDebugStream("•l¼‚ÌˆÏ”CH:%d\n", (int)nb7éî•ñ[iCastleID].unused1);
+		}
+	}
+	*/
+
+	/*
 	for (int iBushouID = 0; iBushouID < Å‘å”::•«î•ñ::”z—ñ”; iBushouID++) {
 
 		if (getBushou©–¼FromBushouID(iBushouID) == "D“cM’·") {
