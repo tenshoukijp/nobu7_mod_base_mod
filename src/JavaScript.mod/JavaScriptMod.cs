@@ -7,6 +7,61 @@ using ゲーム.Helpers;
 using ゲーム.Extensions;
 using System.Dynamic;
 using Microsoft.ClearScript.JavaScript;
+using System.IO;
+using System.Reflection;
+
+internal class DllAssemblyResolver
+{
+    public DllAssemblyResolver()
+    {
+        AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+    }
+
+    ~DllAssemblyResolver()
+    {
+        AppDomain.CurrentDomain.AssemblyResolve -= CurrentDomain_AssemblyResolve;
+    }
+
+    // アセンブリdllの読み込みに失敗した時、このメソッドが実行される。
+    // ようするに「dllがみつからなかったので、この場所のこのファイルを探してください」といった形で返すメソッドである。
+    // 「ClearScript等には厳密な署名」がしてあるので、コンパイルした時とバージョンが異なるだけでも失敗する。
+    // そのような時にこの記述があれば、とりあえず「要求されたファイル」をそのまま読み込んでみてくださいよ、
+    // という形で解決が可能となるだろう。
+    private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+    {
+        try
+        {
+            var requestingAssembly = args.RequestingAssembly;
+            var requestedAssembly = new AssemblyName(args.Name);
+            System.Diagnostics.Trace.WriteLine($"CurrentDomain_AssemblyResolve:{args.Name}"); // デバッグモニター表示用
+
+            // このdll自体を置いているフォルダに読み込み対象のアセンブリがあるかもしれない。
+            String self_full_path = Assembly.GetExecutingAssembly().Location;
+            String self_dir = Path.GetDirectoryName(self_full_path);
+
+            // このフルパスを整形することで、違うフォルダ、あるいはサブフォルダに配置してあるdllをアセンブリとして読み込ませることが出来る。
+            var targetfullpath = $@"\{requestedAssembly.Name}.dll";
+
+            if (File.Exists(targetfullpath))
+            {
+                return Assembly.LoadFile(targetfullpath);
+            }
+
+            // そのようなフルパスが指定されている場合(フルパスを指定した書き方)
+            targetfullpath = requestedAssembly.Name;
+            if (File.Exists(targetfullpath))
+            {
+                return Assembly.LoadFile(targetfullpath);
+            }
+
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+        return null;
+    }
+}
 
 public class IJavaScriptMod
 {
@@ -33,6 +88,11 @@ public class IJavaScriptMod
     {
         return ゲーム.StaticLib.onRequest効果音(filepath);
     }
+    public static String onRequestFile(String filepath)
+    {
+        return ゲーム.StaticLib.onRequestファイル(filepath);
+    }
+
     public static String onRequestKaoID(int KaoID)
     {
         return ゲーム.StaticLib.onRequest顔画像(KaoID);
@@ -40,10 +100,6 @@ public class IJavaScriptMod
     public static String onRequestKahouPicID(int PicID)
     {
         return ゲーム.StaticLib.onRequest家宝画像(PicID);
-    }
-    public static String onRequestFile(String filepath)
-    {
-        return ゲーム.StaticLib.onRequestファイル(filepath);
     }
 
 }
@@ -117,6 +173,12 @@ namespace ゲーム
         private static 将星録 rpdobj;
         private static JSConsole console;
 
+        private static DllAssemblyResolver rsvr;
+
+        static StaticLib()
+        {
+            rsvr = new DllAssemblyResolver();
+        }
         private static void OutputDebugStream(string message)
         {
             System.Diagnostics.Trace.WriteLine(message);
@@ -321,6 +383,8 @@ namespace ゲーム
             return "";
         }
 
+
+
         public static String onRequestファイル(string filename)
         {
             try
@@ -346,6 +410,7 @@ namespace ゲーム
             return "";
         }
 
+
         private static bool CreateScope()
         {
             if (engine == null)
@@ -359,7 +424,7 @@ namespace ゲーム
                     engine.AllowReflection = true;
                     engine.DocumentSettings.AccessFlags = DocumentAccessFlags.EnableAllLoading;
 
-                    engine.AddHostObject("clr", new HostTypeCollection("mscorlib", "System", "System.Core"));
+                    // engine.AddHostObject("clr", new HostTypeCollection("mscorlib", "System", "System.Core"));
                     engine.AddHostObject("", HostItemFlags.GlobalMembers, new HostTypeCollection("mscorlib", "System", "System.Core"));
                     engine.AddHostObject("host", new ExtendedHostFunctions());
                     rpdobj = new 将星録();
@@ -502,6 +567,7 @@ namespace ゲーム
             if (engine != null)
             {
                 engine = null;
+                rsvr = null;
             }
         }
     }

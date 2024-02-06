@@ -3,6 +3,7 @@
 #include "game_font.h"
 #include "output_debug_stream.h"
 #include "load_form_mod.h"
+#include "javascript_mod.h"
 
 HWND hNB7Wnd = NULL;
 
@@ -28,6 +29,8 @@ void onCreateWindow(HWND hWnd) {
 
 	OutputDebugStream("メニューを追加した\n");
 
+	callJSModCreateWindow(hWnd);
+
 	OutputDebugStream("将星録の開始\n");
 
 }
@@ -35,8 +38,11 @@ void onCreateWindow(HWND hWnd) {
 BOOL doneDestroyWindow = FALSE;
 void onDestroyWindow() {
 	if (!doneDestroyWindow) {
-		OutputDebugStream("ウィンドウ破棄\r\n");
 		Close_FormMod();
+
+		callJSModDestroyWindow();
+
+		OutputDebugStream("ウィンドウ破棄\r\n");
 	}
 
 	doneDestroyWindow = TRUE;

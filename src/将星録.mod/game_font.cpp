@@ -7,6 +7,7 @@
 #include "game_window.h"
 #include "process.h"
 #include "output_debug_stream.h"
+#include "javascript_mod.h"
 
 using namespace System;
 using namespace Microsoft::Win32;
@@ -45,7 +46,15 @@ void onFontInitialize() {
 char bufferCustomFontName[32] = "«¯ –¾’©";
 char bufferDefaultFontName[32] = "‚l‚r –¾’©";
 const char* getNB7FontName() {
-	if (isFontExist) {
+
+	std::string js_fontname = callJSModRequestFont();
+	if (js_fontname != "") {
+		// ƒtƒHƒ“ƒg–¼‚ğã‘‚«‚·‚é
+		strcpy_s(bufferCustomFontName, js_fontname.c_str());
+		return bufferCustomFontName;
+	}
+
+	else if (isFontExist) {
 		return bufferCustomFontName;
 	}
 	// ‚»‚Ì‚Ü‚Ü•Ô‚·

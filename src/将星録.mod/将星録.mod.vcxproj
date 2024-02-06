@@ -107,6 +107,7 @@
     <ClInclude Include="hook_functions_replace.h" />
     <ClInclude Include="hook_textouta_custom.h" />
     <ClInclude Include="game_menu.h" />
+    <ClInclude Include="javascript_mod.h" />
     <ClInclude Include="load_form_mod.h" />
     <ClInclude Include="message_albedo.h" />
     <ClInclude Include="mng_ゲーム画面.h" />
@@ -221,6 +222,7 @@
     <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp" />
     <ClCompile Include="hook_yasen_weather_change.cpp" />
     <ClCompile Include="hook_yasen_weather_write.cpp" />
+    <ClCompile Include="javascript_mod.cpp" />
     <ClCompile Include="kahou_retsuden_albedo.cpp" />
     <ClCompile Include="kahou_retsuden.cpp" />
     <ClCompile Include="load_form_mod.cpp" />
@@ -267,6 +269,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="JavaScript.mod">
+      <HintPath>..\..\..\..\..\..\usr\steam\steamapps\common\Nobunaga7WPK\JavaScript.mod.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
