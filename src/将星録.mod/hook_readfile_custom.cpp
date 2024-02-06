@@ -27,7 +27,7 @@ bool fileExists(const std::string& filename) {
     return file.good(); // ファイルが存在すればtrueを返す
 }
 
-bool isBattleFaceCondition(int iBushouID) {
+bool isBattleFaceCondition(int iTargetKaoID) {
     int status = getゲーム画面ステータス();
     if (status == 将星録::列挙::ゲーム画面ステータス::野戦画面 ||
         status == 将星録::列挙::ゲーム画面ステータス::籠城戦画面) {
@@ -35,13 +35,16 @@ bool isBattleFaceCondition(int iBushouID) {
     }
 
     for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
-        if (getBushouIDFromUnitID(iUnitID) == iBushouID) {
-            // ユニット種別は軍勢、もしくは、軍船である
+        // ユニット種別は軍勢、もしくは、軍船である
+        int iBushouID = getBushouIDFromUnitID(iUnitID);
+        if (isValidBushouID(iBushouID)) {
             if (nb7ユニット情報[iUnitID].種別 == 列挙::ユニット::種別::軍勢 || nb7ユニット情報[iUnitID].種別 == 列挙::ユニット::種別::軍船) {
-                return true;
+                int iKaoID = nb7武将情報[iBushouID].顔番号;
+                if (iKaoID == iTargetKaoID) {
+					return true;
+				}
             }
-            break;
-		}
+        }
     }
 
     return false;
