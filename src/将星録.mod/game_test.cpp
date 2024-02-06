@@ -16,9 +16,10 @@
 
 using namespace std;
 
+int testFlag = 0;
 
 void doGameTest() {
-
+	testFlag = 1;
 	/*
 	for (int iCastleID = 0; iCastleID < Å‘å”::éî•ñ::”z—ñ”; iCastleID++) {
 		if (nb7éî•ñ[iCastleID].é–¼ == "•l¼"s) {

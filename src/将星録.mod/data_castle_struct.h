@@ -51,7 +51,7 @@ struct NB7城情報型 {
 
 BOOL isValidCastleID(int iCastleID);
 
-int getCastleIDFromCastlePointer(int* iCastlePtr);
+int getCastleIDFromCastlePtr(int* iCastlePtr);
 
 // 城IDからそこの城主の武将IDを取得する。該当者が居なかったら0xFFFF
 // 実際に「城に居る」という意味であり、「その城に所属している」という意味ではない。

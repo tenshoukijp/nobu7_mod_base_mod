@@ -11,6 +11,23 @@ BOOL isValidKahouID(int iKahouID) {
 	return FALSE;
 }
 
+int getKahouIDFromKahouPtr(int* iKahouPtr) {
+	int nKahouAddress = (int)iKahouPtr;
+
+	// 家宝の配列の先頭アドレスから引く
+	int sub = nKahouAddress - (int)(家宝情報アドレス);
+
+	// 家宝情報の構造体のサイズで割れば、何番目の家宝なのかがわかる。
+	int iKahouID = sub / sizeof(NB7家宝情報型);
+	if (isValidKahouID(iKahouID)) {
+		return iKahouID;
+	}
+
+	return 0xFFFF;
+
+}
+
+
 
 // 家宝IDからそれを所有している武将IDを取得する
 int getBushouIDFromKahouID(int iKahouID) {

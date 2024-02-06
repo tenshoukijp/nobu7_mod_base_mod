@@ -181,7 +181,7 @@ void OnSSRExeCastleBattleTurnBgnExecute() {
 	OutputDebugStream("★★★★nCastleBattleTurnBgnArg3:%x★\n", nCastleBattleTurnBgnArg3);
 	OutputDebugStream("★★★★iCastleBattleAfterECX:%x★\n", iCastleBattleAfterECX);
 
-	int iCastleID = getCastleIDFromCastlePointer((int *)iCastleBattleAfterECX);
+	int iCastleID = getCastleIDFromCastlePtr((int *)iCastleBattleAfterECX);
 	if (isValidCastleID(iCastleID)) {
 		OutputDebugStream("★★★★城名:%s★\n", nb7城情報[iCastleID].城名);
 		籠城中のアルベドの敵武将は戦闘値が最低となる(iCastleID);

@@ -1,3 +1,4 @@
+extern void WriteAsmJumperOnSSRExeCheckPicCache();
 extern void WriteAsmJumperOnSSRExeInitalGameSettings();
 extern void WriteAsmJumperOnSSRExeMessageDetail();
 extern void WriteAsmJumperOnSSRExeYasenTurnChange();
@@ -55,9 +56,10 @@ extern void WriteAsmJumperOnSSRExeCastleBattleButaiSyototsuKyotenBushou();
 extern void WriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou();
 extern void WriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruBushou();
+extern void WriteAsmJumperOnSSRExeLastShowKahouID();
 
 
-
+bool isWriteAsmJumperOnSSRExeCheckPicCache = false;
 bool isWriteAsmJumperOnSSRExeInitalGameSettings = false;
 bool isWriteAsmJumperOnSSRExeMessageDetail = false;
 bool isWriteAsmJumperOnSSRExeYasenTurnChange = false;
@@ -115,9 +117,16 @@ bool isWriteAsmJumperOnSSRExeCastleBattleButaiSyototsuKyotenBushou = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruBushou = false;
+bool isWriteAsmJumperOnSSRExeLastShowKahouID = false;
+
 
 
 void hookFunctionsDirect() {
+
+	if (!isWriteAsmJumperOnSSRExeCheckPicCache) {
+		isWriteAsmJumperOnSSRExeCheckPicCache = true;
+		WriteAsmJumperOnSSRExeCheckPicCache();
+	}
 
 	if (!isWriteAsmJumperOnSSRExeInitalGameSettings) {
 		isWriteAsmJumperOnSSRExeInitalGameSettings = true;
@@ -402,5 +411,10 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruBushou) {
 		isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruBushou = true;
 		WriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruBushou();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeLastShowKahouID) {
+		isWriteAsmJumperOnSSRExeLastShowKahouID = true;
+		WriteAsmJumperOnSSRExeLastShowKahouID();
 	}
 }

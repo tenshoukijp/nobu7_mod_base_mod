@@ -133,6 +133,7 @@
     <ClInclude Include="mng_家宝列挙.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="fook_picture_cache.cpp" />
     <ClCompile Include="hook_castle_battle_butai_defend_honmaru_damage.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syototsu_kyoten_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp" />
@@ -185,6 +186,7 @@
     <ClCompile Include="hook_kahou_retsuden_shou_bgn.cpp" />
     <ClCompile Include="hook_kahou_retsuden_show_end.cpp" />
     <ClCompile Include="hook_kahou_retsuden_show_pic.cpp" />
+    <ClCompile Include="hook_kahou_show_kahouid.cpp" />
     <ClCompile Include="hook_load_gaiji.cpp" />
     <ClCompile Include="hook_load_scenariodata.cpp" />
     <ClCompile Include="hook_maingame_start.cpp" />

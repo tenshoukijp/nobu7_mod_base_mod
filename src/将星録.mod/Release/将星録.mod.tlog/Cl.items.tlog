@@ -1,3 +1,4 @@
+C:\Users\master\source\repos\将星録Mod\将星録.mod\fook_picture_cache.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\fook_picture_cache.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_defend_honmaru_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_defend_honmaru_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syototsu_kyoten_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_syototsu_kyoten_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_syoutotsu_kyoten_damage.obj
@@ -46,6 +47,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kaho
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_shou_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_shou_bgn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_end.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_pic.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_pic.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_show_kahouid.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_show_kahouid.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_gaiji.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_load_gaiji.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_scenariodata.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_load_scenariodata.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_maingame_start.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_maingame_start.obj

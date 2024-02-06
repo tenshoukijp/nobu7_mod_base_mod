@@ -26,7 +26,7 @@ std::string get城称(int iCastleID) {
 	return "";
 }
 
-int getCastleIDFromCastlePointer(int* iCastlePtr) {
+int getCastleIDFromCastlePtr(int* iCastlePtr) {
 	// 所有武将のアドレスを直接さしている
 	int iCastleAddress = (int)(iCastlePtr);
 	int sub = iCastleAddress - (int)(城情報アドレス);

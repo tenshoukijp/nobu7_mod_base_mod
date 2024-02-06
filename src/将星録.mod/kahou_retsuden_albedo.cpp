@@ -16,10 +16,10 @@ void initAlbedoKahou() {
 		// アルベドが居る
 		if (nb7武将情報[iBushouID].姓名 == getArubedoSeiMei()) {
 			// 千鳥は独自画像ではなく茶釜にしておく
-			nb7家宝情報[列挙::家宝::配列::青磁千鳥].画像 = 列挙::家宝::画像::茶釜;
+			// nb7家宝情報[列挙::家宝::配列::青磁千鳥].画像 = 列挙::家宝::画像::茶釜;
 
 			// バルディッシュは千鳥画像にしておく
-			nb7家宝情報[列挙::家宝::配列::鬼丸].画像 = 列挙::家宝::画像::千鳥;
+			// nb7家宝情報[列挙::家宝::配列::鬼丸].画像 = 列挙::家宝::画像::千鳥;
 			break;
 		}
 	}
@@ -30,7 +30,6 @@ std::pair<string, string> getAlbedoKahouRetsuden(int iKahouID) {
 	if (isValidBushouID(iKahouID)) {
 		if (iKahouID == 列挙::家宝::配列::鬼丸) {
 			if (nb7家宝情報[iKahouID].家宝名 == "バΒΓΔΕΖ"s) {
-				OutputDebugStream("ここにきた？");
 				return {
 					"バΒΓΔΕΖ　ﾊﾞﾙﾃﾞｨｯｼｭ",
 					"ナザリック守護者統括・アルベドが愛用\xA"

@@ -4,9 +4,11 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
+#include <string>
 #include "output_debug_stream.h"
 #include "file_attribute.h"
 #include "game_screen.h"
+#include "data_game_struct.h"
 
 // 顔の画像は幅が64, 高さが80。マジックナンバーになってしまうが、今後変更になったりは永久にしないため、そのまま埋め込む。(そっちの方が定数名使うよりわかりやすい)
 
@@ -24,6 +26,27 @@ bool fileExists(const std::string& filename) {
     std::ifstream file(filename);
     return file.good(); // ファイルが存在すればtrueを返す
 }
+
+bool isBattleFaceCondition(int iBushouID) {
+    int status = getゲーム画面ステータス();
+    if (status == 将星録::列挙::ゲーム画面ステータス::野戦画面 ||
+        status == 将星録::列挙::ゲーム画面ステータス::籠城戦画面) {
+        return true;
+    }
+
+    for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
+        if (getBushouIDFromUnitID(iUnitID) == iBushouID) {
+            // ユニット種別は軍勢、もしくは、軍船である
+            if (nb7ユニット情報[iUnitID].種別 == 列挙::ユニット::種別::軍勢 || nb7ユニット情報[iUnitID].種別 == 列挙::ユニット::種別::軍船) {
+                return true;
+            }
+            break;
+		}
+    }
+
+    return false;
+}
+
 extern int nTargetKaoID;
 BOOL Hook_ReadFileCustom_BushouKao(
     HANDLE hFile, // ファイルのハンドル
@@ -38,10 +61,9 @@ BOOL Hook_ReadFileCustom_BushouKao(
 
     char filenameBuf[512] = "";
     std::string filename = "";
-    int status = getゲーム画面ステータス();
 
     // 戦闘中なら 0000_B.bmp のようなファイルが存在すればそちらを優先で使うことを試みる
-    if (status == 将星録::列挙::ゲーム画面ステータス::野戦画面 || status == 将星録::列挙::ゲーム画面ステータス::籠城戦画面) {
+    if (isBattleFaceCondition(nTargetKaoID)) {
         sprintf_s(filenameBuf, "OVERRIDE\\KAODATA\\%04d_B.bmp", nTargetKaoID);
         OutputDebugStream("★★★はあるか？%s\n", filenameBuf);
         if (isFileExists(filenameBuf)) {
@@ -109,7 +131,7 @@ struct KAHOU_PICTURE {
 
 KAHOU_PICTURE picItemFileOrigin = { 0 };
 KAHOU_PICTURE picItemFlipSidePp = { 0 };
-
+extern int iKahouIDOfLastShowKahouID;
 extern int nTargetKahouGazouID;
 BOOL Hook_ReadFileCustom_KahouPic(
     HANDLE hFile, // ファイルのハンドル
@@ -122,10 +144,30 @@ BOOL Hook_ReadFileCustom_KahouPic(
         return FALSE;
     }
 
-    char filenameBuf[512] = "";
-    sprintf_s(filenameBuf, "OVERRIDE\\ITEMDATA\\%03d.bmp", nTargetKahouGazouID);
-    OutputDebugStream("★★★はあるか？%s\n", filenameBuf);
-    std::string filename = filenameBuf;
+    std::string filename = "";
+
+    if (isValidKahouID(iKahouIDOfLastShowKahouID)) {
+        char filenameBuf[512] = "";
+        sprintf_s(filenameBuf, "OVERRIDE\\ITEMDATA\\%s.bmp", nb7家宝情報[iKahouIDOfLastShowKahouID].家宝名);
+        OutputDebugStream("★★★はあるか？%s\n", filenameBuf);
+        if (isFileExists(filenameBuf)) {
+            filename = filenameBuf;
+        }
+    }
+
+    if (filename == "") {
+        char filenameBuf[512] = "";
+        sprintf_s(filenameBuf, "OVERRIDE\\ITEMDATA\\%03d.bmp", nTargetKahouGazouID);
+        OutputDebugStream("★★★はあるか？%s\n", filenameBuf);
+        if (isFileExists(filenameBuf)) {
+            filename = filenameBuf;
+        }
+    }
+
+    if (filename == "") {
+        return FALSE;
+    }
+
     if (!isFileExists(filename)) {
         return FALSE;
     }

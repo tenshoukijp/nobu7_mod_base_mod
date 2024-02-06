@@ -163,6 +163,12 @@
     <Filter Include="ゲームデータ - 籠城戦 - 本丸">
       <UniqueIdentifier>{b1176c33-89fa-4e49-bc6e-de421a7dde6e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="画像キャッシュ">
+      <UniqueIdentifier>{2b257385-0833-4e66-9b6d-5d90280e42fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="家宝 - 画像">
+      <UniqueIdentifier>{0b9a9dd2-ad74-4113-85cb-0f8212d453e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -676,6 +682,12 @@
     </ClCompile>
     <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_syubi_busyou.cpp">
       <Filter>ゲームデータ - 籠城戦 - 本丸</Filter>
+    </ClCompile>
+    <ClCompile Include="fook_picture_cache.cpp">
+      <Filter>画像キャッシュ</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_kahou_show_kahouid.cpp">
+      <Filter>家宝 - 画像</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

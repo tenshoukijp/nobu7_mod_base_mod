@@ -36,6 +36,8 @@ BOOL isValidKahouID(int iKahouID);
 // 家宝IDからそれを所有している武将IDを取得する。もってなかったら0xFFFF
 int getBushouIDFromKahouID(int iKahouID);
 
+int getKahouIDFromKahouPtr(int* iKahouPtr);
+
 // 特定の武将に家宝をセットする。(能力の変動は伴わない)。iBushouIDに0xFFFFをセットした場合は商人を所持者とする。
 BOOL setBushouIDToKahouID(int iKahouID, int iBushouID);
 
