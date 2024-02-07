@@ -172,6 +172,9 @@
     <Filter Include="JavaScriptMod">
       <UniqueIdentifier>{208d4380-66a0-4930-af9e-0bdd9b81cdc8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="家宝 - 種類名">
+      <UniqueIdentifier>{aadd8294-06b2-4b5e-84f1-b9dd5fc1aa1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -527,7 +530,7 @@
     <ClCompile Include="hook_kahou_retsuden_show_end.cpp">
       <Filter>列伝 - 家宝列伝</Filter>
     </ClCompile>
-    <ClCompile Include="hook_kahou_retsuden_shou_bgn.cpp">
+    <ClCompile Include="hook_kahou_retsuden_show_bgn.cpp">
       <Filter>列伝 - 家宝列伝</Filter>
     </ClCompile>
     <ClCompile Include="hook_setfilepointer_custom.cpp">
@@ -697,6 +700,9 @@
     </ClCompile>
     <ClCompile Include="javascript_mod.cpp">
       <Filter>JavaScriptMod</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_kahou_type_name.cpp">
+      <Filter>家宝 - 種類名</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

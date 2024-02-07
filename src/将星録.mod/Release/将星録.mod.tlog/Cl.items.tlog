@@ -44,7 +44,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_gaikou_comment.cpp;
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_initial_game_settings.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_initial_game_settings.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_detail.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_kahou_detail.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_title.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_kahou_title.obj
-C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_shou_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_shou_bgn.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_bgn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_bgn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_end.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_pic.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_retsuden_show_pic.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_show_kahouid.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_show_kahouid.obj
@@ -80,6 +80,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_weather_write
 C:\Users\master\source\repos\将星録Mod\将星録.mod\javascript_mod.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\javascript_mod.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden_albedo.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\kahou_retsuden_albedo.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\kahou_retsuden.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_type_name.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_type_name.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\load_form_mod.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\load_form_mod.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\message_albedo.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\message_albedo.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_フォント.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\mng_フォント.obj

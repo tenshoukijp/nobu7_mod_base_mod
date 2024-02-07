@@ -57,6 +57,7 @@ extern void WriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou();
 extern void WriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruBushou();
 extern void WriteAsmJumperOnSSRExeLastShowKahouID();
+extern void WriteAsmJumperOnSSRExeKahouTypeName();
 
 
 bool isWriteAsmJumperOnSSRExeCheckPicCache = false;
@@ -118,6 +119,7 @@ bool isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruBushou = false;
 bool isWriteAsmJumperOnSSRExeLastShowKahouID = false;
+bool isWriteAsmJumperOnSSRExeKahouTypeName = false;
 
 
 
@@ -416,5 +418,10 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeLastShowKahouID) {
 		isWriteAsmJumperOnSSRExeLastShowKahouID = true;
 		WriteAsmJumperOnSSRExeLastShowKahouID();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeKahouTypeName) {
+		isWriteAsmJumperOnSSRExeKahouTypeName = true;
+		WriteAsmJumperOnSSRExeKahouTypeName();
 	}
 }

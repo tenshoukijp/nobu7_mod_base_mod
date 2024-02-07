@@ -184,7 +184,7 @@
     <ClCompile Include="hook_initial_game_settings.cpp" />
     <ClCompile Include="hook_kahou_retsuden_kahou_detail.cpp" />
     <ClCompile Include="hook_kahou_retsuden_kahou_title.cpp" />
-    <ClCompile Include="hook_kahou_retsuden_shou_bgn.cpp" />
+    <ClCompile Include="hook_kahou_retsuden_show_bgn.cpp" />
     <ClCompile Include="hook_kahou_retsuden_show_end.cpp" />
     <ClCompile Include="hook_kahou_retsuden_show_pic.cpp" />
     <ClCompile Include="hook_kahou_show_kahouid.cpp" />
@@ -225,6 +225,7 @@
     <ClCompile Include="javascript_mod.cpp" />
     <ClCompile Include="kahou_retsuden_albedo.cpp" />
     <ClCompile Include="kahou_retsuden.cpp" />
+    <ClCompile Include="hook_kahou_type_name.cpp" />
     <ClCompile Include="load_form_mod.cpp" />
     <ClCompile Include="message_albedo.cpp" />
     <ClCompile Include="mng_フォント.cpp" />
