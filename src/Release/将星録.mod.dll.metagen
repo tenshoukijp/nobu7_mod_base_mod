@@ -1089,7 +1089,7 @@ Class 将星録.列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, Befo
     Int32 算盤 IsConst : Public, Static, HasDefault
     Int32 十字架 IsConst : Public, Static, HasDefault
     Int32 遠眼鏡 IsConst : Public, Static, HasDefault
-    Int32 煙管 IsConst : Public, Static, HasDefault
+    Int32 煙草 IsConst : Public, Static, HasDefault
     Int32 洋楽器 IsConst : Public, Static, HasDefault
     Int32 遊戯具 IsConst : Public, Static, HasDefault
     Int32 香木 IsConst : Public, Static, HasDefault

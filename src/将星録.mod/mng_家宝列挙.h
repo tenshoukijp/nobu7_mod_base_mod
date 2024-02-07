@@ -265,7 +265,7 @@ namespace «¯˜^ {
 				static const int Z”Õ = 19;
 				static const int \š‰Ë = 20;
 				static const int ‰“Šá‹¾ = 21;
-				static const int ‰ŒŠÇ = 22;
+				static const int ‰Œ‘ = 22;
 				static const int —mŠyŠí = 23;
 				static const int —V‹Y‹ï = 24;
 				static const int –Ø = 25;

@@ -53,6 +53,8 @@ EAX‚Í‚à‚¿‚ë‚ñ‰Æ•óí—Ş”Ô†
 
 #include <windows.h>
 #include <string>
+#include <cstdlib>
+#include <memory>
 #include "data_game_struct.h"
 #include "data_bushou_struct.h"
 #include "output_debug_stream.h"
@@ -81,8 +83,8 @@ struct TKahouTypeName {
 	char name[9]; // ‘SŠp4•¶š‚Ü‚Å
 };
 
-TKahouTypeName listKahouType[Å‘å”::‰Æ•óî•ñ::”z—ñ”] = { 0 };
-
+//TKahouTypeName listKahouType[Å‘å”::‰Æ•óî•ñ::”z—ñ”] = { 0 };
+std::unique_ptr<TKahouTypeName[]> listKahouType(new TKahouTypeName[Å‘å”::‰Æ•óî•ñ::”z—ñ”]());
 
 void OnSSRExeKahouTypeNameExecute() {
 
@@ -137,6 +139,18 @@ void OnSSRExeKahouTypeNameExecute() {
 		else if (iKahouImageType == —ñ‹“::‰Æ•ó::‰æ‘œ::’ƒŠ˜) {
 			strcpy_s(listKahouType[iKahouID].name, "’ƒŠ˜");
 		}
+		else if (iKahouImageType == —ñ‹“::‰Æ•ó::‰æ‘œ::—mŠyŠí) {
+			strcpy_s(listKahouType[iKahouID].name, "—mŠyŠí");
+		}
+		else if (iKahouImageType == —ñ‹“::‰Æ•ó::‰æ‘œ::‰“Šá‹¾) {
+			strcpy_s(listKahouType[iKahouID].name, "‰“Šá‹¾");
+		}
+		else if (iKahouImageType == —ñ‹“::‰Æ•ó::‰æ‘œ::—V‹Y‹ï) {
+			strcpy_s(listKahouType[iKahouID].name, "—V‹Y‹ï");
+		}
+		else if (iKahouImageType == —ñ‹“::‰Æ•ó::‰æ‘œ::‰Œ‘) {
+			strcpy_s(listKahouType[iKahouID].name, "‰Œ‘");
+		}
 
 		// ššš‚±‚±‚ÅJavaScriptMod‚â“Á•Ê‚Èí—Ş‚Ì’u‚«Š·‚¦‚ğs‚¤
 
@@ -145,14 +159,14 @@ void OnSSRExeKahouTypeNameExecute() {
 			strcpy_s(listKahouType[iKahouID].name, "•€");
 		}
 		else if (nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼ == "ƒM„F„G„H„Iƒv"s) {
-			strcpy_s(listKahouType[iKahouID].name, "¢ŠE”é•ó");
+			strcpy_s(listKahouType[iKahouID].name, "”é•ó");
 		}
 		else if (nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼ == "ƒ¨ƒ¥ƒ¦ƒ©ƒ§ƒª"s) {
-			strcpy_s(listKahouType[iKahouID].name, "’´‹ï‘«");
+			strcpy_s(listKahouType[iKahouID].name, "‹ï‘«");
 		}
 
 		// ‘ÎÛ‚Ì–¼‘O‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğ‘ã“ü‚µ‚Ä‚¨‚­B
-		ESIOfKahouTypeName = (int)listKahouType[iKahouID].name;
+		ESIOfKahouTypeName = (int)(listKahouType[iKahouID].name);
 	}
 
 }
