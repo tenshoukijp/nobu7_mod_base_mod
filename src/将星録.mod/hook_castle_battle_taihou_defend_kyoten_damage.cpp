@@ -37,8 +37,7 @@ static int EAXOfCastleBattleTaihouDefendKyotenDamage = 0;
 void OnSSRExeCastleBattleTaihouDefendKyotenDamageExecute() {
 	int* pRemainKyotenPtr = (int*)((BYTE*)(ECXOfCastleBattleTaihouDefendKyotenDamage)+0x8); // ここに拠点への防御値へのポインタが入っている
 
-	int nBushouAddress = (int)(メッセージ武将情報.p主体武将);
-	int iDefendBushouID = getBushouIDFromBushouPtr((int*)nBushouAddress);
+	int iDefendBushouID = get1stBushouIDFromMessageBushou();
 	// これが等しいということは、防御側の武将はセリフと吐いていないということなので、防御側は指揮官が居ない
 	if (iCastleBattleTaihouAttackBushou == iDefendBushouID) {
 

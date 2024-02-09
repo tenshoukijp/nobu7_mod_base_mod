@@ -24,6 +24,7 @@ Class IJavaScriptMod: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     onRequestFile(String): PrivateScope, Public, Static, HideBySig
     onRequestKaoID(Int32): PrivateScope, Public, Static, HideBySig
     onRequestKahouPicID(Int32): PrivateScope, Public, Static, HideBySig
+    onRequestBushouMessage(String, List`1): PrivateScope, Public, Static, HideBySig
 Class ゲーム.JSConsole: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:

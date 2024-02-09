@@ -195,6 +195,11 @@
     <ClCompile Include="hook_player_strategy_turn.cpp" />
     <ClCompile Include="hook_castle_battle_zantetsuken.cpp" />
     <ClCompile Include="hook_serihu_message_func.cpp" />
+    <ClCompile Include="hook_set_serihu_all_bushou_a.cpp" />
+    <ClCompile Include="hook_set_serihu_all_bushou_b.cpp" />
+    <ClCompile Include="hook_set_serihu_both_bushou.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="hook_update_month.cpp" />
     <ClCompile Include="hook_update_soba_kome.cpp" />
     <ClCompile Include="hook_update_soba_teppou.cpp" />

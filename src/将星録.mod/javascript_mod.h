@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 void callJSModCreateWindow(HWND hWnd);
 
@@ -19,4 +20,5 @@ std::string callJSModRequestBushouKaoID(int iKaoID);
 
 std::string callJSModRequestKahouPicID(int iPicID);
 
+std::string callJSModRequestBushouMessage(std::string message, std::vector<int> bushou_list);
 

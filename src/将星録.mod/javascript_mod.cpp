@@ -4,6 +4,10 @@
 #include "output_debug_stream.h"
 #include "mng_•¶Žš—ñ•ÏŠ·.h"
 
+using namespace System;
+using namespace System::Collections::Generic;
+
+
 void callJSModCreateWindow(HWND hWnd) {
 	IJavaScriptMod::onCreateWindow((int)hWnd);
 }
@@ -62,4 +66,14 @@ std::string callJSModRequestFile(const char* pszFileName) {
 	System::String^ filepath = IJavaScriptMod::onRequestFile(gcnew System::String(pszFileName));
 	if (System::String::IsNullOrEmpty(filepath)) { return ""; }
 	return to_native_string(filepath);
+}
+
+std::string callJSModRequestBushouMessage(std::string message, std::vector<int> bushou_list) {
+	System::Collections::Generic::List<int>^ gc_list = gcnew System::Collections::Generic::List<int>(0);
+	for(int b : bushou_list) {
+		gc_list->Add(b);
+	}
+	System::String^ ret = IJavaScriptMod::onRequestBushouMessage(gcnew System::String(message.c_str()), gc_list);
+	if (System::String::IsNullOrEmpty(ret)) { return ""; }
+	return to_native_string(ret);
 }

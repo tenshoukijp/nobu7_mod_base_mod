@@ -9,8 +9,9 @@ struct NB7メッセージ武将情報型 {
 };
 #pragma pack()
 
-int get主体BushouIDFromMessageBushou();
-int get相手BushouIDFromMessageBushou();
+int get1stBushouIDFromMessageBushou();
+int get2ndBushouIDFromMessageBushou();
+int get3rdBushouIDFromMessageBushou();
 
 /*
 005D9840  37 4E 00 00 00 00 00 00 00 00 00 00 47 00 00 00  7N..........G...

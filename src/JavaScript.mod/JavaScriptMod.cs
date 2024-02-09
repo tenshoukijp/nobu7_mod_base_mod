@@ -102,6 +102,12 @@ public class IJavaScriptMod
         return ゲーム.StaticLib.onRequest家宝画像(PicID);
     }
 
+    public static String onRequestBushouMessage(String message, List<int> bushou_list)
+    {
+        return ゲーム.StaticLib.onRequest武将メッセージ(message, bushou_list);
+    }
+
+
 }
 
 namespace ゲーム.Helpers
@@ -273,7 +279,6 @@ namespace ゲーム
                 {
                     return "";
                 }
-                OutputDebugStream("フォント名:" + ret.フォント名.ToString());
                 return ret.フォント名;
             }
             catch (Exception e)
@@ -298,7 +303,6 @@ namespace ゲーム
                 {
                     return "";
                 }
-                OutputDebugStream("ＢＧＭファイル名:" + ret.ファイル名);
                 return ret.ファイル名;
             }
             catch (Exception e)
@@ -323,7 +327,6 @@ namespace ゲーム
                 {
                     return "";
                 }
-                OutputDebugStream("効果音ファイル名:" + ret.ファイル名);
                 return ret.ファイル名;
             }
             catch (Exception e)
@@ -338,7 +341,7 @@ namespace ゲーム
             try
             {
                 dynamic jsObject = new ExpandoObject();
-                jsObject.画像ID = iKaoID;
+                jsObject.画像番号 = iKaoID;
                 dynamic ret = engine.Script.onRequest顔画像(jsObject);
                 if (ret is Undefined)
                 {
@@ -348,7 +351,6 @@ namespace ゲーム
                 {
                     return "";
                 }
-                OutputDebugStream("顔画像:" + ret.ファイル名);
                 return ret.ファイル名;
             }
             catch (Exception e)
@@ -363,7 +365,7 @@ namespace ゲーム
             try
             {
                 dynamic jsObject = new ExpandoObject();
-                jsObject.画像ID = iKaoID;
+                jsObject.画像番号 = iKaoID;
                 dynamic ret = engine.Script.onRequest家宝画像(jsObject);
                 if (ret is Undefined)
                 {
@@ -373,7 +375,6 @@ namespace ゲーム
                 {
                     return "";
                 }
-                OutputDebugStream("家宝画像:" + ret.ファイル名);
                 return ret.ファイル名;
             }
             catch (Exception e)
@@ -383,6 +384,33 @@ namespace ゲーム
             return "";
         }
 
+        public static String onRequest武将メッセージ(String message, List<int> bushou_list)
+        {
+            try
+            {
+                dynamic jsObject = new ExpandoObject();
+                jsObject.メッセージ = message;
+                jsObject.武将番号１人目 = bushou_list[0];
+                jsObject.武将番号２人目 = bushou_list[1];
+                jsObject.武将番号３人目 = bushou_list[2];
+                jsObject.武将番号４人目 = bushou_list[3];
+                dynamic ret = engine.Script.onRequest武将メッセージ(jsObject);
+                if (ret is Undefined)
+                {
+                    return "";
+                }
+                if (ret.メッセージ is Undefined)
+                {
+                    return "";
+                }
+                return ret.メッセージ;
+            }
+            catch (Exception e)
+            {
+                OutputDebugStream("onRequest武将メッセージError:" + e.Message);
+            }
+            return "";
+        }
 
 
         public static String onRequestファイル(string filename)

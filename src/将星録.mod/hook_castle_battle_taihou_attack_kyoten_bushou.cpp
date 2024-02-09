@@ -34,8 +34,7 @@ using namespace std;
 
 int iCastleBattleTaihouAttackBushou = -1;
 void OnSSRExeCastleBattleTaihouDefendKyotenBushouExecute() {
-	int nBushouAddress = (int)(メッセージ武将情報.p主体武将);
-	iCastleBattleTaihouAttackBushou = getBushouIDFromBushouPtr((int*)nBushouAddress);
+	iCastleBattleTaihouAttackBushou = get1stBushouIDFromMessageBushou();
 	OutputDebugStream("★★★大砲の攻撃側の武将" + getBushou姓名FromBushouID(iCastleBattleTaihouAttackBushou) + "\n");
 }
 

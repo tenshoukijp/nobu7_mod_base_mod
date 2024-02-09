@@ -17,6 +17,8 @@
 #include "game_screen.h"
 #include "message_albedo.h"
 #include "onigwrap.h"
+#include "javascript_mod.h"
+
 using namespace std;
 
 #pragma unmanaged
@@ -57,13 +59,20 @@ void replaceMessage(string message) {
 }
 
 extern void checkReplaceBushouRetsuden();
-extern void checkReplaceKahouRetsuden();
+extern vector<int> list話者BushouID;
 
 void OnSSRExeMessageDetailExecute() {
-
+	OutputDebugStream("■OnMessageDetail■:");
 	checkReplaceBushouRetsuden();
 
-	OutputDebugStream("■OnMessageDetail■:");
+	vector<int> bushouList = { 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
+	for (int i = 0; i < bushouList.size(); i++) {
+		bushouList[0] = list話者BushouID[0];
+	}
+	string override = callJSModRequestBushouMessage((char*)セリフメッセージアドレス, bushouList);
+	if (override != "") {
+		replaceMessage(override);
+	}
 	OutputDebugStream((char*)セリフメッセージアドレス);
 	OutputDebugStream("\n");
 }

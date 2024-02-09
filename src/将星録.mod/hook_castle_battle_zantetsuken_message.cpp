@@ -16,6 +16,7 @@
 
 #include <windows.h>
 #include <string>
+#include <vector>
 #include "data_game_struct.h"
 #include "data_bushou_struct.h"
 #include "output_debug_stream.h"
@@ -30,6 +31,7 @@
 #include "bushou_albedo.h"
 #include "game_screen.h"
 #include "message_albedo.h"
+#include "javascript_mod.h"
 
 
 using namespace std;
@@ -38,6 +40,7 @@ using namespace std;
 
 // 斬鉄剣を打った武将のBushouID
 extern int iZantetsukenAttackBushouID;
+extern vector<int> list話者BushouID;
 
 static int DefaultZantetsukenMessagePtr = 0x520E58;  // 将星録のデフォルトとして斬鉄剣という文字列が存在するアドレス
 
@@ -65,6 +68,18 @@ void OnSSRExeCastleBattleMessageZantetsukenExecute() {
 			}
 			CustomZantetsukenMessagePtr = (int)customZantetsukenMessage;
 		}
+
+		{
+			// 「斬鉄剣」のセリフは、普通のメッセージの処理を通過していないので、ここで特別に処理。
+			vector<int> bushouList = { 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
+			bushouList[0] = iZantetsukenAttackBushouID;
+			string override = callJSModRequestBushouMessage((char*)セリフメッセージアドレス, bushouList);
+			if (override != "") {
+				strcpy_s(customZantetsukenMessage, override.c_str());
+				CustomZantetsukenMessagePtr = (int)customZantetsukenMessage;
+			}
+		}
+
 	}
 }
 

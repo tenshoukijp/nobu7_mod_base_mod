@@ -37,8 +37,7 @@ static int EAXOfCastleBattleTaihouDefendDoorDamage = 0;
 void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 	int* pRemainDoorPtr = (int*)((BYTE*)(ECXOfCastleBattleTaihouDefendDoorDamage)+0xA); // ここにドアの防御値へのポインタが入っている
 
-	int nBushouAddress = (int)(メッセージ武将情報.p主体武将);
-	int iBushouID = getBushouIDFromBushouPtr((int *)nBushouAddress);
+	int iBushouID = get1stBushouIDFromMessageBushou();
 	if (isValidBushouID(iBushouID)) {
 		OutputDebugStream("ドアの残り耐久度%d\n", *pRemainDoorPtr);
 		OutputDebugStream("攻撃者" + getBushou姓名FromBushouID(iBushouID) + "\n");

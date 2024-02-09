@@ -49,8 +49,7 @@ using namespace std;
 
 int iCastleBattleTaihouHonmaruAttackBushou = -1;
 void OnSSRExeCastleBattleTaihouDefendHonmaruBushouExecute() {
-	int nBushouAddress = (int)(メッセージ武将情報.p主体武将);
-	iCastleBattleTaihouHonmaruAttackBushou = getBushouIDFromBushouPtr((int*)nBushouAddress);
+	iCastleBattleTaihouHonmaruAttackBushou = get1stBushouIDFromMessageBushou();
 	OutputDebugStream("★★★大砲の攻撃側の武将" + getBushou姓名FromBushouID(iCastleBattleTaihouHonmaruAttackBushou) + "\n");
 }
 

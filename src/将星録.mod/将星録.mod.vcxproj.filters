@@ -704,6 +704,15 @@
     <ClCompile Include="hook_kahou_type_name.cpp">
       <Filter>家宝 - 種類名</Filter>
     </ClCompile>
+    <ClCompile Include="hook_set_serihu_both_bushou.cpp">
+      <Filter>Onセリフ</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_set_serihu_all_bushou_a.cpp">
+      <Filter>Onセリフ</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_set_serihu_all_bushou_b.cpp">
+      <Filter>Onセリフ</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

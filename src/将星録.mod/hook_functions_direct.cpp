@@ -58,6 +58,9 @@ extern void WriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou();
 extern void WriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruBushou();
 extern void WriteAsmJumperOnSSRExeLastShowKahouID();
 extern void WriteAsmJumperOnSSRExeKahouTypeName();
+// extern void WriteAsmJumperOnSSRExeSetSerihuBothBushou();
+extern void WriteAsmJumperOnSSRExeSetSerifuAllButhouLocA();
+extern void WriteAsmJumperOnSSRExeSetSerifuAllButhouLocB();
 
 
 bool isWriteAsmJumperOnSSRExeCheckPicCache = false;
@@ -120,6 +123,9 @@ bool isWriteAsmJumperOnSSRExeCastleBattleButaiDefendHonmaruBushou = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendHonmaruBushou = false;
 bool isWriteAsmJumperOnSSRExeLastShowKahouID = false;
 bool isWriteAsmJumperOnSSRExeKahouTypeName = false;
+// bool isWriteAsmJumperOnSSRExeSetSerihuBothBushou = false;
+bool isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocA = false;
+bool isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocB = false;
 
 
 
@@ -423,5 +429,22 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeKahouTypeName) {
 		isWriteAsmJumperOnSSRExeKahouTypeName = true;
 		WriteAsmJumperOnSSRExeKahouTypeName();
+	}
+
+	/*
+	if (!isWriteAsmJumperOnSSRExeSetSerihuBothBushou) {
+		isWriteAsmJumperOnSSRExeSetSerihuBothBushou = true;
+		WriteAsmJumperOnSSRExeSetSerihuBothBushou();
+	}
+	*/
+
+	if (!isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocA) {
+		isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocA = true;
+		WriteAsmJumperOnSSRExeSetSerifuAllButhouLocA();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocB) {
+		isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocB = true;
+		WriteAsmJumperOnSSRExeSetSerifuAllButhouLocB();
 	}
 }
