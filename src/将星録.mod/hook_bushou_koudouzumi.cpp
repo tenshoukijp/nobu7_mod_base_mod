@@ -112,7 +112,7 @@ void OnSSRExeBushouKoudouzumiExecute() {
 				mapBushouKoudouzumiCacheInMonth[iBushouID] = 行動済;
 			}
 		}
-		catch (System::Exception^ e) {
+		catch (System::Exception^ ) {
 			OutputDebugStream("on武将行動済時でエラーが発生しました。");
 		}
 

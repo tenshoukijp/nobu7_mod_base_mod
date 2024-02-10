@@ -11,6 +11,8 @@
 #include "game_screen.h"
 #include "message_albedo.h"
 #include "onigwrap.h"
+#include "usr_custom_mod.h"
+
 using namespace std;
 using namespace 列挙;
 /*
@@ -65,6 +67,44 @@ std::pair<string, string> getOverrideBushouRetsuden(int iBushouID) {
 			if (title != "" || detail != "") {
 				return { title, detail };
 			}
+		}
+		else {
+
+			// C#によるオーバーライド
+			try {
+				System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+				dic->Add("武将番号", iBushouID);
+				System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on武将列伝要求時", dic);
+
+				string title = "";
+				string detail = "";
+				if (ret != nullptr && ret->ContainsKey("ラベル")) {
+					System::String^ mng_title = (System::String^)(ret["ラベル"]);
+					if (System::String::IsNullOrEmpty(mng_title)) {
+						title = "";
+					}
+					else {
+						title = to_native_string(mng_title);
+					}
+				}
+				if (ret != nullptr && ret->ContainsKey("詳細")) {
+					System::String^ mng_detail = (System::String^)(ret["詳細"]);
+					if (System::String::IsNullOrEmpty(mng_detail)) {
+						detail = "";
+					}
+					else {
+						detail = to_native_string(mng_detail);
+					}
+				}
+				if (title != "" || detail != "") {
+					return { title, detail };
+				}
+
+			}
+			catch (System::Exception^ ) {
+
+			}
+
 		}
 	}
 

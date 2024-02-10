@@ -32,11 +32,11 @@
 #include "game_screen.h"
 #include "message_albedo.h"
 #include "javascript_mod.h"
+#include "usr_custom_mod.h"
 
 
 using namespace std;
 
-#pragma unmanaged
 
 // 斬鉄剣を打った武将のBushouID
 extern int iZantetsukenAttackBushouID;
@@ -69,21 +69,35 @@ void OnSSRExeCastleBattleMessageZantetsukenExecute() {
 			CustomZantetsukenMessagePtr = (int)customZantetsukenMessage;
 		}
 
-		{
-			/*
-			// 「斬鉄剣」のセリフは、普通のメッセージの処理を通過していないので、ここで特別に処理。
-			vector<int> bushouList = { 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
-			bushouList[0] = iZantetsukenAttackBushouID;
-			string override = callJSModRequestBushouMessage((char*)セリフメッセージアドレス, bushouList);
-			if (override != "") {
-				strcpy_s(customZantetsukenMessage, override.c_str());
-				CustomZantetsukenMessagePtr = (int)customZantetsukenMessage;
+		// C#のカスタム.mod.dllからの上書き
+		try {
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			dic->Add("メッセージ", gcnew System::String((char*)セリフメッセージアドレス));
+			dic->Add("武将番号１人目", list話者BushouID[0]);
+			dic->Add("武将番号２人目", list話者BushouID[1]);
+			dic->Add("武将番号３人目", list話者BushouID[2]);
+			dic->Add("武将番号４人目", list話者BushouID[3]);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on武将メッセージ要求時", dic);
+			if (ret != nullptr && ret->ContainsKey("メッセージ")) {
+				System::String^ override_message = (System::String^)(ret["メッセージ"]);
+				if (System::String::IsNullOrEmpty(override_message)) {
+					;
+				}
+				else {
+					strcpy_s(customZantetsukenMessage, to_native_string(override_message).c_str());
+					CustomZantetsukenMessagePtr = (int)customZantetsukenMessage;
+				}
 			}
-			*/
+
+		}
+		catch (System::Exception^ ) {
+			OutputDebugStream("on武将メッセージ要求時");
 		}
 
 	}
 }
+
+#pragma unmanaged
 
 /*
 004174A1   0F85 F0000000    JNZ Nobunaga.00417597

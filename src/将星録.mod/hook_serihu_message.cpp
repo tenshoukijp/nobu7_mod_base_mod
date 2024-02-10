@@ -18,10 +18,10 @@
 #include "message_albedo.h"
 #include "onigwrap.h"
 #include "javascript_mod.h"
+#include "usr_custom_mod.h"
 
 using namespace std;
 
-#pragma unmanaged
 /*
 メモリの呼び出し元、その①
 00496D8B   E8 80B20600      CALL Nobunaga.00502010
@@ -65,19 +65,34 @@ void OnSSRExeMessageDetailExecute() {
 	OutputDebugStream("■OnMessageDetail■:");
 	checkReplaceBushouRetsuden();
 
-	vector<int> bushouList = { 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
-	for (int i = 0; i < (int)bushouList.size(); i++) {
-		bushouList[0] = list話者BushouID[0];
+	// C#のカスタム.mod.dllからの上書き
+	try {
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+		dic->Add("メッセージ", gcnew System::String((char*)セリフメッセージアドレス));
+		dic->Add("武将番号１人目", list話者BushouID[0]);
+		dic->Add("武将番号２人目", list話者BushouID[1]);
+		dic->Add("武将番号３人目", list話者BushouID[2]);
+		dic->Add("武将番号４人目", list話者BushouID[3]);
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on武将メッセージ要求時", dic);
+		if (ret != nullptr && ret->ContainsKey("メッセージ")) {
+			System::String^ override_message = (System::String^)(ret["メッセージ"]);
+			if (System::String::IsNullOrEmpty(override_message)) {
+				;
+			} else {
+				replaceMessage(to_native_string(override_message));
+			}
+		}
+
 	}
-	string override_msg = callJSModRequestBushouMessage((char*)セリフメッセージアドレス, bushouList);
-	if (override_msg != "") {
-		replaceMessage(override_msg);
+	catch (System::Exception^) {
+		OutputDebugStream("on武将メッセージ要求時");
 	}
 
 	OutputDebugStream((char*)セリフメッセージアドレス);
 	OutputDebugStream("\n");
 }
 
+#pragma unmanaged
 
 /*
 メッセージなどがメモリに書き込まれる時

@@ -37,7 +37,7 @@ void onInitialGameMenu() {
         System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
         System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on初期設定画面時", dic);
     }
-    catch (System::Exception^ e) {
+    catch (System::Exception^) {
         OutputDebugStream("on初期設定画面時でエラーが発生しました。");
     }
 
@@ -119,7 +119,7 @@ void onStrategyGameStart() {
         System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
         System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onメインゲーム開始時", dic);
     }
-    catch (System::Exception^ e) {
+    catch (System::Exception^) {
         OutputDebugStream("onメインゲーム開始時");
     }
 
@@ -485,7 +485,7 @@ void onStrategyDaimyoTurnChanged(int iDaimyoID) {
             dic->Add("大名番号", iDaimyoID);
             System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on戦略画面大名ターン変更前", dic);
         }
-        catch (System::Exception^ e) {
+        catch (System::Exception^ ) {
             OutputDebugStream("on戦略画面大名ターン変更時でエラーが発生しました。");
         }
 

@@ -70,7 +70,7 @@ EAXはもちろん家宝種類番号
 #include "game_screen.h"
 #include "message_albedo.h"
 #include "mng_家宝列挙.h"
-
+#include "usr_custom_mod.h"
 
 using namespace std;
 
@@ -85,6 +85,32 @@ struct TKahouTypeName {
 
 //TKahouTypeName listKahouType[最大数::家宝情報::配列数] = { 0 };
 std::unique_ptr<TKahouTypeName[]> listKahouType(new TKahouTypeName[最大数::家宝情報::配列数]());
+
+void OverrideKahouTypeName(int iKahouID) {
+	// C#のdllで上書き
+	try {
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+		dic->Add("家宝番号", iKahouID);
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on家宝種類名要求時", dic);
+
+		if (ret != nullptr && ret->ContainsKey("種類名")) {
+			System::String^ kahou_type_name = (System::String^)(ret["種類名"]);
+			if (System::String::IsNullOrEmpty(kahou_type_name)) {
+				;
+			}
+			else {
+				string native_typename = to_native_string(kahou_type_name);
+				native_typename[8] = '\0'; // 8文字まで
+				strcpy_s(listKahouType[iKahouID].name, native_typename.c_str());
+			}
+		}
+
+	}
+	catch (System::Exception^ ) {
+		OutputDebugStream("on家宝種類名要求時でのエラー");
+	}
+
+}
 
 void OnSSRExeKahouTypeNameExecute() {
 
@@ -152,7 +178,8 @@ void OnSSRExeKahouTypeNameExecute() {
 			strcpy_s(listKahouType[iKahouID].name, "煙草");
 		}
 
-		// ★★★ここでJavaScriptModや特別な種類の置き換えを行う
+		// C#のdllで上書き
+		OverrideKahouTypeName(iKahouID);
 
 		// バルディッシュなら斧
 		if (nb7家宝情報[iKahouID].家宝名 == "バΒΓΔΕΖ"s) {
