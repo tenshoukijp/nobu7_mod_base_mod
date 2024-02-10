@@ -1,6 +1,0 @@
-C:\Users\master\source\repos\将星録Mod\ユーザー.mod\bin\Release\ユーザー.mod.dll
-C:\Users\master\source\repos\将星録Mod\ユーザー.mod\bin\Release\ユーザー.mod.pdb
-C:\Users\master\source\repos\将星録Mod\ユーザー.mod\obj\Release\ユーザー.mod.csproj.AssemblyReference.cache
-C:\Users\master\source\repos\将星録Mod\ユーザー.mod\obj\Release\ユーザー.mod.csproj.CoreCompileInputs.cache
-C:\Users\master\source\repos\将星録Mod\ユーザー.mod\obj\Release\ユーザー.mod.dll
-C:\Users\master\source\repos\将星録Mod\ユーザー.mod\obj\Release\ユーザー.mod.pdb

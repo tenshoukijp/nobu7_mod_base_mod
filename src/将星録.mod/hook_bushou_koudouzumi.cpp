@@ -113,7 +113,7 @@ void OnSSRExeBushouKoudouzumiExecute() {
 			}
 		}
 		catch (System::Exception^ e) {
-			OutputDebugStream("onフォント名要求時でエラーが発生しました。");
+			OutputDebugStream("on武将行動済時でエラーが発生しました。");
 		}
 
 		// ★★★ここでJavaScriptのメソッドを実行して、返り値を取得して、それが特別ならば、

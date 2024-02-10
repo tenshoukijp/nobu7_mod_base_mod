@@ -15,10 +15,10 @@
 #include "game_screen.h"
 #include "message_albedo.h"
 #include "file_attribute.h"
+#include "usr_custom_mod.h"
 
 using namespace std;
 
-#pragma unmanaged
 
 
 /*
@@ -59,20 +59,56 @@ int iMovieFileNameCharPointer = NULL;
 
 char bufOverrideMovieName[512] = "";
 
+std::string getUserCustomMovieFileName(System::String^ movie_filename) {
+	bool isUserCustomOverride = false;
+	try {
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+		dic->Add("ファイル名", movie_filename);
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onムービーファイル名要求時", dic);
+
+		if (ret != nullptr && ret->ContainsKey("ファイル名")) {
+			System::String^ filename = (System::String^)(ret["ファイル名"]);
+			if (System::String::IsNullOrEmpty(filename)) {
+				return "";
+			}
+
+			return to_native_string(filename);
+		}
+
+	}
+	catch (System::Exception^ e) {
+
+	}
+
+	return "";
+}
+
 void OnSSRExeMovieFileNameExecute() {
 	OutputDebugStream("ムービーファイル名の取得:");
 	OutputDebugStream("値 %x\n", iMovieFileNameCharPointer);
 	OutputDebugStream("値 %s\n", iMovieFileNameCharPointer);
 
 	if (iMovieFileNameCharPointer != NULL) {
+
+		std::string userCustomMovieName = getUserCustomMovieFileName(gcnew System::String((char*)iMovieFileNameCharPointer));
+		if (userCustomMovieName != "" && isFileExists(userCustomMovieName)) {
+			OutputDebugStream("ユーザーカスタムのムービーファイル名が存在するので、それを使う\n");
+			strcpy_s(bufOverrideMovieName, userCustomMovieName.c_str());
+			iMovieFileNameCharPointer = (int)bufOverrideMovieName;
+			return;
+		}
+
 		string overrideMovieName = string("OVERRIDE\\") + string((char*)iMovieFileNameCharPointer);
 		if (isFileExists(overrideMovieName)) {
 			OutputDebugStream("オーバーライドファイルが存在するので、それを使う\n");
 			strcpy_s(bufOverrideMovieName, overrideMovieName.c_str());
 			iMovieFileNameCharPointer = (int)bufOverrideMovieName;
+			return;
 		}
 	}
 }
+
+#pragma unmanaged
 
 
 /*

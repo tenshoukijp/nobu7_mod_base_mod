@@ -7,7 +7,7 @@
 #include "game_screen.h"
 #include "hook_functions_direct.h"
 #include "on_event.h"
-
+#include "usr_custom_mod.h"
 using namespace 列挙;
 
 void onOpeningMovie() {
@@ -31,6 +31,16 @@ void onInitialGameMenu() {
     resetMapBushouKoudouzumiCacheInMonth();
     resetCastleBattleInfo();
     setゲーム画面ステータス(ゲーム画面ステータス::初期設定画面);
+
+    // C#のカスタム.mod.dllからの上書き
+    try {
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on初期設定画面時", dic);
+    }
+    catch (System::Exception^ e) {
+        OutputDebugStream("on初期設定画面時でエラーが発生しました。");
+    }
+
 }
 
 void onLoadSaveDataMenu() {
@@ -103,6 +113,17 @@ void onMenuKashinUnitIchiranStart() {
 
 void onStrategyGameStart() {
     OutputDebugStream("戦略画面でゲームがスタートしました\n");
+
+    // C#のカスタム.mod.dllからの上書き
+    try {
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onメインゲーム開始時", dic);
+    }
+    catch (System::Exception^ e) {
+        OutputDebugStream("onメインゲーム開始時");
+    }
+
+
 }
 
 // 年の初書き込みがされた
@@ -457,6 +478,17 @@ void onStrategyScreen() {
 void onStrategyDaimyoTurnChanged(int iDaimyoID) {
     if (isValidDaimyoID(iDaimyoID)) {
         アルベドのユニットが軍隊や軍船なら兵数復活();
+
+        // C#のカスタム.mod.dllからの上書き
+        try {
+            System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+            dic->Add("大名番号", iDaimyoID);
+            System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on戦略画面大名ターン変更前", dic);
+        }
+        catch (System::Exception^ e) {
+            OutputDebugStream("on戦略画面大名ターン変更時でエラーが発生しました。");
+        }
+
     }
 }
 
