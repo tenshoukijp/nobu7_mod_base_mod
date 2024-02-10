@@ -136,9 +136,6 @@
     <Filter Include="相場">
       <UniqueIdentifier>{3573cb65-9bed-4e78-a2fc-1165a77425d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="武将">
-      <UniqueIdentifier>{65d5ecac-168f-490c-9129-9835ad552010}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ゲームデータ - ターン情報 - メインゲーム開始">
       <UniqueIdentifier>{7270e8fa-928d-4ab5-9874-51087562856c}</UniqueIdentifier>
     </Filter>
@@ -177,6 +174,9 @@
     </Filter>
     <Filter Include="C#Mod">
       <UniqueIdentifier>{1e4ce36e-a825-4b8e-8e0e-d454c05612e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="武将 - 行動済">
+      <UniqueIdentifier>{65d5ecac-168f-490c-9129-9835ad552010}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -606,7 +606,7 @@
       <Filter>相場</Filter>
     </ClCompile>
     <ClCompile Include="hook_bushou_koudouzumi.cpp">
-      <Filter>武将</Filter>
+      <Filter>武将 - 行動済</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_weather_change.cpp">
       <Filter>ゲームデータ - 野戦</Filter>

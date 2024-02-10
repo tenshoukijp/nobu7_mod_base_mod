@@ -111,8 +111,12 @@ void onMenuKashinUnitIchiranStart() {
     OutputDebugStream("メニュー-家臣-ユニット一覧画面\n");
 }
 
+extern void initAlbedoKahou();
+
 void onStrategyGameStart() {
     OutputDebugStream("戦略画面でゲームがスタートしました\n");
+
+    initAlbedoKahou();
 
     // C#のカスタム.mod.dllからの上書き
     try {
@@ -481,9 +485,14 @@ void onStrategyDaimyoTurnChanged(int iDaimyoID) {
 
         // C#のカスタム.mod.dllからの上書き
         try {
-            System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
-            dic->Add("大名番号", iDaimyoID);
-            System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on戦略画面大名ターン変更前", dic);
+            int iBushouID = getBushouIDFromDaimyoID(iDaimyoID);
+            if (isValidBushouID(iBushouID)) {
+                OutputDebugStream("大名ターンの武将は"s + nb7武将情報[iBushouID].姓名 + "\n");
+                System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+                dic->Add("大名番号", iDaimyoID);
+                dic->Add("武将番号", iBushouID);
+                System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on戦略画面大名ターン変更前", dic);
+            }
         }
         catch (System::Exception^ ) {
             OutputDebugStream("on戦略画面大名ターン変更時でエラーが発生しました。");
@@ -492,22 +501,27 @@ void onStrategyDaimyoTurnChanged(int iDaimyoID) {
     }
 }
 
-void checkStrategyPlayerTurnInformation()
-{
-    int iBushouID = getStrategyTurnDaimyoBushouID();
-    if (isValidBushouID(iBushouID)) {
-        OutputDebugStream("大名ターンの武将は"s + nb7武将情報[iBushouID].姓名 + "\n");
-    }
 
-}
-
-
-extern void initAlbedoKahou();
 void onStrategyPlayerDaimyoTurn(int iDaimyoID) {
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 
-    initAlbedoKahou();
-    checkStrategyPlayerTurnInformation();
+    if (isValidDaimyoID(iDaimyoID)) {
+
+        // C#のカスタム.mod.dllからの上書き
+        try {
+            int iBushouID = getBushouIDFromDaimyoID(iDaimyoID);
+            if (isValidBushouID(iBushouID)) {
+                OutputDebugStream("大名ターンの武将は"s + nb7武将情報[iBushouID].姓名 + "\n");
+                System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+                dic->Add("大名番号", iDaimyoID);
+                dic->Add("武将番号", iBushouID);
+                System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on戦略画面プレイヤ大名ターン変更前", dic);
+            }
+        }
+        catch (System::Exception^) {
+            OutputDebugStream("on戦略画面大名ターン変更時でエラーが発生しました。");
+        }
+    }
 
     アルベドのユニットが軍隊や軍船なら兵数復活();
     resetAlbedo所属城下遺恨武将();

@@ -67,6 +67,7 @@ void OnSSRExeMessageDetailExecute() {
 
 	// C#のカスタム.mod.dllからの上書き
 	try {
+
 		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
 		dic->Add("メッセージ", gcnew System::String((char*)セリフメッセージアドレス));
 		dic->Add("武将番号１人目", list話者BushouID[0]);
@@ -78,18 +79,25 @@ void OnSSRExeMessageDetailExecute() {
 			System::String^ override_message = (System::String^)(ret["メッセージ"]);
 			if (System::String::IsNullOrEmpty(override_message)) {
 				;
+				OutputDebugStream("文字列を置き換えません、スキップ");
 			} else {
+				OutputDebugStream("文字列を置き換えました");
 				replaceMessage(to_native_string(override_message));
 			}
 		}
 
 	}
 	catch (System::Exception^) {
-		OutputDebugStream("on武将メッセージ要求時");
+		OutputDebugStream("on武将メッセージ要求時でエラー");
 	}
 
-	OutputDebugStream((char*)セリフメッセージアドレス);
-	OutputDebugStream("\n");
+	if ((char*)セリフメッセージアドレス != NULL) {
+		if (((char*)セリフメッセージアドレス)[0] != NULL) {
+			// %dや%sがあった場合に、OutputDebugStream(format, ...)の方が採用されない。
+			string message = string((char*)セリフメッセージアドレス);
+			OutputDebugStream(message + "\n");
+		}
+	}
 }
 
 #pragma unmanaged
@@ -149,7 +157,7 @@ __declspec(naked) void WINAPI OnSSRExeMessageDetail() {
 
 
 
-char cmdOnSSRExeJumpFromMessageDetail[6] = "\xE9";
+char cmdOnSSRExeJumpFromMessageDetail[8] = "\xE9\x90\x90\x90\x90\x90\x90";
 // 元の命令が5バイト、以後の関数で生まれる命令が合計５バイトなので… 最後１つ使わない
 
 
@@ -163,7 +171,7 @@ void WriteAsmJumperOnSSRExeMessageDetail() {
 	memcpy(cmdOnSSRExeJumpFromMessageDetail + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
 
 	// 構築したニーモニック命令をTENSHOU.EXEのメモリに書き換える
-	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeMessageDetail), cmdOnSSRExeJumpFromMessageDetail, 5, NULL); //5バイトのみ書き込む
+	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeMessageDetail), cmdOnSSRExeJumpFromMessageDetail, 7, NULL); //7バイトのみ書き込む
 }
 
 #pragma managed

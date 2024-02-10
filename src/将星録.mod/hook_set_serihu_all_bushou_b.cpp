@@ -42,7 +42,7 @@ using namespace std;
 extern vector<int> list話者BushouID;
 
 void OnSSRExeSetSerifuAllButhouLocBExecute() {
-	OutputDebugStream("話者の更新場所 A\n");
+	OutputDebugStream("話者の更新場所 B\n");
 
 	list話者BushouID[0] = 0xFFFF;
 	list話者BushouID[1] = 0xFFFF;

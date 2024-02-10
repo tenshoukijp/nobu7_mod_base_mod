@@ -91,7 +91,7 @@ void OnSSRExeCastleBattleMessageZantetsukenExecute() {
 
 		}
 		catch (System::Exception^ ) {
-			OutputDebugStream("on武将メッセージ要求時");
+			OutputDebugStream("on武将メッセージ要求時でエラー");
 		}
 
 	}
