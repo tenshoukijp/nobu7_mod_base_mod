@@ -59,21 +59,21 @@ void OnSSRExeSetSerifuAllButhouLocAExecute() {
 	int iBushouPtr_2nd = *((int*)0x5D9890);
 	int iBushouID_2nd = getBushouIDFromBushouPtr((int*)iBushouPtr_2nd);
 	if (isValidBushouID(iBushouID_2nd)) {
-		list話者BushouID[1] = iBushouID_1st;
+		list話者BushouID[1] = iBushouID_2nd;
 		OutputDebugStream("2人目の話者は" + getBushou姓名FromBushouID(iBushouID_2nd) + "です。\n");
 	}
 
 	int iBushouPtr_3rd = *((int*)0x5D9894);
 	int iBushouID_3rd = getBushouIDFromBushouPtr((int*)iBushouPtr_3rd);
 	if (isValidBushouID(iBushouID_3rd)) {
-		list話者BushouID[2] = iBushouID_1st;
+		list話者BushouID[2] = iBushouID_3rd;
 		OutputDebugStream("3人目の話者は" + getBushou姓名FromBushouID(iBushouID_3rd) + "です。\n");
 	}
 
 	int iBushouPtr_4th = *((int*)0x5D9898);
 	int iBushouID_4th = getBushouIDFromBushouPtr((int*)iBushouPtr_4th);
 	if (isValidBushouID(iBushouID_4th)) {
-		list話者BushouID[3] = iBushouID_1st;
+		list話者BushouID[3] = iBushouID_4th;
 		OutputDebugStream("4人目の話者は" + getBushou姓名FromBushouID(iBushouID_4th) + "です。\n");
 	}
 

@@ -175,6 +175,9 @@
     <Filter Include="家宝 - 種類名">
       <UniqueIdentifier>{aadd8294-06b2-4b5e-84f1-b9dd5fc1aa1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="C#Mod">
+      <UniqueIdentifier>{1e4ce36e-a825-4b8e-8e0e-d454c05612e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -332,6 +335,9 @@
     </ClInclude>
     <ClInclude Include="javascript_mod.h">
       <Filter>JavaScriptMod</Filter>
+    </ClInclude>
+    <ClInclude Include="usr_custom_mod.h">
+      <Filter>C#Mod</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -712,6 +718,9 @@
     </ClCompile>
     <ClCompile Include="hook_set_serihu_all_bushou_b.cpp">
       <Filter>Onセリフ</Filter>
+    </ClCompile>
+    <ClCompile Include="usr_custom_mod.cpp">
+      <Filter>C#Mod</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

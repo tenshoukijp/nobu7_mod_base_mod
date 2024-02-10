@@ -65,19 +65,6 @@ internal class DllAssemblyResolver
 
 public class IJavaScriptMod
 {
-    public static void onCreateWindow(int hWnd)
-    {
-        ゲーム.StaticLib.onCreateメインウィンドウ(hWnd);
-    }
-
-    public static String onRequestFont()
-    {
-        return ゲーム.StaticLib.onRequestフォント();
-    }
-    public static void onDestroyWindow()
-    {
-        ゲーム.StaticLib.onDestroyメインウィンドウ();
-    }
 
     public static String onRequestBGM(String filepath)
     {
@@ -251,42 +238,6 @@ namespace ゲーム
             OutputDebugStream(joind);
         }
 
-        public static void onCreateメインウィンドウ(int hWnd)
-        {
-            try
-            {
-                DoFile("JavaScript.mod.js");
-                dynamic jsObject = new ExpandoObject();
-                jsObject.ウィンドウハンドル = hWnd;
-                engine.Script.onCreateメインウィンドウ(jsObject);
-            }
-            catch (Exception e)
-            {
-                OutputDebugStream("onCreateメインウィンドウError:" + e.Message);
-            }
-        }
-
-        public static String onRequestフォント()
-        {
-            try
-            {
-                dynamic ret = engine.Script.onRequestフォント();
-                if (ret is Undefined)
-                {
-                    return "";
-                }
-                if (ret.フォント名 is Undefined)
-                {
-                    return "";
-                }
-                return ret.フォント名;
-            }
-            catch (Exception e)
-            {
-                OutputDebugStream("onRequestフォントError:" + e.Message);
-            }
-            return "";
-        }
 
         public static String onRequest音楽(String filepath)
         {
@@ -572,22 +523,6 @@ namespace ゲーム
                 OutputDebugStream("DoFileError:" + e.Message);
             }
             return false;
-        }
-
-        public static void onDestroyメインウィンドウ()
-        {
-            if (engine != null)
-            {
-                try
-                {
-                    engine.Script.onDestroyメインウィンドウ();
-                }
-                catch (Exception e)
-                {
-                    OutputDebugStream("onDestroyメインウィンドウError:" + e.Message);
-                }
-            }
-            DestroyEngine();
         }
 
         private static void DestroyEngine()

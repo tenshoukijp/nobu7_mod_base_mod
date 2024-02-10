@@ -70,6 +70,7 @@ void OnSSRExeCastleBattleMessageZantetsukenExecute() {
 		}
 
 		{
+			/*
 			// 「斬鉄剣」のセリフは、普通のメッセージの処理を通過していないので、ここで特別に処理。
 			vector<int> bushouList = { 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
 			bushouList[0] = iZantetsukenAttackBushouID;
@@ -78,6 +79,7 @@ void OnSSRExeCastleBattleMessageZantetsukenExecute() {
 				strcpy_s(customZantetsukenMessage, override.c_str());
 				CustomZantetsukenMessagePtr = (int)customZantetsukenMessage;
 			}
+			*/
 		}
 
 	}

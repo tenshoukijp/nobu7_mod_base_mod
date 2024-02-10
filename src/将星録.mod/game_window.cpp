@@ -4,6 +4,7 @@
 #include "output_debug_stream.h"
 #include "load_form_mod.h"
 #include "javascript_mod.h"
+#include "usr_custom_mod.h"
 
 HWND hNB7Wnd = NULL;
 
@@ -29,7 +30,11 @@ void onCreateWindow(HWND hWnd) {
 
 	OutputDebugStream("メニューを追加した\n");
 
-	callJSModCreateWindow(hWnd);
+	LoadUserMod();
+
+	System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+	dic->Add("ウィンドウハンドル", (int)hWnd);
+	auto ret = InvokeUserMethod("onメインウィンドウ生成後", dic);
 
 	OutputDebugStream("将星録の開始\n");
 
@@ -40,7 +45,8 @@ void onDestroyWindow() {
 	if (!doneDestroyWindow) {
 		Close_FormMod();
 
-		callJSModDestroyWindow();
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+		auto ret = InvokeUserMethod("onメインウィンドウ破棄前", dic);
 
 		OutputDebugStream("ウィンドウ破棄\r\n");
 	}

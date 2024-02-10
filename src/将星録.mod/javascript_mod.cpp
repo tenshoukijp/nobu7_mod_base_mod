@@ -8,19 +8,7 @@ using namespace System;
 using namespace System::Collections::Generic;
 
 
-void callJSModCreateWindow(HWND hWnd) {
-	IJavaScriptMod::onCreateWindow((int)hWnd);
-}
 
-std::string callJSModRequestFont() {
-	System::String^ fontname = IJavaScriptMod::onRequestFont();
-	if (System::String::IsNullOrEmpty(fontname)) { return ""; }
-	return to_native_string(fontname);
-}
-
-void callJSModDestroyWindow() {
-	IJavaScriptMod::onDestroyWindow();
-}
 
 void callJSModMmioOpenA(char* pszFileName, char* bufOverrideFileName) {
 	System::String^ filepath = gcnew System::String(pszFileName);
@@ -77,3 +65,4 @@ std::string callJSModRequestBushouMessage(std::string message, std::vector<int> 
 	if (System::String::IsNullOrEmpty(ret)) { return ""; }
 	return to_native_string(ret);
 }
+

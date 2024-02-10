@@ -132,6 +132,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="game_window.h" />
     <ClInclude Include="mng_家宝列挙.h" />
+    <ClInclude Include="usr_custom_mod.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fook_picture_cache.cpp" />
@@ -270,6 +271,7 @@
     <ClCompile Include="game_process.cpp" />
     <ClCompile Include="game_window.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_damage.cpp" />
+    <ClCompile Include="usr_custom_mod.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />

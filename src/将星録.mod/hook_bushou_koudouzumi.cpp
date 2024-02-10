@@ -47,10 +47,11 @@ ESIが武将情報の該当武将へのポインタ
 #include "game_screen.h"
 #include "message_albedo.h"
 #include "on_event.h"
+#include "javascript_mod.h"
+#include "usr_custom_mod.h"
 
 using namespace std;
 
-#pragma unmanaged
 
 static int iBushouKoudouzumiECX = -1;
 static int iPrevisouBushouIDKoudouzumi = -1;
@@ -64,7 +65,6 @@ void resetMapBushouKoudouzumiCacheInMonth() {
 }
 
 void OnSSRExeBushouKoudouzumiExecute() {
-
 
 	int iBushouID = getBushouIDFromBushouPtr((int *)iBushouKoudouzumiECX);
 
@@ -101,11 +101,27 @@ void OnSSRExeBushouKoudouzumiExecute() {
 			アルベド使者ユニット時のお金が復活();
 		}
 
+		// C#のカスタム.mod.dllからの上書き
+		try {
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			dic->Add("武将番号", iBushouID);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on武将行動済時", dic);
+
+			if (ret != nullptr && ret->ContainsKey("行動済")) {
+				int 行動済 = (int)(ret["行動済"]);
+				mapBushouKoudouzumiCacheInMonth[iBushouID] = 行動済;
+			}
+		}
+		catch (System::Exception^ e) {
+			OutputDebugStream("onフォント名要求時でエラーが発生しました。");
+		}
+
 		// ★★★ここでJavaScriptのメソッドを実行して、返り値を取得して、それが特別ならば、
 		// 登録する。undefinedの返り値(要するに返り値を返していないならば)、登録しない
 	}
 }
 
+#pragma unmanaged
 
 /*
 EAX 00000800

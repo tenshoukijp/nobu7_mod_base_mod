@@ -66,13 +66,14 @@ void OnSSRExeMessageDetailExecute() {
 	checkReplaceBushouRetsuden();
 
 	vector<int> bushouList = { 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF };
-	for (int i = 0; i < bushouList.size(); i++) {
+	for (int i = 0; i < (int)bushouList.size(); i++) {
 		bushouList[0] = list話者BushouID[0];
 	}
-	string override = callJSModRequestBushouMessage((char*)セリフメッセージアドレス, bushouList);
-	if (override != "") {
-		replaceMessage(override);
+	string override_msg = callJSModRequestBushouMessage((char*)セリフメッセージアドレス, bushouList);
+	if (override_msg != "") {
+		replaceMessage(override_msg);
 	}
+
 	OutputDebugStream((char*)セリフメッセージアドレス);
 	OutputDebugStream("\n");
 }

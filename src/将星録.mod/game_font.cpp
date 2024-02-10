@@ -8,6 +8,7 @@
 #include "process.h"
 #include "output_debug_stream.h"
 #include "javascript_mod.h"
+#include "usr_custom_mod.h"
 
 using namespace System;
 using namespace Microsoft::Win32;
@@ -47,16 +48,28 @@ char bufferCustomFontName[32] = "将星 明朝";
 char bufferDefaultFontName[32] = "ＭＳ 明朝";
 const char* getNB7FontName() {
 
-	std::string js_fontname = callJSModRequestFont();
-	if (js_fontname != "") {
-		// フォント名を上書きする
-		strcpy_s(bufferCustomFontName, js_fontname.c_str());
-		return bufferCustomFontName;
+	System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+	System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onフォント名要求時", dic);
+
+	try {
+		if (ret != nullptr && ret->ContainsKey("フォント名")) {
+			System::String^ filename = (System::String^)(ret["フォント名"]);
+			std::string native_fontname = to_native_string(filename);
+
+			if (native_fontname != "") {
+				// フォント名を上書きする
+				strcpy_s(bufferCustomFontName, native_fontname.c_str());
+				return bufferCustomFontName;
+			}
+		}
+
+		else if (isFontExist) {
+			return bufferCustomFontName;
+		}
+	}
+	catch (Exception^ /*ex*/) {
 	}
 
-	else if (isFontExist) {
-		return bufferCustomFontName;
-	}
 	// そのまま返す
 	return bufferDefaultFontName;
 }
