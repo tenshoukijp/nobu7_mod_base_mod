@@ -11,7 +11,8 @@
     // 静的メソッドのMethodInfoオブジェクトを取得
     System::Reflection::MethodInfo^ methodInfo = type->GetMethod("あいう");
 */
-
+#include "output_debug_stream.h"
+#include "mng_文字列変換.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
@@ -112,21 +113,18 @@ System::Collections::Generic::Dictionary<System::String^, System::Object^>^ Invo
 	try {
 		MethodInfo^ methodinfo = GetUserMethod(methodname);
 		if (methodinfo == nullptr) {
-			System::Diagnostics::Trace::WriteLine("メソッドはnullptr");
+			OutputDebugStream(to_native_string(methodname + "は無い\n"));
 			return nullptr;
 		}
 
 		array<Object^>^ parameters = gcnew array<Object^> { dic };
 
-		System::Diagnostics::Trace::WriteLine("★呼び出し前");
 		Object^ result = methodinfo->Invoke(nullptr, parameters);
-		System::Diagnostics::Trace::WriteLine("★返り値キャスト前");
 		Dictionary<String^, Object^>^ resultDic = (Dictionary<String^, Object^>^)result;
-		System::Diagnostics::Trace::WriteLine("★返り値を返す前");
 		return resultDic;
 
 	} catch (Exception^ e) {
-		System::Diagnostics::Trace::WriteLine("★InvokeUserMethod Error" + e->Message);
+		OutputDebugStream(to_native_string(methodname + "実行エラー Error" + e->Message + "\n"));
 		return nullptr;
 	}
 

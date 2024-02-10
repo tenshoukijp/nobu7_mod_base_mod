@@ -77,7 +77,7 @@ std::string getUserCustomMovieFileName(System::String^ movie_filename) {
 
 	}
 	catch (System::Exception^ e) {
-
+		OutputDebugStream("onムービーファイル名要求時でエラー");
 	}
 
 	return "";

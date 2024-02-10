@@ -1,0 +1,1210 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly 将星録.mod, Version=0.0.*, Culture=ロケールに依存しない言語 (ロケールに依存しない国): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly JavaScript.mod, Version=1.0.*, Culture=ロケールに依存しない言語 (ロケールに依存しない国): 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class 将星録.武将情報.身分: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 大名 IsConst : Public, Static, HasDefault
+    Int32 宿老 IsConst : Public, Static, HasDefault
+    Int32 家老 IsConst : Public, Static, HasDefault
+    Int32 部将 IsConst : Public, Static, HasDefault
+    Int32 侍大将 IsConst : Public, Static, HasDefault
+    Int32 足軽頭 IsConst : Public, Static, HasDefault
+    Int32 その他 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.ユニット.種別: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 軍勢 IsConst : Public, Static, HasDefault
+    Int32 軍船 IsConst : Public, Static, HasDefault
+    Int32 輸送 IsConst : Public, Static, HasDefault
+    Int32 開墾 IsConst : Public, Static, HasDefault
+    Int32 商業 IsConst : Public, Static, HasDefault
+    Int32 建設 IsConst : Public, Static, HasDefault
+    Int32 間者 IsConst : Public, Static, HasDefault
+    Int32 忍者 IsConst : Public, Static, HasDefault
+    Int32 使者 IsConst : Public, Static, HasDefault
+    Int32 移動 IsConst : Public, Static, HasDefault
+    Int32 浪人 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.武将.状態: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 大名 IsConst : Public, Static, HasDefault
+    Int32 現役 IsConst : Public, Static, HasDefault
+    Int32 独立勢力 IsConst : Public, Static, HasDefault
+    Int32 浪人 IsConst : Public, Static, HasDefault
+    Int32 姫 IsConst : Public, Static, HasDefault
+    Int32 未登場 IsConst : Public, Static, HasDefault
+    Int32 一向一揆勢力 IsConst : Public, Static, HasDefault
+    Int32 一揆勢力 IsConst : Public, Static, HasDefault
+    Int32 死亡 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.武将.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 蠣崎季広 IsConst : Public, Static, HasDefault
+    Int32 松前慶広 IsConst : Public, Static, HasDefault
+    Int32 松前公広 IsConst : Public, Static, HasDefault
+    Int32 南部晴政 IsConst : Public, Static, HasDefault
+    Int32 石川高信 IsConst : Public, Static, HasDefault
+    Int32 北信愛 IsConst : Public, Static, HasDefault
+    Int32 九戸政実 IsConst : Public, Static, HasDefault
+    Int32 南部信直 IsConst : Public, Static, HasDefault
+    Int32 南部利直 IsConst : Public, Static, HasDefault
+    Int32 八戸政栄 IsConst : Public, Static, HasDefault
+    Int32 津軽為信 IsConst : Public, Static, HasDefault
+    Int32 津軽信牧 IsConst : Public, Static, HasDefault
+    Int32 葛西親信 IsConst : Public, Static, HasDefault
+    Int32 葛西晴信 IsConst : Public, Static, HasDefault
+    Int32 大崎義直 IsConst : Public, Static, HasDefault
+    Int32 黒川晴氏 IsConst : Public, Static, HasDefault
+    Int32 大崎義隆 IsConst : Public, Static, HasDefault
+    Int32 伊達晴宗 IsConst : Public, Static, HasDefault
+    Int32 伊達実元 IsConst : Public, Static, HasDefault
+    Int32 鬼庭良直 IsConst : Public, Static, HasDefault
+    Int32 中野宗時 IsConst : Public, Static, HasDefault
+    Int32 遠藤基信 IsConst : Public, Static, HasDefault
+    Int32 伊達輝宗 IsConst : Public, Static, HasDefault
+    Int32 留守政景 IsConst : Public, Static, HasDefault
+    Int32 伊達政宗 IsConst : Public, Static, HasDefault
+    Int32 伊達成実 IsConst : Public, Static, HasDefault
+    Int32 鬼庭綱元 IsConst : Public, Static, HasDefault
+    Int32 片倉景綱 IsConst : Public, Static, HasDefault
+    Int32 原田宗時 IsConst : Public, Static, HasDefault
+    Int32 屋代景頼 IsConst : Public, Static, HasDefault
+    Int32 白石宗実 IsConst : Public, Static, HasDefault
+    Int32 支倉常長 IsConst : Public, Static, HasDefault
+    Int32 桜田元親 IsConst : Public, Static, HasDefault
+    Int32 蘆名盛氏 IsConst : Public, Static, HasDefault
+    Int32 二階堂盛義 IsConst : Public, Static, HasDefault
+    Int32 金上盛備 IsConst : Public, Static, HasDefault
+    Int32 猪苗代盛国 IsConst : Public, Static, HasDefault
+    Int32 蘆名盛興 IsConst : Public, Static, HasDefault
+    Int32 蘆名盛隆 IsConst : Public, Static, HasDefault
+    Int32 蘆名盛重 IsConst : Public, Static, HasDefault
+    Int32 猪苗代盛胤 IsConst : Public, Static, HasDefault
+    Int32 富田隆実 IsConst : Public, Static, HasDefault
+    Int32 二本松義継 IsConst : Public, Static, HasDefault
+    Int32 大内定綱 IsConst : Public, Static, HasDefault
+    Int32 相馬盛胤 IsConst : Public, Static, HasDefault
+    Int32 岩城重隆 IsConst : Public, Static, HasDefault
+    Int32 相馬義胤 IsConst : Public, Static, HasDefault
+    Int32 岩城親隆 IsConst : Public, Static, HasDefault
+    Int32 岩城常隆 IsConst : Public, Static, HasDefault
+    Int32 岩城貞隆 IsConst : Public, Static, HasDefault
+    Int32 安東舜季 IsConst : Public, Static, HasDefault
+    Int32 浅利則祐 IsConst : Public, Static, HasDefault
+    Int32 安東愛季 IsConst : Public, Static, HasDefault
+    Int32 秋田実季 IsConst : Public, Static, HasDefault
+    Int32 浅利勝頼 IsConst : Public, Static, HasDefault
+    Int32 小野寺景道 IsConst : Public, Static, HasDefault
+    Int32 小野寺義道 IsConst : Public, Static, HasDefault
+    Int32 戸沢盛安 IsConst : Public, Static, HasDefault
+    Int32 戸沢政盛 IsConst : Public, Static, HasDefault
+    Int32 鮭延秀綱 IsConst : Public, Static, HasDefault
+    Int32 六郷政乗 IsConst : Public, Static, HasDefault
+    Int32 最上義守 IsConst : Public, Static, HasDefault
+    Int32 氏家定直 IsConst : Public, Static, HasDefault
+    Int32 最上義光 IsConst : Public, Static, HasDefault
+    Int32 最上家親 IsConst : Public, Static, HasDefault
+    Int32 山野辺義忠 IsConst : Public, Static, HasDefault
+    Int32 氏家守棟 IsConst : Public, Static, HasDefault
+    Int32 氏家光氏 IsConst : Public, Static, HasDefault
+    Int32 志村光安 IsConst : Public, Static, HasDefault
+    Int32 延沢満延 IsConst : Public, Static, HasDefault
+    Int32 楯岡満茂 IsConst : Public, Static, HasDefault
+    Int32 大宝寺義氏 IsConst : Public, Static, HasDefault
+    Int32 大宝寺義勝 IsConst : Public, Static, HasDefault
+    Int32 佐竹義昭 IsConst : Public, Static, HasDefault
+    Int32 佐竹義堅 IsConst : Public, Static, HasDefault
+    Int32 岡本禅哲 IsConst : Public, Static, HasDefault
+    Int32 佐竹義重 IsConst : Public, Static, HasDefault
+    Int32 佐竹義宣 IsConst : Public, Static, HasDefault
+    Int32 佐竹義憲 IsConst : Public, Static, HasDefault
+    Int32 佐竹義久 IsConst : Public, Static, HasDefault
+    Int32 岡本顕逸 IsConst : Public, Static, HasDefault
+    Int32 岡本宣綱 IsConst : Public, Static, HasDefault
+    Int32 梅津政景 IsConst : Public, Static, HasDefault
+    Int32 和田昭為 IsConst : Public, Static, HasDefault
+    Int32 小田氏治 IsConst : Public, Static, HasDefault
+    Int32 江戸重通 IsConst : Public, Static, HasDefault
+    Int32 真壁氏幹 IsConst : Public, Static, HasDefault
+    Int32 結城政勝 IsConst : Public, Static, HasDefault
+    Int32 結城晴朝 IsConst : Public, Static, HasDefault
+    Int32 小山高朝 IsConst : Public, Static, HasDefault
+    Int32 多賀谷政広 IsConst : Public, Static, HasDefault
+    Int32 結城朝勝 IsConst : Public, Static, HasDefault
+    Int32 足利義氏 IsConst : Public, Static, HasDefault
+    Int32 千葉胤富 IsConst : Public, Static, HasDefault
+    Int32 里見義尭 IsConst : Public, Static, HasDefault
+    Int32 里見義弘 IsConst : Public, Static, HasDefault
+    Int32 正木時茂 IsConst : Public, Static, HasDefault
+    Int32 正木時忠 IsConst : Public, Static, HasDefault
+    Int32 里見義頼 IsConst : Public, Static, HasDefault
+    Int32 里見義康 IsConst : Public, Static, HasDefault
+    Int32 里見忠義 IsConst : Public, Static, HasDefault
+    Int32 正木時尭 IsConst : Public, Static, HasDefault
+    Int32 正木頼忠 IsConst : Public, Static, HasDefault
+    Int32 正木為春 IsConst : Public, Static, HasDefault
+    Int32 宇都宮広綱 IsConst : Public, Static, HasDefault
+    Int32 芳賀高定 IsConst : Public, Static, HasDefault
+    Int32 宇都宮国綱 IsConst : Public, Static, HasDefault
+    Int32 芳賀高継 IsConst : Public, Static, HasDefault
+    Int32 芳賀高武 IsConst : Public, Static, HasDefault
+    Int32 那須資晴 IsConst : Public, Static, HasDefault
+    Int32 皆川広照 IsConst : Public, Static, HasDefault
+    Int32 上杉憲政 IsConst : Public, Static, HasDefault
+    Int32 長尾景長 IsConst : Public, Static, HasDefault
+    Int32 長野業正 IsConst : Public, Static, HasDefault
+    Int32 上泉信綱 IsConst : Public, Static, HasDefault
+    Int32 由良成繁 IsConst : Public, Static, HasDefault
+    Int32 小幡信貞 IsConst : Public, Static, HasDefault
+    Int32 長野業盛 IsConst : Public, Static, HasDefault
+    Int32 長尾顕長 IsConst : Public, Static, HasDefault
+    Int32 由良国繁 IsConst : Public, Static, HasDefault
+    Int32 鈴木重則 IsConst : Public, Static, HasDefault
+    Int32 沼田祐光 IsConst : Public, Static, HasDefault
+    Int32 北条綱成 IsConst : Public, Static, HasDefault
+    Int32 北条氏繁 IsConst : Public, Static, HasDefault
+    Int32 遠山綱景 IsConst : Public, Static, HasDefault
+    Int32 上田朝直 IsConst : Public, Static, HasDefault
+    Int32 太田資正 IsConst : Public, Static, HasDefault
+    Int32 成田長泰 IsConst : Public, Static, HasDefault
+    Int32 北条氏勝 IsConst : Public, Static, HasDefault
+    Int32 上田憲定 IsConst : Public, Static, HasDefault
+    Int32 成田氏長 IsConst : Public, Static, HasDefault
+    Int32 成田長忠 IsConst : Public, Static, HasDefault
+    Int32 北条氏康 IsConst : Public, Static, HasDefault
+    Int32 北条幻庵 IsConst : Public, Static, HasDefault
+    Int32 清水康英 IsConst : Public, Static, HasDefault
+    Int32 風魔小太郎 IsConst : Public, Static, HasDefault
+    Int32 北条氏政 IsConst : Public, Static, HasDefault
+    Int32 北条氏直 IsConst : Public, Static, HasDefault
+    Int32 北条氏照 IsConst : Public, Static, HasDefault
+    Int32 北条氏邦 IsConst : Public, Static, HasDefault
+    Int32 北条氏規 IsConst : Public, Static, HasDefault
+    Int32 松田憲秀 IsConst : Public, Static, HasDefault
+    Int32 太田康資 IsConst : Public, Static, HasDefault
+    Int32 大道寺政繁 IsConst : Public, Static, HasDefault
+    Int32 大道寺直次 IsConst : Public, Static, HasDefault
+    Int32 御宿勘兵衛 IsConst : Public, Static, HasDefault
+    Int32 猪俣邦憲 IsConst : Public, Static, HasDefault
+    Int32 板部岡江雪斎 IsConst : Public, Static, HasDefault
+    Int32 今川義元 IsConst : Public, Static, HasDefault
+    Int32 安倍元真 IsConst : Public, Static, HasDefault
+    Int32 太原雪斎 IsConst : Public, Static, HasDefault
+    Int32 伊丹康直 IsConst : Public, Static, HasDefault
+    Int32 朝比奈信置 IsConst : Public, Static, HasDefault
+    Int32 今川氏真 IsConst : Public, Static, HasDefault
+    Int32 岡部正綱 IsConst : Public, Static, HasDefault
+    Int32 岡部元信 IsConst : Public, Static, HasDefault
+    Int32 朝比奈泰能 IsConst : Public, Static, HasDefault
+    Int32 朝比奈泰朝 IsConst : Public, Static, HasDefault
+    Int32 鵜殿長照 IsConst : Public, Static, HasDefault
+    Int32 鵜殿氏長 IsConst : Public, Static, HasDefault
+    Int32 井伊直政 IsConst : Public, Static, HasDefault
+    Int32 井伊直孝 IsConst : Public, Static, HasDefault
+    Int32 松平元康 IsConst : Public, Static, HasDefault
+    Int32 酒井忠次 IsConst : Public, Static, HasDefault
+    Int32 石川数正 IsConst : Public, Static, HasDefault
+    Int32 大久保忠世 IsConst : Public, Static, HasDefault
+    Int32 大久保忠佐 IsConst : Public, Static, HasDefault
+    Int32 松平信康 IsConst : Public, Static, HasDefault
+    Int32 結城秀康 IsConst : Public, Static, HasDefault
+    Int32 松平忠直 IsConst : Public, Static, HasDefault
+    Int32 徳川秀忠 IsConst : Public, Static, HasDefault
+    Int32 松平忠吉 IsConst : Public, Static, HasDefault
+    Int32 松平忠輝 IsConst : Public, Static, HasDefault
+    Int32 石川康長 IsConst : Public, Static, HasDefault
+    Int32 板倉勝重 IsConst : Public, Static, HasDefault
+    Int32 大久保忠隣 IsConst : Public, Static, HasDefault
+    Int32 酒井家次 IsConst : Public, Static, HasDefault
+    Int32 榊原康政 IsConst : Public, Static, HasDefault
+    Int32 鳥居元忠 IsConst : Public, Static, HasDefault
+    Int32 服部半蔵 IsConst : Public, Static, HasDefault
+    Int32 平岩親吉 IsConst : Public, Static, HasDefault
+    Int32 本多忠勝 IsConst : Public, Static, HasDefault
+    Int32 本多忠政 IsConst : Public, Static, HasDefault
+    Int32 本多忠朝 IsConst : Public, Static, HasDefault
+    Int32 本多正信 IsConst : Public, Static, HasDefault
+    Int32 本多正純 IsConst : Public, Static, HasDefault
+    Int32 本多重次 IsConst : Public, Static, HasDefault
+    Int32 奥平信昌 IsConst : Public, Static, HasDefault
+    Int32 青山忠俊 IsConst : Public, Static, HasDefault
+    Int32 伊奈忠次 IsConst : Public, Static, HasDefault
+    Int32 阿部正次 IsConst : Public, Static, HasDefault
+    Int32 土井利勝 IsConst : Public, Static, HasDefault
+    Int32 林羅山 IsConst : Public, Static, HasDefault
+    Int32 渡辺守綱 IsConst : Public, Static, HasDefault
+    Int32 酒井忠世 IsConst : Public, Static, HasDefault
+    Int32 酒井忠勝 IsConst : Public, Static, HasDefault
+    Int32 石川重之 IsConst : Public, Static, HasDefault
+    Int32 松平信綱 IsConst : Public, Static, HasDefault
+    Int32 織田信長 IsConst : Public, Static, HasDefault
+    Int32 林通勝 IsConst : Public, Static, HasDefault
+    Int32 平手政秀 IsConst : Public, Static, HasDefault
+    Int32 金森長近 IsConst : Public, Static, HasDefault
+    Int32 河尻秀隆 IsConst : Public, Static, HasDefault
+    Int32 佐久間信盛 IsConst : Public, Static, HasDefault
+    Int32 柴田勝家 IsConst : Public, Static, HasDefault
+    Int32 池田恒興 IsConst : Public, Static, HasDefault
+    Int32 丹羽長秀 IsConst : Public, Static, HasDefault
+    Int32 織田信行 IsConst : Public, Static, HasDefault
+    Int32 津田信澄 IsConst : Public, Static, HasDefault
+    Int32 織田信包 IsConst : Public, Static, HasDefault
+    Int32 織田有楽斎 IsConst : Public, Static, HasDefault
+    Int32 織田信忠 IsConst : Public, Static, HasDefault
+    Int32 織田秀信 IsConst : Public, Static, HasDefault
+    Int32 織田信雄 IsConst : Public, Static, HasDefault
+    Int32 織田信孝 IsConst : Public, Static, HasDefault
+    Int32 池田輝政 IsConst : Public, Static, HasDefault
+    Int32 佐々成政 IsConst : Public, Static, HasDefault
+    Int32 佐久間盛政 IsConst : Public, Static, HasDefault
+    Int32 柴田勝豊 IsConst : Public, Static, HasDefault
+    Int32 丹羽長重 IsConst : Public, Static, HasDefault
+    Int32 原田直政 IsConst : Public, Static, HasDefault
+    Int32 前田利家 IsConst : Public, Static, HasDefault
+    Int32 前田利長 IsConst : Public, Static, HasDefault
+    Int32 前田利政 IsConst : Public, Static, HasDefault
+    Int32 堀秀政 IsConst : Public, Static, HasDefault
+    Int32 堀秀治 IsConst : Public, Static, HasDefault
+    Int32 村井貞勝 IsConst : Public, Static, HasDefault
+    Int32 生駒親正 IsConst : Public, Static, HasDefault
+    Int32 森可成 IsConst : Public, Static, HasDefault
+    Int32 森長可 IsConst : Public, Static, HasDefault
+    Int32 森蘭丸 IsConst : Public, Static, HasDefault
+    Int32 森忠政 IsConst : Public, Static, HasDefault
+    Int32 溝口秀勝 IsConst : Public, Static, HasDefault
+    Int32 毛受勝照 IsConst : Public, Static, HasDefault
+    Int32 徳永寿昌 IsConst : Public, Static, HasDefault
+    Int32 上田重安 IsConst : Public, Static, HasDefault
+    Int32 前田慶次 IsConst : Public, Static, HasDefault
+    Int32 斯波義統 IsConst : Public, Static, HasDefault
+    Int32 斯波義銀 IsConst : Public, Static, HasDefault
+    Int32 毛利秀頼 IsConst : Public, Static, HasDefault
+    Int32 土岐頼次 IsConst : Public, Static, HasDefault
+    Int32 羽柴秀吉 IsConst : Public, Static, HasDefault
+    Int32 羽柴秀長 IsConst : Public, Static, HasDefault
+    Int32 羽柴秀次 IsConst : Public, Static, HasDefault
+    Int32 豊臣秀頼 IsConst : Public, Static, HasDefault
+    Int32 木下勝俊 IsConst : Public, Static, HasDefault
+    Int32 小早川秀秋 IsConst : Public, Static, HasDefault
+    Int32 浅野長政 IsConst : Public, Static, HasDefault
+    Int32 浅野幸長 IsConst : Public, Static, HasDefault
+    Int32 浅野長晟 IsConst : Public, Static, HasDefault
+    Int32 蜂須賀正勝 IsConst : Public, Static, HasDefault
+    Int32 蜂須賀家政 IsConst : Public, Static, HasDefault
+    Int32 前野長康 IsConst : Public, Static, HasDefault
+    Int32 福島正則 IsConst : Public, Static, HasDefault
+    Int32 加藤清正 IsConst : Public, Static, HasDefault
+    Int32 加藤嘉明 IsConst : Public, Static, HasDefault
+    Int32 中村一氏 IsConst : Public, Static, HasDefault
+    Int32 堀尾吉晴 IsConst : Public, Static, HasDefault
+    Int32 山内一豊 IsConst : Public, Static, HasDefault
+    Int32 毛利勝永 IsConst : Public, Static, HasDefault
+    Int32 塙直之 IsConst : Public, Static, HasDefault
+    Int32 松野重元 IsConst : Public, Static, HasDefault
+    Int32 戸田勝成 IsConst : Public, Static, HasDefault
+    Int32 村上義明 IsConst : Public, Static, HasDefault
+    Int32 平塚為広 IsConst : Public, Static, HasDefault
+    Int32 飯田覚兵衛 IsConst : Public, Static, HasDefault
+    Int32 小野木重次 IsConst : Public, Static, HasDefault
+    Int32 斎藤道三 IsConst : Public, Static, HasDefault
+    Int32 斎藤義龍 IsConst : Public, Static, HasDefault
+    Int32 安藤守就 IsConst : Public, Static, HasDefault
+    Int32 稲葉一鉄 IsConst : Public, Static, HasDefault
+    Int32 氏家卜全 IsConst : Public, Static, HasDefault
+    Int32 斎藤龍興 IsConst : Public, Static, HasDefault
+    Int32 可児才蔵 IsConst : Public, Static, HasDefault
+    Int32 竹中半兵衛 IsConst : Public, Static, HasDefault
+    Int32 竹中重門 IsConst : Public, Static, HasDefault
+    Int32 斎藤利三 IsConst : Public, Static, HasDefault
+    Int32 稲葉正成 IsConst : Public, Static, HasDefault
+    Int32 北畠晴具 IsConst : Public, Static, HasDefault
+    Int32 北畠具教 IsConst : Public, Static, HasDefault
+    Int32 木造具政 IsConst : Public, Static, HasDefault
+    Int32 北畠具房 IsConst : Public, Static, HasDefault
+    Int32 長野具藤 IsConst : Public, Static, HasDefault
+    Int32 木造具康 IsConst : Public, Static, HasDefault
+    Int32 小浜景隆 IsConst : Public, Static, HasDefault
+    Int32 向井正綱 IsConst : Public, Static, HasDefault
+    Int32 関盛信 IsConst : Public, Static, HasDefault
+    Int32 神戸具盛 IsConst : Public, Static, HasDefault
+    Int32 関一政 IsConst : Public, Static, HasDefault
+    Int32 九鬼嘉隆 IsConst : Public, Static, HasDefault
+    Int32 九鬼守隆 IsConst : Public, Static, HasDefault
+    Int32 武田信玄 IsConst : Public, Static, HasDefault
+    Int32 武田信繁 IsConst : Public, Static, HasDefault
+    Int32 武田信廉 IsConst : Public, Static, HasDefault
+    Int32 原虎胤 IsConst : Public, Static, HasDefault
+    Int32 馬場信房 IsConst : Public, Static, HasDefault
+    Int32 真田幸隆 IsConst : Public, Static, HasDefault
+    Int32 山本勘助 IsConst : Public, Static, HasDefault
+    Int32 飯富虎昌 IsConst : Public, Static, HasDefault
+    Int32 内藤昌豊 IsConst : Public, Static, HasDefault
+    Int32 高坂昌信 IsConst : Public, Static, HasDefault
+    Int32 山県昌景 IsConst : Public, Static, HasDefault
+    Int32 秋山信友 IsConst : Public, Static, HasDefault
+    Int32 武田信豊 IsConst : Public, Static, HasDefault
+    Int32 武田義信 IsConst : Public, Static, HasDefault
+    Int32 武田勝頼 IsConst : Public, Static, HasDefault
+    Int32 武田信勝 IsConst : Public, Static, HasDefault
+    Int32 仁科盛信 IsConst : Public, Static, HasDefault
+    Int32 穴山信君 IsConst : Public, Static, HasDefault
+    Int32 小山田信茂 IsConst : Public, Static, HasDefault
+    Int32 小幡景憲 IsConst : Public, Static, HasDefault
+    Int32 藤田信吉 IsConst : Public, Static, HasDefault
+    Int32 真田信綱 IsConst : Public, Static, HasDefault
+    Int32 真田昌幸 IsConst : Public, Static, HasDefault
+    Int32 真田信幸 IsConst : Public, Static, HasDefault
+    Int32 真田幸村 IsConst : Public, Static, HasDefault
+    Int32 真田大助 IsConst : Public, Static, HasDefault
+    Int32 猿飛佐助 IsConst : Public, Static, HasDefault
+    Int32 霧隠才蔵 IsConst : Public, Static, HasDefault
+    Int32 筧十蔵 IsConst : Public, Static, HasDefault
+    Int32 穴山小助 IsConst : Public, Static, HasDefault
+    Int32 海野六郎 IsConst : Public, Static, HasDefault
+    Int32 望月六郎 IsConst : Public, Static, HasDefault
+    Int32 由利鎌之助 IsConst : Public, Static, HasDefault
+    Int32 根津甚八 IsConst : Public, Static, HasDefault
+    Int32 大久保長安 IsConst : Public, Static, HasDefault
+    Int32 村上義清 IsConst : Public, Static, HasDefault
+    Int32 須田満親 IsConst : Public, Static, HasDefault
+    Int32 屋代政国 IsConst : Public, Static, HasDefault
+    Int32 高梨政頼 IsConst : Public, Static, HasDefault
+    Int32 村上国清 IsConst : Public, Static, HasDefault
+    Int32 屋代勝永 IsConst : Public, Static, HasDefault
+    Int32 須田長義 IsConst : Public, Static, HasDefault
+    Int32 蘆田信蕃 IsConst : Public, Static, HasDefault
+    Int32 蘆田康勝 IsConst : Public, Static, HasDefault
+    Int32 木曾義康 IsConst : Public, Static, HasDefault
+    Int32 木曾義昌 IsConst : Public, Static, HasDefault
+    Int32 木曾義利 IsConst : Public, Static, HasDefault
+    Int32 保科正俊 IsConst : Public, Static, HasDefault
+    Int32 諏訪頼忠 IsConst : Public, Static, HasDefault
+    Int32 姉小路良頼 IsConst : Public, Static, HasDefault
+    Int32 姉小路頼綱 IsConst : Public, Static, HasDefault
+    Int32 三木顕綱 IsConst : Public, Static, HasDefault
+    Int32 長尾政景 IsConst : Public, Static, HasDefault
+    Int32 直江景綱 IsConst : Public, Static, HasDefault
+    Int32 上杉景勝 IsConst : Public, Static, HasDefault
+    Int32 直江兼続 IsConst : Public, Static, HasDefault
+    Int32 新発田重家 IsConst : Public, Static, HasDefault
+    Int32 本庄繁長 IsConst : Public, Static, HasDefault
+    Int32 長尾景虎 IsConst : Public, Static, HasDefault
+    Int32 上杉景信 IsConst : Public, Static, HasDefault
+    Int32 柿崎景家 IsConst : Public, Static, HasDefault
+    Int32 宇佐美定満 IsConst : Public, Static, HasDefault
+    Int32 北条高広 IsConst : Public, Static, HasDefault
+    Int32 上杉景虎 IsConst : Public, Static, HasDefault
+    Int32 上条政繁 IsConst : Public, Static, HasDefault
+    Int32 甘粕景継 IsConst : Public, Static, HasDefault
+    Int32 北条景広 IsConst : Public, Static, HasDefault
+    Int32 斎藤朝信 IsConst : Public, Static, HasDefault
+    Int32 水原親憲 IsConst : Public, Static, HasDefault
+    Int32 小笠原貞慶 IsConst : Public, Static, HasDefault
+    Int32 小笠原秀政 IsConst : Public, Static, HasDefault
+    Int32 神保長職 IsConst : Public, Static, HasDefault
+    Int32 小島職鎮 IsConst : Public, Static, HasDefault
+    Int32 神保氏張 IsConst : Public, Static, HasDefault
+    Int32 神保長住 IsConst : Public, Static, HasDefault
+    Int32 畠山義続 IsConst : Public, Static, HasDefault
+    Int32 長続連 IsConst : Public, Static, HasDefault
+    Int32 温井総貞 IsConst : Public, Static, HasDefault
+    Int32 遊佐続光 IsConst : Public, Static, HasDefault
+    Int32 畠山義綱 IsConst : Public, Static, HasDefault
+    Int32 畠山義慶 IsConst : Public, Static, HasDefault
+    Int32 長連龍 IsConst : Public, Static, HasDefault
+    Int32 温井景隆 IsConst : Public, Static, HasDefault
+    Int32 本願寺証如 IsConst : Public, Static, HasDefault
+    Int32 下間頼照 IsConst : Public, Static, HasDefault
+    Int32 本願寺顕如 IsConst : Public, Static, HasDefault
+    Int32 本願寺教如 IsConst : Public, Static, HasDefault
+    Int32 本願寺准如 IsConst : Public, Static, HasDefault
+    Int32 下間頼廉 IsConst : Public, Static, HasDefault
+    Int32 下間仲孝 IsConst : Public, Static, HasDefault
+    Int32 朝倉義景 IsConst : Public, Static, HasDefault
+    Int32 朝倉景隆 IsConst : Public, Static, HasDefault
+    Int32 真柄直隆 IsConst : Public, Static, HasDefault
+    Int32 朝倉宗滴 IsConst : Public, Static, HasDefault
+    Int32 朝倉景健 IsConst : Public, Static, HasDefault
+    Int32 朝倉景鏡 IsConst : Public, Static, HasDefault
+    Int32 富田長繁 IsConst : Public, Static, HasDefault
+    Int32 前波吉継 IsConst : Public, Static, HasDefault
+    Int32 山崎長徳 IsConst : Public, Static, HasDefault
+    Int32 明智光秀 IsConst : Public, Static, HasDefault
+    Int32 明智秀満 IsConst : Public, Static, HasDefault
+    Int32 佐々木小次郎 IsConst : Public, Static, HasDefault
+    Int32 富田重政 IsConst : Public, Static, HasDefault
+    Int32 浅井久政 IsConst : Public, Static, HasDefault
+    Int32 赤尾清綱 IsConst : Public, Static, HasDefault
+    Int32 海北綱親 IsConst : Public, Static, HasDefault
+    Int32 浅井長政 IsConst : Public, Static, HasDefault
+    Int32 遠藤直経 IsConst : Public, Static, HasDefault
+    Int32 片桐且元 IsConst : Public, Static, HasDefault
+    Int32 藤堂高虎 IsConst : Public, Static, HasDefault
+    Int32 磯野員昌 IsConst : Public, Static, HasDefault
+    Int32 朽木元綱 IsConst : Public, Static, HasDefault
+    Int32 石田三成 IsConst : Public, Static, HasDefault
+    Int32 増田長盛 IsConst : Public, Static, HasDefault
+    Int32 田中吉政 IsConst : Public, Static, HasDefault
+    Int32 宮部継潤 IsConst : Public, Static, HasDefault
+    Int32 渡辺勘兵衛 IsConst : Public, Static, HasDefault
+    Int32 大谷吉継 IsConst : Public, Static, HasDefault
+    Int32 脇坂安治 IsConst : Public, Static, HasDefault
+    Int32 長束正家 IsConst : Public, Static, HasDefault
+    Int32 寺沢広高 IsConst : Public, Static, HasDefault
+    Int32 小堀政一 IsConst : Public, Static, HasDefault
+    Int32 六角義賢 IsConst : Public, Static, HasDefault
+    Int32 後藤賢豊 IsConst : Public, Static, HasDefault
+    Int32 蒲生定秀 IsConst : Public, Static, HasDefault
+    Int32 六角義治 IsConst : Public, Static, HasDefault
+    Int32 三雲成持 IsConst : Public, Static, HasDefault
+    Int32 蒲生賢秀 IsConst : Public, Static, HasDefault
+    Int32 蒲生氏郷 IsConst : Public, Static, HasDefault
+    Int32 蒲生秀行 IsConst : Public, Static, HasDefault
+    Int32 滝川一益 IsConst : Public, Static, HasDefault
+    Int32 河田長親 IsConst : Public, Static, HasDefault
+    Int32 百地三太夫 IsConst : Public, Static, HasDefault
+    Int32 石川五右衛門 IsConst : Public, Static, HasDefault
+    Int32 荒木又右衛門 IsConst : Public, Static, HasDefault
+    Int32 足利義輝 IsConst : Public, Static, HasDefault
+    Int32 京極高吉 IsConst : Public, Static, HasDefault
+    Int32 足利義昭 IsConst : Public, Static, HasDefault
+    Int32 細川藤孝 IsConst : Public, Static, HasDefault
+    Int32 細川忠興 IsConst : Public, Static, HasDefault
+    Int32 松井康之 IsConst : Public, Static, HasDefault
+    Int32 和田惟政 IsConst : Public, Static, HasDefault
+    Int32 京極高次 IsConst : Public, Static, HasDefault
+    Int32 京極高知 IsConst : Public, Static, HasDefault
+    Int32 前田玄以 IsConst : Public, Static, HasDefault
+    Int32 以心崇伝 IsConst : Public, Static, HasDefault
+    Int32 名古屋山三郎 IsConst : Public, Static, HasDefault
+    Int32 波多野晴通 IsConst : Public, Static, HasDefault
+    Int32 赤井直正 IsConst : Public, Static, HasDefault
+    Int32 籾井教業 IsConst : Public, Static, HasDefault
+    Int32 波多野秀治 IsConst : Public, Static, HasDefault
+    Int32 三好長慶 IsConst : Public, Static, HasDefault
+    Int32 松永久秀 IsConst : Public, Static, HasDefault
+    Int32 三好長逸 IsConst : Public, Static, HasDefault
+    Int32 三好政康 IsConst : Public, Static, HasDefault
+    Int32 岩成友通 IsConst : Public, Static, HasDefault
+    Int32 三好義興 IsConst : Public, Static, HasDefault
+    Int32 三好政勝 IsConst : Public, Static, HasDefault
+    Int32 松永久通 IsConst : Public, Static, HasDefault
+    Int32 池田長正 IsConst : Public, Static, HasDefault
+    Int32 池田勝正 IsConst : Public, Static, HasDefault
+    Int32 池田知正 IsConst : Public, Static, HasDefault
+    Int32 荒木村重 IsConst : Public, Static, HasDefault
+    Int32 中川清秀 IsConst : Public, Static, HasDefault
+    Int32 有馬豊氏 IsConst : Public, Static, HasDefault
+    Int32 畠山高政 IsConst : Public, Static, HasDefault
+    Int32 遊佐信教 IsConst : Public, Static, HasDefault
+    Int32 安見直政 IsConst : Public, Static, HasDefault
+    Int32 畠山昭高 IsConst : Public, Static, HasDefault
+    Int32 小西行長 IsConst : Public, Static, HasDefault
+    Int32 木村重成 IsConst : Public, Static, HasDefault
+    Int32 薄田兼相 IsConst : Public, Static, HasDefault
+    Int32 大野治長 IsConst : Public, Static, HasDefault
+    Int32 筒井順慶 IsConst : Public, Static, HasDefault
+    Int32 松倉重信 IsConst : Public, Static, HasDefault
+    Int32 筒井定次 IsConst : Public, Static, HasDefault
+    Int32 島勝猛 IsConst : Public, Static, HasDefault
+    Int32 高山重友 IsConst : Public, Static, HasDefault
+    Int32 松倉重政 IsConst : Public, Static, HasDefault
+    Int32 柳生宗厳 IsConst : Public, Static, HasDefault
+    Int32 柳生宗矩 IsConst : Public, Static, HasDefault
+    Int32 柳生利厳 IsConst : Public, Static, HasDefault
+    Int32 高田又兵衛 IsConst : Public, Static, HasDefault
+    Int32 鈴木佐大夫 IsConst : Public, Static, HasDefault
+    Int32 鈴木重朝 IsConst : Public, Static, HasDefault
+    Int32 鈴木重秀 IsConst : Public, Static, HasDefault
+    Int32 堀内氏善 IsConst : Public, Static, HasDefault
+    Int32 梶原景宗 IsConst : Public, Static, HasDefault
+    Int32 一色義道 IsConst : Public, Static, HasDefault
+    Int32 稲富祐秀 IsConst : Public, Static, HasDefault
+    Int32 一色義定 IsConst : Public, Static, HasDefault
+    Int32 一色義清 IsConst : Public, Static, HasDefault
+    Int32 稲富祐直 IsConst : Public, Static, HasDefault
+    Int32 武田元明 IsConst : Public, Static, HasDefault
+    Int32 山名豊定 IsConst : Public, Static, HasDefault
+    Int32 山名祐豊 IsConst : Public, Static, HasDefault
+    Int32 垣屋続成 IsConst : Public, Static, HasDefault
+    Int32 垣屋光成 IsConst : Public, Static, HasDefault
+    Int32 南条元続 IsConst : Public, Static, HasDefault
+    Int32 山名豊国 IsConst : Public, Static, HasDefault
+    Int32 垣屋恒総 IsConst : Public, Static, HasDefault
+    Int32 南条元忠 IsConst : Public, Static, HasDefault
+    Int32 尼子晴久 IsConst : Public, Static, HasDefault
+    Int32 尼子国久 IsConst : Public, Static, HasDefault
+    Int32 尼子誠久 IsConst : Public, Static, HasDefault
+    Int32 宇山久兼 IsConst : Public, Static, HasDefault
+    Int32 多胡辰敬 IsConst : Public, Static, HasDefault
+    Int32 尼子義久 IsConst : Public, Static, HasDefault
+    Int32 尼子勝久 IsConst : Public, Static, HasDefault
+    Int32 佐世元嘉 IsConst : Public, Static, HasDefault
+    Int32 山中鹿之介 IsConst : Public, Static, HasDefault
+    Int32 立原久綱 IsConst : Public, Static, HasDefault
+    Int32 亀井茲矩 IsConst : Public, Static, HasDefault
+    Int32 吉見正頼 IsConst : Public, Static, HasDefault
+    Int32 益田藤兼 IsConst : Public, Static, HasDefault
+    Int32 吉見広頼 IsConst : Public, Static, HasDefault
+    Int32 益田元祥 IsConst : Public, Static, HasDefault
+    Int32 吉川経家 IsConst : Public, Static, HasDefault
+    Int32 浦上政宗 IsConst : Public, Static, HasDefault
+    Int32 小寺政職 IsConst : Public, Static, HasDefault
+    Int32 黒田職隆 IsConst : Public, Static, HasDefault
+    Int32 別所長治 IsConst : Public, Static, HasDefault
+    Int32 別所重宗 IsConst : Public, Static, HasDefault
+    Int32 別所吉治 IsConst : Public, Static, HasDefault
+    Int32 黒田官兵衛 IsConst : Public, Static, HasDefault
+    Int32 黒田長政 IsConst : Public, Static, HasDefault
+    Int32 後藤又兵衛 IsConst : Public, Static, HasDefault
+    Int32 母里太兵衛 IsConst : Public, Static, HasDefault
+    Int32 赤松義祐 IsConst : Public, Static, HasDefault
+    Int32 赤松政秀 IsConst : Public, Static, HasDefault
+    Int32 赤松則房 IsConst : Public, Static, HasDefault
+    Int32 赤松則英 IsConst : Public, Static, HasDefault
+    Int32 斎村政広 IsConst : Public, Static, HasDefault
+    Int32 宮本武蔵 IsConst : Public, Static, HasDefault
+    Int32 浦上宗景 IsConst : Public, Static, HasDefault
+    Int32 宇喜多直家 IsConst : Public, Static, HasDefault
+    Int32 明石全登 IsConst : Public, Static, HasDefault
+    Int32 宇喜多秀家 IsConst : Public, Static, HasDefault
+    Int32 宇喜多忠家 IsConst : Public, Static, HasDefault
+    Int32 坂崎直盛 IsConst : Public, Static, HasDefault
+    Int32 岡利勝 IsConst : Public, Static, HasDefault
+    Int32 長船貞親 IsConst : Public, Static, HasDefault
+    Int32 長船綱直 IsConst : Public, Static, HasDefault
+    Int32 戸川秀安 IsConst : Public, Static, HasDefault
+    Int32 戸川達安 IsConst : Public, Static, HasDefault
+    Int32 花房職秀 IsConst : Public, Static, HasDefault
+    Int32 三村家親 IsConst : Public, Static, HasDefault
+    Int32 三村親成 IsConst : Public, Static, HasDefault
+    Int32 三村元親 IsConst : Public, Static, HasDefault
+    Int32 清水宗治 IsConst : Public, Static, HasDefault
+    Int32 杉原盛重 IsConst : Public, Static, HasDefault
+    Int32 毛利元就 IsConst : Public, Static, HasDefault
+    Int32 口羽通良 IsConst : Public, Static, HasDefault
+    Int32 熊谷信直 IsConst : Public, Static, HasDefault
+    Int32 児玉就方 IsConst : Public, Static, HasDefault
+    Int32 毛利隆元 IsConst : Public, Static, HasDefault
+    Int32 毛利輝元 IsConst : Public, Static, HasDefault
+    Int32 毛利秀元 IsConst : Public, Static, HasDefault
+    Int32 穂井田元清 IsConst : Public, Static, HasDefault
+    Int32 吉川元春 IsConst : Public, Static, HasDefault
+    Int32 吉川元長 IsConst : Public, Static, HasDefault
+    Int32 吉川広家 IsConst : Public, Static, HasDefault
+    Int32 小早川隆景 IsConst : Public, Static, HasDefault
+    Int32 小早川秀包 IsConst : Public, Static, HasDefault
+    Int32 末次元康 IsConst : Public, Static, HasDefault
+    Int32 市川経好 IsConst : Public, Static, HasDefault
+    Int32 乃美宗勝 IsConst : Public, Static, HasDefault
+    Int32 福原貞俊 IsConst : Public, Static, HasDefault
+    Int32 堅田元慶 IsConst : Public, Static, HasDefault
+    Int32 三浦元忠 IsConst : Public, Static, HasDefault
+    Int32 平賀元相 IsConst : Public, Static, HasDefault
+    Int32 熊谷元直 IsConst : Public, Static, HasDefault
+    Int32 安国寺恵瓊 IsConst : Public, Static, HasDefault
+    Int32 大内義隆 IsConst : Public, Static, HasDefault
+    Int32 冷泉隆豊 IsConst : Public, Static, HasDefault
+    Int32 陶晴賢 IsConst : Public, Static, HasDefault
+    Int32 弘中隆兼 IsConst : Public, Static, HasDefault
+    Int32 天野隆重 IsConst : Public, Static, HasDefault
+    Int32 大内義長 IsConst : Public, Static, HasDefault
+    Int32 内藤隆春 IsConst : Public, Static, HasDefault
+    Int32 川村重吉 IsConst : Public, Static, HasDefault
+    Int32 三好義賢 IsConst : Public, Static, HasDefault
+    Int32 安宅冬康 IsConst : Public, Static, HasDefault
+    Int32 三好長治 IsConst : Public, Static, HasDefault
+    Int32 十河存保 IsConst : Public, Static, HasDefault
+    Int32 十河存英 IsConst : Public, Static, HasDefault
+    Int32 篠原長房 IsConst : Public, Static, HasDefault
+    Int32 安宅信康 IsConst : Public, Static, HasDefault
+    Int32 十河一存 IsConst : Public, Static, HasDefault
+    Int32 香川元景 IsConst : Public, Static, HasDefault
+    Int32 三好義継 IsConst : Public, Static, HasDefault
+    Int32 河野通宣 IsConst : Public, Static, HasDefault
+    Int32 来島通康 IsConst : Public, Static, HasDefault
+    Int32 河野通直 IsConst : Public, Static, HasDefault
+    Int32 得居通年 IsConst : Public, Static, HasDefault
+    Int32 来島通総 IsConst : Public, Static, HasDefault
+    Int32 来島長親 IsConst : Public, Static, HasDefault
+    Int32 村上武吉 IsConst : Public, Static, HasDefault
+    Int32 西園寺公広 IsConst : Public, Static, HasDefault
+    Int32 土居清良 IsConst : Public, Static, HasDefault
+    Int32 長宗我部国親 IsConst : Public, Static, HasDefault
+    Int32 吉田孝頼 IsConst : Public, Static, HasDefault
+    Int32 吉田重俊 IsConst : Public, Static, HasDefault
+    Int32 長宗我部元親 IsConst : Public, Static, HasDefault
+    Int32 吉良親貞 IsConst : Public, Static, HasDefault
+    Int32 吉良親実 IsConst : Public, Static, HasDefault
+    Int32 香宗我部親泰 IsConst : Public, Static, HasDefault
+    Int32 長宗我部信親 IsConst : Public, Static, HasDefault
+    Int32 香川親和 IsConst : Public, Static, HasDefault
+    Int32 津野親忠 IsConst : Public, Static, HasDefault
+    Int32 長宗我部盛親 IsConst : Public, Static, HasDefault
+    Int32 吉田政重 IsConst : Public, Static, HasDefault
+    Int32 久武親信 IsConst : Public, Static, HasDefault
+    Int32 久武親直 IsConst : Public, Static, HasDefault
+    Int32 谷忠澄 IsConst : Public, Static, HasDefault
+    Int32 福留儀重 IsConst : Public, Static, HasDefault
+    Int32 一条兼定 IsConst : Public, Static, HasDefault
+    Int32 土居宗珊 IsConst : Public, Static, HasDefault
+    Int32 小島政章 IsConst : Public, Static, HasDefault
+    Int32 杉重矩 IsConst : Public, Static, HasDefault
+    Int32 城井鎮房 IsConst : Public, Static, HasDefault
+    Int32 大友宗麟 IsConst : Public, Static, HasDefault
+    Int32 立花道雪 IsConst : Public, Static, HasDefault
+    Int32 吉岡長増 IsConst : Public, Static, HasDefault
+    Int32 吉弘鑑理 IsConst : Public, Static, HasDefault
+    Int32 志賀親守 IsConst : Public, Static, HasDefault
+    Int32 大友義統 IsConst : Public, Static, HasDefault
+    Int32 大友親家 IsConst : Public, Static, HasDefault
+    Int32 大友親盛 IsConst : Public, Static, HasDefault
+    Int32 立花宗茂 IsConst : Public, Static, HasDefault
+    Int32 臼杵鑑速 IsConst : Public, Static, HasDefault
+    Int32 田原親賢 IsConst : Public, Static, HasDefault
+    Int32 高橋紹運 IsConst : Public, Static, HasDefault
+    Int32 吉弘統幸 IsConst : Public, Static, HasDefault
+    Int32 志賀親次 IsConst : Public, Static, HasDefault
+    Int32 一万田鑑実 IsConst : Public, Static, HasDefault
+    Int32 佐伯惟定 IsConst : Public, Static, HasDefault
+    Int32 杉興運 IsConst : Public, Static, HasDefault
+    Int32 秋月文種 IsConst : Public, Static, HasDefault
+    Int32 相良武任 IsConst : Public, Static, HasDefault
+    Int32 秋月種実 IsConst : Public, Static, HasDefault
+    Int32 秋月種長 IsConst : Public, Static, HasDefault
+    Int32 高橋元種 IsConst : Public, Static, HasDefault
+    Int32 筑紫広門 IsConst : Public, Static, HasDefault
+    Int32 原田信種 IsConst : Public, Static, HasDefault
+    Int32 宗義智 IsConst : Public, Static, HasDefault
+    Int32 龍造寺隆信 IsConst : Public, Static, HasDefault
+    Int32 龍造寺家就 IsConst : Public, Static, HasDefault
+    Int32 松浦隆信 IsConst : Public, Static, HasDefault
+    Int32 龍造寺政家 IsConst : Public, Static, HasDefault
+    Int32 龍造寺高房 IsConst : Public, Static, HasDefault
+    Int32 龍造寺信周 IsConst : Public, Static, HasDefault
+    Int32 龍造寺長信 IsConst : Public, Static, HasDefault
+    Int32 成松信勝 IsConst : Public, Static, HasDefault
+    Int32 江里口信常 IsConst : Public, Static, HasDefault
+    Int32 百武賢兼 IsConst : Public, Static, HasDefault
+    Int32 成富茂安 IsConst : Public, Static, HasDefault
+    Int32 鍋島直茂 IsConst : Public, Static, HasDefault
+    Int32 鍋島勝茂 IsConst : Public, Static, HasDefault
+    Int32 松浦鎮信 IsConst : Public, Static, HasDefault
+    Int32 大村純忠 IsConst : Public, Static, HasDefault
+    Int32 大村喜前 IsConst : Public, Static, HasDefault
+    Int32 有馬義貞 IsConst : Public, Static, HasDefault
+    Int32 有馬晴信 IsConst : Public, Static, HasDefault
+    Int32 有馬直純 IsConst : Public, Static, HasDefault
+    Int32 蒲池鑑盛 IsConst : Public, Static, HasDefault
+    Int32 阿蘇惟将 IsConst : Public, Static, HasDefault
+    Int32 甲斐宗運 IsConst : Public, Static, HasDefault
+    Int32 阿蘇惟光 IsConst : Public, Static, HasDefault
+    Int32 甲斐親英 IsConst : Public, Static, HasDefault
+    Int32 相良晴広 IsConst : Public, Static, HasDefault
+    Int32 犬童頼安 IsConst : Public, Static, HasDefault
+    Int32 深水長智 IsConst : Public, Static, HasDefault
+    Int32 相良義陽 IsConst : Public, Static, HasDefault
+    Int32 相良頼房 IsConst : Public, Static, HasDefault
+    Int32 犬童頼兄 IsConst : Public, Static, HasDefault
+    Int32 丸目長恵 IsConst : Public, Static, HasDefault
+    Int32 岡本頼氏 IsConst : Public, Static, HasDefault
+    Int32 赤池長任 IsConst : Public, Static, HasDefault
+    Int32 伊東義祐 IsConst : Public, Static, HasDefault
+    Int32 山田宗昌 IsConst : Public, Static, HasDefault
+    Int32 伊東祐兵 IsConst : Public, Static, HasDefault
+    Int32 伊東祐慶 IsConst : Public, Static, HasDefault
+    Int32 北郷時久 IsConst : Public, Static, HasDefault
+    Int32 肝付兼続 IsConst : Public, Static, HasDefault
+    Int32 肝付良兼 IsConst : Public, Static, HasDefault
+    Int32 禰寝重長 IsConst : Public, Static, HasDefault
+    Int32 肝付兼亮 IsConst : Public, Static, HasDefault
+    Int32 肝付兼護 IsConst : Public, Static, HasDefault
+    Int32 島津貴久 IsConst : Public, Static, HasDefault
+    Int32 伊集院忠朗 IsConst : Public, Static, HasDefault
+    Int32 新納忠元 IsConst : Public, Static, HasDefault
+    Int32 種子島時尭 IsConst : Public, Static, HasDefault
+    Int32 島津義久 IsConst : Public, Static, HasDefault
+    Int32 島津義弘 IsConst : Public, Static, HasDefault
+    Int32 島津歳久 IsConst : Public, Static, HasDefault
+    Int32 島津家久 IsConst : Public, Static, HasDefault
+    Int32 島津忠恒 IsConst : Public, Static, HasDefault
+    Int32 島津豊久 IsConst : Public, Static, HasDefault
+    Int32 伊集院忠倉 IsConst : Public, Static, HasDefault
+    Int32 伊集院忠棟 IsConst : Public, Static, HasDefault
+    Int32 伊集院忠真 IsConst : Public, Static, HasDefault
+    Int32 頴娃久虎 IsConst : Public, Static, HasDefault
+    Int32 猿渡信光 IsConst : Public, Static, HasDefault
+    Int32 山田有信 IsConst : Public, Static, HasDefault
+    Int32 山田有栄 IsConst : Public, Static, HasDefault
+    Int32 樺山久高 IsConst : Public, Static, HasDefault
+    Int32 上井覚兼 IsConst : Public, Static, HasDefault
+    Int32 東郷重位 IsConst : Public, Static, HasDefault
+    Int32 斎藤帰蝶 IsConst : Public, Static, HasDefault
+    Int32 織田市 IsConst : Public, Static, HasDefault
+    Int32 織田五徳 IsConst : Public, Static, HasDefault
+    Int32 浅井茶々 IsConst : Public, Static, HasDefault
+    Int32 浅井初 IsConst : Public, Static, HasDefault
+    Int32 浅井江 IsConst : Public, Static, HasDefault
+    Int32 今川瀬名 IsConst : Public, Static, HasDefault
+    Int32 明智玉子 IsConst : Public, Static, HasDefault
+    Int32 最上義 IsConst : Public, Static, HasDefault
+    Int32 前田豪 IsConst : Public, Static, HasDefault
+    Int32 本多小松 IsConst : Public, Static, HasDefault
+    Int32 武田菊 IsConst : Public, Static, HasDefault
+    Int32 斎藤ふく IsConst : Public, Static, HasDefault
+    Int32 京極竜子 IsConst : Public, Static, HasDefault
+    Int32 徳川督 IsConst : Public, Static, HasDefault
+    Int32 江戸梶 IsConst : Public, Static, HasDefault
+    Int32 姫もん一 IsConst : Public, Static, HasDefault
+    Int32 姫もん二 IsConst : Public, Static, HasDefault
+    Int32 姫もん三 IsConst : Public, Static, HasDefault
+    Int32 姫もん四 IsConst : Public, Static, HasDefault
+    Int32 姫もん五 IsConst : Public, Static, HasDefault
+    Int32 姫もん六 IsConst : Public, Static, HasDefault
+    Int32 姫もん七 IsConst : Public, Static, HasDefault
+    Int32 姫もん八 IsConst : Public, Static, HasDefault
+    Int32 姫もん九 IsConst : Public, Static, HasDefault
+    Int32 姫もん十 IsConst : Public, Static, HasDefault
+    Int32 姫もん十一 IsConst : Public, Static, HasDefault
+    Int32 姫もん十二 IsConst : Public, Static, HasDefault
+    Int32 姫もん十三 IsConst : Public, Static, HasDefault
+    Int32 姫もん十四 IsConst : Public, Static, HasDefault
+    Int32 姫もん十五 IsConst : Public, Static, HasDefault
+    Int32 姫もん十六 IsConst : Public, Static, HasDefault
+    Int32 農民越蔵 IsConst : Public, Static, HasDefault
+    Int32 農民博吉 IsConst : Public, Static, HasDefault
+    Int32 農民健吉 IsConst : Public, Static, HasDefault
+    Int32 農民裕作 IsConst : Public, Static, HasDefault
+    Int32 農民征吉 IsConst : Public, Static, HasDefault
+    Int32 農民豊作 IsConst : Public, Static, HasDefault
+    Int32 農民雄助 IsConst : Public, Static, HasDefault
+    Int32 農民正平 IsConst : Public, Static, HasDefault
+    Int32 農民亮太 IsConst : Public, Static, HasDefault
+    Int32 農民和平 IsConst : Public, Static, HasDefault
+    Int32 だみい１ IsConst : Public, Static, HasDefault
+    Int32 だみい２ IsConst : Public, Static, HasDefault
+Class 将星録.最大数.武将情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+    Int32 総配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.ユニット情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+    Int32 軍勢部隊数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.城情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.大名情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.家宝情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.官位情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.最大数.役職情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.家宝.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 曜変稲葉天目 IsConst : Public, Static, HasDefault
+    Int32 灰被虹天目 IsConst : Public, Static, HasDefault
+    Int32 青磁砧馬蝗絆 IsConst : Public, Static, HasDefault
+    Int32 雲鶴匹田筒 IsConst : Public, Static, HasDefault
+    Int32 大井戸加賀 IsConst : Public, Static, HasDefault
+    Int32 三島桶 IsConst : Public, Static, HasDefault
+    Int32 三好粉吹 IsConst : Public, Static, HasDefault
+    Int32 魚屋飯櫃高麗 IsConst : Public, Static, HasDefault
+    Int32 黒楽大黒 IsConst : Public, Static, HasDefault
+    Int32 赤楽早船 IsConst : Public, Static, HasDefault
+    Int32 松花 IsConst : Public, Static, HasDefault
+    Int32 松島 IsConst : Public, Static, HasDefault
+    Int32 三日月 IsConst : Public, Static, HasDefault
+    Int32 四十石 IsConst : Public, Static, HasDefault
+    Int32 橋立 IsConst : Public, Static, HasDefault
+    Int32 九十九髪茄子 IsConst : Public, Static, HasDefault
+    Int32 楢柴肩衝 IsConst : Public, Static, HasDefault
+    Int32 新田肩衝 IsConst : Public, Static, HasDefault
+    Int32 初花肩衝 IsConst : Public, Static, HasDefault
+    Int32 国司茄子 IsConst : Public, Static, HasDefault
+    Int32 富士茄子 IsConst : Public, Static, HasDefault
+    Int32 紹鴎茄子 IsConst : Public, Static, HasDefault
+    Int32 珠光小茄子 IsConst : Public, Static, HasDefault
+    Int32 似たり茄子 IsConst : Public, Static, HasDefault
+    Int32 稲葉瓢箪 IsConst : Public, Static, HasDefault
+    Int32 上杉瓢箪 IsConst : Public, Static, HasDefault
+    Int32 朝倉文琳 IsConst : Public, Static, HasDefault
+    Int32 打雲大海 IsConst : Public, Static, HasDefault
+    Int32 遅桜肩衝 IsConst : Public, Static, HasDefault
+    Int32 松屋肩衝 IsConst : Public, Static, HasDefault
+    Int32 平蜘蛛釜 IsConst : Public, Static, HasDefault
+    Int32 芦屋真形釜 IsConst : Public, Static, HasDefault
+    Int32 乙御前釜 IsConst : Public, Static, HasDefault
+    Int32 大講堂釜 IsConst : Public, Static, HasDefault
+    Int32 達磨堂釜 IsConst : Public, Static, HasDefault
+    Int32 青磁砧大内筒 IsConst : Public, Static, HasDefault
+    Int32 一重切園城寺 IsConst : Public, Static, HasDefault
+    Int32 二重切夜長 IsConst : Public, Static, HasDefault
+    Int32 尺八 IsConst : Public, Static, HasDefault
+    Int32 貨狄 IsConst : Public, Static, HasDefault
+    Int32 青磁千鳥 IsConst : Public, Static, HasDefault
+    Int32 鬼切 IsConst : Public, Static, HasDefault
+    Int32 鬼丸 IsConst : Public, Static, HasDefault
+    Int32 甲斐国郷 IsConst : Public, Static, HasDefault
+    Int32 圧切 IsConst : Public, Static, HasDefault
+    Int32 妙法村正 IsConst : Public, Static, HasDefault
+    Int32 宗三左文字 IsConst : Public, Static, HasDefault
+    Int32 影秀 IsConst : Public, Static, HasDefault
+    Int32 吉光骨喰 IsConst : Public, Static, HasDefault
+    Int32 雷切 IsConst : Public, Static, HasDefault
+    Int32 戒杖刀国宗 IsConst : Public, Static, HasDefault
+    Int32 童子切安綱 IsConst : Public, Static, HasDefault
+    Int32 大般若長光 IsConst : Public, Static, HasDefault
+    Int32 片鎌槍 IsConst : Public, Static, HasDefault
+    Int32 蜻蛉切 IsConst : Public, Static, HasDefault
+    Int32 日本 IsConst : Public, Static, HasDefault
+    Int32 十文字槍 IsConst : Public, Static, HasDefault
+    Int32 笹葉槍 IsConst : Public, Static, HasDefault
+    Int32 金小札色々威 IsConst : Public, Static, HasDefault
+    Int32 白糸素懸威胴 IsConst : Public, Static, HasDefault
+    Int32 紅糸威小腹巻 IsConst : Public, Static, HasDefault
+    Int32 黒漆塗五枚胴 IsConst : Public, Static, HasDefault
+    Int32 南蛮胴具足 IsConst : Public, Static, HasDefault
+    Int32 昇梯子二枚胴 IsConst : Public, Static, HasDefault
+    Int32 熏辜素懸威 IsConst : Public, Static, HasDefault
+    Int32 縹糸下散紅威 IsConst : Public, Static, HasDefault
+    Int32 金陀美具足 IsConst : Public, Static, HasDefault
+    Int32 花色日の丸威 IsConst : Public, Static, HasDefault
+    Int32 稲妻型蒔絵鞍 IsConst : Public, Static, HasDefault
+    Int32 芦穂蒔絵鞍 IsConst : Public, Static, HasDefault
+    Int32 水玉紋陣羽織 IsConst : Public, Static, HasDefault
+    Int32 菊鍾馗陣羽織 IsConst : Public, Static, HasDefault
+    Int32 緋羅紗陣羽織 IsConst : Public, Static, HasDefault
+    Int32 天鵞絨洋套 IsConst : Public, Static, HasDefault
+    Int32 帝釈栗毛 IsConst : Public, Static, HasDefault
+    Int32 松風 IsConst : Public, Static, HasDefault
+    Int32 黒雲 IsConst : Public, Static, HasDefault
+    Int32 放生月毛 IsConst : Public, Static, HasDefault
+    Int32 星崎 IsConst : Public, Static, HasDefault
+    Int32 鬼鹿毛 IsConst : Public, Static, HasDefault
+    Int32 白石 IsConst : Public, Static, HasDefault
+    Int32 太平楽 IsConst : Public, Static, HasDefault
+    Int32 桜野 IsConst : Public, Static, HasDefault
+    Int32 三国黒 IsConst : Public, Static, HasDefault
+    Int32 馬上筒 IsConst : Public, Static, HasDefault
+    Int32 指火式銃 IsConst : Public, Static, HasDefault
+    Int32 籠筒 IsConst : Public, Static, HasDefault
+    Int32 懐鉄砲 IsConst : Public, Static, HasDefault
+    Int32 腰指筒 IsConst : Public, Static, HasDefault
+    Int32 新当流兵法書 IsConst : Public, Static, HasDefault
+    Int32 陰流之私 IsConst : Public, Static, HasDefault
+    Int32 ト伝百首 IsConst : Public, Static, HasDefault
+    Int32 五輪書 IsConst : Public, Static, HasDefault
+    Int32 示現流兵法書 IsConst : Public, Static, HasDefault
+    Int32 夕雲流剣術書 IsConst : Public, Static, HasDefault
+    Int32 新陰百首 IsConst : Public, Static, HasDefault
+    Int32 大坪流馬術書 IsConst : Public, Static, HasDefault
+    Int32 荒木流馬術書 IsConst : Public, Static, HasDefault
+    Int32 稲富流砲術書 IsConst : Public, Static, HasDefault
+    Int32 津田流砲術書 IsConst : Public, Static, HasDefault
+    Int32 一火流砲術書 IsConst : Public, Static, HasDefault
+    Int32 砲術真業録 IsConst : Public, Static, HasDefault
+    Int32 西村流砲術書 IsConst : Public, Static, HasDefault
+    Int32 霞流砲術書 IsConst : Public, Static, HasDefault
+    Int32 外記流砲術書 IsConst : Public, Static, HasDefault
+    Int32 鉄砲打方 IsConst : Public, Static, HasDefault
+    Int32 岸和田流砲書 IsConst : Public, Static, HasDefault
+    Int32 安見流砲術書 IsConst : Public, Static, HasDefault
+    Int32 孫子 IsConst : Public, Static, HasDefault
+    Int32 六韜 IsConst : Public, Static, HasDefault
+    Int32 黄石公三略 IsConst : Public, Static, HasDefault
+    Int32 闘戦経 IsConst : Public, Static, HasDefault
+    Int32 呉子 IsConst : Public, Static, HasDefault
+    Int32 医書大全 IsConst : Public, Static, HasDefault
+    Int32 三喜廻翁医書 IsConst : Public, Static, HasDefault
+    Int32 八十一難経 IsConst : Public, Static, HasDefault
+    Int32 外療新明集 IsConst : Public, Static, HasDefault
+    Int32 啓迪集 IsConst : Public, Static, HasDefault
+    Int32 万川集海 IsConst : Public, Static, HasDefault
+    Int32 忍秘伝 IsConst : Public, Static, HasDefault
+    Int32 正忍記 IsConst : Public, Static, HasDefault
+    Int32 忍法秘巻 IsConst : Public, Static, HasDefault
+    Int32 神伝忍術秘書 IsConst : Public, Static, HasDefault
+    Int32 塵塚物語 IsConst : Public, Static, HasDefault
+    Int32 尺素往来 IsConst : Public, Static, HasDefault
+    Int32 貞永式目抄 IsConst : Public, Static, HasDefault
+    Int32 貞観政要 IsConst : Public, Static, HasDefault
+    Int32 節用集 IsConst : Public, Static, HasDefault
+    Int32 朗詠集 IsConst : Public, Static, HasDefault
+    Int32 日葡辞書 IsConst : Public, Static, HasDefault
+    Int32 日本大文典 IsConst : Public, Static, HasDefault
+    Int32 農政全書 IsConst : Public, Static, HasDefault
+    Int32 清良記 IsConst : Public, Static, HasDefault
+    Int32 政基公旅引付 IsConst : Public, Static, HasDefault
+    Int32 身自鏡 IsConst : Public, Static, HasDefault
+    Int32 善隣国宝記 IsConst : Public, Static, HasDefault
+    Int32 唐船日記 IsConst : Public, Static, HasDefault
+    Int32 海東諸国記 IsConst : Public, Static, HasDefault
+    Int32 菽園雑記 IsConst : Public, Static, HasDefault
+    Int32 梅津政景日記 IsConst : Public, Static, HasDefault
+    Int32 匠明 IsConst : Public, Static, HasDefault
+    Int32 士鑑用法 IsConst : Public, Static, HasDefault
+    Int32 兵法雄鑑 IsConst : Public, Static, HasDefault
+    Int32 兵法雌鑑 IsConst : Public, Static, HasDefault
+    Int32 武教全書 IsConst : Public, Static, HasDefault
+    Int32 築城記 IsConst : Public, Static, HasDefault
+    Int32 愚子見記 IsConst : Public, Static, HasDefault
+    Int32 史記 IsConst : Public, Static, HasDefault
+    Int32 古事記 IsConst : Public, Static, HasDefault
+    Int32 聖書 IsConst : Public, Static, HasDefault
+    Int32 罪人の導き IsConst : Public, Static, HasDefault
+    Int32 源氏物語 IsConst : Public, Static, HasDefault
+    Int32 伊勢物語 IsConst : Public, Static, HasDefault
+    Int32 万葉集 IsConst : Public, Static, HasDefault
+    Int32 古今和歌集 IsConst : Public, Static, HasDefault
+    Int32 神曲 IsConst : Public, Static, HasDefault
+    Int32 東方見聞録 IsConst : Public, Static, HasDefault
+    Int32 伊曽保物語 IsConst : Public, Static, HasDefault
+    Int32 本願念仏集 IsConst : Public, Static, HasDefault
+    Int32 教行信証 IsConst : Public, Static, HasDefault
+    Int32 歎異抄 IsConst : Public, Static, HasDefault
+    Int32 立正安国論 IsConst : Public, Static, HasDefault
+    Int32 興禅護国論 IsConst : Public, Static, HasDefault
+    Int32 正法眼蔵 IsConst : Public, Static, HasDefault
+    Int32 一遍上人絵伝 IsConst : Public, Static, HasDefault
+    Int32 太平記 IsConst : Public, Static, HasDefault
+    Int32 平家物語 IsConst : Public, Static, HasDefault
+    Int32 三國志演義 IsConst : Public, Static, HasDefault
+    Int32 水滸伝 IsConst : Public, Static, HasDefault
+    Int32 雑兵物語 IsConst : Public, Static, HasDefault
+    Int32 陰徳太平記 IsConst : Public, Static, HasDefault
+    Int32 宗湛日記 IsConst : Public, Static, HasDefault
+    Int32 島井宗室訓戒 IsConst : Public, Static, HasDefault
+    Int32 今井宗久日記 IsConst : Public, Static, HasDefault
+    Int32 遠宗拾遺 IsConst : Public, Static, HasDefault
+    Int32 松屋筆記 IsConst : Public, Static, HasDefault
+    Int32 菓子図 IsConst : Public, Static, HasDefault
+    Int32 白鷺図 IsConst : Public, Static, HasDefault
+    Int32 夕陽朝山図 IsConst : Public, Static, HasDefault
+    Int32 鴨図 IsConst : Public, Static, HasDefault
+    Int32 瀟湘八景図 IsConst : Public, Static, HasDefault
+    Int32 観音図 IsConst : Public, Static, HasDefault
+    Int32 石菖蒲図 IsConst : Public, Static, HasDefault
+    Int32 布袋図 IsConst : Public, Static, HasDefault
+    Int32 地球儀 IsConst : Public, Static, HasDefault
+    Int32 坤輿万国全図 IsConst : Public, Static, HasDefault
+    Int32 拾芥抄 IsConst : Public, Static, HasDefault
+    Int32 慶長日本総図 IsConst : Public, Static, HasDefault
+    Int32 行基図 IsConst : Public, Static, HasDefault
+    Int32 羅針盤 IsConst : Public, Static, HasDefault
+    Int32 自鳴鐘 IsConst : Public, Static, HasDefault
+    Int32 置時計 IsConst : Public, Static, HasDefault
+    Int32 算盤 IsConst : Public, Static, HasDefault
+    Int32 十字架 IsConst : Public, Static, HasDefault
+    Int32 遠眼鏡 IsConst : Public, Static, HasDefault
+    Int32 煙草 IsConst : Public, Static, HasDefault
+    Int32 ヴァージナル IsConst : Public, Static, HasDefault
+    Int32 双六 IsConst : Public, Static, HasDefault
+    Int32 歌留多 IsConst : Public, Static, HasDefault
+    Int32 蘭奢待 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.家宝.種類: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 茶道道具 IsConst : Public, Static, HasDefault
+    Int32 武器 IsConst : Public, Static, HasDefault
+    Int32 兵装品 IsConst : Public, Static, HasDefault
+    Int32 名馬 IsConst : Public, Static, HasDefault
+    Int32 短筒 IsConst : Public, Static, HasDefault
+    Int32 剣術所 IsConst : Public, Static, HasDefault
+    Int32 馬術書 IsConst : Public, Static, HasDefault
+    Int32 砲術書 IsConst : Public, Static, HasDefault
+    Int32 兵法書 IsConst : Public, Static, HasDefault
+    Int32 医術書 IsConst : Public, Static, HasDefault
+    Int32 忍術書 IsConst : Public, Static, HasDefault
+    Int32 知識書 IsConst : Public, Static, HasDefault
+    Int32 農政書 IsConst : Public, Static, HasDefault
+    Int32 外交書 IsConst : Public, Static, HasDefault
+    Int32 鉱術書 IsConst : Public, Static, HasDefault
+    Int32 建築書 IsConst : Public, Static, HasDefault
+    Int32 歴史書 IsConst : Public, Static, HasDefault
+    Int32 宗教書 IsConst : Public, Static, HasDefault
+    Int32 文学書 IsConst : Public, Static, HasDefault
+    Int32 仏教書 IsConst : Public, Static, HasDefault
+    Int32 軍記物語 IsConst : Public, Static, HasDefault
+    Int32 商業書 IsConst : Public, Static, HasDefault
+    Int32 絵画 IsConst : Public, Static, HasDefault
+    Int32 地図 IsConst : Public, Static, HasDefault
+    Int32 羅針盤 IsConst : Public, Static, HasDefault
+    Int32 南蛮時計 IsConst : Public, Static, HasDefault
+    Int32 算盤 IsConst : Public, Static, HasDefault
+    Int32 十字架 IsConst : Public, Static, HasDefault
+    Int32 珍品 IsConst : Public, Static, HasDefault
+    Int32 香木 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.家宝.画像: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 茶碗 IsConst : Public, Static, HasDefault
+    Int32 茶壺 IsConst : Public, Static, HasDefault
+    Int32 茶入 IsConst : Public, Static, HasDefault
+    Int32 茶釜 IsConst : Public, Static, HasDefault
+    Int32 花入 IsConst : Public, Static, HasDefault
+    Int32 千鳥 IsConst : Public, Static, HasDefault
+    Int32 刀剣 IsConst : Public, Static, HasDefault
+    Int32 槍 IsConst : Public, Static, HasDefault
+    Int32 具足 IsConst : Public, Static, HasDefault
+    Int32 鞍 IsConst : Public, Static, HasDefault
+    Int32 陣羽織 IsConst : Public, Static, HasDefault
+    Int32 馬 IsConst : Public, Static, HasDefault
+    Int32 綴本 IsConst : Public, Static, HasDefault
+    Int32 巻子本 IsConst : Public, Static, HasDefault
+    Int32 掛絵 IsConst : Public, Static, HasDefault
+    Int32 巻絵 IsConst : Public, Static, HasDefault
+    Int32 地図 IsConst : Public, Static, HasDefault
+    Int32 羅針盤 IsConst : Public, Static, HasDefault
+    Int32 南蛮時計 IsConst : Public, Static, HasDefault
+    Int32 算盤 IsConst : Public, Static, HasDefault
+    Int32 十字架 IsConst : Public, Static, HasDefault
+    Int32 遠眼鏡 IsConst : Public, Static, HasDefault
+    Int32 煙草 IsConst : Public, Static, HasDefault
+    Int32 洋楽器 IsConst : Public, Static, HasDefault
+    Int32 遊戯具 IsConst : Public, Static, HasDefault
+    Int32 香木 IsConst : Public, Static, HasDefault
+    Int32 短筒 IsConst : Public, Static, HasDefault
+Class 将星録.アプリケーション.フォント: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String フォント名 'get ' : 
+  Methods:
+    get_フォント名(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 正一位 IsConst : Public, Static, HasDefault
+    Int32 従一位 IsConst : Public, Static, HasDefault
+    Int32 正二位 IsConst : Public, Static, HasDefault
+    Int32 従二位 IsConst : Public, Static, HasDefault
+    Int32 正三位 IsConst : Public, Static, HasDefault
+    Int32 従三位 IsConst : Public, Static, HasDefault
+    Int32 正四位上 IsConst : Public, Static, HasDefault
+    Int32 正四位下 IsConst : Public, Static, HasDefault
+    Int32 従四位下 IsConst : Public, Static, HasDefault
+    Int32 正五位上 IsConst : Public, Static, HasDefault
+    Int32 正五位下 IsConst : Public, Static, HasDefault
+    Int32 従五位上 IsConst : Public, Static, HasDefault
+    Int32 従五位下 IsConst : Public, Static, HasDefault
+    Int32 正六位上 IsConst : Public, Static, HasDefault
+    Int32 正六位下 IsConst : Public, Static, HasDefault
+    Int32 従六位上 IsConst : Public, Static, HasDefault
+    Int32 従六位下 IsConst : Public, Static, HasDefault
+    Int32 正七位上 IsConst : Public, Static, HasDefault
+    Int32 正七位下 IsConst : Public, Static, HasDefault
+    Int32 従七位上 IsConst : Public, Static, HasDefault
+    Int32 従七位下 IsConst : Public, Static, HasDefault
+    Int32 正八位上 IsConst : Public, Static, HasDefault
+    Int32 正八位下 IsConst : Public, Static, HasDefault
+Class 将星録.官位情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 所有武将配列IX 'get set' : 
+    Int32 階位   'get set' : 
+    System.String 官位名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_官位名(): PrivateScope, Public, HideBySig, SpecialName
+    set_官位名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_階位(): PrivateScope, Public, HideBySig, SpecialName
+    set_階位(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所有武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所有武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 抑制   'get set' : 
+    Int32 南蛮   'get set' : 
+    Int32 智謀   'get set' : 
+    Int32 戦闘   'get set' : 
+    Int32 政治   'get set' : 
+    Int32 兵科効果 'get set' : 
+    Int32 所有武将配列IX 'get set' : 
+    Int32 画像   'get set' : 
+    Int32 能力上昇 'get set' : 
+    Int32 等級   'get set' : 
+    Int32 種類   'get set' : 
+    System.String 家宝名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_家宝名(): PrivateScope, Public, HideBySig, SpecialName
+    set_家宝名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_種類(): PrivateScope, Public, HideBySig, SpecialName
+    set_種類(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_等級(): PrivateScope, Public, HideBySig, SpecialName
+    set_等級(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_能力上昇(): PrivateScope, Public, HideBySig, SpecialName
+    set_能力上昇(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_画像(): PrivateScope, Public, HideBySig, SpecialName
+    set_画像(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所有武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所有武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_兵科効果(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵科効果(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_政治(): PrivateScope, Public, HideBySig, SpecialName
+    set_政治(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_戦闘(): PrivateScope, Public, HideBySig, SpecialName
+    set_戦闘(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_智謀(): PrivateScope, Public, HideBySig, SpecialName
+    set_智謀(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_南蛮(): PrivateScope, Public, HideBySig, SpecialName
+    set_南蛮(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_抑制(): PrivateScope, Public, HideBySig, SpecialName
+    set_抑制(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.列挙.役職.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 征夷大将軍 IsConst : Public, Static, HasDefault
+    Int32 管領 IsConst : Public, Static, HasDefault
+    Int32 関東管領 IsConst : Public, Static, HasDefault
+    Int32 奥州探題 IsConst : Public, Static, HasDefault
+    Int32 西国探題 IsConst : Public, Static, HasDefault
+    Int32 九州探題 IsConst : Public, Static, HasDefault
+    Int32 羽州探題 IsConst : Public, Static, HasDefault
+Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 所有大名配列IX 'get set' : 
+    Int32 役位   'get set' : 
+    System.String 役職名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_役職名(): PrivateScope, Public, HideBySig, SpecialName
+    set_役職名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_役位(): PrivateScope, Public, HideBySig, SpecialName
+    set_役位(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所有大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所有大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
