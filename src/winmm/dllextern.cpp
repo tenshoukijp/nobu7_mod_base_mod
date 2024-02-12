@@ -405,18 +405,35 @@ extern "C" {
 			return p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
         }
 
-        OutputDebugStream("onMmioOpenA\n");
-        OutputDebugStream(pszFileName + "\r\n"s);
-
-        // OVERRIDEフォルダに対応するファイルがあるかもしれない
-        string dfOverrideFileName = string("OVERRIDE\\") + pszFileName;
-        if (isFileExists(dfOverrideFileName)) {
-            strcpy_s(bufOverrideFileName, dfOverrideFileName.c_str());
-            return p_mmioOpenA(bufOverrideFileName, pmmioinfo, fdwOpen);
+        // 元がNULLなら対処不明なのでそのまま横流し
+        if (pszFileName == NULL) {
+            return p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
         }
 
-        // 通常通り
-        return p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
+        OutputDebugStream("onMmioOpenA\n");
+        // 全体をクリア
+        ZeroMemory(bufOverrideFileName, _countof(bufOverrideFileName));
+        // JS経由で音声ファイル系のファイル名変更指定があるかもしれない。
+        onMmioOpenA(pszFileName, bufOverrideFileName);
+        // 有効な上書き情報が返ってきているならば、そのファイル名へと差し替え
+        if (strlen(bufOverrideFileName) > 0) {
+            OutputDebugStream(bufOverrideFileName + "\r\n"s);
+            return p_mmioOpenA(bufOverrideFileName, pmmioinfo, fdwOpen);
+        }
+        else {
+
+            // OVERRIDEフォルダに対応するファイルがあるかもしれない
+            string dfOverrideFileName = string("OVERRIDE\\") + pszFileName;
+            if (isFileExists(dfOverrideFileName)) {
+                strcpy_s(bufOverrideFileName, dfOverrideFileName.c_str());
+                OutputDebugStream(bufOverrideFileName + "\r\n"s);
+                return p_mmioOpenA(bufOverrideFileName, pmmioinfo, fdwOpen);
+            }
+
+            OutputDebugStream(pszFileName + "\r\n"s);
+            // 通常通り
+            return p_mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
+        }
     }
 
     /*

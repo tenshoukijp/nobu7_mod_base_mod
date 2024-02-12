@@ -2,6 +2,6 @@
 
 void onInitialize();
 
-void onMciSendCommand();
+void onMmioOpenA(char* pszFileName, char* bufOverrideFileName);
 
 void onFinalize();

@@ -48,7 +48,7 @@ char bufferDefaultFontName[32] = "ＭＳ 明朝";
 const char* getNB7FontName() {
 
 	System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
-	System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onフォント名要求時", dic);
+	System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onフォント要求時", dic);
 
 	try {
 		if (ret != nullptr && ret->ContainsKey("フォント名")) {
@@ -67,6 +67,7 @@ const char* getNB7FontName() {
 		}
 	}
 	catch (Exception^ /*ex*/) {
+		OutputDebugStream("onフォント要求時 にエラーが発生しました");
 	}
 
 	// そのまま返す

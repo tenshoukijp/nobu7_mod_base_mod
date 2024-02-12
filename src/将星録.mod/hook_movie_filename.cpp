@@ -64,7 +64,7 @@ std::string getUserCustomMovieFileName(System::String^ movie_filename) {
 	try {
 		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
 		dic->Add("ファイル名", movie_filename);
-		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onムービーファイル名要求時", dic);
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onムービーファイル要求時", dic);
 
 		if (ret != nullptr && ret->ContainsKey("ファイル名")) {
 			System::String^ filename = (System::String^)(ret["ファイル名"]);
@@ -77,7 +77,7 @@ std::string getUserCustomMovieFileName(System::String^ movie_filename) {
 
 	}
 	catch (System::Exception^ ) {
-		OutputDebugStream("onムービーファイル名要求時でエラー");
+		OutputDebugStream("onムービーファイル要求時でエラー");
 	}
 
 	return "";

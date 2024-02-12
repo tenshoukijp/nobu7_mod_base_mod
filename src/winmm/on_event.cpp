@@ -14,8 +14,10 @@ void onInitialize() {
 }
 
 
-void onMciSendCommand() {
+void onMmioOpenA(char* pszFileName, char* bufOverrideFileName) {
+    Mod_onMmioOpenA(pszFileName, bufOverrideFileName);
 }
+
 
 
 void onFinalize() {

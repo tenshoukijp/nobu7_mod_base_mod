@@ -8,3 +8,4 @@ void freeNB7Mod();
 
 void Mod_onInitialize();
 
+void Mod_onMmioOpenA(char* pszFileName, char* bufOverrideFileName);
