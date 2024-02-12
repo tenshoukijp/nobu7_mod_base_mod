@@ -18,6 +18,9 @@
 #include "hook_textouta_custom.h"
 #include "file_attribute.h"
 
+#include "usr_custom_mod.h"
+#include "mng_文字列変換.h"
+
 // ImageDirectoryEntryToData
 #pragma comment(lib, "dbghelp.lib")
 
@@ -413,7 +416,27 @@ HANDLE WINAPI Hook_CreateFileA(
 
     HANDLE nResult;
 
+    // 将星録.mod.dllの層では、「OVERRIDE」にあるファイルを対象とする。
     string overrideFileName = string("OVERRIDE\\") + lpFileName;
+
+    try {
+        // C#のdllでユーザーがカスタムしたファイルを指定するかもしれない。
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+        dic->Add("ファイル名", gcnew System::String(lpFileName));
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onファイル要求時", dic);
+        if (ret != nullptr) {
+            if (ret->ContainsKey("ファイル名")) {
+                System::String^ mng_filename = (System::String^)ret["ファイル名"];
+                if (mng_filename != nullptr) {
+					overrideFileName = to_native_string(mng_filename);
+				}
+            }
+        }
+    }
+    catch (System::Exception^ ) {
+        OutputDebugStream("onファイル要求時に例外が発生しました。\n");
+    }
+
     if (isFileExists(overrideFileName)) {
         // 元のもの
         nResult = ((PFNCREATEFILEA)pfnOrigCreateFileA)(overrideFileName.c_str(), dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
