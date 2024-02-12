@@ -111,6 +111,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_serihu_message.cpp;
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setmenu_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_setmenu_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_textouta_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_textouta_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\game_menu.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\game_menu.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_年月情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\mng_年月情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_役職情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\mng_役職情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_文字列変換.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\mng_文字列変換.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_武将情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\mng_武将情報.obj
@@ -123,4 +124,5 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\game_process.cpp;C:\User
 C:\Users\master\source\repos\将星録Mod\将星録.mod\game_window.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\game_window.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_honmaru_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_taihou_defend_honmaru_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\usr_custom_mod.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\usr_custom_mod.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_相場情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\mng_相場情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\.NETFramework,Version=v4.8.AssemblyAttributes.obj

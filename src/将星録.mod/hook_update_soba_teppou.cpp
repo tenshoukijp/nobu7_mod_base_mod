@@ -46,26 +46,28 @@ void OnSSRExeUpdateSobaTeppouExecute() {
 	try {
 
 		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
-		dic->Add("相場兵糧", nb7ターン情報.相場兵糧);
-		dic->Add("相場軍馬", nb7ターン情報.相場軍馬);
-		dic->Add("相場鉄砲", nb7ターン情報.相場鉄砲);
+		dic->Add("兵糧", nb7ターン情報.相場兵糧);
+		dic->Add("軍馬", nb7ターン情報.相場軍馬);
+		dic->Add("鉄砲", nb7ターン情報.相場鉄砲);
 		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on相場要求時", dic);
 		if (ret != nullptr) {
-			if (ret->ContainsKey("相場兵糧")) {
-				nb7ターン情報.相場兵糧 = (int)(ret["相場兵糧"]);
+			if (ret->ContainsKey("兵糧")) {
+				nb7ターン情報.相場兵糧 = (int)(ret["兵糧"]);
 			}
-			if (ret->ContainsKey("相場軍馬")) {
-				nb7ターン情報.相場軍馬 = (int)(ret["相場軍馬"]);
+			if (ret->ContainsKey("軍馬")) {
+				nb7ターン情報.相場軍馬 = (int)(ret["軍馬"]);
 			}
-			if (ret->ContainsKey("相場鉄砲")) {
-				nb7ターン情報.相場鉄砲 = (int)(ret["相場鉄砲"]);
-				iUpdateSobaTeppouEAX = nb7ターン情報.相場鉄砲; // これから将星録本体では値の代入が行われるので、調子を合わせておく。
+			if (ret->ContainsKey("鉄砲")) {
+				nb7ターン情報.相場鉄砲 = (int)(ret["鉄砲"]);
 			}
 		}
+
+		iUpdateSobaTeppouEAX = nb7ターン情報.相場鉄砲; // これから将星録本体では値の代入が行われるので、調子を合わせておく。
 	}
 	catch (System::Exception^) {
 		OutputDebugStream("on相場要求時 でエラーが発声しました。");
 	}
+
 }
 
 #pragma unmanaged

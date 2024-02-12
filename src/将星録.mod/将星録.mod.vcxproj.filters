@@ -333,6 +333,12 @@
     <ClInclude Include="usr_custom_mod.h">
       <Filter>C#Mod</Filter>
     </ClInclude>
+    <ClInclude Include="mng_相場情報.h">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_年月情報.h">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -715,6 +721,12 @@
     </ClCompile>
     <ClCompile Include="hook_readfile_custom_kahou.cpp">
       <Filter>フック関数置き換え系</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_年月情報.cpp">
+      <Filter>ゲームデータ - ターン情報</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_相場情報.cpp">
+      <Filter>ゲームデータ - ターン情報</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

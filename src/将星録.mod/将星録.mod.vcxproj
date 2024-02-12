@@ -143,6 +143,8 @@
     <ClInclude Include="load_form_mod.h" />
     <ClInclude Include="message_albedo.h" />
     <ClInclude Include="mng_ゲーム画面.h" />
+    <ClInclude Include="mng_年月情報.h" />
+    <ClInclude Include="mng_相場情報.h" />
     <ClInclude Include="mng_フォント.h" />
     <ClInclude Include="mng_ユニット情報.h" />
     <ClInclude Include="mng_城列挙.h" />
@@ -296,6 +298,7 @@
     <ClCompile Include="hook_setmenu_custom.cpp" />
     <ClCompile Include="hook_textouta_custom.cpp" />
     <ClCompile Include="game_menu.cpp" />
+    <ClCompile Include="mng_年月情報.cpp" />
     <ClCompile Include="mng_役職情報.cpp" />
     <ClCompile Include="mng_文字列変換.cpp" />
     <ClCompile Include="mng_武将情報.cpp" />
@@ -308,6 +311,7 @@
     <ClCompile Include="game_window.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_damage.cpp" />
     <ClCompile Include="usr_custom_mod.cpp" />
+    <ClCompile Include="mng_相場情報.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
