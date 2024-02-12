@@ -3,7 +3,6 @@
 #include "game_font.h"
 #include "output_debug_stream.h"
 #include "load_form_mod.h"
-#include "javascript_mod.h"
 #include "usr_custom_mod.h"
 
 HWND hNB7Wnd = NULL;

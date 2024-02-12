@@ -31,7 +31,6 @@
 #include "bushou_albedo.h"
 #include "game_screen.h"
 #include "message_albedo.h"
-#include "javascript_mod.h"
 #include "usr_custom_mod.h"
 
 

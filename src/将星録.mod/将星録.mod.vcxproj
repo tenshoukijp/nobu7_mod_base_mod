@@ -140,7 +140,6 @@
     <ClInclude Include="hook_functions_replace.h" />
     <ClInclude Include="hook_textouta_custom.h" />
     <ClInclude Include="game_menu.h" />
-    <ClInclude Include="javascript_mod.h" />
     <ClInclude Include="load_form_mod.h" />
     <ClInclude Include="message_albedo.h" />
     <ClInclude Include="mng_ゲーム画面.h" />
@@ -229,6 +228,7 @@
     <ClCompile Include="hook_movie_filename.cpp" />
     <ClCompile Include="hook_player_strategy_turn.cpp" />
     <ClCompile Include="hook_castle_battle_zantetsuken.cpp" />
+    <ClCompile Include="hook_readfile_custom_kahou.cpp" />
     <ClCompile Include="hook_serihu_message_func.cpp" />
     <ClCompile Include="hook_set_serihu_all_bushou_a.cpp" />
     <ClCompile Include="hook_set_serihu_all_bushou_b.cpp" />
@@ -245,7 +245,7 @@
     <ClCompile Include="hook_write_soba_teppou.cpp" />
     <ClCompile Include="hook_write_soba_uma.cpp" />
     <ClCompile Include="hook_write_year.cpp" />
-    <ClCompile Include="hook_readfile_custom.cpp" />
+    <ClCompile Include="hook_readfile_custom_kao.cpp" />
     <ClCompile Include="hook_setfilepointer_custom.cpp" />
     <ClCompile Include="hook_yasen_end.cpp" />
     <ClCompile Include="hook_yasen_start.cpp" />
@@ -265,7 +265,6 @@
     <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp" />
     <ClCompile Include="hook_yasen_weather_change.cpp" />
     <ClCompile Include="hook_yasen_weather_write.cpp" />
-    <ClCompile Include="javascript_mod.cpp" />
     <ClCompile Include="kahou_retsuden_albedo.cpp" />
     <ClCompile Include="kahou_retsuden.cpp" />
     <ClCompile Include="hook_kahou_type_name.cpp" />
@@ -314,9 +313,6 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="JavaScript.mod">
-      <HintPath>..\..\..\..\..\..\usr\steam\steamapps\common\Nobunaga7WPK\JavaScript.mod.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

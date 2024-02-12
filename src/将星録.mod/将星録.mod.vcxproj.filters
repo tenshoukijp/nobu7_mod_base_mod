@@ -166,9 +166,6 @@
     <Filter Include="家宝 - 画像">
       <UniqueIdentifier>{0b9a9dd2-ad74-4113-85cb-0f8212d453e8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="JavaScriptMod">
-      <UniqueIdentifier>{208d4380-66a0-4930-af9e-0bdd9b81cdc8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="家宝 - 種類名">
       <UniqueIdentifier>{aadd8294-06b2-4b5e-84f1-b9dd5fc1aa1f}</UniqueIdentifier>
     </Filter>
@@ -332,9 +329,6 @@
     </ClInclude>
     <ClInclude Include="castle_battle_attack_heisuu_sum.h">
       <Filter>ゲームデータ - 籠城戦</Filter>
-    </ClInclude>
-    <ClInclude Include="javascript_mod.h">
-      <Filter>JavaScriptMod</Filter>
     </ClInclude>
     <ClInclude Include="usr_custom_mod.h">
       <Filter>C#Mod</Filter>
@@ -503,7 +497,7 @@
     <ClCompile Include="mng_官位情報.cpp">
       <Filter>ゲームデータ - 官位情報</Filter>
     </ClCompile>
-    <ClCompile Include="hook_readfile_custom.cpp">
+    <ClCompile Include="hook_readfile_custom_kao.cpp">
       <Filter>フック関数置き換え系</Filter>
     </ClCompile>
     <ClCompile Include="file_attribute.cpp">
@@ -704,9 +698,6 @@
     <ClCompile Include="hook_kahou_show_kahouid.cpp">
       <Filter>家宝 - 画像</Filter>
     </ClCompile>
-    <ClCompile Include="javascript_mod.cpp">
-      <Filter>JavaScriptMod</Filter>
-    </ClCompile>
     <ClCompile Include="hook_kahou_type_name.cpp">
       <Filter>家宝 - 種類名</Filter>
     </ClCompile>
@@ -721,6 +712,9 @@
     </ClCompile>
     <ClCompile Include="usr_custom_mod.cpp">
       <Filter>C#Mod</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_readfile_custom_kahou.cpp">
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -151,12 +151,15 @@ void onWriteSobaKome(int iSobaKome) {
 }
 
 void onUpdateSobaKome(int iSobaKome) {
+    OutputDebugStream("■■■■米相場更新 %d\n ", (int)nb7ターン情報.月);
 }
 
 void onUpdateSobaUma(int iSobaUma) {
+    OutputDebugStream("■■■■馬相場更新 %d\n ", (int)nb7ターン情報.月);
 }
 
 void onUpdateSobaTeppou(int iSobaTeppou) {
+    OutputDebugStream("■■■■鉄砲相場更新 %d\n ", (int)nb7ターン情報.月);
 }
 
 // 馬の相場の初書き込みがされた

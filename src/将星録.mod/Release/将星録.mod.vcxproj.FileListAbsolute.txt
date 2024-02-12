@@ -1,3 +1,2 @@
 C:\Users\master\source\repos\winmm\将星録.mod\Release\将星録.mod.vcxproj.AssemblyReference.cache
 C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\将星録.mod.vcxproj.AssemblyReference.cache
-C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\将星録.mod.vcxproj.CopyComplete

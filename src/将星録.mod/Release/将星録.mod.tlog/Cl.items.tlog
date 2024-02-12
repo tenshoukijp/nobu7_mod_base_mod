@@ -54,6 +54,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_maingame_start.cpp;
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_movie_filename.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_player_strategy_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_player_strategy_turn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_zantetsuken.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_zantetsuken.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom_kahou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_readfile_custom_kahou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_serihu_message_func.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_serihu_message_func.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_set_serihu_all_bushou_a.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_set_serihu_all_bushou_a.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_set_serihu_all_bushou_b.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_set_serihu_all_bushou_b.obj
@@ -66,7 +67,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_kome.cpp
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_teppou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_soba_teppou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_uma.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_soba_uma.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_year.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_write_year.obj
-C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_readfile_custom.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom_kao.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_readfile_custom_kao.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setfilepointer_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_setfilepointer_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_end.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_start.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_start.obj
@@ -79,7 +80,6 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_b
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_butai_of_1to5.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_battle_turn_butai_of_1to5.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_weather_change.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_weather_change.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_weather_write.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_yasen_weather_write.obj
-C:\Users\master\source\repos\将星録Mod\将星録.mod\javascript_mod.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\javascript_mod.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden_albedo.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\kahou_retsuden_albedo.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\kahou_retsuden.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_type_name.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_kahou_type_name.obj

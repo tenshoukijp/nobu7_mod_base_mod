@@ -30,21 +30,45 @@
 #include "game_screen.h"
 #include "message_albedo.h"
 #include "on_event.h"
+#include "usr_custom_mod.h"
 
 
 using namespace std;
 
-#pragma unmanaged
 
-static int iUpdateSobaTeppouEAX = -1;
+int iUpdateSobaTeppouEAX = -1;
 void OnSSRExeUpdateSobaTeppouExecute() {
 	OutputDebugStream("★★★★鉄砲相場が更新されました!!!:%d\n", iUpdateSobaTeppouEAX);
 	onUpdateSobaTeppou(iUpdateSobaTeppouEAX);
 
-	// ★★★ ここ「ひと月に一度だけする処理」を書くのに適している。
-	// JavaScriptなどで「相場が変更になった時（月が変更になった時）」といった処理を追加するのに適している。
+	nb7ターン情報.相場鉄砲 = iUpdateSobaTeppouEAX; // どうせ次に将星録本体処理で代入されるため、ここで代入しておく。
+
+	try {
+
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+		dic->Add("相場兵糧", nb7ターン情報.相場兵糧);
+		dic->Add("相場軍馬", nb7ターン情報.相場軍馬);
+		dic->Add("相場鉄砲", nb7ターン情報.相場鉄砲);
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on相場要求時", dic);
+		if (ret != nullptr) {
+			if (ret->ContainsKey("相場兵糧")) {
+				nb7ターン情報.相場兵糧 = (int)(ret["相場兵糧"]);
+			}
+			if (ret->ContainsKey("相場軍馬")) {
+				nb7ターン情報.相場軍馬 = (int)(ret["相場軍馬"]);
+			}
+			if (ret->ContainsKey("相場鉄砲")) {
+				nb7ターン情報.相場鉄砲 = (int)(ret["相場鉄砲"]);
+				iUpdateSobaTeppouEAX = nb7ターン情報.相場鉄砲; // これから将星録本体では値の代入が行われるので、調子を合わせておく。
+			}
+		}
+	}
+	catch (System::Exception^) {
+		OutputDebugStream("on相場要求時 でエラーが発声しました。");
+	}
 }
 
+#pragma unmanaged
 
 /*
 004C47CA   50               PUSH EAX
@@ -95,6 +119,8 @@ __declspec(naked) void WINAPI OnSSRExeUpdateSobaTeppou() {
 		pop ecx
 		pop ebx
 		pop eax
+
+		mov EAX, iUpdateSobaTeppouEAX
 
 		jmp pSSRExeReturnLblFromOnSSRExeUpdateSobaTeppou
 	}

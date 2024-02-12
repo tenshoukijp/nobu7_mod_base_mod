@@ -47,7 +47,6 @@ ESI‚ª•«î•ñ‚ÌŠY“–•«‚Ö‚Ìƒ|ƒCƒ“ƒ^
 #include "game_screen.h"
 #include "message_albedo.h"
 #include "on_event.h"
-#include "javascript_mod.h"
 #include "usr_custom_mod.h"
 
 using namespace std;

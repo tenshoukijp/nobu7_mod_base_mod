@@ -7,7 +7,6 @@
 #include "game_window.h"
 #include "process.h"
 #include "output_debug_stream.h"
-#include "javascript_mod.h"
 #include "usr_custom_mod.h"
 
 using namespace System;

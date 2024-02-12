@@ -38,9 +38,10 @@ using namespace std;
 
 extern void resetMapBushouKoudouzumiCacheInMonth();
 
-static int iUpdateSobaKomeEAX = -1;
+int iUpdateSobaKomeEAX = -1;
 void OnSSRExeUpdateSobaKomeExecute() {
 	OutputDebugStream("šššš•Ä‘Šê‚ªXV‚³‚ê‚Ü‚µ‚½!!!:%d\n", iUpdateSobaKomeEAX);
+	
 	onUpdateSobaKome(iUpdateSobaKomeEAX);
 
 	resetAlbedoKoudouCounter();
@@ -96,6 +97,8 @@ __declspec(naked) void WINAPI OnSSRExeUpdateSobaKome() {
 		pop ecx
 		pop ebx
 		pop eax
+
+		mov EAX, iUpdateSobaKomeEAX
 
 		jmp pSSRExeReturnLblFromOnSSRExeUpdateSobaKome
 	}

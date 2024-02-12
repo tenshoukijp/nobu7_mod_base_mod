@@ -35,7 +35,7 @@ using namespace std;
 
 #pragma unmanaged
 
-static int iUpdateSobaUmaEAX = -1;
+int iUpdateSobaUmaEAX = -1;
 void OnSSRExeUpdateSobaUmaExecute() {
 	OutputDebugStream("šššš”n‘Šê‚ªXV‚³‚ê‚Ü‚µ‚½!!!:%d\n", iUpdateSobaUmaEAX);
 	onUpdateSobaUma(iUpdateSobaUmaEAX);
@@ -90,6 +90,8 @@ __declspec(naked) void WINAPI OnSSRExeUpdateSobaUma() {
 		pop ecx
 		pop ebx
 		pop eax
+
+		mov iUpdateSobaUmaEAX, EAX
 
 		jmp pSSRExeReturnLblFromOnSSRExeUpdateSobaUma
 	}

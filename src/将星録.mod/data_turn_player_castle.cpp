@@ -2,7 +2,7 @@
 
 int getStrategyPlayerTurnCastleID() {
 	// 所有武将のアドレスを直接さしている
-	int nCastleAddress = (int)(ターン城情報.pターン城);
+	int nCastleAddress = (int)(nb7ターン城情報.pターン城);
 	// 武将の配列の先頭アドレスから引く
 	int sub = nCastleAddress - (int)(城情報アドレス);
 

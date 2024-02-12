@@ -17,7 +17,6 @@
 #include "game_screen.h"
 #include "message_albedo.h"
 #include "onigwrap.h"
-#include "javascript_mod.h"
 #include "usr_custom_mod.h"
 
 using namespace std;
