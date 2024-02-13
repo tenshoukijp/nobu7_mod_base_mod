@@ -54,6 +54,7 @@
   hook_movie_filename.cpp
   hook_player_strategy_turn.cpp
   hook_castle_battle_zantetsuken.cpp
+  hook_readfile_custom_kahou.cpp
   hook_serihu_message_func.cpp
   hook_set_serihu_all_bushou_a.cpp
   hook_set_serihu_all_bushou_b.cpp
@@ -66,10 +67,9 @@
   hook_write_soba_teppou.cpp
   hook_write_soba_uma.cpp
   hook_write_year.cpp
-  hook_readfile_custom.cpp
+  hook_readfile_custom_kao.cpp
   hook_setfilepointer_custom.cpp
   hook_yasen_end.cpp
-C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp(79,28): warning C4101: 'e': ローカル変数は 1 度も使われていません。
   hook_yasen_start.cpp
   hook_yasen_butai_info_update.cpp
   hook_unknown_dialog3.cpp
@@ -78,9 +78,10 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp(
   hook_yasen_battle_turn.cpp
   hook_yasen_battle_turn_both_bushou.cpp
   hook_yasen_battle_turn_butai_of_1to5.cpp
+  hook_yasen_start_a.cpp
+  hook_yasen_start_b.cpp
   hook_yasen_weather_change.cpp
   hook_yasen_weather_write.cpp
-  javascript_mod.cpp
   kahou_retsuden_albedo.cpp
   kahou_retsuden.cpp
   hook_kahou_type_name.cpp
@@ -112,6 +113,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp(
   hook_setmenu_custom.cpp
   hook_textouta_custom.cpp
   game_menu.cpp
+  mng_年月情報.cpp
   mng_役職情報.cpp
   mng_文字列変換.cpp
   mng_武将情報.cpp
@@ -124,6 +126,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp(
   game_window.cpp
   hook_castle_battle_taihou_defend_honmaru_damage.cpp
   usr_custom_mod.cpp
+  mng_相場情報.cpp
   .NETFramework,Version=v4.8.AssemblyAttributes.cpp
      ライブラリ C:\Users\master\source\repos\将星録Mod\Release (Super)\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\将星録Mod\Release (Super)\将星録.mod.exp を作成中
 LINK : warning LNK4232: 名前 将星録.mod に ASCII 文字以外の文字が含まれています。932 以外の ANSI コードページを使用すると、DLL をシステムに読み込めない可能性があります

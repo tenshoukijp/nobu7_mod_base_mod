@@ -14,11 +14,10 @@
 #include "bushou_albedo.h"
 #include "game_screen.h"
 #include "message_albedo.h"
-
+#include "usr_custom_mod.h"
 
 using namespace std;
 
-#pragma unmanaged
 
 /*
 野戦のターン切変わり目
@@ -118,7 +117,8 @@ int iLastAttackBushouID = -1;
 int iLastDefendBushouID = -1;
 
 extern bool isWriteYasenWeather;
-
+extern int nRemainYasenTurn; // 残りターン数
+extern BOOL hookYasenBattleFirstTurn; 
 void OnSSRExeYasenTurnBothBushouExecute() {
 	// 何回も来るので天候が書き換えられた後だけ実行する
 	if (isWriteYasenWeather) {
@@ -133,8 +133,45 @@ void OnSSRExeYasenTurnBothBushouExecute() {
 			iLastAttackBushouID = iAttackBushouID;
 			iLastDefendBushouID = iDefendBushouID;
 			if (isValidBushouID(iAttackBushouID) && isValidBushouID(iDefendBushouID)) {
-				OutputDebugStream("★★★★野戦ターンの変更時の攻撃武将名★%s\n", nb7武将情報[iAttackBushouID].姓名);
-				OutputDebugStream("★★★★野戦ターンの変更時の守備武将名★%s\n", nb7武将情報[iDefendBushouID].姓名);
+
+				// 今回は最初のターンなので、戦闘開始の関数を呼ぶ
+				if (hookYasenBattleFirstTurn) {
+					hookYasenBattleFirstTurn = 0;
+
+					// C#のカスタム.mod.dllからの上書き
+					try {
+						System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+						dic->Add("攻撃武将番号", iAttackBushouID);
+						dic->Add("防御武将番号", iDefendBushouID);
+						dic->Add("攻撃ユニット番号", iAttackUnitID);
+						dic->Add("防御ユニット番号", iDefendUnitID);
+						System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on野戦開始時", dic);
+
+					}
+					catch (System::Exception^) {
+						OutputDebugStream("on野戦開始時にエラーが発生しました");
+					}
+				}
+
+				// C#のカスタム.mod.dllからの上書き
+				try {
+					System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+					dic->Add("攻撃武将番号", iAttackBushouID);
+					dic->Add("防御武将番号", iDefendBushouID);
+					dic->Add("攻撃ユニット番号", iAttackUnitID);
+					dic->Add("防御ユニット番号", iDefendUnitID);
+					dic->Add("残りターン", iDefendUnitID);
+					System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on野戦残りターン変更時", dic);
+
+				}
+				catch (System::Exception^) {
+					OutputDebugStream("on野戦残りターン変更時にエラーが発生しました");
+				}
+
+
+				OutputDebugStream("■■★★野戦ターンの変更時の攻撃武将名★%s\n", nb7武将情報[iAttackBushouID].姓名);
+				OutputDebugStream("■■★★野戦ターンの変更時の守備武将名★%s\n", nb7武将情報[iDefendBushouID].姓名);
+				OutputDebugStream("■■★★残りターン数★%d\n", nRemainYasenTurn);
 
 				野戦中のアルベドの敵武将は戦闘値が最低となる(iAttackBushouID, iDefendBushouID);
 			}
@@ -146,6 +183,7 @@ void OnSSRExeYasenTurnBothBushouExecute() {
 	}
 }
 
+#pragma unmanaged
 
 /*
 00477C28   83F9 18          CMP ECX,18

@@ -389,13 +389,27 @@ void onYasenBattleEnd(string endYanseBattleInfo) {
     isYasenBattle = FALSE;
 }
 
+extern int hookYasenBattleStart;
 // 理由不明な終わり方
 void onYasenBattleEnd() {
-    reset野戦後のアルベドの敵武将の戦闘値();
+    if (hookYasenBattleStart) {
 
-    アルベドのユニットが軍隊や軍船なら兵数復活();
+        // C#のカスタム.mod.dllからの上書き
+        try {
+            System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+            System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on野戦終了時", dic);
+        }
+        catch (System::Exception^) {
+            OutputDebugStream("on野戦終了時にエラーが発生しました");
+        }
 
-    OutputDebugStream("野戦の戦闘が終了しました\n\n");
+
+        reset野戦後のアルベドの敵武将の戦闘値();
+
+        アルベドのユニットが軍隊や軍船なら兵数復活();
+
+        OutputDebugStream("野戦の戦闘が終了しました\n\n");
+    }
 
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
 

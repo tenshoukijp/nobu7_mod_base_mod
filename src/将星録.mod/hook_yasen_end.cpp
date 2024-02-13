@@ -72,11 +72,11 @@
 #include "bushou_albedo.h"
 #include "game_screen.h"
 #include "message_albedo.h"
+#include "usr_custom_mod.h"
 
 
 using namespace std;
 
-#pragma unmanaged
 
 extern void onYasenBattleEnd();
 
@@ -84,10 +84,18 @@ void resetYasenBattleInfo() {
 
 }
 
+extern BOOL hookYasenBattleStart;
+extern BOOL hookYasenBattleFirstTurn;
 void OnSSRExeYasenBattleEndExecute() {
 	OutputDebugStream("★★★★野戦終了★★★★\n");
+
 	onYasenBattleEnd();
+
+	hookYasenBattleStart = 0;
+	hookYasenBattleFirstTurn = 0;
 }
+
+#pragma unmanaged
 
 /*
 0047A041  |. 6A 02          PUSH 2
@@ -104,6 +112,8 @@ int pSSRExeReturnLblFromOnSSRExeYasenBattleEnd = 0x47A048; // 関数が最後までいく
 __declspec(naked) void WINAPI OnSSRExeYasenBattleEnd() {
 	// スタックにためておく
 	__asm {
+
+		call pSSRExeJumpCallFromToOnSSRExeYasenBattleEnd
 
 		push eax
 		push ebx

@@ -3,8 +3,6 @@ Assembly 将星録.mod, Version=0.0.*, Culture=ロケールに依存しない言
 	hash=SHA1, flags=PublicKey
 Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Assembly JavaScript.mod, Version=1.0.*, Culture=ロケールに依存しない言語 (ロケールに依存しない国): 
-	hash=None, flags=None
 Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
@@ -1183,6 +1181,16 @@ Class 将星録.家宝情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_南蛮(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_抑制(): PrivateScope, Public, HideBySig, SpecialName
     set_抑制(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.年月情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 月    'get set' : 
+    Int32 年    'get set' : 
+  Methods:
+    get_年(): PrivateScope, Public, HideBySig, SpecialName
+    set_年(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_月(): PrivateScope, Public, HideBySig, SpecialName
+    set_月(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.役職.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -1208,3 +1216,16 @@ Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_役位(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_所有大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_所有大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.相場情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 鉄砲   'get set' : 
+    Int32 軍馬   'get set' : 
+    Int32 兵糧   'get set' : 
+  Methods:
+    get_兵糧(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵糧(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_軍馬(): PrivateScope, Public, HideBySig, SpecialName
+    set_軍馬(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_鉄砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_鉄砲(Int32): PrivateScope, Public, HideBySig, SpecialName

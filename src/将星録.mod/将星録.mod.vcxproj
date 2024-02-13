@@ -265,6 +265,12 @@
     <ClCompile Include="hook_yasen_battle_turn.cpp" />
     <ClCompile Include="hook_yasen_battle_turn_both_bushou.cpp" />
     <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp" />
+    <ClCompile Include="hook_yasen_start_a.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release (Super)|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="hook_yasen_start_b.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release (Super)|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="hook_yasen_weather_change.cpp" />
     <ClCompile Include="hook_yasen_weather_write.cpp" />
     <ClCompile Include="kahou_retsuden_albedo.cpp" />
@@ -331,9 +337,6 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="oniguruma.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="bitmap描画でやっているであろう流れ.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

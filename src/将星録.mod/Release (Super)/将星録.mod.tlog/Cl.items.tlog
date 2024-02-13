@@ -54,6 +54,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_maingame_start.cpp;
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_movie_filename.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_player_strategy_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_player_strategy_turn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_zantetsuken.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_zantetsuken.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom_kahou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_readfile_custom_kahou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_serihu_message_func.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_serihu_message_func.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_set_serihu_all_bushou_a.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_set_serihu_all_bushou_a.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_set_serihu_all_bushou_b.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_set_serihu_all_bushou_b.obj
@@ -66,7 +67,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_kome.cpp
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_teppou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_write_soba_teppou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_uma.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_write_soba_uma.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_year.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_write_year.obj
-C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_readfile_custom.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom_kao.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_readfile_custom_kao.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setfilepointer_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_setfilepointer_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_end.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_yasen_end.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_start.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_yasen_start.obj
@@ -77,9 +78,10 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog2.cpp
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_yasen_battle_turn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_both_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_yasen_battle_turn_both_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_butai_of_1to5.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_yasen_battle_turn_butai_of_1to5.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_start_a.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_yasen_start_a.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_start_b.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_yasen_start_b.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_weather_change.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_yasen_weather_change.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_weather_write.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_yasen_weather_write.obj
-C:\Users\master\source\repos\将星録Mod\将星録.mod\javascript_mod.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\javascript_mod.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden_albedo.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\kahou_retsuden_albedo.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\kahou_retsuden.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_type_name.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_kahou_type_name.obj
@@ -111,6 +113,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_serihu_message.cpp;
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setmenu_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_setmenu_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_textouta_custom.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_textouta_custom.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\game_menu.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\game_menu.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_年月情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_年月情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_役職情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_役職情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_文字列変換.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_文字列変換.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_武将情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_武将情報.obj
@@ -123,4 +126,5 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\game_process.cpp;C:\User
 C:\Users\master\source\repos\将星録Mod\将星録.mod\game_window.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\game_window.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_honmaru_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_taihou_defend_honmaru_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\usr_custom_mod.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\usr_custom_mod.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_相場情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_相場情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\.NETFramework,Version=v4.8.AssemblyAttributes.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\.NETFramework,Version=v4.8.AssemblyAttributes.obj
