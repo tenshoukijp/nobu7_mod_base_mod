@@ -88,6 +88,7 @@
   load_form_mod.cpp
   message_albedo.cpp
   mng_フォント.cpp
+  mng_メニュー.cpp
   mng_官位情報.cpp
   mng_家宝情報.cpp
   data_kanni_struct.cpp

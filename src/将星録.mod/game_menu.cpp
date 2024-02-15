@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <string>
+#include <map>
 #include <shellapi.h>
 #include "output_debug_stream.h"
 #include "game_menu.h"
@@ -7,6 +8,7 @@
 #include "on_event.h"
 #include "game_test.h"
 #include "load_form_mod.h"
+#include "usr_custom_mod.h"
 
 #pragma comment(lib, "shell32.lib")
 
@@ -28,7 +30,8 @@ void onMenuYakusyokuEditStart() {
 
 // メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、
 // 番号は主にリソースエディタで確認できる
-BOOL onMenuPushed(int iMenuID) {
+BOOL onMenuPushed(HWND hWnd, int iMenuID) {
+
 	OutputDebugStream(iMenuID);
 	OutputDebugStream("\r\n");
 	switch (iMenuID) {
@@ -102,11 +105,26 @@ BOOL onMenuPushed(int iMenuID) {
 	return FALSE;
 }
 
+void ユーザカスタムメニュー() {
+}
+
 // システムメニュー(アプリの左上を右クリックなどで出てくるメニュー)のメニューアイテムを実行した時、
 BOOL onSystemMenuPushed(int iMenuID) {
 	OutputDebugStream(iMenuID);
 	OutputDebugStream("\r\n");
+
+	try {
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+		dic->Add("項目番号", iMenuID);
+		auto ret = InvokeUserMethod("onメニュー項目実行時", dic);
+	}
+	catch (System::Exception^) {
+		OutputDebugStream("onメニュー項目実行時 で例外が発生しました。\n");
+	}
+
 	switch (iMenuID) {
+
+#ifndef SUPER_RELEASE
 	case ADDITIONAL_MENU_ID_NOTEPAD:
 		// ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
 
@@ -115,6 +133,7 @@ BOOL onSystemMenuPushed(int iMenuID) {
 
 		return TRUE;
 	}
+#endif
 	return FALSE;
 }
 
@@ -145,12 +164,6 @@ void insertMenuItem(HMENU hTargetMenu, string menuname, int positionID, int menu
 	}
 	info.dwTypeData = (LPSTR)menuname.c_str();
 	InsertMenuItem(hTargetMenu, positionID, FALSE, &info);
-}
-
-// メニューアイテムの追加
-// menuname メニューアイテムの文字列。"---"だとセパレータとなる。
-void appendMenuItem(HMENU hTargetMenu, string menuname, int positionID, int menuID) {
-	insertMenuItem(hTargetMenu, menuname, positionID + 1, menuID);
 }
 
 

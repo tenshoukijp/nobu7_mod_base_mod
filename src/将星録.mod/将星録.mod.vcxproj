@@ -143,6 +143,7 @@
     <ClInclude Include="load_form_mod.h" />
     <ClInclude Include="message_albedo.h" />
     <ClInclude Include="mng_ゲーム画面.h" />
+    <ClInclude Include="mng_メニュー.h" />
     <ClInclude Include="mng_年月情報.h" />
     <ClInclude Include="mng_相場情報.h" />
     <ClInclude Include="mng_フォント.h" />
@@ -279,6 +280,7 @@
     <ClCompile Include="load_form_mod.cpp" />
     <ClCompile Include="message_albedo.cpp" />
     <ClCompile Include="mng_フォント.cpp" />
+    <ClCompile Include="mng_メニュー.cpp" />
     <ClCompile Include="mng_官位情報.cpp" />
     <ClCompile Include="mng_家宝情報.cpp" />
     <ClCompile Include="data_kanni_struct.cpp" />

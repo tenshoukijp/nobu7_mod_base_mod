@@ -339,6 +339,9 @@
     <ClInclude Include="mng_年月情報.h">
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClInclude>
+    <ClInclude Include="mng_メニュー.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -733,6 +736,9 @@
     </ClCompile>
     <ClCompile Include="hook_yasen_start_b.cpp">
       <Filter>ゲームデータ - 野戦</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_メニュー.cpp">
+      <Filter>メニュー</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,8 @@ HWND hNB7Wnd = NULL;
 
 HWND* referenceOfNB7Wnd = NULL;
 
+extern void ユーザカスタムメニュー();
+
 void onCreateWindow(HWND hWnd) {
 
 	// ウィンドウハンドルを保存
@@ -24,16 +26,25 @@ void onCreateWindow(HWND hWnd) {
 
 	// changePopupString(GetMenu(hNB7Wnd), 0, "ファイル(&F)");
 
+#ifndef SUPER_RELEASE
 	// メニューを追加した
 	insertMenuItem(GetSystemMenu(hNB7Wnd, FALSE), "メモ帳起動(&M)", RESOURCE_MENU_ID_EXIT, ADDITIONAL_MENU_ID_NOTEPAD);
+#endif
 
 	OutputDebugStream("メニューを追加した\n");
 
 	LoadUserMod();
 
-	System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
-	dic->Add("ウィンドウハンドル", (int)hWnd);
-	auto ret = InvokeUserMethod("onメインウィンドウ生成後", dic);
+	{
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+		dic->Add("ウィンドウハンドル", (int)hWnd);
+		auto ret = InvokeUserMethod("onメインウィンドウ生成後", dic);
+	}
+
+	{
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+		auto ret = InvokeUserMethod("onメニュー追加要求時", dic);
+	}
 
 	OutputDebugStream("将星録の開始\n");
 

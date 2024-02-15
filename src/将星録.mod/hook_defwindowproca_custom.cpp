@@ -247,7 +247,7 @@ LRESULT APIENTRY NB7WndProcCustom(
 		OutputDebugStream("WM_COMMAND\n");
 
 		WORD menuID = LOWORD(wParam);
-		onMenuPushed(menuID);
+		onMenuPushed(hWnd, menuID);
 	}
 	// マウス系の処理全て
 	else if (WM_MOUSEFIRST <= Msg && Msg <= WM_MOUSELAST) {
