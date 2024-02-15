@@ -32,6 +32,15 @@ void onMenuYakusyokuEditStart() {
 // 番号は主にリソースエディタで確認できる
 BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 
+	try {
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+		dic->Add("項目番号", iMenuID);
+		auto ret = InvokeUserMethod("onメニュー項目実行時", dic);
+	}
+	catch (System::Exception^) {
+		OutputDebugStream("onメニュー項目実行時 で例外が発生しました。\n");
+	}
+
 	OutputDebugStream(iMenuID);
 	OutputDebugStream("\r\n");
 	switch (iMenuID) {
