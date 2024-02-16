@@ -826,6 +826,91 @@ Class 将星録.最大数.役職情報: AutoLayout, AnsiClass, Class, Public, Be
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.城.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 内 IsConst : Public, Static, HasDefault
+    Int32 肝付 IsConst : Public, Static, HasDefault
+    Int32 八代 IsConst : Public, Static, HasDefault
+    Int32 都於郡 IsConst : Public, Static, HasDefault
+    Int32 佐賀 IsConst : Public, Static, HasDefault
+    Int32 立花山 IsConst : Public, Static, HasDefault
+    Int32 中津 IsConst : Public, Static, HasDefault
+    Int32 府内 IsConst : Public, Static, HasDefault
+    Int32 山口 IsConst : Public, Static, HasDefault
+    Int32 中村 IsConst : Public, Static, HasDefault
+    Int32 湯築 IsConst : Public, Static, HasDefault
+    Int32 岡豊 IsConst : Public, Static, HasDefault
+    Int32 福光 IsConst : Public, Static, HasDefault
+    Int32 吉田郡山 IsConst : Public, Static, HasDefault
+    Int32 福山 IsConst : Public, Static, HasDefault
+    Int32 天霧 IsConst : Public, Static, HasDefault
+    Int32 岡山 IsConst : Public, Static, HasDefault
+    Int32 勝瑞 IsConst : Public, Static, HasDefault
+    Int32 月山富田 IsConst : Public, Static, HasDefault
+    Int32 津山 IsConst : Public, Static, HasDefault
+    Int32 姫路 IsConst : Public, Static, HasDefault
+    Int32 雑賀 IsConst : Public, Static, HasDefault
+    Int32 鳥取 IsConst : Public, Static, HasDefault
+    Int32 八上 IsConst : Public, Static, HasDefault
+    Int32 大坂 IsConst : Public, Static, HasDefault
+    Int32 大和郡山 IsConst : Public, Static, HasDefault
+    Int32 二条 IsConst : Public, Static, HasDefault
+    Int32 建部山 IsConst : Public, Static, HasDefault
+    Int32 大河内 IsConst : Public, Static, HasDefault
+    Int32 観音寺 IsConst : Public, Static, HasDefault
+    Int32 安土城 IsConst : Public, Static, HasDefault
+    Int32 小谷 IsConst : Public, Static, HasDefault
+    Int32 那古野 IsConst : Public, Static, HasDefault
+    Int32 岡崎 IsConst : Public, Static, HasDefault
+    Int32 稲葉山 IsConst : Public, Static, HasDefault
+    Int32 岐阜城 IsConst : Public, Static, HasDefault
+    Int32 一乗谷 IsConst : Public, Static, HasDefault
+    Int32 浜松 IsConst : Public, Static, HasDefault
+    Int32 御山 IsConst : Public, Static, HasDefault
+    Int32 松倉 IsConst : Public, Static, HasDefault
+    Int32 駿府 IsConst : Public, Static, HasDefault
+    Int32 七尾 IsConst : Public, Static, HasDefault
+    Int32 富山 IsConst : Public, Static, HasDefault
+    Int32 深志 IsConst : Public, Static, HasDefault
+    Int32 躑躅ヶ崎 IsConst : Public, Static, HasDefault
+    Int32 小田原 IsConst : Public, Static, HasDefault
+    Int32 海津 IsConst : Public, Static, HasDefault
+    Int32 久留里 IsConst : Public, Static, HasDefault
+    Int32 箕輪 IsConst : Public, Static, HasDefault
+    Int32 河越 IsConst : Public, Static, HasDefault
+    Int32 春日山 IsConst : Public, Static, HasDefault
+    Int32 佐倉 IsConst : Public, Static, HasDefault
+    Int32 宇都宮 IsConst : Public, Static, HasDefault
+    Int32 与板 IsConst : Public, Static, HasDefault
+    Int32 水戸 IsConst : Public, Static, HasDefault
+    Int32 棚倉 IsConst : Public, Static, HasDefault
+    Int32 新発田 IsConst : Public, Static, HasDefault
+    Int32 黒川 IsConst : Public, Static, HasDefault
+    Int32 小高 IsConst : Public, Static, HasDefault
+    Int32 山形 IsConst : Public, Static, HasDefault
+    Int32 岩出山 IsConst : Public, Static, HasDefault
+    Int32 久保田 IsConst : Public, Static, HasDefault
+    Int32 高水寺 IsConst : Public, Static, HasDefault
+    Int32 弘前 IsConst : Public, Static, HasDefault
+    Int32 三戸 IsConst : Public, Static, HasDefault
+    Int32 松前 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.城.商人: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 不在 IsConst : Public, Static, HasDefault
+    Int32 常駐商人 IsConst : Public, Static, HasDefault
+    Int32 大砲商人 IsConst : Public, Static, HasDefault
+    Int32 鉄甲船商人 IsConst : Public, Static, HasDefault
+    Int32 闇商人 IsConst : Public, Static, HasDefault
+    Int32 茶器商人 IsConst : Public, Static, HasDefault
+    Int32 武器商人 IsConst : Public, Static, HasDefault
+    Int32 書物商人 IsConst : Public, Static, HasDefault
+    Int32 珍品商人 IsConst : Public, Static, HasDefault
+    Int32 高級商人 IsConst : Public, Static, HasDefault
+    Int32 博多商人 IsConst : Public, Static, HasDefault
+    Int32 堺商人 IsConst : Public, Static, HasDefault
+    Int32 京都商人 IsConst : Public, Static, HasDefault
 Class 将星録.列挙.家宝.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

@@ -175,6 +175,9 @@
     <Filter Include="武将 - 行動済">
       <UniqueIdentifier>{65d5ecac-168f-490c-9129-9835ad552010}</UniqueIdentifier>
     </Filter>
+    <Filter Include="列伝 - 城列伝">
+      <UniqueIdentifier>{1ac319a8-b089-4f7d-a224-30a2e11cd8a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -739,6 +742,21 @@
     </ClCompile>
     <ClCompile Include="mng_メニュー.cpp">
       <Filter>メニュー</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_retsuden_castle_bgn.cpp">
+      <Filter>列伝 - 城列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_retusden_castle_detail.cpp">
+      <Filter>列伝 - 城列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_castle_retsuden_castle_title.cpp">
+      <Filter>列伝 - 城列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="castle_retsuden.cpp">
+      <Filter>列伝 - 城列伝</Filter>
+    </ClCompile>
+    <ClCompile Include="castle_retsuden_albedo.cpp">
+      <Filter>アルベド</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -170,6 +170,8 @@
     <ClInclude Include="usr_custom_mod.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="castle_retsuden.cpp" />
+    <ClCompile Include="castle_retsuden_albedo.cpp" />
     <ClCompile Include="fook_picture_cache.cpp" />
     <ClCompile Include="hook_castle_battle_butai_defend_honmaru_damage.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syototsu_kyoten_bushou.cpp" />
@@ -195,9 +197,13 @@
     <ClCompile Include="hook_castle_battle_taihou_defend_door_damage.cpp" />
     <ClCompile Include="hook_castle_battle_zantetsuken_message.cpp" />
     <ClCompile Include="hook_castle_battle_butai_defend_honmaru_bushou.cpp" />
+    <ClCompile Include="hook_castle_retsuden_castle_bgn.cpp" />
+    <ClCompile Include="hook_castle_retsuden_castle_title.cpp" />
+    <ClCompile Include="hook_castle_retusden_castle_detail.cpp" />
     <ClCompile Include="hook_daimyo_strategy_turn.cpp" />
     <ClCompile Include="data_kahou_retsuden_struct.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release (Super)|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="data_kahou_struct.cpp" />
     <ClCompile Include="data_bushou_retsuden_struct.cpp" />
@@ -334,6 +340,7 @@
   <ItemGroup>
     <None Include="data_kahou_retsuden_struct.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release (Super)|Win32'">true</ExcludedFromBuild>
     </None>
     <None Include="dllmain.def" />
   </ItemGroup>

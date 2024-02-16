@@ -23,7 +23,7 @@ void initAlbedoKahou() {
 }
 
 std::pair<string, string> getAlbedoKahouRetsuden(int iKahouID) {
-	if (isValidBushouID(iKahouID)) {
+	if (isValidKahouID(iKahouID)) {
 		if (iKahouID == —ñ‹“::‰Æ•ó::”z—ñ::‹SŠÛ) {
 			if (nb7‰Æ•óî•ñ[iKahouID].‰Æ•ó–¼ == "ƒoƒ ƒ¡ƒ¢ƒ£ƒ¤"s) {
 				return {

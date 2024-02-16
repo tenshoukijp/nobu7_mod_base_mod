@@ -1098,6 +1098,10 @@ Class 将星録.アプリケーション.フォント: AutoLayout, AnsiClass, Cl
     System.String フォント名 'get ' : 
   Methods:
     get_フォント名(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class 将星録.アプリケーション.メニュー: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    項目追加(String): PrivateScope, Public, Static, HideBySig
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

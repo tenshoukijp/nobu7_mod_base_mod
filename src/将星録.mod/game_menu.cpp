@@ -133,16 +133,22 @@ BOOL onSystemMenuPushed(int iMenuID) {
 
 	switch (iMenuID) {
 
+		case ADDITIONAL_MENU_ID_NOTEPAD:
+		{
 #ifndef SUPER_RELEASE
-	case ADDITIONAL_MENU_ID_NOTEPAD:
-		// ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
+			// ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
 
-		doGameTest();
+			doGameTest();
 
 
-		return TRUE;
-	}
+			return TRUE;
 #endif
+		}
+		default: {
+			
+		}
+
+	}
 	return FALSE;
 }
 

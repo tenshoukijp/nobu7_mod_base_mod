@@ -24,7 +24,7 @@ std::pair<string, string> getAlbedoKahouRetsuden(int iBushouID);
 
 
 std::pair<string, string> getOverrideKahouRetsuden(int iKahouID) {
-	if (isValidBushouID(iKahouID)) {
+	if (isValidKahouID(iKahouID)) {
 		auto [title, detail] = getAlbedoKahouRetsuden(iKahouID);
 		if (title != "" || detail != "") {
 			return { title, detail };

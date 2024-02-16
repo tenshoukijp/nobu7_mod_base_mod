@@ -63,6 +63,9 @@ extern void WriteAsmJumperOnSSRExeSetSerifuAllButhouLocA();
 extern void WriteAsmJumperOnSSRExeSetSerifuAllButhouLocB();
 extern void WriteAsmJumperOnSSRExeYasenBattleStartALoc();
 extern void WriteAsmJumperOnSSRExeYasenBattleStartBLoc();
+extern void WriteAsmJumperOnSSRExeCastleRetsudenShowBgn();
+extern void WriteAsmJumperOnSSRExeCastleTitle();
+extern void WriteAsmJumperOnSSRExeCastleDetail();
 
 bool isWriteAsmJumperOnSSRExeCheckPicCache = false;
 bool isWriteAsmJumperOnSSRExeInitalGameSettings = false;
@@ -129,6 +132,9 @@ bool isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocA = false;
 bool isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocB = false;
 bool isWriteAsmJumperOnSSRExeYasenBattleStartALoc = false;
 bool isWriteAsmJumperOnSSRExeYasenBattleStartBLoc = false;
+bool isWriteAsmJumperOnSSRExeCastleRetsudenShowBgn = false;
+bool isWriteAsmJumperOnSSRExeCastleTitle = false;
+bool isWriteAsmJumperOnSSRExeCastleDetail = false;
 
 
 
@@ -459,6 +465,21 @@ void hookFunctionsDirect() {
 	if (!isWriteAsmJumperOnSSRExeYasenBattleStartBLoc) {
 		isWriteAsmJumperOnSSRExeYasenBattleStartBLoc = true;
 		WriteAsmJumperOnSSRExeYasenBattleStartBLoc();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleRetsudenShowBgn) {
+		isWriteAsmJumperOnSSRExeCastleRetsudenShowBgn = true;
+		WriteAsmJumperOnSSRExeCastleRetsudenShowBgn();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleTitle) {
+		isWriteAsmJumperOnSSRExeCastleTitle = true;
+		WriteAsmJumperOnSSRExeCastleTitle();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleDetail) {
+		isWriteAsmJumperOnSSRExeCastleDetail = true;
+		WriteAsmJumperOnSSRExeCastleDetail();
 	}
 
 }

@@ -1,3 +1,6 @@
+// このファイルはコンパイル対象外
+
+
 #pragma once
 
 #include <windows.h>
