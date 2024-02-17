@@ -5,6 +5,7 @@
 #include "on_event.h"
 #include "game_screen.h"
 #include "hook_functions_direct.h"
+#include "usr_custom_mod.h"
 
 /*
 00419805   CALL DWORD PTR DS:[<&USER32.SetMenu>]                           将星録_m.77F8E307
@@ -84,7 +85,7 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 
 	int menu_count = GetMenuItemCount(hMenu);
 
-	if (menu_count >= 8) {
+	if (menu_count >= 9) {
 		// 「ユニット」のメニューアイテムを全角に変更
 		changeMenuItemString(hMenu, 226, "ユニット(&U)"); // 226はリソースエディタでわかる「ユニット」のメニューID
 
@@ -99,12 +100,21 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	if (hMenu != hNB7MenuCheckChange) {
 		hNB7MenuCheckChange = hMenu;
 
+		try {
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			auto ret = InvokeUserMethod("onメニュー追加要求時", dic);
+		}
+		catch (System::Exception^) {
+			OutputDebugStream("onメニュー追加要求時 で例外が発生しました。\n");
+		}
+
+
 		// OutputDebugStream(std::to_string(count).c_str());
 		// OutputDebugStream("個メニューが設定されます\r\n");
 		// OutputDebugStream("メニューが変わりました\r\n");
 
-		// OpeningMovie時のメニューは2個
-		if (menu_count == 2) {
+		// OpeningMovie時のメニューは2個 + 改造メニューで+1
+		if (menu_count == 3) {
 			changePopupString(hMenu, 1, "ムービー中止(&M)");
 			if (nCheckMenuCount != menu_count) {
 				nCheckMenuCount = menu_count;
@@ -113,43 +123,43 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 		}
 
 		// ゲームが出来る状態になると、メニューが9個になる。一応8個以上で判定。
-		if (menu_count == 9) {
+		if (menu_count >= 9) {
 			// メニューを追加した
 			HMENU hTarget = GetMenu(hWnd);
-			insertMenuItem(hTarget, "武将エディタ", RESOURCE_MENU_ID_BUSHOUEDIT_ORIGINAL, ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI);
-			insertMenuItem(hTarget, "ユニットエディタ", RESOURCE_MENU_ID_BUSHOUEDIT_ORIGINAL, ADDITIONAL_MENU_ID_UNITEDIT_KAI);
-			insertMenuItem(hTarget, "大名エディタ", RESOURCE_MENU_ID_BUSHOUEDIT_ORIGINAL, ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI);
-			insertMenuItem(hTarget, "家宝エディタ", RESOURCE_MENU_ID_BUSHOUEDIT_ORIGINAL, ADDITIONAL_MENU_ID_KAHOUEDIT_KAI);
-			insertMenuItem(hTarget, "官位エディタ", RESOURCE_MENU_ID_BUSHOUEDIT_ORIGINAL, ADDITIONAL_MENU_ID_KANNIEDIT_KAI);
-			insertMenuItem(hTarget, "役職エディタ", RESOURCE_MENU_ID_BUSHOUEDIT_ORIGINAL, ADDITIONAL_MENU_ID_YAKUSYOKUEDIT_KAI);
-			insertMenuItem(hTarget, "年月エディタ", RESOURCE_MENU_ID_BUSHOUEDIT_ORIGINAL, ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI);
-			insertMenuItem(hTarget, "---", RESOURCE_MENU_ID_BUSHOUEDIT_ORIGINAL, NULL);
+			insertMenuItem(hTarget, "武将エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI);
+			insertMenuItem(hTarget, "ユニットエディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_UNITEDIT_KAI);
+			insertMenuItem(hTarget, "大名エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI);
+			insertMenuItem(hTarget, "家宝エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KAHOUEDIT_KAI);
+			insertMenuItem(hTarget, "官位エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KANNIEDIT_KAI);
+			insertMenuItem(hTarget, "役職エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YAKUSYOKUEDIT_KAI);
+			insertMenuItem(hTarget, "年月エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI);
+			insertMenuItem(hTarget, "---", RESOURCE_MENU_ID_KAIZOU_END, NULL);
 		}
 	}
 
 	if (prevMenuCount != menu_count) {
 
-		if (menu_count == 3) {
-			if (prevMenuCount == 9) {
+		if (menu_count == 4) {  // 3個+改造メニューで+1
+			if (prevMenuCount >= 9) {
 				onCastleBattlePreStart();
 			}
 			OutputDebugStream("籠城戦スクリーン中である\n");
 		}
 
-		if (menu_count == 4) {
-			if (prevMenuCount == 9) {
+		if (menu_count == 5) {  // 4個+改造メニューで+1
+			if (prevMenuCount >= 9) {
 				onYasenBattlePreStart();
 			}
 			OutputDebugStream("戦闘スクリーン中である\n");
 		}
 
-		if (menu_count == 9) {
+		if (menu_count >= 9) {   // 9個以上
 
 
-			if (prevMenuCount == 4) {
+			if (prevMenuCount == 5) { // 4個+改造メニューで+1
 				onYasenBattleEnd();
 			}
-			else if (prevMenuCount == 3) {
+			else if (prevMenuCount == 4) { // 3個+改造メニューで+1
 				onCastleBattleEnd();
 			}
 

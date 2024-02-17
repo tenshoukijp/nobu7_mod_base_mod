@@ -172,6 +172,7 @@
   <ItemGroup>
     <ClCompile Include="castle_retsuden.cpp" />
     <ClCompile Include="castle_retsuden_albedo.cpp" />
+    <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="fook_picture_cache.cpp" />
     <ClCompile Include="hook_castle_battle_butai_defend_honmaru_damage.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syototsu_kyoten_bushou.cpp" />

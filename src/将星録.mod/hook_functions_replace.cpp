@@ -207,9 +207,8 @@ HFONT WINAPI Hook_CreateFontA(
 using PFNLOADMENUA = HMENU(WINAPI *)(HINSTANCE, LPCSTR);
 
 PROC pfnOrigLoadMenuA = GetProcAddress(GetModuleHandleA("user32.dll"), "LoadMenuA");
-
+extern HMODULE h将星録ModDLL;
 // extern HMENU Hook_LoadMenuACustom(HINSTANCE hInstance, LPCSTR lpMenuName);
-
 HMENU WINAPI Hook_LoadMenuA(
     HINSTANCE hInstance, // インスタンスのハンドル
     LPCSTR lpMenuName // メニュー名
@@ -220,7 +219,10 @@ HMENU WINAPI Hook_LoadMenuA(
     // OutputDebugStream("Hook_LoadMenuA\n");
 
 	// 元のものを呼び出す
-	HMENU nResult = ((PFNLOADMENUA)pfnOrigLoadMenuA)(hInstance, lpMenuName);
+	// HMENU nResult = ((PFNLOADMENUA)pfnOrigLoadMenuA)(hInstance, lpMenuName);
+    HANDLE hModule = GetModuleHandle(NULL); //このdll自信のハンドル
+    OutputDebugStream("モジュール%x", h将星録ModDLL);
+    HMENU nResult = ((PFNLOADMENUA)pfnOrigLoadMenuA)((HINSTANCE)h将星録ModDLL, lpMenuName);
 
 	return nResult;
 }

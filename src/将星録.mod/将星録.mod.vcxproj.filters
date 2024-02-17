@@ -758,6 +758,9 @@
     <ClCompile Include="castle_retsuden_albedo.cpp">
       <Filter>アルベド</Filter>
     </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>モジュール定義</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

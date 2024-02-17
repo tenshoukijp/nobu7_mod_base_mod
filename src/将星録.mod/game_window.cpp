@@ -24,8 +24,6 @@ void onCreateWindow(HWND hWnd) {
 	// メニューがころころ変わるので、メニューの変更を検知するため。最初にこれを代入。主にHook_SetMenuで、使われている。
 	hNB7MenuCheckChange = GetMenu(hNB7Wnd);
 
-	// changePopupString(GetMenu(hNB7Wnd), 0, "ファイル(&F)");
-
 #ifndef SUPER_RELEASE
 	// メニューを追加した
 	insertMenuItem(GetSystemMenu(hNB7Wnd, FALSE), "メモ帳起動(&M)", RESOURCE_MENU_ID_EXIT, ADDITIONAL_MENU_ID_NOTEPAD);
@@ -41,10 +39,6 @@ void onCreateWindow(HWND hWnd) {
 		auto ret = InvokeUserMethod("onメインウィンドウ生成後", dic);
 	}
 
-	{
-		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
-		auto ret = InvokeUserMethod("onメニュー追加要求時", dic);
-	}
 
 	OutputDebugStream("将星録の開始\n");
 

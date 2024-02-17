@@ -1,5 +1,6 @@
 ﻿  castle_retsuden.cpp
   castle_retsuden_albedo.cpp
+  dllmain.cpp
   fook_picture_cache.cpp
   hook_castle_battle_butai_defend_honmaru_damage.cpp
   hook_castle_battle_butai_syototsu_kyoten_bushou.cpp

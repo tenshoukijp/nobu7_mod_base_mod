@@ -17,7 +17,7 @@ std::map<std::string, int> addMenuMap;
 int menuMapCounter = USER_MENUID_MIN;
 int 将星録::アプリケーション::メニュー::項目追加(System::String^ ラベル)
 {
-	HMENU hSystemMenu = GetSystemMenu(hNB7Wnd, FALSE);
+	HMENU hMenu = GetMenu(hNB7Wnd);
 	std::string native_add_menu_name = to_native_string(ラベル);
 
 	int menuID = -1;
@@ -33,7 +33,7 @@ int 将星録::アプリケーション::メニュー::項目追加(System::String^ ラベル)
 
 	if (USER_MENUID_MIN <= menuID && menuID <= USER_MENUID_MAX) {
 		// メニューを追加した
-		insertMenuItem(hSystemMenu, native_add_menu_name.c_str(), RESOURCE_MENU_ID_EXIT, menuID);
+		insertMenuItem(hMenu, native_add_menu_name.c_str(), RESOURCE_MENU_ID_KAIZOU_END, menuID);
 	}
 
 	return menuID;
