@@ -51,6 +51,18 @@ using namespace std;
 00496E02   0FB7C8           MOVZX ECX, AX
 */
 
+/*
+メッセージなどがメモリに書き込まれる時
+
+00496E67   8B4D F4          MOV ECX,DWORD PTR SS:[EBP-C]
+00496E6A   64:890D 00000000 MOV DWORD PTR FS:[0],ECX
+00496E71   59               POP ECX
+00496E72   5F               POP EDI
+00496E73   5E               POP ESI
+00496E74   5B               POP EBX
+*/
+
+
 void replaceMessage(string message) {
 #pragma warning(disable:4996)
 	strcpy((char*)(セリフメッセージアドレス), message.c_str());
@@ -111,11 +123,7 @@ void OnSSRExeMessageDetailExecute() {
 00496E73   5E               POP ESI
 00496E74   5B               POP EBX
 */
-/*
 
-
-
-*/
 int pSSRExeJumpFromToOnSSRExeMessageDetail = 0x496E6A; // 関数はこのアドレスから、OnSSRExeMessageDetailへとジャンプしてくる。
 int pSSRExeReturnLblFromOnSSRExeMessageDetail = 0x496E71; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
 #pragma warning(disable:4733)

@@ -447,6 +447,7 @@ void onCastleBattleTurn(string battleCastleTurnInfo) {
 }
 
 extern int iLastBattleRemainTurn;
+extern bool isCastleBattleMode;
 
 void onCastleBattleEnd(string battleCastleEndInfo) {
 
@@ -470,25 +471,30 @@ void onCastleBattleEnd(string battleCastleEndInfo) {
     iLastBattleRemainTurn = -1;
     nPreviousCastleBattleTurn = -1;
     reset野戦後のアルベドの敵武将の戦闘値();
+    アルベドのユニットが軍隊や軍船なら兵数復活();
     OutputDebugStream("城攻めの戦闘が終了しました\n\n" + battleCastleEndInfo + "\n");
-
     setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
-
     isCastleBattle = FALSE;
 }
 
 // 理由不明な終わり方
 void onCastleBattleEnd() {
-    iLastBattleRemainTurn = -1;
-    nPreviousCastleBattleTurn = -1;
-    reset籠城後のアルベドの敵武将は戦闘値();
+    if (isCastleBattleMode) {
+        iLastBattleRemainTurn = -1;
+        nPreviousCastleBattleTurn = -1;
+        reset籠城後のアルベドの敵武将は戦闘値();
+        アルベドのユニットが軍隊や軍船なら兵数復活();
+        OutputDebugStream("城攻めの戦闘が終了しました\n\n");
 
-    アルベドのユニットが軍隊や軍船なら兵数復活();
-
-    OutputDebugStream("城攻めの戦闘が終了しました\n\n" );
-
-    setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
-
+        try {
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦終了時", dic);
+		}
+        catch (System::Exception^) {
+            OutputDebugStream("on籠城戦終了時にエラーが発生しました");
+        }
+        setゲーム画面ステータス(ゲーム画面ステータス::戦略画面);
+    }
     isCastleBattle = FALSE;
 }
 
