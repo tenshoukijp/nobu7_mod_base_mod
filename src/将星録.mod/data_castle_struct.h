@@ -4,6 +4,10 @@
 
 #define 城情報アドレス 0x5DBA28
 
+#define 城所属大名なし 0x538EB8
+
+#define 攻撃目標城なし 0x539000
+
 // 144バイト
 #pragma pack(1)
 struct NB7城情報型 {
@@ -59,13 +63,23 @@ int getCastleIDFromCastlePtr(int* iCastlePtr);
 int get城主BushouIDFromCastleID(int iCastleID);
 
 // 指定の城の「攻撃目標城」の城IDを取得する。該当者が居なかったら0xFFFF
-int get攻撃目標CastleIdFromCastleId(int iCastleID);
+int get攻撃目標CastleId(int iCastleID);
+
+// 指定の城の「攻撃目標城」の城IDを設定する。該当者が居なかったら0xFFFF
+BOOL set攻撃目標CastleId(int iCastleID, int i攻撃目標CastleID);
+
 
 // 城の帰属大名の大名IDを取得する。大名に帰属していなければ0xFFFF
 int getDaimyoIDFromCastleID(int iCastleID);
 
 // 城の称号(城・館・御坊)のどれなのかを取得する
 std::string get城称(int iCastleID);
+
+// 城の名前を設定する。
+BOOL setCastleName(int iCastleID, std::string strCastleName);
+
+// 対象の城の所属大名をiDaimyoIDに設定する。
+BOOL setDaimyoIDToCastleID(int iCastleID, int iDaimyoID);
 
 /*
 00524C88  A2 82 C5 82 B7 82 A9 81 48 00 00 00 8A D9 00 00  ｢ですか？...館..

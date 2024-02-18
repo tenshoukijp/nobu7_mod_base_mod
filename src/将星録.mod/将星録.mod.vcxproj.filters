@@ -345,6 +345,9 @@
     <ClInclude Include="mng_メニュー.h">
       <Filter>メニュー</Filter>
     </ClInclude>
+    <ClInclude Include="mng_城情報.h">
+      <Filter>ゲームデータ - 城情報</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -760,6 +763,9 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>モジュール定義</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_城情報.cpp">
+      <Filter>ゲームデータ - 城情報</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

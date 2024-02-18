@@ -1187,6 +1187,26 @@ Class 将星録.アプリケーション.メニュー: AutoLayout, AnsiClass, Cl
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     項目追加(String): PrivateScope, Public, Static, HideBySig
+Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 城規模  'get set' : 
+    Int32 攻撃目標城配列IX 'get set' : 
+    Int32 所属大名配列IX 'get set' : 
+    System.String 城称 'get ' : 
+    System.String 城名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_城名(): PrivateScope, Public, HideBySig, SpecialName
+    set_城名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_城称(): PrivateScope, Public, HideBySig, SpecialName
+    get_所属大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所属大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_攻撃目標城配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_攻撃目標城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_城規模(): PrivateScope, Public, HideBySig, SpecialName
+    set_城規模(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

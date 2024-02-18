@@ -13,7 +13,7 @@ using namespace System::Collections::Generic;
 –ğEî•ñŒ^::–ğEî•ñŒ^(int –ğE”z—ñIX)
 {
 	if (isValidYakusyokuID(–ğE”z—ñIX)) {
-		this->iYakusyokuID = –ğE”z—ñIX;
+		this->–ğE”z—ñIX = –ğE”z—ñIX;
 	}
 	else {
 		throw gcnew System::ArgumentException("–ğE”z—ñIX‚ª•s³‚Å‚·B");
@@ -22,16 +22,16 @@ using namespace System::Collections::Generic;
 
 String^ –ğEî•ñŒ^::–ğE–¼::get()
 {
-	return gcnew String(nb7–ğEî•ñ[iYakusyokuID].–ğE–¼);
+	return gcnew String(nb7–ğEî•ñ[–ğE”z—ñIX].–ğE–¼);
 }
 
 void –ğEî•ñŒ^::–ğE–¼::set(String^ value) {
-	if (value == nullptr) {
+	if (String::IsNullOrEmpty(value)) {
 		throw gcnew System::ArgumentNullException("–ğE–¼‚ªnull‚Å‚·B");
 	}
 	string native_value = to_native_string(value);
 	if (native_value.size() <= 11) { // ASCIIƒx[ƒX‚Å11ƒoƒCƒgˆÈ“à
-		setYakusyokuName(iYakusyokuID, native_value);
+		setYakusyokuName(–ğE”z—ñIX, native_value);
 	}
 	else {
 		throw gcnew System::ArgumentException("–ğE–¼‚ª’·‚·‚¬‚Ü‚·B");
@@ -40,12 +40,12 @@ void –ğEî•ñŒ^::–ğE–¼::set(String^ value) {
 
 int –ğEî•ñŒ^::–ğˆÊ::get()
 {
-	return nb7–ğEî•ñ[iYakusyokuID].–ğˆÊ;
+	return nb7–ğEî•ñ[–ğE”z—ñIX].–ğˆÊ;
 }
 
 void –ğEî•ñŒ^::–ğˆÊ::set(int value) {
 	if (0 <= value && value < Å‘å”::–ğEî•ñ::”z—ñ”) {
-		nb7–ğEî•ñ[iYakusyokuID].–ğˆÊ = value;
+		nb7–ğEî•ñ[–ğE”z—ñIX].–ğˆÊ = value;
 	}
 	else {
 		throw gcnew System::ArgumentOutOfRangeException("–ğˆÊ‚ª•s³‚Å‚·B");
@@ -54,12 +54,12 @@ void –ğEî•ñŒ^::–ğˆÊ::set(int value) {
 
 int –ğEî•ñŒ^::Š—L‘å–¼”z—ñIX::get()
 {
-	return getDaimyoIDFromYakusyokuID(iYakusyokuID);;
+	return getDaimyoIDFromYakusyokuID(–ğE”z—ñIX);;
 }
 
 void –ğEî•ñŒ^::Š—L‘å–¼”z—ñIX::set(int value) {
 	if (isValidDaimyoID(value) || value == 0xFFFF) { // 0xFFFF ‚Í’©’ì‚ğˆÓ–¡‚·‚é
-		int ret = setDaimyoIDToYakusyokuID(iYakusyokuID, value);
+		int ret = setDaimyoIDToYakusyokuID(–ğE”z—ñIX, value);
 		if (ret == 0) {
 			throw gcnew System::ArgumentException("Š—L‘å–¼”z—ñIX‚ª•s³‚Å‚·");
 		}

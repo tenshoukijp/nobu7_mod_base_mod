@@ -14,6 +14,8 @@
 #include "hook_functions_direct.h"
 #include "bushou_albedo.h"
 
+#include "mng_城列挙.h"
+
 using namespace std;
 
 int testFlag = 0;
@@ -22,9 +24,7 @@ void doGameTest() {
 	testFlag = 1;
 
 	for (int i = 0; i < 最大数::城情報::配列数; i++) {
-		if (nb7城情報[i].商人 >= 1) {
-			OutputDebugStream("城:%s 商人:%d\n", nb7城情報[i].城名, nb7城情報[i].商人);
-		}
+		OutputDebugStream("p攻撃目標城:%d\n", nb7城情報[i].城規模);
 	}
 	/*
 	for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {

@@ -5,14 +5,14 @@ using namespace System;
 namespace «¯˜^ {
 
 	public ref class Š¯ˆÊî•ñŒ^ {
-	protected:
-		int iKanniID;
+	private:
+		int Š¯ˆÊ”z—ñIX;
 	public:
 
 		Š¯ˆÊî•ñŒ^(int Š¯ˆÊ”z—ñIX);
 
 		property int ”z—ñIX {
-			int get() { return iKanniID; }
+			int get() { return Š¯ˆÊ”z—ñIX; }
 		}
 
 		property String^ Š¯ˆÊ–¼ {

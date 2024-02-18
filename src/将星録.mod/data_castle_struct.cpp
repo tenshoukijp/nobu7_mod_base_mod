@@ -26,6 +26,20 @@ std::string get城称(int iCastleID) {
 	return "";
 }
 
+BOOL setCastleName(int iCastleID, std::string strCastleName) {
+	if (isValidKahouID(iCastleID)) {
+		char bufLarge[256] = "";
+		int length = sizeof(bufLarge);
+		strcpy_s(bufLarge, length, strCastleName.c_str());
+		bufLarge[length - 1] = '\0'; // 9文字目は必ず\0にする
+		// 城名を設定
+		strcpy_s(nb7城情報[iCastleID].城名, sizeof(nb7城情報[iCastleID].城名), bufLarge);
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
 int getCastleIDFromCastlePtr(int* iCastlePtr) {
 	// 所有武将のアドレスを直接さしている
 	int iCastleAddress = (int)(iCastlePtr);
@@ -63,15 +77,12 @@ int get城主BushouIDFromCastleID(int iCastleID) {
 }
 
 
-int get攻撃目標CastleIdFromCastleId(int iCastleID) {
+int get攻撃目標CastleId(int iCastleID) {
 	if (isValidCastleID(iCastleID)) {
-		// 所有武将のアドレスを直接さしている
 		int nAttackCastleAddress = (int)(nb7城情報[iCastleID].p攻撃目標城);
 		OutputDebugStream("%x", nAttackCastleAddress);
-		// 武将の配列の先頭アドレスから引く
 		int sub = nAttackCastleAddress - (int)(城情報アドレス);
 
-		// 城情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
 		int iAttackCastleID = sub / sizeof(NB7城情報型);
 		if (isValidCastleID(iAttackCastleID)) {
 			return iAttackCastleID;
@@ -81,11 +92,26 @@ int get攻撃目標CastleIdFromCastleId(int iCastleID) {
 	return 0xFFFF;
 }
 
+BOOL set攻撃目標CastleId(int iCastleID, int 攻撃目標CastleID) {
+	if (isValidCastleID(iCastleID)) {
+		if (isValidCastleID(攻撃目標CastleID)) {
+			int iCastleAddress = (int)(城情報アドレス)+iCastleID * sizeof(NB7城情報型);
+			nb7城情報[iCastleID].p攻撃目標城 = (int*)攻撃目標CastleID;
+			return TRUE;
+		}
+		else if (攻撃目標CastleID == 0xFFFF) {
+			nb7城情報[iCastleID].p攻撃目標城 = (int*)攻撃目標城なし;
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+
 int getDaimyoIDFromCastleID(int iCastleID) {
 	if (isValidCastleID(iCastleID)) {
-		// 所有武将のアドレスを直接さしている
 		int nDaimyoAddress = (int)(nb7城情報[iCastleID].p所属大名);
-		// 武将の配列の先頭アドレスから引く
 		int sub = nDaimyoAddress - (int)(大名情報アドレス);
 
 		// 大名情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
@@ -97,6 +123,27 @@ int getDaimyoIDFromCastleID(int iCastleID) {
 
 	return 0xFFFF;
 }
+
+BOOL setDaimyoIDToCastleID(int iCastleID, int iDaimyoID) {
+	if (isValidCastleID(iCastleID)) {
+		if (isValidDaimyoID(iDaimyoID)) {
+			// 大名情報のアドレスを取得
+			int iDaimyoAddress = (int)(大名情報アドレス)+iDaimyoID * sizeof(NB7大名情報型);
+			// 役職情報の所有者に武将情報のアドレスを設定
+			nb7役職情報[iCastleID].p所有大名 = (int*)iDaimyoAddress;
+			return TRUE;
+		}
+		else if (iDaimyoID == 0xFFFF) {
+			// 所有者なし
+			nb7役職情報[iCastleID].p所有大名 = (int*)城所属大名なし;
+			return TRUE;
+
+		}
+	}
+	return FALSE;
+
+}
+
 /*
 	内
 	肝付
