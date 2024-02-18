@@ -39,5 +39,77 @@ namespace «¯˜^ {
 			void set(int value);
 		}
 
+		property int –hŒä {
+			int get();
+			void set(int value);
+		}
+
+		property int –hŒäMAX {
+			int get();
+		}
+
+		property int ‹à‘K {
+			int get();
+			void set(int value);
+		}
+
+		property int ‹à‘KMAX {
+			int get();
+		}
+
+		property int •º—Æ {
+			int get();
+			void set(int value);
+		}
+
+		property int •º—ÆMAX {
+			int get();
+		}
+
+		property int ŒR”n {
+			int get();
+			void set(int value);
+		}
+
+		property int ŒR”nMAX {
+			int get();
+		}
+
+		property int “S–C {
+			int get();
+			void set(int value);
+		}
+
+		property int “S–CMAX {
+			int get();
+		}
+
+		property int ‘å–C {
+			int get();
+			void set(int value);
+		}
+
+		property int ‘å–CMAX {
+			int get();
+		}
+
+		property int •º” {
+			int get();
+			void set(int value);
+		}
+
+		property int •º”MAX {
+			int get();
+		}
+
+		property int •‰•º” {
+			int get();
+			void set(int value);
+		}
+
+		property int •‰•º”MAX {
+			int get();
+		}
+
 	};
 }

@@ -1190,6 +1190,22 @@ Class 将星録.アプリケーション.メニュー: AutoLayout, AnsiClass, Cl
 Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
+    Int32 負傷兵数MAX 'get ' : 
+    Int32 負傷兵数 'get set' : 
+    Int32 兵数MAX 'get ' : 
+    Int32 兵数   'get set' : 
+    Int32 大砲MAX 'get ' : 
+    Int32 大砲   'get set' : 
+    Int32 鉄砲MAX 'get ' : 
+    Int32 鉄砲   'get set' : 
+    Int32 軍馬MAX 'get ' : 
+    Int32 軍馬   'get set' : 
+    Int32 兵糧MAX 'get ' : 
+    Int32 兵糧   'get set' : 
+    Int32 金銭MAX 'get ' : 
+    Int32 金銭   'get set' : 
+    Int32 防御MAX 'get ' : 
+    Int32 防御   'get set' : 
     Int32 城規模  'get set' : 
     Int32 攻撃目標城配列IX 'get set' : 
     Int32 所属大名配列IX 'get set' : 
@@ -1207,6 +1223,30 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     set_攻撃目標城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_城規模(): PrivateScope, Public, HideBySig, SpecialName
     set_城規模(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_防御(): PrivateScope, Public, HideBySig, SpecialName
+    set_防御(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_防御MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_金銭(): PrivateScope, Public, HideBySig, SpecialName
+    set_金銭(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_金銭MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_兵糧(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵糧(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_兵糧MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_軍馬(): PrivateScope, Public, HideBySig, SpecialName
+    set_軍馬(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_軍馬MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_鉄砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_鉄砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_鉄砲MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_大砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_大砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_大砲MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_兵数MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_負傷兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_負傷兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_負傷兵数MAX(): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
