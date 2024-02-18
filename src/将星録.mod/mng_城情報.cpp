@@ -61,23 +61,6 @@ void 城情報型::所属大名配列IX::set(int value) {
 	}
 }
 
-int 城情報型::攻撃目標城配列IX::get()
-{
-	return get攻撃目標CastleId(城配列IX);
-}
-
-void 城情報型::攻撃目標城配列IX::set(int value) {
-	if (isValidCastleID(value) || value == 0xFFFF) { // 0xFFFF は所属していないことを意味する
-		int ret = set攻撃目標CastleId(城配列IX, value);
-		if (ret == 0) {
-			throw gcnew System::ArgumentException("攻撃目標城配列IXが不正です");
-		}
-	}
-	else {
-		throw gcnew System::ArgumentOutOfRangeException("攻撃目標城配列IXが不正です。");
-	}
-}
-
 int 城情報型::城規模::get()
 {
 	return nb7城情報[城配列IX].城規模;
@@ -243,3 +226,85 @@ int 城情報型::負傷兵数MAX::get()
 {
 	return nb7城情報[城配列IX].負傷兵数MAX;
 }
+
+int 城情報型::商人::get()
+{
+	return nb7城情報[城配列IX].商人;
+}
+
+void 城情報型::商人::set(int value) {
+	if (列挙::城::商人::不在 <= value && value <= 列挙::城::商人::京都商人) {
+		nb7城情報[城配列IX].商人 = value;
+		if (value <= 列挙::城::商人::常駐商人) {
+			nb7城情報[城配列IX].商人訪問中 = 0;
+		} else {
+			nb7城情報[城配列IX].商人訪問中 = 1;
+		}
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("商人が不正です。");
+	}
+}
+
+int 城情報型::城主武将配列IX::get()
+{
+	int* BushouPtr = nb7城情報[城配列IX].p城主;
+	int iBushouID = getBushouIDFromBushouPtr(BushouPtr);
+	if (isValidBushouID(iBushouID)) {
+		return iBushouID;
+	}
+	else {
+		return 0xFFFF;
+	}
+}
+
+int 城情報型::委任状態::get()
+{
+	return nb7城情報[城配列IX].委任状態;
+}
+
+void 城情報型::委任状態::set(int value) {
+	if (列挙::城::委任状態::委任しない <= value && value <= 列挙::城::委任状態::委任する) {
+		nb7城情報[城配列IX].委任状態 = value;
+		if (value == 列挙::城::委任状態::委任しない) {
+			nb7城情報[城配列IX].委任攻撃 = 0;
+			nb7城情報[城配列IX].p攻撃目標城 = (int*)攻撃目標城なし;
+		}
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("委任状態が不正です。");
+	}
+}
+
+int 城情報型::委任攻撃::get()
+{
+	return nb7城情報[城配列IX].委任攻撃;
+}
+
+void 城情報型::委任攻撃::set(int value) {
+	if (列挙::城::委任攻撃::積極攻撃 <= value && value <= 列挙::城::委任攻撃::攻撃禁止) {
+		nb7城情報[城配列IX].委任攻撃 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("委任攻撃が不正です。");
+	}
+}
+
+
+int 城情報型::委任攻撃目標城配列IX::get()
+{
+	return get攻撃目標CastleId(城配列IX);
+}
+
+void 城情報型::委任攻撃目標城配列IX::set(int value) {
+	if (isValidCastleID(value) || value == 0xFFFF) { // 0xFFFF は所属していないことを意味する
+		int ret = set攻撃目標CastleId(城配列IX, value);
+		if (ret == 0) {
+			throw gcnew System::ArgumentException("攻撃目標城配列IXが不正です");
+		}
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("攻撃目標城配列IXが不正です。");
+	}
+}
+

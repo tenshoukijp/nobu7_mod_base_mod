@@ -911,6 +911,17 @@ Class 将星録.列挙.城.商人: AutoLayout, AnsiClass, Class, Public, BeforeF
     Int32 博多商人 IsConst : Public, Static, HasDefault
     Int32 堺商人 IsConst : Public, Static, HasDefault
     Int32 京都商人 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.城.委任状態: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 委任しない IsConst : Public, Static, HasDefault
+    Int32 委任する IsConst : Public, Static, HasDefault
+Class 将星録.列挙.城.委任攻撃: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 積極攻撃 IsConst : Public, Static, HasDefault
+    Int32 消極攻撃 IsConst : Public, Static, HasDefault
+    Int32 攻撃禁止 IsConst : Public, Static, HasDefault
 Class 将星録.列挙.家宝.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -1190,6 +1201,11 @@ Class 将星録.アプリケーション.メニュー: AutoLayout, AnsiClass, Cl
 Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
+    Int32 委任攻撃目標城配列IX 'get set' : 
+    Int32 委任攻撃 'get set' : 
+    Int32 委任状態 'get set' : 
+    Int32 城主武将配列IX 'get ' : 
+    Int32 商人   'get set' : 
     Int32 負傷兵数MAX 'get ' : 
     Int32 負傷兵数 'get set' : 
     Int32 兵数MAX 'get ' : 
@@ -1207,7 +1223,6 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     Int32 防御MAX 'get ' : 
     Int32 防御   'get set' : 
     Int32 城規模  'get set' : 
-    Int32 攻撃目標城配列IX 'get set' : 
     Int32 所属大名配列IX 'get set' : 
     System.String 城称 'get ' : 
     System.String 城名 'get set' : 
@@ -1219,8 +1234,6 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     get_城称(): PrivateScope, Public, HideBySig, SpecialName
     get_所属大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_所属大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_攻撃目標城配列IX(): PrivateScope, Public, HideBySig, SpecialName
-    set_攻撃目標城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_城規模(): PrivateScope, Public, HideBySig, SpecialName
     set_城規模(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_防御(): PrivateScope, Public, HideBySig, SpecialName
@@ -1247,6 +1260,15 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     get_負傷兵数(): PrivateScope, Public, HideBySig, SpecialName
     set_負傷兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_負傷兵数MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_商人(): PrivateScope, Public, HideBySig, SpecialName
+    set_商人(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_城主武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_委任状態(): PrivateScope, Public, HideBySig, SpecialName
+    set_委任状態(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_委任攻撃(): PrivateScope, Public, HideBySig, SpecialName
+    set_委任攻撃(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_委任攻撃目標城配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_委任攻撃目標城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

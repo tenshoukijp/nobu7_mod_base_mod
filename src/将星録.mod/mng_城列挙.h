@@ -91,6 +91,20 @@ namespace «¯˜^ {
 				static const int ä¤l = 11;
 				static const int ‹“s¤l = 12;
 			};
+
+			public ref class ˆÏ”Có‘Ô {
+			public:
+				static const int ˆÏ”C‚µ‚È‚¢ = 0;
+				static const int ˆÏ”C‚·‚é = 1;
+			};
+
+			public ref class ˆÏ”CUŒ‚ {
+			public:
+				static const int Ï‹ÉUŒ‚ = 0;
+				static const int Á‹ÉUŒ‚ = 2;
+				static const int UŒ‚‹Ö~ = 4;
+			};
+
 		}
 	}
 }
