@@ -293,18 +293,64 @@ void 城情報型::委任攻撃::set(int value) {
 
 int 城情報型::委任攻撃目標城配列IX::get()
 {
-	return get攻撃目標CastleId(城配列IX);
+	if (isValidCastleID(城配列IX)) {
+		return getCastleIDFromCastlePtr((int*)nb7城情報[城配列IX].p攻撃目標城);
+	}
+
+	return 0xFFFF;
 }
 
 void 城情報型::委任攻撃目標城配列IX::set(int value) {
 	if (isValidCastleID(value) || value == 0xFFFF) { // 0xFFFF は所属していないことを意味する
-		int ret = set攻撃目標CastleId(城配列IX, value);
+		int ret = set城の攻撃目標城(城配列IX, value);
 		if (ret == 0) {
 			throw gcnew System::ArgumentException("攻撃目標城配列IXが不正です");
 		}
 	}
 	else {
 		throw gcnew System::ArgumentOutOfRangeException("攻撃目標城配列IXが不正です。");
+	}
+}
+
+int 城情報型::後城配列IX::get()
+{
+	if (isValidCastleID(城配列IX)) {
+		return getCastleIDFromCastlePtr((int*)nb7城情報[城配列IX].p後城番号);
+	}
+
+	return 0xFFFF;
+}
+
+void 城情報型::後城配列IX::set(int value) {
+	if (isValidCastleID(value) || value == 0xFFFF) { // 0xFFFF は次の城がないことを意味する
+		int ret = set城の次の城番号(城配列IX, value);
+		if (ret == 0) {
+			throw gcnew System::ArgumentException("後城配列IXが不正です");
+		}
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("後城配列IXが不正です。");
+	}
+}
+
+int 城情報型::開始ユニット配列IX::get()
+{
+	if (isValidCastleID(城配列IX)) {
+		return getUnitIDFromUnitPtr((int*)nb7城情報[城配列IX].p開始ユニット);
+	}
+
+	return 0xFFFF;
+}
+
+void 城情報型::開始ユニット配列IX::set(int value) {
+	if (isValidUnitID(value) || value == 0xFFFF) { // 0xFFFF は次の城がないことを意味する
+		int ret = set城開始ユニット(城配列IX, value);
+		if (ret == 0) {
+			throw gcnew System::ArgumentException("開始ユニット配列IXが不正です");
+		}
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("開始ユニット配列IXが不正です。");
 	}
 }
 

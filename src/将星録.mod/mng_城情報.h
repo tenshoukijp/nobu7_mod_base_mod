@@ -130,6 +130,15 @@ namespace 将星録 {
 			void set(int value);
 		}
 
+		property int 後城配列IX {
+			int get();
+			void set(int value);
+		}
+
+		property int 開始ユニット配列IX {
+			int get();
+			void set(int value);
+		}
 
 	};
 }

@@ -10,6 +10,9 @@
 
 #define 後城番号なし   0x539000
 
+#define 開始ユニットなし   0x5390E0
+
+
 // 144バイト
 #pragma pack(1)
 struct NB7城情報型 {
@@ -64,11 +67,14 @@ int getCastleIDFromCastlePtr(int* iCastlePtr);
 // 例えば、開墾のために城の外にキャラクターが出ている武将は、「城に居ない」と見なされる。
 int get城主BushouIDFromCastleID(int iCastleID);
 
-// 指定の城の「攻撃目標城」の城IDを取得する。該当者が居なかったら0xFFFF
-int get攻撃目標CastleId(int iCastleID);
+// 指定の城の「攻撃目標城」の城IDを設定する。なしに設定するなら0xFFFF
+BOOL set城の攻撃目標城(int iCastleID, int i攻撃目標CastleID);
 
-// 指定の城の「攻撃目標城」の城IDを設定する。該当者が居なかったら0xFFFF
-BOOL set攻撃目標CastleId(int iCastleID, int i攻撃目標CastleID);
+// 指定の城の「次の城」の城IDを設定する。なしに設定するなら0xFFFF
+BOOL set城の次の城番号(int iCastleID, int i次のCastleID);
+
+// 城の「開始ユニットID」を設定する。なしに設定するなら0xFFFF
+BOOL set城開始ユニット(int iCastleID, int i開始UnitID);
 
 
 // 城の帰属大名の大名IDを取得する。大名に帰属していなければ0xFFFF

@@ -45,7 +45,10 @@ int getUnitIDFromUnitPtr(int* iUnitPtr) {
 	return 0xFFFF;
 }
 
-
+int* getUnitPtrFromUnitID(int iUnitID) {
+	int iUnitAddress = (int)(ユニット情報アドレス)+iUnitID * sizeof(NB7ユニット情報型);
+	return (int*)iUnitAddress;
+}
 
 int get軍勢ユニット部隊最大兵数FromUnitID(int iUnitID) {
 	if (isValidUnitID(iUnitID)) {

@@ -23,6 +23,12 @@ int getDaimyoIDFromDaimyoPtr(int* iDaimyoPtr) {
 
 }
 
+int* getDaimyoPtrFromDaimyoID(int iDaimyoID) {
+	int iDaimyoAddress = (int)(‘å–¼î•ñƒAƒhƒŒƒX)+iDaimyoID * sizeof(NB7‘å–¼î•ñŒ^);
+	return (int*)iDaimyoAddress;
+}
+
+
 
 // ‘å–¼ID‚©‚ç‚»‚Ì‘å–¼‚Ì•«ID‚ğæ“¾‚·‚é
 int getBushouIDFromDaimyoID(int iDaimyoID) {

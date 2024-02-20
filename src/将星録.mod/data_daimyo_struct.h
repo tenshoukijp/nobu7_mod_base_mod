@@ -46,8 +46,12 @@ BOOL isValidDaimyoID(int iDaimyoID);
 // 大名IDからその大名の武将IDを取得する
 int getBushouIDFromDaimyoID(int iDaimyoID);
 
-
+// 大名Ptrから大名IDを取得する。
 int getDaimyoIDFromDaimyoPtr(int* iDaimyoPtr);
+
+// 大名IDから大名Ptrを取得する。
+int* getDaimyoPtrFromDaimyoID(int iDaimyoID);
+
 
 int get友好値From友好ID(int i友好ID);
 

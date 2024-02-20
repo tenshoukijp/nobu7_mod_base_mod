@@ -54,6 +54,11 @@ int getCastleIDFromCastlePtr(int* iCastlePtr) {
 	return 0xFFFF;
 }
 
+int* getCastlePtrFromCastleID(int iCastleID) {
+	int iCastleAddress = (int)(城情報アドレス)+iCastleID * sizeof(NB7城情報型);
+	return (int *)iCastleAddress;
+}
+
 
 // 城IDからそこの城主の武将IDを取得する。該当者が居なかったら0xFFFF
 // 実際に「城に居る」という意味であり、「その城に所属している」という意味ではない。
@@ -77,26 +82,11 @@ int get城主BushouIDFromCastleID(int iCastleID) {
 }
 
 
-int get攻撃目標CastleId(int iCastleID) {
-	if (isValidCastleID(iCastleID)) {
-		int nAttackCastleAddress = (int)(nb7城情報[iCastleID].p攻撃目標城);
-		OutputDebugStream("%x", nAttackCastleAddress);
-		int sub = nAttackCastleAddress - (int)(城情報アドレス);
 
-		int iAttackCastleID = sub / sizeof(NB7城情報型);
-		if (isValidCastleID(iAttackCastleID)) {
-			return iAttackCastleID;
-		}
-	}
-
-	return 0xFFFF;
-}
-
-BOOL set攻撃目標CastleId(int iCastleID, int 攻撃目標CastleID) {
+BOOL set城の攻撃目標城(int iCastleID, int 攻撃目標CastleID) {
 	if (isValidCastleID(iCastleID)) {
 		if (isValidCastleID(攻撃目標CastleID)) {
-			int iCastleAddress = (int)(城情報アドレス)+iCastleID * sizeof(NB7城情報型);
-			nb7城情報[iCastleID].p攻撃目標城 = (int*)攻撃目標CastleID;
+			nb7城情報[iCastleID].p攻撃目標城 = getCastlePtrFromCastleID(攻撃目標CastleID);
 			return TRUE;
 		}
 		else if (攻撃目標CastleID == 0xFFFF) {
@@ -108,6 +98,36 @@ BOOL set攻撃目標CastleId(int iCastleID, int 攻撃目標CastleID) {
 	return FALSE;
 }
 
+BOOL set城の次の城番号(int iCastleID, int 次のCastleID) {
+	if (isValidCastleID(iCastleID)) {
+		if (isValidCastleID(次のCastleID)) {
+			nb7城情報[iCastleID].p後城番号 = getCastlePtrFromCastleID(次のCastleID);
+			return TRUE;
+		}
+		else if (次のCastleID == 0xFFFF) {
+			nb7城情報[iCastleID].p後城番号 = (int*)後城番号なし;
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+
+BOOL set城開始ユニット(int iCastleID, int i開始ユニットID) {
+	if (isValidCastleID(iCastleID)) {
+		if (isValidUnitID(i開始ユニットID)) {
+			nb7城情報[iCastleID].p開始ユニット = getUnitPtrFromUnitID(i開始ユニットID);
+			return TRUE;
+		}
+		else if (i開始ユニットID == 0xFFFF) {
+			nb7城情報[iCastleID].p開始ユニット = (int*)開始ユニットなし;
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
 
 int getDaimyoIDFromCastleID(int iCastleID) {
 	if (isValidCastleID(iCastleID)) {
@@ -128,9 +148,8 @@ BOOL setDaimyoIDToCastleID(int iCastleID, int iDaimyoID) {
 	if (isValidCastleID(iCastleID)) {
 		if (isValidDaimyoID(iDaimyoID)) {
 			// 大名情報のアドレスを取得
-			int iDaimyoAddress = (int)(大名情報アドレス)+iDaimyoID * sizeof(NB7大名情報型);
 			// 役職情報の所有者に武将情報のアドレスを設定
-			nb7役職情報[iCastleID].p所有大名 = (int*)iDaimyoAddress;
+			nb7役職情報[iCastleID].p所有大名 = getDaimyoPtrFromDaimyoID(iDaimyoID);
 			return TRUE;
 		}
 		else if (iDaimyoID == 0xFFFF) {

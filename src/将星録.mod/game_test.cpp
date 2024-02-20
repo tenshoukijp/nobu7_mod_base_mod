@@ -24,8 +24,7 @@ void doGameTest() {
 	testFlag = 1;
 
 	for (int i = 0; i < 最大数::城情報::配列数; i++) {
-		OutputDebugStream("防御MAX:%d\n", nb7城情報[i].防御MAX);
-		OutputDebugStream("unknown02:%d\n", nb7城情報[i].unknown02);
+		OutputDebugStream("開始ユニット:%x\n", nb7城情報[i].p開始ユニット);
 	}
 	/*
 	for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {
