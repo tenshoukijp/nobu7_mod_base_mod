@@ -384,9 +384,10 @@ void doアルベド部隊ターン兵数回復(int iCurrentAttackTurnBushouID, int iButaiID)
     iPreviousAttackTurnBushouID = iCurrentAttackTurnBushouID;
     iPreviousButaiID = iButaiID;
 
+    /*
     OutputDebugStream("★★★攻撃側武将ID:%d\n", iLastAttackBushouID);
     OutputDebugStream("★★★守備側武将ID:%d\n", iLastDefendBushouID);
-
+    */
     if (isValidBushouID(iLastAttackBushouID)) {
         // 攻撃側がアルベドなら
         if (nb7武将情報[iLastAttackBushouID].姓名 == getArubedoSeiMei()) {

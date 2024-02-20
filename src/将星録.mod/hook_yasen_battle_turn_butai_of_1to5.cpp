@@ -111,17 +111,45 @@ extern void doアルベド部隊ターン兵数回復(int iAttackBushouID, int iButaiID);
 
 static int YasenCurrentAttackBushouPointer = -1; // 現在攻撃している方の武将ポインタ
 static int iYasenTurnButaiOf1to5 = -1; // 部隊の１～５のどれが攻撃しているのか
+
+int iPreviousAttackBushouIDOfYasenTurnButaiOf1to5 = -1;
+int iPreviousAttackButaiIDOfYasenTurnButaiOf1to5 = -1;
+
+extern int iLastAttackBushouID;
+extern int iLastDefendBushouID;
+
+
+void resetYasenTurnButaiOf1to5() {
+	iPreviousAttackBushouIDOfYasenTurnButaiOf1to5 = -1;
+	iPreviousAttackButaiIDOfYasenTurnButaiOf1to5 = -1;
+}
+
+extern void onYasenButaiAttack(int iRemainTurn, int iAttackBushouID, int iButaiID, int iDefendBushouID);
+extern int nRemainYasenTurn; // 残りターン数
+
 void OnSSRExeYasenTurnButaiOf1to5Execute() {
 
 	int iAttackBushouID = getBushouIDFromBushouPtr((int *)YasenCurrentAttackBushouPointer);
 	if (isValidBushouID(iAttackBushouID)) {
-		OutputDebugStream("只今攻撃している武将は%s\n", nb7武将情報[iAttackBushouID].姓名);
+
+		if (iPreviousAttackBushouIDOfYasenTurnButaiOf1to5 != iAttackBushouID || iPreviousAttackButaiIDOfYasenTurnButaiOf1to5 != iYasenTurnButaiOf1to5) {
+			OutputDebugStream("★★新部隊の攻撃が来たよ\n");
+
+			// 野戦開始時の攻撃側（現在のターンといういみではなく、そもそもユニット同志という意味でのアタック側）
+			if (iLastAttackBushouID == iAttackBushouID) {
+				onYasenButaiAttack(nRemainYasenTurn, iAttackBushouID, iYasenTurnButaiOf1to5, iLastDefendBushouID);
+			}
+			// 野戦開始時では防御側(しかし、現在のターンでは攻撃側）
+			else {
+				onYasenButaiAttack(nRemainYasenTurn, iAttackBushouID, iYasenTurnButaiOf1to5, iLastAttackBushouID);
+			}
+
+			doアルベド部隊ターン兵数回復(iAttackBushouID, iYasenTurnButaiOf1to5);
+
+			iPreviousAttackBushouIDOfYasenTurnButaiOf1to5 = iAttackBushouID;
+			iPreviousAttackButaiIDOfYasenTurnButaiOf1to5 = iYasenTurnButaiOf1to5;
+		}
 	}
-
-	OutputDebugStream("攻撃部隊は第%d部隊\n", iYasenTurnButaiOf1to5);
-
-	doアルベド部隊ターン兵数回復(iAttackBushouID, iYasenTurnButaiOf1to5);
-
 
 
 	/*

@@ -198,12 +198,14 @@ static int testEDX = 0;
 static int testEBP = 0;
 
 void OnSSRExeGetYasenHeisuu1Execute() {
+	/*
 	OutputDebugStream("ššššOnSSRExeGetYasenHeisuu1Execute‚ª—ˆ‚½‚æ!!!š\n");
 	OutputDebugStream("testECX:%xš\n", testECX);
 	OutputDebugStream("testEAX:%xš\n", testEAX);
 	OutputDebugStream("testESP:%xš\n", testESP);
 	OutputDebugStream("testEDX:%xš\n", testEDX);
 	OutputDebugStream("testEBP:%xš\n", testEBP);
+	*/
 }
 
 

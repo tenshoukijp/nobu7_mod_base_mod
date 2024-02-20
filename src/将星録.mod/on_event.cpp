@@ -363,6 +363,28 @@ void onYasenBattleTurn(string battleYanseTurnInfo) {
     }
 }
 
+void onYasenButaiAttack(int iRemainTurn, int iAttackBushouID, int iButaiID, int iDefendBushouID) {
+    OutputDebugStream("現在の部隊の攻撃について\n");
+    OutputDebugStream("残りターン\n");
+    OutputDebugStream("攻撃武将" + getBushou姓名FromBushouID(iAttackBushouID) + "\n");
+    OutputDebugStream("攻撃部隊%d\n", iButaiID);
+    OutputDebugStream("防御武将" + getBushou姓名FromBushouID(iDefendBushouID) + "\n");
+
+    // C#のカスタム.mod.dllからの上書き
+    try {
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+        dic->Add("残りターン", iRemainTurn);
+        dic->Add("攻撃武将番号", iAttackBushouID);
+        dic->Add("攻撃部隊番号", iButaiID);
+        dic->Add("防御武将番号", iDefendBushouID);
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on野戦部隊行動前", dic);
+    }
+    catch (System::Exception^) {
+        OutputDebugStream("on戦略画面大名ターン変更時でエラーが発生しました。");
+    }
+
+}
+
 void onYasenBattleEnd(string endYanseBattleInfo) {
     if (OnigMatch(
         endYanseBattleInfo,

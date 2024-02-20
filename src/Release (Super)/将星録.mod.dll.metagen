@@ -826,6 +826,102 @@ Class 将星録.最大数.役職情報: AutoLayout, AnsiClass, Class, Public, Be
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 配列数 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.城.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 内 IsConst : Public, Static, HasDefault
+    Int32 肝付 IsConst : Public, Static, HasDefault
+    Int32 八代 IsConst : Public, Static, HasDefault
+    Int32 都於郡 IsConst : Public, Static, HasDefault
+    Int32 佐賀 IsConst : Public, Static, HasDefault
+    Int32 立花山 IsConst : Public, Static, HasDefault
+    Int32 中津 IsConst : Public, Static, HasDefault
+    Int32 府内 IsConst : Public, Static, HasDefault
+    Int32 山口 IsConst : Public, Static, HasDefault
+    Int32 中村 IsConst : Public, Static, HasDefault
+    Int32 湯築 IsConst : Public, Static, HasDefault
+    Int32 岡豊 IsConst : Public, Static, HasDefault
+    Int32 福光 IsConst : Public, Static, HasDefault
+    Int32 吉田郡山 IsConst : Public, Static, HasDefault
+    Int32 福山 IsConst : Public, Static, HasDefault
+    Int32 天霧 IsConst : Public, Static, HasDefault
+    Int32 岡山 IsConst : Public, Static, HasDefault
+    Int32 勝瑞 IsConst : Public, Static, HasDefault
+    Int32 月山富田 IsConst : Public, Static, HasDefault
+    Int32 津山 IsConst : Public, Static, HasDefault
+    Int32 姫路 IsConst : Public, Static, HasDefault
+    Int32 雑賀 IsConst : Public, Static, HasDefault
+    Int32 鳥取 IsConst : Public, Static, HasDefault
+    Int32 八上 IsConst : Public, Static, HasDefault
+    Int32 大坂 IsConst : Public, Static, HasDefault
+    Int32 大和郡山 IsConst : Public, Static, HasDefault
+    Int32 二条 IsConst : Public, Static, HasDefault
+    Int32 建部山 IsConst : Public, Static, HasDefault
+    Int32 大河内 IsConst : Public, Static, HasDefault
+    Int32 観音寺 IsConst : Public, Static, HasDefault
+    Int32 安土城 IsConst : Public, Static, HasDefault
+    Int32 小谷 IsConst : Public, Static, HasDefault
+    Int32 那古野 IsConst : Public, Static, HasDefault
+    Int32 岡崎 IsConst : Public, Static, HasDefault
+    Int32 稲葉山 IsConst : Public, Static, HasDefault
+    Int32 岐阜城 IsConst : Public, Static, HasDefault
+    Int32 一乗谷 IsConst : Public, Static, HasDefault
+    Int32 浜松 IsConst : Public, Static, HasDefault
+    Int32 御山 IsConst : Public, Static, HasDefault
+    Int32 松倉 IsConst : Public, Static, HasDefault
+    Int32 駿府 IsConst : Public, Static, HasDefault
+    Int32 七尾 IsConst : Public, Static, HasDefault
+    Int32 富山 IsConst : Public, Static, HasDefault
+    Int32 深志 IsConst : Public, Static, HasDefault
+    Int32 躑躅ヶ崎 IsConst : Public, Static, HasDefault
+    Int32 小田原 IsConst : Public, Static, HasDefault
+    Int32 海津 IsConst : Public, Static, HasDefault
+    Int32 久留里 IsConst : Public, Static, HasDefault
+    Int32 箕輪 IsConst : Public, Static, HasDefault
+    Int32 河越 IsConst : Public, Static, HasDefault
+    Int32 春日山 IsConst : Public, Static, HasDefault
+    Int32 佐倉 IsConst : Public, Static, HasDefault
+    Int32 宇都宮 IsConst : Public, Static, HasDefault
+    Int32 与板 IsConst : Public, Static, HasDefault
+    Int32 水戸 IsConst : Public, Static, HasDefault
+    Int32 棚倉 IsConst : Public, Static, HasDefault
+    Int32 新発田 IsConst : Public, Static, HasDefault
+    Int32 黒川 IsConst : Public, Static, HasDefault
+    Int32 小高 IsConst : Public, Static, HasDefault
+    Int32 山形 IsConst : Public, Static, HasDefault
+    Int32 岩出山 IsConst : Public, Static, HasDefault
+    Int32 久保田 IsConst : Public, Static, HasDefault
+    Int32 高水寺 IsConst : Public, Static, HasDefault
+    Int32 弘前 IsConst : Public, Static, HasDefault
+    Int32 三戸 IsConst : Public, Static, HasDefault
+    Int32 松前 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.城.商人: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 不在 IsConst : Public, Static, HasDefault
+    Int32 常駐商人 IsConst : Public, Static, HasDefault
+    Int32 大砲商人 IsConst : Public, Static, HasDefault
+    Int32 鉄甲船商人 IsConst : Public, Static, HasDefault
+    Int32 闇商人 IsConst : Public, Static, HasDefault
+    Int32 茶器商人 IsConst : Public, Static, HasDefault
+    Int32 武器商人 IsConst : Public, Static, HasDefault
+    Int32 書物商人 IsConst : Public, Static, HasDefault
+    Int32 珍品商人 IsConst : Public, Static, HasDefault
+    Int32 高級商人 IsConst : Public, Static, HasDefault
+    Int32 博多商人 IsConst : Public, Static, HasDefault
+    Int32 堺商人 IsConst : Public, Static, HasDefault
+    Int32 京都商人 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.城.委任状態: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 委任しない IsConst : Public, Static, HasDefault
+    Int32 委任する IsConst : Public, Static, HasDefault
+Class 将星録.列挙.城.委任攻撃: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 積極攻撃 IsConst : Public, Static, HasDefault
+    Int32 消極攻撃 IsConst : Public, Static, HasDefault
+    Int32 攻撃禁止 IsConst : Public, Static, HasDefault
 Class 将星録.列挙.家宝.配列: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -1102,6 +1198,77 @@ Class 将星録.アプリケーション.メニュー: AutoLayout, AnsiClass, Cl
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     項目追加(String): PrivateScope, Public, Static, HideBySig
+Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 委任攻撃目標城配列IX 'get set' : 
+    Int32 委任攻撃 'get set' : 
+    Int32 委任状態 'get set' : 
+    Int32 城主武将配列IX 'get ' : 
+    Int32 商人   'get set' : 
+    Int32 負傷兵数MAX 'get ' : 
+    Int32 負傷兵数 'get set' : 
+    Int32 兵数MAX 'get ' : 
+    Int32 兵数   'get set' : 
+    Int32 大砲MAX 'get ' : 
+    Int32 大砲   'get set' : 
+    Int32 鉄砲MAX 'get ' : 
+    Int32 鉄砲   'get set' : 
+    Int32 軍馬MAX 'get ' : 
+    Int32 軍馬   'get set' : 
+    Int32 兵糧MAX 'get ' : 
+    Int32 兵糧   'get set' : 
+    Int32 金銭MAX 'get ' : 
+    Int32 金銭   'get set' : 
+    Int32 防御MAX 'get ' : 
+    Int32 防御   'get set' : 
+    Int32 城規模  'get set' : 
+    Int32 所属大名配列IX 'get set' : 
+    System.String 城称 'get ' : 
+    System.String 城名 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_城名(): PrivateScope, Public, HideBySig, SpecialName
+    set_城名(String): PrivateScope, Public, HideBySig, SpecialName
+    get_城称(): PrivateScope, Public, HideBySig, SpecialName
+    get_所属大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所属大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_城規模(): PrivateScope, Public, HideBySig, SpecialName
+    set_城規模(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_防御(): PrivateScope, Public, HideBySig, SpecialName
+    set_防御(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_防御MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_金銭(): PrivateScope, Public, HideBySig, SpecialName
+    set_金銭(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_金銭MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_兵糧(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵糧(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_兵糧MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_軍馬(): PrivateScope, Public, HideBySig, SpecialName
+    set_軍馬(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_軍馬MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_鉄砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_鉄砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_鉄砲MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_大砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_大砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_大砲MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_兵数MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_負傷兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_負傷兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_負傷兵数MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_商人(): PrivateScope, Public, HideBySig, SpecialName
+    set_商人(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_城主武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_委任状態(): PrivateScope, Public, HideBySig, SpecialName
+    set_委任状態(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_委任攻撃(): PrivateScope, Public, HideBySig, SpecialName
+    set_委任攻撃(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_委任攻撃目標城配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_委任攻撃目標城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

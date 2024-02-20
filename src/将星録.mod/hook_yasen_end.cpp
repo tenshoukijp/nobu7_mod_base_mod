@@ -86,13 +86,18 @@ void resetYasenBattleInfo() {
 
 extern BOOL hookYasenBattleStart;
 extern BOOL hookYasenBattleFirstTurn;
+
+extern void resetYasenTurnButaiOf1to5();
+
 void OnSSRExeYasenBattleEndExecute() {
 	OutputDebugStream("šššš–ìíI—¹šššš\n");
 
 	onYasenBattleEnd();
 
+	resetYasenTurnButaiOf1to5();
 	hookYasenBattleStart = 0;
 	hookYasenBattleFirstTurn = 0;
+
 }
 
 #pragma unmanaged
