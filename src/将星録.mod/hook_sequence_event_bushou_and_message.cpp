@@ -40,11 +40,12 @@ EDI 0054B7C8 ASCII "織田"   ← 武将ポインタ
 #include "bushou_albedo.h"
 #include "game_screen.h"
 #include "message_albedo.h"
+#include "usr_custom_mod.h"
 
 
 using namespace std;
 
-#pragma unmanaged
+void replaceMessage(string message);
 
 extern vector<int> list話者BushouID;
 static int EDIOfSetSerifuAllButhouLocC = 0xFFFF;
@@ -60,8 +61,39 @@ void OnSSRExeSetSerifuAllButhouLocCExecute() {
 	if (isValidBushouID(iBushouID_1st)) {
 		list話者BushouID[0] = iBushouID_1st;
 		OutputDebugStream("1人目の話者は" + getBushou姓名FromBushouID(iBushouID_1st) + "です。\n");
+
+		try {
+
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			dic->Add("メッセージ", gcnew System::String((char*)セリフメッセージアドレス));
+			dic->Add("武将番号１人目", list話者BushouID[0]);
+			dic->Add("武将番号２人目", list話者BushouID[1]);
+			dic->Add("武将番号３人目", list話者BushouID[2]);
+			dic->Add("武将番号４人目", list話者BushouID[3]);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on武将メッセージ要求時", dic);
+			if (ret != nullptr && ret->ContainsKey("メッセージ")) {
+				System::String^ override_message = (System::String^)(ret["メッセージ"]);
+				if (System::String::IsNullOrEmpty(override_message)) {
+					;
+					OutputDebugStream("文字列を置き換えません、スキップ");
+				}
+				else {
+					OutputDebugStream("文字列を置き換えました");
+					replaceMessage(to_native_string(override_message));
+				}
+			}
+
+		}
+		catch (System::Exception^) {
+			OutputDebugStream("on武将メッセージ要求時でエラー");
+		}
+
+
+
 	}
 }
+
+#pragma unmanaged
 
 /*
 0044B930   83EC 20          SUB ESP,20
