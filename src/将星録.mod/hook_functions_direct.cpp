@@ -61,6 +61,7 @@ extern void WriteAsmJumperOnSSRExeKahouTypeName();
 // extern void WriteAsmJumperOnSSRExeSetSerihuBothBushou();
 extern void WriteAsmJumperOnSSRExeSetSerifuAllButhouLocA();
 extern void WriteAsmJumperOnSSRExeSetSerifuAllButhouLocB();
+// extern void WriteAsmJumperOnSSRExeSetSerifuAllButhouLocC();
 extern void WriteAsmJumperOnSSRExeYasenBattleStartALoc();
 extern void WriteAsmJumperOnSSRExeYasenBattleStartBLoc();
 extern void WriteAsmJumperOnSSRExeCastleRetsudenShowBgn();
@@ -130,6 +131,7 @@ bool isWriteAsmJumperOnSSRExeKahouTypeName = false;
 // bool isWriteAsmJumperOnSSRExeSetSerihuBothBushou = false;
 bool isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocA = false;
 bool isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocB = false;
+// bool isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocC = false;
 bool isWriteAsmJumperOnSSRExeYasenBattleStartALoc = false;
 bool isWriteAsmJumperOnSSRExeYasenBattleStartBLoc = false;
 bool isWriteAsmJumperOnSSRExeCastleRetsudenShowBgn = false;
@@ -456,6 +458,13 @@ void hookFunctionsDirect() {
 		isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocB = true;
 		WriteAsmJumperOnSSRExeSetSerifuAllButhouLocB();
 	}
+
+	/*
+	if (!isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocC) {
+		isWriteAsmJumperOnSSRExeSetSerifuAllButhouLocC = true;
+		WriteAsmJumperOnSSRExeSetSerifuAllButhouLocC();
+	}
+	*/
 
 	if (!isWriteAsmJumperOnSSRExeYasenBattleStartALoc) {
 		isWriteAsmJumperOnSSRExeYasenBattleStartALoc = true;

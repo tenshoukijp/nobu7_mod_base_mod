@@ -240,6 +240,7 @@
     <ClCompile Include="hook_player_strategy_turn.cpp" />
     <ClCompile Include="hook_castle_battle_zantetsuken.cpp" />
     <ClCompile Include="hook_readfile_custom_kahou.cpp" />
+    <ClCompile Include="hook_sequence_event_bushou_and_message.cpp" />
     <ClCompile Include="hook_serihu_message_func.cpp" />
     <ClCompile Include="hook_set_serihu_all_bushou_a.cpp" />
     <ClCompile Include="hook_set_serihu_all_bushou_b.cpp" />

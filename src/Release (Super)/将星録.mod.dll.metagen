@@ -1201,6 +1201,7 @@ Class 将星録.アプリケーション.メニュー: AutoLayout, AnsiClass, Cl
 Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
+    Int32 開始ユニット配列IX 'get set' : 
     Int32 後城配列IX 'get set' : 
     Int32 委任攻撃目標城配列IX 'get set' : 
     Int32 委任攻撃 'get set' : 
@@ -1272,6 +1273,8 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     set_委任攻撃目標城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_後城配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_後城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_開始ユニット配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_開始ユニット配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

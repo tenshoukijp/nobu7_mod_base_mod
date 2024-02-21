@@ -73,9 +73,9 @@ extern void checkReplaceBushouRetsuden();
 extern vector<int> list話者BushouID;
 
 void OnSSRExeMessageDetailExecute() {
+
 	OutputDebugStream("■OnMessageDetail■:");
 	checkReplaceBushouRetsuden();
-
 	// C#のカスタム.mod.dllからの上書き
 	try {
 

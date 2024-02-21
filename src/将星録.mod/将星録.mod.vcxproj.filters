@@ -767,6 +767,9 @@
     <ClCompile Include="mng_城情報.cpp">
       <Filter>ゲームデータ - 城情報</Filter>
     </ClCompile>
+    <ClCompile Include="hook_sequence_event_bushou_and_message.cpp">
+      <Filter>Onセリフ</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
