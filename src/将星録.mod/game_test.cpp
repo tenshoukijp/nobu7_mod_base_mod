@@ -76,9 +76,9 @@ void doGameTest() {
 				OutputDebugStream("¤l‚Æ¤l‚ª•sˆê’v\n");
 			}
 
-			auto h4_a = r->é‹K–Í;
-			r->é‹K–Í = h4_a;
-			auto h4_b = r->é‹K–Í;
+			auto h4_a = r->‹K–Í;
+			r->‹K–Í = h4_a;
+			auto h4_b = r->‹K–Í;
 
 			if (h4_a == h4_b) {
 				OutputDebugStream("é‹K–Í‚Æé‹K–Í‚ªˆê’v\n");

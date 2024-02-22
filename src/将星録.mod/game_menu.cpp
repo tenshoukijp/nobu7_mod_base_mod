@@ -16,6 +16,10 @@ using namespace std;
 
 HMENU hNB7MenuCheckChange = NULL;
 
+void onMenuCastleEditStart() {
+	Show_FormMod("城エディタ.mod.dll", "将星録.城エディタ");
+}
+
 void onMenuKahouEditStart() {
 	Show_FormMod("家宝エディタ.mod.dll", "将星録.家宝エディタ");
 }
@@ -55,6 +59,9 @@ BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 		return TRUE;
 	case ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI:
 		// onMenuDaimyoEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_CASTLEEDIT_KAI:
+		onMenuCastleEditStart();
 		return TRUE;
 	case ADDITIONAL_MENU_ID_KAHOUEDIT_KAI:
 		onMenuKahouEditStart();

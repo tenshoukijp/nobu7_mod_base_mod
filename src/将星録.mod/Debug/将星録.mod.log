@@ -1,0 +1,297 @@
+﻿  castle_retsuden.cpp
+  castle_retsuden_albedo.cpp
+  dllmain.cpp
+  fook_picture_cache.cpp
+  hook_castle_battle_butai_defend_honmaru_damage.cpp
+  hook_castle_battle_butai_syototsu_kyoten_bushou.cpp
+  hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp
+  hook_castle_battle_taihou_attack_kyoten_bushou.cpp
+  hook_castle_battle_taihou_defend_honmaru_bushou.cpp
+  hook_castle_battle_taihou_defend_honmaru_syubi_busyou.cpp
+  hook_castle_battle_taihou_defend_kyoten_damage.cpp
+  bgm_noloop_issue_patch.cpp
+  bushou_albedo.cpp
+  bushou_retsuden.cpp
+  bushou_retsuden_albedo.cpp
+  castle_battle_attack_heisuu_sum.cpp
+  castle_battle_defend_heisuu_sum.cpp
+  data_bushou_message.cpp
+  data_bushou_struct.cpp
+  data_castle_struct.cpp
+  data_daimyo_struct.cpp
+  hook_castle_battle_butai_defend_door_damage.cpp
+  hook_castle_battle_butai_syoutotsu_attack_damage.cpp
+  hook_castle_battle_butai_syoutotsu_defend_damange.cpp
+  hook_castle_battle_butai_syoutotsu_attack_bushou.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\castle_retsuden_albedo.cpp(35,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\dllmain.cpp(39,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\castle_retsuden.cpp(72,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_defend_honmaru_damage.cpp(134,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_castle_battle_taihou_defend_door_damage.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp(145,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\fook_picture_cache.cpp(152,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syototsu_kyoten_bushou.cpp(133,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\bgm_noloop_issue_patch.cpp(22,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_attack_kyoten_bushou.cpp(109,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_honmaru_bushou.cpp(125,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_honmaru_syubi_busyou.cpp(11,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_kyoten_damage.cpp(140,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\bushou_albedo.cpp(426,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\bushou_retsuden_albedo.cpp(21,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\castle_battle_attack_heisuu_sum.cpp(194,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\bushou_retsuden.cpp(205,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_bushou_struct.cpp(87,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\castle_battle_defend_heisuu_sum.cpp(212,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_bushou_message.cpp(71,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_castle_struct.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_defend_door_damage.cpp(139,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_daimyo_struct.cpp(99,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syoutotsu_attack_damage.cpp(141,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syoutotsu_defend_damange.cpp(133,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syoutotsu_attack_bushou.cpp(178,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_castle_struct.cpp(490,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_castle_struct.cpp(755,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_castle_battle_zantetsuken_message.cpp
+  hook_castle_battle_butai_defend_honmaru_bushou.cpp
+  hook_castle_retsuden_castle_bgn.cpp
+  hook_castle_retsuden_castle_title.cpp
+  hook_castle_retusden_castle_detail.cpp
+  hook_daimyo_strategy_turn.cpp
+  data_kahou_struct.cpp
+  data_bushou_retsuden_struct.cpp
+  data_turn_daimyo_struct.cpp
+  data_turn_player_castle.cpp
+  file_attribute.cpp
+  hook_bgm3_filename.cpp
+  hook_bgm_filename.cpp
+  hook_bgm2_filename.cpp
+  hook_bushou_koudouzumi.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_door_damage.cpp(131,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_zantetsuken_message.cpp(180,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_castle_battle_end.cpp
+  hook_castle_battle_turn.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_defend_honmaru_bushou.cpp(130,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_castle_battle_turn_bgn.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_retsuden_castle_bgn.cpp(114,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_retusden_castle_detail.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_retsuden_castle_title.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_retusden_castle_detail.cpp(122,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_retsuden_castle_title.cpp(120,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_castle_battle_turn_daimyo_a.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_daimyo_strategy_turn.cpp(204,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_castle_battle_turn_daimyo_b.cpp
+  hook_cretefilea_custom.cpp
+  hook_gaikou_comment.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_bushou_retsuden_struct.cpp(24,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_turn_daimyo_struct.cpp(30,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_initial_game_settings.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\file_attribute.cpp(10,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_kahou_struct.cpp(430,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_turn_player_castle.cpp(16,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bgm2_filename.cpp(136,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_kahou_struct.cpp(688,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bgm_filename.cpp(169,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bgm3_filename.cpp(205,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bushou_koudouzumi.cpp(214,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_kahou_retsuden_kahou_detail.cpp
+  hook_kahou_retsuden_kahou_title.cpp
+  hook_kahou_retsuden_show_bgn.cpp
+  hook_kahou_retsuden_show_end.cpp
+  hook_kahou_retsuden_show_pic.cpp
+  hook_kahou_show_kahouid.cpp
+  hook_load_gaiji.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_end.cpp(126,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_load_scenariodata.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn.cpp(245,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_maingame_start.cpp
+  hook_movie_filename.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_bgn.cpp(287,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_daimyo_a.cpp(251,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_player_strategy_turn.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_turn_daimyo_b.cpp(251,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_cretefilea_custom.cpp(42,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_gaikou_comment.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_gaikou_comment.cpp(67,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_initial_game_settings.cpp(116,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_castle_battle_zantetsuken.cpp
+  hook_readfile_custom_kahou.cpp
+  hook_sequence_event_bushou_and_message.cpp
+  hook_serihu_message_func.cpp
+  hook_set_serihu_all_bushou_a.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_detail.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_detail.cpp(122,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_bgn.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_bgn.cpp(288,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_title.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_kahou_title.cpp(129,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_set_serihu_all_bushou_b.cpp
+  hook_set_serihu_both_bushou.cpp
+  hook_update_month.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_end.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_pic.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_end.cpp(289,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_retsuden_show_pic.cpp(335,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_show_kahouid.cpp(114,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_gaiji.cpp(44,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_update_soba_kome.cpp
+  hook_update_soba_teppou.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp(182,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_scenariodata.cpp(22,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_maingame_start.cpp(111,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_update_soba_uma.cpp
+  hook_write_month.cpp
+  hook_write_soba_kome.cpp
+  hook_write_soba_teppou.cpp
+  hook_write_soba_uma.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_player_strategy_turn.cpp(131,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_write_year.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom_kahou.cpp(98,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_zantetsuken.cpp(144,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_serihu_message_func.cpp(13,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_sequence_event_bushou_and_message.cpp(170,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_set_serihu_all_bushou_a.cpp(149,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_readfile_custom_kao.cpp
+  hook_setfilepointer_custom.cpp
+  hook_yasen_end.cpp
+  hook_yasen_start.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_set_serihu_all_bushou_b.cpp(148,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_yasen_butai_info_update.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_month.cpp(119,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_set_serihu_both_bushou.cpp(185,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_unknown_dialog3.cpp
+  hook_bushou_retsuden_init.cpp
+  hook_unknown_dialog1.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_soba_kome.cpp(128,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_soba_teppou.cpp(152,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_unknown_dialog2.cpp
+  hook_yasen_battle_turn.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_soba_uma.cpp(121,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_month.cpp(132,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_teppou.cpp(134,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_yasen_battle_turn_both_bushou.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_kome.cpp(133,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_soba_uma.cpp(132,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_yasen_battle_turn_butai_of_1to5.cpp
+  hook_yasen_start_a.cpp
+  hook_yasen_start_b.cpp
+  hook_yasen_weather_change.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_write_year.cpp(132,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_yasen_weather_write.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom_kao.cpp(123,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setfilepointer_custom.cpp(36,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  kahou_retsuden_albedo.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_start.cpp(58,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_butai_info_update.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  kahou_retsuden.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_butai_info_update.cpp(288,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_end.cpp(171,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bushou_retsuden_init.cpp(29,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog1.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog1.cpp(147,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog3.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  hook_kahou_type_name.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog3.cpp(146,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog2.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_unknown_dialog2.cpp(146,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn.cpp(191,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  load_form_mod.cpp
+  message_albedo.cpp
+  mng_フォント.cpp
+  mng_メニュー.cpp
+  mng_城情報.cpp
+  mng_官位情報.cpp
+  mng_家宝情報.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_both_bushou.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_both_bushou.cpp(268,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_butai_of_1to5.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_battle_turn_butai_of_1to5.cpp(249,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  data_kanni_struct.cpp
+  data_unit_struct.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_start_a.cpp(111,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  data_yakusyoku_struct.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_start_b.cpp(112,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_weather_change.cpp(127,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_yasen_weather_write.cpp(121,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  game_screen.cpp
+  game_test.cpp
+  hook_bitblt_custom.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden_albedo.cpp(64,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\kahou_retsuden.cpp(73,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_createcompatibledc_custom.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_kahou_type_name.cpp(276,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_createdibitmap_custom.cpp
+  hook_createfonta_custom.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\load_form_mod.cpp(60,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\message_albedo.cpp(61,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_defwindowproca_custom.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_メニュー.cpp(41,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  data_game_struct.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_家宝情報.cpp(198,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_城情報.cpp(357,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_フォント.cpp(13,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  export_func.cpp
+  game_font.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_官位情報.cpp(72,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_enablemenuitem_custom.cpp
+  hook_functions_direct.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_kanni_struct.cpp(66,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_unit_struct.cpp(123,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_yakusyoku_struct.cpp(66,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_functions_replace.cpp
+  hook_getdibits_custom.cpp
+  hook_isdebuggerpresent_custom.cpp
+  hook_releasedc_custom.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_bitblt_custom.cpp(27,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_serihu_message.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\game_screen.cpp(17,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\game_test.cpp(406,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  hook_setmenu_custom.cpp
+  hook_textouta_custom.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_createcompatibledc_custom.cpp(14,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_createfonta_custom.cpp(10,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_createdibitmap_custom.cpp(10,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  game_menu.cpp
+  mng_年月情報.cpp
+  mng_役職情報.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_defwindowproca_custom.cpp(417,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\data_game_struct.cpp(34,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\export_func.cpp(77,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  mng_文字列変換.cpp
+  mng_武将情報.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\game_font.cpp(144,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  onigwrap.cpp
+  on_event.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_enablemenuitem_custom.cpp(38,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_functions_direct.cpp(493,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_functions_replace.cpp(739,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  on_game_pic_show.cpp
+  on_serihu_message.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_isdebuggerpresent_custom.cpp(8,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_releasedc_custom.cpp(36,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_getdibits_custom.cpp(16,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  output_debug_stream.cpp
+  game_process.cpp
+  game_window.cpp
+  hook_castle_battle_taihou_defend_honmaru_damage.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_serihu_message.cpp(185,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  usr_custom_mod.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setmenu_custom.cpp(183,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_textouta_custom.cpp(38,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  mng_相場情報.cpp
+C:\Users\master\source\repos\将星録Mod\将星録.mod\game_menu.cpp(216,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_年月情報.cpp(26,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_役職情報.cpp(72,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_文字列変換.cpp(16,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_武将情報.cpp(2,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\onigwrap.cpp(97,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\on_event.cpp(716,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\on_game_pic_show.cpp(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\master\source\repos\将星録Mod\将星録.mod\on_game_pic_show.cpp(478,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\on_serihu_message.cpp(31,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\output_debug_stream.cpp(46,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_honmaru_damage.cpp(144,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\game_process.cpp(9,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\game_window.cpp(60,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\usr_custom_mod.cpp(133,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_相場情報.cpp(34,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?

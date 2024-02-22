@@ -29,7 +29,7 @@ namespace «¯˜^ {
 			void set(int value);
 		}
 
-		property int é‹K–Í {
+		property int ‹K–Í {
 			int get();
 			void set(int value);
 		}

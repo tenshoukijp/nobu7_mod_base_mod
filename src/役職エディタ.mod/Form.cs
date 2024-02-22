@@ -94,7 +94,6 @@ public class 役職エディタ : Form
         {
             try
             {
-                System.Diagnostics.Trace.WriteLine(cell.Value.GetType());
                 役職情報.役位 = (int)cell.Value;
             }
             catch (Exception)

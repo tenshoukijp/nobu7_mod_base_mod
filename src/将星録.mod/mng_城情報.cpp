@@ -61,14 +61,14 @@ void éî•ñŒ^::Š‘®‘å–¼”z—ñIX::set(int value) {
 	}
 }
 
-int éî•ñŒ^::é‹K–Í::get()
+int éî•ñŒ^::‹K–Í::get()
 {
-	return nb7éî•ñ[é”z—ñIX].é‹K–Í;
+	return nb7éî•ñ[é”z—ñIX].‹K–Í;
 }
 
-void éî•ñŒ^::é‹K–Í::set(int value) {
+void éî•ñŒ^::‹K–Í::set(int value) {
 	if (1 <= value && value <= 8) {
-		nb7éî•ñ[é”z—ñIX].é‹K–Í = value;
+		nb7éî•ñ[é”z—ñIX].‹K–Í = value;
 	}
 	else {
 		throw gcnew System::ArgumentOutOfRangeException("é‹K–Í‚ª•s³‚Å‚·B");
