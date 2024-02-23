@@ -1226,6 +1226,7 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     Int32 防御   'get set' : 
     Int32 規模   'get set' : 
     Int32 所属大名配列IX 'get set' : 
+    Int32 籠城番号 'get set' : 
     System.String 城称 'get ' : 
     System.String 城名 'get set' : 
     Int32 配列IX 'get ' : 
@@ -1234,6 +1235,8 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     get_城名(): PrivateScope, Public, HideBySig, SpecialName
     set_城名(String): PrivateScope, Public, HideBySig, SpecialName
     get_城称(): PrivateScope, Public, HideBySig, SpecialName
+    get_籠城番号(): PrivateScope, Public, HideBySig, SpecialName
+    set_籠城番号(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_所属大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_所属大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_規模(): PrivateScope, Public, HideBySig, SpecialName

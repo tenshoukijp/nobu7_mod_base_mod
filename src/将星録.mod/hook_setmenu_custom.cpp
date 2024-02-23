@@ -87,12 +87,12 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 
 	if (menu_count >= 9) {
 		// 「ユニット」のメニューアイテムを全角に変更
-		changeMenuItemString(hMenu, 226, "ユニット(&U)"); // 226はリソースエディタでわかる「ユニット」のメニューID
+		// changeMenuItemString(hMenu, 226, "ユニット(&U)"); // 226はリソースエディタでわかる「ユニット」のメニューID
 
 	}
 
 	// 「ファイル」のPOPUPを全角に変更
-	changePopupString(hMenu, 0, "ファイル(&F)");
+	// changePopupString(hMenu, 0, "ファイル(&F)");
 
 	menu_count = GetMenuItemCount(hMenu); // 一応変わらないはずだけど再度取得しておく。
 
@@ -115,7 +115,7 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 
 		// OpeningMovie時のメニューは2個 + 改造メニューで+1
 		if (menu_count == 3) {
-			changePopupString(hMenu, 1, "ムービー中止(&M)");
+			// changePopupString(hMenu, 1, "ムービー中止(&M)");
 			if (nCheckMenuCount != menu_count) {
 				nCheckMenuCount = menu_count;
 				onOpeningMovie();
@@ -126,14 +126,14 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 		if (menu_count >= 9) {
 			// メニューを追加した
 			HMENU hTarget = GetMenu(hWnd);
-			insertMenuItem(hTarget, "武将エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI);
-			insertMenuItem(hTarget, "ユニットエディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_UNITEDIT_KAI);
-			insertMenuItem(hTarget, "大名エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI);
-			insertMenuItem(hTarget, "城エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_CASTLEEDIT_KAI);
-			insertMenuItem(hTarget, "家宝エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KAHOUEDIT_KAI);
-			insertMenuItem(hTarget, "官位エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KANNIEDIT_KAI);
-			insertMenuItem(hTarget, "役職エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YAKUSYOKUEDIT_KAI);
-			insertMenuItem(hTarget, "年月エディタ", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI);
+			insertMenuItem(hTarget, "武将エディタ(&B)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI);
+			insertMenuItem(hTarget, "ユニットエディタ(&U)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_UNITEDIT_KAI);
+			insertMenuItem(hTarget, "大名エディタ(&D)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI);
+			insertMenuItem(hTarget, "城エディタ(&S)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_CASTLEEDIT_KAI);
+			insertMenuItem(hTarget, "家宝エディタ(&I)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KAHOUEDIT_KAI);
+			insertMenuItem(hTarget, "官位エディタ(&R)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KANNIEDIT_KAI);
+			insertMenuItem(hTarget, "役職エディタ(&Y)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YAKUSYOKUEDIT_KAI);
+			insertMenuItem(hTarget, "年月相場エディタ(&N)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI);
 			insertMenuItem(hTarget, "---", RESOURCE_MENU_ID_KAIZOU_END, NULL);
 		}
 	}

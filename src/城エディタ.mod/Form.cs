@@ -36,7 +36,7 @@ public class 城エディタ : Form
         this.ShowIcon = false;
     }
 
-    enum タイトル { 配列IX = 0, 城名, 城称, 所属大名配列IX, 城主武将配列IX, 規模, 防御, 防御MAX, 兵数, 負傷兵数, 金銭, 兵糧, 軍馬, 鉄砲, 大砲, 商人, 委任状態, 委任攻撃, 委任攻撃目標城配列IX, 開始ユニット配列IX, 後城配列IX};
+    enum タイトル { 配列IX = 0, 城名, 城称, 籠城番号, 所属大名配列IX, 城主武将配列IX, 規模, 防御, 防御MAX, 兵数, 負傷兵数, 金銭, 兵糧, 軍馬, 鉄砲, 大砲, 商人, 委任状態, 委任攻撃, 委任攻撃目標城配列IX, 開始ユニット配列IX, 後城配列IX};
     private void setDataGridAttribute()
     {
         dgv.Dock = DockStyle.Fill;
@@ -88,6 +88,17 @@ public class 城エディタ : Form
             catch (Exception)
             {
                 cell.Value = 城情報.城名;
+            }
+        }
+        else if (e.ColumnIndex == (int)タイトル.籠城番号)
+        {
+            try
+            {
+                城情報.籠城番号 = (int)cell.Value;
+            }
+            catch (Exception)
+            {
+                cell.Value = 城情報.籠城番号;
             }
         }
         else if (e.ColumnIndex == (int)タイトル.所属大名配列IX)
@@ -278,6 +289,7 @@ public class 城エディタ : Form
               城.配列IX,
               城.城名,
               城.城称,
+              城.籠城番号,
               城.所属大名配列IX,
               城.城主武将配列IX,
               城.規模,
@@ -310,7 +322,7 @@ public class 城エディタ : Form
 
         // 基本的にはint型
         string[] names = Enum.GetNames(typeof(タイトル));
-        for (int i= (int)タイトル.所属大名配列IX; i < names.Length-1; i++)
+        for (int i= (int)タイトル.籠城番号; i < names.Length-1; i++)
         {
             dgv.Columns[i].ValueType = typeof(int);
         }

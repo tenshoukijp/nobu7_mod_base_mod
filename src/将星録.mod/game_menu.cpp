@@ -9,6 +9,7 @@
 #include "game_test.h"
 #include "load_form_mod.h"
 #include "usr_custom_mod.h"
+#include "file_attribute.h"
 
 #pragma comment(lib, "shell32.lib")
 
@@ -30,6 +31,10 @@ void onMenuKanniEditStart() {
 
 void onMenuYakusyokuEditStart() {
 	Show_FormMod("役職エディタ.mod.dll", "将星録.役職エディタ");
+}
+
+void onMenuNenngetuSotaEditStart() {
+	Show_FormMod("年月相場エディタ.mod.dll", "将星録.年月相場エディタ");
 }
 
 // メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、
@@ -73,7 +78,7 @@ BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 		onMenuYakusyokuEditStart();
 		return TRUE;
 	case ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI:
-		// onMenuNenngetuEditStart();
+		onMenuNenngetuSotaEditStart();
 		return TRUE;
 	case 313:
 		onMenuBushouEditStart();

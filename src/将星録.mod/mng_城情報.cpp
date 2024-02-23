@@ -46,7 +46,8 @@ String^ 城情報型::城称::get()
 
 int 城情報型::所属大名配列IX::get()
 {
-	return getDaimyoIDFromYakusyokuID(城配列IX);;
+	int* iDiamyoPtr = nb7城情報[城配列IX].p所属大名;
+	return getDaimyoIDFromDaimyoPtr(iDiamyoPtr);;
 }
 
 void 城情報型::所属大名配列IX::set(int value) {
@@ -60,6 +61,21 @@ void 城情報型::所属大名配列IX::set(int value) {
 		throw gcnew System::ArgumentOutOfRangeException("所属大名配列IXが不正です。");
 	}
 }
+
+int 城情報型::籠城番号::get()
+{
+	return nb7城情報[城配列IX].籠城番号;
+}
+
+void 城情報型::籠城番号::set(int value) {
+	if (0 <= value && value <= 11) {
+		nb7城情報[城配列IX].籠城番号 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("籠城番号が不正です。");
+	}
+}
+
 
 int 城情報型::規模::get()
 {

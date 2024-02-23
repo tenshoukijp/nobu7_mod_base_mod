@@ -131,14 +131,8 @@ BOOL set城開始ユニット(int iCastleID, int i開始ユニットID) {
 
 int getDaimyoIDFromCastleID(int iCastleID) {
 	if (isValidCastleID(iCastleID)) {
-		int nDaimyoAddress = (int)(nb7城情報[iCastleID].p所属大名);
-		int sub = nDaimyoAddress - (int)(大名情報アドレス);
-
-		// 大名情報の構造体のサイズで割れば、何番目の武将なのかがわかる。
-		int iDaimyoID = sub / sizeof(NB7大名情報型);
-		if (isValidDaimyoID(iDaimyoID)) {
-			return iDaimyoID;
-		}
+		int* pDaimyo = nb7城情報[iCastleID].p所属大名;
+		return getDaimyoIDFromDaimyoPtr(pDaimyo);
 	}
 
 	return 0xFFFF;

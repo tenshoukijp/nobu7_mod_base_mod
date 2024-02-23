@@ -24,6 +24,12 @@ namespace «¯˜^ {
 			String^ get();
 		}
 
+		property int âÄé”Ô† {
+			int get();
+			void set(int value);
+		}
+
+
 		property int Š‘®‘å–¼”z—ñIX {
 			int get();
 			void set(int value);

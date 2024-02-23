@@ -1,0 +1,5 @@
+C:\Users\master\source\repos\将星録Mod\Release\年月相場エディタ.mod.dll
+C:\Users\master\source\repos\将星録Mod\年月相場エディタ.mod\obj\Release\年月相場エディタ.mod.csproj.AssemblyReference.cache
+C:\Users\master\source\repos\将星録Mod\年月相場エディタ.mod\obj\Release\年月相場エディタ.mod.csproj.CoreCompileInputs.cache
+C:\Users\master\source\repos\将星録Mod\年月相場エディタ.mod\obj\Release\年月相場エディタ.9F8D5EAF.Up2Date
+C:\Users\master\source\repos\将星録Mod\年月相場エディタ.mod\obj\Release\年月相場エディタ.mod.dll
