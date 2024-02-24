@@ -111,7 +111,7 @@ using namespace std;
 
 int nRemainYasenTurn = -1;
 void OnSSRExeYasenTurnChangeExecute() {
-	OutputDebugStream("★★★★野戦ターンの変更時★%d\n", nRemainYasenTurn);
+	// OutputDebugStream("★★★★野戦ターンの変更時★%d\n", nRemainYasenTurn);
 }
 
 

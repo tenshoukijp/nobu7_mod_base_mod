@@ -232,11 +232,11 @@ void onYasenBattlePreStart() {
     アルベドのユニットが軍隊や軍船なら兵数復活();
 }
 
+/*
 void onYasenBattleStart(string battleYanseStartInfo) {
 
     Matches ma;
     if (OnigMatch(battleYanseStartInfo, "守備側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?攻撃側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(\\d+?)年(\\d+?)月残り(\\d+?)ターン(.+?\\d部隊の戦術)", &ma)) {
-        /*
         OutputDebugStream("守備側:" + ma[1] + "\n");
         string syubigawa = ma[1];
 
@@ -272,15 +272,24 @@ void onYasenBattleStart(string battleYanseStartInfo) {
         OutputDebugStream("第５部隊適正:" + ma[38] + "\n");
         OutputDebugStream("年:" + ma[39] + "\n");
         OutputDebugStream("月:" + ma[40] + "\n");
-        */
     }
 }
+*/
 
+void onYasenBattleStart(int iAttackBushouID, int iDefendBushouID, int iAttackUnitID, int iDefendUnitID) {
+
+}
+
+void onYasenBattleTurn(int iRemainTurn, int iAttackBushouID, int iDefendBushouID, int iAttackUnitID, int iDefendUnitID) {
+
+}
+
+/*
 string previousBattleTurnInfo = "";
 string previousRegexBattleTurnInfo = "";
 
 void onYasenBattleTurn(string battleYanseTurnInfo) {
-    OutputDebugStream("戦闘ターン情報:" + battleYanseTurnInfo + "\n");
+    // OutputDebugStream("戦闘ターン情報:" + battleYanseTurnInfo + "\n");
 
     // 前回と全く同じなら、何もしない。ここではじくことで以下の正規表現に行く頻度を減らす
     if (previousBattleTurnInfo == battleYanseTurnInfo) {
@@ -307,7 +316,6 @@ void onYasenBattleTurn(string battleYanseTurnInfo) {
             previousRegexBattleTurnInfo = regexBattleTurnInfo;
         }
 
-        /*
         OutputDebugStream("守備側:" + ma[1] + "\n");
         string syubigawa = ma[1];
 
@@ -358,10 +366,9 @@ void onYasenBattleTurn(string battleYanseTurnInfo) {
             OutputDebugStream("ターン軍:" + turn_ma[1] + "\n");
             OutputDebugStream("ターン部隊番号:" + turn_ma[2] + "\n");
         }
-
-        */
     }
 }
+*/
 
 void onYasenButaiAttack(int iRemainTurn, int iAttackBushouID, int iButaiID, int iDefendBushouID) {
     OutputDebugStream("現在の部隊の攻撃について\n");
@@ -638,6 +645,7 @@ int dispatchEvent() {
         onYanseBattlePrePreStart();
     }
     */
+    /*
     else if (OnigMatch(bufferTextOut, "守備側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?攻撃側:(.+?)戦闘:(\\d+?)士気:(\\d+?)兵糧:(\\d+?)(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(:(\\d+?):(.+?))?(\\d+?)年(\\d+?)月残り(\\d+?)ターン(.+?\\d部隊の戦術)")) {
         // 守備側:斯波義統戦闘:28士気:90兵糧:3000:900:Ｄ:900:Ｄ:900:Ｄ:900:Ｄ:900:Ｄ攻撃側:織田信長戦闘:103士気:90兵糧:3000:1000:Ａ:1000:Ａ:1000:Ａ:1000:Ａ:1000:Ａ1551年4月残り4ターン織田信長対斯波義統織田信長軍第1部隊の戦術------------
         if (!isYasenBattle) {
@@ -647,6 +655,7 @@ int dispatchEvent() {
         isYasenBattle = TRUE;
         onYasenBattleTurn(bufferTextOut);
     }
+    */
     /*
     else if (OnigMatch(bufferTextOut, "情報(.+?)様あなたの番となりました")) {
     }

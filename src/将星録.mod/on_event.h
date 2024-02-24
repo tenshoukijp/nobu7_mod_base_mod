@@ -52,7 +52,9 @@ void onWriteSobaUma(int iSobaUma);
 
 void onWriteSobaTeppou(int iSobaTeppou);
 
-void onYasenBattleTurn(std::string battleTurnInfo);
+void onYasenBattleStart(int iAttackBushouID, int iDefendBushouID, int iAttackUnitID, int iDefendUnitID);
+
+void onYasenBattleTurn(int iRemainTurn, int iAttackBushouID, int iDefendBushouID, int iAttackUnitID, int iDefendUnitID);
 
 void onStrategyScreen();
 
