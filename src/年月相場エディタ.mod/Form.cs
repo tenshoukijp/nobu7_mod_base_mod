@@ -21,17 +21,29 @@ public class 年月相場エディタ : Form
         setDataGridAttribute();
     }
 
-    private void setFormAttribute()
+    void setFormAttribute()
     {
         this.Text = "年月相場エディタ";
         this.Width = 900;
         this.Height = 800;
         this.StartPosition = FormStartPosition.CenterScreen;
         this.ShowIcon = false;
+
+        this.KeyPreview = true;
+        this.KeyDown += Form_KeyDown;
+    }
+
+    void Form_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.F5)
+        {
+            dgv.Rows.Clear();
+            DgvDataImport();
+        }
     }
 
     enum タイトル { 年, 月, 兵糧, 軍馬, 鉄砲 };
-    private void setDataGridAttribute()
+    void setDataGridAttribute()
     {
         dgv.Dock = DockStyle.Fill;
         dgv.AllowUserToAddRows = false;
@@ -62,12 +74,12 @@ public class 年月相場エディタ : Form
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
-    private void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
         e.Cancel = false;
     }
 
-    private void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         // 対象のセル
         var cell = dgv[e.ColumnIndex, e.RowIndex];
@@ -130,7 +142,7 @@ public class 年月相場エディタ : Form
 
     void DgvDataImport()
     {
-        dgv.Rows.Add(年月情報.年, 年月情報.月, 相場情報.兵糧, 相場情報.軍馬, 相場情報.鉄砲 );
+        dgv.Rows.Add(年月情報.年, 年月情報.月, 相場情報.兵糧, 相場情報.軍馬, 相場情報.鉄砲);
 
         dgv.Columns[(int)タイトル.年].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.月].ValueType = typeof(int);

@@ -19,25 +19,37 @@ public class 家宝エディタ : Form
         setDataGridAttribute();
     }
 
-    private void create家宝配列()
+    void create家宝配列()
     {
-        for ( int i=0; i< 将星録.最大数.家宝情報.配列数; i++)
+        for (int i = 0; i < 将星録.最大数.家宝情報.配列数; i++)
         {
             家宝配列.Add(new 家宝情報型(i));
         }
     }
 
-    private void setFormAttribute()
+    void setFormAttribute()
     {
         this.Text = "家宝エディタ";
         this.Width = 900;
         this.Height = 800;
         this.StartPosition = FormStartPosition.CenterScreen;
         this.ShowIcon = false;
+
+        this.KeyPreview = true;
+        this.KeyDown += Form_KeyDown;
     }
 
-    enum タイトル { 配列IX=0, 家宝名, 種類, 画像, 等級, 能力上昇, 政治, 戦闘, 智謀, 南蛮, 抑制, 兵科効果, 所有武将配列IX };
-    private void setDataGridAttribute()
+    void Form_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.F5)
+        {
+            dgv.Rows.Clear();
+            DgvDataImport();
+        }
+    }
+
+    enum タイトル { 配列IX = 0, 家宝名, 種類, 画像, 等級, 能力上昇, 政治, 戦闘, 智謀, 南蛮, 抑制, 兵科効果, 所有武将配列IX };
+    void setDataGridAttribute()
     {
         dgv.Dock = DockStyle.Fill;
         dgv.AllowUserToAddRows = false;
@@ -68,12 +80,12 @@ public class 家宝エディタ : Form
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
-    private void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
         e.Cancel = false;
     }
 
-    private void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         int iKahouID = e.RowIndex;
         var 家宝情報 = new 将星録.家宝情報型(iKahouID);
@@ -218,7 +230,7 @@ public class 家宝エディタ : Form
     void DgvDataImport()
     {
         // 横列単位で足してゆく、
-        foreach(var 家宝 in 家宝配列)
+        foreach (var 家宝 in 家宝配列)
         {
             dgv.Rows.Add(
               家宝.配列IX,

@@ -126,10 +126,10 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 		if (menu_count >= 9) {
 			// メニューを追加した
 			HMENU hTarget = GetMenu(hWnd);
-			insertMenuItem(hTarget, "武将エディタ(&B)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI);
-			insertMenuItem(hTarget, "ユニットエディタ(&U)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_UNITEDIT_KAI);
 			insertMenuItem(hTarget, "大名エディタ(&D)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI);
 			insertMenuItem(hTarget, "城エディタ(&S)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_CASTLEEDIT_KAI);
+			insertMenuItem(hTarget, "武将エディタ(&B)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI);
+			insertMenuItem(hTarget, "ユニットエディタ(&U)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_UNITEDIT_KAI);
 			insertMenuItem(hTarget, "家宝エディタ(&I)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KAHOUEDIT_KAI);
 			insertMenuItem(hTarget, "官位エディタ(&R)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KANNIEDIT_KAI);
 			insertMenuItem(hTarget, "役職エディタ(&Y)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YAKUSYOKUEDIT_KAI);

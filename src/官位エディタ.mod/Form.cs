@@ -17,9 +17,21 @@ public class 官位エディタ : Form
 
         setFormAttribute();
         setDataGridAttribute();
+
+        this.KeyPreview = true;
+        this.KeyDown += Form_KeyDown;
     }
 
-    private void create官位配列()
+    void Form_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.F5)
+        {
+            dgv.Rows.Clear();
+            DgvDataImport();
+        }
+    }
+
+    void create官位配列()
     {
         for (int i = 0; i < 将星録.最大数.官位情報.配列数; i++)
         {
@@ -27,7 +39,7 @@ public class 官位エディタ : Form
         }
     }
 
-    private void setFormAttribute()
+    void setFormAttribute()
     {
         this.Text = "官位エディタ";
         this.Width = 900;
@@ -37,7 +49,7 @@ public class 官位エディタ : Form
     }
 
     enum タイトル { 配列IX = 0, 官位名, 階位, 所有武将配列IX };
-    private void setDataGridAttribute()
+    void setDataGridAttribute()
     {
         dgv.Dock = DockStyle.Fill;
         dgv.AllowUserToAddRows = false;
@@ -68,12 +80,12 @@ public class 官位エディタ : Form
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
-    private void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
         e.Cancel = false;
     }
 
-    private void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         int iKanniID = e.RowIndex;
         var 官位情報 = new 将星録.官位情報型(iKanniID);

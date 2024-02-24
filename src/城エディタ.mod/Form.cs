@@ -11,15 +11,28 @@ public class 城エディタ : Form
 
     List<城情報型> 城配列 = new();
 
+
     public 城エディタ()
     {
         create城配列();
 
         setFormAttribute();
         setDataGridAttribute();
+
+        this.KeyPreview = true;
+        this.KeyDown += Form_KeyDown;
     }
 
-    private void create城配列()
+    void Form_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.F5)
+        {
+            dgv.Rows.Clear();
+            DgvDataImport();
+        }
+    }
+
+    void create城配列()
     {
         for (int i = 0; i < 将星録.最大数.城情報.配列数; i++)
         {
@@ -27,17 +40,19 @@ public class 城エディタ : Form
         }
     }
 
-    private void setFormAttribute()
+    void setFormAttribute()
     {
         this.Text = "城エディタ";
         this.Width = 900;
         this.Height = 800;
         this.StartPosition = FormStartPosition.CenterScreen;
         this.ShowIcon = false;
+
+        this.KeyDown += new KeyEventHandler(Form_KeyDown);
     }
 
     enum タイトル { 配列IX = 0, 城名, 城称, 籠城番号, 所属大名配列IX, 城主武将配列IX, 規模, 防御, 防御MAX, 兵数, 負傷兵数, 金銭, 兵糧, 軍馬, 鉄砲, 大砲, 商人, 委任状態, 委任攻撃, 委任攻撃目標城配列IX, 開始ユニット配列IX, 後城配列IX};
-    private void setDataGridAttribute()
+    void setDataGridAttribute()
     {
         dgv.Dock = DockStyle.Fill;
         dgv.AllowUserToAddRows = false;
@@ -68,12 +83,12 @@ public class 城エディタ : Form
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
-    private void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
         e.Cancel = false;
     }
 
-    private void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         int iCastleID = e.RowIndex;
         var 城情報 = new 将星録.城情報型(iCastleID);
@@ -336,5 +351,6 @@ public class 城エディタ : Form
         dgv.Columns[(int)タイトル.防御MAX].DefaultCellStyle.BackColor = Color.Gray;
 
         dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
     }
 }
