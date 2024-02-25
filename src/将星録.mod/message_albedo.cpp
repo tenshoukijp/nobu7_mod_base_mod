@@ -1,5 +1,4 @@
 #include <string>
-#include "data_game_struct.h"
 #include "on_serihu_message.h"
 #include "onigwrap.h"
 using namespace std;

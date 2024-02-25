@@ -1,7 +1,6 @@
 #pragma once
 
 #include <windows.h>
-#include "mng_ユニット情報.h"
 
 #define 野戦守備側部隊アドレス 0x584EC0
 #define 野戦攻撃側部隊アドレス 0x584FC4

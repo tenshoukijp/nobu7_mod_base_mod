@@ -2,7 +2,6 @@
 
 #include <windows.h>
 
-#include "data_game_struct.h"
 
 #define Š¯ˆÊî•ñƒAƒhƒŒƒX 0x585460
 

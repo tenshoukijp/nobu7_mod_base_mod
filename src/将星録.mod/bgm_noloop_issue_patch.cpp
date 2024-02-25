@@ -1,7 +1,4 @@
 
-#include "game_screen.h"
-#include "data_game_struct.h"
-
 int nLastMainStrategyScreenBGM = -1;
 
 int bgm_noloop_issue_patch(int iBGMNo) {

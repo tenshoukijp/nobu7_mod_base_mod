@@ -10,6 +10,14 @@
 0047144D   83BE 84000000 02 CMP DWORD PTR DS:[ESI+84],2
 */
 
+#include <windows.h>
+#include <string>
+#include "output_debug_stream.h"
+#include "game_process.h"
+
+using namespace std;
+
+#pragma unmanaged
 
 int getYanseWeather() {
 	return *(int*)0x585204;
@@ -21,27 +29,8 @@ void setYangseWeather(int nWeather) {
 	}
 }
 
-#include <windows.h>
-#include <string>
-#include "data_game_struct.h"
-#include "data_bushou_struct.h"
-#include "output_debug_stream.h"
-#include "data_kahou_struct.h"
-#include "data_kanni_struct.h"
-#include "data_yakusyoku_struct.h"
-#include "data_castle_struct.h"
-#include "data_turn_struct.h"
-#include "game_screen.h"
-#include "game_process.h"
-#include "on_serihu_message.h"
-#include "bushou_albedo.h"
-#include "game_screen.h"
-#include "message_albedo.h"
 
 
-using namespace std;
-
-#pragma unmanaged
 
 
 int nYasenWeather = -1;

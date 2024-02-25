@@ -1,9 +1,7 @@
+#include <windows.h>
 #include <string>
 #include "data_game_struct.h"
 #include "bushou_albedo.h"
-#include <windows.h>
-#include <string>
-#include <vector>
 #include "mng_é—ñ‹“.h"
 #include "output_debug_stream.h"
 
