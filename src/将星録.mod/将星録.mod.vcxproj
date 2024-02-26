@@ -157,6 +157,9 @@
     <ClInclude Include="mng_役職情報.h" />
     <ClInclude Include="mng_文字列変換.h" />
     <ClInclude Include="mng_武将列挙.h" />
+    <ClInclude Include="mng_野戦列挙.h" />
+    <ClInclude Include="mng_野戦情報.h" />
+    <ClInclude Include="mng_野戦部隊情報.h" />
     <ClInclude Include="onigwrap.h" />
     <ClInclude Include="on_event.h" />
     <ClInclude Include="data_bushou_message.h" />
@@ -320,6 +323,8 @@
     <ClCompile Include="mng_役職情報.cpp" />
     <ClCompile Include="mng_文字列変換.cpp" />
     <ClCompile Include="mng_武将情報.cpp" />
+    <ClCompile Include="mng_野戦情報.cpp" />
+    <ClCompile Include="mng_野戦部隊情報.cpp" />
     <ClCompile Include="onigwrap.cpp" />
     <ClCompile Include="on_event.cpp" />
     <ClCompile Include="on_game_pic_show.cpp" />

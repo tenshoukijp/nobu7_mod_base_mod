@@ -348,6 +348,15 @@
     <ClInclude Include="mng_城情報.h">
       <Filter>ゲームデータ - 城情報</Filter>
     </ClInclude>
+    <ClInclude Include="mng_野戦部隊情報.h">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_野戦情報.h">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_野戦列挙.h">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -769,6 +778,12 @@
     </ClCompile>
     <ClCompile Include="hook_sequence_event_bushou_and_message.cpp">
       <Filter>Onセリフ</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_野戦部隊情報.cpp">
+      <Filter>ゲームデータ - 野戦</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_野戦情報.cpp">
+      <Filter>ゲームデータ - 野戦</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

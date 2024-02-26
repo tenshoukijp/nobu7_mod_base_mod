@@ -19,11 +19,11 @@ using namespace std;
 
 #pragma unmanaged
 
-int getYanseWeather() {
+int getYasenWeather() {
 	return *(int*)0x585204;
 }
 
-void setYangseWeather(int nWeather) {
+void setYasenWeather(int nWeather) {
 	if (0 <= nWeather && nWeather <= 3) {
 		*(int*)0x585204 = nWeather;
 	}

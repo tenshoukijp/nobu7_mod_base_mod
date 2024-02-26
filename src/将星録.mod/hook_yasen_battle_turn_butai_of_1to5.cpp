@@ -119,6 +119,7 @@ extern int nRemainYasenTurn; // 残りターン数
 void OnSSRExeYasenTurnButaiOf1to5Execute() {
 
 	int iAttackBushouID = getBushouIDFromBushouPtr((int *)YasenCurrentAttackBushouPointer);
+	int iButaiIX = iYasenTurnButaiOf1to5 - 1;
 	if (isValidBushouID(iAttackBushouID)) {
 
 		if (iPreviousAttackBushouIDOfYasenTurnButaiOf1to5 != iAttackBushouID || iPreviousAttackButaiIDOfYasenTurnButaiOf1to5 != iYasenTurnButaiOf1to5) {
@@ -126,14 +127,14 @@ void OnSSRExeYasenTurnButaiOf1to5Execute() {
 
 			// 野戦開始時の攻撃側（現在のターンといういみではなく、そもそもユニット同志という意味でのアタック側）
 			if (iLastAttackBushouID == iAttackBushouID) {
-				onYasenButaiAttack(nRemainYasenTurn, iAttackBushouID, iYasenTurnButaiOf1to5, iLastDefendBushouID);
+				onYasenButaiAttack(nRemainYasenTurn, iAttackBushouID, iButaiIX, iLastDefendBushouID);
 			}
 			// 野戦開始時では防御側(しかし、現在のターンでは攻撃側）
 			else {
-				onYasenButaiAttack(nRemainYasenTurn, iAttackBushouID, iYasenTurnButaiOf1to5, iLastAttackBushouID);
+				onYasenButaiAttack(nRemainYasenTurn, iAttackBushouID, iButaiIX, iLastAttackBushouID);
 			}
 
-			doアルベド部隊ターン兵数回復(iAttackBushouID, iYasenTurnButaiOf1to5);
+			doアルベド部隊ターン兵数回復(iAttackBushouID, iButaiIX);
 
 			iPreviousAttackBushouIDOfYasenTurnButaiOf1to5 = iAttackBushouID;
 			iPreviousAttackButaiIDOfYasenTurnButaiOf1to5 = iYasenTurnButaiOf1to5;

@@ -11,9 +11,9 @@
 */
 
 
-extern int getYanseWeather();
+extern int getYasenWeather();
 
-extern void setYangseWeather(int nWeather);
+extern void setYasenWeather(int nWeather);
 
 #include <windows.h>
 #include <string>
@@ -28,7 +28,7 @@ using namespace std;
 bool isWriteYasenWeather = false;
 void OnSSRExeYasenWeatherWriteExecute() {
 	isWriteYasenWeather = true;
-	OutputDebugStream("★★★★野戦の天候書き換え時★%d\n", getYanseWeather());
+	OutputDebugStream("★★★★野戦の天候書き換え時★%d\n", getYasenWeather());
 
 	// setYangseWeather(3);
 	// ★★★★ 野戦の天候を問い合わせる関数を作成するならば、ここでJavaScriptのコールバック作成すること。

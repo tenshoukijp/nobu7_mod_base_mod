@@ -72,7 +72,7 @@ void resetYasenBattleInfo() {
 
 extern BOOL hookYasenBattleStart;
 extern BOOL hookYasenBattleFirstTurn;
-
+extern int nRemainYasenTurn;
 extern void resetYasenTurnButaiOf1to5();
 
 void OnSSRExeYasenBattleEndExecute() {
@@ -83,6 +83,8 @@ void OnSSRExeYasenBattleEndExecute() {
 	resetYasenTurnButaiOf1to5();
 	hookYasenBattleStart = 0;
 	hookYasenBattleFirstTurn = 0;
+
+	nRemainYasenTurn = -1;
 
 }
 

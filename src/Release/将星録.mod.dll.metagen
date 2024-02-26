@@ -1396,6 +1396,56 @@ Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_役位(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_所有大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_所有大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.野戦.ターン情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 天気   'get set' : 
+    Int32 残りターン 'get ' : 
+  Methods:
+    get_残りターン(): PrivateScope, Public, HideBySig, SpecialName
+    get_天気(): PrivateScope, Public, HideBySig, SpecialName
+    set_天気(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.列挙.野戦.天気: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 晴 IsConst : Public, Static, HasDefault
+    Int32 曇 IsConst : Public, Static, HasDefault
+    Int32 雨 IsConst : Public, Static, HasDefault
+    Int32 雪 IsConst : Public, Static, HasDefault
+Class 将星録.野戦.攻撃部隊情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 旗部隊  'get ' : 
+    Int32 行動済み 'get ' : 
+    Int32 種別   'get ' : 
+    Int32 兵数   'get set' : 
+    Int32 部隊番号 'get ' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_部隊番号(): PrivateScope, Public, HideBySig, SpecialName
+    get_兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_種別(): PrivateScope, Public, HideBySig, SpecialName
+    get_行動済み(): PrivateScope, Public, HideBySig, SpecialName
+    get_旗部隊(): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.野戦.防御部隊情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 旗部隊  'get ' : 
+    Int32 行動済み 'get ' : 
+    Int32 種別   'get ' : 
+    Int32 兵数   'get set' : 
+    Int32 部隊番号 'get ' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_部隊番号(): PrivateScope, Public, HideBySig, SpecialName
+    get_兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_種別(): PrivateScope, Public, HideBySig, SpecialName
+    get_行動済み(): PrivateScope, Public, HideBySig, SpecialName
+    get_旗部隊(): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.相場情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
