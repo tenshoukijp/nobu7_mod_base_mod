@@ -1,15 +1,12 @@
 #include <windows.h>
 #include <string>
-#include <vector>
 
 #include "data_game_struct.h"
 #include "output_debug_stream.h"
 #include "game_screen.h"
-#include "game_process.h"
 #include "on_serihu_message.h"
 #include "bushou_albedo.h"
 #include "game_screen.h"
-#include "message_albedo.h"
 #include "onigwrap.h"
 #include "usr_custom_mod.h"
 
