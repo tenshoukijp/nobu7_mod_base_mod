@@ -109,7 +109,7 @@ System::Reflection::MethodInfo^ GetUserMethod(System::String^ methodname) {
 	return nullptr;
 }
 
-System::Collections::Generic::Dictionary<System::String^, System::Object^>^ InvokeUserMethod(String^ methodname, System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic) {
+System::Collections::Generic::Dictionary<System::String^, System::Object^>^ InvokeUserMethod(String^ methodname, System::Collections::Generic::Dictionary<System::String^, System::Object^>^ arg) {
 	try {
 		MethodInfo^ methodinfo = GetUserMethod(methodname);
 		if (methodinfo == nullptr) {
@@ -117,11 +117,10 @@ System::Collections::Generic::Dictionary<System::String^, System::Object^>^ Invo
 			return nullptr;
 		}
 
-		array<Object^>^ parameters = gcnew array<Object^> { dic };
-
-		Object^ result = methodinfo->Invoke(nullptr, parameters);
-		Dictionary<String^, Object^>^ resultDic = (Dictionary<String^, Object^>^)result;
-		return resultDic;
+		System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(10);
+		array<Object^>^ parameters = gcnew array<Object^> { arg, ret };
+		methodinfo->Invoke(nullptr, parameters);
+		return ret;
 
 	} catch (Exception^ e) {
 		OutputDebugStream(to_native_string(methodname + "ŽÀsƒGƒ‰[ Error" + e->Message + "\n"));
