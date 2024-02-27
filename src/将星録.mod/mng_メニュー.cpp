@@ -1,7 +1,6 @@
 #include <windows.h>
 #include <string>
 #include <map>
-#include <shellapi.h>
 #include "mng_ƒƒjƒ…[.h"
 #include "game_menu.h"
 #include "mng_•¶š—ñ•ÏŠ·.h"

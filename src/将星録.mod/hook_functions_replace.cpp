@@ -1,10 +1,7 @@
 #include <windows.h>
-#include <windowsx.h>
-#include <tchar.h>
+#include <string>
 #include <tlhelp32.h>
 #include <dbghelp.h>
-#include <mmsystem.h>
-#include <shellapi.h>
 #include <string>
 #include <algorithm>
 #include <cctype>
@@ -12,10 +9,6 @@
 #include "output_debug_stream.h"
 #include "game_font.h"
 #include "game_process.h"
-#include "game_window.h"
-#include "onigwrap.h"
-#include "on_event.h"
-#include "hook_textouta_custom.h"
 #include "file_attribute.h"
 
 #include "usr_custom_mod.h"
@@ -24,6 +17,7 @@
 // ImageDirectoryEntryToData
 #pragma comment(lib, "dbghelp.lib")
 
+using namespace std;
 
 // ひとつのモジュールに対してAPIフックを行う関数
 void ReplaceIATEntryInOneMod(

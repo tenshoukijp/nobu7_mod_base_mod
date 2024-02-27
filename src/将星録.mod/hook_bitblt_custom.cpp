@@ -1,10 +1,6 @@
 #include <windows.h>
 #include "output_debug_stream.h"
-#include "data_game_struct.h"
-#include "on_serihu_message.h"
-#include "data_turn_struct.h"
-#include "bushou_albedo.h"
-int prevMonth = -1;
+
 
 BOOL Hook_BitBltCustom(
     HDC hdcDest, // 出力デバイスコンテキストのハンドル

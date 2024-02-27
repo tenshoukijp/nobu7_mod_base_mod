@@ -1,12 +1,8 @@
 #include <windows.h>
-#include <winuser.h>
-#include <stdio.h>
-#include <vector>
 #include <string>
-#include "data_game_struct.h"
-#include "game_window.h"
-#include "process.h"
 #include "output_debug_stream.h"
+
+#include "mng_•¶Žš—ñ•ÏŠ·.h"
 #include "usr_custom_mod.h"
 
 using namespace System;

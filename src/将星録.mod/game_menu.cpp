@@ -1,7 +1,5 @@
 #include <windows.h>
 #include <string>
-#include <map>
-#include <shellapi.h>
 #include "output_debug_stream.h"
 #include "game_menu.h"
 #include "game_window.h"
@@ -9,7 +7,6 @@
 #include "game_test.h"
 #include "load_form_mod.h"
 #include "usr_custom_mod.h"
-#include "file_attribute.h"
 
 #pragma comment(lib, "shell32.lib")
 

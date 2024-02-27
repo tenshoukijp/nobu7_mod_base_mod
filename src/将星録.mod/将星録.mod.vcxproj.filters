@@ -112,9 +112,6 @@
     <Filter Include="セーブデータ">
       <UniqueIdentifier>{068a1f75-0364-4889-ba41-572b25970c51}</UniqueIdentifier>
     </Filter>
-    <Filter Include="シナリオデータ">
-      <UniqueIdentifier>{031e49fb-915a-4491-a98d-e70a79e0bca6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="画像表示">
       <UniqueIdentifier>{02cae30b-7f97-406e-bf94-dd7e43f5f680}</UniqueIdentifier>
     </Filter>
@@ -123,9 +120,6 @@
     </Filter>
     <Filter Include="外交">
       <UniqueIdentifier>{55b55c3b-f131-4a6e-9a0b-8a3b6242d503}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="シナリオ">
-      <UniqueIdentifier>{c66905d0-e129-4bb8-824c-331a8f9c64dd}</UniqueIdentifier>
     </Filter>
     <Filter Include="外字">
       <UniqueIdentifier>{bb026655-105e-4917-b2b9-abf685288eaa}</UniqueIdentifier>
@@ -177,6 +171,9 @@
     </Filter>
     <Filter Include="列伝 - 城列伝">
       <UniqueIdentifier>{1ac319a8-b089-4f7d-a224-30a2e11cd8a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="シナリオデータ">
+      <UniqueIdentifier>{c66905d0-e129-4bb8-824c-331a8f9c64dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -321,9 +318,6 @@
     <ClInclude Include="data_yasen_butai_struct.h">
       <Filter>ゲームデータ - 野戦</Filter>
     </ClInclude>
-    <ClInclude Include="on_load_scenariodata.h">
-      <Filter>シナリオデータ</Filter>
-    </ClInclude>
     <ClInclude Include="on_load_savedata.h">
       <Filter>セーブデータ</Filter>
     </ClInclude>
@@ -356,6 +350,9 @@
     </ClInclude>
     <ClInclude Include="mng_野戦列挙.h">
       <Filter>ゲームデータ - 野戦</Filter>
+    </ClInclude>
+    <ClInclude Include="on_load_scenariodata.h">
+      <Filter>シナリオデータ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -591,7 +588,7 @@
       <Filter>外交</Filter>
     </ClCompile>
     <ClCompile Include="hook_load_scenariodata.cpp">
-      <Filter>シナリオ</Filter>
+      <Filter>シナリオデータ</Filter>
     </ClCompile>
     <ClCompile Include="hook_load_gaiji.cpp">
       <Filter>外字</Filter>

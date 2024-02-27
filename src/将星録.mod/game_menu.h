@@ -1,6 +1,5 @@
 #pragma once
 
-#include <shellapi.h>
 #include <string>
 
 /*

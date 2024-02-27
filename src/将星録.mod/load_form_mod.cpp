@@ -1,7 +1,7 @@
-#include <string>
-#include "output_debug_stream.h"
-#include "data_game_struct.h"
 #include <windows.h>
+#include <string>
+#include "data_game_struct.h"
+#include "output_debug_stream.h"
 using namespace System;
 using namespace System::Reflection;
 using namespace System::Windows::Forms;
