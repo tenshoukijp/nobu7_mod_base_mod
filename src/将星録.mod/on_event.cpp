@@ -159,7 +159,13 @@ void onUpdateSobaUma(int iSobaUma) {
 }
 
 void onUpdateSobaTeppou(int iSobaTeppou) {
+
     OutputDebugStream("■■■■鉄砲相場更新 %d\n ", (int)nb7ターン情報.月);
+
+    resetAlbedoKoudouCounter();
+
+    resetMapBushouKoudouzumiCacheInMonth();
+
 }
 
 // 馬の相場の初書き込みがされた

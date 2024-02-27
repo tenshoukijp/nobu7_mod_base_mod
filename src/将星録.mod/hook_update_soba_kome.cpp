@@ -13,24 +13,10 @@
 
 
 #include <windows.h>
-#include <string>
-#include <map>
-#include "data_game_struct.h"
-#include "data_bushou_struct.h"
 #include "output_debug_stream.h"
-#include "data_kahou_struct.h"
-#include "data_kanni_struct.h"
-#include "data_yakusyoku_struct.h"
-#include "data_castle_struct.h"
-#include "data_turn_struct.h"
-#include "game_screen.h"
-#include "game_process.h"
-#include "on_serihu_message.h"
-#include "bushou_albedo.h"
-#include "game_screen.h"
-#include "message_albedo.h"
 #include "on_event.h"
-
+#include "game_process.h"
+#include "bushou_albedo.h"
 
 using namespace std;
 
@@ -43,10 +29,6 @@ void OnSSRExeUpdateSobaKomeExecute() {
 	OutputDebugStream("šššš•Ä‘Šê‚ªXV‚³‚ê‚Ü‚µ‚½!!!:%d\n", iUpdateSobaKomeEAX);
 	
 	onUpdateSobaKome(iUpdateSobaKomeEAX);
-
-	resetAlbedoKoudouCounter();
-
-	resetMapBushouKoudouzumiCacheInMonth();
 }
 
 
