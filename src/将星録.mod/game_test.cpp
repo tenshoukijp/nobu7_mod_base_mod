@@ -25,7 +25,7 @@ void doGameTest() {
 	testFlag = 1;
 
 	for (int i = 0; i < Å‘å”::‘å–¼î•ñ::”z—ñ”; i++) {
-		OutputDebugStream("%x\n", nb7‘å–¼î•ñ[i].p‘å–¼•«);
+		OutputDebugStream("p“G‘Î‘å–¼‚P%x\n", nb7‘å–¼î•ñ[i].p“G‘Î‘å–¼);
 	}
 	/*
 	for (int iCastleID = 0; iCastleID < Å‘å”::éî•ñ::”z—ñ”; iCastleID++) {

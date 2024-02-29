@@ -814,6 +814,7 @@ Class 将星録.最大数.大名情報: AutoLayout, AnsiClass, Class, Public, Be
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 配列数 IsConst : Public, Static, HasDefault
+    Int32 家紋数 IsConst : Public, Static, HasDefault
 Class 将星録.最大数.家宝情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -1281,6 +1282,10 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
 Class 将星録.大名情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
+    Int32 家紋番号MAX 'get ' : 
+    Int32 家紋番号 'get set' : 
+    Int32 プレイヤ担当 'get set' : 
+    Int32 旗番号  'get set' : 
     Int32 布教   'get set' : 
     Int32 鍛冶   'get set' : 
     Int32 朝敵   'get set' : 
@@ -1302,6 +1307,13 @@ Class 将星録.大名情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_鍛冶(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_布教(): PrivateScope, Public, HideBySig, SpecialName
     set_布教(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_旗番号(): PrivateScope, Public, HideBySig, SpecialName
+    set_旗番号(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_プレイヤ担当(): PrivateScope, Public, HideBySig, SpecialName
+    set_プレイヤ担当(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_家紋番号(): PrivateScope, Public, HideBySig, SpecialName
+    set_家紋番号(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_家紋番号MAX(): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

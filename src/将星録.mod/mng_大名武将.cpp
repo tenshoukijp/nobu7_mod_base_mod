@@ -102,3 +102,50 @@ void 大名情報型::布教::set(int value) {
 		throw gcnew System::ArgumentOutOfRangeException("布教が不正です。");
 	}
 }
+
+int 大名情報型::旗番号::get()
+{
+	return nb7大名情報[大名配列IX].旗番号;
+}
+
+void 大名情報型::旗番号::set(int value) {
+	if (0 <= value && value <= nb7大名情報[大名配列IX].旗画像MAX) {
+		nb7大名情報[大名配列IX].旗番号 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("旗番号が不正です。");
+	}
+}
+
+int 大名情報型::プレイヤ担当::get()
+{
+	return nb7大名情報[大名配列IX].プレイヤ担当;
+}
+
+void 大名情報型::プレイヤ担当::set(int value) {
+	if (0 <= value && value <= 1) {
+		nb7大名情報[大名配列IX].プレイヤ担当 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("プレイヤ担当が不正です。");
+	}
+}
+
+int 大名情報型::家紋番号::get()
+{
+	return nb7大名情報[大名配列IX].家紋番号;
+}
+
+void 大名情報型::家紋番号::set(int value) {
+	if (0 <= value && value <= 家紋番号MAX) {
+		nb7大名情報[大名配列IX].家紋番号 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("家紋番号が不正です。");
+	}
+}
+
+int 大名情報型::家紋番号MAX::get()
+{
+	return 最大数::大名情報::家紋数-1;
+}

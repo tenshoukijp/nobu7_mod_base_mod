@@ -34,15 +34,34 @@ namespace «¯˜^ {
 			int get();
 			void set(int value);
 		}
+
 		property int ’b–è {
 			int get();
 			void set(int value);
 		}
+
 		property int •z‹³ {
 			int get();
 			void set(int value);
 		}
 
+		property int Šø”Ô† {
+			int get();
+			void set(int value);
+		}
 
+		property int ƒvƒŒƒCƒ„’S“– {
+			int get();
+			void set(int value);
+		}
+
+		property int ‰Æ–ä”Ô† {
+			int get();
+			void set(int value);
+		}
+
+		property int ‰Æ–ä”Ô†MAX {
+			int get();
+		}
 	};
 }

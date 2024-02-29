@@ -58,6 +58,7 @@ namespace «¯˜^ {
 		};
 		public ref struct ‘å–¼î•ñ {
 			static const int ”z—ñ” = 64;
+			static const int ‰Æ–ä” = 147;
 		};
 		public ref struct ‰Æ•óî•ñ {
 			static const int ”z—ñ” = 200;
