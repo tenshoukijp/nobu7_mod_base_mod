@@ -23,9 +23,14 @@ int testFlag = 0;
 
 void doGameTest() {
 	testFlag = 1;
-
 	for (int i = 0; i < Å‘å”::‘å–¼î•ñ::”z—ñ”; i++) {
-		OutputDebugStream("p“G‘Î‘å–¼‚P%x\n", nb7‘å–¼î•ñ[i].p“G‘Î‘å–¼);
+		int iBushouID = getBushouIDFromDaimyoID(i);
+		if (isValidBushouID(iBushouID)) {
+			OutputDebugStream("%sŠø”Ô†%d\n", nb7•«î•ñ[iBushouID].©–¼, nb7‘å–¼î•ñ[i].Šø”Ô†);
+		}
+		else {
+			OutputDebugStream("%sŠø”Ô†%d\n", "‘å–¼‚È‚µ", nb7‘å–¼î•ñ[i].Šø”Ô†);
+		}
 	}
 	/*
 	for (int iCastleID = 0; iCastleID < Å‘å”::éî•ñ::”z—ñ”; iCastleID++) {

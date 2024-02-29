@@ -68,13 +68,40 @@ BOOL setDaimyoBushouID(int iDaimyoID, int iBushouID) {
 	return FALSE;
 }
 
-static int 友好値Array[] = { 0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 0xFFFF };
+static const int 友好値Array[] = { 0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 0xFFFF };
 int get友好値From友好ID(int i友好ID) {
 	if ( 0 <= i友好ID && i友好ID < _countof(友好値Array)) {
 		return 友好値Array[i友好ID];
 	}
 	return 0xFFFF;
 }
+
+int get友好IDFrom友好値(int i友好値) {
+	if (i友好値 < 0) {
+		return 友好値Array[0];
+	}
+	else if (i友好値 == 0xFFFF) {
+		return _countof(友好値Array) - 1; // 最後のID値
+	}
+	else if (i友好値 > 100) {
+		i友好値 = 100;
+		for (int iID = 0; iID < _countof(友好値Array); iID++) {
+			if (友好値Array[iID] == 100) {
+				return iID;
+			}
+		}
+	}
+	else {
+		for (int iID = 0; iID < _countof(友好値Array); iID++) {
+			if (友好値Array[iID] > i友好値) {
+				return iID-1;
+			}
+		}
+
+		return _countof(友好値Array) - 1; // 最後のID値。ここには理論上、実際には届かないハズ
+	}
+}
+
 
 BOOL set大名友好ID(int iDaimyoID1, int iDaimyoID2, int i友好ID) {
 	if (!isValidDaimyoID(iDaimyoID1)) {
@@ -113,4 +140,21 @@ BOOL set大名婚姻(int iDaimyouID1, int iDaimyouID2, BOOL 婚姻化) {
 	nb7大名情報[iDaimyouID1].婚姻[iDaimyouID2] = 婚姻化;
 	nb7大名情報[iDaimyouID2].婚姻[iDaimyouID1] = 婚姻化;
 	return TRUE;
+}
+
+// 一度も値がセッティングされていない大名家ならば-1が設定されているが、0xFFでも問題はない。
+BOOL set大名家紋番号(int iDaimyoID, int iKamonID) {
+	if (0 <= iKamonID && iKamonID <= 最大数::大名情報::家紋数-1) {
+		nb7大名情報[iDaimyoID].家紋番号 = iKamonID;
+		return TRUE;
+	}
+	else if (iKamonID == 255) {
+		nb7大名情報[iDaimyoID].家紋番号 = 255;
+		return TRUE;
+	}
+	else if (iKamonID == -1) {
+		nb7大名情報[iDaimyoID].家紋番号 = 255;
+		return TRUE;
+	}
+	return FALSE;
 }

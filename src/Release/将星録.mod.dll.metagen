@@ -1282,6 +1282,9 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
 Class 将星録.大名情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
+    Int32 援軍要請大名２配列IX 'get set' : 
+    Int32 援軍要請大名１配列IX 'get set' : 
+    Int32 敵対大名配列IX 'get set' : 
     Int32 家紋番号MAX 'get ' : 
     Int32 家紋番号 'get set' : 
     Int32 プレイヤ担当 'get set' : 
@@ -1314,6 +1317,12 @@ Class 将星録.大名情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     get_家紋番号(): PrivateScope, Public, HideBySig, SpecialName
     set_家紋番号(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_家紋番号MAX(): PrivateScope, Public, HideBySig, SpecialName
+    get_敵対大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_敵対大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_援軍要請大名１配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_援軍要請大名１配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_援軍要請大名２配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_援軍要請大名２配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

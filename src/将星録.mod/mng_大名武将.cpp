@@ -133,14 +133,16 @@ void ‘å–¼î•ñŒ^::ƒvƒŒƒCƒ„’S“–::set(int value) {
 
 int ‘å–¼î•ñŒ^::‰Æ–ä”Ô†::get()
 {
+	int ret = nb7‘å–¼î•ñ[‘å–¼”z—ñIX].‰Æ–ä”Ô†;
+	if (ret == -1) {
+		return 0xFF;
+	}
 	return nb7‘å–¼î•ñ[‘å–¼”z—ñIX].‰Æ–ä”Ô†;
 }
 
 void ‘å–¼î•ñŒ^::‰Æ–ä”Ô†::set(int value) {
-	if (0 <= value && value <= ‰Æ–ä”Ô†MAX) {
-		nb7‘å–¼î•ñ[‘å–¼”z—ñIX].‰Æ–ä”Ô† = value;
-	}
-	else {
+	BOOL ret = set‘å–¼‰Æ–ä”Ô†(‘å–¼”z—ñIX, value);
+	if (ret == FALSE) {
 		throw gcnew System::ArgumentOutOfRangeException("‰Æ–ä”Ô†‚ª•s³‚Å‚·B");
 	}
 }
@@ -149,3 +151,63 @@ int ‘å–¼î•ñŒ^::‰Æ–ä”Ô†MAX::get()
 {
 	return Å‘å”::‘å–¼î•ñ::‰Æ–ä”-1;
 }
+
+int ‘å–¼î•ñŒ^::“G‘Î‘å–¼”z—ñIX::get()
+{
+	int* iDiamyoPtr = nb7‘å–¼î•ñ[‘å–¼”z—ñIX].p“G‘Î‘å–¼;
+	return getDaimyoIDFromDaimyoPtr(iDiamyoPtr);;
+}
+
+void ‘å–¼î•ñŒ^::“G‘Î‘å–¼”z—ñIX::set(int value) {
+	if (isValidDaimyoID(value)) { 
+		int* pDaimyoPtr = getDaimyoPtrFromDaimyoID(value);
+		nb7‘å–¼î•ñ[‘å–¼”z—ñIX].p“G‘Î‘å–¼ = pDaimyoPtr;
+	}
+	else if (value == 0xFFFF) {  // 0xFFFF ‚Í“G‘Î‘å–¼‚È‚µ‚ğˆÓ–¡‚·‚é
+		nb7‘å–¼î•ñ[‘å–¼”z—ñIX].p“G‘Î‘å–¼ = (int *)“G‘Î‘å–¼‚È‚µ;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("“G‘Î‘å–¼”z—ñIX‚ª•s³‚Å‚·B");
+	}
+}
+
+int ‘å–¼î•ñŒ^::‰‡ŒR—v¿‘å–¼‚P”z—ñIX::get()
+{
+	int* iDiamyoPtr = nb7‘å–¼î•ñ[‘å–¼”z—ñIX].p‰‡ŒR—v¿‘å–¼‚P;
+	return getDaimyoIDFromDaimyoPtr(iDiamyoPtr);;
+}
+
+void ‘å–¼î•ñŒ^::‰‡ŒR—v¿‘å–¼‚P”z—ñIX::set(int value) {
+	if (isValidDaimyoID(value)) {
+		int* pDaimyoPtr = getDaimyoPtrFromDaimyoID(value);
+		nb7‘å–¼î•ñ[‘å–¼”z—ñIX].p‰‡ŒR—v¿‘å–¼‚P = pDaimyoPtr;
+	}
+	else if (value == 0xFFFF) {  // 0xFFFF ‚Í‰‡ŒR—v¿‘å–¼‚P‚È‚µ‚ğˆÓ–¡‚·‚é
+		nb7‘å–¼î•ñ[‘å–¼”z—ñIX].p‰‡ŒR—v¿‘å–¼‚P = (int*)‰‡ŒR—v¿‘å–¼‚È‚µ;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("‰‡ŒR—v¿‘å–¼‚P”z—ñIX‚ª•s³‚Å‚·B");
+	}
+}
+
+int ‘å–¼î•ñŒ^::‰‡ŒR—v¿‘å–¼‚Q”z—ñIX::get()
+{
+	int* iDiamyoPtr = nb7‘å–¼î•ñ[‘å–¼”z—ñIX].p‰‡ŒR—v¿‘å–¼‚Q;
+	return getDaimyoIDFromDaimyoPtr(iDiamyoPtr);;
+}
+
+void ‘å–¼î•ñŒ^::‰‡ŒR—v¿‘å–¼‚Q”z—ñIX::set(int value) {
+	if (isValidDaimyoID(value)) {
+		int* pDaimyoPtr = getDaimyoPtrFromDaimyoID(value);
+		nb7‘å–¼î•ñ[‘å–¼”z—ñIX].p‰‡ŒR—v¿‘å–¼‚Q = pDaimyoPtr;
+	}
+	else if (value == 0xFFFF) {  // 0xFFFF ‚Í‰‡ŒR—v¿‘å–¼‚Q‚È‚µ‚ğˆÓ–¡‚·‚é
+		nb7‘å–¼î•ñ[‘å–¼”z—ñIX].p‰‡ŒR—v¿‘å–¼‚Q = (int*)‰‡ŒR—v¿‘å–¼‚È‚µ;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("‰‡ŒR—v¿‘å–¼‚Q”z—ñIX‚ª•s³‚Å‚·B");
+	}
+}
+
+
+
