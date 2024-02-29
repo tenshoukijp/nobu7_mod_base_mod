@@ -28,7 +28,6 @@ int getBushouIDFromBushouPtr(int* iBushouPtr) {
 	return 0xFFFF;
 }
 
-
 int getCastleIdFromBushouID(int iBushouID) {
 	if (isValidBushouID(iBushouID)) {
 		// 所有武将のアドレスを直接さしている

@@ -5,6 +5,7 @@
 #include <string>
 #include <algorithm>
 #include <cctype>
+#include <map>
 
 #include "output_debug_stream.h"
 #include "game_font.h"
@@ -396,6 +397,8 @@ PROC pfnOrigCreateFileA = GetProcAddress(GetModuleHandleA("kernel32.dll"), "Crea
 int nTargetKaoID = -1;
 int nTargetKahouGazouID = -1;
 
+static map<HANDLE, string> handleMap;
+
 // extern HANDLE Hook_CreateFileACustom(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
 HANDLE hFileKAODATA = NULL;
 HANDLE hFileITEMDATA = NULL;
@@ -464,6 +467,8 @@ HANDLE WINAPI Hook_CreateFileA(
     }
     */
 
+    // handleMap[nResult] = lpFileName;
+
     return nResult;
 }
 
@@ -505,6 +510,12 @@ DWORD WINAPI Hook_SetFilePointer(
         OutputDebugStream("ÉtÉåÅ[ÉÄSetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
     }
     */
+    /*
+    if (handleMap.contains(hFile)) {
+        OutputDebugStream(handleMap[hFile] + " SetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
+    }
+    */
+
 	return nResult;
 }
 

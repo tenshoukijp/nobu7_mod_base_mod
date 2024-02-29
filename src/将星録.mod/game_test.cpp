@@ -24,36 +24,8 @@ int testFlag = 0;
 void doGameTest() {
 	testFlag = 1;
 
-
-	/*
-	山口
-高水寺
-観音寺
-岩出山
-湯築
-大河内
-雑賀
-海津
-内
-岡崎*/
-	using namespace 列挙::城;
-	std::vector<int> a = {
-		配列::山口,
-		配列::高水寺,
-		配列::観音寺,
-		配列::岩出山,
-		配列::湯築,
-		配列::大河内,
-		配列::雑賀,
-		配列::海津,
-		配列::内,
-		配列::岡崎,
-		配列::一乗谷,
-		配列::小田原
-		};
-
-	for(int c : a) {
-		OutputDebugStream("%s:籠城番号:%d\n", nb7城情報[c].城名, nb7城情報[c].籠城番号);
+	for (int i = 0; i < 最大数::大名情報::配列数; i++) {
+		OutputDebugStream("%x\n", nb7大名情報[i].p大名武将);
 	}
 	/*
 	for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {

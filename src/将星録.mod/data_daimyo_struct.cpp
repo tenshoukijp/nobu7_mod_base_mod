@@ -49,6 +49,24 @@ int getBushouIDFromDaimyoID(int iDaimyoID) {
 	return 0xFFFF;
 }
 
+BOOL setDaimyoBushouID(int iDaimyoID, int iBushouID) {
+	if (isValidDaimyoID(iDaimyoID)) {
+
+		if (isValidBushouID(iBushouID)) {
+			// 武将情報のアドレスを取得
+			int iBushouAddress = (int)(武将情報アドレス)+iBushouID * sizeof(NB7武将情報型);
+			nb7大名情報[iDaimyoID].p大名武将 = (int*)iBushouAddress;
+			return TRUE;
+		}
+		else {
+			nb7大名情報[iDaimyoID].p大名武将 = (int*)大名武将なし;
+			return TRUE;
+		}
+
+	}
+
+	return FALSE;
+}
 
 static int 友好値Array[] = { 0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 0xFFFF };
 int get友好値From友好ID(int i友好ID) {

@@ -7,10 +7,13 @@
 #define 大名情報アドレス 0x569848
 
 
+#define 大名武将なし 0x5694b0
+
+
 // 322バイトの構造体
 #pragma pack(1)
 struct NB7大名情報型 {
-	int p大名武将; // その大名武将となる武将情報indexへのポインタが入っている
+	int* p大名武将; // その大名武将となる武将情報indexへのポインタが入っている
 	int 家紋番号; // 家紋のグラフィックの番号
 	WORD 友好ID[64]; // この値直接操作せず、set大名友好IDで操作すること(２つの大名の値を操作する必要があるため)。友好値を意味するID。indexは大名配列のindex。友好値については0～Fであり、get友好値From友好IDで画面上で表示されている値と同じものとなる。 { 0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100 };
 	BYTE 同盟残[64]; // この値直接操作せず、set大名同盟残で操作すること(２つの大名の値を操作する必要があるため)。同盟期間の残り月数。indexは大名配列のindex。
@@ -52,6 +55,8 @@ int getDaimyoIDFromDaimyoPtr(int* iDaimyoPtr);
 // 大名IDから大名Ptrを取得する。
 int* getDaimyoPtrFromDaimyoID(int iDaimyoID);
 
+// 対象大名の大名武将を設定する
+BOOL setDaimyoBushouID(int iDaimyoID, int iBushouID);
 
 int get友好値From友好ID(int i友好ID);
 
