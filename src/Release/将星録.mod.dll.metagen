@@ -1323,6 +1323,33 @@ Class 将星録.大名情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_援軍要請大名１配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_援軍要請大名２配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_援軍要請大名２配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.大名関係友好情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Item [Int32, Int32] 'get set' : 
+  Methods:
+    get_Item(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.大名関係婚姻情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Item [Int32, Int32] 'get set' : 
+  Methods:
+    get_Item(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.大名関係同盟残情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Item [Int32, Int32] 'get set' : 
+  Methods:
+    get_Item(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.大名関係情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    将星録.大名関係友好情報型 友好 : Public
+    将星録.大名関係婚姻情報型 婚姻 : Public
+    将星録.大名関係同盟残情報型 同盟残 : Public
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

@@ -97,11 +97,21 @@ int get友好IDFrom友好値(int i友好値) {
 				return iID-1;
 			}
 		}
-
-		return _countof(友好値Array) - 1; // 最後のID値。ここには理論上、実際には届かないハズ
 	}
+
+	return _countof(友好値Array) - 1; // 最後のID値。ここには理論上、実際には届かないハズ
 }
 
+int get大名友好ID(int iDaimyoID1, int iDaimyoID2) {
+	if (!isValidDaimyoID(iDaimyoID1)) {
+		return 0xFFFF;
+	}
+	if (!isValidDaimyoID(iDaimyoID2)) {
+		return 0xFFFF;
+	}
+
+	return nb7大名情報[iDaimyoID1].友好ID[iDaimyoID2];
+}
 
 BOOL set大名友好ID(int iDaimyoID1, int iDaimyoID2, int i友好ID) {
 	if (!isValidDaimyoID(iDaimyoID1)) {
@@ -116,6 +126,17 @@ BOOL set大名友好ID(int iDaimyoID1, int iDaimyoID2, int i友好ID) {
 	return TRUE;
 }
 
+int get大名同盟残(int iDaimyoID1, int iDaimyoID2) {
+	if (!isValidDaimyoID(iDaimyoID1)) {
+		return 0xFFFF;
+	}
+	if (!isValidDaimyoID(iDaimyoID2)) {
+		return 0xFFFF;
+	}
+
+	return nb7大名情報[iDaimyoID1].同盟残[iDaimyoID2];
+}
+
 BOOL set大名同盟残(int iDaimyoID1, int iDaimyoID2, int 残月) {
 	if (!isValidDaimyoID(iDaimyoID1)) {
 		return FALSE;
@@ -127,6 +148,17 @@ BOOL set大名同盟残(int iDaimyoID1, int iDaimyoID2, int 残月) {
 	nb7大名情報[iDaimyoID1].同盟残[iDaimyoID2] = 残月;
 	nb7大名情報[iDaimyoID2].同盟残[iDaimyoID1] = 残月;
 	return TRUE;
+}
+
+BOOL get大名婚姻(int iDaimyouID1, int iDaimyouID2) {
+	if (!isValidDaimyoID(iDaimyouID1)) {
+		return FALSE;
+	}
+	if (!isValidDaimyoID(iDaimyouID2)) {
+		return FALSE;
+	}
+
+	return nb7大名情報[iDaimyouID1].婚姻[iDaimyouID2];
 }
 
 BOOL set大名婚姻(int iDaimyouID1, int iDaimyouID2, BOOL 婚姻化) {

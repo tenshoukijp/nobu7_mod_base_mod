@@ -147,6 +147,7 @@
     <ClInclude Include="mng_城情報.h" />
     <ClInclude Include="mng_大名列挙.h" />
     <ClInclude Include="mng_大名情報.h" />
+    <ClInclude Include="mng_大名関係情報.h" />
     <ClInclude Include="mng_年月情報.h" />
     <ClInclude Include="mng_相場情報.h" />
     <ClInclude Include="mng_フォント.h" />
@@ -297,6 +298,7 @@
     <ClCompile Include="mng_メニュー.cpp" />
     <ClCompile Include="mng_城情報.cpp" />
     <ClCompile Include="mng_大名武将.cpp" />
+    <ClCompile Include="mng_大名関係情報.cpp" />
     <ClCompile Include="mng_官位情報.cpp" />
     <ClCompile Include="mng_家宝情報.cpp" />
     <ClCompile Include="data_kanni_struct.cpp" />

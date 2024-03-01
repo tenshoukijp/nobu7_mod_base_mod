@@ -67,8 +67,13 @@ int get友好値From友好ID(int i友好ID);
 
 int get友好IDFrom友好値(int i友好値);
 
+int get大名友好ID(int iDaimyoID1, int iDaimyoID2);
 BOOL set大名友好ID(int iDaimyoID1, int iDaimyoID2, int i友好ID);
+
+int get大名同盟残(int iDaimyoID1, int iDaimyoID2);
 BOOL set大名同盟残(int iDaimyoID, int iDaimyoID2, int iMonth);
+
+BOOL get大名婚姻(int iDaimyouID1, int iDaimyouID2);
 BOOL set大名婚姻(int iDaimyouID1, int iDaimyouID2, BOOL 婚姻化);
 
 BOOL set大名家紋番号(int iDaimyoID, int iKamonID);
