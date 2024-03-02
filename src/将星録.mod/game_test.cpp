@@ -23,14 +23,8 @@ int testFlag = 0;
 
 void doGameTest() {
 	testFlag = 1;
-	for (int i = 0; i < 最大数::大名情報::配列数; i++) {
-		int iBushouID = getBushouIDFromDaimyoID(i);
-		if (isValidBushouID(iBushouID)) {
-			OutputDebugStream("%s旗番号%x\n", nb7武将情報[iBushouID].姓名, nb7大名情報[i].p居城);
-		}
-		else {
-			OutputDebugStream("%s旗番号%x\n", "大名なし", nb7大名情報[i].p居城);
-		}
+	for (int i = 0; i < 最大数::ユニット情報::配列数; i++) {
+		OutputDebugStream("%x\n", nb7ユニット情報[i].p指揮武将);
 	}
 	/*
 	for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {

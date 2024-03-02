@@ -8,7 +8,7 @@ namespace 将星録;
 public class 大名エディタ : Form
 {
     DataGridView dgv = new DataGridView();
-
+    DataGridViewButtonColumn buttonColumn;
     List<大名情報型> 大名配列 = new();
 
     public 大名エディタ()
@@ -44,6 +44,7 @@ public class 大名エディタ : Form
         if (e.KeyCode == Keys.F5)
         {
             dgv.Rows.Clear();
+            dgv.Columns.Remove(buttonColumn);
             DgvDataImport();
         }
     }
@@ -74,9 +75,24 @@ public class 大名エディタ : Form
         // データグリッドのセルを編集した時のイベントハンドラを登録する。
         dgv.DataError += dvg_DataError;
         dgv.CellValueChanged += dgv_CellValueChanged;
+        dgv.CellClick += dgv_CellClick;
 
         // データグリッドビューをフォームに乗っける
         this.Controls.Add(dgv);
+    }
+
+    private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+        {
+            if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex < dgv.Rows.Count)
+            {
+                // ボタンがクリックされたセルの処理
+                // e.RowIndex に押されたボタンが属する行のインデックスが入っている
+                将星録.大名関係エディタ editor = new 将星録.大名関係エディタ(e.RowIndex);
+                editor.Show();
+            }
+        }
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
@@ -87,8 +103,8 @@ public class 大名エディタ : Form
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
-        int iKanniID = e.RowIndex;
-        var 大名情報 = new 将星録.大名情報型(iKanniID);
+        int iDaimyoID = e.RowIndex;
+        var 大名情報 = new 将星録.大名情報型(iDaimyoID);
         // 対象のセル
         var cell = dgv[e.ColumnIndex, e.RowIndex];
         if (e.ColumnIndex == (int)タイトル.大名武将配列IX)
@@ -220,6 +236,7 @@ public class 大名エディタ : Form
         // 横列単位で足してゆく、
         foreach (var 大名 in 大名配列)
         {
+
             dgv.Rows.Add(
               大名.配列IX,
               大名.大名武将配列IX,
@@ -245,6 +262,12 @@ public class 大名エディタ : Form
         {
             dgv.Columns[i].ValueType = typeof(int);
         }
+
+        buttonColumn = new DataGridViewButtonColumn();
+        buttonColumn.HeaderText = "外交関係";
+        buttonColumn.Text = "編集";
+        buttonColumn.UseColumnTextForButtonValue = true; // 列内の全てのセルに同じテキストを表示
+        dgv.Columns.Add(buttonColumn);
 
         dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
     }

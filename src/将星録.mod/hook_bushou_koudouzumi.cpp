@@ -85,6 +85,12 @@ void OnSSRExeBushouKoudouzumiExecute() {
 			int 行動済 = decreaseAlbedoKoudouCounter(iBushouID);
 			mapBushouKoudouzumiCacheInMonth[iBushouID] = 行動済;
 
+			/*
+			int iUnitID = getUnitIDFromBushouID(iBushouID);
+			if (isValidUnitID(iUnitID)) {
+			}
+			*/
+
 			// アルベドが「使者」ならお金を最低金額維持
 			アルベド使者ユニット時のお金が復活();
 		}

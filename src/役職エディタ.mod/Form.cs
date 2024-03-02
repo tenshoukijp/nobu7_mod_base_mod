@@ -87,8 +87,8 @@ public class 役職エディタ : Form
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
-        int iKanniID = e.RowIndex;
-        var 役職情報 = new 将星録.役職情報型(iKanniID);
+        int iYakusyokuID = e.RowIndex;
+        var 役職情報 = new 将星録.役職情報型(iYakusyokuID);
         // 対象のセル
         var cell = dgv[e.ColumnIndex, e.RowIndex];
         if (e.ColumnIndex == (int)タイトル.役職名)

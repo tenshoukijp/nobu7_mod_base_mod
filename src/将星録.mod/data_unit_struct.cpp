@@ -30,6 +30,20 @@ int getBushouIDFromUnitID(int iUnitID) {
 	return 0xFFFF;
 }
 
+int getUnitIDFromBushouID(int iBushouID) {
+	if (isValidBushouID(iBushouID)) {
+		for (int iUnitID = 0; iUnitID < 最大数::ユニット情報::配列数; iUnitID++) {
+			int nBushouAddress = (int)(武将情報アドレス)+iBushouID * sizeof(NB7武将情報型);
+
+			if (nb7ユニット情報[iUnitID].p指揮武将 == (int *)nBushouAddress) {
+				return iUnitID;
+			}
+		}
+	}
+	return 0xFFFF;
+}
+
+
 int getUnitIDFromUnitPtr(int* iUnitPtr) {
 	int nUnitAddress = (int)(iUnitPtr);
 

@@ -37,6 +37,111 @@ Class 将星録.列挙.ユニット.種別: AutoLayout, AnsiClass, Class, Public
     Int32 使者 IsConst : Public, Static, HasDefault
     Int32 移動 IsConst : Public, Static, HasDefault
     Int32 浪人 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.ユニット.部隊兵種: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 足軽 IsConst : Public, Static, HasDefault
+    Int32 騎馬 IsConst : Public, Static, HasDefault
+    Int32 鉄砲 IsConst : Public, Static, HasDefault
+    Int32 騎馬鉄砲 IsConst : Public, Static, HasDefault
+Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 第５部隊陣形位置 'get set' : 
+    Int32 第４部隊陣形位置 'get set' : 
+    Int32 第３部隊陣形位置 'get set' : 
+    Int32 第２部隊陣形位置 'get set' : 
+    Int32 第１部隊陣形位置 'get set' : 
+    Int32 第５部隊混乱 'get set' : 
+    Int32 第４部隊混乱 'get set' : 
+    Int32 第３部隊混乱 'get set' : 
+    Int32 第２部隊混乱 'get set' : 
+    Int32 第１部隊混乱 'get set' : 
+    Int32 第５部隊兵種 'get set' : 
+    Int32 第４部隊兵種 'get set' : 
+    Int32 第３部隊兵種 'get set' : 
+    Int32 第２部隊兵種 'get set' : 
+    Int32 第１部隊兵種 'get set' : 
+    Int32 第５部隊兵数 'get set' : 
+    Int32 第４部隊兵数 'get set' : 
+    Int32 第３部隊兵数 'get set' : 
+    Int32 第２部隊兵数 'get set' : 
+    Int32 第１部隊兵数 'get set' : 
+    Int32 指揮武将配列IX 'get ' : 
+    Int32 鉄甲船  'get set' : 
+    Int32 大砲   'get set' : 
+    Int32 輸送大砲 'get set' : 
+    Int32 輸送兵士 'get set' : 
+    Int32 輸送鉄砲 'get set' : 
+    Int32 輸送軍馬 'get set' : 
+    Int32 輸送兵糧 'get set' : 
+    Int32 輸送金銭 'get set' : 
+    Int32 所属城配列IX 'get set' : 
+    Int32 種別   'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_種別(): PrivateScope, Public, HideBySig, SpecialName
+    set_種別(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所属城配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所属城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送金銭(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送金銭(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送兵糧(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送兵糧(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送軍馬(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送軍馬(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送鉄砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送鉄砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送兵士(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送兵士(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送大砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送大砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_大砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_大砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_鉄甲船(): PrivateScope, Public, HideBySig, SpecialName
+    set_鉄甲船(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_指揮武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_第１部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第１部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第２部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第２部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第３部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第３部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第４部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第４部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第５部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第５部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第１部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第１部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第２部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第２部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第３部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第３部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第４部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第４部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第５部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第５部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第１部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第１部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第２部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第２部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第３部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第３部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第４部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第４部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第５部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第５部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第１部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第１部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第２部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第２部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第３部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第３部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第４部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第４部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第５部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第５部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.武将.状態: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

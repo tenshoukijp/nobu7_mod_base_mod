@@ -1,0 +1,8 @@
+C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\obj\Release\大名関係エディタ.mod.csproj.AssemblyReference.cache
+C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\obj\Release\大名関係エディタ.mod.csproj.CoreCompileInputs.cache
+C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\bin\Release\大名関係エディタ.mod.dll
+C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\bin\Release\大名関係エディタ.mod.pdb
+C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\bin\Release\将星録.mod.dll
+C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\obj\Release\大名関係エディタ.6AE7C31D.Up2Date
+C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\obj\Release\大名関係エディタ.mod.dll
+C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\obj\Release\大名関係エディタ.mod.pdb

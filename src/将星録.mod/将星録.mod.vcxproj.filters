@@ -363,6 +363,9 @@
     <ClInclude Include="mng_大名関係情報.h">
       <Filter>ゲームデータ - 大名情報</Filter>
     </ClInclude>
+    <ClInclude Include="mng_ユニット列挙.h">
+      <Filter>ゲームデータ - ユニット情報</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -796,6 +799,9 @@
     </ClCompile>
     <ClCompile Include="mng_大名関係情報.cpp">
       <Filter>ゲームデータ - 大名情報</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_ユニット情報.cpp">
+      <Filter>ゲームデータ - ユニット情報</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
