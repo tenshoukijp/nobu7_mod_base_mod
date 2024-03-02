@@ -335,6 +335,12 @@ public class 城エディタ : Form
         dgv.Columns[(int)タイトル.城称].ReadOnly = true;
         dgv.Columns[(int)タイトル.城称].DefaultCellStyle.BackColor = Color.Gray;
 
+        dgv.Columns[(int)タイトル.所属大名配列IX].DefaultCellStyle.BackColor = Color.Yellow;
+        dgv.Columns[(int)タイトル.城主武将配列IX].DefaultCellStyle.BackColor = Color.Yellow;
+        dgv.Columns[(int)タイトル.開始ユニット配列IX].DefaultCellStyle.BackColor = Color.Yellow;
+        dgv.Columns[(int)タイトル.後城配列IX].DefaultCellStyle.BackColor = Color.Yellow;
+
+
         // 基本的にはint型
         string[] names = Enum.GetNames(typeof(タイトル));
         for (int i= (int)タイトル.籠城番号; i < names.Length; i++)

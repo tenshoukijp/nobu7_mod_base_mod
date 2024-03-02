@@ -113,9 +113,16 @@ BOOL isValidBushouID(int iBushouID);
 
 std::string getBushou苗字FromBushouID(int iBushouID);
 
+BOOL setBushou苗字(int iBushouID, std::string strBushou苗字);
+
 std::string getBushou名前FromBushouID(int iBushouID);
 
+BOOL setBushou名前(int iBushouID, std::string strBushou名前);
+
 std::string getBushou姓名FromBushouID(int iBushouID);
+
+// setBushou姓名は公開(extern)してはならない。
+
 /*
 ※
 0000～0007,0080～0087に設定すると未行動となる。

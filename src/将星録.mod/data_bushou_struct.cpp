@@ -60,26 +60,72 @@ int getDaimyoIDFromBushouID(int iBushouID) {
 
 
 std::string getBushou苗字FromBushouID(int iBushouID) {
-	if (0 <= iBushouID && iBushouID < 最大数::武将情報::総配列数) {
+	if (isValidBushouID(iBushouID)) {
 		return nb7武将情報[iBushouID].苗字;
 	}
 
 	return "";
 }
 
+extern BOOL setBushou姓名(int iBushouID, std::string str姓名);
+
+BOOL setBushou苗字(int iBushouID, std::string str苗字) {
+	if (isValidBushouID(iBushouID)) {
+		char bufLarge[256] = "";
+		int length = sizeof(bufLarge);
+		strcpy_s(bufLarge, length, str苗字.c_str());
+		bufLarge[6] = '\0'; // 6文字目は必ず\0にする
+		strcpy_s(nb7武将情報[iBushouID].苗字, sizeof(nb7武将情報[iBushouID].苗字), str苗字.c_str());
+
+		// 「姓名」のところも更新する
+		setBushou姓名(iBushouID, string(nb7武将情報[iBushouID].苗字) + string(nb7武将情報[iBushouID].名前));
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
 std::string getBushou名前FromBushouID(int iBushouID) {
-	if (0 <= iBushouID && iBushouID < 最大数::武将情報::総配列数) {
+	if (isValidBushouID(iBushouID)) {
 		return nb7武将情報[iBushouID].名前;
 	}
 
 	return "";
 }
 
+BOOL setBushou名前(int iBushouID, std::string str名前) {
+	if (isValidBushouID(iBushouID)) {
+		char bufLarge[256] = "";
+		int length = sizeof(bufLarge);
+		strcpy_s(bufLarge, length, str名前.c_str());
+		bufLarge[6] = '\0'; // 6文字目は必ず\0にする
+		strcpy_s(nb7武将情報[iBushouID].名前, sizeof(nb7武将情報[iBushouID].名前), str名前.c_str());
+
+		// 「姓名」のところも更新する
+		setBushou姓名(iBushouID, string(nb7武将情報[iBushouID].苗字) + string(nb7武将情報[iBushouID].名前));
+		return TRUE;
+	}
+	return FALSE;
+}
+
+
 std::string getBushou姓名FromBushouID(int iBushouID) {
-	if (0 <= iBushouID && iBushouID < 最大数::武将情報::総配列数) {
+	if (isValidBushouID(iBushouID)) {
 		return nb7武将情報[iBushouID].姓名;
 	}
 
 	return "";
 
+}
+
+BOOL setBushou姓名(int iBushouID, std::string str姓名) {
+	if (isValidBushouID(iBushouID)) {
+		char bufLarge[256] = "";
+		int length = sizeof(bufLarge);
+		strcpy_s(bufLarge, length, str姓名.c_str());
+		bufLarge[6] = '\0'; // 6文字目は必ず\0にする
+		strcpy_s(nb7武将情報[iBushouID].姓名, sizeof(nb7武将情報[iBushouID].姓名), str姓名.c_str());
+		return TRUE;
+	}
+	return FALSE;
 }

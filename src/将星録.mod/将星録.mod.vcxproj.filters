@@ -366,6 +366,9 @@
     <ClInclude Include="mng_ユニット列挙.h">
       <Filter>ゲームデータ - ユニット情報</Filter>
     </ClInclude>
+    <ClInclude Include="mng_武将情報.h">
+      <Filter>ゲームデータ - 武将情報</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">

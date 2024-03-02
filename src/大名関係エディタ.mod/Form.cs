@@ -11,6 +11,9 @@ public class 大名関係エディタ : Form
     大名関係情報型 大名関係情報 = new();
     int 主格大名配列IX = 0;
 
+    List<大名情報型> 大名配列 = new();
+    List<武将情報型> 武将配列 = new();
+
     public 大名関係エディタ(int 主格大名配列IX)
     {
         this.主格大名配列IX = 主格大名配列IX;
@@ -22,6 +25,15 @@ public class 大名関係エディタ : Form
 
     void create大名関係配列()
     {
+        for (int i = 0; i < 将星録.最大数.大名情報.配列数; i++)
+        {
+            大名配列.Add(new 大名情報型(i));
+        }
+
+        for (int i = 0; i < 将星録.最大数.武将情報.配列数; i++)
+        {
+            武将配列.Add(new 武将情報型(i));
+        }
     }
 
     void setFormAttribute()
@@ -45,7 +57,7 @@ public class 大名関係エディタ : Form
         }
     }
 
-    enum タイトル { 配列IX = 0, 友好, 同盟残, 婚姻 };
+    enum タイトル { 配列IX = 0, 大名姓名, 友好, 同盟残, 婚姻 };
     void setDataGridAttribute()
     {
         dgv.Dock = DockStyle.Fill;
@@ -127,8 +139,16 @@ public class 大名関係エディタ : Form
     {
         for ( int i=0; i<最大数.大名情報.配列数; i++)
         {
+            int iBushouID = 大名配列[i].大名武将配列IX;
+            String strBushouName = "-";
+            if (0 <= iBushouID && iBushouID < 武将配列.Count)
+            {
+                strBushouName = 武将配列[iBushouID].姓名;
+            }
+
             dgv.Rows.Add(
               i,
+              strBushouName,
               大名関係情報.友好[主格大名配列IX, i],
               大名関係情報.同盟残[主格大名配列IX, i],
               大名関係情報.婚姻[主格大名配列IX, i]
@@ -138,6 +158,10 @@ public class 大名関係エディタ : Form
         dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
         dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.Gray;
+
+        dgv.Columns[(int)タイトル.大名姓名].ValueType = typeof(int);
+        dgv.Columns[(int)タイトル.大名姓名].ReadOnly = true;
+        dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.DarkOrange;
 
         dgv.Columns[(int)タイトル.友好].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.同盟残].ValueType = typeof(int);

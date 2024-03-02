@@ -55,7 +55,7 @@ BOOL setKanniName(int iKanniID, std::string strKanniName) {
 		char bufLarge[256] = "";
 		int length = sizeof(bufLarge);
 		strcpy_s(bufLarge, length, strKanniName.c_str());
-		bufLarge[length - 1] = '\0'; // 13•¶š–Ú‚Í•K‚¸\0‚É‚·‚é
+		bufLarge[13] = '\0'; // 13•¶š–Ú‚Í•K‚¸\0‚É‚·‚é
 		// Š¯ˆÊ–¼‚ğİ’è
 		strcpy_s(nb7Š¯ˆÊî•ñ[iKanniID].Š¯ˆÊ–¼, sizeof(nb7Š¯ˆÊî•ñ[iKanniID].Š¯ˆÊ–¼), bufLarge);
 		return TRUE;

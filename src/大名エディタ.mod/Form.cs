@@ -10,6 +10,7 @@ public class 大名エディタ : Form
     DataGridView dgv = new DataGridView();
     DataGridViewButtonColumn buttonColumn;
     List<大名情報型> 大名配列 = new();
+    List<武将情報型> 武将配列 = new();
 
     public 大名エディタ()
     {
@@ -24,6 +25,11 @@ public class 大名エディタ : Form
         for (int i = 0; i < 将星録.最大数.大名情報.配列数; i++)
         {
             大名配列.Add(new 大名情報型(i));
+        }
+
+        for (int i = 0; i < 将星録.最大数.武将情報.配列数; i++)
+        {
+            武将配列.Add(new 武将情報型(i));
         }
     }
 
@@ -49,7 +55,7 @@ public class 大名エディタ : Form
         }
     }
 
-    enum タイトル { 配列IX = 0, 大名武将配列IX, 居城配列IX, 家紋番号, 旗番号, 朝廷, 朝敵, 鍛冶, 布教, 援軍申込大名配列IX, 援軍申受大名配列IX, 鉄甲船 };
+    enum タイトル { 配列IX = 0, 大名姓名, 大名武将配列IX, 居城配列IX, 家紋番号, 旗番号, 朝廷, 朝敵, 鍛冶, 布教, 援軍申込大名配列IX, 援軍申受大名配列IX, 鉄甲船 };
     void setDataGridAttribute()
     {
         dgv.Dock = DockStyle.Fill;
@@ -112,10 +118,16 @@ public class 大名エディタ : Form
             try
             {
                 大名情報.大名武将配列IX = (int)cell.Value;
+
+                update大名武将姓名(e, 大名情報);
+
             }
             catch (Exception)
             {
                 cell.Value = 大名情報.大名武将配列IX;
+
+                update大名武将姓名(e, 大名情報);
+
             }
         }
         else if (e.ColumnIndex == (int)タイトル.居城配列IX)
@@ -231,14 +243,32 @@ public class 大名エディタ : Form
 
     }
 
+    private void update大名武将姓名(DataGridViewCellEventArgs e, 大名情報型 大名情報)
+    {
+        int iBushouID = 大名情報.大名武将配列IX;
+        String strBushouName = "-";
+        if (0 <= iBushouID && iBushouID < 武将配列.Count)
+        {
+            strBushouName = 武将配列[iBushouID].姓名;
+        }
+        var nameCell = dgv[(int)タイトル.大名姓名, e.RowIndex];
+        nameCell.Value = strBushouName;
+    }
+
     void DgvDataImport()
     {
         // 横列単位で足してゆく、
         foreach (var 大名 in 大名配列)
         {
-
+            int iBushouID = 大名.大名武将配列IX;
+            String strBushouName = "-";
+            if (0 <= iBushouID && iBushouID < 武将配列.Count)
+            {
+                strBushouName = 武将配列[iBushouID].姓名;
+            }
             dgv.Rows.Add(
               大名.配列IX,
+              strBushouName,
               大名.大名武将配列IX,
               大名.居城配列IX,
               大名.家紋番号,
@@ -256,6 +286,13 @@ public class 大名エディタ : Form
         dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
         dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.Gray;
+
+        dgv.Columns[(int)タイトル.大名姓名].ValueType = typeof(int);
+        dgv.Columns[(int)タイトル.大名姓名].ReadOnly = true;
+        dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+        dgv.Columns[(int)タイトル.大名武将配列IX].DefaultCellStyle.BackColor = Color.Yellow;
+        dgv.Columns[(int)タイトル.居城配列IX].DefaultCellStyle.BackColor = Color.Yellow;
 
         string[] names = Enum.GetNames(typeof(タイトル));
         for (int i = (int)タイトル.大名武将配列IX; i < names.Length; i++)

@@ -1574,6 +1574,20 @@ Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_役位(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_所有大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_所有大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String 姓名 'get ' : 
+    System.String 名前 'get set' : 
+    System.String 苗字 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_苗字(): PrivateScope, Public, HideBySig, SpecialName
+    set_苗字(String): PrivateScope, Public, HideBySig, SpecialName
+    get_名前(): PrivateScope, Public, HideBySig, SpecialName
+    set_名前(String): PrivateScope, Public, HideBySig, SpecialName
+    get_姓名(): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.野戦.ターン情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
