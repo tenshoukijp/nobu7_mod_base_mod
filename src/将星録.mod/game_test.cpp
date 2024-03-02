@@ -26,10 +26,10 @@ void doGameTest() {
 	for (int i = 0; i < Å‘å”::‘å–¼î•ñ::”z—ñ”; i++) {
 		int iBushouID = getBushouIDFromDaimyoID(i);
 		if (isValidBushouID(iBushouID)) {
-			OutputDebugStream("%sŠø”Ô†%d\n", nb7•«î•ñ[iBushouID].©–¼, nb7‘å–¼î•ñ[i].Šø”Ô†);
+			OutputDebugStream("%sŠø”Ô†%x\n", nb7•«î•ñ[iBushouID].©–¼, nb7‘å–¼î•ñ[i].p‹é);
 		}
 		else {
-			OutputDebugStream("%sŠø”Ô†%d\n", "‘å–¼‚È‚µ", nb7‘å–¼î•ñ[i].Šø”Ô†);
+			OutputDebugStream("%sŠø”Ô†%x\n", "‘å–¼‚È‚µ", nb7‘å–¼î•ñ[i].p‹é);
 		}
 	}
 	/*

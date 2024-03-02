@@ -68,6 +68,27 @@ BOOL setDaimyoBushouID(int iDaimyoID, int iBushouID) {
 	return FALSE;
 }
 
+
+// 大名の居城を設定する
+BOOL setDaimyoCastle(int iDaimyoID, int iCastleID) {
+	if (isValidDaimyoID(iDaimyoID)) {
+		if (isValidCastleID(iCastleID)) {
+			nb7大名情報[iCastleID].p居城 = getCastlePtrFromCastleID(iCastleID);
+			return TRUE;
+		}
+		else if (iCastleID == 0xFFFF) {
+			nb7大名情報[iCastleID].p居城 = (int*)大名居城なし;
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+
+
+
+
 static const int 友好値Array[] = { 0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 0xFFFF };
 int get友好値From友好ID(int i友好ID) {
 	if ( 0 <= i友好ID && i友好ID < _countof(友好値Array)) {

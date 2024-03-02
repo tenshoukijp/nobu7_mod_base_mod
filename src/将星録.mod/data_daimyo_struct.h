@@ -15,6 +15,10 @@
 
 #define 敵対大名なし 0x538eb8
 
+
+#define 大名居城なし 0x539000
+
+
 // 322バイトの構造体
 #pragma pack(1)
 struct NB7大名情報型 {
@@ -41,7 +45,7 @@ struct NB7大名情報型 {
 	BYTE 不明1 : 1; // 使われているが不明。何か大名勢力下に来る商人と関係しているようにも思われるが微妙に一致しない。あちこちの大名でONになったりOFFになったりしている
 	BYTE unknown17; // ほとんど「4」が入っているようだが...不明
 	int unknown18; // 不明。原則的には0と思われる。
-	int p居城; // 大名の居城となる城メモリデータへのポインタ(城配列への特定のindexの場所を直接さしている。
+	int* p居城; // 大名の居城となる城メモリデータへのポインタ(城配列への特定のindexの場所を直接さしている。
 	int 旗番号; // 旗画像の番号が入っている。0-63といったように個数が大名最大数64個用意されている。
 	int 旗画像MAX; // 原則0x3Fが入っている。
 	int 大名番号; // 大名番号 配列のインデックス+1。1始まり。
@@ -62,6 +66,11 @@ int* getDaimyoPtrFromDaimyoID(int iDaimyoID);
 
 // 対象大名の大名武将を設定する
 BOOL setDaimyoBushouID(int iDaimyoID, int iBushouID);
+
+// 大名の居城を設定する
+BOOL setDaimyoCastle(int iDaimyoID, int iCastleID);
+
+
 
 int get友好値From友好ID(int i友好ID);
 

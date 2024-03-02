@@ -46,7 +46,7 @@ void 大名関係友好情報型::default::set(int 大名１配列IX, int 大名２配列IX, int va
 		}
 	}
 	else {
-		throw gcnew System::ArgumentException("大名配列IXが不正です。");
+		throw gcnew System::ArgumentException("友好が不正です。");
 	}
 }
 
@@ -56,7 +56,7 @@ int 大名関係婚姻情報型::default::get(int 大名１配列IX, int 大名２配列IX)
 		return get大名婚姻(大名１配列IX, 大名２配列IX);
 	}
 	else {
-		throw gcnew System::ArgumentException("大名配列IXが不正です。");
+		throw gcnew System::ArgumentException("婚姻が不正です。");
 	}
 }
 
@@ -77,7 +77,7 @@ void 大名関係婚姻情報型::default::set(int 大名１配列IX, int 大名２配列IX, int va
 		}
 	}
 	else {
-		throw gcnew System::ArgumentException("大名配列IXが不正です。");
+		throw gcnew System::ArgumentException("婚姻が不正です。");
 	}
 }
 
@@ -87,7 +87,7 @@ int 大名関係同盟残情報型::default::get(int 大名１配列IX, int 大名２配列IX)
 		return get大名同盟残(大名１配列IX, 大名２配列IX);
 	}
 	else {
-		throw gcnew System::ArgumentException("大名配列IXが不正です。");
+		throw gcnew System::ArgumentException("同盟残が不正です。");
 	}
 }
 
@@ -108,6 +108,6 @@ void 大名関係同盟残情報型::default::set(int 大名１配列IX, int 大名２配列IX, int 
 		}
 	}
 	else {
-		throw gcnew System::ArgumentException("大名配列IXが不正です。");
+		throw gcnew System::ArgumentException("同盟残が不正です。");
 	}
 }

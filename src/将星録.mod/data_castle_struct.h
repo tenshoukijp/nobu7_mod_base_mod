@@ -62,6 +62,8 @@ BOOL isValidCastleID(int iCastleID);
 
 int getCastleIDFromCastlePtr(int* iCastlePtr);
 
+int* getCastlePtrFromCastleID(int iCastleID);
+
 // 城IDからそこの城主の武将IDを取得する。該当者が居なかったら0xFFFF
 // 実際に「城に居る」という意味であり、「その城に所属している」という意味ではない。
 // 例えば、開墾のために城の外にキャラクターが出ている武将は、「城に居ない」と見なされる。

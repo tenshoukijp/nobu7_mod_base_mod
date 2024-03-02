@@ -20,6 +20,11 @@ namespace «¯˜^ {
 			void set(int value);
 		}
 
+		property int ‹é”z—ñIX {
+			int get();
+			void set(int value);
+		}
+
 		property int ’©’ì {
 			int get();
 			void set(int value);

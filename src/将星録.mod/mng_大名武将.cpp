@@ -3,7 +3,6 @@
 #include "data_game_struct.h"
 #include "data_daimyo_struct.h"
 #include "mng_大名情報.h"
-#include "mng_文字列変換.h"
 
 
 大名情報型::大名情報型(int 大名配列IX)
@@ -32,6 +31,37 @@ void 大名情報型::大名武将配列IX::set(int value) {
 		throw gcnew System::ArgumentOutOfRangeException("所有武将配列IXが不正です。");
 	}
 }
+
+int 大名情報型::居城配列IX::get()
+{
+	int *pCastlePtr = nb7大名情報[大名配列IX].p居城;
+	int iCastleID = getCastleIDFromCastlePtr(pCastlePtr);
+	if (isValidCastleID(iCastleID)) {
+		return iCastleID;
+	}
+
+	return 0xFFFF;
+}
+
+void 大名情報型::居城配列IX::set(int value) {
+	if (isValidCastleID(value)) { 
+		int ret = setDaimyoCastle(大名配列IX, value);
+		if (ret == 0) {
+			throw gcnew System::ArgumentException("居城配列IXが不正です");
+		}
+	}
+	else if (value == 0xFFFF) { // 0xFFFF は居城がないことを意味する
+		int ret = setDaimyoCastle(大名配列IX, value);
+		if (ret == 0) {
+			throw gcnew System::ArgumentException("居城配列IXが不正です");
+		}
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("居城配列IXが不正です。");
+	}
+}
+
+
 
 int 大名情報型::朝廷::get()
 {

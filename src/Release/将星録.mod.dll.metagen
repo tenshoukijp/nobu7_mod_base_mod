@@ -1294,12 +1294,15 @@ Class 将星録.大名情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     Int32 朝敵   'get set' : 
     Int32 鉄甲船  'get set' : 
     Int32 朝廷   'get set' : 
+    Int32 居城配列IX 'get set' : 
     Int32 大名武将配列IX 'get set' : 
     Int32 配列IX 'get ' : 
   Methods:
     get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
     get_大名武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_大名武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_居城配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_居城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_朝廷(): PrivateScope, Public, HideBySig, SpecialName
     set_朝廷(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_鉄甲船(): PrivateScope, Public, HideBySig, SpecialName
