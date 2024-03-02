@@ -4,6 +4,8 @@
 #include "data_daimyo_struct.h"
 #include "mng_大名情報.h"
 
+#include "output_debug_stream.h"
+
 
 大名情報型::大名情報型(int 大名配列IX)
 {
@@ -177,10 +179,6 @@ void 大名情報型::家紋番号::set(int value) {
 	}
 }
 
-int 大名情報型::家紋番号MAX::get()
-{
-	return 最大数::大名情報::家紋数-1;
-}
 
 int 大名情報型::敵対大名配列IX::get()
 {
@@ -201,38 +199,38 @@ void 大名情報型::敵対大名配列IX::set(int value) {
 	}
 }
 
-int 大名情報型::援軍要請大名１配列IX::get()
+int 大名情報型::援軍申込大名配列IX::get()
 {
-	int* iDiamyoPtr = nb7大名情報[大名配列IX].p援軍要請大名１;
+	int* iDiamyoPtr = nb7大名情報[大名配列IX].p援軍申込大名;
 	return getDaimyoIDFromDaimyoPtr(iDiamyoPtr);;
 }
 
-void 大名情報型::援軍要請大名１配列IX::set(int value) {
+void 大名情報型::援軍申込大名配列IX::set(int value) {
 	if (isValidDaimyoID(value)) {
 		int* pDaimyoPtr = getDaimyoPtrFromDaimyoID(value);
-		nb7大名情報[大名配列IX].p援軍要請大名１ = pDaimyoPtr;
+		nb7大名情報[大名配列IX].p援軍申込大名 = pDaimyoPtr;
 	}
 	else if (value == 0xFFFF) {  // 0xFFFF は援軍要請大名１なしを意味する
-		nb7大名情報[大名配列IX].p援軍要請大名１ = (int*)援軍要請大名なし;
+		nb7大名情報[大名配列IX].p援軍申込大名 = (int*)援軍要請大名なし;
 	}
 	else {
 		throw gcnew System::ArgumentOutOfRangeException("援軍要請大名１配列IXが不正です。");
 	}
 }
 
-int 大名情報型::援軍要請大名２配列IX::get()
+int 大名情報型::援軍申受大名配列IX::get()
 {
-	int* iDiamyoPtr = nb7大名情報[大名配列IX].p援軍要請大名２;
+	int* iDiamyoPtr = nb7大名情報[大名配列IX].p援軍申受大名;
 	return getDaimyoIDFromDaimyoPtr(iDiamyoPtr);;
 }
 
-void 大名情報型::援軍要請大名２配列IX::set(int value) {
+void 大名情報型::援軍申受大名配列IX::set(int value) {
 	if (isValidDaimyoID(value)) {
 		int* pDaimyoPtr = getDaimyoPtrFromDaimyoID(value);
-		nb7大名情報[大名配列IX].p援軍要請大名２ = pDaimyoPtr;
+		nb7大名情報[大名配列IX].p援軍申受大名 = pDaimyoPtr;
 	}
 	else if (value == 0xFFFF) {  // 0xFFFF は援軍要請大名２なしを意味する
-		nb7大名情報[大名配列IX].p援軍要請大名２ = (int*)援軍要請大名なし;
+		nb7大名情報[大名配列IX].p援軍申受大名 = (int*)援軍要請大名なし;
 	}
 	else {
 		throw gcnew System::ArgumentOutOfRangeException("援軍要請大名２配列IXが不正です。");

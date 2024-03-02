@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "城エディタ.mod", "城�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "年月相場エディタ.mod", "年月相場エディタ.mod\年月相場エディタ.mod.csproj", "{E01B6C00-EE3C-4377-827A-D303BCB1A7AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "大名エディタ.mod", "大名エディタ.mod\大名エディタ.mod.csproj", "{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -174,6 +176,24 @@ Global
 		{E01B6C00-EE3C-4377-827A-D303BCB1A7AD}.Release|x64.Build.0 = Release|Any CPU
 		{E01B6C00-EE3C-4377-827A-D303BCB1A7AD}.Release|x86.ActiveCfg = Release|Any CPU
 		{E01B6C00-EE3C-4377-827A-D303BCB1A7AD}.Release|x86.Build.0 = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Debug|x64.Build.0 = Debug|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Debug|x86.Build.0 = Debug|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release (Super)|Any CPU.ActiveCfg = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release (Super)|Any CPU.Build.0 = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release (Super)|x64.ActiveCfg = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release (Super)|x64.Build.0 = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release (Super)|x86.ActiveCfg = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release (Super)|x86.Build.0 = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release|x64.ActiveCfg = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release|x64.Build.0 = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release|x86.ActiveCfg = Release|Any CPU
+		{1787F8B7-8ABB-49C0-B8EB-2CD7BF582F3F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

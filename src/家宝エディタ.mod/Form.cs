@@ -253,18 +253,12 @@ public class 家宝エディタ : Form
         dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
         dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.Gray;
         dgv.Columns[(int)タイトル.家宝名].ValueType = typeof(string);
-        dgv.Columns[(int)タイトル.種類].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.画像].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.等級].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.能力上昇].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.政治].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.戦闘].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.智謀].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.南蛮].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.抑制].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.兵科効果].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.所有武将配列IX].ValueType = typeof(int);
 
+        string[] names = Enum.GetNames(typeof(タイトル));
+        for (int i = (int)タイトル.種類; i < names.Length; i++)
+        {
+            dgv.Columns[i].ValueType = typeof(int);
+        }
 
         dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
     }

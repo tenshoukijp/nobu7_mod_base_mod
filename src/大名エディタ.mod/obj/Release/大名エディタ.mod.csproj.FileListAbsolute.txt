@@ -1,0 +1,5 @@
+C:\Users\master\source\repos\将星録Mod\Release\大名エディタ.mod.dll
+C:\Users\master\source\repos\将星録Mod\大名エディタ.mod\obj\Release\大名エディタ.mod.csproj.AssemblyReference.cache
+C:\Users\master\source\repos\将星録Mod\大名エディタ.mod\obj\Release\大名エディタ.mod.csproj.CoreCompileInputs.cache
+C:\Users\master\source\repos\将星録Mod\大名エディタ.mod\obj\Release\大名エディタ.mod.csproj.Up2Date
+C:\Users\master\source\repos\将星録Mod\大名エディタ.mod\obj\Release\大名エディタ.mod.dll

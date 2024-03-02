@@ -65,21 +65,17 @@ namespace «¯˜^ {
 			void set(int value);
 		}
 
-		property int ‰Æ–ä”Ô†MAX {
-			int get();
-		}
-
 		property int “G‘Î‘å–¼”z—ñIX {
 			int get();
 			void set(int value);
 		}
 
-		property int ‰‡ŒR—v¿‘å–¼‚P”z—ñIX {
+		property int ‰‡ŒR\‘å–¼”z—ñIX {
 			int get();
 			void set(int value);
 		}
 
-		property int ‰‡ŒR—v¿‘å–¼‚Q”z—ñIX {
+		property int ‰‡ŒR\ó‘å–¼”z—ñIX {
 			int get();
 			void set(int value);
 		}

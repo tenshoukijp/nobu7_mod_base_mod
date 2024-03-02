@@ -298,7 +298,7 @@
     <ClCompile Include="mng_フォント.cpp" />
     <ClCompile Include="mng_メニュー.cpp" />
     <ClCompile Include="mng_城情報.cpp" />
-    <ClCompile Include="mng_大名武将.cpp" />
+    <ClCompile Include="mng_大名情報.cpp" />
     <ClCompile Include="mng_大名関係情報.cpp" />
     <ClCompile Include="mng_官位情報.cpp" />
     <ClCompile Include="mng_家宝情報.cpp" />
