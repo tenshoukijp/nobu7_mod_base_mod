@@ -24,7 +24,8 @@ int testFlag = 0;
 void doGameTest() {
 	testFlag = 1;
 	for (int i = 0; i < 最大数::ユニット情報::配列数; i++) {
-		OutputDebugStream("%x\n", nb7ユニット情報[i].p指揮武将);
+		int iBushouID = getBushouIDFromUnitID(i);
+		OutputDebugStream("ユニット%x, %s\n", nb7ユニット情報[i].p次のユニット, getBushou姓名FromBushouID(iBushouID).c_str());
 	}
 	/*
 	for (int iCastleID = 0; iCastleID < 最大数::城情報::配列数; iCastleID++) {

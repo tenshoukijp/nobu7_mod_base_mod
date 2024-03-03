@@ -119,6 +119,7 @@ namespace «¯˜^ {
 
 		property int éå•«”z—ñIX {
 			int get();
+			void set(int value);
 		}
 
 		property int ˆÏ”Có‘Ô {

@@ -109,6 +109,10 @@ int getDaimyoIDFromBushouID(int iBushouID);
 // 武将へのポインタからBushouIDを取得する
 int getBushouIDFromBushouPtr(int* iBushouPtr);
 
+// BushouIDから武将へのポインタを取得する
+int* getBushouPtrFromBushouID(int iBushouID);
+
+
 BOOL isValidBushouID(int iBushouID);
 
 std::string getBushou苗字FromBushouID(int iBushouID);

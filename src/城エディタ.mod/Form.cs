@@ -127,6 +127,17 @@ public class 城エディタ : Form
                 cell.Value = 城情報.所属大名配列IX;
             }
         }
+        else if (e.ColumnIndex == (int)タイトル.城主武将配列IX)
+        {
+            try
+            {
+                城情報.城主武将配列IX = (int)cell.Value;
+            }
+            catch (Exception)
+            {
+                cell.Value = 城情報.城主武将配列IX;
+            }
+        }
         else if (e.ColumnIndex == (int)タイトル.規模)
         {
             try
@@ -328,17 +339,17 @@ public class 城エディタ : Form
 
         dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.Gray;
+        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
         dgv.Columns[(int)タイトル.城名].ValueType = typeof(string);
 
         dgv.Columns[(int)タイトル.城称].ValueType = typeof(string);
         dgv.Columns[(int)タイトル.城称].ReadOnly = true;
-        dgv.Columns[(int)タイトル.城称].DefaultCellStyle.BackColor = Color.Gray;
+        dgv.Columns[(int)タイトル.城称].DefaultCellStyle.BackColor = Color.LightGray;
 
-        dgv.Columns[(int)タイトル.所属大名配列IX].DefaultCellStyle.BackColor = Color.Yellow;
-        dgv.Columns[(int)タイトル.城主武将配列IX].DefaultCellStyle.BackColor = Color.Yellow;
-        dgv.Columns[(int)タイトル.開始ユニット配列IX].DefaultCellStyle.BackColor = Color.Yellow;
-        dgv.Columns[(int)タイトル.後城配列IX].DefaultCellStyle.BackColor = Color.Yellow;
+        dgv.Columns[(int)タイトル.所属大名配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+        dgv.Columns[(int)タイトル.城主武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+        dgv.Columns[(int)タイトル.開始ユニット配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+        dgv.Columns[(int)タイトル.後城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
 
 
         // 基本的にはint型
@@ -348,15 +359,8 @@ public class 城エディタ : Form
             dgv.Columns[i].ValueType = typeof(int);
         }
 
-
-
-        dgv.Columns[(int)タイトル.城主武将配列IX].DefaultCellStyle.BackColor = Color.Gray;
-        dgv.Columns[(int)タイトル.城主武将配列IX].ReadOnly = true;
-        dgv.Columns[(int)タイトル.城主武将配列IX].DefaultCellStyle.BackColor = Color.Gray;
-
-        dgv.Columns[(int)タイトル.防御MAX].DefaultCellStyle.BackColor = Color.Gray;
+        dgv.Columns[(int)タイトル.防御MAX].DefaultCellStyle.BackColor = Color.LightGray;
         dgv.Columns[(int)タイトル.防御MAX].ReadOnly = true;
-        dgv.Columns[(int)タイトル.防御MAX].DefaultCellStyle.BackColor = Color.Gray;
 
         dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 

@@ -143,11 +143,11 @@ public class 官位エディタ : Form
 
         dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.Gray;
+        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
         dgv.Columns[(int)タイトル.官位名].ValueType = typeof(string);
         dgv.Columns[(int)タイトル.階位].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.階位].ReadOnly = true;
-        dgv.Columns[(int)タイトル.階位].DefaultCellStyle.BackColor = Color.Gray;
+        dgv.Columns[(int)タイトル.階位].DefaultCellStyle.BackColor = Color.LightGray;
         dgv.Columns[(int)タイトル.所有武将配列IX].ValueType = typeof(int);
 
 

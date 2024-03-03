@@ -492,3 +492,27 @@ void ユニット情報型::第５部隊陣形位置::set(int value) {
 		throw gcnew System::ArgumentOutOfRangeException("第５部隊陣形位置が不正です。");
 	}
 }
+
+int ユニット情報型::後ユニット配列IX::get()
+{
+	int iUnitID = getUnitIDFromUnitPtr(nb7ユニット情報[ユニット配列IX].p次のユニット);
+	return iUnitID;
+}
+
+void ユニット情報型::後ユニット配列IX::set(int value) {
+	if (isValidUnitID(value)) {
+		BOOL ret = setUnitNextUnitID(ユニット配列IX, value);
+		if (ret == FALSE) {
+			throw gcnew System::InvalidOperationException("後ユニット配列IXが不正です。");
+		}
+	}
+	else if (value == 0xFFFF) { // 0xFFFF は次のユニットがないことを意味する
+		BOOL ret = setUnitNextUnitID(ユニット配列IX, value);
+		if (ret == FALSE) {
+			throw gcnew System::InvalidOperationException("後ユニット配列IXが不正です。");
+		}
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("後ユニット配列IXが不正です。");
+	}
+}

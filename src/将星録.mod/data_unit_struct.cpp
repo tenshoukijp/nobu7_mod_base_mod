@@ -64,6 +64,33 @@ int* getUnitPtrFromUnitID(int iUnitID) {
 	return (int*)iUnitAddress;
 }
 
+BOOL setUnitNextUnitID(int iUnitID, int iNextUnitID) {
+	if (isValidUnitID(iUnitID)) {
+
+		if (isValidUnitID(iNextUnitID)) {
+			int* pUnitPtr = getUnitPtrFromUnitID(iNextUnitID);
+			nb7ユニット情報[iUnitID].p次のユニット = pUnitPtr;
+			return TRUE;
+		} else if (iNextUnitID == 0xFFFF) {
+			int iBushouID = getBushouIDFromUnitID(iUnitID);
+			if (isValidBushouID(iBushouID)) {
+				if (nb7武将情報[iBushouID].状態 == 列挙::武将::状態::大名 || nb7武将情報[iBushouID].状態 == 列挙::武将::状態::現役) {
+					nb7ユニット情報[iUnitID].p次のユニット = (int*)次のユニット無し_武将部隊;
+				} else {
+					nb7ユニット情報[iUnitID].p次のユニット = (int*)次のユニット無し_非武将部隊;
+				}
+				return TRUE;
+			}
+			else {
+				nb7ユニット情報[iUnitID].p次のユニット = (int*)次のユニット無し_非武将部隊;
+				return TRUE;
+			}
+		}
+	}
+
+	return FALSE;
+}
+
 int get軍勢ユニット部隊最大兵数FromUnitID(int iUnitID) {
 	if (isValidUnitID(iUnitID)) {
 		int iBushouID = getBushouIDFromUnitID(iUnitID);

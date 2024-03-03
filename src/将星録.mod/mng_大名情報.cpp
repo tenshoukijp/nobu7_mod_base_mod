@@ -22,6 +22,7 @@ int 大名情報型::大名武将配列IX::get()
 	return getBushouIDFromBushouPtr(nb7大名情報[大名配列IX].p大名武将);
 }
 
+
 void 大名情報型::大名武将配列IX::set(int value) {
 	if (isValidBushouID(value) || value == 0xFFFF) { // 0xFFFF
 		BOOL ret = setDaimyoBushouID(大名配列IX, value);

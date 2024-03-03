@@ -43,6 +43,11 @@ int getCastleIdFromBushouID(int iBushouID) {
 	}
 	return 0xFFFF;
 }
+
+int* getBushouPtrFromBushouID(int iBushouID) {
+	int iBushouAddress = (int)(•«î•ñƒAƒhƒŒƒX)+iBushouID * sizeof(NB7•«î•ñŒ^);
+	return (int*)iBushouAddress;
+}
 	
 int getDaimyoIDFromBushouID(int iBushouID) {
 	if (isValidBushouID(iBushouID)) {

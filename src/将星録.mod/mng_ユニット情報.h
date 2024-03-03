@@ -170,7 +170,10 @@ namespace 将星録 {
 			void set(int value);
 		}
 
-
+		property int 後ユニット配列IX {
+			int get();
+			void set(int value);
+		}
 	};
 
 };

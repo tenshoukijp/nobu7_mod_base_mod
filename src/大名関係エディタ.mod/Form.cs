@@ -157,11 +157,11 @@ public class 大名関係エディタ : Form
 
         dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.Gray;
+        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
 
         dgv.Columns[(int)タイトル.大名姓名].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.大名姓名].ReadOnly = true;
-        dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.DarkOrange;
+        dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.Yellow;
 
         dgv.Columns[(int)タイトル.友好].ValueType = typeof(int);
         dgv.Columns[(int)タイトル.同盟残].ValueType = typeof(int);

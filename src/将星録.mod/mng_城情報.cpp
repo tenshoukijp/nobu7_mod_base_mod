@@ -274,6 +274,22 @@ int 城情報型::城主武将配列IX::get()
 	}
 }
 
+void 城情報型::城主武将配列IX::set(int value) {
+	if (isValidBushouID(value)) { // 0xFFFF
+		BOOL ret = set城主BushouIDToCastleID(城配列IX, value);
+		if (ret == 0) {
+			throw gcnew System::ArgumentException("城主武将配列IXが不正です");
+		}
+	}
+	else if (value == 0xFFFF) {
+		nb7城情報[城配列IX].p城主 = (int *)城主武将なし;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("城主武将配列IXが不正です。");
+	}
+}
+
+
 int 城情報型::委任状態::get()
 {
 	return nb7城情報[城配列IX].委任状態;

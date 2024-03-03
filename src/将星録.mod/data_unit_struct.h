@@ -5,7 +5,8 @@
 
 #define ユニット情報アドレス 0x5EDE10
 
-#define 次のユニット無し     0x5390E0
+#define 次のユニット無し_武将部隊     0x5390E0
+#define 次のユニット無し_非武将部隊     0x5f70e8
 
 #define ユニット所属城なし   0x539000
 
@@ -40,7 +41,7 @@ struct NB7ユニット情報型 {
 	int unknown13; // [ff 0f 00 00] が多い。
 	BYTE 移動目標Ｙ座標;
 	BYTE 移動目標Ｘ座標;
-	int* p次のユニット; // 次のユニットへのポインタ。ユニット情報の配列の該当ユニットの情報の位置を直接指している。これが[E0 90 53 00] = 0x5390E0ならば、次のユニットは存在しない。
+	int* p次のユニット; // 次のユニットへのポインタ。ユニット情報の配列の該当ユニットの情報の位置を直接指している。これが[E0 90 53 00] = 0x5390E0ならば、次のユニットは存在しない。現役武将でないなら(浪人や独立など)0x5f70e8;
 	int unknown14; // 0x00000000 が多い
 	/* 陣形位置
 	  ┌─┬─┬─┐
@@ -114,6 +115,9 @@ int getUnitIDFromUnitPtr(int* iUnitPtr);
 
 
 int* getUnitPtrFromUnitID(int iUnitID);
+
+// 次のユニットIDを設定する。
+BOOL setUnitNextUnitID(int iUnitID, int iNextUnitID);
 
 /*
 1人目のユニット情報

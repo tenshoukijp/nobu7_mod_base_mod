@@ -20,16 +20,13 @@ using namespace «¯˜^;
 
 int ‘å–¼ŠÖŒW—FDî•ñŒ^::default::get(int ‘å–¼‚P”z—ñIX, int ‘å–¼‚Q”z—ñIX)
 {
-	OutputDebugStream("ˆø‚«“n‚³‚ê‚½’l %d, %d", ‘å–¼‚P”z—ñIX, ‘å–¼‚Q”z—ñIX);
 	if (isValidDaimyoID(‘å–¼‚P”z—ñIX) && isValidDaimyoID(‘å–¼‚Q”z—ñIX)) {
 
-		OutputDebugStream("‡Ši");
 		int i—FDID = get‘å–¼—FDID(‘å–¼‚P”z—ñIX, ‘å–¼‚Q”z—ñIX);
 		int i—FD = get—FD’lFrom—FDID(i—FDID);
 		return i—FD;
 	}
 	else {
-		OutputDebugStream("•s‡Ši");
 		throw gcnew System::ArgumentException("‘å–¼”z—ñIX‚ª•s³‚Å‚·B");
 	}
 }

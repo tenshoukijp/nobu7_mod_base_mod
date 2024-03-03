@@ -81,7 +81,23 @@ int get城主BushouIDFromCastleID(int iCastleID) {
 	return 0xFFFF;
 }
 
+int set城主BushouIDToCastleID(int iCastleID, int iBushouID) {
+	if (isValidCastleID(iCastleID)) {
+		if (isValidBushouID(iBushouID)) {
+			// 武将情報のアドレスを取得
+			// 役職情報の所有者に武将情報のアドレスを設定
+			nb7城情報[iCastleID].p城主 = getBushouPtrFromBushouID(iBushouID);
+			return TRUE;
+		}
+		else if (iBushouID == 0xFFFF) {
+			// 所有者なし
+			nb7城情報[iCastleID].p城主 = (int*)城主武将なし;
+			return TRUE;
 
+		}
+	}
+	return FALSE;
+}
 
 BOOL set城の攻撃目標城(int iCastleID, int 攻撃目標CastleID) {
 	if (isValidCastleID(iCastleID)) {
