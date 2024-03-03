@@ -59,6 +59,34 @@ void ユニット情報型::種別::set(int value) {
 	}
 }
 
+int ユニット情報型::目的::get()
+{
+	int ret = nb7ユニット情報[ユニット配列IX].目的;
+	if (ret > 100) {
+		ret = 0xFFFF;
+	}
+	if (ret < 0) {
+		ret = 0xFFFF;
+	}
+	return ret;
+}
+
+void ユニット情報型::目的::set(int value) {
+	if (列挙::ユニット::目的::攻撃 <= value && value <= 列挙::ユニット::目的::早刈) {
+		nb7ユニット情報[ユニット配列IX].目的 = value;
+	}
+	else if (value == 0xFFFF) {
+		nb7ユニット情報[ユニット配列IX].目的 = ユニット目的なし;
+	}
+	else if (value == 0xFFFFFFFF) {
+		nb7ユニット情報[ユニット配列IX].目的 = ユニット目的なし;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("目的が不正です。");
+	}
+}
+
+
 int ユニット情報型::輸送金銭::get()
 {
 	return nb7ユニット情報[ユニット配列IX].金銭;
@@ -516,3 +544,24 @@ void ユニット情報型::後ユニット配列IX::set(int value) {
 		throw gcnew System::ArgumentOutOfRangeException("後ユニット配列IXが不正です。");
 	}
 }
+
+int ユニット情報型::現在Ｘ座標::get()
+{
+	return nb7ユニット情報[ユニット配列IX].現在Ｘ座標;
+}
+
+int ユニット情報型::現在Ｙ座標::get()
+{
+	return nb7ユニット情報[ユニット配列IX].現在Ｙ座標;
+}
+
+int ユニット情報型::目標Ｘ座標::get()
+{
+	return nb7ユニット情報[ユニット配列IX].目標Ｘ座標;
+}
+
+int ユニット情報型::目標Ｙ座標::get()
+{
+	return nb7ユニット情報[ユニット配列IX].目標Ｙ座標;
+}
+

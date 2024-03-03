@@ -1,0 +1,2 @@
+C:\Users\master\source\repos\将星録Mod\ユニットエディタ.mod\obj\Release\ユニットエディタ.mod.csproj.AssemblyReference.cache
+C:\Users\master\source\repos\将星録Mod\ユニットエディタ.mod\obj\Release\ユニットエディタ.mod.csproj.CoreCompileInputs.cache

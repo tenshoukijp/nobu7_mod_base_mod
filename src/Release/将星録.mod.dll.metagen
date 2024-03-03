@@ -37,6 +37,55 @@ Class 将星録.列挙.ユニット.種別: AutoLayout, AnsiClass, Class, Public
     Int32 使者 IsConst : Public, Static, HasDefault
     Int32 移動 IsConst : Public, Static, HasDefault
     Int32 浪人 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.ユニット.目的: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 攻撃 IsConst : Public, Static, HasDefault
+    Int32 水攻 IsConst : Public, Static, HasDefault
+    Int32 占拠 IsConst : Public, Static, HasDefault
+    Int32 補給 IsConst : Public, Static, HasDefault
+    Int32 開拓 IsConst : Public, Static, HasDefault
+    Int32 治水 IsConst : Public, Static, HasDefault
+    Int32 町造 IsConst : Public, Static, HasDefault
+    Int32 関所 IsConst : Public, Static, HasDefault
+    Int32 関廃 IsConst : Public, Static, HasDefault
+    Int32 築港 IsConst : Public, Static, HasDefault
+    Int32 改修 IsConst : Public, Static, HasDefault
+    Int32 築城 IsConst : Public, Static, HasDefault
+    Int32 廃止 IsConst : Public, Static, HasDefault
+    Int32 村落 IsConst : Public, Static, HasDefault
+    Int32 鍛冶 IsConst : Public, Static, HasDefault
+    Int32 教会 IsConst : Public, Static, HasDefault
+    Int32 内応 IsConst : Public, Static, HasDefault
+    Int32 謀反 IsConst : Public, Static, HasDefault
+    Int32 流言 IsConst : Public, Static, HasDefault
+    Int32 誘発 IsConst : Public, Static, HasDefault
+    Int32 暗殺 IsConst : Public, Static, HasDefault
+    Int32 攪乱 IsConst : Public, Static, HasDefault
+    Int32 工作 IsConst : Public, Static, HasDefault
+    Int32 同盟 IsConst : Public, Static, HasDefault
+    Int32 婚姻 IsConst : Public, Static, HasDefault
+    Int32 手切 IsConst : Public, Static, HasDefault
+    Int32 脅迫 IsConst : Public, Static, HasDefault
+    Int32 貢物 IsConst : Public, Static, HasDefault
+    Int32 援軍 IsConst : Public, Static, HasDefault
+    Int32 推挙 IsConst : Public, Static, HasDefault
+    Int32 説得 IsConst : Public, Static, HasDefault
+    Int32 献上 IsConst : Public, Static, HasDefault
+    Int32 官位 IsConst : Public, Static, HasDefault
+    Int32 調停 IsConst : Public, Static, HasDefault
+    Int32 討伐 IsConst : Public, Static, HasDefault
+    Int32 朝敵 IsConst : Public, Static, HasDefault
+    Int32 解除 IsConst : Public, Static, HasDefault
+    Int32 取込 IsConst : Public, Static, HasDefault
+    Int32 上陸 IsConst : Public, Static, HasDefault
+    Int32 乗船 IsConst : Public, Static, HasDefault
+    Int32 委任 IsConst : Public, Static, HasDefault
+    Int32 詳細 IsConst : Public, Static, HasDefault
+    Int32 中止 IsConst : Public, Static, HasDefault
+    Int32 終了 IsConst : Public, Static, HasDefault
+    Int32 移動 IsConst : Public, Static, HasDefault
+    Int32 早刈 IsConst : Public, Static, HasDefault
 Class 将星録.列挙.ユニット.部隊兵種: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -47,6 +96,10 @@ Class 将星録.列挙.ユニット.部隊兵種: AutoLayout, AnsiClass, Class, 
 Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
+    Int32 目標Ｙ座標 'get ' : 
+    Int32 目標Ｘ座標 'get ' : 
+    Int32 現在Ｙ座標 'get ' : 
+    Int32 現在Ｘ座標 'get ' : 
     Int32 後ユニット配列IX 'get set' : 
     Int32 第５部隊陣形位置 'get set' : 
     Int32 第４部隊陣形位置 'get set' : 
@@ -68,7 +121,6 @@ Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, Bef
     Int32 第３部隊兵数 'get set' : 
     Int32 第２部隊兵数 'get set' : 
     Int32 第１部隊兵数 'get set' : 
-    Int32 指揮武将配列IX 'get ' : 
     Int32 鉄甲船  'get set' : 
     Int32 大砲   'get set' : 
     Int32 輸送大砲 'get set' : 
@@ -77,15 +129,20 @@ Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, Bef
     Int32 輸送軍馬 'get set' : 
     Int32 輸送兵糧 'get set' : 
     Int32 輸送金銭 'get set' : 
-    Int32 所属城配列IX 'get set' : 
+    Int32 目的   'get set' : 
     Int32 種別   'get set' : 
+    Int32 所属城配列IX 'get set' : 
+    Int32 指揮武将配列IX 'get ' : 
     Int32 配列IX 'get ' : 
   Methods:
     get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
-    get_種別(): PrivateScope, Public, HideBySig, SpecialName
-    set_種別(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_指揮武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
     get_所属城配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_所属城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_種別(): PrivateScope, Public, HideBySig, SpecialName
+    set_種別(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_目的(): PrivateScope, Public, HideBySig, SpecialName
+    set_目的(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_輸送金銭(): PrivateScope, Public, HideBySig, SpecialName
     set_輸送金銭(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_輸送兵糧(): PrivateScope, Public, HideBySig, SpecialName
@@ -102,7 +159,6 @@ Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, Bef
     set_大砲(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_鉄甲船(): PrivateScope, Public, HideBySig, SpecialName
     set_鉄甲船(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_指揮武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
     get_第１部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
     set_第１部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_第２部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
@@ -145,6 +201,10 @@ Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, Bef
     set_第５部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_後ユニット配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_後ユニット配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_現在Ｘ座標(): PrivateScope, Public, HideBySig, SpecialName
+    get_現在Ｙ座標(): PrivateScope, Public, HideBySig, SpecialName
+    get_目標Ｘ座標(): PrivateScope, Public, HideBySig, SpecialName
+    get_目標Ｙ座標(): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.武将.状態: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:

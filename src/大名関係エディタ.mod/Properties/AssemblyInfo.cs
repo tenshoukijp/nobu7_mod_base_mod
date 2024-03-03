@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("大名関係エディタ.mod")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Copyright © 2023-2024 将星録.jp")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

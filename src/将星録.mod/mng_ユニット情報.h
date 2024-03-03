@@ -16,12 +16,21 @@ namespace 将星録 {
 			int get() { return ユニット配列IX; }
 		}
 
+		property int 指揮武将配列IX {
+			int get();
+		}
+
+		property int 所属城配列IX {
+			int get();
+			void set(int value);
+		}
+
 		property int 種別 {
 			int get();
 			void set(int value);
 		}
 
-		property int 所属城配列IX {
+		property int 目的 {
 			int get();
 			void set(int value);
 		}
@@ -64,10 +73,6 @@ namespace 将星録 {
 		property int 鉄甲船 {
 			int get();
 			void set(int value);
-		}
-
-		property int 指揮武将配列IX {
-			int get();
 		}
 
 		property int 第１部隊兵数 {
@@ -173,6 +178,22 @@ namespace 将星録 {
 		property int 後ユニット配列IX {
 			int get();
 			void set(int value);
+		}
+
+		property int 現在Ｘ座標 {
+			int get();
+		}
+
+		property int 現在Ｙ座標 {
+			int get();
+		}
+
+		property int 目標Ｘ座標 {
+			int get();
+		}
+
+		property int 目標Ｙ座標 {
+			int get();
 		}
 	};
 
