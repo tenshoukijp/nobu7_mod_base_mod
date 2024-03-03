@@ -95,7 +95,10 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\load_form_mod.cpp;C:\Use
 C:\Users\master\source\repos\将星録Mod\将星録.mod\message_albedo.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\message_albedo.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_フォント.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_フォント.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_メニュー.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_メニュー.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_ユニット情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_ユニット情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_城情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_城情報.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_大名情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_大名情報.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_大名関係情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_大名関係情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_官位情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_官位情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_家宝情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_家宝情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\data_kanni_struct.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\data_kanni_struct.obj
@@ -125,6 +128,8 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_年月情報.cpp;C:\
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_役職情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_役職情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_文字列変換.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_文字列変換.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_武将情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_武将情報.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_野戦情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_野戦情報.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_野戦部隊情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_野戦部隊情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\onigwrap.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\onigwrap.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\on_event.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\on_event.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\on_game_pic_show.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\on_game_pic_show.obj

@@ -16,9 +16,13 @@ public class 年月相場エディタ : Form
 
     public 年月相場エディタ()
     {
-        setFormAttribute();
+        try
+        {
+            setFormAttribute();
 
-        setDataGridAttribute();
+            setDataGridAttribute();
+        }
+        catch (Exception) { }
     }
 
     void setFormAttribute()
@@ -45,32 +49,36 @@ public class 年月相場エディタ : Form
     enum タイトル { 年, 月, 兵糧, 軍馬, 鉄砲 };
     void setDataGridAttribute()
     {
-        dgv.Dock = DockStyle.Fill;
-        dgv.AllowUserToAddRows = false;
-        dgv.AllowUserToDeleteRows = false;
-
-        string fontName = 将星録.アプリケーション.フォント.フォント名;
-        dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
-
-        string[] names = Enum.GetNames(typeof(タイトル));
-        for (int i = 0; i < names.Length; i++)
+        try
         {
-            // 縦列のオブジェクトを作り
-            DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
-            // タイトル文字列を設定
-            dgvtbc.HeaderText = names[i];
-            // グリッドビューに縦列として追加。
-            dgv.Columns.Add(dgvtbc);
+            dgv.Dock = DockStyle.Fill;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+
+            string fontName = 将星録.アプリケーション.フォント.フォント名;
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
+
+            string[] names = Enum.GetNames(typeof(タイトル));
+            for (int i = 0; i < names.Length; i++)
+            {
+                // 縦列のオブジェクトを作り
+                DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
+                // タイトル文字列を設定
+                dgvtbc.HeaderText = names[i];
+                // グリッドビューに縦列として追加。
+                dgv.Columns.Add(dgvtbc);
+            }
+
+            DgvDataImport();
+
+            // データグリッドのセルを編集した時のイベントハンドラを登録する。
+            dgv.DataError += dvg_DataError;
+            dgv.CellValueChanged += dgv_CellValueChanged;
+
+            // データグリッドビューをフォームに乗っける
+            this.Controls.Add(dgv);
         }
-
-        DgvDataImport();
-
-        // データグリッドのセルを編集した時のイベントハンドラを登録する。
-        dgv.DataError += dvg_DataError;
-        dgv.CellValueChanged += dgv_CellValueChanged;
-
-        // データグリッドビューをフォームに乗っける
-        this.Controls.Add(dgv);
+        catch (Exception ) { }
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
@@ -81,75 +89,83 @@ public class 年月相場エディタ : Form
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
-        // 対象のセル
-        var cell = dgv[e.ColumnIndex, e.RowIndex];
-        if (e.ColumnIndex == (int)タイトル.年)
+        try
         {
-            try
+            // 対象のセル
+            var cell = dgv[e.ColumnIndex, e.RowIndex];
+            if (e.ColumnIndex == (int)タイトル.年)
             {
-                年月情報.年 = (int)cell.Value;
+                try
+                {
+                    年月情報.年 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 年月情報.年;
+                }
             }
-            catch (Exception)
+            else if (e.ColumnIndex == (int)タイトル.月)
             {
-                cell.Value = 年月情報.年;
+                try
+                {
+                    年月情報.月 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 年月情報.月;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.兵糧)
+            {
+                try
+                {
+                    相場情報.兵糧 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 相場情報.兵糧;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.軍馬)
+            {
+                try
+                {
+                    相場情報.軍馬 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 相場情報.軍馬;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.鉄砲)
+            {
+                try
+                {
+                    相場情報.鉄砲 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 相場情報.鉄砲;
+                }
             }
         }
-        else if (e.ColumnIndex == (int)タイトル.月)
-        {
-            try
-            {
-                年月情報.月 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 年月情報.月;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.兵糧)
-        {
-            try
-            {
-                相場情報.兵糧 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 相場情報.兵糧;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.軍馬)
-        {
-            try
-            {
-                相場情報.軍馬 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 相場情報.軍馬;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.鉄砲)
-        {
-            try
-            {
-                相場情報.鉄砲 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 相場情報.鉄砲;
-            }
-        }
+        catch (Exception) { }
     }
 
     void DgvDataImport()
     {
-        dgv.Rows.Add(年月情報.年, 年月情報.月, 相場情報.兵糧, 相場情報.軍馬, 相場情報.鉄砲);
+        try
+        {
+            dgv.Rows.Add(年月情報.年, 年月情報.月, 相場情報.兵糧, 相場情報.軍馬, 相場情報.鉄砲);
 
-        dgv.Columns[(int)タイトル.年].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.月].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.兵糧].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.軍馬].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.鉄砲].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.年].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.月].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.兵糧].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.軍馬].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.鉄砲].ValueType = typeof(int);
 
-        dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+        catch (Exception) { }
     }
 }

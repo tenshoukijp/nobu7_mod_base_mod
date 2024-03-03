@@ -22,6 +22,10 @@ void onMenuCastleEditStart() {
 	Show_FormMod("城エディタ.mod.dll", "将星録.城エディタ");
 }
 
+void onMenuUnitEditStart() {
+	Show_FormMod("ユニットエディタ.mod.dll", "将星録.ユニットエディタ");
+}
+
 void onMenuKahouEditStart() {
 	Show_FormMod("家宝エディタ.mod.dll", "将星録.家宝エディタ");
 }
@@ -54,14 +58,11 @@ BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 	OutputDebugStream(iMenuID);
 	OutputDebugStream("\r\n");
 	switch (iMenuID) {
-//	case ADDITIONAL_MENU_ID_MEMORYEDITOR:
-//		ShellExecute(NULL, "open", "notepad.exe", NULL, NULL, SW_SHOW);
-//		return TRUE;
 	case ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI:
 		// onMenuBushouEditStart();
 		return TRUE;
 	case ADDITIONAL_MENU_ID_UNITEDIT_KAI:
-		// onMenuUnitEditStart();
+		onMenuUnitEditStart();
 		return TRUE;
 	case ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI:
 		onMenuDaimyoEditStart();

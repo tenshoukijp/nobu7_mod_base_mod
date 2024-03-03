@@ -13,10 +13,13 @@ public class 役職エディタ : Form
 
     public 役職エディタ()
     {
+        try { 
         create役職配列();
 
         setFormAttribute();
         setDataGridAttribute();
+            }
+        catch (Exception ) { }
     }
 
     void create役職配列()
@@ -51,6 +54,7 @@ public class 役職エディタ : Form
     enum タイトル { 配列IX = 0, 役職名, 役位, 所有大名配列IX };
     void setDataGridAttribute()
     {
+        try { 
         dgv.Dock = DockStyle.Fill;
         dgv.AllowUserToAddRows = false;
         dgv.AllowUserToDeleteRows = false;
@@ -77,6 +81,9 @@ public class 役職エディタ : Form
 
         // データグリッドビューをフォームに乗っける
         this.Controls.Add(dgv);
+
+        }
+        catch (Exception ) { }
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
@@ -87,69 +94,76 @@ public class 役職エディタ : Form
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
-        int iYakusyokuID = e.RowIndex;
-        var 役職情報 = new 将星録.役職情報型(iYakusyokuID);
-        // 対象のセル
-        var cell = dgv[e.ColumnIndex, e.RowIndex];
-        if (e.ColumnIndex == (int)タイトル.役職名)
+        try
         {
-            try
+            int iYakusyokuID = e.RowIndex;
+            var 役職情報 = new 将星録.役職情報型(iYakusyokuID);
+            // 対象のセル
+            var cell = dgv[e.ColumnIndex, e.RowIndex];
+            if (e.ColumnIndex == (int)タイトル.役職名)
             {
-                役職情報.役職名 = cell.Value.ToString();
+                try
+                {
+                    役職情報.役職名 = cell.Value.ToString();
+                }
+                catch (Exception)
+                {
+                    cell.Value = 役職情報.役職名;
+                }
             }
-            catch (Exception)
+            else if (e.ColumnIndex == (int)タイトル.役位)
             {
-                cell.Value = 役職情報.役職名;
+                try
+                {
+                    役職情報.役位 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 役職情報.役位;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.所有大名配列IX)
+            {
+                try
+                {
+                    役職情報.所有大名配列IX = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 役職情報.所有大名配列IX;
+                }
             }
         }
-        else if (e.ColumnIndex == (int)タイトル.役位)
-        {
-            try
-            {
-                役職情報.役位 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 役職情報.役位;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.所有大名配列IX)
-        {
-            try
-            {
-                役職情報.所有大名配列IX = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 役職情報.所有大名配列IX;
-            }
-        }
-
+        catch (Exception ) { }
     }
 
     void DgvDataImport()
     {
-        // 横列単位で足してゆく、
-        foreach (var 役職 in 役職配列)
+        try
         {
-            dgv.Rows.Add(
-              役職.配列IX,
-              役職.役職名,
-              役職.役位,
-              役職.所有大名配列IX
-              );
+            // 横列単位で足してゆく、
+            foreach (var 役職 in 役職配列)
+            {
+                dgv.Rows.Add(
+                  役職.配列IX,
+                  役職.役職名,
+                  役職.役位,
+                  役職.所有大名配列IX
+                  );
+            }
+
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.役職名].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.役位].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.役位].ReadOnly = true;
+            dgv.Columns[(int)タイトル.役位].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.所有大名配列IX].ValueType = typeof(int);
+
+
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
-        dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-        dgv.Columns[(int)タイトル.役職名].ValueType = typeof(string);
-        dgv.Columns[(int)タイトル.役位].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.役位].ReadOnly = true;
-        dgv.Columns[(int)タイトル.役位].DefaultCellStyle.BackColor = Color.LightGray;
-        dgv.Columns[(int)タイトル.所有大名配列IX].ValueType = typeof(int);
-
-
-        dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        catch (Exception ) { }
     }
 }

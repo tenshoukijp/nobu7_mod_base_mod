@@ -14,10 +14,14 @@ public class 大名エディタ : Form
 
     public 大名エディタ()
     {
-        create大名配列();
+        try
+        {
+            create大名配列();
 
-        setFormAttribute();
-        setDataGridAttribute();
+            setFormAttribute();
+            setDataGridAttribute();
+        }
+        catch (Exception) { }
     }
 
     void create大名配列()
@@ -58,47 +62,55 @@ public class 大名エディタ : Form
     enum タイトル { 配列IX = 0, 大名姓名, 大名武将配列IX, 居城配列IX, 家紋番号, 旗番号, 朝廷, 朝敵, 鍛冶, 布教, 援軍申込大名配列IX, 援軍申受大名配列IX, 鉄甲船 };
     void setDataGridAttribute()
     {
-        dgv.Dock = DockStyle.Fill;
-        dgv.AllowUserToAddRows = false;
-        dgv.AllowUserToDeleteRows = false;
-
-        string fontName = 将星録.アプリケーション.フォント.フォント名;
-        dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
-
-        string[] names = Enum.GetNames(typeof(タイトル));
-        for (int i = 0; i < names.Length; i++)
+        try
         {
-            // 縦列のオブジェクトを作り
-            DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
-            // タイトル文字列を設定
-            dgvtbc.HeaderText = names[i];
-            // グリッドビューに縦列として追加。
-            dgv.Columns.Add(dgvtbc);
+            dgv.Dock = DockStyle.Fill;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+
+            string fontName = 将星録.アプリケーション.フォント.フォント名;
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
+
+            string[] names = Enum.GetNames(typeof(タイトル));
+            for (int i = 0; i < names.Length; i++)
+            {
+                // 縦列のオブジェクトを作り
+                DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
+                // タイトル文字列を設定
+                dgvtbc.HeaderText = names[i];
+                // グリッドビューに縦列として追加。
+                dgv.Columns.Add(dgvtbc);
+            }
+
+            DgvDataImport();
+
+            // データグリッドのセルを編集した時のイベントハンドラを登録する。
+            dgv.DataError += dvg_DataError;
+            dgv.CellValueChanged += dgv_CellValueChanged;
+            dgv.CellClick += dgv_CellClick;
+
+            // データグリッドビューをフォームに乗っける
+            this.Controls.Add(dgv);
         }
-
-        DgvDataImport();
-
-        // データグリッドのセルを編集した時のイベントハンドラを登録する。
-        dgv.DataError += dvg_DataError;
-        dgv.CellValueChanged += dgv_CellValueChanged;
-        dgv.CellClick += dgv_CellClick;
-
-        // データグリッドビューをフォームに乗っける
-        this.Controls.Add(dgv);
+        catch (Exception) { }
     }
 
     private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-        if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+        try
         {
-            if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex < dgv.Rows.Count)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                // ボタンがクリックされたセルの処理
-                // e.RowIndex に押されたボタンが属する行のインデックスが入っている
-                将星録.大名関係エディタ editor = new 将星録.大名関係エディタ(e.RowIndex);
-                editor.Show();
+                if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex < dgv.Rows.Count)
+                {
+                    // ボタンがクリックされたセルの処理
+                    // e.RowIndex に押されたボタンが属する行のインデックスが入っている
+                    将星録.大名関係エディタ editor = new 将星録.大名関係エディタ(e.RowIndex);
+                    editor.Show();
+                }
             }
         }
+        catch (Exception) { }
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
@@ -109,203 +121,214 @@ public class 大名エディタ : Form
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
-        int iDaimyoID = e.RowIndex;
-        var 大名情報 = new 将星録.大名情報型(iDaimyoID);
-        // 対象のセル
-        var cell = dgv[e.ColumnIndex, e.RowIndex];
-        if (e.ColumnIndex == (int)タイトル.大名武将配列IX)
+        try
         {
-            try
+            int iDaimyoID = e.RowIndex;
+            var 大名情報 = new 将星録.大名情報型(iDaimyoID);
+            // 対象のセル
+            var cell = dgv[e.ColumnIndex, e.RowIndex];
+            if (e.ColumnIndex == (int)タイトル.大名武将配列IX)
             {
-                大名情報.大名武将配列IX = (int)cell.Value;
+                try
+                {
+                    大名情報.大名武将配列IX = (int)cell.Value;
 
-                update大名武将姓名(e, 大名情報);
+                    update大名武将姓名(e, 大名情報);
 
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.大名武将配列IX;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.大名武将配列IX;
 
-                update大名武将姓名(e, 大名情報);
+                    update大名武将姓名(e, 大名情報);
 
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.居城配列IX)
+            {
+                try
+                {
+                    大名情報.居城配列IX = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.居城配列IX;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.家紋番号)
+            {
+                try
+                {
+                    大名情報.家紋番号 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.家紋番号;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.旗番号)
+            {
+                try
+                {
+                    大名情報.旗番号 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.旗番号;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.朝廷)
+            {
+                try
+                {
+                    大名情報.朝廷 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.朝廷;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.朝敵)
+            {
+                try
+                {
+                    大名情報.朝敵 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.朝敵;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.鍛冶)
+            {
+                try
+                {
+                    大名情報.鍛冶 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.鍛冶;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.布教)
+            {
+                try
+                {
+                    大名情報.布教 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.布教;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.援軍申込大名配列IX)
+            {
+                try
+                {
+                    大名情報.援軍申込大名配列IX = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.援軍申込大名配列IX;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.援軍申受大名配列IX)
+            {
+                try
+                {
+                    大名情報.援軍申受大名配列IX = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.援軍申受大名配列IX;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.鉄甲船)
+            {
+                try
+                {
+                    大名情報.鉄甲船 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.鉄甲船;
+                }
             }
         }
-        else if (e.ColumnIndex == (int)タイトル.居城配列IX)
-        {
-            try
-            {
-                大名情報.居城配列IX = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.居城配列IX;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.家紋番号)
-        {
-            try
-            {
-                大名情報.家紋番号 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.家紋番号;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.旗番号)
-        {
-            try
-            {
-                大名情報.旗番号 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.旗番号;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.朝廷)
-        {
-            try
-            {
-                大名情報.朝廷 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.朝廷;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.朝敵)
-        {
-            try
-            {
-                大名情報.朝敵 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.朝敵;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.鍛冶)
-        {
-            try
-            {
-                大名情報.鍛冶 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.鍛冶;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.布教)
-        {
-            try
-            {
-                大名情報.布教 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.布教;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.援軍申込大名配列IX)
-        {
-            try
-            {
-                大名情報.援軍申込大名配列IX = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.援軍申込大名配列IX;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.援軍申受大名配列IX)
-        {
-            try
-            {
-                大名情報.援軍申受大名配列IX = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.援軍申受大名配列IX;
-            }
-        }
-        else if (e.ColumnIndex == (int)タイトル.鉄甲船)
-        {
-            try
-            {
-                大名情報.鉄甲船 = (int)cell.Value;
-            }
-            catch (Exception)
-            {
-                cell.Value = 大名情報.鉄甲船;
-            }
-        }
-
+        catch (Exception) { }
     }
 
     private void update大名武将姓名(DataGridViewCellEventArgs e, 大名情報型 大名情報)
     {
-        int iBushouID = 大名情報.大名武将配列IX;
-        String strBushouName = "-";
-        if (0 <= iBushouID && iBushouID < 武将配列.Count)
+        try
         {
-            strBushouName = 武将配列[iBushouID].姓名;
-        }
-        var nameCell = dgv[(int)タイトル.大名姓名, e.RowIndex];
-        nameCell.Value = strBushouName;
-    }
-
-    void DgvDataImport()
-    {
-        // 横列単位で足してゆく、
-        foreach (var 大名 in 大名配列)
-        {
-            int iBushouID = 大名.大名武将配列IX;
+            int iBushouID = 大名情報.大名武将配列IX;
             String strBushouName = "-";
             if (0 <= iBushouID && iBushouID < 武将配列.Count)
             {
                 strBushouName = 武将配列[iBushouID].姓名;
             }
-            dgv.Rows.Add(
-              大名.配列IX,
-              strBushouName,
-              大名.大名武将配列IX,
-              大名.居城配列IX,
-              大名.家紋番号,
-              大名.旗番号,
-              大名.朝廷,
-              大名.朝敵,
-              大名.鍛冶,
-              大名.布教,
-              大名.援軍申込大名配列IX,
-              大名.援軍申受大名配列IX,
-              大名.鉄甲船
-              );
+            var nameCell = dgv[(int)タイトル.大名姓名, e.RowIndex];
+            nameCell.Value = strBushouName;
         }
+        catch (Exception) { }
+    }
 
-        dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-        dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-
-        dgv.Columns[(int)タイトル.大名姓名].ValueType = typeof(int);
-        dgv.Columns[(int)タイトル.大名姓名].ReadOnly = true;
-        dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.Yellow;
-
-        dgv.Columns[(int)タイトル.大名武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-        dgv.Columns[(int)タイトル.居城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-        string[] names = Enum.GetNames(typeof(タイトル));
-        for (int i = (int)タイトル.大名武将配列IX; i < names.Length; i++)
+    void DgvDataImport()
+    {
+        try
         {
-            dgv.Columns[i].ValueType = typeof(int);
+            // 横列単位で足してゆく、
+            foreach (var 大名 in 大名配列)
+            {
+                int iBushouID = 大名.大名武将配列IX;
+                String strBushouName = "-";
+                if (0 <= iBushouID && iBushouID < 武将配列.Count)
+                {
+                    strBushouName = 武将配列[iBushouID].姓名;
+                }
+                dgv.Rows.Add(
+                  大名.配列IX,
+                  strBushouName,
+                  大名.大名武将配列IX,
+                  大名.居城配列IX,
+                  大名.家紋番号,
+                  大名.旗番号,
+                  大名.朝廷,
+                  大名.朝敵,
+                  大名.鍛冶,
+                  大名.布教,
+                  大名.援軍申込大名配列IX,
+                  大名.援軍申受大名配列IX,
+                  大名.鉄甲船
+                  );
+            }
+
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
+
+            dgv.Columns[(int)タイトル.大名姓名].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.大名姓名].ReadOnly = true;
+            dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.Yellow;
+
+            dgv.Columns[(int)タイトル.大名武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.居城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            string[] names = Enum.GetNames(typeof(タイトル));
+            for (int i = (int)タイトル.大名武将配列IX; i < names.Length; i++)
+            {
+                dgv.Columns[i].ValueType = typeof(int);
+            }
+
+            buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.HeaderText = "外交関係";
+            buttonColumn.Text = "編集";
+            buttonColumn.UseColumnTextForButtonValue = true; // 列内の全てのセルに同じテキストを表示
+            dgv.Columns.Add(buttonColumn);
+
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
-        buttonColumn = new DataGridViewButtonColumn();
-        buttonColumn.HeaderText = "外交関係";
-        buttonColumn.Text = "編集";
-        buttonColumn.UseColumnTextForButtonValue = true; // 列内の全てのセルに同じテキストを表示
-        dgv.Columns.Add(buttonColumn);
-
-        dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        catch (Exception) { }
     }
 }

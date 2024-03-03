@@ -43,6 +43,25 @@ int getUnitIDFromBushouID(int iBushouID) {
 	return 0xFFFF;
 }
 
+BOOL setUnitBushouID(int iUnitID, int iBushouID) {
+	if (isValidUnitID(iUnitID)) {
+
+		if (isValidBushouID(iBushouID)) {
+			// 武将情報のアドレスを取得
+			int iBushouAddress = (int)(武将情報アドレス)+iBushouID * sizeof(NB7武将情報型);
+			nb7ユニット情報[iUnitID].p指揮武将 = (int*)iBushouAddress;
+			return TRUE;
+		}
+		else {
+			nb7ユニット情報[iUnitID].p指揮武将 = (int*)ユニット指揮武将なし;
+			return TRUE;
+		}
+
+	}
+
+	return FALSE;
+}
+
 
 int getUnitIDFromUnitPtr(int* iUnitPtr) {
 	int nUnitAddress = (int)(iUnitPtr);

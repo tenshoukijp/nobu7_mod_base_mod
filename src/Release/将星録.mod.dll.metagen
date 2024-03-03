@@ -132,11 +132,12 @@ Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, Bef
     Int32 目的   'get set' : 
     Int32 種別   'get set' : 
     Int32 所属城配列IX 'get set' : 
-    Int32 指揮武将配列IX 'get ' : 
+    Int32 指揮武将配列IX 'get set' : 
     Int32 配列IX 'get ' : 
   Methods:
     get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
     get_指揮武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_指揮武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_所属城配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_所属城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_種別(): PrivateScope, Public, HideBySig, SpecialName

@@ -37,6 +37,175 @@ Class 将星録.列挙.ユニット.種別: AutoLayout, AnsiClass, Class, Public
     Int32 使者 IsConst : Public, Static, HasDefault
     Int32 移動 IsConst : Public, Static, HasDefault
     Int32 浪人 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.ユニット.目的: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 攻撃 IsConst : Public, Static, HasDefault
+    Int32 水攻 IsConst : Public, Static, HasDefault
+    Int32 占拠 IsConst : Public, Static, HasDefault
+    Int32 補給 IsConst : Public, Static, HasDefault
+    Int32 開拓 IsConst : Public, Static, HasDefault
+    Int32 治水 IsConst : Public, Static, HasDefault
+    Int32 町造 IsConst : Public, Static, HasDefault
+    Int32 関所 IsConst : Public, Static, HasDefault
+    Int32 関廃 IsConst : Public, Static, HasDefault
+    Int32 築港 IsConst : Public, Static, HasDefault
+    Int32 改修 IsConst : Public, Static, HasDefault
+    Int32 築城 IsConst : Public, Static, HasDefault
+    Int32 廃止 IsConst : Public, Static, HasDefault
+    Int32 村落 IsConst : Public, Static, HasDefault
+    Int32 鍛冶 IsConst : Public, Static, HasDefault
+    Int32 教会 IsConst : Public, Static, HasDefault
+    Int32 内応 IsConst : Public, Static, HasDefault
+    Int32 謀反 IsConst : Public, Static, HasDefault
+    Int32 流言 IsConst : Public, Static, HasDefault
+    Int32 誘発 IsConst : Public, Static, HasDefault
+    Int32 暗殺 IsConst : Public, Static, HasDefault
+    Int32 攪乱 IsConst : Public, Static, HasDefault
+    Int32 工作 IsConst : Public, Static, HasDefault
+    Int32 同盟 IsConst : Public, Static, HasDefault
+    Int32 婚姻 IsConst : Public, Static, HasDefault
+    Int32 手切 IsConst : Public, Static, HasDefault
+    Int32 脅迫 IsConst : Public, Static, HasDefault
+    Int32 貢物 IsConst : Public, Static, HasDefault
+    Int32 援軍 IsConst : Public, Static, HasDefault
+    Int32 推挙 IsConst : Public, Static, HasDefault
+    Int32 説得 IsConst : Public, Static, HasDefault
+    Int32 献上 IsConst : Public, Static, HasDefault
+    Int32 官位 IsConst : Public, Static, HasDefault
+    Int32 調停 IsConst : Public, Static, HasDefault
+    Int32 討伐 IsConst : Public, Static, HasDefault
+    Int32 朝敵 IsConst : Public, Static, HasDefault
+    Int32 解除 IsConst : Public, Static, HasDefault
+    Int32 取込 IsConst : Public, Static, HasDefault
+    Int32 上陸 IsConst : Public, Static, HasDefault
+    Int32 乗船 IsConst : Public, Static, HasDefault
+    Int32 委任 IsConst : Public, Static, HasDefault
+    Int32 詳細 IsConst : Public, Static, HasDefault
+    Int32 中止 IsConst : Public, Static, HasDefault
+    Int32 終了 IsConst : Public, Static, HasDefault
+    Int32 移動 IsConst : Public, Static, HasDefault
+    Int32 早刈 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.ユニット.部隊兵種: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 足軽 IsConst : Public, Static, HasDefault
+    Int32 騎馬 IsConst : Public, Static, HasDefault
+    Int32 鉄砲 IsConst : Public, Static, HasDefault
+    Int32 騎馬鉄砲 IsConst : Public, Static, HasDefault
+Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 目標Ｙ座標 'get ' : 
+    Int32 目標Ｘ座標 'get ' : 
+    Int32 現在Ｙ座標 'get ' : 
+    Int32 現在Ｘ座標 'get ' : 
+    Int32 後ユニット配列IX 'get set' : 
+    Int32 第５部隊陣形位置 'get set' : 
+    Int32 第４部隊陣形位置 'get set' : 
+    Int32 第３部隊陣形位置 'get set' : 
+    Int32 第２部隊陣形位置 'get set' : 
+    Int32 第１部隊陣形位置 'get set' : 
+    Int32 第５部隊混乱 'get set' : 
+    Int32 第４部隊混乱 'get set' : 
+    Int32 第３部隊混乱 'get set' : 
+    Int32 第２部隊混乱 'get set' : 
+    Int32 第１部隊混乱 'get set' : 
+    Int32 第５部隊兵種 'get set' : 
+    Int32 第４部隊兵種 'get set' : 
+    Int32 第３部隊兵種 'get set' : 
+    Int32 第２部隊兵種 'get set' : 
+    Int32 第１部隊兵種 'get set' : 
+    Int32 第５部隊兵数 'get set' : 
+    Int32 第４部隊兵数 'get set' : 
+    Int32 第３部隊兵数 'get set' : 
+    Int32 第２部隊兵数 'get set' : 
+    Int32 第１部隊兵数 'get set' : 
+    Int32 鉄甲船  'get set' : 
+    Int32 大砲   'get set' : 
+    Int32 輸送大砲 'get set' : 
+    Int32 輸送兵士 'get set' : 
+    Int32 輸送鉄砲 'get set' : 
+    Int32 輸送軍馬 'get set' : 
+    Int32 輸送兵糧 'get set' : 
+    Int32 輸送金銭 'get set' : 
+    Int32 目的   'get set' : 
+    Int32 種別   'get set' : 
+    Int32 所属城配列IX 'get set' : 
+    Int32 指揮武将配列IX 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_指揮武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_指揮武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_所属城配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_所属城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_種別(): PrivateScope, Public, HideBySig, SpecialName
+    set_種別(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_目的(): PrivateScope, Public, HideBySig, SpecialName
+    set_目的(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送金銭(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送金銭(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送兵糧(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送兵糧(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送軍馬(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送軍馬(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送鉄砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送鉄砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送兵士(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送兵士(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_輸送大砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_輸送大砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_大砲(): PrivateScope, Public, HideBySig, SpecialName
+    set_大砲(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_鉄甲船(): PrivateScope, Public, HideBySig, SpecialName
+    set_鉄甲船(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第１部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第１部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第２部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第２部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第３部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第３部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第４部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第４部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第５部隊兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_第５部隊兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第１部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第１部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第２部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第２部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第３部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第３部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第４部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第４部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第５部隊兵種(): PrivateScope, Public, HideBySig, SpecialName
+    set_第５部隊兵種(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第１部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第１部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第２部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第２部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第３部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第３部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第４部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第４部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第５部隊混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_第５部隊混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第１部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第１部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第２部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第２部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第３部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第３部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第４部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第４部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_第５部隊陣形位置(): PrivateScope, Public, HideBySig, SpecialName
+    set_第５部隊陣形位置(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_後ユニット配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_後ユニット配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_現在Ｘ座標(): PrivateScope, Public, HideBySig, SpecialName
+    get_現在Ｙ座標(): PrivateScope, Public, HideBySig, SpecialName
+    get_目標Ｘ座標(): PrivateScope, Public, HideBySig, SpecialName
+    get_目標Ｙ座標(): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.武将.状態: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -814,6 +983,7 @@ Class 将星録.最大数.大名情報: AutoLayout, AnsiClass, Class, Public, Be
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 配列数 IsConst : Public, Static, HasDefault
+    Int32 家紋数 IsConst : Public, Static, HasDefault
 Class 将星録.最大数.家宝情報: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -1206,7 +1376,7 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     Int32 委任攻撃目標城配列IX 'get set' : 
     Int32 委任攻撃 'get set' : 
     Int32 委任状態 'get set' : 
-    Int32 城主武将配列IX 'get ' : 
+    Int32 城主武将配列IX 'get set' : 
     Int32 商人   'get set' : 
     Int32 負傷兵数MAX 'get ' : 
     Int32 負傷兵数 'get set' : 
@@ -1224,8 +1394,9 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     Int32 金銭   'get set' : 
     Int32 防御MAX 'get ' : 
     Int32 防御   'get set' : 
-    Int32 城規模  'get set' : 
+    Int32 規模   'get set' : 
     Int32 所属大名配列IX 'get set' : 
+    Int32 籠城番号 'get set' : 
     System.String 城称 'get ' : 
     System.String 城名 'get set' : 
     Int32 配列IX 'get ' : 
@@ -1234,10 +1405,12 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     get_城名(): PrivateScope, Public, HideBySig, SpecialName
     set_城名(String): PrivateScope, Public, HideBySig, SpecialName
     get_城称(): PrivateScope, Public, HideBySig, SpecialName
+    get_籠城番号(): PrivateScope, Public, HideBySig, SpecialName
+    set_籠城番号(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_所属大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_所属大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_城規模(): PrivateScope, Public, HideBySig, SpecialName
-    set_城規模(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_規模(): PrivateScope, Public, HideBySig, SpecialName
+    set_規模(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_防御(): PrivateScope, Public, HideBySig, SpecialName
     set_防御(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_防御MAX(): PrivateScope, Public, HideBySig, SpecialName
@@ -1265,6 +1438,7 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     get_商人(): PrivateScope, Public, HideBySig, SpecialName
     set_商人(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_城主武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_城主武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_委任状態(): PrivateScope, Public, HideBySig, SpecialName
     set_委任状態(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_委任攻撃(): PrivateScope, Public, HideBySig, SpecialName
@@ -1275,6 +1449,78 @@ Class 将星録.城情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     set_後城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_開始ユニット配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_開始ユニット配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.大名情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 援軍申受大名配列IX 'get set' : 
+    Int32 援軍申込大名配列IX 'get set' : 
+    Int32 敵対大名配列IX 'get set' : 
+    Int32 家紋番号 'get set' : 
+    Int32 プレイヤ担当 'get set' : 
+    Int32 旗番号  'get set' : 
+    Int32 布教   'get set' : 
+    Int32 鍛冶   'get set' : 
+    Int32 朝敵   'get set' : 
+    Int32 鉄甲船  'get set' : 
+    Int32 朝廷   'get set' : 
+    Int32 居城配列IX 'get set' : 
+    Int32 大名武将配列IX 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_大名武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_大名武将配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_居城配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_居城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_朝廷(): PrivateScope, Public, HideBySig, SpecialName
+    set_朝廷(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_鉄甲船(): PrivateScope, Public, HideBySig, SpecialName
+    set_鉄甲船(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_朝敵(): PrivateScope, Public, HideBySig, SpecialName
+    set_朝敵(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_鍛冶(): PrivateScope, Public, HideBySig, SpecialName
+    set_鍛冶(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_布教(): PrivateScope, Public, HideBySig, SpecialName
+    set_布教(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_旗番号(): PrivateScope, Public, HideBySig, SpecialName
+    set_旗番号(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_プレイヤ担当(): PrivateScope, Public, HideBySig, SpecialName
+    set_プレイヤ担当(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_家紋番号(): PrivateScope, Public, HideBySig, SpecialName
+    set_家紋番号(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_敵対大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_敵対大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_援軍申込大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_援軍申込大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_援軍申受大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    set_援軍申受大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.大名関係友好情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Item [Int32, Int32] 'get set' : 
+  Methods:
+    get_Item(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.大名関係婚姻情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Item [Int32, Int32] 'get set' : 
+  Methods:
+    get_Item(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.大名関係同盟残情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Item [Int32, Int32] 'get set' : 
+  Methods:
+    get_Item(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.大名関係情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    将星録.大名関係友好情報型 友好 : Public
+    将星録.大名関係婚姻情報型 婚姻 : Public
+    将星録.大名関係同盟残情報型 同盟残 : Public
 Class 将星録.列挙.官位.階位: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -1393,6 +1639,70 @@ Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_役位(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_所有大名配列IX(): PrivateScope, Public, HideBySig, SpecialName
     set_所有大名配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String 姓名 'get ' : 
+    System.String 名前 'get set' : 
+    System.String 苗字 'get set' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_苗字(): PrivateScope, Public, HideBySig, SpecialName
+    set_苗字(String): PrivateScope, Public, HideBySig, SpecialName
+    get_名前(): PrivateScope, Public, HideBySig, SpecialName
+    set_名前(String): PrivateScope, Public, HideBySig, SpecialName
+    get_姓名(): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.野戦.ターン情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 天気   'get set' : 
+    Int32 残りターン 'get ' : 
+  Methods:
+    get_残りターン(): PrivateScope, Public, HideBySig, SpecialName
+    get_天気(): PrivateScope, Public, HideBySig, SpecialName
+    set_天気(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.列挙.野戦.天気: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 晴 IsConst : Public, Static, HasDefault
+    Int32 曇 IsConst : Public, Static, HasDefault
+    Int32 雨 IsConst : Public, Static, HasDefault
+    Int32 雪 IsConst : Public, Static, HasDefault
+Class 将星録.野戦.攻撃部隊情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 旗部隊  'get ' : 
+    Int32 行動済み 'get ' : 
+    Int32 種別   'get ' : 
+    Int32 兵数   'get set' : 
+    Int32 部隊番号 'get ' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_部隊番号(): PrivateScope, Public, HideBySig, SpecialName
+    get_兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_種別(): PrivateScope, Public, HideBySig, SpecialName
+    get_行動済み(): PrivateScope, Public, HideBySig, SpecialName
+    get_旗部隊(): PrivateScope, Public, HideBySig, SpecialName
+Class 将星録.野戦.防御部隊情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 旗部隊  'get ' : 
+    Int32 行動済み 'get ' : 
+    Int32 種別   'get ' : 
+    Int32 兵数   'get set' : 
+    Int32 部隊番号 'get ' : 
+    Int32 配列IX 'get ' : 
+  Methods:
+    get_配列IX(): PrivateScope, Public, HideBySig, SpecialName
+    get_部隊番号(): PrivateScope, Public, HideBySig, SpecialName
+    get_兵数(): PrivateScope, Public, HideBySig, SpecialName
+    set_兵数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_種別(): PrivateScope, Public, HideBySig, SpecialName
+    get_行動済み(): PrivateScope, Public, HideBySig, SpecialName
+    get_旗部隊(): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.相場情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:

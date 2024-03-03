@@ -18,6 +18,7 @@ namespace «¯˜^ {
 
 		property int wŠö•«”z—ñIX {
 			int get();
+			void set(int value);
 		}
 
 		property int Š‘®é”z—ñIX {

@@ -109,6 +109,9 @@ BOOL isValidUnitID(int iUnitID);
 // ユニットIDからそれを率いる武将IDを得る
 int getBushouIDFromUnitID(int iUnitID);
 
+
+BOOL setUnitBushouID(int iUnitID, int iBushouID);
+
 // 武将IDからそれを率いるユニットIDを得る
 int getUnitIDFromBushouID(int iBushouID);
 

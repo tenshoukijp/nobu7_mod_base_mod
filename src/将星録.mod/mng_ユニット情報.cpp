@@ -207,6 +207,18 @@ int ユニット情報型::指揮武将配列IX::get()
 	return getBushouIDFromUnitID(ユニット配列IX);
 }
 
+void ユニット情報型::指揮武将配列IX::set(int value) {
+	if (isValidBushouID(value) || value == 0xFFFF) { // 0xFFFF
+		BOOL ret = setUnitBushouID(ユニット配列IX, value);
+		if (ret == 0) {
+			throw gcnew System::ArgumentException("指揮武将配列IXが不正です");
+		}
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("指揮武将配列IXが不正です。");
+	}
+}
+
 
 int ユニット情報型::第１部隊兵数::get()
 {
@@ -315,7 +327,7 @@ int ユニット情報型::第１部隊兵種::get()
 }
 
 void ユニット情報型::第１部隊兵種::set(int value) {
-	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲) {
+	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第１部隊兵種 = value;
 	}
 	else {
@@ -329,7 +341,7 @@ int ユニット情報型::第２部隊兵種::get()
 }
 
 void ユニット情報型::第２部隊兵種::set(int value) {
-	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲) {
+	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第２部隊兵種 = value;
 	}
 	else {
@@ -343,7 +355,7 @@ int ユニット情報型::第３部隊兵種::get()
 }
 
 void ユニット情報型::第３部隊兵種::set(int value) {
-	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲) {
+	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第３部隊兵種 = value;
 	}
 	else {
@@ -357,7 +369,7 @@ int ユニット情報型::第４部隊兵種::get()
 }
 
 void ユニット情報型::第４部隊兵種::set(int value) {
-	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲) {
+	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第４部隊兵種 = value;
 	}
 	else {
@@ -371,7 +383,7 @@ int ユニット情報型::第５部隊兵種::get()
 }
 
 void ユニット情報型::第５部隊兵種::set(int value) {
-	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲) {
+	if (0 <= value && value <= 列挙::ユニット::部隊兵種::騎馬鉄砲 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第５部隊兵種 = value;
 	}
 	else {
@@ -386,7 +398,7 @@ int ユニット情報型::第１部隊混乱::get()
 }
 
 void ユニット情報型::第１部隊混乱::set(int value) {
-	if (0 <= value && value <= 1) {
+	if (0 <= value && value <= 1 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第１部隊混乱 = value;
 	}
 	else {
@@ -400,7 +412,7 @@ int ユニット情報型::第２部隊混乱::get()
 }
 
 void ユニット情報型::第２部隊混乱::set(int value) {
-	if (0 <= value && value <= 1) {
+	if (0 <= value && value <= 1 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第２部隊混乱 = value;
 	}
 	else {
@@ -414,7 +426,7 @@ int ユニット情報型::第３部隊混乱::get()
 }
 
 void ユニット情報型::第３部隊混乱::set(int value) {
-	if (0 <= value && value <= 1) {
+	if (0 <= value && value <= 1 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第３部隊混乱 = value;
 	}
 	else {
@@ -428,7 +440,7 @@ int ユニット情報型::第４部隊混乱::get()
 }
 
 void ユニット情報型::第４部隊混乱::set(int value) {
-	if (0 <= value && value <= 1) {
+	if (0 <= value && value <= 1 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第４部隊混乱 = value;
 	}
 	else {
@@ -442,7 +454,7 @@ int ユニット情報型::第５部隊混乱::get()
 }
 
 void ユニット情報型::第５部隊混乱::set(int value) {
-	if (0 <= value && value <= 1) {
+	if (0 <= value && value <= 1 || value == 0xFF) {
 		nb7ユニット情報[ユニット配列IX].第５部隊混乱 = value;
 	}
 	else {
