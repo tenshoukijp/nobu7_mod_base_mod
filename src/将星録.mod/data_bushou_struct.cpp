@@ -135,3 +135,19 @@ BOOL setBushou©–¼(int iBushouID, std::string str©–¼) {
 	}
 	return FALSE;
 }
+
+// •«‚Ì‹é‚ğİ’è‚·‚é
+BOOL setBushouCastle(int iBushouID, int iCastleID) {
+	if (isValidBushouID(iBushouID)) {
+		if (isValidCastleID(iCastleID)) {
+			nb7•«î•ñ[iCastleID].p‹é = getCastlePtrFromCastleID(iCastleID);
+			return TRUE;
+		}
+		else if (iCastleID == 0xFFFF) {
+			nb7•«î•ñ[iCastleID].p‹é = (int*)•«‹é‚È‚µ;
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}

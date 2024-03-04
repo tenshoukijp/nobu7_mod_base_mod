@@ -48,6 +48,7 @@ namespace 将星録 {
 		public ref struct 武将情報 {
 			static const int 配列数 = 732;
 			static const int 総配列数 = 744; // 農民を含む
+			static const int 顔画像数 = 769; // 0～768
 		};
 		public ref struct ユニット情報 {
 			static const int 配列数 = 744;

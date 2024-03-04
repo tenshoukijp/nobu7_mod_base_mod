@@ -73,7 +73,7 @@ int 大名情報型::朝廷::get()
 
 void 大名情報型::朝廷::set(int value) {
 	if (0 <= value && value <= 200) {
-		nb7城情報[大名配列IX].籠城番号 = value;
+		nb7大名情報[大名配列IX].朝廷 = value;
 	}
 	else {
 		throw gcnew System::ArgumentOutOfRangeException("朝廷が不正です。");

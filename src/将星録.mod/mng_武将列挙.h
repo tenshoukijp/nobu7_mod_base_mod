@@ -13,8 +13,62 @@ namespace «¯˜^ {
 				static const int –¢“oê = 5;
 				static const int ˆêŒüˆê„¨—Í = 6;
 				static const int ˆê„¨—Í = 7;
+				static const int ‘Ò‹@ = 8; // 732ˆÈ~‚Ìu”_–¯E‘m—µEˆêsˆê„‚â’©’ìŠÖ˜Al•¨v‚Ì‚Í‘Ò‹@‚ÌˆÓ–¡
 				static const int €–S = 8;
 			};
+
+			public ref class Œû’² {
+			public:
+				static const int –³Œû = 0;
+				static const int —ç‹V = 1;
+				static const int ‘e–\ = 2;
+				static const int ‚‹M = 3;
+				static const int ¶ˆÓ‹C = 4;
+				static const int ˆĞŒµ = 5;
+				static const int é`ã = 6;
+				static const int ˆê”Ê = 7;
+			};
+
+			public ref class ‘«Œy“K« {
+			public:
+				static const int ‚d = 1;
+				static const int ‚c = 2;
+				static const int ‚b = 3;
+				static const int ‚a = 4;
+				static const int ‚` = 5;
+				static const int ‚r = 6;
+			};
+
+			public ref class ‹R”n“K« {
+			public:
+				static const int ‚d = 1;
+				static const int ‚c = 2;
+				static const int ‚b = 3;
+				static const int ‚a = 4;
+				static const int ‚` = 5;
+				static const int ‚r = 6;
+			};
+
+			public ref class “S–C“K« {
+			public:
+				static const int ‚d = 1;
+				static const int ‚c = 2;
+				static const int ‚b = 3;
+				static const int ‚a = 4;
+				static const int ‚` = 5;
+				static const int ‚r = 6;
+			};
+
+			public ref class …ŒR“K« {
+			public:
+				static const int ‚d = 1;
+				static const int ‚c = 2;
+				static const int ‚b = 3;
+				static const int ‚a = 4;
+				static const int ‚` = 5;
+				static const int ‚r = 6;
+			};
+
 
 			public ref class ”z—ñ {
 			public:

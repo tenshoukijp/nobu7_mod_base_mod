@@ -23,12 +23,14 @@ int testFlag = 0;
 
 void doGameTest() {
 	testFlag = 1;
-	for (int i = 0; i < 最大数::ユニット情報::配列数; i++) {
-		int iBushouID = getBushouIDFromUnitID(i);
-		OutputDebugStream("目的:%d ", nb7ユニット情報[i].目的);
-		if (isValidBushouID(iBushouID)) {
-			auto 姓名 = nb7武将情報[iBushouID].姓名;
+	for (int i = 0; i < 最大数::武将情報::総配列数; i++) {
+		OutputDebugStream("状態:%d ", nb7武将情報[i].状態);
+		if (isValidBushouID(i)) {
+			auto 姓名 = nb7武将情報[i].姓名;
 			OutputDebugStream("%s\n", 姓名);
+		}
+		else {
+			OutputDebugStream("\n");
 		}
 	}
 	/*
