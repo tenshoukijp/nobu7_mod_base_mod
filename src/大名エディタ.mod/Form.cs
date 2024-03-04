@@ -59,7 +59,7 @@ public class 大名エディタ : Form
         }
     }
 
-    enum タイトル { 配列IX = 0, 大名姓名, 大名武将配列IX, 居城配列IX, 家紋番号, 旗番号, 朝廷, 朝敵, 鍛冶, 布教, 援軍申込大名配列IX, 援軍申受大名配列IX, 鉄甲船 };
+    enum タイトル { 配列IX = 0, 大名姓名, 大名武将配列IX, 居城配列IX, プレイヤ担当, 家紋番号, 旗番号, 朝廷, 朝敵, 鍛冶, 布教, 援軍申込大名配列IX, 援軍申受大名配列IX, 鉄甲船 };
     void setDataGridAttribute()
     {
         try
@@ -153,6 +153,17 @@ public class 大名エディタ : Form
                 catch (Exception)
                 {
                     cell.Value = 大名情報.居城配列IX;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.プレイヤ担当)
+            {
+                try
+                {
+                    大名情報.プレイヤ担当 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 大名情報.プレイヤ担当;
                 }
             }
             else if (e.ColumnIndex == (int)タイトル.家紋番号)
@@ -292,6 +303,7 @@ public class 大名エディタ : Form
                   strBushouName,
                   大名.大名武将配列IX,
                   大名.居城配列IX,
+                  大名.プレイヤ担当,
                   大名.家紋番号,
                   大名.旗番号,
                   大名.朝廷,

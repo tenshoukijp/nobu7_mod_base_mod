@@ -11,6 +11,8 @@ HWND* referenceOfNB7Wnd = NULL;
 
 extern void ユーザカスタムメニュー();
 
+extern void AddBushouGaijiConvertMap();
+
 void onCreateWindow(HWND hWnd) {
 
 	// ウィンドウハンドルを保存
@@ -20,6 +22,8 @@ void onCreateWindow(HWND hWnd) {
 	*referenceOfNB7Wnd = hWnd;
 
 	OutputDebugStream("ウィンドウ生成\n");
+
+	AddBushouGaijiConvertMap();
 
 	// メニューがころころ変わるので、メニューの変更を検知するため。最初にこれを代入。主にHook_SetMenuで、使われている。
 	hNB7MenuCheckChange = GetMenu(hNB7Wnd);

@@ -7,6 +7,23 @@
 
 using namespace std;
 
+std::map<string, string> 漢字To外字;
+std::map<string, string> 外字To漢字;
+
+void AddBushouGaijiConvertMap() {
+	if (漢字To外字.size() == 0 || 外字To漢字.size() == 0) {
+		漢字To外字["長宗我部"] = "\xEB\x9F\xEB\xA0\xEB\xA1";
+		漢字To外字["香宗我部"] = "\xEB\xA2\xEB\xA0\xEB\xA1";
+		漢字To外字["五右衛門"] = "\xEB\xA3\xEB\xA4\xEB\xA5";
+		漢字To外字["又右衛門"] = "\xEB\xA6\xEB\xA4\xEB\xA5";
+
+		外字To漢字["\xEB\x9F\xEB\xA0\xEB\xA1"] = "長宗我部";
+		外字To漢字["\xEB\xA2\xEB\xA0\xEB\xA1"] = "香宗我部";
+		外字To漢字["\xEB\xA3\xEB\xA4\xEB\xA5"] = "五右衛門";
+		外字To漢字["\xEB\xA6\xEB\xA4\xEB\xA5"] = "又右衛門";
+	}
+}
+
 BOOL isValidBushouID(int iBushouID) {
 	if ( 0 <= iBushouID && iBushouID < 最大数::武将情報::総配列数) {
 		return TRUE;
@@ -140,11 +157,11 @@ BOOL setBushou姓名(int iBushouID, std::string str姓名) {
 BOOL setBushouCastle(int iBushouID, int iCastleID) {
 	if (isValidBushouID(iBushouID)) {
 		if (isValidCastleID(iCastleID)) {
-			nb7武将情報[iCastleID].p居城 = getCastlePtrFromCastleID(iCastleID);
+			nb7武将情報[iBushouID].p居城 = getCastlePtrFromCastleID(iCastleID);
 			return TRUE;
 		}
 		else if (iCastleID == 0xFFFF) {
-			nb7武将情報[iCastleID].p居城 = (int*)武将居城なし;
+			nb7武将情報[iBushouID].p居城 = (int*)武将居城なし;
 			return TRUE;
 		}
 	}

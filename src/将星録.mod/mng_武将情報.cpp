@@ -12,29 +12,17 @@ using namespace 将星録::列挙;
 
 using namespace System::Collections::Generic;
 
-std::map<string, string> 漢字To外字;
-std::map<string, string> 外字To漢字;
+extern std::map<string, string> 漢字To外字;
+extern std::map<string, string> 外字To漢字;
 
+extern void AddBushouGaijiConvertMap();
 
-void 武将情報型::外字変換追加() {
-	if (漢字To外字.size() == 0 || 外字To漢字.size() == 0) {
-		漢字To外字["長宗我部"] = "\xEB\x9F\xEB\xA0\xEB\xA1";
-		漢字To外字["香宗我部"] = "\xEB\xA2\xEB\xA0\xEB\xA1";
-		漢字To外字["五右衛門"] = "\xEB\xA3\xEB\xA4\xEB\xA5";
-		漢字To外字["又右衛門"] = "\xEB\xA6\xEB\xA4\xEB\xA5";
-
-		外字To漢字["\xEB\x9F\xEB\xA0\xEB\xA1"] = "長宗我部";
-		外字To漢字["\xEB\xA2\xEB\xA0\xEB\xA1"] = "香宗我部";
-		外字To漢字["\xEB\xA3\xEB\xA4\xEB\xA5"] = "五右衛門";
-		外字To漢字["\xEB\xA6\xEB\xA4\xEB\xA5"] = "又右衛門";
-	}
-}
 
 武将情報型::武将情報型(int 武将配列IX)
 {
 	if (isValidBushouID(武将配列IX)) {
 		this->武将配列IX = 武将配列IX;
-		外字変換追加();
+		AddBushouGaijiConvertMap();
 	}
 	else {
 		throw gcnew System::ArgumentException("武将配列IXが不正です。");

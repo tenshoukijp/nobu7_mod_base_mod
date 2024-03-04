@@ -8,8 +8,6 @@ namespace «¯˜^ {
 	public ref class •«î•ñŒ^ {
 	private:
 		int •«”z—ñIX;
-	private:
-		void ŠOš•ÏŠ·’Ç‰Á();
 
 	public:
 

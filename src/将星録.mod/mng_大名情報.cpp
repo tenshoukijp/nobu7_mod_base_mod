@@ -203,7 +203,7 @@ void 大名情報型::敵対大名配列IX::set(int value) {
 int 大名情報型::援軍申込大名配列IX::get()
 {
 	int* iDiamyoPtr = nb7大名情報[大名配列IX].p援軍申込大名;
-	return getDaimyoIDFromDaimyoPtr(iDiamyoPtr);;
+	return getDaimyoIDFromDaimyoPtr(iDiamyoPtr);
 }
 
 void 大名情報型::援軍申込大名配列IX::set(int value) {
@@ -215,7 +215,7 @@ void 大名情報型::援軍申込大名配列IX::set(int value) {
 		nb7大名情報[大名配列IX].p援軍申込大名 = (int*)援軍要請大名なし;
 	}
 	else {
-		throw gcnew System::ArgumentOutOfRangeException("援軍要請大名１配列IXが不正です。");
+		throw gcnew System::ArgumentOutOfRangeException("援軍申込大名配列IXが不正です。");
 	}
 }
 
@@ -234,7 +234,7 @@ void 大名情報型::援軍申受大名配列IX::set(int value) {
 		nb7大名情報[大名配列IX].p援軍申受大名 = (int*)援軍要請大名なし;
 	}
 	else {
-		throw gcnew System::ArgumentOutOfRangeException("援軍要請大名２配列IXが不正です。");
+		throw gcnew System::ArgumentOutOfRangeException("援軍申受大名配列IXが不正です。");
 	}
 }
 

@@ -73,11 +73,11 @@ BOOL setDaimyoBushouID(int iDaimyoID, int iBushouID) {
 BOOL setDaimyoCastle(int iDaimyoID, int iCastleID) {
 	if (isValidDaimyoID(iDaimyoID)) {
 		if (isValidCastleID(iCastleID)) {
-			nb7‘å–¼î•ñ[iCastleID].p‹é = getCastlePtrFromCastleID(iCastleID);
+			nb7‘å–¼î•ñ[iDaimyoID].p‹é = getCastlePtrFromCastleID(iCastleID);
 			return TRUE;
 		}
 		else if (iCastleID == 0xFFFF) {
-			nb7‘å–¼î•ñ[iCastleID].p‹é = (int*)‘å–¼‹é‚È‚µ;
+			nb7‘å–¼î•ñ[iDaimyoID].p‹é = (int*)‘å–¼‹é‚È‚µ;
 			return TRUE;
 		}
 	}
