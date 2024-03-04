@@ -4,6 +4,7 @@
 
 #define •«î•ñƒAƒhƒŒƒX 0x542348
 
+
 #pragma pack(1)
 struct NB7•«î•ñŒ^
 {

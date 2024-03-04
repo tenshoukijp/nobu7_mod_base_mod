@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <string>
 
+#include <map>
 
 #include "data_game_struct.h"
 
