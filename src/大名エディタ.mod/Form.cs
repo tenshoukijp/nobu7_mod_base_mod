@@ -31,7 +31,7 @@ public class 大名エディタ : Form
             大名配列.Add(new 大名情報型(i));
         }
 
-        for (int i = 0; i < 将星録.最大数.武将情報.配列数; i++)
+        for (int i = 0; i < 将星録.最大数.武将情報.総配列数; i++)
         {
             武将配列.Add(new 武将情報型(i));
         }

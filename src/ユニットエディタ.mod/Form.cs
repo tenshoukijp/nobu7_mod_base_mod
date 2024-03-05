@@ -31,7 +31,7 @@ public class ユニットエディタ : Form
             ユニット配列.Add(new ユニット情報型(i));
         }
 
-        for (int i = 0; i < 将星録.最大数.武将情報.配列数; i++)
+        for (int i = 0; i < 将星録.最大数.武将情報.総配列数; i++)
         {
             武将配列.Add(new 武将情報型(i));
         }
@@ -58,7 +58,7 @@ public class ユニットエディタ : Form
         }
     }
 
-    enum タイトル { 配列IX = 0, 指揮武将姓名, 指揮武将配列IX, 所属城配列IX, 種別, 目的, 大砲, 鉄甲船, 第１部隊兵数, 第１部隊兵種, 第１部隊混乱, 第１部隊陣形位置, 第２部隊兵数, 第２部隊兵種, 第２部隊混乱, 第２部隊陣形位置, 第３部隊兵数, 第３部隊兵種, 第３部隊混乱, 第３部隊陣形位置, 第４部隊兵数, 第４部隊兵種, 第４部隊混乱, 第４部隊陣形位置, 第５部隊兵数, 第５部隊兵種, 第５部隊混乱, 第５部隊陣形位置, 輸送金銭, 輸送兵糧, 輸送軍馬, 輸送鉄砲, 輸送兵士, 輸送大砲, 現在Ｘ座標, 現在Ｙ座標, 目標Ｘ座標, 目標Ｙ座標 };
+    enum タイトル { 配列IX = 0, 指揮武将姓名, 指揮武将配列IX, 所属城配列IX, 種別, 目的, 大砲, 鉄甲船, 第１部隊兵数, 第１部隊兵種, 第１部隊混乱, 第１部隊陣形位置, 第２部隊兵数, 第２部隊兵種, 第２部隊混乱, 第２部隊陣形位置, 第３部隊兵数, 第３部隊兵種, 第３部隊混乱, 第３部隊陣形位置, 第４部隊兵数, 第４部隊兵種, 第４部隊混乱, 第４部隊陣形位置, 第５部隊兵数, 第５部隊兵種, 第５部隊混乱, 第５部隊陣形位置, 輸送金銭, 輸送兵糧, 輸送軍馬, 輸送鉄砲, 輸送兵士, 輸送大砲, 後ユニット配列IX };
     void setDataGridAttribute()
     {
         try
@@ -465,6 +465,17 @@ public class ユニットエディタ : Form
                     cell.Value = ユニット情報.輸送大砲;
                 }
             }
+            else if (e.ColumnIndex == (int)タイトル.後ユニット配列IX)
+            {
+                try
+                {
+                    ユニット情報.後ユニット配列IX = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = ユニット情報.後ユニット配列IX;
+                }
+            }
 
         }
         catch (Exception) { }
@@ -537,10 +548,7 @@ public class ユニットエディタ : Form
                     ユニット.輸送鉄砲,
                     ユニット.輸送兵士,
                     ユニット.輸送大砲,
-                    ユニット.現在Ｘ座標,
-                    ユニット.現在Ｙ座標,
-                    ユニット.目標Ｘ座標,
-                    ユニット.目標Ｙ座標
+                    ユニット.後ユニット配列IX
                     );
             }
 
@@ -553,8 +561,9 @@ public class ユニットエディタ : Form
             dgv.Columns[(int)タイトル.指揮武将姓名].DefaultCellStyle.BackColor = Color.Yellow;
 
             dgv.Columns[(int)タイトル.指揮武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-
             dgv.Columns[(int)タイトル.所属城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.後ユニット配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+
 
             string[] names = Enum.GetNames(typeof(タイトル));
             for (int i = (int)タイトル.指揮武将配列IX; i < names.Length; i++)

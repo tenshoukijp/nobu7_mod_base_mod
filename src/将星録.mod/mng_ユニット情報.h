@@ -189,6 +189,7 @@ namespace «¯˜^ {
 			int get();
 		}
 
+		/*
 		property int –Ú•W‚wÀ•W {
 			int get();
 		}
@@ -196,6 +197,7 @@ namespace «¯˜^ {
 		property int –Ú•W‚xÀ•W {
 			int get();
 		}
+		*/
 	};
 
 };
