@@ -90,15 +90,21 @@ public class 家宝エディタ : Form
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
     void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-        e.Cancel = false;
+        try
+        {
+            e.Cancel = false;
+        }
+        catch (Exception) { }
     }
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         try
         {
-            int iKahouID = e.RowIndex;
-            var 家宝情報 = new 将星録.家宝情報型(iKahouID);
+            var IDCell = dgv[0, e.RowIndex];
+            int ID = (int)IDCell.Value;
+
+            var 家宝情報 = new 将星録.家宝情報型(ID);
             // 対象のセル
             var cell = dgv[e.ColumnIndex, e.RowIndex];
             if (e.ColumnIndex == (int)タイトル.家宝名)
@@ -242,6 +248,17 @@ public class 家宝エディタ : Form
     {
         try
         {
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.家宝名].ValueType = typeof(string);
+
+            string[] names = Enum.GetNames(typeof(タイトル));
+            for (int i = (int)タイトル.種類; i < names.Length; i++)
+            {
+                dgv.Columns[i].ValueType = typeof(int);
+            }
+
             // 横列単位で足してゆく、
             foreach (var 家宝 in 家宝配列)
             {
@@ -260,17 +277,6 @@ public class 家宝エディタ : Form
                   家宝.兵科効果,
                   家宝.所有武将配列IX
                   );
-            }
-
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.家宝名].ValueType = typeof(string);
-
-            string[] names = Enum.GetNames(typeof(タイトル));
-            for (int i = (int)タイトル.種類; i < names.Length; i++)
-            {
-                dgv.Columns[i].ValueType = typeof(int);
             }
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

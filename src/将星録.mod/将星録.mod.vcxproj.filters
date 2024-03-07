@@ -175,6 +175,9 @@
     <Filter Include="シナリオデータ">
       <UniqueIdentifier>{c66905d0-e129-4bb8-824c-331a8f9c64dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="例外">
+      <UniqueIdentifier>{69a63dfd-c35c-4b3f-b34b-ec1bf263f92f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -371,6 +374,9 @@
     </ClInclude>
     <ClInclude Include="hook_setfilepointer_custom_winframe.h">
       <Filter>フック関数置き換え系</Filter>
+    </ClInclude>
+    <ClInclude Include="app_thread_exception.h">
+      <Filter>例外</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -811,6 +817,9 @@
     </ClCompile>
     <ClCompile Include="hook_setfilepointer_custom_winframe.cpp">
       <Filter>フック関数置き換え系</Filter>
+    </ClCompile>
+    <ClCompile Include="app_thread_exception.cpp">
+      <Filter>例外</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

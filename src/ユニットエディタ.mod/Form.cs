@@ -58,7 +58,7 @@ public class ユニットエディタ : Form
         }
     }
 
-    enum タイトル { 配列IX = 0, 指揮武将姓名, 指揮武将配列IX, 所属城配列IX, 種別, 目的, 大砲, 鉄甲船, 第１部隊兵数, 第１部隊兵種, 第１部隊混乱, 第１部隊陣形位置, 第２部隊兵数, 第２部隊兵種, 第２部隊混乱, 第２部隊陣形位置, 第３部隊兵数, 第３部隊兵種, 第３部隊混乱, 第３部隊陣形位置, 第４部隊兵数, 第４部隊兵種, 第４部隊混乱, 第４部隊陣形位置, 第５部隊兵数, 第５部隊兵種, 第５部隊混乱, 第５部隊陣形位置, 輸送金銭, 輸送兵糧, 輸送軍馬, 輸送鉄砲, 輸送兵士, 輸送大砲, 後ユニット配列IX };
+    enum タイトル { 配列IX = 0, 指揮武将姓名, 指揮武将配列IX, 所属城配列IX, 種別, 目的, 大砲, 鉄甲船, 第１部隊兵数, 第１部隊兵種, 第１部隊混乱, 第１部隊陣形位置, 第２部隊兵数, 第２部隊兵種, 第２部隊混乱, 第２部隊陣形位置, 第３部隊兵数, 第３部隊兵種, 第３部隊混乱, 第３部隊陣形位置, 第４部隊兵数, 第４部隊兵種, 第４部隊混乱, 第４部隊陣形位置, 第５部隊兵数, 第５部隊兵種, 第５部隊混乱, 第５部隊陣形位置, 輸送金銭, 輸送兵糧, 輸送軍馬, 輸送鉄砲, 輸送兵士, 輸送大砲, 現在Ｘ座標, 現在Ｙ座標, 後ユニット配列IX };
     void setDataGridAttribute()
     {
         try
@@ -103,8 +103,10 @@ public class ユニットエディタ : Form
     {
         try
         {
-            int iUnitID = e.RowIndex;
-            var ユニット情報 = new 将星録.ユニット情報型(iUnitID);
+            var IDCell = dgv[0, e.RowIndex];
+            int ID = (int)IDCell.Value;
+
+            var ユニット情報 = new 将星録.ユニット情報型(ID);
             // 対象のセル
             var cell = dgv[e.ColumnIndex, e.RowIndex];
             if (e.ColumnIndex == (int)タイトル.指揮武将配列IX)
@@ -502,6 +504,31 @@ public class ユニットエディタ : Form
     {
         try
         {
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
+
+            dgv.Columns[(int)タイトル.指揮武将姓名].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.指揮武将姓名].ReadOnly = true;
+            dgv.Columns[(int)タイトル.指揮武将姓名].DefaultCellStyle.BackColor = Color.Yellow;
+
+            dgv.Columns[(int)タイトル.指揮武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.所属城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.現在Ｘ座標].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.現在Ｘ座標].ReadOnly = true;
+            dgv.Columns[(int)タイトル.現在Ｘ座標].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.現在Ｙ座標].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.現在Ｙ座標].ReadOnly = true;
+            dgv.Columns[(int)タイトル.現在Ｙ座標].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.後ユニット配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+
+            string[] names = Enum.GetNames(typeof(タイトル));
+            for (int i = (int)タイトル.指揮武将配列IX; i < names.Length; i++)
+            {
+                dgv.Columns[i].ValueType = typeof(int);
+            }
+
             // 横列単位で足してゆく、
             foreach (var ユニット in ユニット配列)
             {
@@ -548,27 +575,10 @@ public class ユニットエディタ : Form
                     ユニット.輸送鉄砲,
                     ユニット.輸送兵士,
                     ユニット.輸送大砲,
+                    ユニット.現在Ｘ座標,
+                    ユニット.現在Ｙ座標,
                     ユニット.後ユニット配列IX
                     );
-            }
-
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-
-            dgv.Columns[(int)タイトル.指揮武将姓名].ValueType = typeof(string);
-            dgv.Columns[(int)タイトル.指揮武将姓名].ReadOnly = true;
-            dgv.Columns[(int)タイトル.指揮武将姓名].DefaultCellStyle.BackColor = Color.Yellow;
-
-            dgv.Columns[(int)タイトル.指揮武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns[(int)タイトル.所属城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns[(int)タイトル.後ユニット配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-
-            string[] names = Enum.GetNames(typeof(タイトル));
-            for (int i = (int)タイトル.指揮武将配列IX; i < names.Length; i++)
-            {
-                dgv.Columns[i].ValueType = typeof(int);
             }
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

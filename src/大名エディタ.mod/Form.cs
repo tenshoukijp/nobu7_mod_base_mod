@@ -104,8 +104,10 @@ public class 大名エディタ : Form
                 if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex < dgv.Rows.Count)
                 {
                     // ボタンがクリックされたセルの処理
+                    var IDCell = dgv[0, e.RowIndex];
+                    int ID = (int)IDCell.Value;
                     // e.RowIndex に押されたボタンが属する行のインデックスが入っている
-                    将星録.大名関係エディタ editor = new 将星録.大名関係エディタ(e.RowIndex);
+                    将星録.大名関係エディタ editor = new 将星録.大名関係エディタ(ID);
                     editor.Show();
                 }
             }
@@ -116,15 +118,21 @@ public class 大名エディタ : Form
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
     void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-        e.Cancel = false;
+        try
+        {
+            e.Cancel = false;
+        }
+        catch (Exception) { }
     }
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         try
         {
-            int iDaimyoID = e.RowIndex;
-            var 大名情報 = new 将星録.大名情報型(iDaimyoID);
+            var IDCell = dgv[0, e.RowIndex];
+            int ID = (int)IDCell.Value;
+
+            var 大名情報 = new 将星録.大名情報型(ID);
             // 対象のセル
             var cell = dgv[e.ColumnIndex, e.RowIndex];
             if (e.ColumnIndex == (int)タイトル.大名武将配列IX)
@@ -289,6 +297,23 @@ public class 大名エディタ : Form
     {
         try
         {
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
+
+            dgv.Columns[(int)タイトル.大名姓名].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.大名姓名].ReadOnly = true;
+            dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.Yellow;
+
+            dgv.Columns[(int)タイトル.大名武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.居城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            string[] names = Enum.GetNames(typeof(タイトル));
+            for (int i = (int)タイトル.大名武将配列IX; i < names.Length; i++)
+            {
+                dgv.Columns[i].ValueType = typeof(int);
+            }
+
             // 横列単位で足してゆく、
             foreach (var 大名 in 大名配列)
             {
@@ -314,23 +339,6 @@ public class 大名エディタ : Form
                   大名.援軍申受大名配列IX,
                   大名.鉄甲船
                   );
-            }
-
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-
-            dgv.Columns[(int)タイトル.大名姓名].ValueType = typeof(string);
-            dgv.Columns[(int)タイトル.大名姓名].ReadOnly = true;
-            dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.Yellow;
-
-            dgv.Columns[(int)タイトル.大名武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns[(int)タイトル.居城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-            string[] names = Enum.GetNames(typeof(タイトル));
-            for (int i = (int)タイトル.大名武将配列IX; i < names.Length; i++)
-            {
-                dgv.Columns[i].ValueType = typeof(int);
             }
 
             buttonColumn = new DataGridViewButtonColumn();

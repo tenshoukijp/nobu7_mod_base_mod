@@ -121,6 +121,46 @@ void •«î•ñŒ^::‹é”z—ñIX::set(int value) {
 	}
 }
 
+int •«î•ñŒ^::ˆê–å::get()
+{
+	return nb7•«î•ñ[•«”z—ñIX].ˆê–å;
+}
+
+void •«î•ñŒ^::ˆê–å::set(int value) {
+	if (0 <= value && value <= 0xFF) {
+		nb7•«î•ñ[•«”z—ñIX].ˆê–å = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("ˆê–å‚ª•s³‚Å‚·B");
+	}
+}
+
+int •«î•ñŒ^::e•«”Ô†::get()
+{
+	int n = nb7•«î•ñ[•«”z—ñIX].e•«”Ô†-1;
+	if (n < 0) {
+		return 0xFFFF;
+	}
+	return n;
+}
+
+void •«î•ñŒ^::e•«”Ô†::set(int value) {
+	if (0 <= value && value <= 0xFFFF) {
+		if (value == 0xFFFF) {
+			value = 0;
+		}
+		else {
+			value = value + 1;
+		}
+		nb7•«î•ñ[•«”z—ñIX].e•«”Ô† = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("e•«”Ô†‚ª•s³‚Å‚·B");
+	}
+}
+
+
+
 int •«î•ñŒ^::¶”N::get()
 {
 	return nb7•«î•ñ[•«”z—ñIX].¶”N;
@@ -155,7 +195,7 @@ int •«î•ñŒ^::dŠ¯::get()
 }
 
 void •«î•ñŒ^::dŠ¯::set(int value) {
-	if (1400 <= value && value <= 1999) {
+	if (1400 <= value && value <= 1999 || value == 0) {
 		nb7•«î•ñ[•«”z—ñIX].dŠ¯ = value;
 	}
 	else {
@@ -356,7 +396,7 @@ int •«î•ñŒ^::ó‘Ô::get()
 }
 
 void •«î•ñŒ^::ó‘Ô::set(int value) {
-	if (•«::ó‘Ô::‘å–¼ <= value && value < •«::ó‘Ô::€–S) {
+	if (•«::ó‘Ô::‘å–¼ <= value && value <= •«::ó‘Ô::€–S) {
 		nb7•«î•ñ[•«”z—ñIX].ó‘Ô = value;
 	}
 	else {
@@ -370,7 +410,7 @@ int •«î•ñŒ^::g•ª::get()
 }
 
 void •«î•ñŒ^::g•ª::set(int value) {
-	if (•«::g•ª::‘«Œy“ª <= value && value < •«::g•ª::‘å–¼) {
+	if (•«::g•ª::‘«Œy“ª <= value && value <= •«::g•ª::‘å–¼) {
 		nb7•«î•ñ[•«”z—ñIX].g•ª = value;
 	}
 	else {
@@ -385,7 +425,7 @@ int •«î•ñŒ^::«•Ê::get()
 }
 
 void •«î•ñŒ^::«•Ê::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].«•Ê = value;
 	}
 	else {
@@ -399,7 +439,7 @@ int •«î•ñŒ^::Œû’²::get()
 }
 
 void •«î•ñŒ^::Œû’²::set(int value) {
-	if (•«::Œû’²::–³Œû <= value && value < •«::Œû’²::ˆê”Ê) {
+	if (•«::Œû’²::–³Œû <= value && value <= •«::Œû’²::ˆê”Ê) {
 		nb7•«î•ñ[•«”z—ñIX].Œû’² = value;
 	}
 	else {
@@ -413,7 +453,7 @@ int •«î•ñŒ^::“à‹Z”_‹Æ::get()
 }
 
 void •«î•ñŒ^::“à‹Z”_‹Æ::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].“à‹Z”_‹Æ = value;
 	}
 	else {
@@ -427,7 +467,7 @@ int •«î•ñŒ^::“à‹Z¤‹Æ::get()
 }
 
 void •«î•ñŒ^::“à‹Z¤‹Æ::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].“à‹Z¤‹Æ = value;
 	}
 	else {
@@ -441,7 +481,7 @@ int •«î•ñŒ^::“à‹ZŒšİ::get()
 }
 
 void •«î•ñŒ^::“à‹ZŒšİ::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].“à‹ZŒšİ = value;
 	}
 	else {
@@ -455,7 +495,7 @@ int •«î•ñŒ^::“à‹ZŠOŒğ::get()
 }
 
 void •«î•ñŒ^::“à‹ZŠOŒğ::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].“à‹ZŠOŒğ = value;
 	}
 	else {
@@ -469,7 +509,7 @@ int •«î•ñŒ^::“à‹Z“o—p::get()
 }
 
 void •«î•ñŒ^::“à‹Z“o—p::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].“à‹Z“o—p = value;
 	}
 	else {
@@ -483,7 +523,7 @@ int •«î•ñŒ^::í‹Z”²ŒŠ::get()
 }
 
 void •«î•ñŒ^::í‹Z”²ŒŠ::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].í‹Z”²ŒŠ = value;
 	}
 	else {
@@ -497,7 +537,7 @@ int •«î•ñŒ^::í‹Z‹R“Ë::get()
 }
 
 void •«î•ñŒ^::í‹Z‹R“Ë::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].í‹Z‹R“Ë = value;
 	}
 	else {
@@ -511,7 +551,7 @@ int •«î•ñŒ^::í‹ZO’i::get()
 }
 
 void •«î•ñŒ^::í‹ZO’i::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].í‹ZO’i = value;
 	}
 	else {
@@ -525,7 +565,7 @@ int •«î•ñŒ^::í‹Zà„à€::get()
 }
 
 void •«î•ñŒ^::í‹Zà„à€::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].í‹Zà„à€ = value;
 	}
 	else {
@@ -539,10 +579,52 @@ int •«î•ñŒ^::í‹Z‹R“S::get()
 }
 
 void •«î•ñŒ^::í‹Z‹R“S::set(int value) {
-	if (0 <= value && value < 1) {
+	if (0 <= value && value <= 1) {
 		nb7•«î•ñ[•«”z—ñIX].í‹Z‹R“S = value;
 	}
 	else {
 		throw gcnew System::ArgumentOutOfRangeException("í‹Z‹R“S‚ª•s³‚Å‚·B");
+	}
+}
+
+int •«î•ñŒ^::”_‹ÆŒoŒ±’l::get()
+{
+	return nb7•«î•ñ[•«”z—ñIX].”_‹ÆŒoŒ±’l;
+}
+
+void •«î•ñŒ^::”_‹ÆŒoŒ±’l::set(int value) {
+	if (0 <= value && value <= 2000) {
+		nb7•«î•ñ[•«”z—ñIX].”_‹ÆŒoŒ±’l = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("”_‹ÆŒoŒ±’l‚ª•s³‚Å‚·B");
+	}
+}
+
+int •«î•ñŒ^::¤‹ÆŒoŒ±’l::get()
+{
+	return nb7•«î•ñ[•«”z—ñIX].¤‹ÆŒoŒ±’l;
+}
+
+void •«î•ñŒ^::¤‹ÆŒoŒ±’l::set(int value) {
+	if (0 <= value && value <= 2000) {
+		nb7•«î•ñ[•«”z—ñIX].¤‹ÆŒoŒ±’l = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("¤‹ÆŒoŒ±’l‚ª•s³‚Å‚·B");
+	}
+}
+
+int •«î•ñŒ^::ŒšİŒoŒ±’l::get()
+{
+	return nb7•«î•ñ[•«”z—ñIX].ŒšİŒoŒ±’l;
+}
+
+void •«î•ñŒ^::ŒšİŒoŒ±’l::set(int value) {
+	if (0 <= value && value <= 2000) {
+		nb7•«î•ñ[•«”z—ñIX].ŒšİŒoŒ±’l = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("ŒšİŒoŒ±’l‚ª•s³‚Å‚·B");
 	}
 }

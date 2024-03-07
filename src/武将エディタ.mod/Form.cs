@@ -52,7 +52,7 @@ public class 武将エディタ : Form
         }
     }
 
-    enum タイトル { 配列IX = 0, 苗字, 名前, 居城配列IX, 性別, 顔番号, 状態, 身分, 生年, 元服年, 仕官, 寿命, 義理, 相性, 口調, 勲功, 忠誠, 政治, 戦闘, 智謀, 足軽適性, 騎馬適性, 鉄砲適性, 水軍適性, 内技農業, 内技商業, 内技建設, 内技外交, 内技登用, 戦技抜穴, 戦技騎突, 戦技三段, 戦技焙烙, 戦技騎鉄 };
+    enum タイトル { 配列IX = 0, 苗字, 名前, 居城配列IX, 性別, 顔番号, 一門, 親武将番号, 状態, 身分, 生年, 元服年, 仕官, 寿命, 義理, 相性, 口調, 勲功, 忠誠, 政治, 戦闘, 智謀, 足軽適性, 騎馬適性, 鉄砲適性, 水軍適性, 内技農業, 内技商業, 内技建設, 内技外交, 内技登用, 戦技抜穴, 戦技騎突, 戦技三段, 戦技焙烙, 戦技騎鉄, 農業経験値, 商業経験値, 建設経験値 };
     void setDataGridAttribute()
     {
         try
@@ -91,17 +91,24 @@ public class 武将エディタ : Form
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
     void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-        e.Cancel = false;
+        try
+        {
+            e.Cancel = false;
+        }
+        catch (Exception) { }
     }
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         try
         {
-            int iYakusyokuID = e.RowIndex;
-            var 武将情報 = new 将星録.武将情報型(iYakusyokuID);
+            var IDCell = dgv[0, e.RowIndex];
+            int ID = (int)IDCell.Value;
+
+            var 武将情報 = new 将星録.武将情報型(ID);
             // 対象のセル
             var cell = dgv[e.ColumnIndex, e.RowIndex];
+            // 対象のセル
             if (e.ColumnIndex == (int)タイトル.苗字)
             {
                 try
@@ -155,6 +162,28 @@ public class 武将エディタ : Form
                 catch (Exception)
                 {
                     cell.Value = 武将情報.顔番号;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.一門)
+            {
+                try
+                {
+                    武将情報.一門 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 武将情報.一門;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.親武将番号)
+            {
+                try
+                {
+                    武将情報.親武将番号 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 武将情報.親武将番号;
                 }
             }
             else if (e.ColumnIndex == (int)タイトル.状態)
@@ -465,6 +494,42 @@ public class 武将エディタ : Form
                     cell.Value = 武将情報.戦技騎鉄;
                 }
             }
+            else if (e.ColumnIndex == (int)タイトル.農業経験値)
+            {
+                try
+                {
+                    武将情報.農業経験値 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 武将情報.農業経験値;
+                }
+            }
+
+            else if (e.ColumnIndex == (int)タイトル.商業経験値)
+            {
+                try
+                {
+                    武将情報.商業経験値 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 武将情報.商業経験値;
+                }
+            }
+
+            else if (e.ColumnIndex == (int)タイトル.建設経験値)
+            {
+                try
+                {
+                    武将情報.建設経験値 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 武将情報.建設経験値;
+                }
+            }
+
 
         }
         catch (Exception) { }
@@ -474,6 +539,23 @@ public class 武将エディタ : Form
     {
         try
         {
+
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.苗字].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.名前].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.居城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.状態].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.身分].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            // 基本的にはint型
+            string[] names = Enum.GetNames(typeof(タイトル));
+            for (int i = (int)タイトル.居城配列IX; i < names.Length; i++)
+            {
+                dgv.Columns[i].ValueType = typeof(int);
+            }
+
             // 横列単位で足してゆく、
             foreach (var 武将 in 武将配列)
             {
@@ -484,6 +566,8 @@ public class 武将エディタ : Form
                   武将.居城配列IX,
                   武将.性別,
                   武将.顔番号,
+                  武将.一門,
+                  武将.親武将番号,
                   武将.状態,
                   武将.身分,
                   武将.生年,
@@ -511,22 +595,13 @@ public class 武将エディタ : Form
                   武将.戦技騎突,
                   武将.戦技三段,
                   武将.戦技焙烙,
-                  武将.戦技騎鉄
+                  武将.戦技騎鉄,
+                  武将.農業経験値,
+                  武将.商業経験値,
+                  武将.建設経験値
                   );
             }
 
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.苗字].ValueType = typeof(string);
-            dgv.Columns[(int)タイトル.名前].ValueType = typeof(string);
-
-            // 基本的にはint型
-            string[] names = Enum.GetNames(typeof(タイトル));
-            for (int i = (int)タイトル.居城配列IX; i < names.Length; i++)
-            {
-                dgv.Columns[i].ValueType = typeof(int);
-            }
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }

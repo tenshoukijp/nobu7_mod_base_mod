@@ -84,7 +84,11 @@ public class 年月相場エディタ : Form
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
     void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-        e.Cancel = false;
+        try
+        {
+            e.Cancel = false;
+        }
+        catch (Exception) { }
     }
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -156,13 +160,13 @@ public class 年月相場エディタ : Form
     {
         try
         {
-            dgv.Rows.Add(年月情報.年, 年月情報.月, 相場情報.兵糧, 相場情報.軍馬, 相場情報.鉄砲);
-
             dgv.Columns[(int)タイトル.年].ValueType = typeof(int);
             dgv.Columns[(int)タイトル.月].ValueType = typeof(int);
             dgv.Columns[(int)タイトル.兵糧].ValueType = typeof(int);
             dgv.Columns[(int)タイトル.軍馬].ValueType = typeof(int);
             dgv.Columns[(int)タイトル.鉄砲].ValueType = typeof(int);
+
+            dgv.Rows.Add(年月情報.年, 年月情報.月, 相場情報.兵糧, 相場情報.軍馬, 相場情報.鉄砲);
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }

@@ -89,15 +89,21 @@ public class 役職エディタ : Form
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
     void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-        e.Cancel = false;
+        try
+        {
+            e.Cancel = false;
+        }
+        catch (Exception) { }
     }
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         try
         {
-            int iYakusyokuID = e.RowIndex;
-            var 役職情報 = new 将星録.役職情報型(iYakusyokuID);
+            var IDCell = dgv[0, e.RowIndex];
+            int ID = (int)IDCell.Value;
+
+            var 役職情報 = new 将星録.役職情報型(ID);
             // 対象のセル
             var cell = dgv[e.ColumnIndex, e.RowIndex];
             if (e.ColumnIndex == (int)タイトル.役職名)
@@ -141,6 +147,15 @@ public class 役職エディタ : Form
     {
         try
         {
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.役職名].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.役位].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.役位].ReadOnly = true;
+            dgv.Columns[(int)タイトル.役位].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.所有大名配列IX].ValueType = typeof(int);
+
             // 横列単位で足してゆく、
             foreach (var 役職 in 役職配列)
             {
@@ -151,15 +166,6 @@ public class 役職エディタ : Form
                   役職.所有大名配列IX
                   );
             }
-
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.役職名].ValueType = typeof(string);
-            dgv.Columns[(int)タイトル.役位].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.役位].ReadOnly = true;
-            dgv.Columns[(int)タイトル.役位].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.所有大名配列IX].ValueType = typeof(int);
 
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

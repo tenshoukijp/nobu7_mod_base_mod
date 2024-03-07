@@ -91,15 +91,21 @@ public class 城エディタ : Form
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
     void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-        e.Cancel = false;
+        try
+        {
+            e.Cancel = false;
+        }
+        catch (Exception) { }
     }
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         try
         {
-            int iCastleID = e.RowIndex;
-            var 城情報 = new 将星録.城情報型(iCastleID);
+            var IDCell = dgv[0, e.RowIndex];
+            int ID = (int)IDCell.Value;
+
+            var 城情報 = new 将星録.城情報型(ID);
             // 対象のセル
             var cell = dgv[e.ColumnIndex, e.RowIndex];
             if (e.ColumnIndex == (int)タイトル.城名)
@@ -320,6 +326,31 @@ public class 城エディタ : Form
     {
         try
         {
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.城名].ValueType = typeof(string);
+
+            dgv.Columns[(int)タイトル.城称].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.城称].ReadOnly = true;
+            dgv.Columns[(int)タイトル.城称].DefaultCellStyle.BackColor = Color.LightGray;
+
+            dgv.Columns[(int)タイトル.所属大名配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.城主武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.開始ユニット配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[(int)タイトル.後城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+
+            // 基本的にはint型
+            string[] names = Enum.GetNames(typeof(タイトル));
+            for (int i = (int)タイトル.籠城番号; i < names.Length; i++)
+            {
+                dgv.Columns[i].ValueType = typeof(int);
+            }
+
+            dgv.Columns[(int)タイトル.防御MAX].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[(int)タイトル.防御MAX].ReadOnly = true;
+
             // 横列単位で足してゆく、
             foreach (var 城 in 城配列)
             {
@@ -348,31 +379,6 @@ public class 城エディタ : Form
                   城.後城配列IX
                   );
             }
-
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.城名].ValueType = typeof(string);
-
-            dgv.Columns[(int)タイトル.城称].ValueType = typeof(string);
-            dgv.Columns[(int)タイトル.城称].ReadOnly = true;
-            dgv.Columns[(int)タイトル.城称].DefaultCellStyle.BackColor = Color.LightGray;
-
-            dgv.Columns[(int)タイトル.所属大名配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns[(int)タイトル.城主武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns[(int)タイトル.開始ユニット配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns[(int)タイトル.後城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-
-            // 基本的にはint型
-            string[] names = Enum.GetNames(typeof(タイトル));
-            for (int i = (int)タイトル.籠城番号; i < names.Length; i++)
-            {
-                dgv.Columns[i].ValueType = typeof(int);
-            }
-
-            dgv.Columns[(int)タイトル.防御MAX].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.防御MAX].ReadOnly = true;
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 

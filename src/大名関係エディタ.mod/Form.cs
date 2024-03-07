@@ -100,16 +100,23 @@ public class 大名関係エディタ : Form
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
     void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-        e.Cancel = false;
+        try
+        {
+            e.Cancel = false;
+        }
+        catch (Exception) { }
     }
 
     void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
         try
         {
+            var IDCell = dgv[0, e.RowIndex];
+            int ID = (int)IDCell.Value;
+
+            int 客体大名配列IX = ID;
             // 対象のセル
             var cell = dgv[e.ColumnIndex, e.RowIndex];
-            int 客体大名配列IX = e.RowIndex;
 
             if (e.ColumnIndex == (int)タイトル.友好)
             {
@@ -152,6 +159,18 @@ public class 大名関係エディタ : Form
     {
         try
         {
+            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
+            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
+
+            dgv.Columns[(int)タイトル.大名姓名].ValueType = typeof(string);
+            dgv.Columns[(int)タイトル.大名姓名].ReadOnly = true;
+            dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.Yellow;
+
+            dgv.Columns[(int)タイトル.友好].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.同盟残].ValueType = typeof(int);
+            dgv.Columns[(int)タイトル.婚姻].ValueType = typeof(int);
+
             for (int i = 0; i < 最大数.大名情報.配列数; i++)
             {
                 int iBushouID = 大名配列[i].大名武将配列IX;
@@ -169,18 +188,6 @@ public class 大名関係エディタ : Form
                   大名関係情報.婚姻[主格大名配列IX, i]
                   );
             }
-
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-
-            dgv.Columns[(int)タイトル.大名姓名].ValueType = typeof(string);
-            dgv.Columns[(int)タイトル.大名姓名].ReadOnly = true;
-            dgv.Columns[(int)タイトル.大名姓名].DefaultCellStyle.BackColor = Color.Yellow;
-
-            dgv.Columns[(int)タイトル.友好].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.同盟残].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.婚姻].ValueType = typeof(int);
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }

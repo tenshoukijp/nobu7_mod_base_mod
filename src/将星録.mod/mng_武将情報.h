@@ -41,6 +41,16 @@ namespace «¯˜^ {
 			void set(int value);
 		}
 
+		property int ˆê–å {
+			int get();
+			void set(int value);
+		}
+
+		property int e•«”Ô† {
+			int get();
+			void set(int value);
+		}
+
 		property int Œ³•”N {
 			int get();
 			void set(int value);
@@ -182,6 +192,21 @@ namespace «¯˜^ {
 		}
 
 		property int í‹Z‹R“S {
+			int get();
+			void set(int value);
+		}
+
+		property int ”_‹ÆŒoŒ±’l {
+			int get();
+			void set(int value);
+		}
+
+		property int ¤‹ÆŒoŒ±’l {
+			int get();
+			void set(int value);
+		}
+
+		property int ŒšİŒoŒ±’l {
 			int get();
 			void set(int value);
 		}

@@ -13,6 +13,13 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class NB7ThreadException: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetThreadException(): PrivateScope, Public, Static, HideBySig
+    Application_ThreadException(Object, ThreadExceptionEventArgs): PrivateScope, Public, Static, HideBySig
+    Application_UnhandledException(Object, UnhandledExceptionEventArgs): PrivateScope, Public, Static, HideBySig
+    ShowErrorMessage(Exception, String): PrivateScope, Public, Static, HideBySig
 Class 将星録.武将情報.身分: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -1696,6 +1703,9 @@ Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
 Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
+    Int32 建設経験値 'get set' : 
+    Int32 商業経験値 'get set' : 
+    Int32 農業経験値 'get set' : 
     Int32 戦技騎鉄 'get set' : 
     Int32 戦技焙烙 'get set' : 
     Int32 戦技三段 'get set' : 
@@ -1725,6 +1735,8 @@ Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     Int32 寿命   'get set' : 
     Int32 仕官   'get set' : 
     Int32 元服年  'get set' : 
+    Int32 親武将番号 'get set' : 
+    Int32 一門   'get set' : 
     Int32 生年   'get set' : 
     Int32 居城配列IX 'get set' : 
     System.String 姓名 'get ' : 
@@ -1742,6 +1754,10 @@ Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_居城配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_生年(): PrivateScope, Public, HideBySig, SpecialName
     set_生年(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_一門(): PrivateScope, Public, HideBySig, SpecialName
+    set_一門(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_親武将番号(): PrivateScope, Public, HideBySig, SpecialName
+    set_親武将番号(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_元服年(): PrivateScope, Public, HideBySig, SpecialName
     set_元服年(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_仕官(): PrivateScope, Public, HideBySig, SpecialName
@@ -1800,6 +1816,12 @@ Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_戦技焙烙(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_戦技騎鉄(): PrivateScope, Public, HideBySig, SpecialName
     set_戦技騎鉄(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_農業経験値(): PrivateScope, Public, HideBySig, SpecialName
+    set_農業経験値(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_商業経験値(): PrivateScope, Public, HideBySig, SpecialName
+    set_商業経験値(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_建設経験値(): PrivateScope, Public, HideBySig, SpecialName
+    set_建設経験値(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.野戦.ターン情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:

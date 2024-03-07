@@ -5,6 +5,8 @@
 #include "load_form_mod.h"
 #include "usr_custom_mod.h"
 
+#include "app_thread_exception.h"
+
 HWND hNB7Wnd = NULL;
 
 HWND* referenceOfNB7Wnd = NULL;
@@ -22,6 +24,8 @@ void onCreateWindow(HWND hWnd) {
 	*referenceOfNB7Wnd = hWnd;
 
 	OutputDebugStream("ウィンドウ生成\n");
+
+	NB7ThreadException::SetThreadException();
 
 	AddBushouGaijiConvertMap();
 
