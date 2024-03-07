@@ -121,6 +121,11 @@ namespace «¯˜^ {
 			void set(int value);
 		}
 
+		property int s“®Ï {
+			int get();
+			void set(int value);
+		}
+
 		property int Šç”Ô† {
 			int get();
 			void set(int value);
@@ -196,6 +201,22 @@ namespace «¯˜^ {
 			void set(int value);
 		}
 
+		property int Cs’† {
+			int get();
+			void set(int value);
+		}
+
+		property int CsÏ”EÒ {
+			int get();
+			void set(int value);
+		}
+
+		property int CsÏˆÚ“®—Í {
+			int get();
+			void set(int value);
+		}
+
+		/*
 		property int ”_‹ÆŒoŒ±’l {
 			int get();
 			void set(int value);
@@ -210,7 +231,7 @@ namespace «¯˜^ {
 			int get();
 			void set(int value);
 		}
-
+		*/
 
 	};
 }

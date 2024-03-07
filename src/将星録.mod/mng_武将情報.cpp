@@ -376,6 +376,21 @@ void 武将情報型::水軍適性::set(int value) {
 	}
 }
 
+int 武将情報型::行動済::get()
+{
+	return nb7武将情報[武将配列IX].行動済;
+}
+
+void 武将情報型::行動済::set(int value) {
+	if (0 <= value && value <= 1) {
+		nb7武将情報[武将配列IX].行動済 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("行動済が不正です。");
+	}
+}
+
+
 int 武将情報型::顔番号::get()
 {
 	return nb7武将情報[武将配列IX].顔番号;
@@ -587,13 +602,56 @@ void 武将情報型::戦技騎鉄::set(int value) {
 	}
 }
 
+int 武将情報型::修行中::get()
+{
+	return nb7武将情報[武将配列IX].修行中;
+}
+
+void 武将情報型::修行中::set(int value) {
+	if (0 <= value && value <= 1) {
+		nb7武将情報[武将配列IX].修行中 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("修行中が不正です。");
+	}
+}
+
+int 武将情報型::修行済忍者::get()
+{
+	return nb7武将情報[武将配列IX].修行済忍者;
+}
+
+void 武将情報型::修行済忍者::set(int value) {
+	if (0 <= value && value <= 1) {
+		nb7武将情報[武将配列IX].修行済忍者 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("修行済忍者が不正です。");
+	}
+}
+
+int 武将情報型::修行済移動力::get()
+{
+	return nb7武将情報[武将配列IX].修行済移動力;
+}
+
+void 武将情報型::修行済移動力::set(int value) {
+	if (0 <= value && value <= 1) {
+		nb7武将情報[武将配列IX].修行済移動力 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("修行済移動力が不正です。");
+	}
+}
+
+/*
 int 武将情報型::農業経験値::get()
 {
 	return nb7武将情報[武将配列IX].農業経験値;
 }
 
 void 武将情報型::農業経験値::set(int value) {
-	if (0 <= value && value <= 2000) {
+	if (0 <= value && value <= 3000) {
 		nb7武将情報[武将配列IX].農業経験値 = value;
 	}
 	else {
@@ -607,7 +665,7 @@ int 武将情報型::商業経験値::get()
 }
 
 void 武将情報型::商業経験値::set(int value) {
-	if (0 <= value && value <= 2000) {
+	if (0 <= value && value <= 3000) {
 		nb7武将情報[武将配列IX].商業経験値 = value;
 	}
 	else {
@@ -621,10 +679,11 @@ int 武将情報型::建設経験値::get()
 }
 
 void 武将情報型::建設経験値::set(int value) {
-	if (0 <= value && value <= 2000) {
+	if (0 <= value && value <= 3000) {
 		nb7武将情報[武将配列IX].建設経験値 = value;
 	}
 	else {
 		throw gcnew System::ArgumentOutOfRangeException("建設経験値が不正です。");
 	}
 }
+*/

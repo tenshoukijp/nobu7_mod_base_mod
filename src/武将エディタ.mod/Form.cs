@@ -52,7 +52,7 @@ public class 武将エディタ : Form
         }
     }
 
-    enum タイトル { 配列IX = 0, 苗字, 名前, 居城配列IX, 性別, 顔番号, 一門, 親武将番号, 状態, 身分, 生年, 元服年, 仕官, 寿命, 義理, 相性, 口調, 勲功, 忠誠, 政治, 戦闘, 智謀, 足軽適性, 騎馬適性, 鉄砲適性, 水軍適性, 内技農業, 内技商業, 内技建設, 内技外交, 内技登用, 戦技抜穴, 戦技騎突, 戦技三段, 戦技焙烙, 戦技騎鉄, 農業経験値, 商業経験値, 建設経験値 };
+    enum タイトル { 配列IX = 0, 苗字, 名前, 居城配列IX, 性別, 顔番号, 一門, 親武将番号, 行動済, 状態, 身分, 生年, 元服年, 仕官, 寿命, 義理, 相性, 口調, 勲功, 忠誠, 政治, 戦闘, 智謀, 足軽適性, 騎馬適性, 鉄砲適性, 水軍適性, 内技農業, 内技商業, 内技建設, 内技外交, 内技登用, 戦技抜穴, 戦技騎突, 戦技三段, 戦技焙烙, 戦技騎鉄, 修行中, 修行済忍者, 修行済移動力/*, 農業経験値, 商業経験値, 建設経験値*/ };
     void setDataGridAttribute()
     {
         try
@@ -184,6 +184,17 @@ public class 武将エディタ : Form
                 catch (Exception)
                 {
                     cell.Value = 武将情報.親武将番号;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.行動済)
+            {
+                try
+                {
+                    武将情報.行動済 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 武将情報.行動済;
                 }
             }
             else if (e.ColumnIndex == (int)タイトル.状態)
@@ -494,6 +505,41 @@ public class 武将エディタ : Form
                     cell.Value = 武将情報.戦技騎鉄;
                 }
             }
+            else if (e.ColumnIndex == (int)タイトル.修行中)
+            {
+                try
+                {
+                    武将情報.修行中 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 武将情報.修行中;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.修行済忍者)
+            {
+                try
+                {
+                    武将情報.修行済忍者 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 武将情報.修行済忍者;
+                }
+            }
+            else if (e.ColumnIndex == (int)タイトル.修行済移動力)
+            {
+                try
+                {
+                    武将情報.修行済移動力 = (int)cell.Value;
+                }
+                catch (Exception)
+                {
+                    cell.Value = 武将情報.修行済移動力;
+                }
+            }
+
+            /*
             else if (e.ColumnIndex == (int)タイトル.農業経験値)
             {
                 try
@@ -529,7 +575,7 @@ public class 武将エディタ : Form
                     cell.Value = 武将情報.建設経験値;
                 }
             }
-
+            */
 
         }
         catch (Exception) { }
@@ -568,6 +614,7 @@ public class 武将エディタ : Form
                   武将.顔番号,
                   武将.一門,
                   武将.親武将番号,
+                  武将.行動済,
                   武将.状態,
                   武将.身分,
                   武将.生年,
@@ -596,9 +643,14 @@ public class 武将エディタ : Form
                   武将.戦技三段,
                   武将.戦技焙烙,
                   武将.戦技騎鉄,
+                  武将.修行中,
+                  武将.修行済忍者,
+                  武将.修行済移動力
+                  /*
                   武将.農業経験値,
                   武将.商業経験値,
                   武将.建設経験値
+                  */
                   );
             }
 

@@ -1721,6 +1721,7 @@ Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     Int32 身分   'get set' : 
     Int32 状態   'get set' : 
     Int32 顔番号  'get set' : 
+    Int32 行動済  'get set' : 
     Int32 水軍適性 'get set' : 
     Int32 鉄砲適性 'get set' : 
     Int32 騎馬適性 'get set' : 
@@ -1786,6 +1787,8 @@ Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_鉄砲適性(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_水軍適性(): PrivateScope, Public, HideBySig, SpecialName
     set_水軍適性(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_行動済(): PrivateScope, Public, HideBySig, SpecialName
+    set_行動済(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_顔番号(): PrivateScope, Public, HideBySig, SpecialName
     set_顔番号(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_状態(): PrivateScope, Public, HideBySig, SpecialName
