@@ -139,6 +139,7 @@
     <ClInclude Include="game_test.h" />
     <ClInclude Include="hook_functions_direct.h" />
     <ClInclude Include="hook_functions_replace.h" />
+    <ClInclude Include="hook_setfilepointer_custom_winframe.h" />
     <ClInclude Include="hook_textouta_custom.h" />
     <ClInclude Include="game_menu.h" />
     <ClInclude Include="load_form_mod.h" />
@@ -251,6 +252,7 @@
     <ClCompile Include="hook_readfile_custom_kahou.cpp" />
     <ClCompile Include="hook_sequence_event_bushou_and_message.cpp" />
     <ClCompile Include="hook_serihu_message_func.cpp" />
+    <ClCompile Include="hook_setfilepointer_custom_winframe.cpp" />
     <ClCompile Include="hook_set_serihu_all_bushou_a.cpp" />
     <ClCompile Include="hook_set_serihu_all_bushou_b.cpp" />
     <ClCompile Include="hook_set_serihu_both_bushou.cpp">

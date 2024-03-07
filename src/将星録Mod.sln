@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "大名関係エディタ.mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ユニットエディタ.mod", "ユニットエディタ.mod\ユニットエディタ.mod.csproj", "{B61CA1BD-32E8-4263-A508-5381FB5F6181}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "武将エディタ.mod", "武将エディタ.mod\武将エディタ.mod.csproj", "{01FB4500-31A8-406C-8F97-51762CDE1B14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -234,6 +236,24 @@ Global
 		{B61CA1BD-32E8-4263-A508-5381FB5F6181}.Release|x64.Build.0 = Release|Any CPU
 		{B61CA1BD-32E8-4263-A508-5381FB5F6181}.Release|x86.ActiveCfg = Release|Any CPU
 		{B61CA1BD-32E8-4263-A508-5381FB5F6181}.Release|x86.Build.0 = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Debug|x64.Build.0 = Debug|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Debug|x86.Build.0 = Debug|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release (Super)|Any CPU.ActiveCfg = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release (Super)|Any CPU.Build.0 = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release (Super)|x64.ActiveCfg = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release (Super)|x64.Build.0 = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release (Super)|x86.ActiveCfg = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release (Super)|x86.Build.0 = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release|x64.ActiveCfg = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release|x64.Build.0 = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release|x86.ActiveCfg = Release|Any CPU
+		{01FB4500-31A8-406C-8F97-51762CDE1B14}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

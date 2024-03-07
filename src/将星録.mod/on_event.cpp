@@ -55,11 +55,11 @@ void onShikanWindow() {
     OutputDebugStream("士官画面\n");
 }
 
-void onMenuBushouEditStart() {
+void onMenuOriginalBushouEditStart() {
     OutputDebugStream("メニュー-武将編集画面\n");
 }
 
-void onMenuShiroEditStart() {
+void onMenuOriginalShiroEditStart() {
     OutputDebugStream("メニュー-城編集画面\n");
 }
 

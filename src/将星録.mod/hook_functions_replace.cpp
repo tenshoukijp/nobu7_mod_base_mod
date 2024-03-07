@@ -7,6 +7,7 @@
 #include <cctype>
 #include <map>
 
+#include "hook_setfilepointer_custom_winframe.h"
 #include "output_debug_stream.h"
 #include "game_font.h"
 #include "game_process.h"
@@ -402,7 +403,7 @@ static map<HANDLE, string> handleMap;
 // extern HANDLE Hook_CreateFileACustom(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
 HANDLE hFileKAODATA = NULL;
 HANDLE hFileITEMDATA = NULL;
-// HANDLE hFileWINFRAME = NULL;
+HANDLE hFileWINFRAME = NULL;
 HANDLE WINAPI Hook_CreateFileA(
     LPCSTR lpFileName, // ファイル名
     DWORD dwDesiredAccess, // アクセス方法
@@ -475,7 +476,8 @@ HANDLE WINAPI Hook_CreateFileA(
 //---------------------------SetFilePointer
 
 using PFNSETFILEPOINTER = DWORD(WINAPI *)(HANDLE, LONG, PLONG, DWORD);
-
+BOOL IsNextWinFrameHeader = FALSE;
+extern BOOL WinFrameHeaderCopied;
 PROC pfnOrigSetFilePointer = GetProcAddress(GetModuleHandleA("kernel32.dll"), "SetFilePointer");
 // extern DWORD Hook_SetFilePointerCustom(HANDLE hFile, LONG lDistanceToMove, PLONG lpDistanceToMoveHigh, DWORD dwMoveMethod);
 DWORD WINAPI Hook_SetFilePointer(
@@ -489,6 +491,7 @@ DWORD WINAPI Hook_SetFilePointer(
 
     nTargetKaoID = -1;
     nTargetKahouGazouID = -1;
+    IsNextWinFrameHeader = FALSE;
 	// 元のもの
 	DWORD nResult = ((PFNSETFILEPOINTER)pfnOrigSetFilePointer)(hFile, lDistanceToMove, lpDistanceToMoveHigh, dwMoveMethod);
     if (hFileKAODATA == hFile) {
@@ -508,6 +511,20 @@ DWORD WINAPI Hook_SetFilePointer(
     /*
     else if (hFileWINFRAME == hFile) {
         OutputDebugStream("フレームSetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
+        if (lDistanceToMove == 0) { // 最初の４バイトはヘッダーがいくつのデータで構成されるかの個数が入っている。
+            IsNextWinFrameHeader = FALSE;
+        }
+        else if (lDistanceToMove == 4) { // 次からヘッダーが入っている。
+            IsNextWinFrameHeader = TRUE;
+        }
+        else if (WinFrameHeaderCopied) {
+            int 差し引きAddress = lDistanceToMove - WINFRAME_NB7_ALL_HEADER_SIZE;
+            for (int i = 0; i < WINFRAME_NB7_CHUNK_COUNT; i++) {
+                if (差し引きAddress == winframe_nb7_header->chunk[i].start_address) {
+					OutputDebugStream("フレーム番号:" + std::to_string(i) + "\n");
+				}
+			}
+        }
     }
     */
     /*
@@ -526,9 +543,9 @@ using PFNREADFILE = BOOL(WINAPI *)(HANDLE, LPVOID, DWORD, LPDWORD, LPOVERLAPPED)
 
 PROC pfnOrigReadFile = GetProcAddress(GetModuleHandleA("kernel32.dll"), "ReadFile");
 
+extern void hook_setfilepointer_custom_winframe(LPVOID lpBuffer, DWORD nNumberOfBytesToRead);
 extern BOOL Hook_ReadFileCustom_BushouKao(HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPOVERLAPPED lpOverlapped);
 extern BOOL Hook_ReadFileCustom_KahouPic(HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPOVERLAPPED lpOverlapped);
-
 BOOL WINAPI Hook_ReadFile(
 	HANDLE hFile, // ファイルのハンドル
 	LPVOID lpBuffer, // データの格納先
@@ -550,10 +567,16 @@ BOOL WINAPI Hook_ReadFile(
     }
     /*
     else if (hFileWINFRAME == hFile) {
+        if (IsNextWinFrameHeader) {
+            // WINFRAME.NB7のヘッダー情報を読み取り。これは画像ごとに画素サイズが異なるため、単純に割り算などで求めることができないため。
+            if (nNumberOfBytesToRead == sizeof(WINFRAME_NB7_HEADER)) {
+                hook_setfilepointer_custom_winframe(lpBuffer, nNumberOfBytesToRead);
+            }
+            IsNextWinFrameHeader = FALSE;
+        }
         OutputDebugStream("フレーム読み込むバイト数%d:\n", nNumberOfBytesToRead);
     }
     */
-
     nTargetKaoID = -1;
     nTargetKahouGazouID = -1;
   
@@ -571,11 +594,11 @@ BOOL WINAPI Hook_CloseHandle(
 ) {
 
     if (hFileKAODATA == hObject) {
-        OutputDebugStream("CloseHandle:KAODATA\n");
+        // OutputDebugStream("CloseHandle:KAODATA\n");
         hFileKAODATA = NULL;
     }
     else if (hFileITEMDATA == hObject) {
-        OutputDebugStream("CloseHandle:ITEMDATA\n");
+        // OutputDebugStream("CloseHandle:ITEMDATA\n");
         hFileITEMDATA = NULL;
     }
     /*

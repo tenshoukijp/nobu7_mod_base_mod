@@ -17,6 +17,16 @@ namespace «¯˜^ {
 				static const int €–S = 8;
 			};
 
+			public ref class g•ª {
+			public:
+				static const int ‘«Œy“ª = 0;
+				static const int ˜‘å« = 1;
+				static const int •”« = 2;
+				static const int ‰Æ˜V = 3;
+				static const int h˜V = 4;
+				static const int ‘å–¼ = 5;
+			};
+
 			public ref class Œû’² {
 			public:
 				static const int –³Œû = 0;

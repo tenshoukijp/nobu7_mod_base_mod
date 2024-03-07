@@ -369,6 +369,9 @@
     <ClInclude Include="mng_武将情報.h">
       <Filter>ゲームデータ - 武将情報</Filter>
     </ClInclude>
+    <ClInclude Include="hook_setfilepointer_custom_winframe.h">
+      <Filter>フック関数置き換え系</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -805,6 +808,9 @@
     </ClCompile>
     <ClCompile Include="mng_ユニット情報.cpp">
       <Filter>ゲームデータ - ユニット情報</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_setfilepointer_custom_winframe.cpp">
+      <Filter>フック関数置き換え系</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

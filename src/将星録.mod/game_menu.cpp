@@ -14,6 +14,10 @@ using namespace std;
 
 HMENU hNB7MenuCheckChange = NULL;
 
+void onMenuBushouEditStart() {
+	Show_FormMod("武将エディタ.mod.dll", "将星録.武将エディタ");
+}
+
 void onMenuDaimyoEditStart() {
 	Show_FormMod("大名エディタ.mod.dll", "将星録.大名エディタ");
 }
@@ -59,7 +63,7 @@ BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 	OutputDebugStream("\r\n");
 	switch (iMenuID) {
 	case ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI:
-		// onMenuBushouEditStart();
+		onMenuBushouEditStart();
 		return TRUE;
 	case ADDITIONAL_MENU_ID_UNITEDIT_KAI:
 		onMenuUnitEditStart();
@@ -83,10 +87,10 @@ BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 		onMenuNenngetuSotaEditStart();
 		return TRUE;
 	case 313:
-		onMenuBushouEditStart();
+		onMenuOriginalBushouEditStart();
 		return TRUE;
 	case 314:
-		onMenuShiroEditStart();
+		onMenuOriginalShiroEditStart();
 		return TRUE;
 	case 302:
 		onMenuNenpyoSengokushiStart();

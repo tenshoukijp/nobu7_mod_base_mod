@@ -10,6 +10,8 @@
 #include "game_screen.h"
 #include "data_game_struct.h"
 
+#include "usr_custom_mod.h"
+
 // 家宝の画像は幅が64, 高さが64。マジックナンバーになってしまうが、今後変更になったりは永久にしないため、そのまま埋め込む。(そっちの方が定数名使うよりわかりやすい)
 
 struct KAHOU_PICLINE {
@@ -37,7 +39,28 @@ BOOL Hook_ReadFileCustom_KahouPic(
 
     std::string filename = "";
 
-    if (isValidKahouID(iKahouIDOfLastShowKahouID)) {
+    // C#のカスタム.mod.dllからの上書き
+    try {
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+        dic->Add("家宝番号", iKahouIDOfLastShowKahouID);
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on家宝画像要求時", dic);
+        if (ret != nullptr && ret->ContainsKey("ファイル名")) {
+            System::String^ override_filename = (System::String^)(ret["ファイル名"]);
+            if (System::String::IsNullOrEmpty(override_filename)) {
+                ;
+            }
+            else {
+                filename = to_native_string(override_filename);
+            }
+        }
+
+    }
+    catch (System::Exception^) {
+        OutputDebugStream("on家宝画像要求時でエラー");
+    }
+
+
+    if (filename == "" && isValidKahouID(iKahouIDOfLastShowKahouID)) {
         char filenameBuf[512] = "";
         sprintf_s(filenameBuf, "OVERRIDE\\ITEMDATA\\%s.bmp", nb7家宝情報[iKahouIDOfLastShowKahouID].家宝名);
         OutputDebugStream("★★★はあるか？%s\n", filenameBuf);

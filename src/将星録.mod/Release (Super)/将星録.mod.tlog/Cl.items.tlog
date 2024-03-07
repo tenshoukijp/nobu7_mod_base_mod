@@ -62,6 +62,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_zante
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom_kahou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_readfile_custom_kahou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_sequence_event_bushou_and_message.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_sequence_event_bushou_and_message.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_serihu_message_func.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_serihu_message_func.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setfilepointer_custom_winframe.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_setfilepointer_custom_winframe.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_set_serihu_all_bushou_a.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_set_serihu_all_bushou_a.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_set_serihu_all_bushou_b.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_set_serihu_all_bushou_b.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_update_month.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_update_month.obj

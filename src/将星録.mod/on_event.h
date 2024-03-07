@@ -6,9 +6,9 @@ void onOpeningMovie();
 
 void onInitialGameMenu();
 
-void onMenuBushouEditStart();
+void onMenuOriginalBushouEditStart();
 
-void onMenuShiroEditStart();
+void onMenuOriginalShiroEditStart();
 
 void onMenuNenpyoSengokushiStart();
 

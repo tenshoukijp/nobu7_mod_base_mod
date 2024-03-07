@@ -10,6 +10,8 @@
 #include "game_screen.h"
 #include "data_game_struct.h"
 
+#include "usr_custom_mod.h"
+
 // 顔の画像は幅が64, 高さが80。マジックナンバーになってしまうが、今後変更になったりは永久にしないため、そのまま埋め込む。(そっちの方が定数名使うよりわかりやすい)
 
 struct KAO_PICLINE {
@@ -61,8 +63,31 @@ BOOL Hook_ReadFileCustom_BushouKao(
     char filenameBuf[512] = "";
     std::string filename = "";
 
+    // C#のカスタム.mod.dllからの上書き
+    try {
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+        dic->Add("ファイル名", nTargetKaoID);
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on顔画像要求時", dic);
+        if (ret != nullptr && ret->ContainsKey("ファイル名")) {
+            System::String^ override_filename = (System::String^)(ret["ファイル名"]);
+            if (System::String::IsNullOrEmpty(override_filename)) {
+                OutputDebugStream("AAAAAA\n");
+                ;
+            }
+            else {
+                OutputDebugStream("BBBBBB\n");
+                filename = to_native_string(override_filename);
+            }
+        }
+
+    }
+    catch (System::Exception^) {
+        OutputDebugStream("on顔画像要求時でエラー");
+    }
+
+
     // 戦闘中なら 0000_B.bmp のようなファイルが存在すればそちらを優先で使うことを試みる
-    if (isBattleFaceCondition(nTargetKaoID)) {
+    if (filename == "" && isBattleFaceCondition(nTargetKaoID)) {
         sprintf_s(filenameBuf, "OVERRIDE\\KAODATA\\%04d_B.bmp", nTargetKaoID);
         OutputDebugStream("★★★はあるか？%s\n", filenameBuf);
         if (isFileExists(filenameBuf)) {

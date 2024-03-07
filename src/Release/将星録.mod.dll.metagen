@@ -96,8 +96,6 @@ Class 将星録.列挙.ユニット.部隊兵種: AutoLayout, AnsiClass, Class, 
 Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
-    Int32 目標Ｙ座標 'get ' : 
-    Int32 目標Ｘ座標 'get ' : 
     Int32 現在Ｙ座標 'get ' : 
     Int32 現在Ｘ座標 'get ' : 
     Int32 後ユニット配列IX 'get set' : 
@@ -204,8 +202,6 @@ Class 将星録.ユニット情報型: AutoLayout, AnsiClass, Class, Public, Bef
     set_後ユニット配列IX(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_現在Ｘ座標(): PrivateScope, Public, HideBySig, SpecialName
     get_現在Ｙ座標(): PrivateScope, Public, HideBySig, SpecialName
-    get_目標Ｘ座標(): PrivateScope, Public, HideBySig, SpecialName
-    get_目標Ｙ座標(): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.列挙.武将.状態: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -219,6 +215,15 @@ Class 将星録.列挙.武将.状態: AutoLayout, AnsiClass, Class, Public, Befo
     Int32 一揆勢力 IsConst : Public, Static, HasDefault
     Int32 待機 IsConst : Public, Static, HasDefault
     Int32 死亡 IsConst : Public, Static, HasDefault
+Class 将星録.列挙.武将.身分: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 足軽頭 IsConst : Public, Static, HasDefault
+    Int32 侍大将 IsConst : Public, Static, HasDefault
+    Int32 部将 IsConst : Public, Static, HasDefault
+    Int32 家老 IsConst : Public, Static, HasDefault
+    Int32 宿老 IsConst : Public, Static, HasDefault
+    Int32 大名 IsConst : Public, Static, HasDefault
 Class 将星録.列挙.武将.口調: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
@@ -1703,6 +1708,7 @@ Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     Int32 内技農業 'get set' : 
     Int32 口調   'get set' : 
     Int32 性別   'get set' : 
+    Int32 身分   'get set' : 
     Int32 状態   'get set' : 
     Int32 顔番号  'get set' : 
     Int32 水軍適性 'get set' : 
@@ -1768,6 +1774,8 @@ Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_顔番号(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_状態(): PrivateScope, Public, HideBySig, SpecialName
     set_状態(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_身分(): PrivateScope, Public, HideBySig, SpecialName
+    set_身分(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_性別(): PrivateScope, Public, HideBySig, SpecialName
     set_性別(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_口調(): PrivateScope, Public, HideBySig, SpecialName

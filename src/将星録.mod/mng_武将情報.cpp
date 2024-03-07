@@ -364,6 +364,21 @@ void 武将情報型::状態::set(int value) {
 	}
 }
 
+int 武将情報型::身分::get()
+{
+	return nb7武将情報[武将配列IX].身分;
+}
+
+void 武将情報型::身分::set(int value) {
+	if (武将::身分::足軽頭 <= value && value < 武将::身分::大名) {
+		nb7武将情報[武将配列IX].身分 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("身分が不正です。");
+	}
+}
+
+
 int 武将情報型::性別::get()
 {
 	return nb7武将情報[武将配列IX].性別;

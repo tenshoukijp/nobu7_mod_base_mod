@@ -121,6 +121,11 @@ namespace «¯˜^ {
 			void set(int value);
 		}
 
+		property int g•ª {
+			int get();
+			void set(int value);
+		}
+
 		property int «•Ê {
 			int get();
 			void set(int value);
