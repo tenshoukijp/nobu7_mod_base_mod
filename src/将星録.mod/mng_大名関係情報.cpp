@@ -96,7 +96,7 @@ int ‘å–¼ŠÖŒW“¯–¿cî•ñŒ^::default::get(int ‘å–¼‚P”z—ñIX, int ‘å–¼‚Q”z—ñIX)
 
 void ‘å–¼ŠÖŒW“¯–¿cî•ñŒ^::default::set(int ‘å–¼‚P”z—ñIX, int ‘å–¼‚Q”z—ñIX, int value)
 {
-	if (0 <= value && value <= 800) {
+	if (0 <= value && value <= 255) {
 
 	}
 	else {

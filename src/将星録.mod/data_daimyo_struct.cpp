@@ -1,4 +1,5 @@
 #include "data_game_struct.h"
+#include "output_debug_stream.h"
 
 BOOL isValidDaimyoID(int iDaimyoID) {
 	if (0 <= iDaimyoID && iDaimyoID < Å‘å”::‘å–¼î•ñ::”z—ñ”) {

@@ -55,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\基本エディタ.mod\基本エディタ.mod.csproj">
+      <Project>{6f14c2aa-3e04-4433-83a3-d30d4e4e7180}</Project>
+      <Name>基本エディタ.mod</Name>
+    </ProjectReference>
     <ProjectReference Include="..\大名関係エディタ.mod\大名関係エディタ.mod.csproj">
       <Project>{5df8da02-85bd-49bf-b81a-419300f6db97}</Project>
       <Name>大名関係エディタ.mod</Name>

@@ -7,169 +7,77 @@ namespace 将星録;
 
 
 
-public class 年月相場エディタ : Form
+public partial class 年月相場エディタ : 基本エディタ
 {
-    DataGridView dgv = new DataGridView();
 
-    年月情報型 年月情報 = new();
-    相場情報型 相場情報 = new();
-
-    public 年月相場エディタ()
+    public 年月相場エディタ() : base()
     {
-        try
-        {
-            setFormAttribute();
-
-            setDataGridAttribute();
-        }
-        catch (Exception) { }
+        this.Text = nameof(年月相場エディタ);
     }
 
-    void setFormAttribute()
+    class BIND用の年月相場情報型
     {
-        this.Text = "年月相場エディタ";
-        this.Width = 900;
-        this.Height = 800;
-        this.StartPosition = FormStartPosition.CenterScreen;
-        this.ShowIcon = false;
+        年月情報型 年月情報 = new();
+        相場情報型 相場情報 = new();
 
-        this.KeyPreview = true;
-        this.KeyDown += Form_KeyDown;
-    }
 
-    void Form_KeyDown(object sender, KeyEventArgs e)
-    {
-        if (e.KeyCode == Keys.F5 && ActiveForm == this)
+        public BIND用の年月相場情報型()
         {
-            dgv.Rows.Clear();
-            DgvDataImport();
         }
-    }
 
-    enum タイトル { 年, 月, 兵糧, 軍馬, 鉄砲 };
-    void setDataGridAttribute()
-    {
-        try
+        public int 年
         {
-            dgv.Dock = DockStyle.Fill;
-            dgv.AllowUserToAddRows = false;
-            dgv.AllowUserToDeleteRows = false;
-
-            string fontName = 将星録.アプリケーション.フォント.フォント名;
-            dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
-
-            string[] names = Enum.GetNames(typeof(タイトル));
-            for (int i = 0; i < names.Length; i++)
-            {
-                // 縦列のオブジェクトを作り
-                DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
-                // タイトル文字列を設定
-                dgvtbc.HeaderText = names[i];
-                // グリッドビューに縦列として追加。
-                dgv.Columns.Add(dgvtbc);
-            }
-
-            DgvDataImport();
-
-            // データグリッドのセルを編集した時のイベントハンドラを登録する。
-            dgv.DataError += dvg_DataError;
-            dgv.CellValueChanged += dgv_CellValueChanged;
-
-            // データグリッドビューをフォームに乗っける
-            this.Controls.Add(dgv);
+            get { return 年月情報.年; }
+            set { 年月情報.年 = value; }
         }
-        catch (Exception ) { }
+
+        public int 月
+        {
+            get { return 年月情報.月; }
+            set { 年月情報.月 = value; }
+        }
+
+        public int 兵糧
+        {
+            get { return 相場情報.兵糧; }
+            set { 相場情報.兵糧 = value; }
+        }
+
+        public int 軍馬
+        {
+            get { return 相場情報.軍馬; }
+            set { 相場情報.軍馬 = value; }
+        }
+
+        public int 鉄砲
+        {
+            get { return 相場情報.鉄砲; }
+            set { 相場情報.鉄砲 = value; }
+        }
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
-    void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    protected override void dvg_DataBinding()
     {
         try
         {
-            e.Cancel = false;
+            List<BIND用の年月相場情報型> データ配列 = new();
+            データ配列.Add(new BIND用の年月相場情報型());
+
+            dgv.DataSource = データ配列;
         }
         catch (Exception) { }
     }
 
-    void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    protected override void dvg_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
     {
         try
         {
-            // 対象のセル
-            var cell = dgv[e.ColumnIndex, e.RowIndex];
-            if (e.ColumnIndex == (int)タイトル.年)
-            {
-                try
-                {
-                    年月情報.年 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 年月情報.年;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.月)
-            {
-                try
-                {
-                    年月情報.月 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 年月情報.月;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.兵糧)
-            {
-                try
-                {
-                    相場情報.兵糧 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 相場情報.兵糧;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.軍馬)
-            {
-                try
-                {
-                    相場情報.軍馬 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 相場情報.軍馬;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.鉄砲)
-            {
-                try
-                {
-                    相場情報.鉄砲 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 相場情報.鉄砲;
-                }
-            }
-        }
-        catch (Exception) { }
-    }
-
-    void DgvDataImport()
-    {
-        try
-        {
-            dgv.Columns[(int)タイトル.年].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.月].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.兵糧].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.軍馬].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.鉄砲].ValueType = typeof(int);
-
-            dgv.Rows.Add(年月情報.年, 年月情報.月, 相場情報.兵糧, 相場情報.軍馬, 相場情報.鉄砲);
-
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }
+
+
 }
+

@@ -56,5 +56,11 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\基本エディタ.mod\基本エディタ.mod.csproj">
+      <Project>{6f14c2aa-3e04-4433-83a3-d30d4e4e7180}</Project>
+      <Name>基本エディタ.mod</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,3 +6,4 @@ C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\bin\Relea
 C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\obj\Release\大名関係エディタ.6AE7C31D.Up2Date
 C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\obj\Release\大名関係エディタ.mod.dll
 C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\obj\Release\大名関係エディタ.mod.pdb
+C:\Users\master\source\repos\将星録Mod\大名関係エディタ.mod\bin\Release\基本エディタ.mod.dll
