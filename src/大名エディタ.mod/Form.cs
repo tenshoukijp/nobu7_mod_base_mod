@@ -51,7 +51,7 @@ public class 大名エディタ : Form
 
     void Form_KeyDown(object sender, KeyEventArgs e)
     {
-        if (e.KeyCode == Keys.F5)
+        if (e.KeyCode == Keys.F5 && ActiveForm == this)
         {
             dgv.Rows.Clear();
             dgv.Columns.Remove(buttonColumn);
@@ -108,7 +108,7 @@ public class 大名エディタ : Form
                     int ID = (int)IDCell.Value;
                     // e.RowIndex に押されたボタンが属する行のインデックスが入っている
                     将星録.大名関係エディタ editor = new 将星録.大名関係エディタ(ID);
-                    editor.Show();
+                    editor.ShowDialog();
                 }
             }
         }

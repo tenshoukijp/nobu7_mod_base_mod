@@ -144,6 +144,9 @@
     <ClInclude Include="hook_textouta_custom.h" />
     <ClInclude Include="game_menu.h" />
     <ClInclude Include="load_form_mod.h" />
+    <ClInclude Include="load_wpf_mod.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="message_albedo.h" />
     <ClInclude Include="mng_ゲーム画面.h" />
     <ClInclude Include="mng_メニュー.h" />
@@ -300,6 +303,9 @@
     <ClCompile Include="kahou_retsuden.cpp" />
     <ClCompile Include="hook_kahou_type_name.cpp" />
     <ClCompile Include="load_form_mod.cpp" />
+    <ClCompile Include="load_wpf_mod.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="message_albedo.cpp" />
     <ClCompile Include="mng_フォント.cpp" />
     <ClCompile Include="mng_メニュー.cpp" />
@@ -353,11 +359,15 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data_kahou_retsuden_struct.h">

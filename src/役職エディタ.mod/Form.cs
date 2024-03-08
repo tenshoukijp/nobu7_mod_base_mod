@@ -44,7 +44,7 @@ public class 役職エディタ : Form
 
     void Form_KeyDown(object sender, KeyEventArgs e)
     {
-        if (e.KeyCode == Keys.F5)
+        if (e.KeyCode == Keys.F5 && ActiveForm==this)
         {
             dgv.Rows.Clear();
             DgvDataImport();

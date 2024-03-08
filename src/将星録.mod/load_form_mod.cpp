@@ -2,6 +2,8 @@
 #include <string>
 #include "data_game_struct.h"
 #include "output_debug_stream.h"
+#include "load_form_mod.h"
+
 using namespace System;
 using namespace System::Reflection;
 using namespace System::Windows::Forms;
@@ -11,6 +13,7 @@ ref class FormGlobalInstance {
 public:
 	static Dictionary<String^, Form^>^ formMap = gcnew Dictionary<String^, Form^>();
 };
+
 int Show_FormMod(String^ dllPath, String^ fullClassName) {
 	try {
 		auto assembly = Assembly::LoadFrom(dllPath);
@@ -22,15 +25,15 @@ int Show_FormMod(String^ dllPath, String^ fullClassName) {
 		// 最後に、Showメソッドを呼び出すことでフォームを表示します。
 
 		if (FormGlobalInstance::formMap->ContainsKey(dllPath)) {
-			Form^ closeTargefForm = FormGlobalInstance::formMap[dllPath];
-			closeTargefForm->Close();
-			closeTargefForm = nullptr;
+			Form^ closeTargetForm = FormGlobalInstance::formMap[dllPath];
+			closeTargetForm->Close();
+			closeTargetForm = nullptr;
 			FormGlobalInstance::formMap->Remove(dllPath);
 		}
 		// インスタンス確保という意味でMapにファイルパス対応するフォームを登録する
 		FormGlobalInstance::formMap->Add(dllPath, form);
 
-		form->Show();
+		form->ShowDialog();
 
 		return 1;
 	}

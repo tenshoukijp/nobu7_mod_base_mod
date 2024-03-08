@@ -378,6 +378,9 @@
     <ClInclude Include="app_thread_exception.h">
       <Filter>例外</Filter>
     </ClInclude>
+    <ClInclude Include="load_wpf_mod.h">
+      <Filter>フォーム系Mod</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -820,6 +823,9 @@
     </ClCompile>
     <ClCompile Include="app_thread_exception.cpp">
       <Filter>例外</Filter>
+    </ClCompile>
+    <ClCompile Include="load_wpf_mod.cpp">
+      <Filter>フォーム系Mod</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

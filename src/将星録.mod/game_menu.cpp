@@ -6,6 +6,8 @@
 #include "on_event.h"
 #include "game_test.h"
 #include "load_form_mod.h"
+
+#include "load_wpf_mod.h"
 #include "usr_custom_mod.h"
 
 #pragma comment(lib, "shell32.lib")
@@ -14,6 +16,9 @@ using namespace std;
 
 HMENU hNB7MenuCheckChange = NULL;
 
+void onMenuTestEditStart() {
+	// Show_WpfMod("テストエディタ.mod.dll", "将星録.テストエディタ");
+}
 void onMenuBushouEditStart() {
 	Show_FormMod("武将エディタ.mod.dll", "将星録.武将エディタ");
 }
@@ -62,6 +67,9 @@ BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 	OutputDebugStream(iMenuID);
 	OutputDebugStream("\r\n");
 	switch (iMenuID) {
+	case ADDITIONAL_MENU_ID_TEST_KAI:
+		onMenuTestEditStart();
+		return TRUE;
 	case ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI:
 		onMenuBushouEditStart();
 		return TRUE;
