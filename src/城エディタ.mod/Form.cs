@@ -5,40 +5,160 @@ using System.Windows.Forms;
 
 namespace 将星録;
 
-public class 城エディタ : Form
+public partial class 城エディタ : Form
+{
+
+    class BIND用の城情報型
+    {
+        城情報型 城情報;
+        public BIND用の城情報型(int 城配列IX)
+        {
+            城情報 = new 城情報型(城配列IX);
+        }
+
+        public int 配列IX
+        {
+            get { return 城情報.配列IX; }
+        }
+
+        public string 城名
+        {
+            get { return 城情報.城名; }
+            set { 城情報.城名 = value; }
+        }
+
+        public string 城称
+        {
+            get { return 城情報.城称; }
+        }
+
+        public int 籠城番号
+        {
+            get { return 城情報.籠城番号; }
+            set { 城情報.籠城番号 = value; }
+        }
+
+        public int 所属大名配列IX
+        {
+            get { return 城情報.所属大名配列IX; }
+            set { 城情報.所属大名配列IX = value; }
+        }
+
+        public int 城主武将配列IX
+        {
+            get { return 城情報.城主武将配列IX; }
+            set { 城情報.城主武将配列IX = value; }
+        }
+
+        public int 規模
+        {
+            get { return 城情報.規模; }
+            set { 城情報.規模 = value; }
+        }
+
+        public int 防御
+        {
+            get { return 城情報.防御; }
+            set { 城情報.防御 = value; }
+        }
+
+        public int 防御MAX
+        {
+            get { return 城情報.防御MAX; }
+        }
+
+        public int 兵数
+        {
+            get { return 城情報.兵数; }
+            set { 城情報.兵数 = value; }
+        }
+
+        public int 負傷兵数
+        {
+            get { return 城情報.負傷兵数; }
+            set { 城情報.負傷兵数 = value; }
+        }
+
+        public int 金銭
+        {
+            get { return 城情報.金銭; }
+            set { 城情報.金銭 = value; }
+        }
+
+        public int 兵糧
+        {
+            get { return 城情報.兵糧; }
+            set { 城情報.兵糧 = value; }
+        }
+
+        public int 軍馬
+        {
+            get { return 城情報.軍馬; }
+            set { 城情報.軍馬 = value; }
+        }
+
+        public int 鉄砲
+        {
+            get { return 城情報.鉄砲; }
+            set { 城情報.鉄砲 = value; }
+        }
+
+        public int 大砲
+        {
+            get { return 城情報.大砲; }
+            set { 城情報.大砲 = value; }
+        }
+
+        public int 商人
+        {
+            get { return 城情報.商人; }
+            set { 城情報.商人 = value; }
+        }
+
+        public int 委任状態
+        {
+            get { return 城情報.委任状態; }
+            set { 城情報.委任状態 = value; }
+        }
+
+        public int 委任攻撃
+        {
+            get { return 城情報.委任攻撃; }
+            set { 城情報.委任攻撃 = value; }
+        }
+
+        public int 委任攻撃目標城配列IX
+        {
+            get { return 城情報.委任攻撃目標城配列IX; }
+            set { 城情報.委任攻撃目標城配列IX = value; }
+        }
+
+        public int 開始ユニット配列IX
+        {
+            get { return 城情報.開始ユニット配列IX; }
+            set { 城情報.開始ユニット配列IX = value; }
+        }
+
+        public int 後城配列IX
+        {
+            get { return 城情報.後城配列IX; }
+            set { 城情報.後城配列IX = value; }
+        }
+    }
+}
+
+public partial class 城エディタ : Form
 {
     DataGridView dgv = new DataGridView();
-
-    List<城情報型> 城配列 = new();
-
 
     public 城エディタ()
     {
         try
         {
-            create城配列();
-
             setFormAttribute();
             setDataGridAttribute();
         }
         catch (Exception) { }
-    }
-
-    void Form_KeyDown(object sender, KeyEventArgs e)
-    {
-        if (e.KeyCode == Keys.F5 && ActiveForm == this)
-        {
-            dgv.Rows.Clear();
-            DgvDataImport();
-        }
-    }
-
-    void create城配列()
-    {
-        for (int i = 0; i < 将星録.最大数.城情報.配列数; i++)
-        {
-            城配列.Add(new 城情報型(i));
-        }
     }
 
     void setFormAttribute()
@@ -53,7 +173,15 @@ public class 城エディタ : Form
         this.KeyDown += Form_KeyDown;
     }
 
-    enum タイトル { 配列IX = 0, 城名, 城称, 籠城番号, 所属大名配列IX, 城主武将配列IX, 規模, 防御, 防御MAX, 兵数, 負傷兵数, 金銭, 兵糧, 軍馬, 鉄砲, 大砲, 商人, 委任状態, 委任攻撃, 委任攻撃目標城配列IX, 開始ユニット配列IX, 後城配列IX };
+    void Form_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.F5 && ActiveForm == this)
+        {
+            dgv.Rows.Clear();
+            dvg_DataBinding();
+        }
+    }
+
     void setDataGridAttribute()
     {
         try
@@ -65,25 +193,32 @@ public class 城エディタ : Form
             string fontName = 将星録.アプリケーション.フォント.フォント名;
             dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
 
-            string[] names = Enum.GetNames(typeof(タイトル));
-            for (int i = 0; i < names.Length; i++)
-            {
-                // 縦列のオブジェクトを作り
-                DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
-                // タイトル文字列を設定
-                dgvtbc.HeaderText = names[i];
-                // グリッドビューに縦列として追加。
-                dgv.Columns.Add(dgvtbc);
-            }
-
-            DgvDataImport();
-
             // データグリッドのセルを編集した時のイベントハンドラを登録する。
             dgv.DataError += dvg_DataError;
-            dgv.CellValueChanged += dgv_CellValueChanged;
+            dgv.DataBindingComplete += dvg_DataBindingComplete;
+
+            dvg_DataBinding();
 
             // データグリッドビューをフォームに乗っける
             this.Controls.Add(dgv);
+
+        }
+        catch (Exception) { }
+    }
+
+    private void dvg_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+    {
+        try
+        {
+            dgv.Columns["配列IX"].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns["城称"].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns["防御MAX"].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns["所属大名配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns["城主武将配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns["開始ユニット配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns["後城配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
+
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }
@@ -98,291 +233,18 @@ public class 城エディタ : Form
         catch (Exception) { }
     }
 
-    void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    void dvg_DataBinding()
     {
         try
         {
-            var IDCell = dgv[0, e.RowIndex];
-            int ID = (int)IDCell.Value;
-
-            var 城情報 = new 将星録.城情報型(ID);
-            // 対象のセル
-            var cell = dgv[e.ColumnIndex, e.RowIndex];
-            if (e.ColumnIndex == (int)タイトル.城名)
+            List<BIND用の城情報型> データ配列 = new();
+            for (int i = 0; i < 将星録.最大数.城情報.配列数; i++)
             {
-                try
-                {
-                    城情報.城名 = cell.Value.ToString();
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.城名;
-                }
+                データ配列.Add(new BIND用の城情報型(i));
             }
-            else if (e.ColumnIndex == (int)タイトル.籠城番号)
-            {
-                try
-                {
-                    城情報.籠城番号 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.籠城番号;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.所属大名配列IX)
-            {
-                try
-                {
-                    城情報.所属大名配列IX = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.所属大名配列IX;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.城主武将配列IX)
-            {
-                try
-                {
-                    城情報.城主武将配列IX = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.城主武将配列IX;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.規模)
-            {
-                try
-                {
-                    城情報.規模 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.規模;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.防御)
-            {
-                try
-                {
-                    城情報.防御 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.防御;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.兵数)
-            {
-                try
-                {
-                    城情報.兵数 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.兵数;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.負傷兵数)
-            {
-                try
-                {
-                    城情報.負傷兵数 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.負傷兵数;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.金銭)
-            {
-                try
-                {
-                    城情報.金銭 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.金銭;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.兵糧)
-            {
-                try
-                {
-                    城情報.兵糧 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.兵糧;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.軍馬)
-            {
-                try
-                {
-                    城情報.軍馬 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.軍馬;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.鉄砲)
-            {
-                try
-                {
-                    城情報.鉄砲 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.鉄砲;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.大砲)
-            {
-                try
-                {
-                    城情報.大砲 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.大砲;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.商人)
-            {
-                try
-                {
-                    城情報.商人 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.商人;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.委任状態)
-            {
-                try
-                {
-                    城情報.委任状態 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.委任状態;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.委任攻撃)
-            {
-                try
-                {
-                    城情報.委任攻撃 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.委任攻撃;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.委任攻撃目標城配列IX)
-            {
-                try
-                {
-                    城情報.委任攻撃目標城配列IX = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.委任攻撃目標城配列IX;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.開始ユニット配列IX)
-            {
-                try
-                {
-                    城情報.開始ユニット配列IX = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.開始ユニット配列IX;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.後城配列IX)
-            {
-                try
-                {
-                    城情報.後城配列IX = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 城情報.後城配列IX;
-                }
-            }
-        }
-        catch (Exception) { }
-
-    }
-
-    void DgvDataImport()
-    {
-        try
-        {
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.城名].ValueType = typeof(string);
-
-            dgv.Columns[(int)タイトル.城称].ValueType = typeof(string);
-            dgv.Columns[(int)タイトル.城称].ReadOnly = true;
-            dgv.Columns[(int)タイトル.城称].DefaultCellStyle.BackColor = Color.LightGray;
-
-            dgv.Columns[(int)タイトル.所属大名配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns[(int)タイトル.城主武将配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns[(int)タイトル.開始ユニット配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns[(int)タイトル.後城配列IX].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-
-            // 基本的にはint型
-            string[] names = Enum.GetNames(typeof(タイトル));
-            for (int i = (int)タイトル.籠城番号; i < names.Length; i++)
-            {
-                dgv.Columns[i].ValueType = typeof(int);
-            }
-
-            dgv.Columns[(int)タイトル.防御MAX].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.防御MAX].ReadOnly = true;
-
-            // 横列単位で足してゆく、
-            foreach (var 城 in 城配列)
-            {
-                dgv.Rows.Add(
-                  城.配列IX,
-                  城.城名,
-                  城.城称,
-                  城.籠城番号,
-                  城.所属大名配列IX,
-                  城.城主武将配列IX,
-                  城.規模,
-                  城.防御,
-                  城.防御MAX,
-                  城.兵数,
-                  城.負傷兵数,
-                  城.金銭,
-                  城.兵糧,
-                  城.軍馬,
-                  城.鉄砲,
-                  城.大砲,
-                  城.商人,
-                  城.委任状態,
-                  城.委任攻撃,
-                  城.委任攻撃目標城配列IX,
-                  城.開始ユニット配列IX,
-                  城.後城配列IX
-                  );
-            }
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
+            dgv.DataSource = データ配列;
         }
         catch (Exception) { }
     }
 }
+
