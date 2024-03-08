@@ -54,6 +54,7 @@ public partial class 基本エディタ : Form
             // データグリッドのセルを編集した時のイベントハンドラを登録する。
             dgv.DataError += dvg_DataError;
             dgv.DataBindingComplete += dvg_DataBindingComplete;
+            dgv.CellValueChanged += dgv_CellValueChanged;
 
             dvg_DataBinding();
 
@@ -62,6 +63,11 @@ public partial class 基本エディタ : Form
 
         }
         catch (Exception) { }
+    }
+
+    protected virtual void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    {
+
     }
 
     protected virtual void dvg_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

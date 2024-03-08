@@ -535,6 +535,10 @@ void ユニット情報型::第５部隊陣形位置::set(int value) {
 
 int ユニット情報型::後ユニット配列IX::get()
 {
+	int iUnitBushouID = 指揮武将配列IX;
+	if (iUnitBushouID == 0xFFFF) {
+		return 0xFFFF;
+	}
 	int iUnitID = getUnitIDFromUnitPtr(nb7ユニット情報[ユニット配列IX].p次のユニット);
 	return iUnitID;
 }
