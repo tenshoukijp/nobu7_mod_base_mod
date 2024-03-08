@@ -5,29 +5,50 @@ using System.Windows.Forms;
 
 namespace 将星録;
 
-public class 役職エディタ : Form
+
+public partial class 役職エディタ : Form
+{
+    class BIND用の役職情報型
+    {
+        役職情報型 役職情報;
+        public BIND用の役職情報型(int 役職配列IX)
+        {
+            役職情報 = new 役職情報型(役職配列IX);
+        }
+
+        public int 配列IX
+        {
+            get { return 役職情報.配列IX; }
+        }
+        public string 役職名
+        {
+            get { return 役職情報.役職名; }
+            set { 役職情報.役職名 = value; }
+        }
+        public int 役位
+        {
+            get { return 役職情報.役位; }
+        }
+        public int 所有大名配列IX
+        {
+            get { return 役職情報.所有大名配列IX; }
+            set { 役職情報.所有大名配列IX = value; }
+        }
+    }
+}
+
+public partial class 役職エディタ : Form
 {
     DataGridView dgv = new DataGridView();
 
-    List<役職情報型> 役職配列 = new();
-
     public 役職エディタ()
     {
-        try { 
-        create役職配列();
-
-        setFormAttribute();
-        setDataGridAttribute();
-            }
-        catch (Exception ) { }
-    }
-
-    void create役職配列()
-    {
-        for (int i = 0; i < 将星録.最大数.役職情報.配列数; i++)
+        try
         {
-            役職配列.Add(new 役職情報型(i));
+            setFormAttribute();
+            setDataGridAttribute();
         }
+        catch (Exception) { }
     }
 
     void setFormAttribute()
@@ -44,46 +65,46 @@ public class 役職エディタ : Form
 
     void Form_KeyDown(object sender, KeyEventArgs e)
     {
-        if (e.KeyCode == Keys.F5 && ActiveForm==this)
+        if (e.KeyCode == Keys.F5 && ActiveForm == this)
         {
             dgv.Rows.Clear();
-            DgvDataImport();
+            dvg_DataBinding();
         }
     }
 
-    enum タイトル { 配列IX = 0, 役職名, 役位, 所有大名配列IX };
     void setDataGridAttribute()
     {
-        try { 
-        dgv.Dock = DockStyle.Fill;
-        dgv.AllowUserToAddRows = false;
-        dgv.AllowUserToDeleteRows = false;
-
-        string fontName = 将星録.アプリケーション.フォント.フォント名;
-        dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
-
-        string[] names = Enum.GetNames(typeof(タイトル));
-        for (int i = 0; i < names.Length; i++)
+        try
         {
-            // 縦列のオブジェクトを作り
-            DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
-            // タイトル文字列を設定
-            dgvtbc.HeaderText = names[i];
-            // グリッドビューに縦列として追加。
-            dgv.Columns.Add(dgvtbc);
+            dgv.Dock = DockStyle.Fill;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+
+            string fontName = 将星録.アプリケーション.フォント.フォント名;
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
+
+            // データグリッドのセルを編集した時のイベントハンドラを登録する。
+            dgv.DataError += dvg_DataError;
+            dgv.DataBindingComplete += dvg_DataBindingComplete;
+
+            dvg_DataBinding();
+
+            // データグリッドビューをフォームに乗っける
+            this.Controls.Add(dgv);
+
         }
+        catch (Exception) { }
+    }
 
-        DgvDataImport();
+    private void dvg_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+    {
+        try
+        {
+            dgv.Columns["配列IX"].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns["役位"].DefaultCellStyle.BackColor = Color.LightGray;
 
-        // データグリッドのセルを編集した時のイベントハンドラを登録する。
-        dgv.DataError += dvg_DataError;
-        dgv.CellValueChanged += dgv_CellValueChanged;
-
-        // データグリッドビューをフォームに乗っける
-        this.Controls.Add(dgv);
-
-        }
-        catch (Exception ) { }
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        } catch (Exception) { }
     }
 
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
@@ -96,80 +117,17 @@ public class 役職エディタ : Form
         catch (Exception) { }
     }
 
-    void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    void dvg_DataBinding()
     {
         try
         {
-            var IDCell = dgv[0, e.RowIndex];
-            int ID = (int)IDCell.Value;
-
-            var 役職情報 = new 将星録.役職情報型(ID);
-            // 対象のセル
-            var cell = dgv[e.ColumnIndex, e.RowIndex];
-            if (e.ColumnIndex == (int)タイトル.役職名)
+            List<BIND用の役職情報型> データ配列 = new();
+            for(int i=0; i< 将星録.最大数.役職情報.配列数; i++)
             {
-                try
-                {
-                    役職情報.役職名 = cell.Value.ToString();
-                }
-                catch (Exception)
-                {
-                    cell.Value = 役職情報.役職名;
-                }
+                データ配列.Add(new BIND用の役職情報型(i));
             }
-            else if (e.ColumnIndex == (int)タイトル.役位)
-            {
-                try
-                {
-                    役職情報.役位 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 役職情報.役位;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.所有大名配列IX)
-            {
-                try
-                {
-                    役職情報.所有大名配列IX = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 役職情報.所有大名配列IX;
-                }
-            }
+            dgv.DataSource = データ配列;
         }
-        catch (Exception ) { }
-    }
-
-    void DgvDataImport()
-    {
-        try
-        {
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.役職名].ValueType = typeof(string);
-            dgv.Columns[(int)タイトル.役位].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.役位].ReadOnly = true;
-            dgv.Columns[(int)タイトル.役位].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.所有大名配列IX].ValueType = typeof(int);
-
-            // 横列単位で足してゆく、
-            foreach (var 役職 in 役職配列)
-            {
-                dgv.Rows.Add(
-                  役職.配列IX,
-                  役職.役職名,
-                  役職.役位,
-                  役職.所有大名配列IX
-                  );
-            }
-
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-        }
-        catch (Exception ) { }
+        catch (Exception) { }
     }
 }

@@ -7,7 +7,7 @@
 #include "game_test.h"
 #include "load_form_mod.h"
 
-#include "load_wpf_mod.h"
+// #include "load_wpf_mod.h"
 #include "usr_custom_mod.h"
 
 #pragma comment(lib, "shell32.lib")
