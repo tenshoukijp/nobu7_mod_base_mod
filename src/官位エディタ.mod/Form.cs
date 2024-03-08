@@ -5,39 +5,52 @@ using System.Windows.Forms;
 
 namespace 将星録;
 
-public class 官位エディタ : Form
+
+public partial class 官位エディタ : Form
+{
+    class BIND用の官位情報型
+    {
+        官位情報型 官位情報;
+        public BIND用の官位情報型(int 官位配列IX)
+        {
+            官位情報 = new 官位情報型(官位配列IX);
+        }
+
+        public int 配列IX
+        {
+            get { return 官位情報.配列IX; }
+        }
+        public string 官位名
+        {
+            get { return 官位情報.官位名; }
+            set { 官位情報.官位名 = value; }
+        }
+
+        public int 階位
+        {
+            get { return 官位情報.階位; }
+            set { 官位情報.階位 = value; }
+        }
+        public int 所有大名配列IX
+        {
+            get { return 官位情報.所有武将配列IX; }
+            set { 官位情報.所有武将配列IX = value; }
+        }
+    }
+}
+
+public partial class 官位エディタ : Form
 {
     DataGridView dgv = new DataGridView();
-
-    List<官位情報型> 官位配列 = new();
 
     public 官位エディタ()
     {
         try
         {
-            create官位配列();
-
             setFormAttribute();
             setDataGridAttribute();
         }
         catch (Exception) { }
-    }
-
-    void Form_KeyDown(object sender, KeyEventArgs e)
-    {
-        if (e.KeyCode == Keys.F5 && ActiveForm == this)
-        {
-            dgv.Rows.Clear();
-            DgvDataImport();
-        }
-    }
-
-    void create官位配列()
-    {
-        for (int i = 0; i < 将星録.最大数.官位情報.配列数; i++)
-        {
-            官位配列.Add(new 官位情報型(i));
-        }
     }
 
     void setFormAttribute()
@@ -50,10 +63,17 @@ public class 官位エディタ : Form
 
         this.KeyPreview = true;
         this.KeyDown += Form_KeyDown;
-
     }
 
-    enum タイトル { 配列IX = 0, 官位名, 階位, 所有武将配列IX };
+    void Form_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.F5 && ActiveForm == this)
+        {
+            dgv.Rows.Clear();
+            dvg_DataBinding();
+        }
+    }
+
     void setDataGridAttribute()
     {
         try
@@ -65,25 +85,26 @@ public class 官位エディタ : Form
             string fontName = 将星録.アプリケーション.フォント.フォント名;
             dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
 
-            string[] names = Enum.GetNames(typeof(タイトル));
-            for (int i = 0; i < names.Length; i++)
-            {
-                // 縦列のオブジェクトを作り
-                DataGridViewTextBoxColumn dgvtbc = new DataGridViewTextBoxColumn();
-                // タイトル文字列を設定
-                dgvtbc.HeaderText = names[i];
-                // グリッドビューに縦列として追加。
-                dgv.Columns.Add(dgvtbc);
-            }
-
-            DgvDataImport();
-
             // データグリッドのセルを編集した時のイベントハンドラを登録する。
             dgv.DataError += dvg_DataError;
-            dgv.CellValueChanged += dgv_CellValueChanged;
+            dgv.DataBindingComplete += dvg_DataBindingComplete;
+
+            dvg_DataBinding();
 
             // データグリッドビューをフォームに乗っける
             this.Controls.Add(dgv);
+
+        }
+        catch (Exception) { }
+    }
+
+    private void dvg_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+    {
+        try
+        {
+            dgv.Columns["配列IX"].DefaultCellStyle.BackColor = Color.LightGray;
+
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }
@@ -98,80 +119,18 @@ public class 官位エディタ : Form
         catch (Exception) { }
     }
 
-    void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    void dvg_DataBinding()
     {
         try
         {
-            var IDCell = dgv[0, e.RowIndex];
-            int ID = (int)IDCell.Value;
-
-            var 官位情報 = new 将星録.官位情報型(ID);
-            // 対象のセル
-            var cell = dgv[e.ColumnIndex, e.RowIndex];
-            if (e.ColumnIndex == (int)タイトル.官位名)
+            List<BIND用の官位情報型> データ配列 = new();
+            for (int i = 0; i < 将星録.最大数.官位情報.配列数; i++)
             {
-                try
-                {
-                    官位情報.官位名 = cell.Value.ToString();
-                }
-                catch (Exception)
-                {
-                    cell.Value = 官位情報.官位名;
-                }
+                データ配列.Add(new BIND用の官位情報型(i));
             }
-            else if (e.ColumnIndex == (int)タイトル.階位)
-            {
-                try
-                {
-                    System.Diagnostics.Trace.WriteLine(cell.Value.GetType());
-                    官位情報.階位 = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 官位情報.階位;
-                }
-            }
-            else if (e.ColumnIndex == (int)タイトル.所有武将配列IX)
-            {
-                try
-                {
-                    官位情報.所有武将配列IX = (int)cell.Value;
-                }
-                catch (Exception)
-                {
-                    cell.Value = 官位情報.所有武将配列IX;
-                }
-            }
-        }
-        catch (Exception) { }
-    }
-
-    void DgvDataImport()
-    {
-        try
-        {
-            dgv.Columns[(int)タイトル.配列IX].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.配列IX].ReadOnly = true;
-            dgv.Columns[(int)タイトル.配列IX].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.官位名].ValueType = typeof(string);
-            dgv.Columns[(int)タイトル.階位].ValueType = typeof(int);
-            dgv.Columns[(int)タイトル.階位].ReadOnly = true;
-            dgv.Columns[(int)タイトル.階位].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns[(int)タイトル.所有武将配列IX].ValueType = typeof(int);
-
-            // 横列単位で足してゆく、
-            foreach (var 官位 in 官位配列)
-            {
-                dgv.Rows.Add(
-                    官位.配列IX,
-                    官位.官位名,
-                    官位.階位,
-                    官位.所有武将配列IX
-                    );
-            }
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.DataSource = データ配列;
         }
         catch (Exception) { }
     }
 }
+
