@@ -14,6 +14,7 @@ MENUITEM "城エディタ(&C)",  314
 #define RESOURCE_MENU_ID_CASTLEEDIT_ORIGINAL	314  // 「城編集」のメニューのリソースIDは314 (Nobunaga7WPK.exe をリソースハッカーで見ろ)
 
 #define RESOURCE_MENU_ID_KAIZOU_END			  59999  // 改造メニューの最後の項目
+#define RESOURCE_MENU_ID_MODDEBUGGER	  59999  // ModDebuggerは最後の項目
 
 #define ADDITIONAL_MENU_ID_NOTEPAD				59000  // 59000　からの独自メニュースタート
 #define ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI		59001  

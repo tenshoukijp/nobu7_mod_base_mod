@@ -10,6 +10,8 @@
 // #include "load_wpf_mod.h"
 #include "usr_custom_mod.h"
 
+#include "file_attribute.h"
+
 #pragma comment(lib, "shell32.lib")
 
 using namespace std;
@@ -51,6 +53,11 @@ void onMenuNenngetuSotaEditStart() {
 	Show_FormMod("年月相場エディタ.mod.dll", "将星録.年月相場エディタ");
 }
 
+void onMenuModDebuggerLaunch() {
+	if (isFileExists("moddebugger.exe")) {
+		ShellExecute(NULL, "open", "moddebugger.exe", NULL, NULL, SW_SHOW);
+	}
+}
 // メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、
 // 番号は主にリソースエディタで確認できる
 BOOL onMenuPushed(HWND hWnd, int iMenuID) {
@@ -93,6 +100,9 @@ BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 		return TRUE;
 	case ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI:
 		onMenuNenngetuSotaEditStart();
+		return TRUE;
+	case RESOURCE_MENU_ID_MODDEBUGGER:
+		onMenuModDebuggerLaunch();
 		return TRUE;
 	case 313:
 		onMenuOriginalBushouEditStart();
