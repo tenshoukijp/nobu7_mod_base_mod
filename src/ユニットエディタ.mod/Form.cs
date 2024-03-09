@@ -257,7 +257,7 @@ public partial class ユニットエディタ : 基本エディタ
     {
         try
         {
-            var 指揮武将IXcolumns = dgv.Columns["指揮武将配列IX"];
+            var 指揮武将IXcolumns = dgv.Columns[nameof(BIND用のユニット情報型.指揮武将配列IX)];
             // 対象のセル
             if (e.ColumnIndex == 指揮武将IXcolumns.Index)
             {
@@ -287,13 +287,13 @@ public partial class ユニットエディタ : 基本エディタ
     {
         try
         {
-            dgv.Columns["配列IX"].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns["指揮武将姓名"].DefaultCellStyle.BackColor = Color.Yellow;
-            dgv.Columns["指揮武将配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns["所属城配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns["現在Ｘ座標"].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns["現在Ｙ座標"].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns["後ユニット配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[nameof(BIND用のユニット情報型.配列IX)].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用のユニット情報型.指揮武将姓名)].DefaultCellStyle.BackColor = Color.Yellow;
+            dgv.Columns[nameof(BIND用のユニット情報型.指揮武将配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[nameof(BIND用のユニット情報型.所属城配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[nameof(BIND用のユニット情報型.現在Ｘ座標)].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用のユニット情報型.現在Ｙ座標)].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用のユニット情報型.後ユニット配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }

@@ -170,13 +170,13 @@ public partial class 城エディタ : 基本エディタ
     {
         try
         {
-            dgv.Columns["配列IX"].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns["城称"].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns["防御MAX"].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns["所属大名配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns["城主武将配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns["開始ユニット配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns["後城配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[nameof(BIND用の城情報型.配列IX)].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用の城情報型.城称)].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用の城情報型.防御MAX)].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用の城情報型.所属大名配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[nameof(BIND用の城情報型.城主武将配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[nameof(BIND用の城情報型.開始ユニット配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[nameof(BIND用の城情報型.後城配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }

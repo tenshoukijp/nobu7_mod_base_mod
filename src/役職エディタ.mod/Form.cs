@@ -60,8 +60,8 @@ public partial class 役職エディタ : 基本エディタ
     {
         try
         {
-            dgv.Columns["配列IX"].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns["役位"].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用の役職情報型.配列IX)].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用の役職情報型.役位)].DefaultCellStyle.BackColor = Color.LightGray;
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }

@@ -18,6 +18,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "家宝エディタ.mod", "�
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "官位エディタ.mod", "官位エディタ.mod\官位エディタ.mod.csproj", "{7FBB03DA-1C0E-4256-A482-A60380477E7D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4133567E-7BA2-42CE-B78D-E371F7503DAF} = {4133567E-7BA2-42CE-B78D-E371F7503DAF}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "役職エディタ.mod", "役職エディタ.mod\役職エディタ.mod.csproj", "{05922FEF-8BC5-4FC7-B8F1-449CFC0E8347}"
 	ProjectSection(ProjectDependencies) = postProject

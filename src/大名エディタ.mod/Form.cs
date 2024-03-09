@@ -120,7 +120,7 @@ public partial class 大名エディタ : 基本エディタ
     {
         try
         {
-            var 指揮武将IXcolumns = dgv.Columns["大名武将配列IX"];
+            var 指揮武将IXcolumns = dgv.Columns[nameof(BIND用の大名情報型.大名武将配列IX)];
             // 対象のセル
             if (e.ColumnIndex == 指揮武将IXcolumns.Index)
             {
@@ -153,10 +153,10 @@ public partial class 大名エディタ : 基本エディタ
     {
         try
         {
-            dgv.Columns["配列IX"].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns["大名姓名"].DefaultCellStyle.BackColor = Color.Yellow;
-            dgv.Columns["大名武将配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
-            dgv.Columns["居城配列IX"].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[nameof(BIND用の大名情報型.配列IX)].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用の大名情報型.大名姓名)].DefaultCellStyle.BackColor = Color.Yellow;
+            dgv.Columns[nameof(BIND用の大名情報型.大名武将配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
+            dgv.Columns[nameof(BIND用の大名情報型.居城配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
 
             if (buttonColumn != null)
             {

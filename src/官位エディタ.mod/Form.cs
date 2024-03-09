@@ -64,7 +64,7 @@ public partial class 官位エディタ : 基本エディタ
     {
         try
         {
-            dgv.Columns["配列IX"].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用の官位情報型.配列IX)].DefaultCellStyle.BackColor = Color.LightGray;
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }

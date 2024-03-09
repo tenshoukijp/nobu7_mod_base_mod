@@ -29,7 +29,6 @@ public partial class 大名関係エディタ : 基本エディタ
             大名関係情報 = new 大名関係情報型();
         }
 
-        // 大名姓名, 友好, 同盟残, 婚姻 };
         public int 配列IX
         {
             get { return 大名配列IX; }
@@ -91,8 +90,8 @@ public partial class 大名関係エディタ : 基本エディタ
     {
         try
         {
-            dgv.Columns["配列IX"].DefaultCellStyle.BackColor = Color.LightGray;
-            dgv.Columns["大名姓名"].DefaultCellStyle.BackColor = Color.Yellow;
+            dgv.Columns[nameof(BIND用の大名関係情報型.配列IX)].DefaultCellStyle.BackColor = Color.LightGray;
+            dgv.Columns[nameof(BIND用の大名関係情報型.大名姓名)].DefaultCellStyle.BackColor = Color.Yellow;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
