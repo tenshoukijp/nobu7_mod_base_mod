@@ -3,15 +3,23 @@ Assembly 将星録.mod, Version=0.0.*, Culture=ロケールに依存しない言
 	hash=SHA1, flags=PublicKey
 Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Assembly PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Assembly PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
 Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
 	hash=None, flags=None
+Assembly System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
 Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
 	hash=None, flags=None
 Class NB7ThreadException: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -1703,9 +1711,9 @@ Class 将星録.役職情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
 Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
-    Int32 建設経験値 'get set' : 
-    Int32 商業経験値 'get set' : 
-    Int32 農業経験値 'get set' : 
+    Int32 修行済移動力 'get set' : 
+    Int32 修行済忍者 'get set' : 
+    Int32 修行中  'get set' : 
     Int32 戦技騎鉄 'get set' : 
     Int32 戦技焙烙 'get set' : 
     Int32 戦技三段 'get set' : 
@@ -1819,12 +1827,12 @@ Class 将星録.武将情報型: AutoLayout, AnsiClass, Class, Public, BeforeFie
     set_戦技焙烙(Int32): PrivateScope, Public, HideBySig, SpecialName
     get_戦技騎鉄(): PrivateScope, Public, HideBySig, SpecialName
     set_戦技騎鉄(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_農業経験値(): PrivateScope, Public, HideBySig, SpecialName
-    set_農業経験値(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_商業経験値(): PrivateScope, Public, HideBySig, SpecialName
-    set_商業経験値(Int32): PrivateScope, Public, HideBySig, SpecialName
-    get_建設経験値(): PrivateScope, Public, HideBySig, SpecialName
-    set_建設経験値(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_修行中(): PrivateScope, Public, HideBySig, SpecialName
+    set_修行中(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_修行済忍者(): PrivateScope, Public, HideBySig, SpecialName
+    set_修行済忍者(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_修行済移動力(): PrivateScope, Public, HideBySig, SpecialName
+    set_修行済移動力(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.野戦.ターン情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:

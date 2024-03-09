@@ -115,7 +115,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\oniguruma\oniguruma.h" />
-    <ClInclude Include="app_thread_exception.h" />
+    <ClInclude Include="app_thread_exception.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="bushou_albedo.h" />
     <ClInclude Include="castle_battle_attack_heisuu_sum.h" />
     <ClInclude Include="hook_castle_battle_turn.h" />
@@ -185,7 +187,9 @@
     <ClInclude Include="usr_custom_mod.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="app_thread_exception.cpp" />
+    <ClCompile Include="app_thread_exception.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="castle_retsuden.cpp" />
     <ClCompile Include="castle_retsuden_albedo.cpp" />
     <ClCompile Include="dllmain.cpp" />

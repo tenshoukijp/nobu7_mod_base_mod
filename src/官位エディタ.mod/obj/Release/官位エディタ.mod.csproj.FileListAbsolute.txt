@@ -6,3 +6,5 @@ C:\Users\master\source\repos\将星録Mod\官位エディタ.mod\obj\Release\官
 C:\Users\master\source\repos\将星録Mod\官位エディタ.mod\obj\Release\官位エディタ.mod.dll
 C:\Users\master\source\repos\将星録Mod\Release\官位エディタ.mod.dll
 C:\Users\master\source\repos\将星録Mod\官位エディタ.mod\obj\Release\官位エディタ.mod.csproj.Up2Date
+C:\Users\master\source\repos\将星録Mod\官位エディタ.mod\obj\Release\将星録.官位エディタ.resources
+C:\Users\master\source\repos\将星録Mod\官位エディタ.mod\obj\Release\官位エディタ.mod.csproj.GenerateResource.cache

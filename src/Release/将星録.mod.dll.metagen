@@ -21,13 +21,6 @@ Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c5619
 	hash=None, flags=None
 Assembly WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
 	hash=None, flags=None
-Class NB7ThreadException: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    SetThreadException(): PrivateScope, Public, Static, HideBySig
-    Application_ThreadException(Object, ThreadExceptionEventArgs): PrivateScope, Public, Static, HideBySig
-    Application_UnhandledException(Object, UnhandledExceptionEventArgs): PrivateScope, Public, Static, HideBySig
-    ShowErrorMessage(Exception, String): PrivateScope, Public, Static, HideBySig
 Class 将星録.武将情報.身分: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
