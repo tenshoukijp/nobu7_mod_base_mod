@@ -14,12 +14,17 @@
 
 // 顔の画像は幅が64, 高さが80。マジックナンバーになってしまうが、今後変更になったりは永久にしないため、そのまま埋め込む。(そっちの方が定数名使うよりわかりやすい)
 
+#pragma pack(1)
 struct KAO_PICLINE {
     BYTE at[64];
 };
+#pragma pack()
+
+#pragma pack(1)
 struct KAO_PICTURE {
     KAO_PICLINE line[80];
 };
+#pragma pack()
 
 
 bool isBattleFaceCondition(int iTargetKaoID) {
@@ -66,7 +71,7 @@ BOOL Hook_ReadFileCustom_BushouKao(
     // C#のカスタム.mod.dllからの上書き
     try {
         System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
-        dic->Add("ファイル名", nTargetKaoID);
+        dic->Add("顔番号", nTargetKaoID);
         System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on顔画像要求時", dic);
         if (ret != nullptr && ret->ContainsKey("ファイル名")) {
             System::String^ override_filename = (System::String^)(ret["ファイル名"]);

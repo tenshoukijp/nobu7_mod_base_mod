@@ -45,7 +45,9 @@ extern void WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackBushou();
 extern void WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuDefendDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleAttackHeisuuSum();
+extern void WriteAsmJumperOnSSRExeCastleBattleAttackHeisuuEnd();
 extern void WriteAsmJumperOnSSRExeCastleBattleDefendHeisuuSum();
+extern void WriteAsmJumperOnSSRExeCastleBattleDefendHeisuuEnd();
 extern void WriteAsmJumperOnSSRExeCastleBattleButaiDefendDoorDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleTaihouDefendDoorDamage();
 extern void WriteAsmJumperOnSSRExeCastleBattleTaihouDefendKyotenDamage();
@@ -115,7 +117,9 @@ bool isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackBushou = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuDefendDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleButaisyoutotsuAttackDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleAttackHeisuuSum = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleAttackHeisuuEnd = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleDefendHeisuuSum = false;
+bool isWriteAsmJumperOnSSRExeCastleBattleDefendHeisuuEnd = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleButaiDefendDoorDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendDoorDamage = false;
 bool isWriteAsmJumperOnSSRExeCastleBattleTaihouDefendKyotenDamage = false;
@@ -377,9 +381,19 @@ void hookFunctionsDirect() {
 		WriteAsmJumperOnSSRExeCastleBattleAttackHeisuuSum();
 	}
 
+	if (!isWriteAsmJumperOnSSRExeCastleBattleAttackHeisuuEnd) {
+		isWriteAsmJumperOnSSRExeCastleBattleAttackHeisuuEnd = true;
+		WriteAsmJumperOnSSRExeCastleBattleAttackHeisuuEnd();
+	}
+
 	if (!isWriteAsmJumperOnSSRExeCastleBattleDefendHeisuuSum) {
 		isWriteAsmJumperOnSSRExeCastleBattleDefendHeisuuSum = true;
 		WriteAsmJumperOnSSRExeCastleBattleDefendHeisuuSum();
+	}
+
+	if (!isWriteAsmJumperOnSSRExeCastleBattleDefendHeisuuEnd) {
+		isWriteAsmJumperOnSSRExeCastleBattleDefendHeisuuEnd = true;
+		WriteAsmJumperOnSSRExeCastleBattleDefendHeisuuEnd();
 	}
 
 	if (!isWriteAsmJumperOnSSRExeCastleBattleButaiDefendDoorDamage) {

@@ -120,6 +120,7 @@
     </ClInclude>
     <ClInclude Include="bushou_albedo.h" />
     <ClInclude Include="castle_battle_attack_heisuu_sum.h" />
+    <ClInclude Include="castle_battle_defend_heisuu_sum.h" />
     <ClInclude Include="hook_castle_battle_turn.h" />
     <ClInclude Include="data_castle_struct.h" />
     <ClInclude Include="data_daimyo_struct.h" />
@@ -190,6 +191,8 @@
     <ClCompile Include="app_thread_exception.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="castle_battle_attack_heisuu_end.cpp" />
+    <ClCompile Include="castle_battle_defend_heisuu_end.cpp" />
     <ClCompile Include="castle_retsuden.cpp" />
     <ClCompile Include="castle_retsuden_albedo.cpp" />
     <ClCompile Include="dllmain.cpp" />

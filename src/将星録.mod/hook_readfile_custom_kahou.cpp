@@ -14,12 +14,17 @@
 
 // 家宝の画像は幅が64, 高さが64。マジックナンバーになってしまうが、今後変更になったりは永久にしないため、そのまま埋め込む。(そっちの方が定数名使うよりわかりやすい)
 
+#pragma pack(1)
 struct KAHOU_PICLINE {
     BYTE at[64];
 };
+#pragma pack()
+
+#pragma pack(1)
 struct KAHOU_PICTURE {
     KAHOU_PICLINE line[64];
 };
+#pragma pack()
 
 extern int iKahouIDOfLastShowKahouID;
 extern int nTargetKahouGazouID;

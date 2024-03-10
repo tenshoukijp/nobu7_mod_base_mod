@@ -152,11 +152,13 @@ void OnSSRExeCastleBattleTurnDaimyoAExecute() {
 	if (isValidDaimyoID(iDaimyoID)) {
 		int iBushouID = getBushouIDFromDaimyoID(iDaimyoID);
 		if (isValidBushouID(iBushouID)) {
+			/*
 			OutputDebugStream("CastleBattleTurnDaimyoA\n");
 			OutputDebugStream("ššššiCastleBattleEDI:%xš\n", iCastleBattleDaimyoPointer);
 			OutputDebugStream("šššš‘•º”:%xš\n", iCastleBattle‘•º”);
 			OutputDebugStream("ššššiCastleBattleECX:%xš\n", iCastleBattleECX);
 			OutputDebugStream("‘å–¼•«:%s", nb7•«î•ñ[iBushouID].©–¼);
+			*/
 		}
 	}
 }

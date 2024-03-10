@@ -44,6 +44,8 @@
 #include "output_debug_stream.h"
 #include "game_process.h"
 
+#include "castle_battle_defend_heisuu_sum.h"
+
 /*
 0053FEB0  [01 00 00 00 16 00 00 00 F4 01 00 00 F4 01 00 00  ......・..・..
 0053FEC0  00 00 08 41 55 00 00 00 00 00 01 00 00 00 06 00  ..AU.........
@@ -58,18 +60,6 @@
 
 */
 
-// 34バイト
-struct 籠城戦防御側部隊情報 {
-	int 部隊番号; // 1～25
-	int unknown1;
-	int 兵数;     // その部隊の現在の兵数
-	int 兵数MAX;  // その部隊の部隊の兵数のMAX
-	WORD unknown2; // 0 が入っているか？
-	int	p指揮武将; // その部隊を率いている武将情報へのポインタ。[B0 94 56]なら指揮官が居ない。ただし、兵数があるなら、指揮官なしの部隊がある。
-	int	unknown4; // 不明 0が多い？
-	int	unknown5; // 不明
-	int	unknown6; // 不明
-};
 
 std::vector<籠城戦防御側部隊情報> list防御側部隊情報;
 
@@ -77,7 +67,6 @@ std::vector<籠城戦防御側部隊情報> list防御側部隊情報;
 using namespace std;
 
 
-#pragma unmanaged
 
 static int ECXOfCastleBattleDefendHeisuuSum = -1; // 部隊情報へのポインタ。部隊情報は上のstructの50バイト構成
 static int ESIOfCastleBattleDefendHeisuuSum = -1; // 何番目の部隊なのか。0-25
@@ -98,28 +87,12 @@ void OnSSRExeCastleBattleDefendHeisuuSumExecute() {
 
 	if (index < (int)list防御側部隊情報.size()) {
 		籠城戦防御側部隊情報* p部隊情報 = (籠城戦防御側部隊情報*)ECXOfCastleBattleDefendHeisuuSum;
-		int differ = memcmp(&list防御側部隊情報[index], p部隊情報, sizeof(籠城戦防御側部隊情報));
-		if (differ) {
-			list防御側部隊情報[index] = *p部隊情報; // 部隊情報を１つコピー。
-			int iBushouID = getBushouIDFromBushouPtr((int*)list防御側部隊情報[index].p指揮武将);
-			if (isValidBushouID(iBushouID) && list防御側部隊情報[index].兵数 > 0 && list防御側部隊情報[index].部隊番号 > 0) {
-				/*
-				OutputDebugStream("指揮官" + getBushou姓名FromBushouID(iBushouID) + "\n");
-				OutputDebugStream("部隊番号 %d\n", list防御側部隊情報[index].部隊番号);
-				OutputDebugStream("部隊兵数 %d\n", list防御側部隊情報[index].兵数);
-				*/
-			}
-			else if (list防御側部隊情報[index].兵数 > 0 && list防御側部隊情報[index].部隊番号 > 0) {
-				/*
-				OutputDebugStream("指揮官なし\n");
-				OutputDebugStream("部隊番号 %d\n", list防御側部隊情報[index].部隊番号);
-				OutputDebugStream("部隊兵数 %d\n", list防御側部隊情報[index].兵数);
-				*/
-			}
-		}
+		list防御側部隊情報[index] = *p部隊情報; // 部隊情報を１つコピー。
 	}
 
 }
+
+#pragma unmanaged
 
 /*
 004076C0  |> 56             /PUSH ESI

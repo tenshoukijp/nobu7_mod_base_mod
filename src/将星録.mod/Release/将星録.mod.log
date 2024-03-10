@@ -1,4 +1,6 @@
-﻿  castle_retsuden.cpp
+﻿  castle_battle_attack_heisuu_end.cpp
+  castle_battle_defend_heisuu_end.cpp
+  castle_retsuden.cpp
   castle_retsuden_albedo.cpp
   dllmain.cpp
   fook_picture_cache.cpp

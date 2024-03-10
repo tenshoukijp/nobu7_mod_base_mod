@@ -77,6 +77,20 @@ int nCheckMenuCount = 0;
 
 int prevMenuCount = 0;
 
+void AddGameModMenu(HWND hWnd) {
+	HMENU hTarget = GetMenu(hWnd);
+	// insertMenuItem(hTarget, "テストエディタ(&T)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_TEST_KAI);
+	insertMenuItem(hTarget, "大名エディタ(&D)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI);
+	insertMenuItem(hTarget, "城エディタ(&S)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_CASTLEEDIT_KAI);
+	insertMenuItem(hTarget, "武将エディタ(&B)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI);
+	insertMenuItem(hTarget, "ユニットエディタ(&U)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_UNITEDIT_KAI);
+	insertMenuItem(hTarget, "家宝エディタ(&I)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KAHOUEDIT_KAI);
+	insertMenuItem(hTarget, "官位エディタ(&R)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KANNIEDIT_KAI);
+	insertMenuItem(hTarget, "役職エディタ(&Y)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YAKUSYOKUEDIT_KAI);
+	insertMenuItem(hTarget, "年月相場エディタ(&N)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI);
+	insertMenuItem(hTarget, "---", RESOURCE_MENU_ID_KAIZOU_END, NULL);
+
+}
 
 BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	if (hMenu == NULL) {
@@ -124,27 +138,20 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 
 		// ゲームが出来る状態になると、メニューが9個になる。一応8個以上で判定。
 		if (menu_count >= 9) {
-			// メニューを追加した
-			HMENU hTarget = GetMenu(hWnd);
-			// insertMenuItem(hTarget, "テストエディタ(&T)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_TEST_KAI);
-			insertMenuItem(hTarget, "大名エディタ(&D)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI);
-			insertMenuItem(hTarget, "城エディタ(&S)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_CASTLEEDIT_KAI);
-			insertMenuItem(hTarget, "武将エディタ(&B)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_BUSYOUEDIT_KAI);
-			insertMenuItem(hTarget, "ユニットエディタ(&U)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_UNITEDIT_KAI);
-			insertMenuItem(hTarget, "家宝エディタ(&I)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KAHOUEDIT_KAI);
-			insertMenuItem(hTarget, "官位エディタ(&R)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_KANNIEDIT_KAI);
-			insertMenuItem(hTarget, "役職エディタ(&Y)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YAKUSYOKUEDIT_KAI);
-			insertMenuItem(hTarget, "年月相場エディタ(&N)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI);
-			insertMenuItem(hTarget, "---", RESOURCE_MENU_ID_KAIZOU_END, NULL);
 		}
+
+		// メニューを追加した
+		AddGameModMenu(hWnd);
 	}
 
 	if (prevMenuCount != menu_count) {
+
 
 		if (menu_count == 4) {  // 3個+改造メニューで+1
 			if (prevMenuCount >= 9) {
 				onCastleBattlePreStart();
 			}
+
 			OutputDebugStream("籠城戦スクリーン中である\n");
 		}
 
@@ -152,6 +159,7 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 			if (prevMenuCount >= 9) {
 				onYasenBattlePreStart();
 			}
+
 			OutputDebugStream("戦闘スクリーン中である\n");
 		}
 

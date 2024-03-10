@@ -381,6 +381,9 @@
     <ClInclude Include="load_wpf_mod.h">
       <Filter>フォーム系Mod</Filter>
     </ClInclude>
+    <ClInclude Include="castle_battle_defend_heisuu_sum.h">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">
@@ -826,6 +829,12 @@
     </ClCompile>
     <ClCompile Include="load_wpf_mod.cpp">
       <Filter>フォーム系Mod</Filter>
+    </ClCompile>
+    <ClCompile Include="castle_battle_attack_heisuu_end.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
+    <ClCompile Include="castle_battle_defend_heisuu_end.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

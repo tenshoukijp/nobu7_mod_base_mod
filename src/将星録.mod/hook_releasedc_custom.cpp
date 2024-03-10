@@ -7,6 +7,7 @@ using namespace std;
 
 extern string bufferTextOut;
 
+extern void onDrawText(string text);
 
 extern int nCheckTextOutXStart;
 extern int nCheckTextOutYStart;
@@ -20,8 +21,7 @@ int Hook_ReleaseDCCustom(
 	nCheckTextOutYStart = -1;
 
 	if (bufferTextOut != "") {
-		OutputDebugStream("Å°OnReleaseDCÅ°:" + bufferTextOut);
-		OutputDebugStream("------------\n");
+		onDrawText(bufferTextOut);
 	}
 
 	dispatchEvent();

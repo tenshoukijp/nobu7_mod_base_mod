@@ -111,6 +111,18 @@ void onMenuKashinUnitIchiranStart() {
     OutputDebugStream("メニュー-家臣-ユニット一覧画面\n");
 }
 
+void onDrawText(string text) {
+    // C#のカスタム.mod.dllからの上書き
+    try {
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+        dic["テキスト"] = gcnew System::String(text.c_str());
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onテキスト描画時", dic);
+    }
+    catch (System::Exception^) {
+        OutputDebugStream("on初期設定画面時でエラーが発生しました。");
+    }
+}
+
 extern void initAlbedoKahou();
 
 void onStrategyGameStart() {

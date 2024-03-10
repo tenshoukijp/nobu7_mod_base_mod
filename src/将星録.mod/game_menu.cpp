@@ -55,7 +55,7 @@ void onMenuNenngetuSotaEditStart() {
 
 void onMenuModDebuggerLaunch() {
 	if (isFileExists("moddebugger.exe")) {
-		ShellExecute(NULL, "open", "moddebugger.exe", NULL, NULL, SW_SHOW);
+		// ShellExecute(NULL, "open", "moddebugger.exe", NULL, NULL, SW_SHOW);
 	}
 }
 // メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、

@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <string>
 
+#include <memory>
+
 #include "game_window.h"
 
 #include "hook_textouta_custom.h"
@@ -29,9 +31,11 @@ BOOL Hook_TextOutACustom(
 	int cbString       // •¶š”
 ) {
 	// ƒSƒ~‚ª“ü‚Á‚Ä‚¢‚é‚æ‚¤‚È‚Ì‚ÅAcbString‚Ìw’è•ª‚¾‚¯ãY—í‚ÉMemcpy‚·‚é
-	char buffer[1024] = { 0 };
-	memcpy(buffer, lpString, cbString);
-	bufferTextOut += buffer;
+	std::unique_ptr<char[]> buffer(new char[cbString + 2]);
+	memset(buffer.get(), 0, cbString + 2);
+
+	memcpy(buffer.get(), lpString, cbString);
+	bufferTextOut += buffer.get();
 
 	return TRUE;
 }

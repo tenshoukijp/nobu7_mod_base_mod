@@ -66,7 +66,6 @@ std::vector<âÄéíUŒ‚‘¤•”‘àî•ñ> listUŒ‚‘¤•”‘àî•ñ;
 using namespace std;
 
 
-#pragma unmanaged
 
 static int ECXOfCastleBattleAttackHeisuuSum = -1; // •”‘àî•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^B•”‘àî•ñ‚Íã‚Ìstruct‚Ì50ƒoƒCƒg\¬
 static int ESIOfCastleBattleAttackHeisuuSum = -1; // ‰½”Ô–Ú‚Ì•”‘à‚È‚Ì‚©B0-25
@@ -86,21 +85,12 @@ void OnSSRExeCastleBattleAttackHeisuuSumExecute() {
 
 	if (index < (int)listUŒ‚‘¤•”‘àî•ñ.size()) {
 		âÄéíUŒ‚‘¤•”‘àî•ñ* p•”‘àî•ñ = (âÄéíUŒ‚‘¤•”‘àî•ñ*)ECXOfCastleBattleAttackHeisuuSum;
-		int differ = memcmp(&listUŒ‚‘¤•”‘àî•ñ[index], p•”‘àî•ñ, sizeof(âÄéíUŒ‚‘¤•”‘àî•ñ));
-		if (differ) {
-			listUŒ‚‘¤•”‘àî•ñ[index] = *p•”‘àî•ñ; // •”‘àî•ñ‚ğ‚P‚ÂƒRƒs[B
-			int iBushouID = getBushouIDFromBushouPtr((int*)listUŒ‚‘¤•”‘àî•ñ[index].pwŠö•«);
-			if (isValidBushouID(iBushouID) && listUŒ‚‘¤•”‘àî•ñ[index].•º” > 0 && listUŒ‚‘¤•”‘àî•ñ[index].•”‘à”Ô† > 0) {
-				/*
-				OutputDebugStream("wŠöŠ¯" + getBushou©–¼FromBushouID(iBushouID) + "\n");
-				OutputDebugStream("•”‘à”Ô† %d\n", listUŒ‚‘¤•”‘àî•ñ[index].•”‘à”Ô†);
-				OutputDebugStream("•”‘à•º” %d\n", listUŒ‚‘¤•”‘àî•ñ[index].•º”);
-				*/
-			}
-		}
+		listUŒ‚‘¤•”‘àî•ñ[index] = *p•”‘àî•ñ; // •”‘àî•ñ‚ğ‚P‚ÂƒRƒs[B
 	}
 
 }
+
+#pragma unmanaged
 
 /*
 00407976  |. 8BCF           |MOV ECX,EDI

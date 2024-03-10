@@ -4,17 +4,22 @@
 #include <windows.h>
 #include <memory>
 
+#pragma pack(1)
 struct WINFRAME_NB7_CHUNK {
 	int start_address;
 	int byte_length;
 	int width;
 	int height;
 };
+#pragma pack()
 
+#pragma pack(1)
 struct WINFRAME_NB7_HEADER
 {
 	WINFRAME_NB7_CHUNK chunk[0x1D4]; // WINFRAME.NB7‚Í‘S•”‚Å468ŒÂ‚Ì‰æ‘œ
 };
+#pragma pack()
+
 
 #define WINFRAME_NB7_CHUNK_COUNT 0x1D4
 
