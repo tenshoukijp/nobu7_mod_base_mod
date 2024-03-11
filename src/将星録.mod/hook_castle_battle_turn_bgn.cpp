@@ -146,6 +146,8 @@ using namespace std;
 
 extern bool isCastleBattleMode;
 
+BOOL isCustomModBeginCalled = false;
+
 static int iCastleBattleBackupEAX = -1;
 static int iCastleBattleAfterECX = -1; // これは城配列へのポインタ
 static int iCastleBattleEDI = -1;
@@ -155,13 +157,16 @@ static int iCastleBattleESI = -1;
 static int nCastleBattleTurnBgnArg1 = -1;
 static int nCastleBattleTurnBgnArg2 = -1;
 static int nCastleBattleTurnBgnArg3 = -1;
+
+int iLastCastleBattleCastleID = -1;
+
 void OnSSRExeCastleBattleTurnBgnExecute() {
 	if (isCastleBattleMode) {
 		return;
 	}
 	isCastleBattleMode = true;
 
-	OutputDebugStream("CastleBattleTurnBgn\n");
+	OutputDebugStream("■■CastleBattleTurnBgn\n");
 
 	OutputDebugStream("★★★★iCastleBattleEDI:%x★\n", iCastleBattleEDI);
 	OutputDebugStream("★★★★iCastleBattleEAX:%x★\n", iCastleBattleEAX);
@@ -173,6 +178,7 @@ void OnSSRExeCastleBattleTurnBgnExecute() {
 	OutputDebugStream("★★★★iCastleBattleAfterECX:%x★\n", iCastleBattleAfterECX);
 
 	int iCastleID = getCastleIDFromCastlePtr((int *)iCastleBattleAfterECX);
+	iLastCastleBattleCastleID = iCastleID;
 	if (isValidCastleID(iCastleID)) {
 		OutputDebugStream("★★★★城名:%s★\n", nb7城情報[iCastleID].城名);
 		籠城中のアルベドの敵武将は戦闘値が最低となる(iCastleID);

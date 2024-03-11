@@ -138,10 +138,16 @@
 #include "output_debug_stream.h"
 #include "game_process.h"
 
+#include "on_event.h"
 
 using namespace std;
 
 #pragma unmanaged
+
+extern BOOL isCustomModBeginCalled;
+extern int iLastCastleBattleCastleID;
+int iLastCastleBattleDaimyoA_ID = -1;
+extern int iLastCastleBattleDaimyoB_ID;
 
 static int iCastleBattleDaimyoPointer = -1; // ‘å–¼î•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^
 static int iCastleBattle‘•º” = -1; // ‚»‚¿‚ç‚Ì‘å–¼‘¤‚Ì‘•º”
@@ -149,6 +155,7 @@ static int iCastleBattleECX = -1;
 void OnSSRExeCastleBattleTurnDaimyoAExecute() {
 
 	int iDaimyoID = getDaimyoIDFromDaimyoPtr((int*)iCastleBattleDaimyoPointer);
+	iLastCastleBattleDaimyoA_ID = iDaimyoID;
 	if (isValidDaimyoID(iDaimyoID)) {
 		int iBushouID = getBushouIDFromDaimyoID(iDaimyoID);
 		if (isValidBushouID(iBushouID)) {
@@ -157,10 +164,16 @@ void OnSSRExeCastleBattleTurnDaimyoAExecute() {
 			OutputDebugStream("ššššiCastleBattleEDI:%xš\n", iCastleBattleDaimyoPointer);
 			OutputDebugStream("šššš‘•º”:%xš\n", iCastleBattle‘•º”);
 			OutputDebugStream("ššššiCastleBattleECX:%xš\n", iCastleBattleECX);
-			OutputDebugStream("‘å–¼•«:%s", nb7•«î•ñ[iBushouID].©–¼);
+			OutputDebugStream("¡¡ç”õ‘¤‘å–¼•«:%s\n\n\n\n", nb7•«î•ñ[iBushouID].©–¼);
 			*/
 		}
+
+		if (!isCustomModBeginCalled) {
+			isCustomModBeginCalled = true;
+			onCastleBattleStart(iLastCastleBattleCastleID, iLastCastleBattleDaimyoB_ID, iLastCastleBattleDaimyoA_ID);
+		}
 	}
+
 }
 
 

@@ -26,10 +26,13 @@ extern void onCastleBattleEnd();
 int iCastleBattleRemainTurn = -1;
 int iLastBattleRemainTurn = -1;
 bool isCastleBattleMode = false;
+extern BOOL isCustomModBeginCalled; // custom_mod‚Å‚Ìbeginƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚½
+
 void resetCastleBattleInfo() {
 	isCastleBattleMode = false;
 	iCastleBattleRemainTurn = -1;
 	iLastBattleRemainTurn = -1;
+	isCustomModBeginCalled = false;
 }
 
 void OnSSRExeCastleBattleEndExecute() {

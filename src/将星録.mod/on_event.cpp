@@ -115,7 +115,7 @@ void onDrawText(string text) {
     // C#のカスタム.mod.dllからの上書き
     try {
         System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
-        dic["テキスト"] = gcnew System::String(text.c_str());
+        dic->Add("テキスト", gcnew System::String(text.c_str()));
         System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onテキスト描画時", dic);
     }
     catch (System::Exception^) {
@@ -471,6 +471,20 @@ void onCastleBattlePreStart() {
     setゲーム画面ステータス(ゲーム画面ステータス::籠城戦画面);
 
     OutputDebugStream("城攻めの戦闘が開始しました\n");
+}
+
+void onCastleBattleStart(int iCastleID, int iAttackDaimyoID, int iDefendDaimyoID) {
+    // C#のカスタム.mod.dllからの上書き
+    try {
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+        dic->Add("城番号", iCastleID);
+        dic->Add("攻撃大名番号", iAttackDaimyoID);
+        dic->Add("防御大名番号", iDefendDaimyoID);
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦開始時", dic);
+    }
+    catch (System::Exception^) {
+        OutputDebugStream("on野戦終了時にエラーが発生しました");
+    }
 }
 
 int nPreviousCastleBattleTurn = -1;
