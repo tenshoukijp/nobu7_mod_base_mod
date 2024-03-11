@@ -8,11 +8,23 @@ using namespace System;
 using namespace System::Reflection;
 using namespace System::Windows::Forms;
 using namespace System::Collections::Generic;
+using namespace System::Threading;
+
 using namespace 将星録;
 ref class FormGlobalInstance {
 public:
 	static Dictionary<String^, Form^>^ formMap = gcnew Dictionary<String^, Form^>();
+	static Dictionary<String^, Thread^>^ threadMap = gcnew Dictionary<String^, Thread^>();
 };
+
+// STAThreadとして呼ばれる
+void Show_Thread(Object^ dllpath) {
+	try {
+		auto form = FormGlobalInstance::formMap[(String^)dllpath];
+		form->ShowDialog();
+	}
+	catch (Exception^ ) {}
+}
 
 int Show_FormMod(String^ dllPath, String^ fullClassName) {
 	try {
@@ -33,7 +45,12 @@ int Show_FormMod(String^ dllPath, String^ fullClassName) {
 		// インスタンス確保という意味でMapにファイルパス対応するフォームを登録する
 		FormGlobalInstance::formMap->Add(dllPath, form);
 
-		form->ShowDialog();
+		// フォームなのでSTAThreadにしておく必要がある。
+		Thread^ thread = gcnew Thread(gcnew ParameterizedThreadStart(Show_Thread));
+		thread->SetApartmentState(ApartmentState::STA);
+		thread->Start(dllPath);
+
+		thread->Join();
 
 		return 1;
 	}
