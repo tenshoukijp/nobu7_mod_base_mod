@@ -151,10 +151,12 @@ void OnSSRExeYasenTurnBothBushouExecute() {
 				// C#のカスタム.mod.dllからの上書き
 				try {
 					System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+					/*
 					dic->Add("攻撃武将番号", iAttackBushouID);
 					dic->Add("防御武将番号", iDefendBushouID);
 					dic->Add("攻撃ユニット番号", iAttackUnitID);
 					dic->Add("防御ユニット番号", iDefendUnitID);
+					*/
 					dic->Add("残りターン", nRemainYasenTurn);
 					System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on野戦残りターン変更時", dic);
 

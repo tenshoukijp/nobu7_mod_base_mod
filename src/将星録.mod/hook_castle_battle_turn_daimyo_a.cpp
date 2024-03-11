@@ -149,6 +149,8 @@ extern int iLastCastleBattleCastleID;
 int iLastCastleBattleDaimyoA_ID = -1;
 extern int iLastCastleBattleDaimyoB_ID;
 
+extern int iLastBattleRemainTurn;
+
 static int iCastleBattleDaimyoPointer = -1; // ‘å–¼î•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^
 static int iCastleBattle‘•º” = -1; // ‚»‚¿‚ç‚Ì‘å–¼‘¤‚Ì‘•º”
 static int iCastleBattleECX = -1;
@@ -171,6 +173,7 @@ void OnSSRExeCastleBattleTurnDaimyoAExecute() {
 		if (!isCustomModBeginCalled) {
 			isCustomModBeginCalled = true;
 			onCastleBattleStart(iLastCastleBattleCastleID, iLastCastleBattleDaimyoB_ID, iLastCastleBattleDaimyoA_ID);
+			onCastleBattleTurn(iLastBattleRemainTurn);
 		}
 	}
 

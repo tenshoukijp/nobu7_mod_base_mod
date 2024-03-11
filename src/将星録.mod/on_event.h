@@ -70,6 +70,8 @@ void onCastleBattlePreStart();
 
 void onCastleBattleStart(int iCastleID, int iAttackDaimyoID, int iDefendDaimyoID);
 
+void onCastleBattleTurn(int iRemainTurn);
+
 void onCastleBattleEnd(std::string battleCastleEndInfo);
 
 void onCastleBattleEnd();

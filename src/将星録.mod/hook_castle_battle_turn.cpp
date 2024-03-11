@@ -136,6 +136,8 @@
 #include "output_debug_stream.h"
 #include "game_process.h"
 
+#include "on_event.h"
+
 
 using namespace std;
 
@@ -144,10 +146,19 @@ using namespace std;
 extern int iCastleBattleRemainTurn;
 extern int iLastBattleRemainTurn;
 
+extern BOOL isCustomModBeginCalled; // 籠城戦開始メソッドをまだコールしてないなら、戦闘開始後に呼びたい
+
 void OnSSRExeCastleBattleTurnExecute() {
 	if (iLastBattleRemainTurn != iCastleBattleRemainTurn) {
 		iLastBattleRemainTurn = iCastleBattleRemainTurn;
-		OutputDebugStream("★★★★CastleBattleTurn:%d★\n", iCastleBattleRemainTurn);
+
+		// すでに籠城戦開始メソッドを読んだ後なら、普通に実行する
+		if (isCustomModBeginCalled) {
+			onCastleBattleTurn(iCastleBattleRemainTurn);
+		}
+		else {
+			; // それ以外は籠城戦開始時にこれを呼び出す。
+		}
 	}
 }
 

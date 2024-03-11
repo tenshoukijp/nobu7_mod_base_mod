@@ -483,7 +483,7 @@ void onCastleBattleStart(int iCastleID, int iAttackDaimyoID, int iDefendDaimyoID
         System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦開始時", dic);
     }
     catch (System::Exception^) {
-        OutputDebugStream("on野戦終了時にエラーが発生しました");
+        OutputDebugStream("on籠城戦開始時にエラーが発生しました");
     }
 }
 
@@ -506,6 +506,19 @@ void onCastleBattleTurn(string battleCastleTurnInfo) {
     }
 
 }
+
+void onCastleBattleTurn(int iRemainTurn) {
+    // C#のカスタム.mod.dllからの上書き
+    try {
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+        dic->Add("残りターン", iRemainTurn);
+        System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦残りターン変更時", dic);
+    }
+    catch (System::Exception^) {
+        OutputDebugStream("on籠城戦残りターン変更時にエラーが発生しました");
+    }
+}
+
 
 extern int iLastBattleRemainTurn;
 extern bool isCastleBattleMode;
