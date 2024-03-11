@@ -6,13 +6,25 @@ using namespace System;
 using namespace System::Reflection;
 using namespace System::Windows;
 using namespace System::Collections::Generic;
+using namespace System::Threading;
+
 using namespace 将星録;
+
 ref class WPFGlobalInstance {
 public:
 	static Dictionary<String^, System::Windows::Window^>^ wpfMap = gcnew Dictionary<String^, System::Windows::Window^>();
+	static Dictionary<String^, Thread^>^ threadMap = gcnew Dictionary<String^, Thread^>();
 };
 
-[STAThread]
+// STAThreadとして呼ばれる
+void Show_WpfThread(Object^ dllpath) {
+	try {
+		auto wpf = FormGlobalInstance::wpfMap[(String^)dllpath];
+		wpf->ShowDialog();
+	}
+	catch (Exception^) {}
+}
+
 int Show_WpfMod(String^ dllPath, String^ fullClassName) {
 	try {
 		auto assembly = Assembly::LoadFrom(dllPath);
@@ -31,6 +43,13 @@ int Show_WpfMod(String^ dllPath, String^ fullClassName) {
 		}
 		// インスタンス確保という意味でMapにファイルパス対応するフォームを登録する
 		WPFGlobalInstance::wpfMap->Add(dllPath, wpf);
+
+		// フォームなのでSTAThreadにしておく必要がある。
+		Thread^ thread = gcnew Thread(gcnew ParameterizedThreadStart(Show_WpfThread));
+		thread->SetApartmentState(ApartmentState::STA);
+		thread->Start(dllPath);
+
+		thread->Join();
 
 		wpf->ShowDialog();
 

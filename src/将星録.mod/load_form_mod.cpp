@@ -11,6 +11,7 @@ using namespace System::Collections::Generic;
 using namespace System::Threading;
 
 using namespace 将星録;
+
 ref class FormGlobalInstance {
 public:
 	static Dictionary<String^, Form^>^ formMap = gcnew Dictionary<String^, Form^>();
@@ -18,7 +19,7 @@ public:
 };
 
 // STAThreadとして呼ばれる
-void Show_Thread(Object^ dllpath) {
+void Show_FormThread(Object^ dllpath) {
 	try {
 		auto form = FormGlobalInstance::formMap[(String^)dllpath];
 		form->ShowDialog();
@@ -46,7 +47,7 @@ int Show_FormMod(String^ dllPath, String^ fullClassName) {
 		FormGlobalInstance::formMap->Add(dllPath, form);
 
 		// フォームなのでSTAThreadにしておく必要がある。
-		Thread^ thread = gcnew Thread(gcnew ParameterizedThreadStart(Show_Thread));
+		Thread^ thread = gcnew Thread(gcnew ParameterizedThreadStart(Show_FormThread));
 		thread->SetApartmentState(ApartmentState::STA);
 		thread->Start(dllPath);
 
