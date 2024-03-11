@@ -39,9 +39,12 @@ BOOL Hook_ReadFileCustom_KahouPic(
         return FALSE;
     }
 
+    std::unique_ptr<KAHOU_PICTURE> picItemFileOrigin(new KAHOU_PICTURE);
+    std::unique_ptr<KAHOU_PICTURE> picItemFlipSidePp(new KAHOU_PICTURE);
+    /*
     KAHOU_PICTURE picItemFileOrigin = { 0 };
     KAHOU_PICTURE picItemFlipSidePp = { 0 };
-
+    */
     std::string filename = "";
 
     // C#のカスタム.mod.dllからの上書き
@@ -110,14 +113,14 @@ BOOL Hook_ReadFileCustom_KahouPic(
 
     // 元の画像をコピー
     if (nNumberOfBytesToRead == buffer.size()) {
-        memcpy(&picItemFileOrigin, buffer.data(), buffer.size());
+        memcpy(picItemFileOrigin.get(), buffer.data(), buffer.size());
 
         // 上下反転したものを picfileOrigin→picflipSidePp にコピー
         for (int i = 0; i < 64; i++) {
-            memcpy(&(picItemFlipSidePp.line[64 - 1 - i]), &(picItemFileOrigin.line[i]), 64);
+            memcpy(&(picItemFlipSidePp->line[64 - 1 - i]), &(picItemFileOrigin->line[i]), 64);
         }
 
-        memcpy(lpBuffer, &picItemFlipSidePp, (64 * 64));
+        memcpy(lpBuffer, picItemFlipSidePp.get(), (64 * 64));
     }
 
 

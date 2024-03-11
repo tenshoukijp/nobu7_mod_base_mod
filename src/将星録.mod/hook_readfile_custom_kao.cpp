@@ -62,8 +62,8 @@ BOOL Hook_ReadFileCustom_BushouKao(
         return FALSE;
     }
 
-    KAO_PICTURE picKaoFileOrigin = { 0 };
-    KAO_PICTURE picKaoFlipSidePp = { 0 };
+    std::unique_ptr<KAO_PICTURE> picKaoFileOrigin(new KAO_PICTURE);
+    std::unique_ptr<KAO_PICTURE> picKaoFlipSidePp(new KAO_PICTURE);
 
     char filenameBuf[512] = "";
     std::string filename = "";
@@ -132,14 +132,14 @@ BOOL Hook_ReadFileCustom_BushouKao(
 
     // 元の画像をコピー
     if (nNumberOfBytesToRead == buffer.size()) {
-        memcpy(&picKaoFileOrigin, buffer.data(), buffer.size());
+        memcpy(picKaoFileOrigin.get(), buffer.data(), buffer.size());
 
         // 上下反転したものを picfileOrigin→picflipSidePp にコピー
         for (int i = 0; i < 80; i++) {
-            memcpy(&(picKaoFlipSidePp.line[80-1 - i]), &(picKaoFileOrigin.line[i]), 64);
+            memcpy(&(picKaoFlipSidePp->line[80-1 - i]), &(picKaoFileOrigin->line[i]), 64);
         }
 
-        memcpy(lpBuffer, &picKaoFlipSidePp, (64 * 80));
+        memcpy(lpBuffer, picKaoFlipSidePp.get(), (64 * 80));
     }
 
 
