@@ -38,15 +38,17 @@ using namespace std;
 
 #define 大砲砲撃者武将ポインタアドレス	0x19FA64
 
-int iLastBushouIDOfBattleTaihouDefendDoorBushou = -1;
+int iLastBushouIDOfBattleTaihouDefendDoorBushou = 0xFFFF;
 
 void OnSSRExeCastleBattleTaihouDefendDoorBushouExecute() {
 
 	int* pNewBushouPtr = (int*)大砲砲撃者武将ポインタアドレス;
 	int pBushouAddress = *pNewBushouPtr;
 	iLastBushouIDOfBattleTaihouDefendDoorBushou = getBushouIDFromBushouPtr((int*)pBushouAddress);
+	/*
 	OutputDebugStream("0x91FA64にある値%x\n", pBushouAddress);
 	OutputDebugStream("▽▽大砲の新名ID%d\n", getBushouIDFromBushouPtr((int*)pBushouAddress));
+	*/
 }
 
 /*
