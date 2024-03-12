@@ -28,7 +28,7 @@ extern int iCastleBattleButaishoutotsuAttackBushouID;
 
 
 static int ECXOfCastleBattleButaisyoutotsuAttackDamage = 0;
-static int EAXOfCastleBattleButaisyoutotsuAttackDamage = 0;
+static int EAXOfCastleBattleButaisyoutotsuAttackDamage = 0;  // この時のEAXが攻撃側の減少後の兵数。
 void OnSSRExeCastleBattleButaisyoutotsuAttackDamageExecute() {
 	int* pRemainHeisuPtr = (int*)((BYTE*)(ECXOfCastleBattleButaisyoutotsuAttackDamage)+0x8); // ここに攻撃した武将ポインタが入っている
 
