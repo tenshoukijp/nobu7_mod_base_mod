@@ -37,7 +37,7 @@ static int EAXOfCastleBattleButaiDefendDoorDamage = 0;
 void OnSSRExeCastleBattleButaiDefendDoorDamageExecute() {
 	int* pRemainDoorPtr = (int*)((BYTE*)(ECXOfCastleBattleButaiDefendDoorDamage)+0xA); // ここにドアの防御値へのポインタが入っている
 	int* pp攻撃武将ポインタ = (int*)ESPOfCastleBattleButaiDefendDoorDamage;
-	籠城戦攻撃側部隊情報* p攻撃側部隊情報 = (籠城戦攻撃側部隊情報*)(*pp攻撃武将ポインタ);
+	NB7籠城戦攻撃側部隊情報型* p攻撃側部隊情報 = (NB7籠城戦攻撃側部隊情報型*)(*pp攻撃武将ポインタ);
 	int iBushouID = getBushouIDFromBushouPtr((int*)p攻撃側部隊情報->p指揮武将);
 	if (isValidBushouID(iBushouID)) {
 		OutputDebugStream("ドアの残り耐久度%d\n", *pRemainDoorPtr);

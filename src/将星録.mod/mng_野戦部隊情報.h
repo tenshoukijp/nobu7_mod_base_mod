@@ -29,7 +29,7 @@ namespace «¯˜^ {
 				int get();
 			}
 
-			property int s“®Ï‚İ {
+			property int s“®Ï {
 				int get();
 			}
 
@@ -42,7 +42,6 @@ namespace «¯˜^ {
 }
 
 
-#pragma once
 
 using namespace System;
 
@@ -73,7 +72,7 @@ namespace «¯˜^ {
 				int get();
 			}
 
-			property int s“®Ï‚İ {
+			property int s“®Ï {
 				int get();
 			}
 

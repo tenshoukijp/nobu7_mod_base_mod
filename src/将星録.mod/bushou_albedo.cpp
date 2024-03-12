@@ -412,12 +412,12 @@ void doアルベド部隊ターン兵数回復(int iCurrentAttackTurnBushouID, int iButaiID)
             int 最大兵数 = get軍勢ユニット部隊最大兵数FromBushouID(iLastDefendBushouID);
             int bix = iButaiID;
             for (int bix = 0; bix < 最大数::ユニット情報::軍勢部隊数; bix++) {
-                if (0 < nb7野戦守備側部隊情報[bix].兵数 && nb7野戦守備側部隊情報[bix].兵数 < 最大兵数) {
-                    nb7野戦守備側部隊情報[bix].兵数 = (nb7野戦守備側部隊情報[bix].兵数 * 3 + 最大兵数) / 4; // 兵数が少し回復する
+                if (0 < nb7野戦防御側部隊情報[bix].兵数 && nb7野戦防御側部隊情報[bix].兵数 < 最大兵数) {
+                    nb7野戦防御側部隊情報[bix].兵数 = (nb7野戦防御側部隊情報[bix].兵数 * 3 + 最大兵数) / 4; // 兵数が少し回復する
                 }
                 // 最大兵数近くまで行ったら、それにする
-                if (最大兵数 - nb7野戦守備側部隊情報[bix].兵数 < 10) {
-                    nb7野戦守備側部隊情報[bix].兵数 = 最大兵数;
+                if (最大兵数 - nb7野戦防御側部隊情報[bix].兵数 < 10) {
+                    nb7野戦防御側部隊情報[bix].兵数 = 最大兵数;
                 }
             }
         }

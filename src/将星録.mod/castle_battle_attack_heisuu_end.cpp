@@ -60,8 +60,8 @@
 #include "castle_battle_attack_heisuu_sum.h"
 
 
-extern std::vector<âÄéíUŒ‚‘¤•”‘àî•ñ> listUŒ‚‘¤•”‘àî•ñ;
-std::vector<âÄéíUŒ‚‘¤•”‘àî•ñ> prevUŒ‚‘¤•”‘àî•ñ;
+extern std::vector<NB7âÄéíUŒ‚‘¤•”‘àî•ñŒ^> listUŒ‚‘¤•”‘àî•ñ;
+std::vector<NB7âÄéíUŒ‚‘¤•”‘àî•ñŒ^> prevUŒ‚‘¤•”‘àî•ñ;
 
 using namespace std;
 
@@ -78,7 +78,7 @@ void OnSSRExeCastleBattleAttackHeisuuEndExecute() {
 	else if (prevUŒ‚‘¤•”‘àî•ñ.size() == listUŒ‚‘¤•”‘àî•ñ.size()) {
 		// ˆá‚¤•”•ª‚ª‚ ‚Á‚½‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN
 		for (int ix = 0; ix < (int)listUŒ‚‘¤•”‘àî•ñ.size(); ix++) {
-			int differ = memcmp(&listUŒ‚‘¤•”‘àî•ñ[ix], &prevUŒ‚‘¤•”‘àî•ñ[ix], sizeof(âÄéíUŒ‚‘¤•”‘àî•ñ));
+			int differ = memcmp(&listUŒ‚‘¤•”‘àî•ñ[ix], &prevUŒ‚‘¤•”‘àî•ñ[ix], sizeof(NB7âÄéíUŒ‚‘¤•”‘àî•ñŒ^));
 			if (differ) {
 				isMustDifferSend = true;
 

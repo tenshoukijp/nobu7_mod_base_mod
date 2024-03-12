@@ -178,6 +178,9 @@
     <Filter Include="例外">
       <UniqueIdentifier>{69a63dfd-c35c-4b3f-b34b-ec1bf263f92f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ゲームデータ - 最大数">
+      <UniqueIdentifier>{51030787-f823-4398-a437-9241ee705db0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -383,6 +386,15 @@
     </ClInclude>
     <ClInclude Include="castle_battle_defend_heisuu_sum.h">
       <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_籠城戦部隊情報.h">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClInclude>
+    <ClInclude Include="mng_籠城戦部隊列挙.h">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClInclude>
+    <ClInclude Include="data_const_max.h">
+      <Filter>ゲームデータ - 最大数</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -834,6 +846,9 @@
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
     <ClCompile Include="castle_battle_defend_heisuu_end.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
+    <ClCompile Include="mng_籠城戦部隊情報.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
   </ItemGroup>

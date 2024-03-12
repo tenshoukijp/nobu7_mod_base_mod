@@ -61,7 +61,7 @@
 */
 
 
-std::vector<âÄéí–hŒä‘¤•”‘àî•ñ> list–hŒä‘¤•”‘àî•ñ;
+std::vector<NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^> list–hŒä‘¤•”‘àî•ñ;
 
 
 using namespace std;
@@ -78,15 +78,15 @@ void OnSSRExeCastleBattleDefendHeisuuSumExecute() {
 	// index‚ª0‚Ì‚ÍA•”‘àî•ñ‚ğ‘S•”‰Šú‰»‚·‚é
 	if (index == 0) {
 		list–hŒä‘¤•”‘àî•ñ.clear();
-		for (int i = 0; i < 0x16; i++) { // 0x16=22
-			âÄéí–hŒä‘¤•”‘àî•ñ info;
+		for (int i = 0; i < Å‘å”::âÄéí::–hŒä•”‘àî•ñ::”z—ñ”; i++) { // 0x16=22
+			NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^ info;
 			ZeroMemory(&info, sizeof(info));
 			list–hŒä‘¤•”‘àî•ñ.push_back(info);
 		}
 	}
 
 	if (index < (int)list–hŒä‘¤•”‘àî•ñ.size()) {
-		âÄéí–hŒä‘¤•”‘àî•ñ* p•”‘àî•ñ = (âÄéí–hŒä‘¤•”‘àî•ñ*)ECXOfCastleBattleDefendHeisuuSum;
+		NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^* p•”‘àî•ñ = (NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^*)ECXOfCastleBattleDefendHeisuuSum;
 		list–hŒä‘¤•”‘àî•ñ[index] = *p•”‘àî•ñ; // •”‘àî•ñ‚ğ‚P‚ÂƒRƒs[B
 	}
 

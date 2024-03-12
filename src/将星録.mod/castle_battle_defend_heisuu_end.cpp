@@ -61,8 +61,8 @@
 */
 
 
-extern std::vector<âÄéí–hŒä‘¤•”‘àî•ñ> list–hŒä‘¤•”‘àî•ñ;
-std::vector<âÄéí–hŒä‘¤•”‘àî•ñ> prev–hŒä‘¤•”‘àî•ñ;
+extern std::vector<NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^> list–hŒä‘¤•”‘àî•ñ;
+std::vector<NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^> prev–hŒä‘¤•”‘àî•ñ;
 
 
 using namespace std;
@@ -81,7 +81,7 @@ void OnSSRExeCastleBattleDefendHeisuuEndExecute() {
 	else if (prev–hŒä‘¤•”‘àî•ñ.size() == list–hŒä‘¤•”‘àî•ñ.size()) {
 		// ˆá‚¤•”•ª‚ª‚ ‚Á‚½‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN
 		for (int ix = 0; ix < (int)list–hŒä‘¤•”‘àî•ñ.size(); ix++) {
-			int differ = memcmp(&list–hŒä‘¤•”‘àî•ñ[ix], &prev–hŒä‘¤•”‘àî•ñ[ix], sizeof(âÄéí–hŒä‘¤•”‘àî•ñ));
+			int differ = memcmp(&list–hŒä‘¤•”‘àî•ñ[ix], &prev–hŒä‘¤•”‘àî•ñ[ix], sizeof(NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^));
 			if (differ) {
 				isMustDifferSend = true;
 

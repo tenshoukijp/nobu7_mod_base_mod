@@ -121,6 +121,7 @@
     <ClInclude Include="bushou_albedo.h" />
     <ClInclude Include="castle_battle_attack_heisuu_sum.h" />
     <ClInclude Include="castle_battle_defend_heisuu_sum.h" />
+    <ClInclude Include="data_const_max.h" />
     <ClInclude Include="hook_castle_battle_turn.h" />
     <ClInclude Include="data_castle_struct.h" />
     <ClInclude Include="data_daimyo_struct.h" />
@@ -171,6 +172,8 @@
     <ClInclude Include="mng_役職情報.h" />
     <ClInclude Include="mng_文字列変換.h" />
     <ClInclude Include="mng_武将列挙.h" />
+    <ClInclude Include="mng_籠城戦部隊列挙.h" />
+    <ClInclude Include="mng_籠城戦部隊情報.h" />
     <ClInclude Include="mng_野戦列挙.h" />
     <ClInclude Include="mng_野戦情報.h" />
     <ClInclude Include="mng_野戦部隊情報.h" />
@@ -349,6 +352,7 @@
     <ClCompile Include="mng_役職情報.cpp" />
     <ClCompile Include="mng_文字列変換.cpp" />
     <ClCompile Include="mng_武将情報.cpp" />
+    <ClCompile Include="mng_籠城戦部隊情報.cpp" />
     <ClCompile Include="mng_野戦情報.cpp" />
     <ClCompile Include="mng_野戦部隊情報.cpp" />
     <ClCompile Include="onigwrap.cpp" />
