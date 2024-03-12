@@ -851,6 +851,9 @@
     <ClCompile Include="mng_籠城戦部隊情報.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
     </ClCompile>
+    <ClCompile Include="hook_castle_battle_taihou_defend_door_bushou.cpp">
+      <Filter>ゲームデータ - 籠城戦 - 門</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

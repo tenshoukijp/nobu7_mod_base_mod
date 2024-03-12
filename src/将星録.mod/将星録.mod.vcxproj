@@ -204,6 +204,7 @@
     <ClCompile Include="hook_castle_battle_butai_syototsu_kyoten_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_attack_kyoten_bushou.cpp" />
+    <ClCompile Include="hook_castle_battle_taihou_defend_door_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_syubi_busyou.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_defend_kyoten_damage.cpp" />

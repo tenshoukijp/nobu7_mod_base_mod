@@ -46,6 +46,9 @@
 
 #include "castle_battle_defend_heisuu_sum.h"
 
+#include "mng_籠城戦部隊列挙.h"
+#include "usr_custom_mod.h"
+
 /*
 0053FEB0  [01 00 00 00 16 00 00 00 F4 01 00 00 F4 01 00 00  ......・..・..
 0053FEC0  00 00 08 41 55 00 00 00 00 00 01 00 00 00 06 00  ..AU.........
@@ -67,12 +70,20 @@ std::vector<NB7籠城戦防御側部隊情報型> prev防御側部隊情報;
 
 using namespace std;
 
+NB7籠城戦防御側部隊情報型 防御側部隊情報控え[最大数::籠城戦::防御部隊情報::配列数] = { 0 };
 
-#pragma unmanaged
+extern int iLastBattleRemainTurn;
 
 void OnSSRExeCastleBattleDefendHeisuuEndExecute() {
 
 	bool isMustDifferSend = false;
+
+	int differ = memcmp(&防御側部隊情報控え, (void*)籠城戦防御側部隊情報アドレス, sizeof(防御側部隊情報控え));
+	if (differ) {
+		isMustDifferSend = true;
+	}
+
+	/*
 	if (prev防御側部隊情報.size() != list防御側部隊情報.size()) {
 		isMustDifferSend = true;
 		OutputDebugStream("防御・簡易調査で前回と異なる。送信\n");
@@ -120,8 +131,6 @@ void OnSSRExeCastleBattleDefendHeisuuEndExecute() {
 					OutputDebugStream("unknown1 list %d\n", list防御側部隊情報[ix].unknown1);
 				}
 
-
-				/*
 				int iBushouID = getBushouIDFromBushouPtr((int*)list防御側部隊情報[ix].p指揮武将);
 				if (isValidBushouID(iBushouID) && list防御側部隊情報[ix].兵数 > 0 && list防御側部隊情報[ix].部隊番号 > 0) {
 					OutputDebugStream("指揮官" + getBushou姓名FromBushouID(iBushouID) + "\n");
@@ -133,23 +142,50 @@ void OnSSRExeCastleBattleDefendHeisuuEndExecute() {
 					OutputDebugStream("部隊番号 %d\n", list防御側部隊情報[ix].部隊番号);
 					OutputDebugStream("部隊兵数 %d\n", list防御側部隊情報[ix].兵数);
 				}
-				*/
 
 				OutputDebugStream("防御・詳細調査で前回と異なる。送信\n");
 			}
 		}
 	}
+	*/
 
 	// listからprevへコピー
 	if (isMustDifferSend) {
+		/*
 		prev防御側部隊情報.clear();
 		for (auto item : list防御側部隊情報) {
 			prev防御側部隊情報.push_back(item);
 		}
+		*/
+		memcpy(&防御側部隊情報控え, (void*)籠城戦防御側部隊情報アドレス, sizeof(防御側部隊情報控え));
+
+		/*
+		for (int ix = 0; ix < 最大数::籠城戦::防御部隊情報::配列数; ix++) {
+			int iBushouID = getBushouIDFromBushouPtr(nb7籠城戦防御側部隊情報[ix].p指揮武将);
+			if (isValidBushouID(iBushouID) && nb7籠城戦防御側部隊情報[ix].兵数 > 0 && nb7籠城戦防御側部隊情報[ix].部隊番号 > 0) {
+				OutputDebugStream("指揮官" + getBushou姓名FromBushouID(iBushouID) + "\n");
+				OutputDebugStream("部隊番号 %d\n", nb7籠城戦防御側部隊情報[ix].部隊番号);
+				OutputDebugStream("部隊兵数 %d\n", nb7籠城戦防御側部隊情報[ix].兵数);
+				OutputDebugStream("部隊兵数 %d\n", nb7籠城戦防御側部隊情報[ix].兵数);
+				OutputDebugStream("部隊兵数 %d\n", nb7籠城戦防御側部隊情報[ix].兵数);
+			}
+		}
+		*/
+
 	}
 
 	if (isMustDifferSend) {
-		OutputDebugStream("list防御側部隊情報をC#Modへと送信する");
+		OutputDebugStream("防御・詳細調査で前回と異なる。送信\n");
+		// C#のカスタム.mod.dllからの上書き
+		try {
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			dic->Add("残りターン", iLastBattleRemainTurn);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦防御部隊更新後", dic);
+		}
+		catch (System::Exception^) {
+			OutputDebugStream("on籠城戦防御部隊更新後にエラーが発生しました");
+		}
+
 	}
 }
 
@@ -163,6 +199,7 @@ void OnSSRExeCastleBattleDefendHeisuuEndExecute() {
 004076FC  \. C3             RETN
 */
 
+#pragma unmanaged
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleDefendHeisuuEnd = 0x4076F5; // 関数はこのアドレスから、OnSSRExeCastleBattleDefendHeisuuEndへとジャンプしてくる。
 int pSSRExeReturnLblFromOnSSRExeCastleBattleDefendHeisuuEnd = 0x4076FC; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする

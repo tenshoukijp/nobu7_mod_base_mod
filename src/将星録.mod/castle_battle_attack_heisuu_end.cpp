@@ -59,17 +59,26 @@
 #include "game_process.h"
 #include "castle_battle_attack_heisuu_sum.h"
 
+#include "mng_âÄéí•”‘à—ñ‹“.h"
 
-extern std::vector<NB7âÄéíUŒ‚‘¤•”‘àî•ñŒ^> listUŒ‚‘¤•”‘àî•ñ;
-std::vector<NB7âÄéíUŒ‚‘¤•”‘àî•ñŒ^> prevUŒ‚‘¤•”‘àî•ñ;
+#include "usr_custom_mod.h"
+
+extern int iLastBattleRemainTurn;
 
 using namespace std;
-
+NB7âÄéíUŒ‚‘¤•”‘àî•ñŒ^ UŒ‚‘¤•”‘àî•ñT‚¦[Å‘å”::âÄéí::UŒ‚•”‘àî•ñ::”z—ñ”] = { 0 };
 
 
 void OnSSRExeCastleBattleAttackHeisuuEndExecute() {
 
 	bool isMustDifferSend = false;
+
+	int differ = memcmp(&UŒ‚‘¤•”‘àî•ñT‚¦, (void*)âÄéíUŒ‚‘¤•”‘àî•ñƒAƒhƒŒƒX, sizeof(UŒ‚‘¤•”‘àî•ñT‚¦));
+	if (differ) {
+		isMustDifferSend = true;
+	}
+
+	/*
 	if (prevUŒ‚‘¤•”‘àî•ñ.size() != listUŒ‚‘¤•”‘àî•ñ.size()) {
 		isMustDifferSend = true;
 		OutputDebugStream("UŒ‚EŠÈˆÕ’²¸‚Å‘O‰ñ‚ÆˆÙ‚È‚éB‘—M\n");
@@ -82,7 +91,6 @@ void OnSSRExeCastleBattleAttackHeisuuEndExecute() {
 			if (differ) {
 				isMustDifferSend = true;
 
-				/*
 				if (listUŒ‚‘¤•”‘àî•ñ[ix].unknown_14 != prevUŒ‚‘¤•”‘àî•ñ[ix].unknown_14) {
 					OutputDebugStream("nunknown_14%d\n", prevUŒ‚‘¤•”‘àî•ñ[ix].unknown_14);
 					OutputDebugStream("nunknown_14%d\n" ,listUŒ‚‘¤•”‘àî•ñ[ix].unknown_14);
@@ -97,32 +105,60 @@ void OnSSRExeCastleBattleAttackHeisuuEndExecute() {
 					OutputDebugStream("unknown1 prev %d\n", prevUŒ‚‘¤•”‘àî•ñ[ix].unknown1);
 					OutputDebugStream("unknown1 list %d\n", listUŒ‚‘¤•”‘àî•ñ[ix].unknown1);
 				}
-				*/
 
-				/*
 				int iBushouID = getBushouIDFromBushouPtr((int*)listUŒ‚‘¤•”‘àî•ñ[ix].pwŠö•«);
 				if (isValidBushouID(iBushouID) && listUŒ‚‘¤•”‘àî•ñ[ix].•º” > 0 && listUŒ‚‘¤•”‘àî•ñ[ix].•”‘à”Ô† > 0) {
 					OutputDebugStream("wŠöŠ¯" + getBushou©–¼FromBushouID(iBushouID) + "\n");
 					OutputDebugStream("•”‘à”Ô† %d\n", listUŒ‚‘¤•”‘àî•ñ[ix].•”‘à”Ô†);
 					OutputDebugStream("•”‘à•º” %d\n", listUŒ‚‘¤•”‘àî•ñ[ix].•º”);
 				}
-				*/
 
 				OutputDebugStream("UŒ‚EÚ×’²¸‚Å‘O‰ñ‚ÆˆÙ‚È‚éB‘—M\n");
 			}
 		}
 	}
+	*/
 
 	// list‚©‚çprev‚ÖƒRƒs[
 	if (isMustDifferSend) {
+		/*
 		prevUŒ‚‘¤•”‘àî•ñ.clear();
 		for (auto item : listUŒ‚‘¤•”‘àî•ñ) {
 			prevUŒ‚‘¤•”‘àî•ñ.push_back(item);
 		}
+		*/
+		memcpy(&UŒ‚‘¤•”‘àî•ñT‚¦, (void*)âÄéíUŒ‚‘¤•”‘àî•ñƒAƒhƒŒƒX, sizeof(UŒ‚‘¤•”‘àî•ñT‚¦));
+
+		/*
+		for (int ix = 0; ix < Å‘å”::âÄéí::UŒ‚•”‘àî•ñ::”z—ñ”; ix++) {
+			int iBushouID = getBushouIDFromBushouPtr(nb7âÄéíUŒ‚‘¤•”‘àî•ñ[ix].pwŠö•«);
+			if (isValidBushouID(iBushouID) && nb7âÄéíUŒ‚‘¤•”‘àî•ñ[ix].•º” > 0 && nb7âÄéíUŒ‚‘¤•”‘àî•ñ[ix].•”‘à”Ô† > 0) {
+				OutputDebugStream("wŠöŠ¯" + getBushou©–¼FromBushouID(iBushouID) + "\n");
+				OutputDebugStream("•”‘à”Ô† %d\n", nb7âÄéíUŒ‚‘¤•”‘àî•ñ[ix].•”‘à”Ô†);
+				OutputDebugStream("•”‘à•º” %d\n", nb7âÄéíUŒ‚‘¤•”‘àî•ñ[ix].•º”);
+				OutputDebugStream("•”‘à•º” %d\n", nb7âÄéíUŒ‚‘¤•”‘àî•ñ[ix].•º”);
+			}
+		}
+		*/
+
 	}
 
 	if (isMustDifferSend) {
-		OutputDebugStream("listUŒ‚‘¤•”‘àî•ñ‚ğC#Mod‚Ö‚Æ‘—M‚·‚é");
+		OutputDebugStream("UŒ‚EÚ×’²¸‚Å‘O‰ñ‚ÆˆÙ‚È‚éB‘—M\n");
+
+		if (isMustDifferSend) {
+			OutputDebugStream("–hŒäEÚ×’²¸‚Å‘O‰ñ‚ÆˆÙ‚È‚éB‘—M\n");
+			// C#‚ÌƒJƒXƒ^ƒ€.mod.dll‚©‚ç‚Ìã‘‚«
+			try {
+				System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+				dic->Add("c‚èƒ^[ƒ“", iLastBattleRemainTurn);
+				System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onâÄéíUŒ‚•”‘àXVŒã", dic);
+			}
+			catch (System::Exception^) {
+				OutputDebugStream("onâÄéíc‚èƒ^[ƒ“•ÏX‚ÉƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½");
+			}
+
+		}
 	}
 
 }

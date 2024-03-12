@@ -1,4 +1,23 @@
 /*
+このあたりに攻撃部隊か、攻撃武将のどれかの情報があるはずだがわからない。
+00415D37   8D4424 24        LEA EAX,DWORD PTR SS:[ESP+24]
+00415D3B   50               PUSH EAX
+00415D3C   8BCE             MOV ECX,ESI
+00415D3E   E8 6DCCFEFF      CALL Nobunaga.004029B0
+00415D43   50               PUSH EAX
+00415D44   55               PUSH EBP
+00415D45   E8 51CD0E00      CALL Nobunaga.00502A9B
+00415D4A   83C4 0C          ADD ESP,0C
+00415D4D   8BCF             MOV ECX,EDI
+00415D4F   E8 FCFBFFFF      CALL Nobunaga.00415950
+00415D54   8B4C24 24        MOV ECX,DWORD PTR SS:[ESP+24]
+00415D58   51               PUSH ECX
+00415D59   8BCE             MOV ECX,ESI
+00415D5B   E8 E0D8FEFF      CALL Nobunaga.00403640
+00415D60   8BCE             MOV ECX,ESI
+*/
+
+/*
 00415D60   8BCE             MOV ECX,ESI
 00415D62   E8 99D8FEFF      CALL Nobunaga.00403600
 00415D67   50               PUSH EAX                                 この時のEAXが攻撃側の減少後の防御値。ECX+0xAのアドレスに EAXの値と同じ値を入れること。
@@ -21,13 +40,15 @@ using namespace std;
 
 #pragma unmanaged
 
+extern int iLastBushouIDOfBattleTaihouDefendDoorBushou; // 最後に大砲でドア攻撃した武将
+
 
 static int ECXOfCastleBattleTaihouDefendDoorDamage = 0;
 static int EAXOfCastleBattleTaihouDefendDoorDamage = 0;
 void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 	int* pRemainDoorPtr = (int*)((BYTE*)(ECXOfCastleBattleTaihouDefendDoorDamage)+0xA); // ここにドアの防御値へのポインタが入っている
 
-	int iBushouID = get1stBushouIDFromMessageBushou();
+	int iBushouID = iLastBushouIDOfBattleTaihouDefendDoorBushou;
 	if (isValidBushouID(iBushouID)) {
 		OutputDebugStream("ドアの残り耐久度%d\n", *pRemainDoorPtr);
 		OutputDebugStream("攻撃者" + getBushou姓名FromBushouID(iBushouID) + "\n");

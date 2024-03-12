@@ -75,6 +75,7 @@ void OnSSRExeCastleBattleDefendHeisuuSumExecute() {
 
 	int index = ESIOfCastleBattleDefendHeisuuSum;
 
+	/*
 	// index‚ª0‚Ì‚ÍA•”‘àî•ñ‚ğ‘S•”‰Šú‰»‚·‚é
 	if (index == 0) {
 		list–hŒä‘¤•”‘àî•ñ.clear();
@@ -89,6 +90,7 @@ void OnSSRExeCastleBattleDefendHeisuuSumExecute() {
 		NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^* p•”‘àî•ñ = (NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^*)ECXOfCastleBattleDefendHeisuuSum;
 		list–hŒä‘¤•”‘àî•ñ[index] = *p•”‘àî•ñ; // •”‘àî•ñ‚ğ‚P‚ÂƒRƒs[B
 	}
+	*/
 
 }
 
