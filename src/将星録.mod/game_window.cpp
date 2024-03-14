@@ -65,3 +65,9 @@ void onDestroyWindow() {
 
 	doneDestroyWindow = TRUE;
 }
+
+// ウィンドウを閉じようと要求した（まだ終了が確定していない）
+void onCloseWindow() {
+	// フォームは閉じる
+	Close_FormMod();
+}

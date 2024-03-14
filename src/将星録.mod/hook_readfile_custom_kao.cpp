@@ -76,11 +76,9 @@ BOOL Hook_ReadFileCustom_BushouKao(
         if (ret != nullptr && ret->ContainsKey("ファイル名")) {
             System::String^ override_filename = (System::String^)(ret["ファイル名"]);
             if (System::String::IsNullOrEmpty(override_filename)) {
-                OutputDebugStream("AAAAAA\n");
                 ;
             }
             else {
-                OutputDebugStream("BBBBBB\n");
                 filename = to_native_string(override_filename);
             }
         }

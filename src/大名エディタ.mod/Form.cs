@@ -120,22 +120,31 @@ public partial class 大名エディタ : 基本エディタ
     {
         try
         {
-            var 指揮武将IXcolumns = dgv.Columns[nameof(BIND用の大名情報型.大名武将配列IX)];
+
+            // 大名武将のIX自体を変更した時は、列ごと再度代入する。DataSourceが変更に検知させるため。
+            var 大名武将IXcolumns = dgv.Columns[nameof(BIND用の大名情報型.大名武将配列IX)];
+
+            int 大名配列IX = (int)dgv[0, e.RowIndex].Value;
             // 対象のセル
-            if (e.ColumnIndex == 指揮武将IXcolumns.Index)
+            if (e.ColumnIndex == 大名武将IXcolumns.Index)
             {
-                bindingSource.ResetBindings(false);
+                if (データ配列 != null)
+                {
+                    データ配列[大名配列IX] = (new BIND用の大名情報型(大名配列IX));
+                }
             }
         }
         catch (Exception) { }
     }
 
     BindingSource bindingSource = new();
+
+    List<BIND用の大名情報型> データ配列;
     protected override void dvg_DataBinding()
     {
         try
         {
-            List<BIND用の大名情報型> データ配列 = new();
+            データ配列 = new();
             for (int i = 0; i < 将星録.最大数.大名情報.配列数; i++)
             {
                 データ配列.Add(new BIND用の大名情報型(i));

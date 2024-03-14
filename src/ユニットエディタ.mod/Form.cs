@@ -257,22 +257,28 @@ public partial class ユニットエディタ : 基本エディタ
     {
         try
         {
+            // 指揮武将のIX自体を変更した時は、列ごと再度代入する。DataSourceが変更に検知させるため。
             var 指揮武将IXcolumns = dgv.Columns[nameof(BIND用のユニット情報型.指揮武将配列IX)];
+            int ユニット配列IX = (int)dgv[0, e.RowIndex].Value;
             // 対象のセル
             if (e.ColumnIndex == 指揮武将IXcolumns.Index)
             {
-                bindingSource.ResetBindings(false);
+                if (データ配列 != null)
+                {
+                    データ配列[ユニット配列IX] = (new BIND用のユニット情報型(ユニット配列IX));
+                }
             }
         }
         catch (Exception) { }
     }
 
+    List<BIND用のユニット情報型> データ配列;
     BindingSource bindingSource = new();
     protected override void dvg_DataBinding()
     {
         try
         {
-            List<BIND用のユニット情報型> データ配列 = new();
+            データ配列 = new();
             for (int i = 0; i < 将星録.最大数.ユニット情報.配列数; i++)
             {
                 データ配列.Add(new BIND用のユニット情報型(i));

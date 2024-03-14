@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace 将星録;
 
 
-public partial class 基本エディタ : Form
+public abstract class 基本エディタ : Form
 {
     protected DataGridView dgv = new DataGridView();
 
@@ -87,6 +87,6 @@ public partial class 基本エディタ : Form
 
     protected virtual void dvg_DataBinding()
     {
-        throw new NotImplementedException("dvg_DataBindingをoverrideしていない");
+
     }
 }
