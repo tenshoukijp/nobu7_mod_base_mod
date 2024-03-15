@@ -226,6 +226,8 @@ wParamとlParamは自由に使うことができますが、
 複数のオリジナルメッセージが必要な場合は、WM_APP+n(nは0から0xBFFF)という形で定義します。
 */
 
+#include "load_form_mod.h"
+
 WNDPROC wpOrigWndProc = NULL;
 
 // Subclass procedure 
@@ -238,6 +240,17 @@ LRESULT APIENTRY NB7WndProcCustom(
 
 	if (Msg == WM_CLOSE) {
 		OutputDebugStream("WM_CLOSE\n");
+		if (FormGlobalInstance::formMap != nullptr) {
+			for each (KeyValuePair<String^, Form^>^ pair in FormGlobalInstance::formMap) {
+				Form^ form = pair->Value;
+				// 破棄されていないオブジェクトがあるなら、終了しない
+				if (!form->IsDisposed) {
+					return FALSE;
+				}
+			}
+		}
+
+		onCloseWindow();
 	}
 	else if (Msg == WM_DESTROY) {
 		onDestroyWindow();

@@ -12,19 +12,19 @@ using namespace System::Threading;
 
 using namespace «¯˜^;
 
-ref class FormGlobalInstance {
-public:
-	static Dictionary<String^, Form^>^ formMap = gcnew Dictionary<String^, Form^>();
-	static Dictionary<String^, Thread^>^ threadMap = gcnew Dictionary<String^, Thread^>();
-};
 
 // STAThread‚Æ‚µ‚ÄŒÄ‚Î‚ê‚é
 void Show_FormThread(Object^ dllpath) {
+	Form^ form = nullptr;
 	try {
-		auto form = FormGlobalInstance::formMap[(String^)dllpath];
+		form = FormGlobalInstance::formMap[(String^)dllpath];
 		form->ShowDialog();
 	}
 	catch (Exception^ ) {}
+	if (form != nullptr) {
+		form->Close();
+		form = nullptr;
+	}
 }
 
 int Show_FormMod(String^ dllPath, String^ fullClassName) {
@@ -70,6 +70,7 @@ int Close_FormMod() {
 			form = nullptr;
 		}
 		FormGlobalInstance::formMap->Clear();
+		GC::Collect();
 		return 1;
 	}
 	catch (Exception^ ex) {
