@@ -36,9 +36,10 @@
 #include "game_process.h"
 #include "bushou_albedo.h"
 
+#include "usr_custom_mod.h"
+
 using namespace std;
 
-#pragma unmanaged
 
 extern int iLastBushouIDOfBattleTaihouDefendDoorBushou; // 最後に大砲でドア攻撃した武将
 
@@ -54,10 +55,30 @@ void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 		OutputDebugStream("ドアの残り耐久度%d\n", *pRemainDoorPtr);
 		OutputDebugStream("攻撃者" + getBushou姓名FromBushouID(iBushouID) + "\n");
 
+		try {
+			int 門防御度 = *pRemainDoorPtr;
+			// C#のdllでユーザーがカスタムしたファイルを指定するかもしれない。
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			dic->Add("攻撃武将番号", iBushouID);
+			dic->Add("タイプ", "門防御");
+			dic->Add("門防御度", 門防御度);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦ダメージ決定前", dic);
+			if (ret != nullptr) {
+				OutputDebugStream("アルベドによるドアの残り耐久度の上書き\n");
+				if (ret->ContainsKey("門防御度")) {
+					int override門防御度 = (int)ret["門防御度"];
+					*pRemainDoorPtr = override門防御度; // 実際の内部的値を０とする
+					EAXOfCastleBattleTaihouDefendDoorDamage = override門防御度; // EAXにも残り防御を入れておく。これが画面で表示する用
+				}
+			}
+		}
+		catch (System::Exception^) {
+			OutputDebugStream("on籠城戦ダメージ決定前で例外が発生しました。\n");
+		}
 
 		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
 			OutputDebugStream("アルベドによるドアの残り耐久度の上書き\n");
-			*pRemainDoorPtr = 0;                            // ここで残り防御を0へと近づける
+			*pRemainDoorPtr = 0;                             // 実際の内部的値を０とする
 			EAXOfCastleBattleTaihouDefendDoorDamage = 0; // EAXにも残り防御を入れておく。これが画面で表示する用
 		}
 
@@ -65,6 +86,8 @@ void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 	}
 
 }
+
+#pragma unmanaged
 
 /*
 00415D60   8BCE             MOV ECX,ESI
