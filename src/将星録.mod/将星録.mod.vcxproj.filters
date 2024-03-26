@@ -854,6 +854,9 @@
     <ClCompile Include="hook_castle_battle_taihou_defend_door_bushou.cpp">
       <Filter>ゲームデータ - 籠城戦 - 門</Filter>
     </ClCompile>
+    <ClCompile Include="hook_readfile_custom_kamon.cpp">
+      <Filter>フック関数置き換え系</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

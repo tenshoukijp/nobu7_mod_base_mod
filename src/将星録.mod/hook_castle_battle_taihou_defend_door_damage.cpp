@@ -62,7 +62,7 @@ void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 			dic->Add("攻撃武将番号", iBushouID);
 			dic->Add("タイプ", "門防御");
 			dic->Add("門防御度", 門防御度);
-			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦ダメージ決定前", dic);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦ダメージ決定時", dic);
 			if (ret != nullptr) {
 				OutputDebugStream("アルベドによるドアの残り耐久度の上書き\n");
 				if (ret->ContainsKey("門防御度")) {
@@ -73,7 +73,7 @@ void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 			}
 		}
 		catch (System::Exception^) {
-			OutputDebugStream("on籠城戦ダメージ決定前で例外が発生しました。\n");
+			OutputDebugStream("on籠城戦ダメージ決定時で例外が発生しました。\n");
 		}
 
 		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {

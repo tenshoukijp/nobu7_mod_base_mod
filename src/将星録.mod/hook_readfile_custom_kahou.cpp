@@ -28,6 +28,7 @@ struct KAHOU_PICTURE {
 
 extern int iKahouIDOfLastShowKahouID;
 extern int nTargetKahouGazouID;
+extern int nTargetKamonID;
 BOOL Hook_ReadFileCustom_KahouPic(
     HANDLE hFile, // ファイルのハンドル
     LPVOID lpBuffer, // データの格納先

@@ -397,6 +397,7 @@ using PFNCREATEFILEA = HANDLE(WINAPI*)(LPCSTR, DWORD, DWORD, LPSECURITY_ATTRIBUT
 PROC pfnOrigCreateFileA = GetProcAddress(GetModuleHandleA("kernel32.dll"), "CreateFileA");
 int nTargetKaoID = -1;
 int nTargetKahouGazouID = -1;
+int nTargetKamonID = -1;
 
 static map<HANDLE, string> handleMap;
 
@@ -404,6 +405,7 @@ static map<HANDLE, string> handleMap;
 HANDLE hFileKAODATA = NULL;
 HANDLE hFileITEMDATA = NULL;
 HANDLE hFileWINFRAME = NULL;
+HANDLE hFileKAMON = NULL;
 HANDLE WINAPI Hook_CreateFileA(
     LPCSTR lpFileName, // ファイル名
     DWORD dwDesiredAccess, // アクセス方法
@@ -449,6 +451,7 @@ HANDLE WINAPI Hook_CreateFileA(
     // Hook_CreateFileACustom(lpFileName, dwDesiredAccess, dwShareMode, lpSecurityAttributes, dwCreationDisposition, dwFlagsAndAttributes, hTemplateFile);
     nTargetKaoID = -1;
     nTargetKahouGazouID = -1;
+    nTargetKamonID = -1;
 
     string filename = string(lpFileName);
     std::transform(filename.begin(), filename.end(), filename.begin(), [](unsigned char c) { return std::toupper(c); });
@@ -460,6 +463,10 @@ HANDLE WINAPI Hook_CreateFileA(
         OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
         hFileITEMDATA = nResult;
     }
+    else if (filename == "KAMON.NB7") {
+		OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
+        hFileKAMON = nResult;
+	}
     /*
     else if (filename == "WINFRAME.NB7") {
         OutputDebugStream("CreateFileA:" + std::string(lpFileName) + "\n");
@@ -491,6 +498,7 @@ DWORD WINAPI Hook_SetFilePointer(
 
     nTargetKaoID = -1;
     nTargetKahouGazouID = -1;
+    nTargetKamonID = -1;
     IsNextWinFrameHeader = FALSE;
 	// 元のもの
 	DWORD nResult = ((PFNSETFILEPOINTER)pfnOrigSetFilePointer)(hFile, lDistanceToMove, lpDistanceToMoveHigh, dwMoveMethod);
@@ -508,6 +516,14 @@ DWORD WINAPI Hook_SetFilePointer(
         nTargetKahouGazouID = (lDistanceToMove - header_size) / (64 * 64);
         OutputDebugStream("家宝SetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
     }
+    else if (hFileKAMON == hFile) {
+        const int pic_data_size = (24 * 24) * 147; // 147個の家宝画像が入っている
+        const int file_org_size = 87028; // KAMON.NB7のファイルサイズ
+        const int header_size = file_org_size - pic_data_size;
+        nTargetKamonID = (lDistanceToMove - header_size) / (24 * 24);
+        OutputDebugStream("家紋SetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
+    }
+
     /*
     else if (hFileWINFRAME == hFile) {
         OutputDebugStream("フレームSetFilePointer:" + std::to_string(lDistanceToMove) + "\n");
@@ -546,6 +562,7 @@ PROC pfnOrigReadFile = GetProcAddress(GetModuleHandleA("kernel32.dll"), "ReadFil
 extern void hook_setfilepointer_custom_winframe(LPVOID lpBuffer, DWORD nNumberOfBytesToRead);
 extern BOOL Hook_ReadFileCustom_BushouKao(HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPOVERLAPPED lpOverlapped);
 extern BOOL Hook_ReadFileCustom_KahouPic(HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPOVERLAPPED lpOverlapped);
+extern BOOL Hook_ReadFileCustom_KamonPic(HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPOVERLAPPED lpOverlapped);
 BOOL WINAPI Hook_ReadFile(
 	HANDLE hFile, // ファイルのハンドル
 	LPVOID lpBuffer, // データの格納先
@@ -565,6 +582,14 @@ BOOL WINAPI Hook_ReadFile(
         OutputDebugStream("読み込むバイト数%d\n", nNumberOfBytesToRead);
         Hook_ReadFileCustom_KahouPic(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
     }
+    else if (hFileITEMDATA == hFile) {
+        OutputDebugStream("読み込むバイト数%d\n", nNumberOfBytesToRead);
+        Hook_ReadFileCustom_KahouPic(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
+    }
+    else if (hFileKAMON == hFile) {
+        OutputDebugStream("読み込むバイト数%d\n", nNumberOfBytesToRead);
+        Hook_ReadFileCustom_KamonPic(hFile, lpBuffer, nNumberOfBytesToRead, lpNumberOfBytesRead, lpOverlapped);
+    }
     /*
     else if (hFileWINFRAME == hFile) {
         if (IsNextWinFrameHeader) {
@@ -579,6 +604,7 @@ BOOL WINAPI Hook_ReadFile(
     */
     nTargetKaoID = -1;
     nTargetKahouGazouID = -1;
+    nTargetKamonID = -1;
   
     return nResult;
 }
@@ -601,6 +627,10 @@ BOOL WINAPI Hook_CloseHandle(
         // OutputDebugStream("CloseHandle:ITEMDATA\n");
         hFileITEMDATA = NULL;
     }
+    else if (hFileKAMON == hObject) {
+		// OutputDebugStream("CloseHandle:KAMON\n");
+		hFileKAMON = NULL;
+	}
     /*
     else if (hFileWINFRAME == hObject) {
         hFileWINFRAME = NULL;
