@@ -60,7 +60,8 @@ void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 			// C#のdllでユーザーがカスタムしたファイルを指定するかもしれない。
 			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
 			dic->Add("攻撃武将番号", iBushouID);
-			dic->Add("タイプ", "門防御");
+			dic->Add("攻撃タイプ", "大砲");
+			dic->Add("防御タイプ", "門");
 			dic->Add("門防御度", 門防御度);
 			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦ダメージ決定時", dic);
 			if (ret != nullptr) {
