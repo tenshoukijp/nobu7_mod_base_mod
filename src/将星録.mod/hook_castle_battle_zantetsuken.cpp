@@ -18,11 +18,11 @@
 #include "output_debug_stream.h"
 #include "game_process.h"
 #include "bushou_albedo.h"
+#include "usr_custom_mod.h"
 
 
 using namespace std;
 
-#pragma unmanaged
 
 int iZantetsukenAttackBushouID = -1;
 static int AttackBushouPtrOfCastleBattleZantetsuken = 0;
@@ -39,6 +39,27 @@ void OnSSRExeCastleBattleZantetsukenExecute() {
 		OutputDebugStream("•«%d", iBushouID);
 		OutputDebugStream("ššša“SŒ•ššš\n");
 		OutputDebugStream(getBushou©–¼FromBushouID(iBushouID) + "\n");
+
+		try {
+			int a“SŒ•”­“® = EaxOfCastleBattleZantetsuken;
+			// C#‚Ìdll‚Åƒ†[ƒU[‚ªƒJƒXƒ^ƒ€‚µ‚½ƒtƒ@ƒCƒ‹‚ğw’è‚·‚é‚©‚à‚µ‚ê‚È‚¢B
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			dic->Add("UŒ‚•«”Ô†", iBushouID);
+			dic->Add("UŒ‚ƒ^ƒCƒv", "a“SŒ•");
+			dic->Add("–hŒäƒ^ƒCƒv", "–å");
+			dic->Add("a“SŒ•”­“®", a“SŒ•”­“®);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("onâÄéíƒ_ƒ[ƒWŒˆ’è", dic);
+			if (ret != nullptr) {
+				if (ret->ContainsKey("¬”Û")) {
+					int overridea“SŒ•”­“® = (int)ret["a“SŒ•”­“®"];
+					EaxOfCastleBattleZantetsuken = overridea“SŒ•”­“®;
+				}
+			}
+		}
+		catch (System::Exception^) {
+			OutputDebugStream("onâÄéíƒ_ƒ[ƒWŒˆ’è‚Å—áŠO‚ª”­¶‚µ‚Ü‚µ‚½B\n");
+		}
+
 		if (getBushou©–¼FromBushouID(iBushouID) == getArubedoSeiMei()) {
 			OutputDebugStream("ššša“S1, %dššš\n", EaxOfCastleBattleZantetsuken);
 			// a“SŒ•‚Ì‹­§¬—§
@@ -49,6 +70,8 @@ void OnSSRExeCastleBattleZantetsukenExecute() {
 		}
 	}
 }
+
+#pragma unmanaged
 
 /*
 004174A1   0F85 F0000000    JNZ Nobunaga.00417597

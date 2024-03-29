@@ -17,8 +17,8 @@
 #include "output_debug_stream.h"
 #include "game_process.h"
 #include "bushou_albedo.h"
+#include "usr_custom_mod.h"
 
-#pragma unmanaged
 
 extern int iCastleBattleTaihouHonmaruAttackBushou;
 static int ECXOfCastleBattleTaihouDefendHonmaruDamage = 0;
@@ -41,6 +41,26 @@ void OnSSRExeCastleBattleTaihouDefendHonmaruDamageExecute() {
 		OutputDebugStream("拠点の残り耐久度%d\n", *pRemainHonmaruPtr);
 		OutputDebugStream("攻撃者" + getBushou姓名FromBushouID(iBushouID) + "\n");
 
+		try {
+			int 本丸防御 = *pRemainHonmaruPtr;
+			// C#のdllでユーザーがカスタムしたファイルを指定するかもしれない。
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			dic->Add("攻撃武将番号", iBushouID);
+			dic->Add("攻撃タイプ", "大砲");
+			dic->Add("防御タイプ", "本丸");
+			dic->Add("本丸防御", 本丸防御);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦ダメージ決定時", dic);
+			if (ret != nullptr) {
+				if (ret->ContainsKey("本丸防御")) {
+					int override本丸防御 = (int)ret["本丸防御"];
+					*pRemainHonmaruPtr = override本丸防御;// ここで残り防御を0にする
+					EAXOfCastleBattleTaihouDefendHonmaruDamage = override本丸防御; // EAXにも残り防御を入れておく。これが画面で表示する用
+				}
+			}
+		}
+		catch (System::Exception^) {
+			OutputDebugStream("on籠城戦ダメージ決定時で例外が発生しました。\n");
+		}
 
 		if (getBushou姓名FromBushouID(iBushouID) == getArubedoSeiMei()) {
 			OutputDebugStream("アルベドによる拠点の残り耐久度の上書き\n");
@@ -52,6 +72,9 @@ void OnSSRExeCastleBattleTaihouDefendHonmaruDamageExecute() {
 	}
 
 }
+
+#pragma unmanaged
+
 
 /*
 00415C1B   8BCF             MOV ECX,EDI
