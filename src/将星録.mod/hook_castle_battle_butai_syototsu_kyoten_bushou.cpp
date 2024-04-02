@@ -19,7 +19,6 @@ ESP 0019FA68
 #include "data_game_struct.h"
 #include "data_bushou_struct.h"
 #include "output_debug_stream.h"
-#include "game_screen.h"
 #include "game_process.h"
 
 using namespace std;
