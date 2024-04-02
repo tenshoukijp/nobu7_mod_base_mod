@@ -56,8 +56,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "武将エディタ.mod", "�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "基本エディタ.mod", "基本エディタ.mod\基本エディタ.mod.csproj", "{6F14C2AA-3E04-4433-83A3-D30D4E4E7180}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "野戦エディタ.mod", "野戦エディタ.mod\野戦エディタ.mod.csproj", "{9ADD4504-39D6-4959-A4D9-013F1131D6D1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -303,24 +301,6 @@ Global
 		{6F14C2AA-3E04-4433-83A3-D30D4E4E7180}.Release|x64.Build.0 = Release|Any CPU
 		{6F14C2AA-3E04-4433-83A3-D30D4E4E7180}.Release|x86.ActiveCfg = Release|Any CPU
 		{6F14C2AA-3E04-4433-83A3-D30D4E4E7180}.Release|x86.Build.0 = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Debug|x64.Build.0 = Debug|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Debug|x86.Build.0 = Debug|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release (Super)|Any CPU.ActiveCfg = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release (Super)|Any CPU.Build.0 = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release (Super)|x64.ActiveCfg = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release (Super)|x64.Build.0 = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release (Super)|x86.ActiveCfg = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release (Super)|x86.Build.0 = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release|x64.ActiveCfg = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release|x64.Build.0 = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release|x86.ActiveCfg = Release|Any CPU
-		{9ADD4504-39D6-4959-A4D9-013F1131D6D1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
