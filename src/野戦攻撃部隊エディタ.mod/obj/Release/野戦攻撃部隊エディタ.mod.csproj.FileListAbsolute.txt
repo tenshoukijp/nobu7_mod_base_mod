@@ -1,0 +1,5 @@
+C:\Users\master\source\repos\将星録Mod\Release\野戦攻撃部隊エディタ.mod.dll
+C:\Users\master\source\repos\将星録Mod\野戦攻撃部隊エディタ.mod\obj\Release\野戦攻撃部隊エディタ.mod.csproj.AssemblyReference.cache
+C:\Users\master\source\repos\将星録Mod\野戦攻撃部隊エディタ.mod\obj\Release\野戦攻撃部隊エディタ.mod.csproj.CoreCompileInputs.cache
+C:\Users\master\source\repos\将星録Mod\野戦攻撃部隊エディタ.mod\obj\Release\野戦攻撃部隊エデ.173EB61A.Up2Date
+C:\Users\master\source\repos\将星録Mod\野戦攻撃部隊エディタ.mod\obj\Release\野戦攻撃部隊エディタ.mod.dll

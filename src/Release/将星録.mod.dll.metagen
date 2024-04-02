@@ -1434,6 +1434,13 @@ Class 将星録.アプリケーション.フォント: AutoLayout, AnsiClass, Cl
     System.String フォント名 'get ' : 
   Methods:
     get_フォント名(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class 将星録.列挙.アプリケーション.メニュー: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 オープニングメニュー IsConst : Public, Static, HasDefault
+    Int32 戦略メニュー IsConst : Public, Static, HasDefault
+    Int32 野戦メニュー IsConst : Public, Static, HasDefault
+    Int32 籠城戦メニュー IsConst : Public, Static, HasDefault
 Class 将星録.アプリケーション.メニュー: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:

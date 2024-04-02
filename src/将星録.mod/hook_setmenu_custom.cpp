@@ -94,6 +94,8 @@ void AddGameModMainScreenMenu(HWND hWnd) {
 void AddGameModYanseMenu(HWND hWnd) {
 	HMENU hTarget = GetMenu(hWnd);
 	insertMenuItem(hTarget, "野戦エディタ(&Y)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YASENEDIT_KAI);
+	insertMenuItem(hTarget, "野戦攻撃部隊エディタ(&K)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YASENATTACKBUTAI_EDIT_KAI);
+	insertMenuItem(hTarget, "野戦防御部隊エディタ(&B)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YASENDEFENDBUTAI_EDIT_KAI);
 }
 
 int prevLoadMenuID = -1;
