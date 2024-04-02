@@ -91,9 +91,9 @@ void AddGameModMainScreenMenu(HWND hWnd) {
 
 }
 
-void AddGameModMainYanseMenu(HWND hWnd) {
+void AddGameModYanseMenu(HWND hWnd) {
 	HMENU hTarget = GetMenu(hWnd);
-	insertMenuItem(hTarget, "テストエディタ(&T)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_TEST_KAI);
+	insertMenuItem(hTarget, "野戦エディタ(&Y)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YASENEDIT_KAI);
 }
 
 int prevLoadMenuID = -1;
@@ -137,6 +137,12 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 			// メニューを追加した
 			AddGameModMainScreenMenu(hWnd);
 		}
+
+		else if (lastLoadMenuID == 将星録::列挙::アプリケーション::メニュー::野戦メニュー) {
+			// メニューを追加した
+			AddGameModYanseMenu(hWnd);
+		}
+
 	}
 
 	if (prevLoadMenuID != lastLoadMenuID) {

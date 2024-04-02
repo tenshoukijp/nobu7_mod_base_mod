@@ -53,6 +53,10 @@ void onMenuNenngetuSotaEditStart() {
 	Show_FormMod("年月相場エディタ.mod.dll", "将星録.年月相場エディタ");
 }
 
+void onMenuYasenEditStart() {
+	Show_FormMod("野戦エディタ.mod.dll", "将星録.野戦エディタ");
+}
+
 void onMenuModDebuggerLaunch() {
 	if (isFileExists("moddebugger.exe")) {
 		// ShellExecute(NULL, "open", "moddebugger.exe", NULL, NULL, SW_SHOW);
@@ -100,6 +104,9 @@ BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 		return TRUE;
 	case ADDITIONAL_MENU_ID_NENNGETSUEDIT_KAI:
 		onMenuNenngetuSotaEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_YASENEDIT_KAI:
+		onMenuYasenEditStart();
 		return TRUE;
 	case RESOURCE_MENU_ID_MODDEBUGGER:
 		onMenuModDebuggerLaunch();

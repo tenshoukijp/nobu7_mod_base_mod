@@ -106,9 +106,6 @@
     <Filter Include="デバッグ出力">
       <UniqueIdentifier>{175f9136-5599-4f41-900f-481d285712c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ゲームデータ - 野戦">
-      <UniqueIdentifier>{def7fd94-3d83-4ec3-a13b-ea86e7d969bb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="セーブデータ">
       <UniqueIdentifier>{068a1f75-0364-4889-ba41-572b25970c51}</UniqueIdentifier>
     </Filter>
@@ -180,6 +177,9 @@
     </Filter>
     <Filter Include="ゲームデータ - 最大数">
       <UniqueIdentifier>{51030787-f823-4398-a437-9241ee705db0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ゲームデータ - 野戦情報">
+      <UniqueIdentifier>{def7fd94-3d83-4ec3-a13b-ea86e7d969bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -319,10 +319,10 @@
       <Filter>ゲームデータ - 城情報</Filter>
     </ClInclude>
     <ClInclude Include="data_yasen_battle_turn.h">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClInclude>
     <ClInclude Include="data_yasen_butai_struct.h">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClInclude>
     <ClInclude Include="on_load_savedata.h">
       <Filter>セーブデータ</Filter>
@@ -349,13 +349,13 @@
       <Filter>ゲームデータ - 城情報</Filter>
     </ClInclude>
     <ClInclude Include="mng_野戦部隊情報.h">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClInclude>
     <ClInclude Include="mng_野戦情報.h">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClInclude>
     <ClInclude Include="mng_野戦列挙.h">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClInclude>
     <ClInclude Include="on_load_scenariodata.h">
       <Filter>シナリオデータ</Filter>
@@ -582,16 +582,16 @@
       <Filter>ゲームデータ - 役職情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_battle_turn.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_battle_turn_both_bushou.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_battle_turn_butai_of_1to5.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_butai_info_update.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_kahou_retsuden_show_end.cpp">
       <Filter>列伝 - 家宝列伝</Filter>
@@ -669,10 +669,10 @@
       <Filter>武将 - 行動済</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_weather_change.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_weather_write.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_kahou_retsuden_kahou_title.cpp">
       <Filter>列伝 - 家宝列伝</Filter>
@@ -681,10 +681,10 @@
       <Filter>列伝 - 家宝列伝</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_start.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_end.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_castle_battle_end.cpp">
       <Filter>ゲームデータ - 籠城戦</Filter>
@@ -789,10 +789,10 @@
       <Filter>ゲームデータ - ターン情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_start_a.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="hook_yasen_start_b.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="mng_メニュー.cpp">
       <Filter>メニュー</Filter>
@@ -822,10 +822,10 @@
       <Filter>Onセリフ</Filter>
     </ClCompile>
     <ClCompile Include="mng_野戦部隊情報.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="mng_野戦情報.cpp">
-      <Filter>ゲームデータ - 野戦</Filter>
+      <Filter>ゲームデータ - 野戦情報</Filter>
     </ClCompile>
     <ClCompile Include="mng_大名情報.cpp">
       <Filter>ゲームデータ - 大名情報</Filter>
