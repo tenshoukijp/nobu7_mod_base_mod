@@ -64,6 +64,7 @@
 #include "usr_custom_mod.h"
 
 extern int iLastBattleRemainTurn;
+extern BOOL isCustomModBeginCalled;
 
 using namespace std;
 NB7籠城戦攻撃側部隊情報型 攻撃側部隊情報控え[最大数::籠城戦::攻撃部隊情報::配列数] = { 0 };
@@ -143,22 +144,19 @@ void OnSSRExeCastleBattleAttackHeisuuEndExecute() {
 
 	}
 
-	if (isMustDifferSend) {
-		OutputDebugStream("攻撃・詳細調査で前回と異なる。送信\n");
 
-		if (isMustDifferSend) {
-			OutputDebugStream("防御・詳細調査で前回と異なる。送信\n");
-			// C#のカスタム.mod.dllからの上書き
-			try {
-				System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
-				dic->Add("残りターン", iLastBattleRemainTurn);
-				System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦攻撃部隊更新後", dic);
-			}
-			catch (System::Exception^) {
-				OutputDebugStream("on籠城戦残りターン変更時にエラーが発生しました");
-			}
-
+	if (isMustDifferSend && isCustomModBeginCalled) {
+		OutputDebugStream("防御・詳細調査で前回と異なる。送信\n");
+		// C#のカスタム.mod.dllからの上書き
+		try {
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			dic->Add("残りターン", iLastBattleRemainTurn);
+			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ ret = InvokeUserMethod("on籠城戦攻撃部隊更新後", dic);
 		}
+		catch (System::Exception^) {
+			OutputDebugStream("on籠城戦残りターン変更時にエラーが発生しました");
+		}
+
 	}
 
 }

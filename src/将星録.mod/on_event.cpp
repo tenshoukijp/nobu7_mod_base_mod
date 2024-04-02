@@ -13,7 +13,7 @@ using namespace 列挙;
 void onOpeningMovie() {
     hookFunctionsDirect();
     setゲーム画面ステータス(ゲーム画面ステータス::起動画面);
-	OutputDebugStream("オープニングムービー\n");
+	OutputDebugStream("★オープニングムービー\n");
 }
 
 extern void resetMapBushouKoudouzumiCacheInMonth();

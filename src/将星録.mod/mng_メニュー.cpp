@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <string>
 #include <map>
+#include "mng_メニュー列挙.h"
 #include "mng_メニュー.h"
 #include "game_menu.h"
 #include "mng_文字列変換.h"

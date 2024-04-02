@@ -199,7 +199,7 @@ HFONT WINAPI Hook_CreateFontA(
 }
 
 //---------------------------LoadMenuA
-
+int lastLoadMenuID = 0;
 using PFNLOADMENUA = HMENU(WINAPI *)(HINSTANCE, LPCSTR);
 
 PROC pfnOrigLoadMenuA = GetProcAddress(GetModuleHandleA("user32.dll"), "LoadMenuA");
@@ -213,7 +213,7 @@ HMENU WINAPI Hook_LoadMenuA(
 	// Hook_LoadMenuACustom(hInstance, lpMenuName);
 
     // OutputDebugStream("Hook_LoadMenuA\n");
-
+    lastLoadMenuID = (int)lpMenuName;
 	// 元のものを呼び出す
 	// HMENU nResult = ((PFNLOADMENUA)pfnOrigLoadMenuA)(hInstance, lpMenuName);
     HANDLE hModule = GetModuleHandle(NULL); //このdll自信のハンドル

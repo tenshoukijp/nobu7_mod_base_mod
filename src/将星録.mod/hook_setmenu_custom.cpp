@@ -5,7 +5,9 @@
 #include "on_event.h"
 #include "game_screen.h"
 #include "hook_functions_direct.h"
+#include "mng_文字列変換.h"
 #include "usr_custom_mod.h"
+#include "mng_メニュー列挙.h"
 
 /*
 00419805   CALL DWORD PTR DS:[<&USER32.SetMenu>]                           将星録_m.77F8E307
@@ -73,11 +75,8 @@
 
 */
 
-int nCheckMenuCount = 0;
 
-int prevMenuCount = 0;
-
-void AddGameModMenu(HWND hWnd) {
+void AddGameModMainScreenMenu(HWND hWnd) {
 	HMENU hTarget = GetMenu(hWnd);
 	// insertMenuItem(hTarget, "テストエディタ(&T)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_TEST_KAI);
 	insertMenuItem(hTarget, "大名エディタ(&D)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_DAIMYOEDIT_KAI);
@@ -92,21 +91,20 @@ void AddGameModMenu(HWND hWnd) {
 
 }
 
+void AddGameModMainYanseMenu(HWND hWnd) {
+	HMENU hTarget = GetMenu(hWnd);
+	insertMenuItem(hTarget, "テストエディタ(&T)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_TEST_KAI);
+}
+
+int prevLoadMenuID = -1;
+extern int lastLoadMenuID;
+
 BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 	if (hMenu == NULL) {
 		return FALSE;
 	}
 
 	int menu_count = GetMenuItemCount(hMenu);
-
-	if (menu_count >= 9) {
-		// 「ユニット」のメニューアイテムを全角に変更
-		// changeMenuItemString(hMenu, 226, "ユニット(&U)"); // 226はリソースエディタでわかる「ユニット」のメニューID
-
-	}
-
-	// 「ファイル」のPOPUPを全角に変更
-	// changePopupString(hMenu, 0, "ファイル(&F)");
 
 	menu_count = GetMenuItemCount(hMenu); // 一応変わらないはずだけど再度取得しておく。
 
@@ -116,6 +114,7 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 
 		try {
 			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ dic = gcnew System::Collections::Generic::Dictionary<System::String^, System::Object^>(5);
+			dic->Add("メニュー番号", lastLoadMenuID);
 			auto ret = InvokeUserMethod("onメニュー追加要求時", dic);
 		}
 		catch (System::Exception^) {
@@ -128,63 +127,54 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 		// OutputDebugStream("メニューが変わりました\r\n");
 
 		// OpeningMovie時のメニューは2個 + 改造メニューで+1
-		if (menu_count == 3) {
+		if (lastLoadMenuID == 将星録::列挙::アプリケーション::メニュー::オープニングメニュー) {
 			// changePopupString(hMenu, 1, "ムービー中止(&M)");
-			if (nCheckMenuCount != menu_count) {
-				nCheckMenuCount = menu_count;
-				onOpeningMovie();
-			}
+			onOpeningMovie();
 		}
 
 		// ゲームが出来る状態になると、メニューが9個になる。一応8個以上で判定。
-		if (menu_count >= 9) {
+		if (lastLoadMenuID == 将星録::列挙::アプリケーション::メニュー::戦略メニュー) {
+			// メニューを追加した
+			AddGameModMainScreenMenu(hWnd);
 		}
-
-		// メニューを追加した
-		AddGameModMenu(hWnd);
 	}
 
-	if (prevMenuCount != menu_count) {
+	if (prevLoadMenuID != lastLoadMenuID) {
 
 
-		if (menu_count == 4) {  // 3個+改造メニューで+1
-			if (prevMenuCount >= 9) {
+		if (lastLoadMenuID == 将星録::列挙::アプリケーション::メニュー::籠城戦メニュー) { 
+			if (prevLoadMenuID == 将星録::列挙::アプリケーション::メニュー::戦略メニュー) {
 				onCastleBattlePreStart();
+				OutputDebugStream("メニュー切り替わり(戦略⇒籠城戦)\n");
 			}
 
 			OutputDebugStream("籠城戦スクリーン中である\n");
 		}
 
-		if (menu_count == 5) {  // 4個+改造メニューで+1
-			if (prevMenuCount >= 9) {
+		else if (lastLoadMenuID == 将星録::列挙::アプリケーション::メニュー::野戦メニュー) {
+			if (prevLoadMenuID == 将星録::列挙::アプリケーション::メニュー::戦略メニュー) {
+				OutputDebugStream("メニュー切り替わり(戦略⇒野戦)\n");
 				onYasenBattlePreStart();
 			}
 
-			OutputDebugStream("戦闘スクリーン中である\n");
+			OutputDebugStream("野戦スクリーン中である\n");
 		}
 
-		if (menu_count >= 9) {   // 9個以上
+		else if (lastLoadMenuID == 将星録::列挙::アプリケーション::メニュー::戦略メニュー) { 
 
 
-			if (prevMenuCount == 5) { // 4個+改造メニューで+1
+			if (prevLoadMenuID == 将星録::列挙::アプリケーション::メニュー::野戦メニュー) { 
+				OutputDebugStream("メニュー切り替わり(野戦⇒戦略)\n");
 				onYasenBattleEnd();
 			}
-			else if (prevMenuCount == 4) { // 3個+改造メニューで+1
+			else if (prevLoadMenuID == 将星録::列挙::アプリケーション::メニュー::籠城戦メニュー) {
+				OutputDebugStream("メニュー切り替わり(籠城戦⇒戦略)\n");
 				onCastleBattleEnd();
 			}
 
-			/*
-
-			// 初期状態
-			else {
-				onStrategyScreen();
-			}
-
-			OutputDebugStream("戦術スクリーン中である\n");
-			*/
 		}
 
-		prevMenuCount = menu_count;
+		prevLoadMenuID = lastLoadMenuID;
 
 	}
 

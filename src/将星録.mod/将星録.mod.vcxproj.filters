@@ -396,6 +396,9 @@
     <ClInclude Include="data_const_max.h">
       <Filter>ゲームデータ - 最大数</Filter>
     </ClInclude>
+    <ClInclude Include="mng_メニュー列挙.h">
+      <Filter>メニュー</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="data_game_struct.cpp">

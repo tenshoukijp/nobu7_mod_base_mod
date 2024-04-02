@@ -64,6 +64,7 @@
 */
 
 
+extern BOOL isCustomModBeginCalled;
 extern std::vector<NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^> list–hŒä‘¤•”‘àî•ñ;
 std::vector<NB7âÄéí–hŒä‘¤•”‘àî•ñŒ^> prev–hŒä‘¤•”‘àî•ñ;
 
@@ -174,7 +175,7 @@ void OnSSRExeCastleBattleDefendHeisuuEndExecute() {
 
 	}
 
-	if (isMustDifferSend) {
+	if (isMustDifferSend && isCustomModBeginCalled) {
 		OutputDebugStream("–hŒäEÚ×’²¸‚Å‘O‰ñ‚ÆˆÙ‚È‚éB‘—M\n");
 		// C#‚ÌƒJƒXƒ^ƒ€.mod.dll‚©‚ç‚Ìã‘‚«
 		try {
