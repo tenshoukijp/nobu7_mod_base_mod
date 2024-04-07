@@ -1,0 +1,5 @@
+C:\Users\master\source\repos\将星録Mod\Release\籠城戦防御部隊エディタ.mod.dll
+C:\Users\master\source\repos\将星録Mod\籠城戦防御部隊エディタ.mod\obj\Release\籠城戦防御部隊エディタ.mod.csproj.AssemblyReference.cache
+C:\Users\master\source\repos\将星録Mod\籠城戦防御部隊エディタ.mod\obj\Release\籠城戦防御部隊エディタ.mod.csproj.CoreCompileInputs.cache
+C:\Users\master\source\repos\将星録Mod\籠城戦防御部隊エディタ.mod\obj\Release\籠城戦防御部隊エ.87472ECB.Up2Date
+C:\Users\master\source\repos\将星録Mod\籠城戦防御部隊エディタ.mod\obj\Release\籠城戦防御部隊エディタ.mod.dll

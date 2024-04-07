@@ -80,6 +80,7 @@
       <AdditionalDependencies />
       <ModuleDefinitionFile>dllmain.def</ModuleDefinitionFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalOptions>/ignore:4232 /ignore:4070 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release (Super)|Win32'">

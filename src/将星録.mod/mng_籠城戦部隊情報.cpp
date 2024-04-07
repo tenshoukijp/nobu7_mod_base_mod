@@ -125,11 +125,25 @@ int 防御部隊情報型::行動残数::get()
 }
 
 void 防御部隊情報型::行動残数::set(int value) {
-	if (0 <= value && value <= 1) {
+	if (0 <= value && value <= 8) {
 		nb7籠城戦防御側部隊情報[部隊配列IX].行動残数 = value;
 	}
 	else {
 		throw gcnew System::ArgumentOutOfRangeException("行動残数が不正です。");
+	}
+}
+
+int 防御部隊情報型::混乱::get()
+{
+	return nb7籠城戦防御側部隊情報[部隊配列IX].混乱;
+}
+
+void 防御部隊情報型::混乱::set(int value) {
+	if (0 <= value && value <= 1) {
+		nb7籠城戦防御側部隊情報[部隊配列IX].混乱 = value;
+	}
+	else {
+		throw gcnew System::ArgumentOutOfRangeException("混乱が不正です。");
 	}
 }
 

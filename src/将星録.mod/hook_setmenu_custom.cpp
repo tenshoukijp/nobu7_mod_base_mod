@@ -98,6 +98,13 @@ void AddGameModYanseMenu(HWND hWnd) {
 	insertMenuItem(hTarget, "野戦防御部隊エディタ(&B)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_YASENDEFENDBUTAI_EDIT_KAI);
 }
 
+void AddGameModRojounseMenu(HWND hWnd) {
+	HMENU hTarget = GetMenu(hWnd);
+	insertMenuItem(hTarget, "籠城戦攻撃部隊エディタ(&K)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_ROUJOSENATTACKBUTAI_EDIT_KAI);
+	insertMenuItem(hTarget, "籠城戦防御部隊エディタ(&B)", RESOURCE_MENU_ID_KAIZOU_END, ADDITIONAL_MENU_ID_ROUJOSENDEFENDBUTAI_EDIT_KAI);
+}
+
+
 int prevLoadMenuID = -1;
 extern int lastLoadMenuID;
 
@@ -143,6 +150,11 @@ BOOL Hook_SetMenuCustom(HWND hWnd, HMENU hMenu) {
 		else if (lastLoadMenuID == 将星録::列挙::アプリケーション::メニュー::野戦メニュー) {
 			// メニューを追加した
 			AddGameModYanseMenu(hWnd);
+		}
+
+		else if (lastLoadMenuID == 将星録::列挙::アプリケーション::メニュー::籠城戦メニュー) {
+			// メニューを追加した
+			AddGameModRojounseMenu(hWnd);
 		}
 
 	}

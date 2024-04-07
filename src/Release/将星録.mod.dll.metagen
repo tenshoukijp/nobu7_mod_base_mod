@@ -1864,6 +1864,7 @@ Class 将星録.籠城戦.攻撃部隊情報型: AutoLayout, AnsiClass, Class, P
 Class 将星録.籠城戦.防御部隊情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
+    Int32 混乱   'get set' : 
     Int32 行動残数 'get set' : 
     Int32 指揮武将配列IX 'get ' : 
     Int32 兵数   'get set' : 
@@ -1877,6 +1878,8 @@ Class 将星録.籠城戦.防御部隊情報型: AutoLayout, AnsiClass, Class, P
     get_指揮武将配列IX(): PrivateScope, Public, HideBySig, SpecialName
     get_行動残数(): PrivateScope, Public, HideBySig, SpecialName
     set_行動残数(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_混乱(): PrivateScope, Public, HideBySig, SpecialName
+    set_混乱(Int32): PrivateScope, Public, HideBySig, SpecialName
 Class 将星録.野戦.ターン情報型: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:

@@ -82,6 +82,13 @@ namespace «¯˜^ {
 				void set(int value);
 			}
 
+			property int ¬— {
+				int get();
+				void set(int value);
+			
+
+			}
+
 			/*
 			property int Œ»İ‚wÀ•W {
 				int get();

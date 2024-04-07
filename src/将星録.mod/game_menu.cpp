@@ -65,6 +65,14 @@ void onMenuYasenDefendButaiEditStart() {
 	Show_FormMod("野戦防御部隊エディタ.mod.dll", "将星録.野戦防御部隊エディタ");
 }
 
+void onMenuRoujosenAttackButaiEditStart() {
+	Show_FormMod("籠城戦攻撃部隊エディタ.mod.dll", "将星録.籠城戦攻撃部隊エディタ");
+}
+
+void onMenuRoujosenDefendButaiEditStart() {
+	Show_FormMod("籠城戦防御部隊エディタ.mod.dll", "将星録.籠城戦防御部隊エディタ");
+}
+
 void onMenuModDebuggerLaunch() {
 	if (isFileExists("moddebugger.exe")) {
 		// ShellExecute(NULL, "open", "moddebugger.exe", NULL, NULL, SW_SHOW);
@@ -121,6 +129,12 @@ BOOL onMenuPushed(HWND hWnd, int iMenuID) {
 		return TRUE;
 	case ADDITIONAL_MENU_ID_YASENDEFENDBUTAI_EDIT_KAI:
 		onMenuYasenDefendButaiEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_ROUJOSENATTACKBUTAI_EDIT_KAI:
+		onMenuRoujosenAttackButaiEditStart();
+		return TRUE;
+	case ADDITIONAL_MENU_ID_ROUJOSENDEFENDBUTAI_EDIT_KAI:
+		onMenuRoujosenDefendButaiEditStart();
 		return TRUE;
 	case RESOURCE_MENU_ID_MODDEBUGGER:
 		onMenuModDebuggerLaunch();
