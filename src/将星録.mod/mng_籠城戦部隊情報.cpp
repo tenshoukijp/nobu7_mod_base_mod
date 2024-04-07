@@ -125,7 +125,7 @@ int 防御部隊情報型::行動残数::get()
 }
 
 void 防御部隊情報型::行動残数::set(int value) {
-	if (0 <= value && value <= 8) {
+	if (0 <= value && value <= 9) {
 		nb7籠城戦防御側部隊情報[部隊配列IX].行動残数 = value;
 	}
 	else {
