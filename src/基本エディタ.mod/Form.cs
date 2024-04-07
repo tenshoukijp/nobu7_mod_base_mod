@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace 将星録;
@@ -9,12 +10,16 @@ namespace 将星録;
 public abstract class 基本エディタ : Form
 {
     protected DataGridView dgv = new DataGridView();
+    protected StatusStrip statusStrip = new StatusStrip();
+    protected ToolStripStatusLabel toolStrip = new ToolStripStatusLabel("");
+    private int isLastCellChangeError = 0;
 
     public 基本エディタ()
     {
         try
         {
             setFormAttribute();
+            setStatusBarAttribute();
             setDataGridAttribute();
         }
         catch (Exception) { }
@@ -22,6 +27,7 @@ public abstract class 基本エディタ : Form
 
     void setFormAttribute()
     {
+        this.TopMost = true;
         this.Width = 900;
         this.Height = 800;
         this.StartPosition = FormStartPosition.CenterScreen;
@@ -31,12 +37,30 @@ public abstract class 基本エディタ : Form
         this.KeyDown += Form_KeyDown;
     }
 
+    void setStatusBarAttribute()
+    {
+        statusStrip.Dock = DockStyle.Bottom;
+        statusStrip.Items.Add(toolStrip);
+        this.Controls.Add(statusStrip);
+    }
+
+    void setStatusBarText(string text)
+    {
+        try
+        {
+            text = text.Replace("\n", " ");
+            toolStrip.Text = text;
+        }
+        catch (Exception) { }
+    }
+
     void Form_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.F5 && ActiveForm == this)
         {
             dgv.Rows.Clear();
             dvg_DataBinding();
+            setStatusBarText("");
         }
     }
 
@@ -65,9 +89,14 @@ public abstract class 基本エディタ : Form
         catch (Exception) { }
     }
 
+
     protected virtual void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
-
+        isLastCellChangeError--;
+        if (isLastCellChangeError < 0)
+        {
+            setStatusBarText("");
+        }
     }
 
     protected virtual void dvg_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -81,8 +110,12 @@ public abstract class 基本エディタ : Form
         try
         {
             e.Cancel = false;
+            isLastCellChangeError = 1;
+            setStatusBarText(e.Exception.Message);
+            System.Diagnostics.Trace.Write(e.Exception.Message);
         }
-        catch (Exception) { }
+        catch (Exception) {
+        }
     }
 
     protected virtual void dvg_DataBinding()

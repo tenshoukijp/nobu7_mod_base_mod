@@ -683,6 +683,34 @@ BOOL WINAPI Hook_IsDebuggerPresent() {
 	return FALSE;
 }
 
+//---------------------------MessageBoxA
+
+using PFNMESSAGEBOXA = int(WINAPI *)(HWND, LPCSTR, LPCSTR, UINT);
+
+PROC pfnOrigMessageBoxA = GetProcAddress(GetModuleHandleA("user32.dll"), "MessageBoxA");
+
+// extern int Hook_MessageBoxACustom(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT uType);
+
+int WINAPI Hook_MessageBoxA(
+	HWND hWnd, // ウィンドウのハンドル
+	LPCSTR lpText, // メッセージ ボックスに表示するテキスト
+	LPCSTR lpCaption, // メッセージ ボックスのタイトル バーに表示するテキスト
+	UINT uType // メッセージ ボックスのスタイル
+) {
+	// 先にカスタムの方を実行。
+	// Hook_MessageBoxACustom(hWnd, lpText, lpCaption, uType);
+
+    if (lpCaption != NULL) {
+        if (strcmp(lpCaption, "信長の野望･将星録 パワーアップキット の終了") == 0) {
+			return IDOK;
+		}
+    }
+
+	// 元のもの
+	int nResult = ((PFNMESSAGEBOXA)pfnOrigMessageBoxA)(hWnd, lpText, lpCaption, uType);
+
+	return nResult;
+}
 
 /*----------------------------------------------------------------*
  HOOK系処理
@@ -704,6 +732,7 @@ bool isHookSetFilePointer = false;
 bool isHookReadFile = false;
 bool isHookSelectObject = false;
 bool isHookCloseHandle = false;
+bool isHookMessageBoxA = false;
 
 void hookFunctionsReplace() {
 
@@ -792,5 +821,11 @@ void hookFunctionsReplace() {
 		isHookIsDebuggerPresent = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("kernel32.dll"), "IsDebuggerPresent");
 		ReplaceIATEntryInAllMods("kernel32.dll", pfnOrig, (PROC)Hook_IsDebuggerPresent);
+	}
+
+    if (!isHookMessageBoxA) {
+		isHookMessageBoxA = true;
+		pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "MessageBoxA");
+		ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_MessageBoxA);
 	}
 }

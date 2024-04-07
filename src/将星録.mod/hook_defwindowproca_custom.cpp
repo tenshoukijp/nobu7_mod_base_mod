@@ -250,7 +250,7 @@ LRESULT APIENTRY NB7WndProcCustom(
 			}
 		}
 
-		onCloseWindow();
+		onTryCloseWindow();
 	}
 	else if (Msg == WM_DESTROY) {
 		onDestroyWindow();

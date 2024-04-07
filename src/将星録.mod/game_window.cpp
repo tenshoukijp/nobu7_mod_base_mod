@@ -67,5 +67,7 @@ void onDestroyWindow() {
 }
 
 // ウィンドウを閉じようと要求した（まだ終了が確定していない）
-void onCloseWindow() {
+void onTryCloseWindow() {
+	Close_FormMod();
+	OutputDebugStream("onTryCloseWindow\n");
 }

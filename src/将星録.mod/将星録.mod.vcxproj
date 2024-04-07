@@ -264,6 +264,7 @@
     <ClCompile Include="hook_load_scenariodata.cpp" />
     <ClCompile Include="hook_maingame_start.cpp" />
     <ClCompile Include="hook_movie_filename.cpp" />
+    <ClCompile Include="hook_on_confirm_closewindow.cpp" />
     <ClCompile Include="hook_player_strategy_turn.cpp" />
     <ClCompile Include="hook_castle_battle_zantetsuken.cpp" />
     <ClCompile Include="hook_readfile_custom_kahou.cpp" />

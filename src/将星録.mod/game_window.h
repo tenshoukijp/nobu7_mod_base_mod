@@ -12,4 +12,4 @@ void onCreateWindow(HWND hWnd);
 
 void onDestroyWindow();
 
-void onCloseWindow();
+void onTryCloseWindow();

@@ -181,6 +181,9 @@
     <Filter Include="ゲームデータ - 野戦情報">
       <UniqueIdentifier>{def7fd94-3d83-4ec3-a13b-ea86e7d969bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="終了メッセージボックス">
+      <UniqueIdentifier>{cc9f73fc-816d-4013-b9c5-aa70a8314df1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -859,6 +862,9 @@
     </ClCompile>
     <ClCompile Include="hook_readfile_custom_kamon.cpp">
       <Filter>フック関数置き換え系</Filter>
+    </ClCompile>
+    <ClCompile Include="hook_on_confirm_closewindow.cpp">
+      <Filter>終了メッセージボックス</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
