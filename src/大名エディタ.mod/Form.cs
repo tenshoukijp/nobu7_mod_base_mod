@@ -120,7 +120,6 @@ public partial class 大名エディタ : 基本エディタ
     {
         try
         {
-
             // 大名武将のIX自体を変更した時は、列ごと再度代入する。DataSourceが変更に検知させるため。
             var 大名武将IXcolumns = dgv.Columns[nameof(BIND用の大名情報型.大名武将配列IX)];
 
