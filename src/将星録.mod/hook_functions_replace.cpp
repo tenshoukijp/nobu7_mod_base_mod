@@ -700,11 +700,15 @@ int WINAPI Hook_MessageBoxA(
 	// 先にカスタムの方を実行。
 	// Hook_MessageBoxACustom(hWnd, lpText, lpCaption, uType);
 
-    if (lpCaption != NULL) {
-        if (strcmp(lpCaption, "信長の野望･将星録 パワーアップキット の終了") == 0) {
-			return IDOK;
-		}
-    }
+
+    /*
+    004FDAE3   68 94965200      PUSH Nobunaga.00529694                   ; ASCII "信長の野望･将星録 パワーアップキット の終了"
+    004FDAE8   68 60965200      PUSH Nobunaga.00529660                   ; ASCII "信長の野望･将星録 パワーアップキット を終了します。"
+    */
+    // 終了ダイアログである。
+    if ((int)lpCaption == 0x529694 && (int)lpText == 0x529660) {
+		return IDOK;
+	}
 
 	// 元のもの
 	int nResult = ((PFNMESSAGEBOXA)pfnOrigMessageBoxA)(hWnd, lpText, lpCaption, uType);
