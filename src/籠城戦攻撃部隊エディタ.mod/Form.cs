@@ -64,7 +64,6 @@ public partial class 籠城戦攻撃部隊エディタ : 基本エディタ
             get { return 籠城戦攻撃部隊情報.行動済; }
             set { 籠城戦攻撃部隊情報.行動済 = value; }
         }
-
     }
 
     protected override void dvg_DataBinding()

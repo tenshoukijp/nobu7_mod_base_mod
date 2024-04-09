@@ -41,7 +41,6 @@ namespace «¯˜^ {
 			property int Œ»İ‚xÀ•W {
 				int get();
 			}
-
 		};
 	}
 }

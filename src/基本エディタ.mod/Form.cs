@@ -18,7 +18,6 @@ public abstract partial class 基本エディタ : Form
         try
         {
             setFormAttribute();
-            setStatusBarAttribute();
             setDataGridAttribute();
         }
         catch (Exception) { }
@@ -58,16 +57,15 @@ public abstract partial class 基本エディタ : Form
             dgv.Dock = DockStyle.Fill;
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToDeleteRows = false;
+            dgv.ScrollBars = ScrollBars.Both;
 
             string fontName = 将星録.アプリケーション.フォント.フォント名;
             dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
 
             // データグリッドのセルを編集した時のイベントハンドラを登録する。
             dgv.DataError += dvg_DataError;
-            dgv.DataError += dvg_DataErrorStatusBar;
             dgv.DataBindingComplete += dvg_DataBindingComplete;
             dgv.CellValueChanged += dgv_CellValueChanged;
-            dgv.CellValueChanged += dgv_CellValueChangedStatusBar;
 
             dvg_DataBinding();
 
@@ -94,9 +92,26 @@ public abstract partial class 基本エディタ : Form
         try
         {
             e.Cancel = false;
+
+            ShowErrorToolTip(e);
+
         }
         catch (Exception) {
         }
+    }
+
+    void ShowErrorToolTip(DataGridViewDataErrorEventArgs e)
+    {
+        DataGridViewCell errorCell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        string errorMessage = e.Exception.Message;
+
+        // バルーンでエラーメッセージを表示
+        System.Windows.Forms.ToolTip tooltip = new();
+        tooltip.ToolTipTitle = "入力エラー";
+        tooltip.ToolTipIcon = ToolTipIcon.Error;
+        tooltip.Show(errorMessage, dgv, errorCell.ContentBounds.X, errorCell.ContentBounds.Y, 3000);
+
+        System.Diagnostics.Trace.Write(e.Exception.Message);
     }
 
     protected virtual void dvg_DataBinding()
@@ -105,62 +120,3 @@ public abstract partial class 基本エディタ : Form
     }
 }
 
-
-public abstract partial class 基本エディタ : Form
-{
-    // ステータスバー
-    protected StatusStrip statusStrip = new StatusStrip();
-    protected ToolStripStatusLabel toolStrip = new ToolStripStatusLabel("");
-
-    // セルの変更時のエラーを表示・非表示を制御するための変数
-    private int lastCellChangeErrorStatus = 0;
-
-    void setStatusBarText(string text)
-    {
-        try
-        {
-            text = text.Replace("\r\n", " ");
-            text = text.Replace("\n", " ");
-            text = text.Replace("\r", " ");
-            toolStrip.Text = text;
-        }
-        catch (Exception) { }
-    }
-    void setStatusBarAttribute()
-    {
-        this.KeyDown += Form_KeyDownStatusBar;
-
-        statusStrip.Dock = DockStyle.Bottom;
-        statusStrip.Items.Add(toolStrip);
-        this.Controls.Add(statusStrip);
-    }
-
-    void Form_KeyDownStatusBar(object sender, KeyEventArgs e)
-    {
-        if (IsUpdateKeyDown(e))
-        {
-            setStatusBarText("");
-        }
-    }
-    void dgv_CellValueChangedStatusBar(object sender, DataGridViewCellEventArgs e)
-    {
-        lastCellChangeErrorStatus--;
-        if (lastCellChangeErrorStatus < 0)
-        {
-            setStatusBarText("");
-        }
-    }
-
-    void dvg_DataErrorStatusBar(object sender, DataGridViewDataErrorEventArgs e)
-    {
-        try
-        {
-            lastCellChangeErrorStatus = 1;
-            setStatusBarText(e.Exception.Message);
-            System.Diagnostics.Trace.Write(e.Exception.Message);
-        }
-        catch (Exception) { }
-    }
-
-
-}
