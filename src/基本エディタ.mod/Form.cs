@@ -94,13 +94,12 @@ public abstract partial class 基本エディタ : Form
             e.Cancel = false;
 
             ShowErrorToolTip(e);
-
         }
         catch (Exception) {
         }
     }
 
-    void ShowErrorToolTip(DataGridViewDataErrorEventArgs e)
+    protected virtual void ShowErrorToolTip(DataGridViewDataErrorEventArgs e)
     {
         DataGridViewCell errorCell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex];
         string errorMessage = e.Exception.Message;
