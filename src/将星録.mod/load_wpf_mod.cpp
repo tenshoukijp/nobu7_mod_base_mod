@@ -19,7 +19,7 @@ public:
 // STAThread‚Æ‚µ‚ÄŒÄ‚Î‚ê‚é
 void Show_WpfThread(Object^ dllpath) {
 	try {
-		auto wpf = FormGlobalInstance::wpfMap[(String^)dllpath];
+		auto wpf = WPFGlobalInstance::wpfMap[(String^)dllpath];
 		wpf->ShowDialog();
 	}
 	catch (Exception^) {}

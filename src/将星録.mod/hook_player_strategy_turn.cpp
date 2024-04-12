@@ -58,7 +58,7 @@ void OnSSRExeMainStrategyPlayerTurnExecute() {
 
 int pSSRExeJumpFromToOnSSRExeMainStrategyPlayerTurn = 0x4348D4; // 関数はこのアドレスから、OnSSRExeMainStrategyPlayerTurnへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeMainStrategyPlayerTurn = 0x433D10; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeMainStrategyPlayerTurn = 0x4348D9; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeMainStrategyPlayerTurn = 0x4348D9; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

@@ -82,7 +82,7 @@ void OnSSRExePlayBGMExecute() {
 */
 
 int pSSRExeJumpFromToOnSSRExePlayBGM = 0x4193E0; // 関数はこのアドレスから、OnSSRExePlayBGMへとジャンプしてくる。
-int pSSRExeReturnLblFromOnSSRExePlayBGM = 0x4193E6; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExePlayBGM = 0x4193E6; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

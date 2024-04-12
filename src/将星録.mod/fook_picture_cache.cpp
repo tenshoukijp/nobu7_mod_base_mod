@@ -72,7 +72,7 @@ void OnSSRExeCheckPicCacheExecute() {
 
 int pSSRExeJumpFromToOnSSRExeCheckPicCache = 0x465324; // 関数はこのアドレスから、OnSSRExeCheckPicCacheへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCheckPicCache = 0x464F30; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCheckPicCache = 0x465329; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCheckPicCache = 0x465329; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

@@ -42,7 +42,7 @@ void OnSSRExeLastShowKahouIDExecute() {
 0047C36F   84C0             TEST AL,AL
 */
 int pSSRExeJumpFromToOnSSRExeLastShowKahouID = 0x47C364; // 関数はこのアドレスから、OnSSRExeLastShowKahouIDへとジャンプしてくる。
-int pSSRExeReturnLblFromOnSSRExeLastShowKahouID = 0x47C36B; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeLastShowKahouID = 0x47C36B; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

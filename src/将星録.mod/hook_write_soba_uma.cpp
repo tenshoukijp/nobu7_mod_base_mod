@@ -56,7 +56,7 @@ void OnSSRExeWriteSobaUmaExecute() {
 
 int pSSRExeJumpFromToOnSSRExeWriteSobaUma = 0x4C5071; // 関数はこのアドレスから、OnSSRExeWriteSobaUmaへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeWriteSobaUma = 0x4404B0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeWriteSobaUma = 0x4C5076; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeWriteSobaUma = 0x4C5076; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

@@ -56,7 +56,7 @@ void OnSSRExeWriteMonthExecute() {
 
 int pSSRExeJumpFromToOnSSRExeWriteMonth = 0x4C4F2D; // 関数はこのアドレスから、OnSSRExeWriteMonthへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeWriteMonth = 0x4404B0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeWriteMonth = 0x4C4F32; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeWriteMonth = 0x4C4F32; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

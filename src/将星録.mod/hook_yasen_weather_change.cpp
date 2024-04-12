@@ -53,7 +53,7 @@ void OnSSRExeYasenWeatherChangeExecute() {
 0047144D   83BE 84000000 02 CMP DWORD PTR DS:[ESI+84],2
 */
 int pSSRExeJumpFromToOnSSRExeYasenWeatherChange = 0x471441; // 関数はこのアドレスから、OnSSRExeYasenWeatherChangeへとジャンプしてくる。
-int pSSRExeReturnLblFromOnSSRExeYasenWeatherChange = 0x471446; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeYasenWeatherChange = 0x471446; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

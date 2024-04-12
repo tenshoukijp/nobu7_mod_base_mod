@@ -45,7 +45,7 @@ void OnSSRExeUpdateSobaKomeExecute() {
 
 int pSSRExeJumpFromToOnSSRExeUpdateSobaKome = 0x4C455C; // 関数はこのアドレスから、OnSSRExeUpdateSobaKomeへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeUpdateSobaKome = 0x4404B0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeUpdateSobaKome = 0x4C4561; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeUpdateSobaKome = 0x4C4561; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

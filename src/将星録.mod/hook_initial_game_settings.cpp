@@ -42,7 +42,7 @@ void OnSSRExeInitalGameSettingsExecute() {
 
 int pSSRExeJumpFromToOnSSRExeInitalGameSettings = 0x45F1A7; // 関数はこのアドレスから、OnSSRExeInitalGameSettingsへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeInitalGameSettings = 0x463F90; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeInitalGameSettings = 0x45F1AC; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeInitalGameSettings = 0x45F1AC; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

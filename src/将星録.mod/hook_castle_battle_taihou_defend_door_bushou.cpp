@@ -1,3 +1,5 @@
+// この関数は無意味。失敗してて委任時などにやくにたたない
+
 /*
 このあたりに攻撃部隊か、攻撃武将のどれかの情報があるはずだがわからない。
 00415D37   8D4424 24        LEA EAX,DWORD PTR SS:[ESP+24]
@@ -45,10 +47,8 @@ void OnSSRExeCastleBattleTaihouDefendDoorBushouExecute() {
 	int* pNewBushouPtr = (int*)大砲砲撃者武将ポインタアドレス;
 	int pBushouAddress = *pNewBushouPtr;
 	iLastBushouIDOfBattleTaihouDefendDoorBushou = getBushouIDFromBushouPtr((int*)pBushouAddress);
-	/*
-	OutputDebugStream("0x91FA64にある値%x\n", pBushouAddress);
+	OutputDebugStream("▽▽0x91FA64にある値%x\n", pBushouAddress);
 	OutputDebugStream("▽▽大砲の新名ID%d\n", getBushouIDFromBushouPtr((int*)pBushouAddress));
-	*/
 }
 
 /*
@@ -60,7 +60,7 @@ void OnSSRExeCastleBattleTaihouDefendDoorBushouExecute() {
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleTaihouDefendDoorBushou = 0x415D4F; // 関数はこのアドレスから、OnSSRExeCastleBattleTaihouDefendDoorBushouへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleBattleTaihouDefendDoorBushou = 0x415950; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleTaihouDefendDoorBushou = 0x415D54; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleTaihouDefendDoorBushou = 0x415D54; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

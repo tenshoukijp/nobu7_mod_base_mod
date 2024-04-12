@@ -92,7 +92,7 @@ void OnSSRExeCastleBattleZantetsukenExecute() {
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleZantetsuken = 0x4174C0; // 関数はこのアドレスから、OnSSRExeCastleBattleZantetsukenへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleBattleZantetsuken = 0x403FC0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleZantetsuken = 0x4174C5; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleZantetsuken = 0x4174C5; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

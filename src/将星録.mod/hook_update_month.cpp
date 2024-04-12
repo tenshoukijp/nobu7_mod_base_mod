@@ -43,7 +43,7 @@ void OnSSRExeUpdateMonthExecute() {
 
 int pSSRExeJumpFromToOnSSRExeUpdateMonth = 0x4C4EE2; // 関数はこのアドレスから、OnSSRExeUpdateMonthへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeUpdateMonth = 0x4404B0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeUpdateMonth = 0x4C4EE7; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeUpdateMonth = 0x4C4EE7; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

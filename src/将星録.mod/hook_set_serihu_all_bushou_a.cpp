@@ -77,7 +77,7 @@ void OnSSRExeSetSerifuAllButhouLocAExecute() {
 */
 int pSSRExeJumpFromToOnSSRExeSetSerifuAllButhouLocA = 0x496238; // 関数はこのアドレスから、OnSSRExeSetSerifuAllButhouLocAへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeSetSerifuAllButhouLocA = 0x496070; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeSetSerifuAllButhouLocA = 0x49623D; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeSetSerifuAllButhouLocA = 0x49623D; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

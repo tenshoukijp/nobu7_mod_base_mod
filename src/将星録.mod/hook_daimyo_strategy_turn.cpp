@@ -131,7 +131,7 @@ void OnSSRExeMainStrategyDaimyoTurnExecute() {
 
 int pSSRExeJumpFromToOnSSRExeMainStrategyDaimyoTurn = 0x434CC6; // 関数はこのアドレスから、OnSSRExeMainStrategyDaimyoTurnへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeMainStrategyDaimyoTurn = 0x442850; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeMainStrategyDaimyoTurn = 0x434CCB; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeMainStrategyDaimyoTurn = 0x434CCB; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

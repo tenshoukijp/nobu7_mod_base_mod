@@ -180,7 +180,7 @@ void OnSSRExeCastleBattleTurnDaimyoBExecute() {
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleTurnDaimyoB = 0x40E6B0; // 関数はこのアドレスから、OnSSRExeCastleBattleTurnDaimyoBへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleBattleTurnDaimyoB = 0x407960; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleTurnDaimyoB = 0x40E6B5; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleTurnDaimyoB = 0x40E6B5; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

@@ -39,7 +39,7 @@ void OnSSRExeYasenBattleStartBLocExecute() {
 */
 int pSSRExeJumpFromToOnSSRExeYasenBattleStartBLoc = 0x48CCFC; // 関数はこのアドレスから、OnSSRExeYasenBattleStartBLocへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeYasenBattleStartBLoc = 0x479FA0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeYasenBattleStartBLoc = 0x48CD01; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeYasenBattleStartBLoc = 0x48CD01; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

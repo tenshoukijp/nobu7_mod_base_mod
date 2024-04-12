@@ -92,7 +92,7 @@ void OnSSRExeCastleBattleButaiSyototsuKyotenDamageExecute() {
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleButaiSyototsuKyotenDamage = 0x417A65; // 関数はこのアドレスから、OnSSRExeCastleBattleButaiSyototsuKyotenDamageへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleBattleButaiSyototsuKyotenDamage = 0x402A90; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleButaiSyototsuKyotenDamage = 0x417A6A; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleButaiSyototsuKyotenDamage = 0x417A6A; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

@@ -35,7 +35,9 @@ static int ESPOfCastleBattleButaiDefendDoorDamage = 0;
 static int ECXOfCastleBattleButaiDefendDoorDamage = 0;
 static int EAXOfCastleBattleButaiDefendDoorDamage = 0;
 void OnSSRExeCastleBattleButaiDefendDoorDamageExecute() {
+	OutputDebugStream("★OnSSRExeCastleBattleButaiDefendDoorDamageExecute");
 	int* pRemainDoorPtr = (int*)((BYTE*)(ECXOfCastleBattleButaiDefendDoorDamage)+0xA); // ここにドアの防御値へのポインタが入っている
+
 	int* pp攻撃武将ポインタ = (int*)ESPOfCastleBattleButaiDefendDoorDamage;
 	NB7籠城戦攻撃側部隊情報型* p攻撃側部隊情報 = (NB7籠城戦攻撃側部隊情報型*)(*pp攻撃武将ポインタ);
 	int iBushouID = getBushouIDFromBushouPtr((int*)p攻撃側部隊情報->p指揮武将);
@@ -86,7 +88,7 @@ void OnSSRExeCastleBattleButaiDefendDoorDamageExecute() {
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleButaiDefendDoorDamage = 0x417664; // 関数はこのアドレスから、OnSSRExeCastleBattleButaiDefendDoorDamageへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleBattleButaiDefendDoorDamage = 0x403600; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleButaiDefendDoorDamage = 0x417669; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleButaiDefendDoorDamage = 0x417669; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

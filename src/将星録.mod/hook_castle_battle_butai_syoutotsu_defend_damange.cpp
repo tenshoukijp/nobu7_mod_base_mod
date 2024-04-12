@@ -85,7 +85,7 @@ EIP 0041712A Nobunaga.0041712A
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleButaisyoutotsuDefendDamage = 0x4171C7; // 関数はこのアドレスから、OnSSRExeCastleBattleButaisyoutotsuDefendDamageへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleBattleButaisyoutotsuDefendDamage = 0x402A90; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleButaisyoutotsuDefendDamage = 0x4171CC; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleButaisyoutotsuDefendDamage = 0x4171CC; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

@@ -4,11 +4,11 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\castle_retsuden.cpp;C:\U
 C:\Users\master\source\repos\将星録Mod\将星録.mod\castle_retsuden_albedo.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\castle_retsuden_albedo.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\dllmain.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\dllmain.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\fook_picture_cache.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\fook_picture_cache.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_attack_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_attack_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_defend_honmaru_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_defend_honmaru_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syototsu_kyoten_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_syototsu_kyoten_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_butai_syoutotsu_kyoten_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_attack_kyoten_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_taihou_attack_kyoten_bushou.obj
-C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_door_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_taihou_defend_door_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_honmaru_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_taihou_defend_honmaru_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_honmaru_syubi_busyou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_taihou_defend_honmaru_syubi_busyou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_kyoten_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release\hook_castle_battle_taihou_defend_kyoten_damage.obj

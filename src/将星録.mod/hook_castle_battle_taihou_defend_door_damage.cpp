@@ -41,16 +41,16 @@
 using namespace std;
 
 
-extern int iLastBushouIDOfBattleTaihouDefendDoorBushou; // 最後に大砲でドア攻撃した武将
+extern int iLastBushouIDOfCastleBattleAttackBushou; // 最後に大砲でドア攻撃した武将
 
 
 static int ECXOfCastleBattleTaihouDefendDoorDamage = 0;
 static int EAXOfCastleBattleTaihouDefendDoorDamage = 0;
 void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 	int* pRemainDoorPtr = (int*)((BYTE*)(ECXOfCastleBattleTaihouDefendDoorDamage)+0xA); // ここにドアの防御値へのポインタが入っている
-
-	int iBushouID = iLastBushouIDOfBattleTaihouDefendDoorBushou;
-	iLastBushouIDOfBattleTaihouDefendDoorBushou = 0xFFFF; // 一度使ったらリセットする
+	OutputDebugStream("★OnSSRExeCastleBattleTaihouDefendDoorDamageExecute");
+	int iBushouID = iLastBushouIDOfCastleBattleAttackBushou;
+	OutputDebugStream("★武将ID%d\n", iBushouID);
 	if (isValidBushouID(iBushouID)) {
 		OutputDebugStream("ドアの残り耐久度%d\n", *pRemainDoorPtr);
 		OutputDebugStream("攻撃者" + getBushou姓名FromBushouID(iBushouID) + "\n");
@@ -100,7 +100,7 @@ void OnSSRExeCastleBattleTaihouDefendDoorDamageExecute() {
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleTaihouDefendDoorDamage = 0x415D62; // 関数はこのアドレスから、OnSSRExeCastleBattleTaihouDefendDoorDamageへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleBattleTaihouDefendDoorDamage = 0x403600; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleTaihouDefendDoorDamage = 0x415D67; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleTaihouDefendDoorDamage = 0x415D67; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

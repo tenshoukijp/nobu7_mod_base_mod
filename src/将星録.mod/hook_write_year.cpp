@@ -56,7 +56,7 @@ void OnSSRExeWriteYearExecute() {
 
 int pSSRExeJumpFromToOnSSRExeWriteYear = 0x4C4F1C; // 関数はこのアドレスから、OnSSRExeWriteYearへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeWriteYear = 0x4404B0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeWriteYear = 0x4C4F21; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeWriteYear = 0x4C4F21; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

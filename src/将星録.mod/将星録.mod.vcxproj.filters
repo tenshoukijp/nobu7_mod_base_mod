@@ -866,6 +866,9 @@
     <ClCompile Include="hook_on_confirm_closewindow.cpp">
       <Filter>終了メッセージボックス</Filter>
     </ClCompile>
+    <ClCompile Include="hook_castle_battle_attack_bushou.cpp">
+      <Filter>ゲームデータ - 籠城戦</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">

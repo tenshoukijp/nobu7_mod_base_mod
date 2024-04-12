@@ -94,7 +94,7 @@ void OnSSRExeSetSerihuBothBushouExecute() {
 
 int pSSRExeJumpFromToOnSSRExeSetSerihuBothBushou = 0x51DE46; // 関数はこのアドレスから、OnSSRExeSetSerihuBothBushouへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeSetSerihuBothBushou = 0x4403A0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeSetSerihuBothBushou = 0x51DE55; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeSetSerihuBothBushou = 0x51DE55; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

@@ -202,11 +202,14 @@
     <ClCompile Include="castle_retsuden_albedo.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="fook_picture_cache.cpp" />
+    <ClCompile Include="hook_castle_battle_attack_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_butai_defend_honmaru_damage.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syototsu_kyoten_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_attack_kyoten_bushou.cpp" />
-    <ClCompile Include="hook_castle_battle_taihou_defend_door_bushou.cpp" />
+    <ClCompile Include="hook_castle_battle_taihou_defend_door_bushou.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_bushou.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_defend_honmaru_syubi_busyou.cpp" />
     <ClCompile Include="hook_castle_battle_taihou_defend_kyoten_damage.cpp" />

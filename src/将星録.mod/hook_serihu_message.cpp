@@ -115,7 +115,7 @@ void OnSSRExeMessageDetailExecute() {
 */
 
 int pSSRExeJumpFromToOnSSRExeMessageDetail = 0x496E6A; // 関数はこのアドレスから、OnSSRExeMessageDetailへとジャンプしてくる。
-int pSSRExeReturnLblFromOnSSRExeMessageDetail = 0x496E71; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeMessageDetail = 0x496E71; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 #pragma warning(disable:4733)
 
 __declspec(naked) void WINAPI OnSSRExeMessageDetail() {

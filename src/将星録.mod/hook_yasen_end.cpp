@@ -98,7 +98,7 @@ void OnSSRExeYasenBattleEndExecute() {
 */
 int pSSRExeJumpFromToOnSSRExeYasenBattleEnd = 0x47A043; // 関数はこのアドレスから、OnSSRExeYasenBattleEndへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeYasenBattleEnd = 0x4AAA50; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeYasenBattleEnd = 0x47A048; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeYasenBattleEnd = 0x47A048; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

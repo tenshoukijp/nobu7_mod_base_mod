@@ -195,7 +195,7 @@ void OnTenshouExeGetDaimyoKoukeishaBushouIDExecute() {
 */
 int pTenshouExeJumpFromToOnTenshouExeGetDaimyoKoukeishaBushouID = 0x496E24; // 関数はこのアドレスから、OnTenshouExeGetDaimyoKoukeishaBushouIDへとジャンプしてくる。
 int pTenshouExeJumpCallFromToOnTenshouExeGetDaimyoKoukeishaBushouID = 0x496AF0; // 元々あったCall記述の関数アドレス
-int pTenshouExeReturnLblFromOnTenshouExeGetDaimyoKoukeishaBushouID = 0x496E2B; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pTenshouExeReturnLblFromOnTenshouExeGetDaimyoKoukeishaBushouID = 0x496E2B; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 // この関数はTENSHOU.EXEがメッセージを読みを終えるたびに、直接実行される。
 // TENSHOU.EXE内でメッセージが構築されるタイミングでこのnaked関数が呼ばれる。
 __declspec(naked) void WINAPI OnTenshouExeGetDaimyoKoukeishaBushouID() {

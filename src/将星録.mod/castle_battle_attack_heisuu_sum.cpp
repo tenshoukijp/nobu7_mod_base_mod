@@ -109,7 +109,7 @@ void OnSSRExeCastleBattleAttackHeisuuSumExecute() {
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleAttackHeisuuSum = 0x407978; // 関数はこのアドレスから、OnSSRExeCastleBattleAttackHeisuuSumへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleBattleAttackHeisuuSum = 0x4053A0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleBattleAttackHeisuuSum = 0x40797D; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleAttackHeisuuSum = 0x40797D; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

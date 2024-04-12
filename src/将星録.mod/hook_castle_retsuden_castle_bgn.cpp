@@ -43,7 +43,7 @@ void OnSSRExeCastleRetsudenShowBgnExecute() {
 */
 int pSSRExeJumpFromToOnSSRExeCastleRetsudenShowBgn = 0x4BDEEB; // 関数はこのアドレスから、OnSSRExeCastleRetsudenShowBgnへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeCastleRetsudenShowBgn = 0x4ABDC0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeCastleRetsudenShowBgn = 0x4BDEF0; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleRetsudenShowBgn = 0x4BDEF0; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

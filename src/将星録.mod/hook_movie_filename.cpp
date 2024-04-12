@@ -109,7 +109,7 @@ void OnSSRExeMovieFileNameExecute() {
 */
 
 int pSSRExeJumpFromToOnSSRExeMovieFileName = 0x419AFB; // 関数はこのアドレスから、OnSSRExeMovieFileNameへとジャンプしてくる。
-int pSSRExeReturnLblFromOnSSRExeMovieFileName = 0x419B02; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeMovieFileName = 0x419B02; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

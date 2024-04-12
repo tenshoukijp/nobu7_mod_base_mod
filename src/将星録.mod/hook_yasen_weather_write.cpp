@@ -48,7 +48,7 @@ void OnSSRExeYasenWeatherWriteExecute() {
 */
 int pSSRExeJumpFromToOnSSRExeYasenWeatherWrite = 0x471448; // 関数はこのアドレスから、OnSSRExeYasenWeatherWriteへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeYasenWeatherWrite = 0x471110; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeYasenWeatherWrite = 0x47144D; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeYasenWeatherWrite = 0x47144D; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

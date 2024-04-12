@@ -146,7 +146,7 @@ ESIが武将情報の該当武将へのポインタ
 
 
 int pSSRExeJumpFromToOnSSRExeBushouKoudouzumi = 0x41ECBC; // 関数はこのアドレスから、OnSSRExeBushouKoudouzumiへとジャンプしてくる。
-int pSSRExeReturnLblFromOnSSRExeBushouKoudouzumi = 0x41ECC3; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeBushouKoudouzumi = 0x41ECC3; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

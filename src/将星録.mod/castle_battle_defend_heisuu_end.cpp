@@ -203,7 +203,7 @@ void OnSSRExeCastleBattleDefendHeisuuEndExecute() {
 #pragma unmanaged
 
 int pSSRExeJumpFromToOnSSRExeCastleBattleDefendHeisuuEnd = 0x4076F5; // 関数はこのアドレスから、OnSSRExeCastleBattleDefendHeisuuEndへとジャンプしてくる。
-int pSSRExeReturnLblFromOnSSRExeCastleBattleDefendHeisuuEnd = 0x4076FC; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeCastleBattleDefendHeisuuEnd = 0x4076FC; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

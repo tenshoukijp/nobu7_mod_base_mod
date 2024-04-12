@@ -1,5 +1,6 @@
 #include <windows.h>
 #include "loadmod.h"
+#include "output_debug_stream.h"
 
 using PFNONINITIALIZE = void (WINAPI*)(void*);
 using PFNONFINALIZE = void (WINAPI*)();
@@ -17,7 +18,8 @@ BOOL loadNB7Mod() {
 
 	// 存在しない
 	if (!hNB7ModDll) {
-		MessageBoxA(NULL, "将星録Modが無い", "エラー", NULL);
+		// MessageBoxA(NULL, "将星録Modが無い", "エラー", NULL);
+		OutputDebugStream("将星録Modが無い\n");
 		return FALSE;
 	}
 

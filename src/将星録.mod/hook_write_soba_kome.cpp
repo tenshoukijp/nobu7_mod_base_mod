@@ -57,7 +57,7 @@ void OnSSRExeWriteSobaKomeExecute() {
 
 int pSSRExeJumpFromToOnSSRExeWriteSobaKome = 0x4C505D; // 関数はこのアドレスから、OnSSRExeWriteSobaKomeへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeWriteSobaKome = 0x4404B0; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeWriteSobaKome = 0x4C5062; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeWriteSobaKome = 0x4C5062; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 

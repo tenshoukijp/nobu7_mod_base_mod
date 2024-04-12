@@ -5,10 +5,12 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\castle_retsuden.cpp;C:\U
 C:\Users\master\source\repos\将星録Mod\将星録.mod\castle_retsuden_albedo.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\castle_retsuden_albedo.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\dllmain.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\dllmain.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\fook_picture_cache.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\fook_picture_cache.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_attack_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_attack_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_defend_honmaru_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_butai_defend_honmaru_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syototsu_kyoten_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_butai_syototsu_kyoten_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_butai_syoutotsu_kyoten_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_butai_syoutotsu_kyoten_damage.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_attack_kyoten_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_taihou_attack_kyoten_bushou.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_door_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_taihou_defend_door_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_honmaru_bushou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_taihou_defend_honmaru_bushou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_honmaru_syubi_busyou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_taihou_defend_honmaru_syubi_busyou.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_taihou_defend_kyoten_damage.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_taihou_defend_kyoten_damage.obj
@@ -60,9 +62,11 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_gaiji.cpp;C:\U
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_load_scenariodata.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_load_scenariodata.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_maingame_start.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_maingame_start.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_movie_filename.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_movie_filename.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_on_confirm_closewindow.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_on_confirm_closewindow.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_player_strategy_turn.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_player_strategy_turn.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_castle_battle_zantetsuken.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_castle_battle_zantetsuken.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom_kahou.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_readfile_custom_kahou.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_readfile_custom_kamon.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_readfile_custom_kamon.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_sequence_event_bushou_and_message.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_sequence_event_bushou_and_message.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_serihu_message_func.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_serihu_message_func.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\hook_setfilepointer_custom_winframe.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\hook_setfilepointer_custom_winframe.obj
@@ -133,6 +137,7 @@ C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_年月情報.cpp;C:\
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_役職情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_役職情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_文字列変換.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_文字列変換.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_武将情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_武将情報.obj
+C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_籠城戦部隊情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_籠城戦部隊情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_野戦情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_野戦情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\mng_野戦部隊情報.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\mng_野戦部隊情報.obj
 C:\Users\master\source\repos\将星録Mod\将星録.mod\onigwrap.cpp;C:\Users\master\source\repos\将星録Mod\将星録.mod\Release (Super)\onigwrap.obj

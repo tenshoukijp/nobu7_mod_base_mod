@@ -97,7 +97,7 @@ void OnSSRExeSetSerifuAllButhouLocCExecute() {
 0044B93C   57               PUSH EDI
 */
 int pSSRExeJumpFromToOnSSRExeSetSerifuAllButhouLocC = 0x44B930; // 関数はこのアドレスから、OnSSRExeSetSerifuAllButhouLocCへとジャンプしてくる。
-int pSSRExeReturnLblFromOnSSRExeSetSerifuAllButhouLocC = 0x44B935; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeSetSerifuAllButhouLocC = 0x44B935; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 
