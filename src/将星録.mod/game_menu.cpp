@@ -75,7 +75,21 @@ void onMenuRoujosenDefendButaiEditStart() {
 
 void onMenuModDebuggerLaunch() {
 	if (isFileExists("moddebugger.exe")) {
-		// ShellExecute(NULL, "open", "moddebugger.exe", NULL, NULL, SW_SHOW);
+		/*
+		ShellExecute(NULL, "open", "moddebugger.exe", NULL, NULL, SW_SHOW);
+		*/
+		try {
+			String^ currentDirectory = System::IO::Path::GetDirectoryName(Assembly::GetExecutingAssembly()->Location);
+			String^ modDebuggerPath = System::IO::Path::Combine(currentDirectory, "ModDebugger.exe");
+
+			System::Diagnostics::Process^ process = gcnew System::Diagnostics::Process();
+			process->StartInfo->FileName = modDebuggerPath;
+			process->StartInfo->UseShellExecute = false;
+
+			process->Start();
+		}
+		catch (System::Exception^ ) {
+		}
 	}
 }
 // メニュー(通常のアプリのメニュー)のメニューアイテムを実行した時、
