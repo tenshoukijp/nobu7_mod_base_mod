@@ -244,7 +244,7 @@ LRESULT APIENTRY NB7WndProcCustom(
 			for each (KeyValuePair<String^, Form^>^ pair in FormGlobalInstance::formMap) {
 				Form^ form = pair->Value;
 				// 破棄されていないオブジェクトがあるなら、終了しない
-				if (!form->IsDisposed) {
+				if (form->Visible) {
 					return FALSE;
 				}
 			}

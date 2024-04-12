@@ -26,7 +26,6 @@ using namespace std;
 int iLastBushouIDOfCastleBattleAttackBushou = 0xFFFF; // 最後にアクセスした籠城戦の攻撃BushouID
 
 int iLastBushouPtrOfCastleBattleAttackBushou = 0; // 最後にアクセスした籠城戦の攻撃武将ポインタ
-int iLastButaiPtrOfCastleBattleAttackBushou = 0; // 最後にアクセスした籠城戦の攻撃部隊ポインタ
 
 void OnSSRExeCastleBattleAttackBushouExecute() {
 
@@ -34,9 +33,6 @@ void OnSSRExeCastleBattleAttackBushouExecute() {
 	if (isValidBushouID(iBushouID)) {
 		iLastBushouIDOfCastleBattleAttackBushou = iBushouID;
 		OutputDebugStream("▽▽攻撃側武将ID%d\n", iBushouID);
-		OutputDebugStream("▽▽攻撃側部隊ポインタ%x\n", iLastButaiPtrOfCastleBattleAttackBushou);
-		int iButaiID = (iLastButaiPtrOfCastleBattleAttackBushou - 籠城戦攻撃側部隊情報アドレス) / sizeof(NB7籠城戦攻撃側部隊情報型);
-		OutputDebugStream("▽▽攻撃側部隊ID%d\n", iButaiID);
 	}
 }
 
@@ -55,8 +51,6 @@ int pSSRExeReturnLblFromOnSSRExeCastleBattleAttackBushou = 0x403C87; // 関数が最
 __declspec(naked) void WINAPI OnSSRExeCastleBattleAttackBushou() {
 	// スタックにためておく
 	__asm {
-
-		mov iLastButaiPtrOfCastleBattleAttackBushou, ecx
 
 		MOV ECX, DWORD PTR DS : [ECX + 0x18]
 		MOV EAX, DWORD PTR SS : [ESP + 0x4]

@@ -12,6 +12,7 @@ using namespace System::Threading;
 
 using namespace 将星録;
 
+/*
 
 // STAThreadとして呼ばれる
 void Show_FormThread(Object^ dllpath) {
@@ -26,6 +27,7 @@ void Show_FormThread(Object^ dllpath) {
 		form = nullptr;
 	}
 }
+*/
 
 int Show_FormMod(String^ dllPath, String^ fullClassName) {
 	try {
@@ -45,13 +47,15 @@ int Show_FormMod(String^ dllPath, String^ fullClassName) {
 		}
 		// インスタンス確保という意味でMapにファイルパス対応するフォームを登録する
 		FormGlobalInstance::formMap->Add(dllPath, form);
-
+		form->ShowDialog();
+		/*
 		// フォームなのでSTAThreadにしておく必要がある。
 		Thread^ thread = gcnew Thread(gcnew ParameterizedThreadStart(Show_FormThread));
 		thread->SetApartmentState(ApartmentState::STA);
 		thread->Start(dllPath);
 
 		thread->Join();
+		*/
 
 		return 1;
 	}
@@ -70,7 +74,6 @@ int Close_FormMod() {
 			form = nullptr;
 		}
 		FormGlobalInstance::formMap->Clear();
-		GC::Collect();
 		return 1;
 	}
 	catch (Exception^ ex) {

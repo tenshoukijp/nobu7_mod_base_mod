@@ -16,6 +16,7 @@ public:
 	static Dictionary<String^, Thread^>^ threadMap = gcnew Dictionary<String^, Thread^>();
 };
 
+
 // STAThread‚Æ‚µ‚ÄŒÄ‚Î‚ê‚é
 void Show_WpfThread(Object^ dllpath) {
 	try {
@@ -50,8 +51,6 @@ int Show_WpfMod(String^ dllPath, String^ fullClassName) {
 		thread->Start(dllPath);
 
 		thread->Join();
-
-		wpf->ShowDialog();
 
 		return 1;
 	}
