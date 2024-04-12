@@ -199,7 +199,7 @@ EAXはもちろん家宝種類番号
 */
 
 int pSSRExeJumpFromToOnSSRExeKahouTypeName = 0x47CA2A; // 関数はこのアドレスから、OnSSRExeKahouTypeNameへとジャンプしてくる。
-int pSSRExeReturnLblFromOnSSRExeKahouTypeName = 0x47CA31; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeKahouTypeName = 0x47CA31; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 
@@ -257,7 +257,7 @@ void WriteAsmJumperOnSSRExeKahouTypeName() {
 	// ５というのは、0046C194  -E9 ????????  JMP TSMod.OnTSExeGetDaimyoKoukeishaBushouID  の命令に必要なバイト数。要するに５バイト足すと次のニーモニック命令群に移動するのだ。そしてそこからの差分がジャンプする際の目的格として利用される。
 	memcpy(cmdOnSSRExeJumpFromKahouTypeName + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
 
-	// 構築したニーモニック命令をTENSHOU.EXEのメモリに書き換える
+	// 構築したニーモニック命令を実行exeのメモリに書き換える
 	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeKahouTypeName), cmdOnSSRExeJumpFromKahouTypeName, 7, NULL); //7バイトのみ書き込む
 }
 

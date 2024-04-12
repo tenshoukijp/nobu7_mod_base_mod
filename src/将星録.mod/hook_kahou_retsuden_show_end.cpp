@@ -217,7 +217,7 @@ void OnSSRExeKahouShowEndExecute() {
 */
 int pSSRExeJumpFromToOnSSRExeKahouShowEnd = 0x47E9C0; // 関数はこのアドレスから、OnSSRExeKahouShowEndへとジャンプしてくる。
 int pSSRExeJumpCallFromToOnSSRExeKahouShowEnd = 0x47C070; // 元々あった処理のCall先
-int pSSRExeReturnLblFromOnSSRExeKahouShowEnd = 0x47E9C5; // 関数が最後までいくと、このTENSHOU.EXE内に直接ジャンプする
+int pSSRExeReturnLblFromOnSSRExeKahouShowEnd = 0x47E9C5; // 関数が最後までいくと、この実行exe内に直接ジャンプする
 
 #pragma warning(disable:4733)
 
@@ -271,7 +271,7 @@ void WriteAsmJumperOnSSRExeKahouShowEnd() {
 	// ５というのは、0046C194  -E9 ????????  JMP TSMod.OnTSExeGetDaimyoKoukeishaBushouID  の命令に必要なバイト数。要するに５バイト足すと次のニーモニック命令群に移動するのだ。そしてそこからの差分がジャンプする際の目的格として利用される。
 	memcpy(cmdOnSSRExeJumpFromKahouShowEnd + 1, &SubAddress, 4); // +1 はE9の次から4バイト分書き換えるから。
 
-	// 構築したニーモニック命令をTENSHOU.EXEのメモリに書き換える
+	// 構築したニーモニック命令を実行exeのメモリに書き換える
 	WriteProcessMemory(hCurrentProcess, (LPVOID)(pSSRExeJumpFromToOnSSRExeKahouShowEnd), cmdOnSSRExeJumpFromKahouShowEnd, 5, NULL); //5バイトのみ書き込む
 }
 
