@@ -175,8 +175,6 @@ public partial class 大名エディタ : 基本エディタ
             buttonColumn.Text = "編集";
             buttonColumn.UseColumnTextForButtonValue = true; // 列内の全てのセルに同じテキストを表示
             dgv.Columns.Add(buttonColumn);
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }

@@ -300,8 +300,6 @@ public partial class ユニットエディタ : 基本エディタ
             dgv.Columns[nameof(BIND用のユニット情報型.現在Ｘ座標)].DefaultCellStyle.BackColor = Color.LightGray;
             dgv.Columns[nameof(BIND用のユニット情報型.現在Ｙ座標)].DefaultCellStyle.BackColor = Color.LightGray;
             dgv.Columns[nameof(BIND用のユニット情報型.後ユニット配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }

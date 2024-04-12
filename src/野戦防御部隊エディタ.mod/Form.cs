@@ -78,8 +78,6 @@ public partial class 野戦防御部隊エディタ : 基本エディタ
             dgv.Columns[nameof(BIND用の野戦防御部隊情報型.種別)].DefaultCellStyle.BackColor = Color.LightGray;
             dgv.Columns[nameof(BIND用の野戦防御部隊情報型.行動済)].DefaultCellStyle.BackColor = Color.LightGray;
             dgv.Columns[nameof(BIND用の野戦防御部隊情報型.旗部隊)].DefaultCellStyle.BackColor = Color.LightGray;
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }

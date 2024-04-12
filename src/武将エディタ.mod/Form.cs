@@ -284,8 +284,6 @@ public partial class 武将エディタ : 基本エディタ
             dgv.Columns[nameof(BIND用の武将情報型.居城配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
             dgv.Columns[nameof(BIND用の武将情報型.状態)].DefaultCellStyle.BackColor = Color.DarkOrange;
             dgv.Columns[nameof(BIND用の武将情報型.身分)].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }

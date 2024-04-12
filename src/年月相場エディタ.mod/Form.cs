@@ -71,11 +71,6 @@ public partial class 年月相場エディタ : 基本エディタ
 
     protected override void dvg_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
     {
-        try
-        {
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-        }
-        catch (Exception) { }
     }
 
 

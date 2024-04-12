@@ -177,8 +177,6 @@ public partial class 城エディタ : 基本エディタ
             dgv.Columns[nameof(BIND用の城情報型.城主武将配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
             dgv.Columns[nameof(BIND用の城情報型.開始ユニット配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
             dgv.Columns[nameof(BIND用の城情報型.後城配列IX)].DefaultCellStyle.BackColor = Color.DarkOrange;
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }

@@ -118,8 +118,6 @@ public partial class 家宝エディタ : 基本エディタ
         try
         {
             dgv.Columns[nameof(BIND用の家宝情報型.配列IX)].DefaultCellStyle.BackColor = Color.LightGray;
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }

@@ -87,8 +87,6 @@ public partial class 籠城戦攻撃部隊エディタ : 基本エディタ
             dgv.Columns[nameof(BIND用の籠城戦攻撃部隊情報型.指揮武将姓名)].DefaultCellStyle.BackColor = Color.LightGray;
             dgv.Columns[nameof(BIND用の籠城戦攻撃部隊情報型.指揮武将配列IX)].DefaultCellStyle.BackColor = Color.LightGray;
             dgv.Columns[nameof(BIND用の籠城戦攻撃部隊情報型.部隊番号)].DefaultCellStyle.BackColor = Color.LightGray;
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }

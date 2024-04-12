@@ -49,8 +49,6 @@ public partial class 野戦エディタ : 基本エディタ
         try
         {
             dgv.Columns[nameof(BIND用の野戦情報型.残りターン)].DefaultCellStyle.BackColor = Color.LightGray;
-
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }

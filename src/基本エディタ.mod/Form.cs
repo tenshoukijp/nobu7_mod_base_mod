@@ -62,6 +62,8 @@ public abstract partial class 基本エディタ : Form
             string fontName = 将星録.アプリケーション.フォント.フォント名;
             dgv.DefaultCellStyle.Font = new System.Drawing.Font(fontName, 16, FontStyle.Regular, GraphicsUnit.Pixel);
 
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             // データグリッドのセルを編集した時のイベントハンドラを登録する。
             dgv.DataError += dvg_DataError;
             dgv.DataBindingComplete += dvg_DataBindingComplete;
@@ -85,7 +87,6 @@ public abstract partial class 基本エディタ : Form
     {
         
     }
-
     // 誤った型データを入れた場合は、元の値へと戻すようにする。
     protected virtual void dvg_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {

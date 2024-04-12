@@ -92,7 +92,6 @@ public partial class 大名関係エディタ : 基本エディタ
         {
             dgv.Columns[nameof(BIND用の大名関係情報型.配列IX)].DefaultCellStyle.BackColor = Color.LightGray;
             dgv.Columns[nameof(BIND用の大名関係情報型.大名姓名)].DefaultCellStyle.BackColor = Color.Yellow;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         catch (Exception) { }
     }
