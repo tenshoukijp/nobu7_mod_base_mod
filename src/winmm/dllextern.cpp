@@ -132,11 +132,7 @@ FARPROC p_mmTaskSignal;
 FARPROC p_mmTaskYield;
 FARPROC p_mmioAdvance;
 FARPROC p_mmioAscend;
-
-// FARPROC p_mmioClose;
-using PFNMMIOCLOSE = MMRESULT (WINAPI*)(HMMIO hmmio, UINT fuClose);
-PFNMMIOCLOSE p_mmioClose;
-
+FARPROC p_mmioClose;
 FARPROC p_mmioCreateChunk;
 FARPROC p_mmioDescend;
 FARPROC p_mmioFlush;
@@ -336,22 +332,7 @@ extern "C" {
     __declspec(naked) void WINAPI d_mmTaskYield() { _asm { jmp p_mmTaskYield } }
     __declspec(naked) void WINAPI d_mmioAdvance() { _asm { jmp p_mmioAdvance } }
     __declspec(naked) void WINAPI d_mmioAscend() { _asm { jmp p_mmioAscend } }
-
-    /*
-    __declspec(naked) void WINAPI d_mmioClose() {
-        _asm {
-            call onMmioClose
-            jmp p_mmioClose
-        }
-    }
-    */
-
-    // map<HMMIO, string> mmioMap;
-    MMRESULT WINAPI d_mmioClose(HMMIO hmmio, UINT fuClose) {
-        // OutputDebugStream("onMmioClose\n");
-        return p_mmioClose(hmmio, fuClose);
-	}
-
+    __declspec(naked) void WINAPI d_mmioClose() { _asm { jmp p_mmioClose } }
     __declspec(naked) void WINAPI d_mmioCreateChunk() { _asm { jmp p_mmioCreateChunk } }
     __declspec(naked) void WINAPI d_mmioDescend() { _asm { jmp p_mmioDescend } }
     __declspec(naked) void WINAPI d_mmioFlush() { _asm { jmp p_mmioFlush } }
@@ -595,9 +576,7 @@ void setDllFuncAddress()
     p_mmTaskYield = GetProcAddress(hOriginalDll, "mmTaskYield");
     p_mmioAdvance = GetProcAddress(hOriginalDll, "mmioAdvance");
     p_mmioAscend = GetProcAddress(hOriginalDll, "mmioAscend");
-
-    p_mmioClose = (PFNMMIOCLOSE)GetProcAddress(hOriginalDll, "mmioClose"); // ÅöÉJÉXÉ^ÉÄ
-    
+    p_mmioClose = GetProcAddress(hOriginalDll, "mmioClose");
     p_mmioCreateChunk = GetProcAddress(hOriginalDll, "mmioCreateChunk");
     p_mmioDescend = GetProcAddress(hOriginalDll, "mmioDescend");
     p_mmioFlush = GetProcAddress(hOriginalDll, "mmioFlush");
