@@ -1,8 +1,8 @@
-C:\Users\master\source\repos\将星録Mod\winmm\dllextern.cpp;C:\Users\master\source\repos\将星録Mod\winmm\Release (Super)\dllextern.obj
-C:\Users\master\source\repos\将星録Mod\winmm\dllmain.cpp;C:\Users\master\source\repos\将星録Mod\winmm\Release (Super)\dllmain.obj
-C:\Users\master\source\repos\将星録Mod\winmm\file_attribute.cpp;C:\Users\master\source\repos\将星録Mod\winmm\Release (Super)\file_attribute.obj
-C:\Users\master\source\repos\将星録Mod\winmm\loadmod.cpp;C:\Users\master\source\repos\将星録Mod\winmm\Release (Super)\loadmod.obj
-C:\Users\master\source\repos\将星録Mod\winmm\loadantidebug.cpp;C:\Users\master\source\repos\将星録Mod\winmm\Release (Super)\loadantidebug.obj
-C:\Users\master\source\repos\将星録Mod\winmm\on_event.cpp;C:\Users\master\source\repos\将星録Mod\winmm\Release (Super)\on_event.obj
-C:\Users\master\source\repos\将星録Mod\winmm\output_debug_stream.cpp;C:\Users\master\source\repos\将星録Mod\winmm\Release (Super)\output_debug_stream.obj
-C:\Users\master\source\repos\将星録Mod\winmm\process.cpp;C:\Users\master\source\repos\将星録Mod\winmm\Release (Super)\process.obj
+G:\新しいフォルダー\winmm\dllextern.cpp;G:\新しいフォルダー\winmm\Release (Super)\dllextern.obj
+G:\新しいフォルダー\winmm\dllmain.cpp;G:\新しいフォルダー\winmm\Release (Super)\dllmain.obj
+G:\新しいフォルダー\winmm\file_attribute.cpp;G:\新しいフォルダー\winmm\Release (Super)\file_attribute.obj
+G:\新しいフォルダー\winmm\loadmod.cpp;G:\新しいフォルダー\winmm\Release (Super)\loadmod.obj
+G:\新しいフォルダー\winmm\loadantidebug.cpp;G:\新しいフォルダー\winmm\Release (Super)\loadantidebug.obj
+G:\新しいフォルダー\winmm\on_event.cpp;G:\新しいフォルダー\winmm\Release (Super)\on_event.obj
+G:\新しいフォルダー\winmm\output_debug_stream.cpp;G:\新しいフォルダー\winmm\Release (Super)\output_debug_stream.obj
+G:\新しいフォルダー\winmm\process.cpp;G:\新しいフォルダー\winmm\Release (Super)\process.obj
