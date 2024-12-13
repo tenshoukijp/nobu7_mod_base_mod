@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>G:\新しいフォルダー\Release (Super)\WinMM.dll</FullPath>
+      <FullPath>G:\src\Release (Super)\WinMM.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

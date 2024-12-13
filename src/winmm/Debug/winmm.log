@@ -1,15 +1,17 @@
 ﻿  dllextern.cpp
-C:\Users\master\source\repos\将星録Mod\winmm\dllextern.cpp(705,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
   dllmain.cpp
-C:\Users\master\source\repos\将星録Mod\winmm\dllmain.cpp(86,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  file_attribute.cpp
   loadmod.cpp
-C:\Users\master\source\repos\将星録Mod\winmm\loadmod.cpp(47,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
-  on_finalize.cpp
-C:\Users\master\source\repos\将星録Mod\winmm\on_finalize.cpp(11,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
-  on_initialize.cpp
-C:\Users\master\source\repos\将星録Mod\winmm\on_initialize.cpp(18,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  loadantidebug.cpp
+G:\src\winmm\dllextern.cpp(655,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+G:\src\winmm\dllmain.cpp(87,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+G:\src\winmm\file_attribute.cpp(7,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+G:\src\winmm\loadmod.cpp(51,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+G:\src\winmm\loadantidebug.cpp(11,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+  on_event.cpp
+G:\src\winmm\on_event.cpp(28,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
   output_debug_stream.cpp
-C:\Users\master\source\repos\将星録Mod\winmm\output_debug_stream.cpp(35,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+G:\src\winmm\output_debug_stream.cpp(44,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
   process.cpp
-C:\Users\master\source\repos\将星録Mod\winmm\process.cpp(102,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
+G:\src\winmm\process.cpp(102,1): error C1010: プリコンパイル ヘッダーを検索中に不明な EOF が見つかりました。'#include "pch.h"' をソースに追加しましたか?
   コードを生成中...

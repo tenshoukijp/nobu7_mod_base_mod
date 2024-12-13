@@ -149,5 +149,5 @@
   usr_custom_mod.cpp
   mng_相場情報.cpp
   .NETFramework,Version=v4.8.AssemblyAttributes.cpp
-     ライブラリ C:\Users\master\source\repos\将星録Mod\Release\将星録.mod.lib とオブジェクト C:\Users\master\source\repos\将星録Mod\Release\将星録.mod.exp を作成中
-  将星録.mod.vcxproj -> C:\Users\master\source\repos\将星録Mod\Release\将星録.mod.dll
+     ライブラリ G:\src\Release\将星録.mod.lib とオブジェクト G:\src\Release\将星録.mod.exp を作成中
+  将星録.mod.vcxproj -> G:\src\Release\将星録.mod.dll

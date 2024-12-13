@@ -1,8 +1,8 @@
-G:\新しいフォルダー\winmm\dllextern.cpp;G:\新しいフォルダー\winmm\Release (Super)\dllextern.obj
-G:\新しいフォルダー\winmm\dllmain.cpp;G:\新しいフォルダー\winmm\Release (Super)\dllmain.obj
-G:\新しいフォルダー\winmm\file_attribute.cpp;G:\新しいフォルダー\winmm\Release (Super)\file_attribute.obj
-G:\新しいフォルダー\winmm\loadmod.cpp;G:\新しいフォルダー\winmm\Release (Super)\loadmod.obj
-G:\新しいフォルダー\winmm\loadantidebug.cpp;G:\新しいフォルダー\winmm\Release (Super)\loadantidebug.obj
-G:\新しいフォルダー\winmm\on_event.cpp;G:\新しいフォルダー\winmm\Release (Super)\on_event.obj
-G:\新しいフォルダー\winmm\output_debug_stream.cpp;G:\新しいフォルダー\winmm\Release (Super)\output_debug_stream.obj
-G:\新しいフォルダー\winmm\process.cpp;G:\新しいフォルダー\winmm\Release (Super)\process.obj
+G:\src\winmm\dllextern.cpp;G:\src\winmm\Release (Super)\dllextern.obj
+G:\src\winmm\dllmain.cpp;G:\src\winmm\Release (Super)\dllmain.obj
+G:\src\winmm\file_attribute.cpp;G:\src\winmm\Release (Super)\file_attribute.obj
+G:\src\winmm\loadmod.cpp;G:\src\winmm\Release (Super)\loadmod.obj
+G:\src\winmm\loadantidebug.cpp;G:\src\winmm\Release (Super)\loadantidebug.obj
+G:\src\winmm\on_event.cpp;G:\src\winmm\Release (Super)\on_event.obj
+G:\src\winmm\output_debug_stream.cpp;G:\src\winmm\Release (Super)\output_debug_stream.obj
+G:\src\winmm\process.cpp;G:\src\winmm\Release (Super)\process.obj

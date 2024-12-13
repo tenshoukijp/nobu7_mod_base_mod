@@ -741,11 +741,13 @@ bool isHookMessageBoxA = false;
 void hookFunctionsReplace() {
 
     PROC pfnOrig;
+
     if (!isHookDefWindowProcA) {
         isHookDefWindowProcA = true;
         pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "DefWindowProcA");
         ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_DefWindowProcA);
     }
+
     if (!isHookTextOutA) {
         isHookTextOutA = true;
         pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "TextOutA");
@@ -771,31 +773,51 @@ void hookFunctionsReplace() {
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "ReleaseDC");
 		ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_ReleaseDC);
 	}
+
+    /*
+    * 不要
     if (!isHookEnableMenuItem) {
         isHookEnableMenuItem = true;
         pfnOrig = ::GetProcAddress(GetModuleHandleA("user32.dll"), "EnableMenuItem");
         ReplaceIATEntryInAllMods("user32.dll", pfnOrig, (PROC)Hook_EnableMenuItem);
     }
+    */
+
+    /*
+    * 不要
     if (!isHookBitBlt) {
 		isHookBitBlt = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "BitBlt");
 		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_BitBlt);
 	}
+    */
+
+    /*
+    * 不要
     if (!isHookCreateDIBitmap) {
 		isHookCreateDIBitmap = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "CreateDIBitmap");
 		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_CreateDIBitmap);
 	}
+    */
+    /*
+    * 不要
     if (!isHookCreateCompatibleDC) {
 		isHookCreateCompatibleDC = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "CreateCompatibleDC");
 		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_CreateCompatibleDC);
 	}
+    */
+
+    /*
+    * 不要
     if (!isHookGetDIBits) {
 		isHookGetDIBits = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "GetDIBits");
 		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_GetDIBits);
 	}
+    */
+
     if (!isHookCreateFileA) {
 		isHookCreateFileA = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("kernel32.dll"), "CreateFileA");
@@ -816,11 +838,17 @@ void hookFunctionsReplace() {
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("kernel32.dll"), "CloseHandle");
 		ReplaceIATEntryInAllMods("kernel32.dll", pfnOrig, (PROC)Hook_CloseHandle);
 	}
+
+
+    /*
+	* 不要
     if (!isHookSelectObject) {
 		isHookSelectObject = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("gdi32.dll"), "SelectObject");
 		ReplaceIATEntryInAllMods("gdi32.dll", pfnOrig, (PROC)Hook_SelectObject);
 	}
+    */
+
     if (!isHookIsDebuggerPresent) {
 		isHookIsDebuggerPresent = true;
 		pfnOrig = ::GetProcAddress(GetModuleHandleA("kernel32.dll"), "IsDebuggerPresent");
